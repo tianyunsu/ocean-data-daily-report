@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{DATE}} 海洋数据日报</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1><a href="../index.html">🌊 海洋数据日报</a></h1>
+    <p>每日自动化生成的海洋数据观测报告</p>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">归档</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <a href="../index.html" class="back-link">← 返回首页</a>
+
+    <div class="article-header">
+      <h1>{{DATE}} 海洋数据日报</h1>
+      <div class="meta">发布时间：{{DATETIME}}</div>
+    </div>
+
+    <article class="article-content">
+      <h2>一、海表温度（SST）</h2>
+      <table>
+        <thead>
+          <tr><th>观测区域</th><th>温度 (°C)</th><th>日变化</th><th>状态</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>南海北部</td><td>22.5</td><td>+0.3</td><td>正常</td></tr>
+          <tr><td>东海</td><td>18.2</td><td>-0.1</td><td>正常</td></tr>
+          <tr><td>黄海</td><td>12.8</td><td>+0.5</td><td>偏高</td></tr>
+        </tbody>
+      </table>
+
+      <h2>二、波浪数据</h2>
+      <table>
+        <thead>
+          <tr><th>观测站</th><th>有效波高 (m)</th><th>周期 (s)</th><th>方向</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>浮标 A</td><td>1.2</td><td>6.5</td><td>NE</td></tr>
+          <tr><td>浮标 B</td><td>0.8</td><td>5.2</td><td>E</td></tr>
+        </tbody>
+      </table>
+
+      <h2>三、潮汐预报</h2>
+      <p>今日高潮出现在 <strong>08:30</strong>（潮高 3.2m）和 <strong>20:45</strong>（潮高 3.0m），低潮出现在 <strong>02:15</strong>（潮高 0.8m）和 <strong>14:30</strong>（潮高 1.0m）。</p>
+
+      <h2>四、重点关注</h2>
+      <ul>
+        <li>黄海区域海表温度持续偏高，需关注后续变化</li>
+        <li>本周无明显风暴过程，海况总体平稳</li>
+      </ul>
+
+      <blockquote>
+        <strong>说明：</strong>本报告由自动化系统生成，数据来源为模拟数据。实际部署后可对接真实数据源。
+      </blockquote>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 海洋数据日报 · 基于 GitHub Pages 自动发布 · Powered by WorkBuddy</p>
+  </footer>
+</body>
+</html>
