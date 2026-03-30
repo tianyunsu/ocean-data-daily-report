@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海洋AI技术日报 · 2026年03月15日</title>
+  <style>
+    :root {
+      --ocean-deep: #0a2342;
+      --ocean-mid: #1a4b7a;
+      --ocean-light: #2e86c1;
+      --ocean-accent: #1abc9c;
+      --ocean-teal: #0d7377;
+      --wave-blue: #3498db;
+      --bg-light: #f0f7ff;
+      --bg-card: #ffffff;
+      --text-dark: #1a2530;
+      --text-mid: #3d5166;
+      --text-light: #6b8ba4;
+      --border: #d0e4f5;
+      --tag-ai: #e8f4fd;
+      --tag-ai-text: #1a6ea8;
+      --tag-twin: #e8f8f5;
+      --tag-twin-text: #0d7a5f;
+      --tag-vis: #fef9e7;
+      --tag-vis-text: #9a6f0a;
+      --tag-quality: #fdf2f8;
+      --tag-quality-text: #8e44ad;
+      --tag-proc: #fef5e4;
+      --tag-proc-text: #c0392b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(160deg, #e8f4fd 0%, #f0f7ff 40%, #e8f8f5 100%);
+      color: var(--text-dark);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 50%, var(--ocean-teal) 100%);
+      color: #fff;
+      padding: 48px 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -40px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(26,188,156,0.08);
+    }
+    .header-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .header-badge {
+      display: inline-block;
+      background: rgba(26,188,156,0.25);
+      color: #7efde8;
+      border: 1px solid rgba(26,188,156,0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 3px 14px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .header h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .header h1 span { color: #7efde8; }
+    .header-sub {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+    .header-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #7efde8;
+    }
+    .stat-label { font-size: 0.78rem; opacity: 0.75; }
+
+    /* ── MAIN ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 24px 60px; }
+
+    /* ── TOPIC SECTION ── */
+    .topic-section {
+      background: var(--bg-card);
+      border-radius: 18px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 16px rgba(10,35,66,0.07);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .topic-header {
+      padding: 22px 28px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .topic-icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .topic-title-group { flex: 1; }
+    .topic-title { font-size: 1.2rem; font-weight: 700; color: var(--ocean-deep); }
+    .topic-subtitle { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+    .topic-count {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      padding: 3px 12px;
+      white-space: nowrap;
+    }
+
+    /* theme colors */
+    .t-ai .topic-icon { background: var(--tag-ai); color: var(--tag-ai-text); }
+    .t-twin .topic-icon { background: var(--tag-twin); color: var(--tag-twin-text); }
+    .t-vis .topic-icon { background: var(--tag-vis); color: var(--tag-vis-text); }
+    .t-quality .topic-icon { background: var(--tag-quality); color: var(--tag-quality-text); }
+    .t-proc .topic-icon { background: var(--tag-proc); color: var(--tag-proc-text); }
+
+    /* ── ARTICLE CARD ── */
+    .articles { padding: 0 20px 12px; }
+    .article-card {
+      padding: 20px 8px;
+      border-bottom: 1px solid #f0f5fb;
+    }
+    .article-card:last-child { border-bottom: none; }
+    .article-num {
+      display: inline-block;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 22px;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .article-title-row { display: flex; align-items: flex-start; margin-bottom: 8px; }
+    .article-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ocean-deep);
+      line-height: 1.4;
+    }
+    .article-summary {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+      padding-left: 34px;
+      line-height: 1.65;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 34px;
+      flex-wrap: wrap;
+    }
+    .meta-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      padding: 3px 10px;
+    }
+    .meta-date {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+    .meta-link {
+      font-size: 0.78rem;
+      color: var(--ocean-light);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border: 1px solid #bee3f8;
+      border-radius: 8px;
+      background: #ebf5ff;
+      transition: background 0.2s;
+    }
+    .meta-link:hover { background: #d0eaff; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 32px 20px 24px;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+    .footer-logo {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .footer-logo strong { color: var(--ocean-light); }
+    .footer-time { font-size: 0.78rem; color: #aac4d8; }
+
+    /* ── SUMMARY BAR ── */
+    .summary-bar {
+      background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+      border-radius: 14px;
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .summary-bar-icon { font-size: 2rem; }
+    .summary-bar-text { flex: 1; }
+    .summary-bar-text h3 { font-size: 1rem; margin-bottom: 4px; }
+    .summary-bar-text p { font-size: 0.85rem; opacity: 0.8; }
+    .summary-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .summary-tag {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      padding: 3px 12px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-badge">🌊 自动生成简报</div>
+    <h1>海洋AI技术日报 · <span>2026年03月15日</span></h1>
+    <p class="header-sub">聚焦海洋科技前沿 · 汇聚人工智能、数字孪生、可视化、数据质量与处理五大主题</p>
+    <div class="header-stats">
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label">核心主题</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20</div>
+        <div class="stat-label">精选资讯</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">来源机构</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2026-03-15</div>
+        <div class="stat-label">覆盖日期</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SUMMARY BAR -->
+  <div class="summary-bar">
+    <div class="summary-bar-icon">📋</div>
+    <div class="summary-bar-text">
+      <h3>今日速览</h3>
+      <p>中国发布首个全链路AI海洋大模型"瞰海"；富士通与巴塞罗那港启动海洋数字孪生PoC；Oceanology International 2026多项AI海洋突破；物理增强深度学习显著提升SST预测精度。</p>
+      <div class="summary-tags">
+        <span class="summary-tag">🤖 海洋人工智能</span>
+        <span class="summary-tag">🔄 数字孪生</span>
+        <span class="summary-tag">📊 可视化</span>
+        <span class="summary-tag">✅ 数据质量</span>
+        <span class="summary-tag">⚙️ 数据处理</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== TOPIC 1: 海洋人工智能 =================== -->
+  <div class="topic-section t-ai">
+    <div class="topic-header">
+      <div class="topic-icon">🤖</div>
+      <div class="topic-title-group">
+        <div class="topic-title">海洋人工智能</div>
+        <div class="topic-subtitle">Ocean AI / Marine Artificial Intelligence</div>
+      </div>
+      <div class="topic-count">4 条资讯</div>
+    </div>
+    <div class="articles">
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">1</span>
+          <div class="article-title">我国首个全链路AI海洋大模型"瞰海"等相继发布</div>
+        </div>
+        <div class="article-summary">
+          2026年3月13日，自然资源部新闻发布会宣布，中国发布了首个"遥感—重构—预测"全链路人工智能海洋大模型"瞰海"，实现从海表到水下、从现状到未来的时空维度深度透视与前瞻预测。同期还发布了"深海生境智能认知与探索多模态大模型"、洋山港智能体"VTS精灵"及"智海·图灵"海上AI赋能基座平台，标志着中国海洋AI大模型体系进入新阶段。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📰 北青网 / 自然资源部</span>
+          <span class="meta-date">📅 2026-03-13</span>
+          <a class="meta-link" href="https://news.qq.com/rain/a/20260313A07Q2M00" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">2</span>
+          <div class="article-title">Physics-Enhanced Deep Learning for Sea Surface Temperature Forecasting（物理增强深度学习SST预测）</div>
+        </div>
+        <div class="article-summary">
+          Frontiers in Marine Science于2026年3月4日发表最新研究，提出融合物理约束的深度学习模型以提升海表温度（SST）预测精度。该模型克服了传统自回归模型的不稳定问题，在多时间尺度预报任务上表现优异，兼顾了物理合理性与数据驱动能力，为海洋气候预测提供新范式。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 Frontiers in Marine Science</span>
+          <span class="meta-date">📅 2026-03-04</span>
+          <a class="meta-link" href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2026.1775896/full" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">3</span>
+          <div class="article-title">Physics-Guided Deep Learning for Global Sea Surface Temperature Multi-Scale Forecasting（全球SST多尺度物理引导预测）</div>
+        </div>
+        <div class="article-summary">
+          ScienceDirect于2026年3月1日刊发研究成果，提出物理引导的深度学习框架用于全球多尺度海表温度预报。该方法将海洋物理方程嵌入神经网络训练过程，有效约束模型输出的物理一致性，实现日、周、月多尺度联合预测，在国际比测中精度领先。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 ScienceDirect / Geoscience Frontiers</span>
+          <span class="meta-date">📅 2026-03-01</span>
+          <a class="meta-link" href="https://www.sciencedirect.com/science/article/pii/S1674987126000095" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">4</span>
+          <div class="article-title">Oceanology International 2026：AI正在彻底改变海洋数据分析</div>
+        </div>
+        <div class="article-summary">
+          2026年3月10–12日，全球海洋行业旗舰会议Oceanology International在伦敦ExCeL召开。会议重点揭示：AI与机器学习正彻底变革海洋数据处理——从海底勘测、检测系统到环境监测，AI能更高效地处理复杂数据集，提升运营决策与资产管理能力。同期自主水下航行器（AUV）投资持续增长，海底专业人才短缺成为制约瓶颈。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📰 Hydrogen Group / Oceanology Int'l 2026</span>
+          <span class="meta-date">📅 2026-03-12 ~ 16</span>
+          <a class="meta-link" href="https://www.hydrogengroup.com/key-insights-from-oceanology-international-london-2026-technology-data-and-the-growing-demand-for-subsea-talent" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== TOPIC 2: 海洋数字孪生 =================== -->
+  <div class="topic-section t-twin">
+    <div class="topic-header">
+      <div class="topic-icon">🔄</div>
+      <div class="topic-title-group">
+        <div class="topic-title">海洋数字孪生</div>
+        <div class="topic-subtitle">Ocean Digital Twin / Marine Digital Twin</div>
+      </div>
+      <div class="topic-count">4 条资讯</div>
+    </div>
+    <div class="articles">
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">1</span>
+          <div class="article-title">厦门大学发表《国家科学评论》：海洋数字孪生研究取得重要进展</div>
+        </div>
+        <div class="article-summary">
+          2026年3月8日，厦门大学柴扉教授团队与多位国际专家在《国家科学评论》发表研究综述，系统梳理海洋数字孪生核心架构，凝练为数据、模型、分析、可视化与交互四大模块。在AI与超算支撑下，该框架可精准回应即时、前瞻、假设三类核心问题，推动海洋产业从"被动数据分析"向"主动预测决策"跃迁，并提出构建统一数学框架、边云协同计算等未来方向。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 National Science Review / 科学网</span>
+          <span class="meta-date">📅 2026-03-08</span>
+          <a class="meta-link" href="https://news.sciencenet.cn/htmlnews/2026/3/561057.shtm" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">2</span>
+          <div class="article-title">富士通与BCN Port Innovation Foundation签署协议：在巴塞罗那港建设海洋数字孪生PoC</div>
+        </div>
+        <div class="article-summary">
+          2026年3月3日，富士通与BCN Port Innovation基金会宣布合作，在巴塞罗那港开发海洋数字孪生概念验证项目。项目利用水下无人机非破坏性传感采集高分辨率海底数据，结合AI与机器学习构建精准数字表示，实现生物多样性可视化量化、蓝碳估算及"假设分析"场景模拟，目标是再生海洋环境、保护生态系统并推动蓝色经济发展。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📰 Japan Industry News / Fujitsu</span>
+          <span class="meta-date">📅 2026-03-03</span>
+          <a class="meta-link" href="https://www.japanindustrynews.com/2026/03/fujitsu-and-bcn-port-innovation-launch-ocean-digital-twin-project-in-barcelona/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">3</span>
+          <div class="article-title">Digital Twin of the Ocean as a Catalyst for Blue Economy Innovation（《国家科学评论》海洋DTO特刊）</div>
+        </div>
+        <div class="article-summary">
+          2026年1月，《国家科学评论》（National Science Review）发表海洋数字孪生（DTO）前沿综述。文章指出，DTO作为变革性技术，通过构建动态虚拟副本，成为驱动蓝色经济可持续转型的关键催化剂。文中系统分析了DTO的数据融合、实时建模、多尺度仿真等核心能力，及其在渔业、能源开发、气候适应等蓝色经济场景中的广泛应用前景。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 National Science Review (Oxford)</span>
+          <span class="meta-date">📅 2026-01-20</span>
+          <a class="meta-link" href="https://academic.oup.com/nsr/article/13/3/nwag012/8431396" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">4</span>
+          <div class="article-title">DITTO（Digital Twins of the Ocean）项目持续推进：赋能"What If"海洋决策</div>
+        </div>
+        <div class="article-summary">
+          联合国海洋十年支持的DITTO项目（海洋数字孪生）持续推进，通过共享数据、模型和知识，使用户能够就海洋保护与管理提出"假设"情景问题。项目汇聚全球多机构合作，旨在构建开放、互操作的海洋数字孪生生态系统，支持海洋可持续治理与气候韧性建设。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">🌐 DITTO / UN Ocean Decade</span>
+          <span class="meta-date">📅 2026-03（持续更新）</span>
+          <a class="meta-link" href="https://ditto-oceandecade.org/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== TOPIC 3: 海洋可视化 =================== -->
+  <div class="topic-section t-vis">
+    <div class="topic-header">
+      <div class="topic-icon">📊</div>
+      <div class="topic-title-group">
+        <div class="topic-title">海洋可视化</div>
+        <div class="topic-subtitle">Ocean Visualization / Marine Data Visualization</div>
+      </div>
+      <div class="topic-count">4 条资讯</div>
+    </div>
+    <div class="articles">
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">1</span>
+          <div class="article-title">Interactive Visualization of Ocean Flow and Thermohaline Field — 海洋流场与温盐场交互可视化新方法</div>
+        </div>
+        <div class="article-summary">
+          International Journal of Digital Earth于2026年2月9日刊发最新研究，针对海洋大数据"体量大、维度高、时变快"的特点，提出面向流场与温盐场的交互可视化新方法。通过高效数据降维与动态渲染技术，实现多变量联合展示与用户交互探索，为海洋科研人员提供直观的多维数据分析工具，支持海洋动力学精细研究。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 Int. Journal of Digital Earth (Taylor & Francis)</span>
+          <span class="meta-date">📅 2026-02-09</span>
+          <a class="meta-link" href="https://www.tandfonline.com/doi/full/10.1080/17538947.2026.2624176" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">2</span>
+          <div class="article-title">AI for Oceanographic Research: Building Oceanographic Data Visualization Systems 2026</div>
+        </div>
+        <div class="article-summary">
+          2026年，AI驱动的海洋数据可视化系统已能实时处理来自自主海洋平台的TB级海洋数据，通过深度学习提取海洋现象模式、生成预测性可视化，并借助增强现实（AR）技术支持3D海洋环境沉浸式探索。研究综述指出，这一技术融合将海洋科学数据探索从被动静态展示升级为动态智能交互体验。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">🌐 johal.in 技术综述</span>
+          <span class="meta-date">📅 2025-10-19（2026年展望）</span>
+          <a class="meta-link" href="https://www.johal.in/ai-for-oceanographic-research-building-oceanographic-data-visualization-systems-2026/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">3</span>
+          <div class="article-title">海洋数字孪生四模块架构中的可视化与交互模块研究进展</div>
+        </div>
+        <div class="article-summary">
+          厦门大学柴扉团队（2026年3月）在海洋数字孪生综述中，专项阐述"可视化与交互模块"的最新进展。该模块利用3D渲染引擎、WebGL技术和沉浸式界面，将复杂海洋模拟结果转化为直观可理解的动态图景，支持多尺度、多时态、多要素的联合可视化，显著提升决策者对海洋状态的感知与理解能力。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 National Science Review / 科学网</span>
+          <span class="meta-date">📅 2026-03-08</span>
+          <a class="meta-link" href="https://news.sciencenet.cn/htmlnews/2026/3/561057.shtm" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">4</span>
+          <div class="article-title">Visual Analysis of Oceanic Data for Marine Ecosystems — 基于运动模式规则提取的海洋生态可视分析</div>
+        </div>
+        <div class="article-summary">
+          Ecological Informatics（ScienceDirect）2024年9月发表的研究成果，展示了一种针对海洋动物行为时序运动数据的交互式可视化分析方法，能够自动提取和可视化运动规则，辅助海洋生态学家理解种群行为模式。该研究为海洋生物多样性监测与生态保护提供了新型数据分析手段，持续引领2026年相关研究。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 Ecological Informatics (ScienceDirect)</span>
+          <span class="meta-date">📅 2024-09（持续引用 2026）</span>
+          <a class="meta-link" href="https://www.sciencedirect.com/science/article/pii/S1574954124003042" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== TOPIC 4: 海洋数据质量 =================== -->
+  <div class="topic-section t-quality">
+    <div class="topic-header">
+      <div class="topic-icon">✅</div>
+      <div class="topic-title-group">
+        <div class="topic-title">海洋数据质量</div>
+        <div class="topic-subtitle">Ocean Data Quality / Marine Data Quality Control</div>
+      </div>
+      <div class="topic-count">4 条资讯</div>
+    </div>
+    <div class="articles">
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">1</span>
+          <div class="article-title">IODE/UNESCO发布"海洋十年"框架下海洋数据质量保证与控制在线培训课程</div>
+        </div>
+        <div class="article-summary">
+          2026年3月11日前后，IODE/UNESCO正式宣布启动新版在线培训课程"海洋十年背景下的数据质量保证（QA）与质量控制（QC）"，覆盖物理海洋、生物地球化学、生物多样性等多主题领域QC方法，依托OceanTeacher全球学院平台（OTGA）向全球开放，是推进联合国海洋十年数据治理目标的重要举措。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">🌐 IOC/UNESCO IODE</span>
+          <span class="meta-date">📅 2026-03（课程最新版）</span>
+          <a class="meta-link" href="https://iode.org/training-course-data-quality-assurance-qa-and-quality-control-qc-in-the-ocean-decade/" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">2</span>
+          <div class="article-title">Editorial: Data Science and AI for Marine Science — 主动学习优化海洋数据质量评估</div>
+        </div>
+        <div class="article-summary">
+          2026年3月14日，《国际数据科学与分析期刊》发表特刊社论，其中重点介绍了Li et al.利用主动学习（Active Learning）技术显著减少人工标注工作量、优化海洋数据质量评估流程的研究成果，以及Blue-Cloud联邦系统整合异构海洋数据的最新进展，彰显AI在提升海洋数据质量方面的巨大潜力。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 Int. Journal of Data Science & Analytics (Springer)</span>
+          <span class="meta-date">📅 2026-03-14</span>
+          <a class="meta-link" href="https://link.springer.com/article/10.1007/s41060-026-01082-0" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">3</span>
+          <div class="article-title">autoQC：基于AI的在线海洋数据质量控制应用平台</div>
+        </div>
+        <div class="article-summary">
+          ResearchGate/IOC发布的autoQC是一款AI驱动的在线海洋数据质量控制工具，通过深度神经网络模拟专家的视觉质控判断，实现自动化、标准化的海洋数据QC流程。该工具支持Argo等主流海洋观测网络的数据处理，在2026年社区持续获得更新与引用，推动全球海洋数据质量标准化进程。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 ResearchGate / IOC-UNESCO</span>
+          <span class="meta-date">📅 2024-06（持续维护至 2026）</span>
+          <a class="meta-link" href="https://www.researchgate.net/publication/385740799_autoQC_An_AI_based_online_app_for_ocean_data_quality_control" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">4</span>
+          <div class="article-title">Ocean Data Quality Assessment through Outlier Detection — arXiv海洋异常检测质控研究</div>
+        </div>
+        <div class="article-summary">
+          arXiv预印本（2312.10817）提出基于异常值检测的海洋数据质量评估框架，针对Argo、GLOSS、EMSO等全球海洋观测网络数据，结合统计方法与机器学习检测异常剖面和错误测量值，实现更精准的自动化质控。研究结果在2026年持续被海洋数据中心采用，成为数据质量控制的重要参考基准。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 arXiv (2312.10817)</span>
+          <span class="meta-date">📅 2023-12（2026年持续引用）</span>
+          <a class="meta-link" href="https://arxiv.org/html/2312.10817v1" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =================== TOPIC 5: 海洋数据处理 =================== -->
+  <div class="topic-section t-proc">
+    <div class="topic-header">
+      <div class="topic-icon">⚙️</div>
+      <div class="topic-title-group">
+        <div class="topic-title">海洋数据处理</div>
+        <div class="topic-subtitle">Ocean Data Processing / Marine Data Processing</div>
+      </div>
+      <div class="topic-count">4 条资讯</div>
+    </div>
+    <div class="articles">
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">1</span>
+          <div class="article-title">Data Science and AI for Marine Science and the Blue Economy — 特刊综述海洋数据处理前沿</div>
+        </div>
+        <div class="article-summary">
+          Springer《国际数据科学与分析期刊》2026年3月14日发布特刊社论，全面回顾数据科学与AI在海洋科学与蓝色经济中的最新进展：包括利用AIS数据挖掘构建港口效率指标、结合时间序列分解与深度学习实时预测水产养殖溶解氧浓度、以及应用FAIR数据原则推动循环经济等，代表了海洋数据处理研究的最新高度。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 Int. Journal of Data Science & Analytics (Springer)</span>
+          <span class="meta-date">📅 2026-03-14</span>
+          <a class="meta-link" href="https://link.springer.com/article/10.1007/s41060-026-01082-0" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">2</span>
+          <div class="article-title">arXiv: 数据驱动全球海洋环流预测新模型（2509.12490v2）</div>
+        </div>
+        <div class="article-summary">
+          arXiv于2026年2月27日发布最新版预印本，延续机器学习气候预报成功经验，针对全球大气—海洋系统提出新型数据驱动预测框架。模型在处理海洋多物理量耦合、长时间序列建模等挑战性任务上展现出与传统数值模式相当甚至更优的性能，为海洋数据处理与预测提供了新的技术路径。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 arXiv (2509.12490v2)</span>
+          <span class="meta-date">📅 2026-02-27</span>
+          <a class="meta-link" href="https://arxiv.org/pdf/2509.12490v2" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">3</span>
+          <div class="article-title">Deep Learning with Fourier Features for Ocean Flow Field Reconstruction from Sparse Sensors</div>
+        </div>
+        <div class="article-summary">
+          Nature Scientific Reports于2026年1月22日发表开放获取论文，提出基于傅里叶特征的深度学习方法，从稀疏传感器测量重建高保真海洋流场。该方法显著降低了对海洋观测站密度的依赖，使稀疏部署的传感器网络也能支持精细化流场分析，对海洋监测基础设施建设具有重要实用价值。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📄 Nature Scientific Reports</span>
+          <span class="meta-date">📅 2026-01-22</span>
+          <a class="meta-link" href="https://www.nature.com/articles/s41598-026-36301-y" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-title-row">
+          <span class="article-num">4</span>
+          <div class="article-title">Oceanology International 2026：AI驱动海洋数据分析革命 — 从采集到洞察的全链路加速</div>
+        </div>
+        <div class="article-summary">
+          Oceanology International 2026大会（2026年3月10-12日）的核心议题之一是AI对海洋数据处理全流程的改造：AI/ML技术加速处理海底勘测、声学探测、环境监测等复杂数据集，实现更深层次洞察提取；随着海上能源与海洋基础设施项目规模扩大，快速准确的数据处理能力已成为运营商与服务商的核心竞争力。
+        </div>
+        <div class="article-meta">
+          <span class="meta-source">📰 Hydrogen Group / Oceanology Int'l 2026</span>
+          <span class="meta-date">📅 2026-03-10 ~ 12</span>
+          <a class="meta-link" href="https://www.hydrogengroup.com/key-insights-from-oceanology-international-london-2026-technology-data-and-the-growing-demand-for-subsea-talent" target="_blank">🔗 查看原文</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-logo">由 <strong>WorkBuddy</strong> 自动生成 · 海洋AI技术日报</div>
+    <div class="footer-time">生成时间：2026-03-16 09:00 · 覆盖日期：2026-03-15 · 数据来源：网络公开学术与新闻信息</div>
+  </div>
+
+</div>
+</body>
+</html>
