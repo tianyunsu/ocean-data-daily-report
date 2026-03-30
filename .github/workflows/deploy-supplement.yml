@@ -1,11 +1,10 @@
-name: Deploy supplement to GitHub Pages
+name: Deploy supplement → gh-pages/supplement/
 
 on:
   push:
     branches:
       - supplement
 
-# 允许 Actions 读写仓库内容
 permissions:
   contents: write
 
@@ -17,47 +16,38 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: supplement
-          fetch-depth: 0
 
-      - name: Set up deploy directory
+      - name: Inject "主站日报" link into index.html
         run: |
-          mkdir -p /tmp/deploy/supplement
-          # 复制 supplement 网站文件到 /supplement/ 子目录
-          cp index.html   /tmp/deploy/supplement/
-          cp archive.html /tmp/deploy/supplement/
-          cp style.css    /tmp/deploy/supplement/
-          cp -r posts/    /tmp/deploy/supplement/posts/
+          sed -i 's|<a href="archive.html">全部归档</a>|<a href="archive.html">全部归档</a>\n      <a href="../" style="margin-left:16px;color:#ff9800;font-weight:bold;border:1px solid #ff9800;padding:2px 10px;border-radius:4px;" title="查看主站日报">⇄ 主站日报</a>|' index.html
 
-      - name: Also grab main branch site files to root
+      - name: Inject "主站日报" link into archive.html
         run: |
-          git fetch origin main
-          git checkout origin/main -- index.html archive.html style.css posts/ 2>/dev/null || true
-          # 复制 main 网站文件到根目录
-          cp index.html   /tmp/deploy/ 2>/dev/null || true
-          cp archive.html /tmp/deploy/ 2>/dev/null || true
-          cp style.css    /tmp/deploy/ 2>/dev/null || true
-          cp -r posts/    /tmp/deploy/posts/ 2>/dev/null || true
-          # 恢复 supplement 文件
-          git checkout supplement -- index.html archive.html style.css posts/
+          sed -i 's|<a href="archive.html" class="active">全部归档</a>|<a href="archive.html" class="active">全部归档</a>\n      <a href="../" style="margin-left:16px;color:#ff9800;font-weight:bold;border:1px solid #ff9800;padding:2px 10px;border-radius:4px;" title="查看主站日报">⇄ 主站日报</a>|' archive.html
 
-      - name: Inject cross-link into supplement index.html
-        run: |
-          # 在 supplement 的 nav 里加上"跳转主站"链接
-          sed -i 's|<a href="archive.html">全部归档</a>|<a href="archive.html">全部归档</a>\n      <a href="../" class="cross-link" style="margin-left:16px;color:#ff9800;font-weight:bold;" title="查看另一台电脑的检索结果">⇄ 主站日报</a>|' /tmp/deploy/supplement/index.html
-          # 同样处理 archive.html
-          sed -i 's|<a href="archive.html">全部归档</a>|<a href="archive.html">全部归档</a>\n      <a href="../" class="cross-link" style="margin-left:16px;color:#ff9800;font-weight:bold;" title="查看另一台电脑的检索结果">⇄ 主站日报</a>|' /tmp/deploy/supplement/archive.html 2>/dev/null || true
-
-      - name: Inject cross-link into main index.html
-        run: |
-          # 在主站的 nav 里加上"跳转补充站"链接
-          sed -i 's|<a href="archive.html">全部归档</a>|<a href="archive.html">全部归档</a>\n      <a href="supplement/" class="cross-link" style="margin-left:16px;color:#ff9800;font-weight:bold;" title="查看另一台电脑的补充检索结果">⇄ 补充日报</a>|' /tmp/deploy/index.html 2>/dev/null || true
-          sed -i 's|<a href="archive.html">全部归档</a>|<a href="archive.html">全部归档</a>\n      <a href="supplement/" class="cross-link" style="margin-left:16px;color:#ff9800;font-weight:bold;" title="查看另一台电脑的补充检索结果">⇄ 补充日报</a>|' /tmp/deploy/archive.html 2>/dev/null || true
-
-      - name: Deploy to gh-pages branch
+      - name: Deploy supplement files to gh-pages/supplement/
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: /tmp/deploy
-          keep_files: false
-          commit_message: "deploy: supplement + main to gh-pages (${{ github.sha }})"
+          publish_dir: .
+          destination_dir: supplement
+          exclude_assets: >
+            .github,
+            .codebuddy,
+            .workbuddy,
+            node_modules,
+            __pycache__,
+            daily_reports,
+            *.py,
+            *.js,
+            *.json,
+            *.bat,
+            *.ps1,
+            *.vbs,
+            *.md,
+            *.txt,
+            *.pptx,
+            *.ppt
+          keep_files: true
+          commit_message: "deploy supplement: ${{ github.event.head_commit.message }}"
