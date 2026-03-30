@@ -42,8 +42,19 @@
 - 详见：search_strategy.md
 
 ### 今日生成结果（2026-03-30）
-- HTML简报：`daily_reports/海洋AI简报_2026-03-30.html`
+- HTML简报：`daily_reports/海洋AI简报_2026-03-30.html`（已修正日期为3月30日）
 - 飞书文档：API暂时无法访问（404错误）
 - 内容统计：9个方向，23条动态
 - 发布状态：HTML已生成并预览，飞书文档需手动上传或修复API
-- GitHub Pages：发布脚本已创建（publish_to_github_pages.py + GITHUB_PAGES_GUIDE.md），等待配置后使用
+- GitHub Pages：已成功发布！
+  - 仓库：https://github.com/tianyunsu/ocean-data-daily-report.git
+  - 网站：https://tianyunsu.github.io/ocean-data-daily-report/
+  - 分支：gh-pages
+  - 脚本：publish_to_github_pages.py
+  - 提交记录：
+    - `326ec74 Fix: 修正日报显示日期为3月30日`
+    - `2c3cd72 Update daily report: 2026-03-30`
+
+### 已修复的问题（2026-03-30）
+1. **日期显示错误**：修正`generate_html_report.py`，将日报标题从"3月29日"改为"3月30日"
+2. **GitHub推送**：确认日报已成功推送到GitHub gh-pages分支
