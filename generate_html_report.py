@@ -10,8 +10,8 @@ from datetime import datetime, timedelta
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from feishu_write_doc import SECTIONS
 
-yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y年%m月%d日')
-date_str = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+yesterday = datetime.now().strftime('%Y年%m月%d日')
+date_str = datetime.now().strftime('%Y-%m-%d')
 today_str = datetime.now().strftime('%Y-%m-%d')
 
 output_path = f"C:/Users/Administrator/WorkBuddy/Claw/daily_reports/海洋AI简报_{today_str}.html"
