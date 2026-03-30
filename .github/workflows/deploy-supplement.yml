@@ -17,14 +17,6 @@ jobs:
         with:
           ref: supplement
 
-      - name: Inject "主站日报" link into index.html
-        run: |
-          sed -i 's|<a href="archive.html">全部归档</a>|<a href="archive.html">全部归档</a>\n      <a href="../" style="margin-left:16px;color:#ff9800;font-weight:bold;border:1px solid #ff9800;padding:2px 10px;border-radius:4px;" title="查看主站日报">⇄ 主站日报</a>|' index.html
-
-      - name: Inject "主站日报" link into archive.html
-        run: |
-          sed -i 's|<a href="archive.html" class="active">全部归档</a>|<a href="archive.html" class="active">全部归档</a>\n      <a href="../" style="margin-left:16px;color:#ff9800;font-weight:bold;border:1px solid #ff9800;padding:2px 10px;border-radius:4px;" title="查看主站日报">⇄ 主站日报</a>|' archive.html
-
       - name: Deploy supplement files to gh-pages/supplement/
         uses: peaceiris/actions-gh-pages@v4
         with:
