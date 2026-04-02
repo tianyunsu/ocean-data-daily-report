@@ -135,7 +135,8 @@ def check_environment():
     ]
     
     for file_path, description in required_files:
-        if file_path.exists():
+        fp = Path(file_path) if not isinstance(file_path, Path) else file_path
+        if fp.exists():
             log(f"✅ {description}: 存在", "SUCCESS")
         else:
             issues.append(f"❌ {description}: 不存在 - {file_path}")
