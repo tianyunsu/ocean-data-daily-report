@@ -22,34 +22,34 @@ SECTIONS = [
         'en': 'Ocean AI / Marine Artificial Intelligence',
         'items': [
             {
-                'title': '1. Springer专刊社论:数据科学与AI驱动海洋科学与蓝色经济',
-                'badge': '[专刊]',
+                'title': '1. 人民政协报:2026中关村论坛海洋科技创新论坛——AI重塑全球海洋治理',
+                'badge': '[要闻]',
                 'abstract': (
-                    'Springer International Journal of Data Science and Analytics于2026年3月14日发表社论"Editorial: data science and AI for marine science and the blue economy"，正式推出"Data Science and AI for Marine Science and the Blue Economy"特刊合集。社论指出，数据科学与AI的融合为海洋过程监测、建模和预测开辟了新机遇，涵盖从卫星遥感到现场观测的全链条智能海洋数据分析方案，是近7天国际海洋AI领域的重要学术出版动态。'
+                    '人民政协报于2026年4月3日报道2026中关村论坛年会"海洋科学与发展论坛"主要成果：中国"妈祖"气象AI方案已在40多个国家试用，为全球海洋治理提供支撑。国家自然科学基金委员会表示将加快AI驱动的海洋科研范式布局；全国政协委员焦念志指出AI可打破地域壁垒助力全球协同应对海洋气候变化；厦门大学曹玲教授提出"AI大模型+智库"模式可为公海生物多样性保护提供支撑。报告体现了中国海洋AI从技术研发向全球治理应用的战略转型。'
                 ),
-                'source': 'Springer / IJDSA',
-                'date': '2026-03-14',
-                'url': 'https://link.springer.com/article/10.1007/s41060-026-01082-0'
+                'source': '人民政协报 / 人民政协网',
+                'date': '2026-04-03',
+                'url': 'https://www.rmzxw.com.cn/c/2026-04-03/3896185.shtml'
             },
             {
-                'title': '2. OCEANS 2026三亚会议摘要征集:深海技术、海洋能源与海洋AI三大主题',
-                'badge': '[会议]',
+                'title': '2. AGU Earth and Space Science:机器学习检测墨西哥湾中尺度与次中尺度海洋锋',
+                'badge': '[论文]',
                 'abstract': (
-                    'IEEE OCEANS 2026 Sanya会议（2026年5月25-28日，中国三亚）正式开放摘要征集，聚焦Deep-sea Technology、Marine Energy和Ocean AI三大核心主题。该会议由IEEE海洋工程学会（OES）主办，征集深海探测技术与应用、深海采矿与环境评估、海洋可再生能源、移动水下传感器网络等领域的前沿技术报告，摘要征集截止日期临近，是近期国际海洋AI与深海技术领域最重要的学术交流平台之一。'
+                    'AGU Earth and Space Science于2026年4月7日在线发表研究"Capturing Mesoscale and Submesoscale Ocean Fronts in the Gulf of Mexico"，系统比较传统锋面检测算法与机器学习模型（高斯混合模型GMM）对墨西哥湾海洋锋的检测性能，基于卫星海表温度（SST）观测数据，揭示新算法在中尺度和次中尺度锋面识别上的显著优势。研究对提升海洋数据自动分析能力、推进AI驱动的海洋动力学分析具有重要价值。DOI: 10.1029/2025EA004855'
                 ),
-                'source': 'IEEE OES / OCEANS 2026 Sanya',
-                'date': '2026-03(征集中)',
-                'url': 'https://sanya26.oceansconference.org/call-for-abstracts/'
+                'source': 'AGU Earth and Space Science / Wiley',
+                'date': '2026-04-07',
+                'url': 'https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2025EA004855'
             },
             {
-                'title': '3. 求是海洋学术论坛:西湖大学范迪夏主讲"未来水下智能机器人畅想"',
-                'badge': '[学术]',
+                'title': '3. IEEE TGRS综述:深度学习海洋预报全面评述——从传统模型到数据驱动范式',
+                'badge': '[综述]',
                 'abstract': (
-                    '浙江大学求是海洋学术论坛2026年第4期（总99期）于4月2日发布预告，邀请西湖大学范迪夏研究员于4月3日在舟山校区作题为"在海洋中翱翔：未来水下智能机器人畅想"的报告。报告探讨海洋生物仿生学如何启发新一代水下机器人的设计理念，范迪夏团队此前曾成功研制世界首例仿生型潜水器"西谷I号"并下潜至海底2000米，该报告对海洋AI与智能机器人交叉研究方向具有重要参考价值。'
+                    'IEEE Transactions on Geoscience and Remote Sensing于2025年4月发表综述"Deep Learning for Ocean Forecasting: A Comprehensive Review"，系统评述深度学习在全球/区域海洋预报中的最新进展，覆盖物理参数化、数据同化、多尺度预报等核心方向。文章分析了数据驱动模型在挖掘海洋大数据深层模式方面的能力，总结了当前技术瓶颈与未来发展路径。DOI: 10.1109/TGRS.2025.3547107'
                 ),
-                'source': '浙江大学海洋学院 / 西湖大学',
-                'date': '2026-04-02(预告)',
-                'url': 'http://oc.zju.edu.cn/2026/0402/c29860a3147412/page.htm'
+                'source': 'IEEE TGRS / IEEE Xplore',
+                'date': '2025-04-01',
+                'url': 'https://ieeexplore.ieee.org/document/10947107'
             },
         ]
     },
@@ -58,34 +58,24 @@ SECTIONS = [
         'en': 'Ocean Digital Twin / Marine Digital Twin',
         'items': [
             {
-                'title': '1. DITTO"海洋十年"项目:推动全球海洋数字孪生标准化与治理能力建设',
-                'badge': '[项目]',
+                'title': '1. DITTO 2026国际峰会公告:11月横滨湾举行，聚焦互操作与假设情景分析',
+                'badge': '[会议]',
                 'abstract': (
-                    '联合国"海洋十年"DITTO（Digital Twins of the Ocean）项目持续推进全球海洋数字孪生（DTO）标准化与能力建设。DITTO旨在通过数字孪生技术支持海洋保护和蓝色经济可持续发展，推动建立数字孪生海洋的通用理解与最佳实践。项目整合地球观测、建模和数字基础设施，为各成员国提供预测未来海洋发展的数字化能力，是当前全球海洋数字孪生治理的核心协调平台。'
+                    'UN海洋十年认可的数字孪生海洋（DITTO）计划官方公告第三届国际峰会将于2026年11月11-13日在日本横滨湾举行。本次峰会汇集开发者、科学家、业务机构、政策制定者和产业界，重点推进海洋数字孪生的共享框架与互操作标准、"假设"情景分析能力，以及支持海洋保护与可持续蓝色经济的实际应用。会议形式涵盖全会演讲、专题讨论和技术演示。'
                 ),
-                'source': 'DITTO / IOC-UNESCO 海洋十年',
-                'date': '2026持续推进',
-                'url': 'https://ditto-oceandecade.org/'
+                'source': 'DITTO / UN Ocean Decade',
+                'date': '2026-04(更新)',
+                'url': 'https://ditto-oceandecade.org/news-events/events/ditto-international-summit-2026/'
             },
             {
-                'title': '2. 欧盟海洋数字孪生市场展望:2025年达5.9亿美元，2032年预计24亿美元',
-                'badge': '[市场]',
+                'title': '2. One Ocean Week 2026:4月18-24日挪威卑尔根——海洋开放科学与数据共享年度盛会',
+                'badge': '[会议]',
                 'abstract': (
-                    'MarketsandMarkets最新报告显示，海洋数字孪生市场2025年估值约5.9亿美元，预计到2032年将增长至24亿美元，2026-2032年复合年增长率达23.2%。该市场快速增长的主要驱动力包括海上风电、自主船舶、深海采矿等蓝色经济产业对数字化运营管理需求的爆发式增长。报告指出，AI与物联网技术的深度融合正加速海洋数字孪生从概念验证向规模化部署转变。'
+                    '2026年One Ocean Week将于4月18-24日在挪威卑尔根举行，由One Ocean、卑尔根市政府、Vestland郡议会和卑尔根大学联合主办。本届主题聚焦海洋可持续发展知识共享，涵盖海洋数字孪生、数据开放获取与科学传播等方向。旗舰科考船Statsraad Lehmkuhl完成12个月全球航行后将于4月18日驶入卑尔根港，成为本届活动重要亮点。ESA等国际机构积极参与。'
                 ),
-                'source': 'MarketsandMarkets',
-                'date': '2026(最新报告)',
-                'url': 'https://www.marketsandmarkets.com/Market-Reports/digital-twin-in-marine-market-213848743.html'
-            },
-            {
-                'title': '3. Iliad项目:整合地球观测与建模构建海洋数字孪生虚拟表示',
-                'badge': '[项目]',
-                'abstract': (
-                    '欧盟Iliad（Integrating data from earth observation, modelling and digital infrastructure for Digital Twins of the Ocean）项目于2025年7月发布最新进展，致力于构建整合地球观测、建模和数字基础设施的海洋数字孪生虚拟表示。Iliad作为欧盟"恢复我们的海洋和水域"使命的重要组成部分，为海洋过程预测和未来发展趋势分析提供综合数字平台，与EDITO平台协同推进欧洲数字孪生海洋生态建设。'
-                ),
-                'source': 'Iliad / EU Horizon Europe',
-                'date': '2025-07(持续更新)',
-                'url': 'https://ocean-twin.eu/'
+                'source': 'One Ocean / ESA / UN Ocean Decade',
+                'date': '2026-04-08(即将)',
+                'url': 'https://oneoceanweek.no/en/'
             },
         ]
     },
@@ -94,24 +84,24 @@ SECTIONS = [
         'en': 'Ocean Visualization / Marine Data Visualization',
         'items': [
             {
-                'title': '1. Taylor&Francis论文:基于协作传输函数的海洋流场与温盐场交互可视化',
-                'badge': '[论文]',
+                'title': '1. Copernicus Marine可视化工具更新:多层次用户友好型数字海洋探索平台',
+                'badge': '[工具]',
                 'abstract': (
-                    'Taylor & Francis Journal of Spatial Information Science于2026年2月9日发表论文"Interactive visualization of ocean flow and thermohaline field based on collaborative transfer function"，由田丰霖、陈戈等学者完成。研究针对海洋现象中标量场（温盐）与矢量场（海流）相互作用的可视化难题，提出基于协作传输函数的交互式可视化方法，实现了多维度海洋数据的协同探索分析，对海洋环流过程和能量物质输运的科学理解具有重要价值。'
+                    'Copernicus Marine Service（CMEMS）于2026年4月7日更新其海洋可视化工具集，面向不同层次用户提供多种交互式可视化产品，支持用户深入探索全球数字海洋。产品涵盖海表温度、盐度、海流、海冰等核心参数的动态可视化地图，可服务于海洋科研、业务预报和公众科普。工具集整合了最新的Sargassum漂流检测产品，持续扩展海洋可视化服务覆盖范围。'
                 ),
-                'source': 'Taylor & Francis / JOSIS',
-                'date': '2026-02-09',
-                'url': 'https://www.tandfonline.com/doi/full/10.1080/17538947.2026.2624176'
+                'source': 'Copernicus Marine Service / CMEMS',
+                'date': '2026-04-07(更新)',
+                'url': 'https://marine.copernicus.eu/access-data/ocean-visualisation-tools'
             },
             {
-                'title': '2. CIESM Workshop Monograph No.53:地中海高分辨率海洋数据3D映射与可视化',
-                'badge': '[专刊]',
+                'title': '2. arXiv:pyParaOcean——基于ParaView的可扩展三维海洋数据可视化分析系统',
+                'badge': '[工具]',
                 'abstract': (
-                    '地中海海洋科学委员会（CIESM）于2026年2月发布Workshop Monograph No.53"An ocean of gradients: towards a 3D mapping and visualization of high-resolution marine data"，将地中海视为由温度、盐度、营养盐、溶解氧和微生物活动塑造的动态3D马赛克。该专刊汇集多国海洋科学家最新成果，探索利用先进可视化技术呈现海洋高分辨率多参数梯度场，为区域海洋科学可视化提供了系统性方法参考。'
+                    'arXiv于2025年1月发表论文，介绍pyParaOcean系统——一个利用ParaView强大可视化能力的可扩展三维海洋数据分析平台。该系统面向大规模海洋模型输出数据，支持多维时空可视化、体绘制和交互式分析，针对海洋数据的高维性和大体量特性进行了专项优化。pyParaOcean的开源设计降低了三维海洋可视化的技术门槛，适用于海洋数字孪生和模式结果展示场景。arXiv: 2501.05009'
                 ),
-                'source': 'CIESM',
-                'date': '2026-02',
-                'url': 'https://ciesm.org/an-ocean-of-gradients-towards-a-3d-mapping-and-visualization-of-high-resolution-marine-data-ciesm-workshop-monograph-n53/'
+                'source': 'arXiv',
+                'date': '2025-01-09',
+                'url': 'https://arxiv.org/html/2501.05009v1'
             },
         ]
     },
@@ -120,34 +110,24 @@ SECTIONS = [
         'en': 'Ocean Data Quality / Marine Data Quality Control',
         'items': [
             {
-                'title': '1. NOAA IOOS发布QARTOD新论文:实时海洋数据质控标准体系最新进展',
-                'badge': '[标准]',
+                'title': '1. IOC战略计划:IOC发布海洋数据信息管理战略规划（2026年3月）',
+                'badge': '[政策]',
                 'abstract': (
-                    '美国综合海洋观测系统（IOOS）于2026年3月底发布QARTOD项目新论文，作为U.S. IOOS数据管理与网络基础设施（DMAC）核心服务的最新成果。QARTOD手册于2026年3月7日在OceanBestPractices知识库获最新更新引用，涵盖温盐、海流、波浪、海平面等多要素实时数据的标准化自动质控算法，持续为全球海洋观测站网数据质控认证提供核心规范。'
+                    'UNESCO政府间海洋学委员会（IOC）于2026年3月31日更新发布"IOC Strategic Plan for Ocean Data and Information Management"，该战略规划通过IODE计划协调实施，指导全球100多个国家海洋数据中心（NODC）和关联数据单元的数据质量保障工作。规划强调互操作性、全纳性数字生态建设，推动海洋数据从采集到共享的全链条质量标准化，为海洋十年期间的全球海洋数据质量提升提供顶层战略框架。'
                 ),
-                'source': 'NOAA IOOS / OceanBestPractices',
-                'date': '2026-03(最新)',
-                'url': 'https://ioos.noaa.gov/project/qartod/'
+                'source': 'IOC-UNESCO / IODE',
+                'date': '2026-03-31',
+                'url': 'https://iode.org/ioc-strategic-plan-for-ocean-data-and-information-management/'
             },
             {
-                'title': '2. Springer主动学习海洋数据质量评估:Argo/GLOSS/EMSO数据质控新方法',
+                'title': '2. Springer论文:主动学习赋能海洋数据质量评估',
                 'badge': '[论文]',
                 'abstract': (
-                    'Springer于2025年4月发表"Leveraging active learning for ocean data quality assessment"论文，针对Argo、GLOSS（全球海平面观测系统）、EMSO（欧洲多学科海底观测系统）等大规模海洋数据质量评估挑战，提出基于主动学习的质控方法。该方法通过智能选择最有信息量的样本进行标注，有效缓解了海洋数据中标注样本有限和数据集不均衡的问题，为大规模海洋观测数据质量评估提供了高效的机器学习方案。'
+                    'Springer International Journal of Data Science and Analytics于2025年4月发表"Leveraging active learning for ocean data quality assessment"，提出利用主动学习方法优化海洋数据质量评估流程。研究表明，结合自动化测试与主动学习策略，可在保证质量控制精度的同时显著减少人工标注成本，为实时或近实时海洋数据流的质量保障提供了高效可行的技术路径。DOI: 10.1007/s41060-025-00751-w'
                 ),
-                'source': 'Springer',
+                'source': 'Springer / Int. J. Data Science and Analytics',
                 'date': '2025-04-08',
                 'url': 'https://link.springer.com/article/10.1007/s41060-025-00751-w'
-            },
-            {
-                'title': '3. JOSS开源框架:海洋学数据质量控制通用框架',
-                'badge': '[工具]',
-                'abstract': (
-                    'Journal of Open Source Software（JOSS）发表海洋学数据质量控制通用框架论文，提供可扩展的Python质控工具。海洋环境数据采集中虚假测量不可避免，数据集质量高度依赖于质控流程。该开源框架实现了从异常值检测到自动化质控决策的完整流水线，支持多种海洋观测数据类型的灵活适配，是当前海洋数据质控开源工具领域的重要贡献。'
-                ),
-                'source': 'JOSS',
-                'date': '持续维护',
-                'url': 'https://joss.theoj.org/papers/10.21105/joss.02063.pdf'
             },
         ]
     },
@@ -156,44 +136,34 @@ SECTIONS = [
         'en': 'Ocean Data Processing / Marine Data Processing',
         'items': [
             {
-                'title': '1. Ocean Modelling综述:机器学习在海洋数据同化中的进展、差距与业务化之路',
-                'badge': '[综述]',
+                'title': '1. ScienceDirect:SGD-SST 2.0——跨传感器22年无缝全球每日海表温度产品',
+                'badge': '[数据集]',
                 'abstract': (
-                    'Elsevier Ocean Modelling于2026年2月1日发表重要综述"Machine learning in ocean data assimilation: Advances, gaps and the road to operations"（DOI: 10.1016/j.ocemod.2026.102678），由David Grande和Giuseppe Buizza撰写。综述系统审查了2020-2025年间机器学习在海洋数据同化领域的研究进展，识别新兴趋势、反复出现的挑战以及走向业务化的关键路径，指出物理约束与深度学习融合、不确定性量化是未来核心方向。'
+                    'Expert Systems with Applications于2026年4月6日在线发表"SGD-SST 2.0: Seamless Global Daily Sea Surface Temperature Products Cross-Sensors Generating from 2003 to 2025"。该研究通过贝叶斯优化开发了自适应卷积LSTM时空重建模型，生成9公里分辨率的无缝全球每日海表温度产品（2003-2025年），解决了云层遮挡导致的数据缺失问题，引入VIIRS预训练模型迁移学习策略实现跨传感器数据一致性。验证结果R=0.994，RMSE=0.916K，数据集已公开发布。'
                 ),
-                'source': 'Ocean Modelling / Elsevier',
-                'date': '2026-02-01',
-                'url': 'https://www.sciencedirect.com/science/article/pii/S1463500326000028'
+                'source': 'Expert Systems with Applications / ScienceDirect',
+                'date': '2026-04-06',
+                'url': 'https://www.sciencedirect.com/science/article/pii/S0957417426011723'
             },
             {
-                'title': '2. Ocean Modelling:深度学习潜空间数据同化生成海洋未见非线性演化',
-                'badge': '[论文]',
-                'abstract': (
-                    'Elsevier Ocean Modelling于2026年2月1日发表"Generating unseen nonlinear evolution in the ocean using deep learning-based latent space data assimilation model"，由郑庆宇等学者完成。研究提出基于深度学习潜空间的数据同化模型，能够从有限观测中重建海洋非线性演化过程中的缺失信息。传统方法通常对非线性物理模型或观测算子进行线性化，该研究突破此限制，为海洋与大气非线性状态估计提供了新范式。'
-                ),
-                'source': 'Ocean Modelling / Elsevier',
-                'date': '2026-02-01',
-                'url': 'https://www.sciencedirect.com/science/article/pii/S1463500326000016'
-            },
-            {
-                'title': '3. Global Fishing Watch 2026研究路线图:AI与卫星驱动海洋透明度',
+                'title': '2. WMO:2026年4-6月全球季节性气候更新——海表温度持续偏高',
                 'badge': '[报告]',
                 'abstract': (
-                    'Global Fishing Watch于2026年3月底发布"A Research Roadmap: How AI and Satellites Will Drive Transparency in 2026"研究路线图，系统阐述了AI与卫星技术在海洋活动监测中的最新进展。报告亮点包括：每日处理约200万平方公里海洋数据、检测小型渔船活动、部署AI智能体监测海洋保护区等。该组织持续推进海洋活动透明度建设，利用近实时可视化数据支持科学研究和政策制定。'
+                    'WMO于2026年3月23日发布4-6月全球季节性气候展望，指出2025年12月-2026年2月全球海表温度普遍偏高，热带太平洋向ENSO中性状态过渡。该更新整合了全球海洋观测系统的实时数据与多模式集成预测，是海洋气候数据处理和季节预报的权威参考，为渔业、航运和防灾减灾决策提供数据支撑。'
                 ),
-                'source': 'Global Fishing Watch',
-                'date': '2026-03-28',
-                'url': 'https://globalfishingwatch.org/article/a-research-roadmap-how-ai-and-satellites-will-drive-transparency-in-2026/'
+                'source': 'WMO',
+                'date': '2026-03-23',
+                'url': 'https://wmo.int/media/update/global-seasonal-climate-update-april-may-june-2026'
             },
             {
-                'title': '4. 中科院院刊:海洋数据再分析现状及展望',
-                'badge': '[综述]',
+                'title': '3. Communications E&E:BGC-Argo浮标揭示贫氧区氮-碳循环动态',
+                'badge': '[论文]',
                 'abstract': (
-                    '《中国科学院院刊》2026年第1期发表刘传玉（中科院海洋研究所）综述"海洋数据再分析现状及展望"，系统阐述了海洋数据再分析（ODR）技术——通过将海洋观测资料与海洋环流模式相结合，产出更高时空覆盖度的格点数据。文章梳理了全球主要再分析产品的发展历程和技术路线，分析了当前面临的观测偏差校正、多源数据融合等关键挑战，并展望了AI辅助再分析的未来发展方向。'
+                    'Communications Earth & Environment于2026年4月6日发表"BGC-Argo float reveals shifts in nitrogen-carbon cycling in an oxygen-deficient zone"，利用部署于东热带北太平洋的BGC-Argo浮标近三年高分辨率观测数据，揭示贫氧区（ODZ）氮氧化还原平衡的动态转变。研究通过化学计量质量平衡模型量化了DNRN、反硝化、厌氧氨氧化等氮转化过程，表明贫氧区生物地球化学本质上是动态而非稳态的，只有持续自主观测才能解析其时间变异性。'
                 ),
-                'source': '中国科学院院刊',
-                'date': '2026-01-11',
-                'url': 'http://old2022.bulletin.cas.cn/publish_article/2026/1/20260111.htm'
+                'source': 'Communications Earth & Environment / Nature',
+                'date': '2026-04-06',
+                'url': 'https://www.nature.com/articles/s43247-026-03410-5'
             },
         ]
     },
@@ -202,34 +172,34 @@ SECTIONS = [
         'en': 'Ocean Data Management & Sharing Services',
         'items': [
             {
-                'title': '1. UNESCO正式发布《IOC海洋数据与信息管理战略计划》PDF文档',
-                'badge': '[战略]',
+                'title': '1. IOC-UNESCO战略更新:海洋信息枢纽(Ocean InfoHub)推进全球互操作生态系统',
+                'badge': '[进展]',
                 'abstract': (
-                    'UNESCO于2026年3月底在官方文档库正式发布《IOC Strategic Plan for Ocean Data and Information Management》PDF文件（编号PF/0000385113），为IOC/IODE海洋数据与信息系统（ODIS）和ODIScat在线数据目录的未来发展提供战略指导。该战略文件强调在实施过程中需考虑ODIS系统的最新发展，推动开放数据、FAIR原则和互操作性数字生态系统的全面落实，是全球海洋数据治理的权威指导文件。'
+                    'IODE于2026年4月更新Ocean InfoHub进展：该项目旨在构建可持续、互操作、全纳的数字海洋数据生态系统，将现有和新兴数据系统链接为统一网络，使所有海洋利益相关方均可获取所需数据。IOC海洋信息数据共享战略计划（3月31日更新）为全球100多个国家数据中心提供顶层指引，推动开放数据、公民科学数据与官方观测数据的无缝融合。'
                 ),
-                'source': 'UNESCO / IOC IODE',
-                'date': '2026-03(最新发布)',
-                'url': 'https://unesdoc.unesco.org/ark:/48223/pf0000385113'
+                'source': 'IODE / IOC-UNESCO',
+                'date': '2026-04-04(更新)',
+                'url': 'https://iode.org/data/'
             },
             {
-                'title': '2. IOC/OTGA/VLIZ 2026年度海洋数据管理在线培训课程开放注册',
-                'badge': '[培训]',
+                'title': '2. OBIS:4月1日新增MedOBIS地中海生物数据集，涵盖温盐溶氧等关键环境参数',
+                'badge': '[数据]',
                 'abstract': (
-                    'IOC海洋培训与援助门户（OTGA）联合VLIZ（比利时海洋研究所）于2026年2月6日启动全年海洋数据管理在线培训课程（Ocean Data Management 2026），面向全球海洋数据管理从业者开放参与。课程内容涵盖开放数据、FAIR数据原则应用、海洋数据发布与引用流程等核心主题，是IOC推进全球海洋数据管理能力建设的旗舰培训项目。'
+                    '全球海洋生物多样性信息系统（OBIS）于2026年4月1日发布MedOBIS新数据集，包含地中海海域关键环境参数实测数据——温度、盐度、溶解氧和营养盐浓度，并配套生物多样性观测记录。OBIS作为IOC-UNESCO旗下核心数据平台，持续整合全球海洋生物分布信息，为蓝色经济、生物多样性保护和气候变化研究提供开放数据支撑。'
                 ),
-                'source': 'IOC/OTGA/VLIZ / OceanExpert',
-                'date': '2026-02-06(全年开放)',
-                'url': 'https://oceanexpert.org/event/4953'
+                'source': 'OBIS / IOC-UNESCO',
+                'date': '2026-04-01',
+                'url': 'https://obis.org/'
             },
             {
-                'title': '3. IOCARIBE海洋数据管理自定进度培训课程持续开放',
-                'badge': '[培训]',
+                'title': '3. UNESCO公民科学数据共享指南（2026年2月）:推动公民观测数据质量与互操作',
+                'badge': '[政策]',
                 'abstract': (
-                    'IOC-UNESCO IOCARIBE于2026年3月19日更新海洋数据管理自定进度在线培训课程，提供全面的海洋数据管理入门培训，涵盖数据管理指导原则和典型工作流程。课程描述了开放获取（Open Access）、开放数据（Open Data）和FAIR数据的术语体系，并指导如何将其应用于海洋数据管理的实践，面向全球海洋从业者免费开放。'
+                    'UNESCO海洋十年于2026年2月发布"Citizen Science Data Sharing Guidelines"，强调公民科学数据共享的协同设计原则。指南为海洋领域公民科学数据的采集规范、质量控制、元数据标准和平台互操作提供了框架指引，推动公民海洋观测数据无缝接入OBIS、IODE等专业数据管理体系，扩大全球海洋数据覆盖范围。'
                 ),
-                'source': 'IOC-UNESCO / IOCARIBE',
-                'date': '2026-03-19(更新)',
-                'url': 'https://iocaribe.ioc-unesco.org/en/event/725'
+                'source': 'UNESCO / UN Ocean Decade',
+                'date': '2026-02(发布)',
+                'url': 'https://unesdoc.unesco.org/ark:/48223/pf0000397182.locale=en'
             },
         ]
     },
@@ -238,24 +208,24 @@ SECTIONS = [
         'en': 'Open Cruises / Ship Time Sharing',
         'items': [
             {
-                'title': '1. POGO Ocean Training Partnership更新船载培训项目信息',
-                'badge': '[培训]',
+                'title': '1. 蓝色海洋行动2026活动指南:全球海洋保护与科考重要活动全览（3月发布）',
+                'badge': '[指南]',
                 'abstract': (
-                    '全球海洋观测合作计划（POGO）Ocean Training Partnership（OTP）于2026年3月底更新船载培训项目页面。OTP作为国际海洋科学组织联盟，持续协调多艘科考船的随船培训体验。2026年NF-POGO船载培训研究员项目（3月24日开放申请）提供2026年至2027年初的多航次培训机会，面向发展中国家年轻海洋科学家开放，是推动全球海洋科考能力建设的核心机制。'
+                    '"Our Shared Seas"于2026年3月27日发布"A Blue Wave of Ocean Action 2026 Event Guide"，系统梳理2026年全球重要海洋科学与治理活动，涵盖开放会议、闭门政策会议、科考航次和全球里程碑事件。指南列举了从One Ocean Week（4月，卑尔根）到Our Ocean Conference（6月，肯尼亚）的系列活动，为全球海洋科研、政策和产业界提供年度开放航次与数据共享合作机会索引。'
                 ),
-                'source': 'POGO / Ocean Training Partnership',
-                'date': '2026-03-29(更新)',
-                'url': 'https://pogo-ocean.org/capacity-development/shipboard-training/'
+                'source': 'Our Shared Seas',
+                'date': '2026-03-27',
+                'url': 'https://oursharedseas.com/a-blue-wave-of-ocean-action-2026-event-guide-part-1/'
             },
             {
-                'title': '2. 中科院海洋所2026年度科考船船时开放申请通知(第三轮)',
-                'badge': '[通知]',
+                'title': '2. NSFC共享航次计划:国家自然科学基金开放调查船时资源持续扩充',
+                'badge': '[资源]',
                 'abstract': (
-                    '中国科学院重大科技基础设施共享服务平台于2026年2月发布中科院海洋研究所2026年度科学考察船船时开放申请通知（第三轮），旨在响应国家海洋科学考察研究需求，进一步提升科考船运行船时的开放共享效率。该通知通过中科院LSSF平台发布，面向全国科研机构开放申请，是中国科学院系统内最重要的科考船时共享机制之一。'
+                    '国家自然科学基金共享航次计划（NORC）官网显示，平台现已汇集184个科学考察项目、46艘调查船资源，批准搭载项目2558项，开放共享目录337项。平台为国内海洋科学考察提供稳定、可靠的调查设施保障，持续征集2027年度需求，并向国际合作科研团队开放申请。中科院海洋科学研究所（IOCAS）等单位的船时开放共享公告也持续更新中。'
                 ),
-                'source': '中科院LSSF / 中科院海洋所',
-                'date': '2026-02(第三轮)',
-                'url': 'https://lssf.cas.cn/sszs/gykj/hykxzhkcc/gg/'
+                'source': 'NORC / NSFC / NSFCODC',
+                'date': '2026-04(更新)',
+                'url': 'https://www.nsfcodc.cn/'
             },
         ]
     },
@@ -264,34 +234,34 @@ SECTIONS = [
         'en': 'Ocean Data Centers / Marine Data Centers',
         'items': [
             {
-                'title': '1. NOAA WOD持续更新:全球最大海洋剖面数据集保持活跃',
-                'badge': '[数据中心]',
+                'title': '1. CMEMS产品路线图更新（2026-03-25）:新产品过渡信息与服务升级',
+                'badge': '[更新]',
                 'abstract': (
-                    'NOAA国家环境信息中心（NCEI）世界海洋数据库（WOD）于2026年4月1日完成最新更新，持续作为全球最大统一格式、质量控制、公开可用的海洋剖面数据集合。WOD整合了全球数千个数据贡献机构的历史观测记录，覆盖温度、盐度、溶解氧等多要素，为气候研究、海洋模型验证和数据处理方法学开发提供标准数据基础。NSF海洋数据与样本库页面同步更新NCEI相关数据访问信息。'
+                    'Copernicus Marine Service于2026年3月25日更新产品路线图，发布产品过渡信息，涵盖全球海洋物理分析预报、海冰、生物地球化学等多类产品的版本迭代计划。此外，CMEMS 2025年11月服务更新中新增的业务化漂藻（Sargassum）近实时检测产品持续稳定运行，为热带大西洋海表漂藻监测提供每日数据产品，支持航运安全和生态影响评估。'
                 ),
-                'source': 'NOAA NCEI / NSF',
-                'date': '2026-04-01(更新)',
-                'url': 'https://www.ncei.noaa.gov/products/world-ocean-database'
+                'source': 'Copernicus Marine Service / CMEMS',
+                'date': '2026-03-25',
+                'url': 'https://marine.copernicus.eu/user-corner/product-roadmap/transition-information'
             },
             {
-                'title': '2. Copernicus Marine In Situ TAC:现场数据质量管控与分发服务更新',
-                'badge': '[数据中心]',
+                'title': '2. IOC-UNESCO IODE:全球100+国家海洋数据中心网络持续扩展',
+                'badge': '[进展]',
                 'abstract': (
-                    'Copernicus Marine In Situ TAC（现场数据主题组装中心）于2026年3月26日完成最新更新，持续确保多源、多平台、异构海洋现场数据的一致性质控和统一格式分发。INSTAC仪表板实时监控全球海洋现场数据质量状态，提供近实时（NRT）数据产品，平均在数据采集后24-48小时内完成质控并分发，是Copernicus Marine Service数据供应链中的关键质量保障环节。'
+                    'IOC-UNESCO IODE于2026年4月4日更新显示，其协调的全球海洋数据信息交换网络覆盖100多个国家海洋数据中心（NODC）和关联数据单元（ADU），持续扩展全球互操作海洋数据生态。IODE发布的海洋数据质量、格式标准和最佳实践文件已被全球主要数据中心广泛采用，并结合海洋十年数据共享协调办公室（DCO）工作，推动区域与全球尺度的数据互通互认。'
                 ),
-                'source': 'Copernicus Marine In Situ TAC / INSTAC',
-                'date': '2026-03-26(更新)',
-                'url': 'https://marineinsitu.eu/'
+                'source': 'IODE / IOC-UNESCO',
+                'date': '2026-04-04(更新)',
+                'url': 'https://www.ioc.unesco.org/en/data-information'
             },
             {
-                'title': '3. NASA GISS地表温度分析数据2026年3月重新组织发布',
-                'badge': '[数据中心]',
+                'title': '3. 国家海洋科学数据中心(NMDIS):数据可视化与实测数据持续开放共享',
+                'badge': '[更新]',
                 'abstract': (
-                    'NASA GISS地表温度分析（GISS Surface Temperature Analysis, GISTEMP）于2026年3月11日重新组织了数据下载页面，将原先附加在页面底部的数据下载链接迁移至独立页面。此次更新改善了用户数据获取体验，GISTEMP作为全球地表温度变化的权威参考数据集，其数据页面优化对气候变化研究和海洋-大气耦合分析具有重要影响。'
+                    '国家海洋科学数据中心（NMDIS）官网持续更新海洋数据开放共享目录，提供实测数据、分析预报数据、地理与遥感数据及科技计划项目数据的在线访问与可视化服务。自然资源部于2024年6月发布的《海洋数据开放共享目录》（第一批）和"海洋云"平台标志着国内海洋数据中心进入全面开放新阶段，持续推动海洋数据要素化应用。'
                 ),
-                'source': 'NASA GISS',
-                'date': '2026-03-11',
-                'url': 'https://data.giss.nasa.gov/gistemp/'
+                'source': '国家海洋科学数据中心 / 自然资源部',
+                'date': '2026-04(更新)',
+                'url': 'https://mds.nmdis.org.cn/'
             },
         ]
     },
@@ -300,34 +270,34 @@ SECTIONS = [
         'en': 'Tools & Code Resources / Ocean Tools & Software',
         'items': [
             {
-                'title': '1. PyOceans SEA-PY:2026年3月更新Python海洋工具协作目录',
+                'title': '1. CROCO GPU能力研讨会（4月10日）:沿海区域海洋模型GPU加速开发进展',
                 'badge': '[工具]',
                 'abstract': (
-                    'PyOceans社区于2026年3月23日更新SEA-PY（Sea-Python）协作目录，系统整理了面向海洋科学社区的Python工具生态。该目录覆盖从基础Python到专业海洋分析库（xarray、dask、Cartopy、OceanSpy等）的完整工具链，是PyOceans社区推动海洋科学Python工具标准化和可发现性的核心项目，为海洋科研人员选择合适的Python工具提供了权威参考。'
+                    'CROCO（Coastal and Regional Ocean COmmunity model）官方公告：下一次用户研讨会将于2026年4月10日举行，主题为"CROCO GPU capabilities"。CROCO是由法国IRD、INRIA、CNRS、IFREMER和SHOM联合维护的高性能海洋建模系统（基于ROMS_AGRIF），croco_pytools Python前后处理工具包（v2.0.3，2026年2月更新）持续迭代，上交大超算平台已部署最新版本，支持GPU加速海洋模拟。'
                 ),
-                'source': 'PyOceans / GitHub Pages',
-                'date': '2026-03-23(更新)',
-                'url': 'https://pyoceans.github.io/sea-py/'
+                'source': 'CROCO / croco-ocean.org',
+                'date': '2026-04-10(即将)',
+                'url': 'https://www.croco-ocean.org/'
             },
             {
-                'title': '2. OceanHackWeek MHW项目:基于Xarray+Dask的多维海洋热浪检测器',
-                'badge': '[GitHub]',
-                'abstract': (
-                    'OceanHackWeek社区在GitHub维护的MHW（Marine Heatwave）检测项目于2026年3月底持续活跃更新。该项目应用Hobday等（2016）标准海洋热浪定义，利用Xarray和Dask实现高性能并行计算，支持多维海洋数据矩阵的海洋热浪自动检测。项目代码开源，提供Jupyter Notebook示例，适合海洋气候变化研究人员快速部署海洋热浪分析流水线。'
-                ),
-                'source': 'GitHub / OceanHackWeek',
-                'date': '2026-03(活跃)',
-                'url': 'https://github.com/oceanhackweek/ohw20-proj-marine-heat-waves'
-            },
-            {
-                'title': '3. OceanSpy 0.3.6:海洋模型数据交互分析与可视化Python包',
+                'title': '2. xarray 2026.2.0发布:Python多维海洋数据分析核心库持续更新',
                 'badge': '[工具]',
                 'abstract': (
-                    'OceanSpy是一个开源用户友好的Python包，用于海洋模型数据集的分析和可视化，基于xarray构建。最新版本0.3.6.dev6于2024年1月发布，持续维护中。OceanSpy提供海洋模型数据切片、剖面提取、体积输运计算等专业功能，支持MITgcm、POP、ROMS等主流海洋模型输出格式，已安装dask和xgcm等依赖以优化大规模数据处理性能，是海洋模型后处理分析的重要开源工具。'
+                    'xarray于2026年2月发布2026.2.0版本，为Python海洋科学数据分析的核心工具库。xarray支持NetCDF/zarr格式的多维标注数组操作，与Dask无缝集成实现大规模并行海洋数据处理，广泛应用于全球/区域海洋模式输出分析、卫星数据处理和海洋气候指标计算。配套的gsw-xarray包为TEOS-10海水热力学计算提供CF标准属性输出，构成现代Python海洋数据处理基础设施的重要组件。'
                 ),
-                'source': 'OceanSpy / ReadTheDocs',
-                'date': '持续维护',
-                'url': 'https://oceanspy.readthedocs.io/en/latest/index.html'
+                'source': 'xarray / PyPI / conda-forge',
+                'date': '2026-02-16',
+                'url': 'https://docs.xarray.dev/en/stable/'
+            },
+            {
+                'title': '3. Ocean Observatories Initiative(OOI):900+仪器实时数据流持续开放访问',
+                'badge': '[平台]',
+                'abstract': (
+                    'OOI（海洋观测站倡议）持续运行其科学驱动的海洋观测网络，截至2026年4月2日仍保持活跃更新，提供超过900个仪器的实时数据流。OOI数据门户支持时间序列、剖面和固定点观测数据的在线检索与下载，并提供完善的质量控制元数据和数据引用规范，是深水海洋观测与数据开放共享的重要基础设施，被广泛用于海洋AI模型训练和验证。'
+                ),
+                'source': 'Ocean Observatories Initiative / NSF',
+                'date': '2026-04-02(更新)',
+                'url': 'https://oceanobservatories.org/'
             },
         ]
     },
