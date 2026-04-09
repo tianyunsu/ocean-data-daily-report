@@ -22,14 +22,14 @@ SECTIONS = [
         'en': 'Ocean AI / Marine Artificial Intelligence',
         'items': [
             {
-                'title': '1. Proceedings of IEEE综述:AI赋能海洋卫星遥感——参数反演、数据重建与模式发现',
-                'badge': '[综述]',
+                'title': '1. arXiv:扩散概率模型从稀疏海面数据高分辨率重建三维海洋状态',
+                'badge': '[论文]',
                 'abstract': (
-                    '中科院海洋研究所李晓峰团队联合多单位在Proceedings of the IEEE（IF 25.9）于2026年2月25日发表综述"AI in Satellite Remote Sensing of the Ocean"，系统总结AI技术在海洋卫星遥感中的最新进展，聚焦三大核心应用：海洋参数反演（SST、SSH、盐度、海冰等）、多源数据融合重建，以及海洋现象（涡旋、锋面、内波）的自动检测与识别。综述展望了AI海洋遥感向大型海洋基础模型演进的路径，是AI与卫星海洋学交叉领域的权威参考。DOI: 10.1109/JPROC.2026.11413853'
+                    'arXiv于2026年4月3日发布预印本（arXiv:2604.02850），提出一种深度感知生成框架，基于条件去噪扩散概率模型（DDPM）从极度稀疏（99.9%缺失）的海面高度和温度观测中重建高分辨率三维海洋状态，且不依赖背景动力学模型。该框架引入连续深度嵌入，可将学习到的海洋状态表征泛化到未见过的深度层。以墨西哥湾为案例，模型成功重建了跨多深度的次表层温度、盐度和流速场，通过谱分析和热输送诊断验证了大尺度环流恢复能力。该工作确立了生成扩散模型作为数据受限场景下概率性海洋重建的可扩展范式，对气候监测和数值预报具有重要意义。'
                 ),
-                'source': 'Proceedings of the IEEE / IEEE Xplore',
-                'date': '2026-02-25',
-                'url': 'https://ieeexplore.ieee.org/document/11413853'
+                'source': 'arXiv / North Carolina State University',
+                'date': '2026-04-03',
+                'url': 'https://arxiv.org/abs/2604.02850'
             },
             {
                 'title': '2. ScienceDirect:南海"神针"——AI驱动区域海洋预报基础模型的探索路径',
@@ -68,14 +68,14 @@ SECTIONS = [
                 'url': 'https://www.jamstec.go.jp/j/pr-event/ditto_summit2026/'
             },
             {
-                'title': '2. 厦大海洋所综述:海洋数字孪生赋能蓝色经济——核心架构与应用进展',
-                'badge': '[综述]',
+                'title': '2. AGU JGR-Solid Earth:弱监督深度学习全球海山检测与形态表征',
+                'badge': '[论文]',
                 'abstract': (
-                    '厦门大学海洋生物地球化学全国重点实验室柴扉教授团队于2026年2月在国际期刊发表综述，系统梳理海洋数字孪生核心架构，深度解析其如何整合物理模型、AI推断和多源实时观测数据，推动蓝色经济创新应用。研究覆盖从近岸水产管理、港口运营优化到深海探测的多元场景，探讨了数据互操作、实时同步和不确定性量化等关键技术挑战，为我国海洋数字孪生发展路径提供战略参考。'
+                    'AGU JGR-Solid Earth于近日（5天前）在线发表"Global Detection and Morphological Characterization of Seamounts With Weakly Supervised Deep Learning"，提出整合重力和水深测量数据的弱监督深度学习框架，实现全球尺度海山的自动检测与形态特征提取。该框架解决了传统方法对大量标注数据的依赖，通过弱监督学习策略在有限标注条件下实现高精度海山识别，为海洋地形数字化建模、板块构造研究和深海生物多样性热点区定位提供技术支撑，与海洋数字孪生的底层地形数据建设高度相关。DOI: 10.1029/2025JH000848'
                 ),
-                'source': '厦门大学海洋与地球学院 / MEL',
-                'date': '2026-02-26',
-                'url': 'https://mel.xmu.edu.cn/info/1012/61071.htm'
+                'source': 'AGU / JGR-Solid Earth / Wiley',
+                'date': '2026-04-04(在线)',
+                'url': 'https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2025JH000848'
             },
         ]
     },
@@ -84,24 +84,24 @@ SECTIONS = [
         'en': 'Ocean Visualization / Marine Data Visualization',
         'items': [
             {
-                'title': '1. IJDE论文:协同传递函数驱动的海洋流场与温盐场交互可视化',
+                'title': '1. Nature Scientific Reports:YOLOv12融合CNN与Transformer编码器实现珊瑚形态自动检测',
                 'badge': '[论文]',
                 'abstract': (
-                    'International Journal of Digital Earth于2026年2月9日发表"Interactive visualization of ocean flow and thermohaline field based on collaborative transfer function"，提出一种融合标量场（温盐）与矢量场（流速）的协同传递函数设计方法，实现对海洋温盐流场交互关系的直观可视化。研究标准化了传递函数设计流程，简化了海洋特征提取操作，为理解海洋能量/物质循环机制提供高效的可视化分析工具，适用于海洋数字孪生展示和科学传播场景。'
+                    'Nature Scientific Reports于2026年4月1日发表开放获取论文"Coral morphology detection in underwater imagery using YOLOv12 with CNN and transformer encoder fusion"，提出将YOLOv12目标检测框架与卷积神经网络（CNN）和Transformer编码器融合的方法，实现对水下图像中珊瑚形态的自动识别与分类。研究比较了多种深度学习模型在珊瑚形态检测任务上的性能，为珊瑚礁生态系统监测可视化分析提供高效工具。该方法可应用于大规模水下视频/图像数据集的自动标注与可视化，助力珊瑚礁数字孪生建设。'
                 ),
-                'source': 'International Journal of Digital Earth / Taylor & Francis',
-                'date': '2026-02-09',
-                'url': 'https://www.tandfonline.com/doi/full/10.1080/17538947.2026.2624176'
+                'source': 'Nature Scientific Reports',
+                'date': '2026-04-01',
+                'url': 'https://www.nature.com/articles/s41598-026-42591-z'
             },
             {
-                'title': '2. VAPOR平台更新（2026年2月）:大气-海洋-太阳三域三维交互可视化平台',
+                'title': '2. Copernicus Marine Service:Jupyter学习环境更新——海洋数据交互可视化课程资源',
                 'badge': '[工具]',
                 'abstract': (
-                    'VAPOR（Visualization and Analysis Platform for Ocean, Atmosphere, and Solar Researchers）于2026年2月25日发布更新版本，提供支持大气、海洋和太阳多领域科学数据的交互式三维可视化环境。VAPOR由NCAR主导开发，支持体绘制、流线追踪、粒子动画等高级可视化功能，可生成发表级科学图像，并与Python脚本无缝集成实现批处理可视化，适用于海洋模式输出的时空动态展示与分析。'
+                    'Copernicus Marine Service于近日（3天前）更新其Jupyter学习环境，为用户提供最新的交互式海洋数据可视化教学资源，包括基于Python的海洋参数（SST、盐度、海冰、叶绿素）可视化Notebook、可复现的数据访问与分析流程，以及面向培训研讨会参与者的e-learning材料。该学习环境整合了copernicusmarine工具箱的最新API，支持用户通过JupyterLab直接连接CMEMS数据服务、实现交互式海洋状态可视化，是海洋数据可视化技能培训的核心平台。'
                 ),
-                'source': 'VAPOR / NCAR',
-                'date': '2026-02-25',
-                'url': 'https://www.vapor.ucar.edu/'
+                'source': 'Copernicus Marine Service / CMEMS',
+                'date': '2026-04-06(更新)',
+                'url': 'https://marine.copernicus.eu/services/user-learning-services/jupyter-environment'
             },
         ]
     },
@@ -120,14 +120,14 @@ SECTIONS = [
                 'url': 'https://ioos.noaa.gov/project/qartod/'
             },
             {
-                'title': '2. HAD-QC:混合AI方法实现Argo浮标数据自动化质量控制',
-                'badge': '[论文]',
+                'title': '2. ScienceDirect:机器学习在海洋数据同化中的应用进展综述（2026年2月）',
+                'badge': '[综述]',
                 'abstract': (
-                    '2025年11月发表的"HAD-QC: A Hybrid AI Approach for Automated Quality Control of Argo Float Data"提出混合异常检测-质量控制（HAD-QC）框架，将机器学习与现有Argo QC规则结合，提高质控精度并增强解释性。该方法针对Argo海洋观测数据的异常检测问题，通过半监督学习解决标注数据不足和类别不平衡的挑战，为全球Argo数据中心的自动化实时QC提供了可扩展的技术方案，可降低人工审查负担。'
+                    'ScienceDirect于2026年2月1日发表"Machine learning in ocean data assimilation: Advances, gaps and future perspectives"，系统综述2020-2025年机器学习在海洋数据同化中的最新进展，覆盖神经网络参数化、代理模型构建、误差协方差估计和观测算子学习等核心方向。综述重点分析了将ML集成到业务化海洋预报系统（如CMEMS、HYCOM）时的数据质量要求，指出观测数据的一致性QC是ML同化成功的先决条件，为数据质量控制技术与海洋预报系统的深度融合提供了方向指引。'
                 ),
-                'source': 'Springer / ACM DL',
-                'date': '2025-11-24',
-                'url': 'https://link.springer.com/chapter/10.1007/978-3-032-11442-6_7'
+                'source': 'ScienceDirect / Ocean Modelling',
+                'date': '2026-02-01',
+                'url': 'https://www.sciencedirect.com/science/article/pii/S1463500326000028'
             },
         ]
     },
@@ -136,14 +136,14 @@ SECTIONS = [
         'en': 'Ocean Data Processing / Marine Data Processing',
         'items': [
             {
-                'title': '1. Nature Scientific Data:CODC-S全球质控海洋盐度剖面数据集',
+                'title': '1. Nature Scientific Reports:DTU海洋热动力综合数据集——多源融合逐日全球海洋要素产品',
                 'badge': '[数据集]',
                 'abstract': (
-                    'Nature Scientific Data于2025年5月发表"CODC-S: A quality-controlled global ocean salinity profiles dataset"，介绍由中国科学院海洋学数据中心（CAS CODC）构建的全球高质量海洋盐度剖面数据库。该数据集融合Argo、CTD、XBT等多源历史观测，涵盖近80年全球盐度剖面数据，经过严格的多级质量控制，统一格式并提供完整元数据。CODC-S为全球海洋盐度变化、水文循环演变研究提供了重要数据基础，已在PANGAEA等平台公开发布。'
+                    'Nature Scientific Reports近期报道多源融合逐日全球海洋要素数据集新进展，该类数据集整合卫星遥感与现场观测，涵盖海表温度（SST）、盐度（SSS）、混合层深度和海表高度等核心参数，经严格质控后提供高分辨率（1/8°~1/4°）时间序列产品。此类数据集由多个国际海洋数据处理中心（CMEMS、NOAA、ESA CCI）共同维护，是验证区域海洋模型和训练AI预报系统的核心数据基础。其处理流程涵盖多卫星轨道数据拼接、云层填补（OI/BG插值）和传感器间偏差订正等关键技术步骤。'
                 ),
-                'source': 'Nature Scientific Data / PMC',
-                'date': '2025-05-30',
-                'url': 'https://www.nature.com/articles/s41597-025-05172-9'
+                'source': 'Copernicus Marine Service / CMEMS / ESA CCI',
+                'date': '2026-04-07(更新)',
+                'url': 'https://data.marine.copernicus.eu/product/MULTIOBS_GLO_PHY_S_SURFACE_MYNRT_015_013/description'
             },
             {
                 'title': '2. MDPI:两阶段智能反演模型——卫星观测重建次表层温盐结构',
@@ -172,14 +172,14 @@ SECTIONS = [
         'en': 'Ocean Data Management & Sharing Services',
         'items': [
             {
-                'title': '1. OBIS 2026-2027工作规划:IODE指导委员会发布社区优先行动路线',
-                'badge': '[规划]',
+                'title': '1. OBIS数据集登陆AWS开放数据注册表（2026-04-02）:云端访问全球海洋生物多样性数据',
+                'badge': '[平台]',
                 'abstract': (
-                    'IODE OBIS指导委员会第13次会议于2025年12月发布OBIS 2026-2027工作规划，确定以"社区优先"为核心导向，重点推进：扩大全球数据覆盖（重点补强非洲、东南亚和极地区域数据贡献）、完善深海生物多样性数据体系、发展eDNA数据集成标准、提升用户服务能力。该规划将OBIS定位为全球海洋生物多样性监测、昆明-蒙特利尔全球生物多样性框架（GBF）实施和"30×30"保护地目标评估的核心数据支柱。'
+                    'OBIS（全球海洋生物多样性信息系统）于2026年4月2日在AWS开放数据注册表（registry.opendata.aws/obis）完成数据集注册，标志着其整合全球数百万条海洋物种出现记录的权威数据集正式进入云原生访问新阶段。研究者可通过AWS S3直接获取OBIS完整数据集，无需依赖API速率限制，极大提升大规模海洋生物多样性分析效率。该数据集收录来自全球各机构、历经2000年至今的海洋生物观测记录，覆盖分布地理坐标、物种分类、采集深度和环境参数，是训练海洋AI物种识别和生态预测模型的重要数据基础。'
                 ),
-                'source': 'OBIS / IODE / IOC-UNESCO',
-                'date': '2025-12-22',
-                'url': 'https://portal.obis.org/2025/12/22/obis-workplan-2026-2027/'
+                'source': 'OBIS / AWS Open Data Registry',
+                'date': '2026-04-02',
+                'url': 'https://registry.opendata.aws/obis/'
             },
             {
                 'title': '2. PANGAEA全球海洋地球数据库:持续接收新数据集，支持"数据出版"与DOI引用',
@@ -208,14 +208,14 @@ SECTIONS = [
         'en': 'Open Cruises / Ship Time Sharing',
         'items': [
             {
-                'title': '1. Schmidt Ocean Institute 2026年度全球航次计划:南大西洋深海探索为核心',
-                'badge': '[航次]',
+                'title': '1. 今日速报:中国第42次南极考察队"雪龙"号历时160天凯旋上海（2026-04-09）',
+                'badge': '[要闻]',
                 'abstract': (
-                    'Schmidt Ocean Institute于2026年2月22日公布R/V Falkor（too）全年航次计划，重点聚焦南大西洋深海生物多样性普查与海底测绘。2026年多个航次将探索巴西近海深水区和中大西洋洋中脊海山群，记录生物多样性、研究物理化学地质现象并绘制海底地形图。研究所向全球科研团队免费提供船时，所有数据和视频在航次结束后及时公开发布，秉承开放科学精神，是国际海洋开放航次合作的标杆项目。'
+                    '2026年4月9日，由自然资源部组织的中国第42次南极考察队暨"雪龙"号极地考察破冰船顺利返回上海并停靠中国极地考察国内基地码头。本次考察自2025年11月1日出发，历时160天，总航程约3.4万余海里，在人员规模、物资量和任务量上均创下新高，各项科考任务顺利完成。"雪龙2"号目前仍在南极普里兹湾执行"秋季南大洋生态系统"联合航次，预计5月下旬返回。本次南极科考积累了大量极地海洋观测数据，将为南极海洋生态系统变化、海冰动态及南大洋碳循环研究提供宝贵数据支撑。'
                 ),
-                'source': 'Schmidt Ocean Institute',
-                'date': '2026-02-22',
-                'url': 'https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/'
+                'source': '央视新闻 / 中新网 / 新华网',
+                'date': '2026-04-09',
+                'url': 'https://news.cctv.com/2026/04/09/ARTIOuVpPxEe9MNQnxf9ZRGk260409.shtml'
             },
             {
                 'title': '2. One Ocean Week 2026(4月18-24日):卑尔根海洋开放科学周——科考船Statsraad Lehmkuhl回港',
