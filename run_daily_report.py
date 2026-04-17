@@ -14,8 +14,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime, timedelta
 
-yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y年%m月%d日')
-date_str = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+yesterday = datetime.now().strftime('%Y年%m月%d日')
+date_str = datetime.now().strftime('%Y-%m-%d')
 
 print(f"=== 海洋AI日报推送脚本 ===")
 print(f"目标日期: {yesterday} ({date_str})")
