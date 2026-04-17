@@ -79,6 +79,14 @@ if not webhook_url:
     print("警告：FEISHU_WEBHOOK_URL 未配置，跳过消息推送")
 else:
     try:
+        github_url = f"https://tianyunsu.github.io/ocean-data-daily-report/posts/{date_str}.html"
+        
+        # 构建链接文字
+        if doc_url:
+            link_content = f"📄 **飞书文档：** {doc_url}\n\n🌐 **网页版：** {github_url}"
+        else:
+            link_content = f"🌐 **完整日报（网页版）：** {github_url}\n\n> 飞书文档写入失败，请点击上方链接查看完整日报"
+
         card_content = {
             "msg_type": "interactive",
             "card": {
@@ -99,7 +107,7 @@ else:
                         "tag": "div",
                         "text": {
                             "tag": "lark_md",
-                            "content": f"📄 **完整简报（飞书文档）：**\n{doc_url if doc_url else '文档创建失败，请查看本地文件'}"
+                            "content": link_content
                         }
                     },
                     {"tag": "hr"},
