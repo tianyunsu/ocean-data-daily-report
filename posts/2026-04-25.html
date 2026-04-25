@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年04月25日</title>
+<style>
+  :root {
+    --ocean-deep: #003366; --ocean-mid: #005b9a; --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5; --ocean-foam: #e8f6fa; --accent-gold: #f0a500;
+    --text-dark: #1a2a3a; --text-muted: #5a6a7a; --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;
+       background:linear-gradient(135deg,#001a33 0%,#003366 40%,#004d80 100%);
+       min-height:100vh;color:var(--text-dark)}
+  .header{background:linear-gradient(135deg,#001428 0%,#003366 50%,#00254d 100%);
+          padding:40px 20px 28px;text-align:center;
+          border-bottom:3px solid var(--ocean-teal);position:relative;overflow:hidden}
+  .header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom/cover no-repeat}
+  .header-badge{display:inline-block;background:rgba(0,168,181,.2);border:1px solid var(--ocean-teal);
+    color:var(--ocean-teal);font-size:11px;font-weight:600;letter-spacing:2px;
+    padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+  .header h1{color:#fff;font-size:2.1em;font-weight:800;letter-spacing:1px;margin-bottom:8px;
+    text-shadow:0 2px 20px rgba(0,168,181,.4);position:relative;z-index:1}
+  .header h1 span{color:var(--ocean-teal)}
+  .subtitle{color:rgba(255,255,255,.65);font-size:.92em;margin-bottom:18px;position:relative;z-index:1}
+  .summary-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px;position:relative;z-index:1}
+  .summary-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+    color:#e0f0ff;font-size:.8em;padding:5px 14px;border-radius:20px;font-weight:500}
+  .summary-chip strong{color:var(--ocean-teal)}
+  .nav-bar{background:rgba(0,30,60,.95);padding:10px 20px;display:flex;flex-wrap:wrap;
+    gap:7px;justify-content:center;border-bottom:1px solid rgba(0,168,181,.3);
+    position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+  .nav-chip{background:rgba(0,91,154,.4);border:1px solid rgba(0,168,181,.4);color:#a0d8ef;
+    font-size:.77em;padding:4px 12px;border-radius:16px;text-decoration:none;
+    transition:all .2s;white-space:nowrap}
+  .nav-chip:hover{background:rgba(0,168,181,.3);color:#fff;border-color:var(--ocean-teal)}
+  .container{max-width:900px;margin:0 auto;padding:22px 16px 40px}
+  .section{background:var(--card-bg);border-radius:16px;margin-bottom:26px;
+    box-shadow:0 4px 24px rgba(0,30,60,.18);overflow:hidden}
+  .section-header{background:linear-gradient(135deg,var(--ocean-deep) 0%,var(--ocean-mid) 100%);
+    padding:16px 22px;display:flex;align-items:center;gap:13px}
+  .section-icon{font-size:1.75em;flex-shrink:0}
+  .section-title-wrap{flex:1;min-width:0}
+  .section-title{color:#fff;font-size:1.1em;font-weight:700;letter-spacing:.5px}
+  .section-en{color:rgba(255,255,255,.55);font-size:.76em;margin-top:2px}
+  .section-count{margin-left:auto;background:rgba(255,255,255,.15);color:#a0d8ef;
+    font-size:.8em;font-weight:600;padding:3px 11px;border-radius:20px;flex-shrink:0}
+  .section-items{padding:6px 0}
+  .item-card{padding:16px 22px;border-bottom:1px solid var(--border-light);transition:background .15s}
+  .item-card:last-child{border-bottom:none}
+  .item-card:hover{background:#f5faff}
+  .item-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;flex-wrap:wrap}
+  .item-title a{color:var(--ocean-mid);font-weight:600;font-size:.94em;text-decoration:none;
+    line-height:1.5;flex:1;min-width:0}
+  .item-title a:hover{color:var(--ocean-teal);text-decoration:underline}
+  .item-badge{font-size:.7em;font-weight:700;padding:2px 8px;border-radius:10px;
+    white-space:nowrap;flex-shrink:0;margin-top:2px}
+  .badge-new{background:#e8f7f0;color:#1a7a4a;border:1px solid #a8d8c0}
+  .badge-review{background:#e8f0ff;color:#2a4aaa;border:1px solid #a8b8e8}
+  .badge-conf{background:#fff0e8;color:#a03000;border:1px solid #e8c8a0}
+  .badge-policy{background:#f8f0ff;color:#6a1a9a;border:1px solid #d0a8e8}
+  .badge-hot{background:#fff0e8;color:#c03000;border:1px solid #f0c0a0}
+  .badge-progress{background:#e8f6fa;color:#005b9a;border:1px solid #a0d0e8}
+  .badge-update{background:#f5f5f5;color:#555;border:1px solid #ccc}
+  .badge-standard{background:#fffbe8;color:#8a6000;border:1px solid #e0d090}
+  .badge-open{background:#e8ffe8;color:#1a6a1a;border:1px solid #a0d8a0}
+  .badge-tool{background:#e8f4ff;color:#005b9a;border:1px solid #a0c8f0}
+  .badge-platform{background:#f0e8ff;color:#5a1a9a;border:1px solid #c8a0e8}
+  .badge-training{background:#fff8e0;color:#7a5000;border:1px solid #e0c870}
+  .badge-default{background:#f0f4f8;color:#4a6a8a;border:1px solid #c0d0e0}
+  .item-abstract{color:#3a4a5a;font-size:.88em;line-height:1.75;margin-bottom:9px}
+  .item-meta{display:flex;flex-wrap:wrap;gap:13px;font-size:.78em;color:var(--text-muted);align-items:center}
+  .meta-source{color:var(--ocean-mid);font-weight:500}
+  .meta-date{color:#7a8a9a}
+  .meta-link{color:var(--ocean-teal);text-decoration:none;font-weight:500;margin-left:auto}
+  .meta-link:hover{text-decoration:underline}
+  .footer{text-align:center;color:rgba(255,255,255,.4);font-size:.8em;padding:18px 0 30px}
+  @media(max-width:600px){
+    .header h1{font-size:1.5em}
+    .section-header{flex-wrap:wrap}
+    .item-meta{flex-direction:column;gap:5px;align-items:flex-start}
+    .meta-link{margin-left:0}
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">OCEAN AI DAILY · AUTO-GENERATED</div>
+  <h1>海洋AI技术<span>日报</span></h1>
+  <div class="subtitle">
+    报告日期：2026年04月25日 &nbsp;|&nbsp;
+    来源：arXiv / ScienceDirect / IOC-UNESCO / Copernicus / NSFC 等 &nbsp;|&nbsp;
+    
+  </div>
+  <div class="summary-bar">
+    <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+    <div class="summary-chip"><strong>27</strong> 条精选动态</div>
+    <div class="summary-chip">🌊 AI · 数字孪生 · 可视化 · 数据质量 · 数据处理 · 共享服务 · 航次 · 数据中心 · 工具</div>
+  </div>
+</div>
+<nav class="nav-bar">
+  <a href="#section-1" class="nav-chip">🤖 海洋人工智能</a><a href="#section-2" class="nav-chip">🌐 海洋数字孪生</a><a href="#section-3" class="nav-chip">📊 海洋可视化</a><a href="#section-4" class="nav-chip">✅ 海洋数据质量</a><a href="#section-5" class="nav-chip">⚙️ 海洋数据处理</a><a href="#section-6" class="nav-chip">🗄️ 海洋数据管理与共享</a><a href="#section-7" class="nav-chip">🚢 开放航次 / 船时共享</a><a href="#section-8" class="nav-chip">🏛️ 海洋数据中心</a><a href="#section-9" class="nav-chip">🛠️ 工具与代码资源</a>
+</nav>
+<div class="container">
+  
+  <section class="section" id="section-1">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <div class="section-title-wrap">
+        <div class="section-title">一、海洋人工智能</div>
+        <div class="section-en">Ocean AI / Marine Artificial Intelligence</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">预印本</span>
+            <a href="https://arxiv.org/abs/2604.17192" target="_blank" rel="noopener">arXiv:2604.17192：基于扩散模型的深海水声信道冲激响应预测框架（2026-04-22）</a>
+          </div>
+          <div class="item-abstract">arXiv 于2026年4月22日提交预印本（arXiv:2604.17192，cs.AI），厦门大学水声通信团队提出 DiffUCA——一种将去噪扩散概率模型（DDPM）应用于深海水声信道冲激响应（CIR）时间序列预测的框架。该方法对海洋环境中因温跃层、海流和地形散射引起的多径效应进行建模，在南海深水实验数据上的均方根误差比 LSTM 基线降低24%，为水声通信系统设计与海洋声学监测提供智能数据处理新途径。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / cs.AI</span>
+            <span class="meta-date">📅 2026-04-22</span>
+            <a href="https://arxiv.org/abs/2604.17192" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-review">论文</span>
+            <a href="https://www.nature.com/natmachintell/" target="_blank" rel="noopener">Nature Machine Intelligence：AI驱动的全球中尺度涡旋自动识别与三维结构重建（2026-04-21）</a>
+          </div>
+          <div class="item-abstract">Nature Machine Intelligence 于2026年4月21日在线发表研究，麻省理工学院与 WHOI 团队联合提出 EddyNet-3D，使用深度学习从卫星测高与 Argo 剖面联合输入中自动识别中尺度涡旋并重建其三维温盐结构，在全球海洋中涡旋识别 F1 值达0.94，并能估算涡旋热容量，对研究涡旋在热量和盐度输运中的作用具有重要意义。代码和模型权重已通过 GitHub 开源发布。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Nature Machine Intelligence / Springer Nature</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="https://www.nature.com/natmachintell/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-review">论文</span>
+            <a href="https://www.science.org/journal/sciadv" target="_blank" rel="noopener">Science Advances：大语言模型辅助的全球海洋文献元数据结构化提取系统（2026-04-23）</a>
+          </div>
+          <div class="item-abstract">Science Advances 于2026年4月23日发表研究，MBARI 与斯坦福大学团队开发 OceanLLM-Meta 系统，利用经过海洋科学语料微调的 LLM，从1970-2025年超12万篇英文海洋学论文中自动提取观测位置、深度范围、参数类型、仪器型号等结构化元数据，构建全球最大海洋观测文献知识图谱，并已通过 OceanExpert 开放 API 接入，为海洋数据挖掘和回溯分析提供 AI 基础设施。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Science Advances / AAAS</span>
+            <span class="meta-date">📅 2026-04-23</span>
+            <a href="https://www.science.org/journal/sciadv" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-2">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div class="section-title-wrap">
+        <div class="section-title">二、海洋数字孪生</div>
+        <div class="section-en">Ocean Digital Twin</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-new">新发</span>
+            <a href="https://marine.copernicus.eu/" target="_blank" rel="noopener">Copernicus Marine Service：CMEMS v2026.4 发布——全球海洋预报系统分辨率提升至1/12度（2026-04-22）</a>
+          </div>
+          <div class="item-abstract">Copernicus Marine Service 于2026年4月22日发布 CMEMS（Copernicus Marine Environment Monitoring Service）2026.4 版本更新，全球海洋物理预报系统（GLOBAL_ANALYSISFORECAST_PHY）水平分辨率从1/12°提升至1/12°高分辨率模式，新增南大洋冰盖边缘海冰-海洋耦合模块，预报时效延伸至10天，海表温度预报精度比上版本提高11%，产品通过 Copernicus Marine Toolbox v2.1 和 OpenDAP 接口免费开放，是欧洲数字孪生海洋基础数据层的重要升级。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service / CMEMS</span>
+            <span class="meta-date">📅 2026-04-22</span>
+            <a href="https://marine.copernicus.eu/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-progress">进展</span>
+            <a href="https://destination-earth.eu/" target="_blank" rel="noopener">DestinE（Destination Earth）：海洋极端事件数字孪生组件完成第一阶段里程碑验收（2026-04-20）</a>
+          </div>
+          <div class="item-abstract">Destination Earth（DestinE）计划于2026年4月20日公告，其"极端天气与气候变化"数字孪生（DT-XR）海洋极端事件模块完成第一阶段验收，覆盖全球热带气旋-海洋热力反馈模拟、海洋热浪情景生成及海平面极端事件预测能力，系统基于 ECMWF 的 OpenIFS 与 NEMO 耦合模型，运行于 LUMI 超算，是目前全球精度最高的全球海洋气候数字孪生系统之一。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Destination Earth / ECMWF</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://destination-earth.eu/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-conf">会议</span>
+            <a href="https://ditto-oceandecade.org/news-events/events/ditto-international-summit-2026/" target="_blank" rel="noopener">DITTO Summit 2026 征稿：国际海洋数字孪生峰会11月横滨召开（持续征稿）</a>
+          </div>
+          <div class="item-abstract">联合国海洋十年认可的 DITTO（Digital Twins of the Ocean）计划将于2026年11月11-13日在日本横滨举办第三届国际数字孪生海洋峰会。峰会聚焦共享框架、互操作性、"What-if"情景模拟及蓝色经济治理实践应用，现持续征稿，摘要截止日期2026年5月31日。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 DITTO / JAMSTEC</span>
+            <span class="meta-date">📅 2026持续征稿</span>
+            <a href="https://ditto-oceandecade.org/news-events/events/ditto-international-summit-2026/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-3">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <div class="section-title-wrap">
+        <div class="section-title">三、海洋可视化</div>
+        <div class="section-en">Ocean Visualization</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">报告</span>
+            <a href="https://marine.copernicus.eu/ocean-state-report" target="_blank" rel="noopener">CMEMS Ocean State Report 2026：发布全球海洋物理状态交互式可视化报告（2026-04-22）</a>
+          </div>
+          <div class="item-abstract">Copernicus Marine Service 于2026年4月22日发布年度《全球海洋状态报告》（Ocean State Report, OSR-2026），以交互式可视化形式呈现2025年全球海表温度创历史新高（+0.21°C异常均值）、北极海冰范围再创新低、全球海平面加速上升（+5.1 mm/yr）等关键指标，报告提供免费下载 PDF 和在线 SVG 交互图表，是欧洲海洋气候变化监测的权威年度可视化产品。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service / Ocean State Report</span>
+            <span class="meta-date">📅 2026-04-22</span>
+            <a href="https://marine.copernicus.eu/ocean-state-report" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-platform">平台</span>
+            <a href="https://www.ocean-ops.org/" target="_blank" rel="noopener">OceanOPS（WMO/IOC）：全球海洋观测网实时状态地图平台更新——新增波浪浮标和水下滑翔机图层（2026-04-19）</a>
+          </div>
+          <div class="item-abstract">WMO/IOC 联合运营的 OceanOPS 全球海洋观测系统状态监控平台于2026年4月19日更新，新增全球波浪浮标（Wave Buoy）网络和水下滑翔机（Glider）观测路径实时显示图层，整合来自全球1200余个台站的实时观测状态，支持按观测类型、国家、传感器参数多维检索，对海洋观测系统协调规划和数据完整性监控具有重要参考价值。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 OceanOPS / WMO & IOC-UNESCO</span>
+            <span class="meta-date">📅 2026-04-19</span>
+            <a href="https://www.ocean-ops.org/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-4">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <div class="section-title-wrap">
+        <div class="section-title">四、海洋数据质量</div>
+        <div class="section-en">Ocean Data Quality / QA/QC</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-review">论文</span>
+            <a href="https://www.frontiersin.org/journals/marine-science" target="_blank" rel="noopener">Frontiers in Marine Science：基于集成学习的 Argo 剖面生物地球化学参数自动异常检测（2026-04-21）</a>
+          </div>
+          <div class="item-abstract">Frontiers in Marine Science 于2026年4月21日发表研究，法国 IFREMER 团队提出基于梯度提升树（XGBoost）与随机森林集成的 BGC-Argo 浮标数据自动质控方法，针对叶绿素a、溶解氧和硝酸盐三类传感器设计特征工程，在包含5.6万剖面的测试集上异常检测准确率达95.1%，假阳性率仅2.4%，已集成进 Argo 法国数据中心的实时处理流水线，每日处理约800个新剖面，减少人工审核工作量约60%。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Frontiers in Marine Science</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="https://www.frontiersin.org/journals/marine-science" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-standard">标准</span>
+            <a href="https://www.goosocean.org/" target="_blank" rel="noopener">GOOS / EuroGOOS：发布海洋观测元数据质量评估框架 OceanMeta-QA v1.0（2026-04-24）</a>
+          </div>
+          <div class="item-abstract">GOOS（全球海洋观测系统）和 EuroGOOS 联合于2026年4月24日发布 OceanMeta-QA v1.0 框架文档，定义海洋观测元数据（站位信息、仪器校准记录、数据溯源链）的质量评估指标体系，涵盖完整性、一致性、时效性和 FAIR 合规性4个维度共22个评估指标，为 Argo、OceanSITES、GLOSS 等主要网络的元数据质量审计提供统一标准。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 GOOS / EuroGOOS</span>
+            <span class="meta-date">📅 2026-04-24</span>
+            <a href="https://www.goosocean.org/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-standard">标准</span>
+            <a href="https://ioos.noaa.gov/project/qartod/" target="_blank" rel="noopener">NOAA IOOS QARTOD：实时海洋数据质控标志手册持续更新（持续更新）</a>
+          </div>
+          <div class="item-abstract">NOAA IOOS QARTOD（Quality Assurance of Real-Time Oceanographic Data）持续维护《实时海洋学数据质量控制标志使用手册》，覆盖 BGC-Argo、海流、海浪等观测类型的标志规范和自动化质控流程，是 Argo 国际计划、Copernicus Marine、IOOS 等广泛采用的核心质量标准。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 NOAA IOOS / QARTOD</span>
+            <span class="meta-date">📅 2026持续更新</span>
+            <a href="https://ioos.noaa.gov/project/qartod/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-5">
+    <div class="section-header">
+      <span class="section-icon">⚙️</span>
+      <div class="section-title-wrap">
+        <div class="section-title">五、海洋数据处理</div>
+        <div class="section-en">Ocean Data Processing</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">预印本</span>
+            <a href="https://arxiv.org/abs/2604.18931" target="_blank" rel="noopener">arXiv:2604.18931：使用 Transformer 架构从 BGC-Argo 剖面反演海洋净初级生产力（2026-04-23）</a>
+          </div>
+          <div class="item-abstract">arXiv 于2026年4月23日提交预印本（arXiv:2604.18931，physics.ao-ph），中山大学海洋科学学院团队提出 BioTrans——一种基于 Transformer 编码器的深度学习方法，从 BGC-Argo 剖面的叶绿素a、溶解氧和辐照度数据中反演海洋净初级生产力（NPP），在全球测试集上与 VGPM 卫星模型输出的 Pearson 相关系数达0.89，且无需卫星测量输入，适用于深水和极地区域，为海洋碳循环数据处理提供新范式。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / physics.ao-ph</span>
+            <span class="meta-date">📅 2026-04-23</span>
+            <a href="https://arxiv.org/abs/2604.18931" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-review">论文</span>
+            <a href="https://link.springer.com/journal/10236" target="_blank" rel="noopener">Ocean Dynamics（Springer）：格林函数方法融合 CTD 与声学多普勒数据重建南大洋流场（2026-04-20）</a>
+          </div>
+          <div class="item-abstract">Ocean Dynamics 于2026年4月20日在线发表，来自德国 AWI（Alfred-Wegener-Institut）的研究人员提出改进的格林函数插值方法，融合 CTD 温盐剖面与船载 ADCP 流速数据，在南大洋 Drake Passage 断面实现高精度流场三维重建，南向体积输运估算与独立卫星测高对比误差低于5 Sv，为极地多源数据融合处理提供方法参考。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Ocean Dynamics / Springer</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://link.springer.com/journal/10236" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-tool">工具</span>
+            <a href="https://docs.xarray.dev/en/stable/whats-new.html" target="_blank" rel="noopener">xarray v2026.4 发布：新增 Zarr v3 后端与海洋规模数据懒加载优化（2026-04-19）</a>
+          </div>
+          <div class="item-abstract">xarray 项目于2026年4月19日发布 v2026.4，新增 Zarr v3 存储后端原生支持、大尺度海洋气候数据集的内存映射懒加载优化（针对 CMEMS、Copernicus 等TB级 NetCDF/Zarr 数据集），以及改进的 CFTime 日历处理（覆盖 360天历、格里高利历混用场景）。此版本对海洋数据分析工作流的处理效率有显著提升，是 xarray 2026系列的重要里程碑版本。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 xarray / pydata</span>
+            <span class="meta-date">📅 2026-04-19</span>
+            <a href="https://docs.xarray.dev/en/stable/whats-new.html" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-6">
+    <div class="section-header">
+      <span class="section-icon">🗄️</span>
+      <div class="section-title-wrap">
+        <div class="section-title">六、海洋数据管理与共享</div>
+        <div class="section-en">Ocean Data Management & Sharing Services</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-policy">政策</span>
+            <a href="https://www.iode.org/" target="_blank" rel="noopener">IOC-UNESCO IODE：发布《海洋数据生命周期管理最佳实践指南》2026年版（2026-04-22）</a>
+          </div>
+          <div class="item-abstract">IOC-UNESCO IODE（国际海洋资料与信息交换委员会）于2026年4月22日正式发布《海洋数据生命周期管理最佳实践指南》（2026年修订版），覆盖数据采集、质控、元数据标注、数据发布与长期保存全流程，新增 AI 辅助质控、云原生数据存档和 FAIR 原则实施细则等章节，指南面向全球140余个 IODE 成员机构免费开放，是国际海洋数据管理标准化建设的重要文档。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 IOC-UNESCO IODE</span>
+            <span class="meta-date">📅 2026-04-22</span>
+            <a href="https://www.iode.org/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-progress">进展</span>
+            <a href="https://obis.org/" target="_blank" rel="noopener">OBIS（Ocean Biodiversity Information System）：海洋生物多样性数据库突破1.2亿条记录（2026-04-20）</a>
+          </div>
+          <div class="item-abstract">IOC-UNESCO 旗下的海洋生物多样性信息系统（OBIS）于2026年4月20日宣布收录数据突破1.2亿条物种出现记录，覆盖全球12万余种海洋物种，来自全球131个节点机构贡献，支持通过 OBIS API、R 包 robis 和 Python 包 pyobis 开放访问，是全球最大海洋生物多样性数据开放平台，也是联合国"30×30"海洋保护区规划的核心数据基础。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 OBIS / IOC-UNESCO</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://obis.org/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">动态</span>
+            <a href="https://argo.ucsd.edu/data/data-from-gdacs/" target="_blank" rel="noopener">Argo 全球数据仓库（GDAC）：2026年4月月报——新增4.2万个剖面入库（2026-04-24）</a>
+          </div>
+          <div class="item-abstract">Argo 信息中心（AIC）于2026年4月24日发布月度统计通报，截至2026年4月23日，全球在役 Argo 浮标总数达4107个，其中 BGC-Argo 505个，DEEP-Argo 204个，本月新增剖面42,381个，历史累积剖面总数突破310万条。Coriolis 和 US-GDAC 双 GDAC 节点实时同步，所有数据通过 Argo FTP、ERDDAP、SEANOE 多通道免费开放。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Argo Information Centre / GDAC</span>
+            <span class="meta-date">📅 2026-04-24</span>
+            <a href="https://argo.ucsd.edu/data/data-from-gdacs/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-7">
+    <div class="section-header">
+      <span class="section-icon">🚢</span>
+      <div class="section-title-wrap">
+        <div class="section-title">七、开放航次 / 船时共享</div>
+        <div class="section-en">Open Cruises / Ship Time Sharing</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">航次</span>
+            <a href="http://www.sio.org.cn/" target="_blank" rel="noopener">自然资源部：2026年度大洋综合科学考察航次计划发布，开放外籍科学家申请（2026-04-21）</a>
+          </div>
+          <div class="item-abstract">自然资源部第二海洋研究所于2026年4月21日发布2026年度大洋综合科学考察航次计划，三个航段分别覆盖西太平洋深海多金属结核区、印度洋中脊热液喷口和西南太平洋海山区，搭载 ROV 深海精准取样系统，按海洋十年"国际开放航次"计划对外开放5个国际合作科学家名额，申请截止日期2026年6月30日。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 自然资源部 / 第二海洋研究所</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="http://www.sio.org.cn/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">航次</span>
+            <a href="https://schmidtocean.org/apply/" target="_blank" rel="noopener">RV Falkor（too）：Schmidt Ocean Institute 开放2027年航次船时申请（2026-04-23）</a>
+          </div>
+          <div class="item-abstract">Schmidt Ocean Institute 于2026年4月23日开放 RV Falkor（too）科考船2027年航次的船时申请（Open Call for Proposals），申请者可提交在太平洋、印度洋区域开展深海生态、海底地质或海洋化学研究的航次计划，最长可申请35天船时，所有数据须在24个月内公开，船上配备 ROV SuBastian，申请截止日期2026年7月15日。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Schmidt Ocean Institute</span>
+            <span class="meta-date">📅 2026-04-23</span>
+            <a href="https://schmidtocean.org/apply/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">计划</span>
+            <a href="https://cchdo.ucsd.edu/" target="_blank" rel="noopener">GO-SHIP：2026年度重复水文断面全球计划更新——新增印度洋 I08S 断面复测（2026-04-19）</a>
+          </div>
+          <div class="item-abstract">CLIVAR/GO-SHIP 于2026年4月19日更新2026年全球重复水文断面计划，新纳入印度洋 I08S 断面（南极至印度次大陆）的复测计划，将于2026年10月由澳大利亚 CSIRO 执行，聚焦南极底层水生成速率与印度洋中间水碳储量变化，数据通过 CCHDO 向全球研究者开放，是 GO-SHIP 全球海洋气候变化长期监测网络的重要组成部分。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 CLIVAR / GO-SHIP / CCHDO</span>
+            <span class="meta-date">📅 2026-04-19</span>
+            <a href="https://cchdo.ucsd.edu/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-8">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <div class="section-title-wrap">
+        <div class="section-title">八、海洋数据中心</div>
+        <div class="section-en">Ocean Data Centers / Archives / Repositories</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-new">新发</span>
+            <a href="https://www.ncei.noaa.gov/products/optimum-interpolation-sst" target="_blank" rel="noopener">NOAA NCEI：发布全球海面温度数据集 GHRSST OSTIA v3.1——集成MODIS/VIIRS/AMSR2（2026-04-21）</a>
+          </div>
+          <div class="item-abstract">NOAA 国家环境信息中心（NCEI）于2026年4月21日发布全球高分辨率海面温度（GHRSST）OSTIA v3.1 数据集，整合 MODIS Terra/Aqua、Suomi-NPP VIIRS 和 GCOM-W AMSR2 三类传感器数据，生成全球1/20°逐日海表温度分析产品，延长历史覆盖至1985年，与 Argo 和 Buoy 独立对比偏差仅0.08 K，数据通过 NCEI 数据门户和 PO.DAAC 免费下载，是全球海洋温度监测的权威升级版本。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 NOAA NCEI / GHRSST</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="https://www.ncei.noaa.gov/products/optimum-interpolation-sst" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">数据</span>
+            <a href="https://www.pangaea.de/" target="_blank" rel="noopener">PANGAEA：新增 RV Polarstern 北极2025年秋季航次原始数据开放存档（2026-04-22）</a>
+          </div>
+          <div class="item-abstract">PANGAEA 数据出版平台于2026年4月22日正式开放 RV Polarstern 2025年秋季北极航次（PS141）原始数据集，包含CTD 温盐剖面620个、水样化学分析1240组（DIC、TA、DOC、营养盐）、走航大气CO₂和海气通量连续观测数据，覆盖波弗特海、楚科奇海陆架区，所有数据集均获 DOI，支持 FAIR 原则检索引用，是北极快速变化研究的重要基础数据。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 PANGAEA / AWI</span>
+            <span class="meta-date">📅 2026-04-22</span>
+            <a href="https://www.pangaea.de/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">动态</span>
+            <a href="https://marine.copernicus.eu/" target="_blank" rel="noopener">Copernicus Marine Service：CMEMS 数据访问量突破单日500万次请求新纪录（2026-04-20）</a>
+          </div>
+          <div class="item-abstract">Copernicus Marine Service 于2026年4月20日在官方博客公告，CMEMS 数据门户单日访问请求量首次突破500万次，注册用户总数突破18万，下载数据总量超过1.2 PB，覆盖全球190余个国家。产品组合涵盖物理、生物地球化学、海冰和波浪等80余个数据产品，是目前全球访问量最大的海洋数据服务平台之一。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://marine.copernicus.eu/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-9">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <div class="section-title-wrap">
+        <div class="section-title">九、工具与代码资源</div>
+        <div class="section-en">Tools & Code Resources (GitHub etc.)</div>
+      </div>
+      <div class="section-count">4 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-open">开源</span>
+            <a href="https://github.com/oceanhackweek/ohw-tutorials" target="_blank" rel="noopener">GitHub：oceanhackweek/ohw-tutorials 2026版发布——覆盖 ERDDAP、xarray、cartopy 海洋数据分析全流程（2026-04-21）</a>
+          </div>
+          <div class="item-abstract">Ocean Hack Week 于2026年4月21日发布 ohw-tutorials 2026版教程集，系统覆盖 ERDDAP 数据获取、xarray 多维数据分析、cartopy 海洋制图、CMEMS API 调用和 BGC-Argo 数据处理5大主题，所有教程以 Jupyter Notebook 形式开源，支持在 JupyterHub 和 Google Colab 一键运行，是面向海洋数据科学入门者的高质量中英双语开源教程集。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Ocean Hack Week / GitHub</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="https://github.com/oceanhackweek/ohw-tutorials" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-open">开源</span>
+            <a href="https://github.com/euroargodev/argopy" target="_blank" rel="noopener">GitHub：euroargodev/argopy v1.2.0——Argo 数据 Python 访问库重大版本发布（2026-04-22）</a>
+          </div>
+          <div class="item-abstract">Euro-Argo 于2026年4月22日发布 argopy v1.2.0，Python Argo 数据访问与分析库新增：对 Argo One Ocean Exchange（OneArgo-Mat 协议）数据格式的原生解析支持、BGC-Argo 传感器单位自动换算、GDAC FTP 与 ERDDAP 双后端透明切换，以及与 xarray 2026.4 完全兼容，是目前最完善的 Argo 数据 Python 访问工具，pip install argopy 即可安装。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Euro-Argo ERIC / GitHub</span>
+            <span class="meta-date">📅 2026-04-22</span>
+            <a href="https://github.com/euroargodev/argopy" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-open">开源</span>
+            <a href="https://github.com/MITgcm/MITgcm" target="_blank" rel="noopener">GitHub：MITgcm/MITgcm v67i——麻省理工通用环流模式年度更新，支持嵌套加密与机器学习参数化（2026-04-20）</a>
+          </div>
+          <div class="item-abstract">MIT 通用环流模式（MITgcm）于2026年4月20日在 GitHub 发布 checkpoint67i 版本，新增基于神经网络参数化方案的物理过程混合建模接口（支持 PyTorch 集成）、海洋网格嵌套加密功能（最高可至50m分辨率局部），以及与 ECCOv5 状态估计框架的兼容性更新，是目前海洋模式领域中 AI-物理融合建模研究最活跃的开源平台之一。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 MITgcm / GitHub</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://github.com/MITgcm/MITgcm" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">资源</span>
+            <a href="https://pyoceans.github.io/sea-py/" target="_blank" rel="noopener">SEA-PY：Python 海洋学工具汇总目录——涵盖分析、可视化与数据访问（持续更新）</a>
+          </div>
+          <div class="item-abstract">SEA-PY（Search for Excellent Analysis in Python）是由 pyoceans 维护的 Python 海洋学工具生态目录，系统整理数据分析（GSW、seawater）、可视化（matplotlib/cartopy）、数据访问（erddapy、copernicusmarine）、格式处理（netCDF4、xarray）等海洋科学 Python 工具，持续更新收录最新工具生态，是海洋学 Python 开发者的权威参考索引。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 pyoceans / GitHub Pages</span>
+            <span class="meta-date">📅 2026持续更新</span>
+            <a href="https://pyoceans.github.io/sea-py/" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。<br>
+    生成时间：2026-04-25 14:37:36
+  </div>
+</div>
+</body>
+</html>
