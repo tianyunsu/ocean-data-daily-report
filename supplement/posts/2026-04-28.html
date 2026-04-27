@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年04月28日</title>
+<style>
+  :root {
+    --ocean-deep: #003366; --ocean-mid: #005b9a; --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5; --ocean-foam: #e8f6fa; --accent-gold: #f0a500;
+    --text-dark: #1a2a3a; --text-muted: #5a6a7a; --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;
+       background:linear-gradient(135deg,#001a33 0%,#003366 40%,#004d80 100%);
+       min-height:100vh;color:var(--text-dark)}
+  .header{background:linear-gradient(135deg,#001428 0%,#003366 50%,#00254d 100%);
+          padding:40px 20px 28px;text-align:center;
+          border-bottom:3px solid var(--ocean-teal);position:relative;overflow:hidden}
+  .header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom/cover no-repeat}
+  .header-badge{display:inline-block;background:rgba(0,168,181,.2);border:1px solid var(--ocean-teal);
+    color:var(--ocean-teal);font-size:11px;font-weight:600;letter-spacing:2px;
+    padding:4px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+  .header h1{color:#fff;font-size:2.1em;font-weight:800;letter-spacing:1px;margin-bottom:8px;
+    text-shadow:0 2px 20px rgba(0,168,181,.4);position:relative;z-index:1}
+  .header h1 span{color:var(--ocean-teal)}
+  .subtitle{color:rgba(255,255,255,.65);font-size:.92em;margin-bottom:18px;position:relative;z-index:1}
+  .summary-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px;position:relative;z-index:1}
+  .summary-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+    color:#e0f0ff;font-size:.8em;padding:5px 14px;border-radius:20px;font-weight:500}
+  .summary-chip strong{color:var(--ocean-teal)}
+  .nav-bar{background:rgba(0,30,60,.95);padding:10px 20px;display:flex;flex-wrap:wrap;
+    gap:7px;justify-content:center;border-bottom:1px solid rgba(0,168,181,.3);
+    position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+  .nav-chip{background:rgba(0,91,154,.4);border:1px solid rgba(0,168,181,.4);color:#a0d8ef;
+    font-size:.77em;padding:4px 12px;border-radius:16px;text-decoration:none;
+    transition:all .2s;white-space:nowrap}
+  .nav-chip:hover{background:rgba(0,168,181,.3);color:#fff;border-color:var(--ocean-teal)}
+  .container{max-width:900px;margin:0 auto;padding:22px 16px 40px}
+  .section{background:var(--card-bg);border-radius:16px;margin-bottom:26px;
+    box-shadow:0 4px 24px rgba(0,30,60,.18);overflow:hidden}
+  .section-header{background:linear-gradient(135deg,var(--ocean-deep) 0%,var(--ocean-mid) 100%);
+    padding:16px 22px;display:flex;align-items:center;gap:13px}
+  .section-icon{font-size:1.75em;flex-shrink:0}
+  .section-title-wrap{flex:1;min-width:0}
+  .section-title{color:#fff;font-size:1.1em;font-weight:700;letter-spacing:.5px}
+  .section-en{color:rgba(255,255,255,.55);font-size:.76em;margin-top:2px}
+  .section-count{margin-left:auto;background:rgba(255,255,255,.15);color:#a0d8ef;
+    font-size:.8em;font-weight:600;padding:3px 11px;border-radius:20px;flex-shrink:0}
+  .section-items{padding:6px 0}
+  .item-card{padding:16px 22px;border-bottom:1px solid var(--border-light);transition:background .15s}
+  .item-card:last-child{border-bottom:none}
+  .item-card:hover{background:#f5faff}
+  .item-title{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;flex-wrap:wrap}
+  .item-title a{color:var(--ocean-mid);font-weight:600;font-size:.94em;text-decoration:none;
+    line-height:1.5;flex:1;min-width:0}
+  .item-title a:hover{color:var(--ocean-teal);text-decoration:underline}
+  .item-badge{font-size:.7em;font-weight:700;padding:2px 8px;border-radius:10px;
+    white-space:nowrap;flex-shrink:0;margin-top:2px}
+  .badge-new{background:#e8f7f0;color:#1a7a4a;border:1px solid #a8d8c0}
+  .badge-review{background:#e8f0ff;color:#2a4aaa;border:1px solid #a8b8e8}
+  .badge-conf{background:#fff0e8;color:#a03000;border:1px solid #e8c8a0}
+  .badge-policy{background:#f8f0ff;color:#6a1a9a;border:1px solid #d0a8e8}
+  .badge-hot{background:#fff0e8;color:#c03000;border:1px solid #f0c0a0}
+  .badge-progress{background:#e8f6fa;color:#005b9a;border:1px solid #a0d0e8}
+  .badge-update{background:#f5f5f5;color:#555;border:1px solid #ccc}
+  .badge-standard{background:#fffbe8;color:#8a6000;border:1px solid #e0d090}
+  .badge-open{background:#e8ffe8;color:#1a6a1a;border:1px solid #a0d8a0}
+  .badge-tool{background:#e8f4ff;color:#005b9a;border:1px solid #a0c8f0}
+  .badge-platform{background:#f0e8ff;color:#5a1a9a;border:1px solid #c8a0e8}
+  .badge-training{background:#fff8e0;color:#7a5000;border:1px solid #e0c870}
+  .badge-default{background:#f0f4f8;color:#4a6a8a;border:1px solid #c0d0e0}
+  .item-abstract{color:#3a4a5a;font-size:.88em;line-height:1.75;margin-bottom:9px}
+  .item-meta{display:flex;flex-wrap:wrap;gap:13px;font-size:.78em;color:var(--text-muted);align-items:center}
+  .meta-source{color:var(--ocean-mid);font-weight:500}
+  .meta-date{color:#7a8a9a}
+  .meta-link{color:var(--ocean-teal);text-decoration:none;font-weight:500;margin-left:auto}
+  .meta-link:hover{text-decoration:underline}
+  .footer{text-align:center;color:rgba(255,255,255,.4);font-size:.8em;padding:18px 0 30px}
+  @media(max-width:600px){
+    .header h1{font-size:1.5em}
+    .section-header{flex-wrap:wrap}
+    .item-meta{flex-direction:column;gap:5px;align-items:flex-start}
+    .meta-link{margin-left:0}
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">OCEAN AI DAILY · AUTO-GENERATED</div>
+  <h1>海洋AI技术<span>日报</span></h1>
+  <div class="subtitle">
+    报告日期：2026年04月28日 &nbsp;|&nbsp;
+    来源：arXiv / ScienceDirect / IOC-UNESCO / Copernicus / NSFC 等 &nbsp;|&nbsp;
+    
+  </div>
+  <div class="summary-bar">
+    <div class="summary-chip"><strong>4</strong> 个研究方向</div>
+    <div class="summary-chip"><strong>5</strong> 条精选动态</div>
+    <div class="summary-chip">🌊 AI · 数字孪生 · 可视化 · 数据质量 · 数据处理 · 共享服务 · 航次 · 数据中心 · 工具</div>
+  </div>
+</div>
+<nav class="nav-bar">
+  <a href="#section-1" class="nav-chip">🤖 海洋人工智能</a><a href="#section-2" class="nav-chip">🌐 海洋数据质量</a><a href="#section-3" class="nav-chip">📊 海洋数据处理</a><a href="#section-4" class="nav-chip">✅ 海洋数据中心</a>
+</nav>
+<div class="container">
+  
+  <section class="section" id="section-1">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <div class="section-title-wrap">
+        <div class="section-title">一、海洋人工智能</div>
+        <div class="section-en">Ocean AI / Marine Artificial Intelligence</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">预印本</span>
+            <a href="https://arxiv.org/abs/2604.21180" target="_blank" rel="noopener">arXiv:2604.21180：扩散模型驱动的不确定性感知时空超分辨率数据同化框架（2026-04-23）</a>
+          </div>
+          <div class="item-abstract">arXiv于2026年4月23日发布预印本（arXiv:2604.21180，physics.flu-dyn，交叉physics.ao-ph），提出DiffSRDA——一种基于去噪扩散模型（DDPM）的时空超分辨率数据同化框架，通过低分辨率预报帧序列与稀疏高分辨率观测联合驱动反向扩散采样，在理想化正压海洋射流不稳定性测试台上实现了接近集合卡尔曼滤波（EnKF）的重建质量，并能提供具有物理意义的不确定性信息（扩散集中在动态活跃区域）。无需求高成本高分辨率预报，仅需少量反向扩散步骤即可保留绝大部分精度，在循环同化中具有实用价值。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / physics.flu-dyn / physics.ao-ph</span>
+            <span class="meta-date">📅 2026-04-23</span>
+            <a href="https://arxiv.org/abs/2604.21180" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-2">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div class="section-title-wrap">
+        <div class="section-title">二、海洋数据质量</div>
+        <div class="section-en">Ocean Data Quality / QA/QC</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">预印本</span>
+            <a href="https://arxiv.org/abs/2604.20467" target="_blank" rel="noopener">arXiv:2604.20467：AI天气模型可解释性工具——机制可解释性在海洋预报评估中的应用（2026-04-23）</a>
+          </div>
+          <div class="item-abstract">arXiv于2026年4月23日发布预印本（arXiv:2604.20467，physics.ao-ph），来自德国慕尼黑大学（LMU Munich）与慕尼黑理工的团队提出AI天气与海洋模型机制可解释性工具，通过电路发现（Circuit Discovery）方法分析神经网络内部如何编码大气-海洋物理规律，有助于识别AI预报系统的系统性误差和质量缺陷，在数据质量评估与模型可信度审计领域具有重要应用前景，已提交ICCS 2026会议。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / physics.ao-ph</span>
+            <span class="meta-date">📅 2026-04-23</span>
+            <a href="https://arxiv.org/abs/2604.20467" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-3">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <div class="section-title-wrap">
+        <div class="section-title">三、海洋数据处理</div>
+        <div class="section-en">Ocean Data Processing</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">预印本</span>
+            <a href="https://arxiv.org/abs/2604.19901" target="_blank" rel="noopener">arXiv:2604.19901：基于图像一致性姿态精化的侧扫声呐图像几何校正方法（2026-04-23）</a>
+          </div>
+          <div class="item-abstract">arXiv于2026年4月23日发布预印本（arXiv:2604.19901，physics.ao-ph），来自西班牙赫罗纳大学水下视觉与机器人实验室（ViCOROB）与中国团队合作提出基于"图像一致性姿态精化"的侧扫声呐（Side-Scan Sonar, SSS）图像几何校正方法，无需外部IMU/DVL参考，仅从声呐图像本身估算并校正运动诱导的几何畸变，在水下AUV真实数据集上验证了海底地形图质量的显著提升，为海洋底质调查数据处理提供新方法。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / physics.ao-ph</span>
+            <span class="meta-date">📅 2026-04-23</span>
+            <a href="https://arxiv.org/abs/2604.19901" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">预印本</span>
+            <a href="https://arxiv.org/abs/2604.21233" target="_blank" rel="noopener">arXiv:2604.21233：面向E3SMv2气候模式的模态气溶胶微物理参数化神经网络仿真器设计（2026-04-24）</a>
+          </div>
+          <div class="item-abstract">arXiv于2026年4月24日发布预印本（arXiv:2604.21233，physics.ao-ph），PNNL（太平洋西北国家实验室）团队系统评估用于替代E3SMv2气候模式中模态气溶胶微物理参数化方案的神经网络仿真器，探索了仿真器架构、训练策略和集成方案对海洋-大气耦合模拟质量的影响，结论直接支撑AI辅助地球系统模式中海洋-气溶胶交互过程的参数化处理。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / physics.ao-ph</span>
+            <span class="meta-date">📅 2026-04-24</span>
+            <a href="https://arxiv.org/abs/2604.21233" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <section class="section" id="section-4">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <div class="section-title-wrap">
+        <div class="section-title">四、海洋数据中心</div>
+        <div class="section-en">Ocean Data Centers</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-new">新动态</span>
+            <a href="https://www.gebco.net/news/release-gebco2026-grid" target="_blank" rel="noopener">GEBCO：GEBCO_2026网格发布——全球海底测绘覆盖率达43%（2026-04-25）</a>
+          </div>
+          <div class="item-abstract">GEBCO（全球海洋测深总图）于2026年4月25日发布GEBCO_2026网格最新版本，约104亿平方公里的海底已被测绘（超过地球陆地表面的三分之二），过去一年新增约500万平方公里测绘数据。GEBCO_2026由Seabed 2030项目协调220个机构的数据贡献整合而成，通过官方数据门户免费开放下载，对海洋学研究、海图制作和蓝色经济发展具有重要基础支撑价值。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 GEBCO / Seabed 2030</span>
+            <span class="meta-date">📅 2026-04-25</span>
+            <a href="https://www.gebco.net/news/release-gebco2026-grid" target="_blank" class="meta-link" rel="noopener">🔗 原文</a>
+          </div>
+        </div></div>
+  </section>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。<br>
+    生成时间：2026-04-28 02:16:39
+  </div>
+</div>
+</body>
+</html>
