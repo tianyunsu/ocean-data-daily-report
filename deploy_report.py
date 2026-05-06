@@ -295,12 +295,70 @@ def update_index_html():
         log("警告: 未找到reports-container,可能需要手动更新index.html", "WARNING")
         return False
 
+def update_sitemap():
+    """自动更新 sitemap.xml"""
+    log("="*60)
+    log("更新 sitemap.xml", "INFO")
+    log("="*60)
+
+    import glob
+
+    SITE_URL = "https://tianyunsu.github.io/ocean-data-daily-report"
+    SITEMAP_FILE = PROJECT_DIR / "sitemap.xml"
+
+    # 获取所有日报文件
+    posts = []
+    for f in glob.glob(str(POSTS_DIR / "*.html")):
+        basename = os.path.basename(f)
+        date_str = basename.replace(".html", "")
+        try:
+            date = datetime.strptime(date_str, "%Y-%m-%d")
+            posts.append((date_str, date))
+        except ValueError:
+            pass
+
+    posts.sort(key=lambda x: x[1], reverse=True)
+
+    # 生成 URL 列表
+    urls = []
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>""")
+    urls.append(f"""  <url>
+    <loc>{SITE_URL}/archive.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    for date_str, date in posts:
+        urls.append(f"""  <url>
+    <loc>{SITE_URL}/posts/{date_str}.html</loc>
+    <lastmod>{date_str}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>""")
+
+    sitemap_content = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>
+'''
+
+    with open(SITEMAP_FILE, 'w', encoding='utf-8') as f:
+        f.write(sitemap_content)
+
+    log(f"✅ sitemap.xml 已更新，共 {len(posts)} 篇日报 + 2 个页面", "SUCCESS")
+    return SITEMAP_FILE
+
+
 def commit_and_push(files):
     """提交并推送更改"""
     log("="*60)
     log("提交并推送到GitHub", "INFO")
     log("="*60)
-    
+
     # 添加文件
     for file_path in files:
         result = run_command(f"git add \"{file_path}\"")
@@ -378,22 +436,28 @@ def main():
             remove_lock()
             return False
         
-        # 7. 更新index.html
+        # 7. 更新 index.html
         if not update_index_html():
             remove_lock()
             return False
-        
-        # 8. 提交并推送
-        if not commit_and_push([target_file, INDEX_HTML]):
+
+        # 8. 更新 sitemap.xml
+        sitemap_file = update_sitemap()
+        if not sitemap_file:
             remove_lock()
             return False
-        
-        # 9. 删除锁
+
+        # 9. 提交并推送
+        if not commit_and_push([target_file, INDEX_HTML, sitemap_file]):
+            remove_lock()
+            return False
+
+        # 10. 删除锁
         remove_lock()
-        
-        # 10. 成功
+
+        # 11. 成功
         log("="*60, "SUCCESS")
-        log("🎉 日报发布成功!", "SUCCESS")
+        log("日报发布成功!", "SUCCESS")
         log("="*60, "SUCCESS")
         log(f"✅ HTML文件: {report_file}", "SUCCESS")
         log(f"✅ 网站地址: https://tianyunsu.github.io/ocean-data-daily-report/", "SUCCESS")

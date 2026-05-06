@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tianyunsu.github.io/ocean-data-daily-report/sitemap.xml
+
+# Disallow supplementary pages (optional, uncomment if needed)
+# Disallow: /supplement/
