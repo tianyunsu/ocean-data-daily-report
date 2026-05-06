@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年05月06日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .nav-chip {
+    background: rgba(0,91,154,0.4);
+    border: 1px solid rgba(0,168,181,0.4);
+    color: #a0d8ef;
+    font-size: 0.78em;
+    padding: 4px 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-chip:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+    border-color: var(--ocean-teal);
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(0,30,60,0.18);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon {
+    font-size: 1.8em;
+    flex-shrink: 0;
+  }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .section-en {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78em;
+    margin-top: 3px;
+  }
+  .section-count {
+    margin-left: auto;
+    background: rgba(255,255,255,0.15);
+    color: #a0d8ef;
+    font-size: 0.82em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .section-items {
+    padding: 8px 0;
+  }
+  .item-card {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s;
+  }
+  .item-card:last-child { border-bottom: none; }
+  .item-card:hover { background: #f5faff; }
+  .item-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    font-weight: 600;
+    font-size: 0.96em;
+    text-decoration: none;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 0;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-badge {
+    font-size: 0.72em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badge-new { background: #e8f7f0; color: #1a7a4a; border: 1px solid #a8d8c0; }
+  .badge-review { background: #e8f0ff; color: #2a4aaa; border: 1px solid #a8b8e8; }
+  .badge-conf { background: #fff0e8; color: #a03000; border: 1px solid #e8c8a0; }
+  .badge-policy { background: #f8f0ff; color: #6a1a9a; border: 1px solid #d0a8e8; }
+  .badge-hot { background: #fff0e8; color: #c03000; border: 1px solid #f0c0a0; }
+  .badge-progress { background: #e8f6fa; color: #005b9a; border: 1px solid #a0d0e8; }
+  .badge-update { background: #f5f5f5; color: #555; border: 1px solid #ccc; }
+  .badge-standard { background: #fffbe8; color: #8a6000; border: 1px solid #e0d090; }
+  .badge-open { background: #e8ffe8; color: #1a6a1a; border: 1px solid #a0d8a0; }
+  .badge-default { background: #f0f4f8; color: #4a6a8a; border: 1px solid #c0d0e0; }
+  .item-abstract {
+    color: #3a4a5a;
+    font-size: 0.9em;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    align-items: center;
+  }
+  .meta-source { color: var(--ocean-mid); font-weight: 500; }
+  .meta-date { color: #7a8a9a; }
+  .meta-link {
+    color: var(--ocean-teal);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: auto;
+  }
+  .meta-link:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.82em;
+    padding: 20px 0 32px;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">OCEAN AI DAILY · AUTO-GENERATED</div>
+  <h1>海洋AI技术<span>日报</span></h1>
+  <div class="subtitle">报告日期：2026年05月06日 &nbsp;|&nbsp; 来源：arXiv / ScienceDirect / IOC-UNESCO / Copernicus / NSFC 等 &nbsp;|&nbsp; 自动生成</div>
+  <div class="summary-bar">
+    <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+    <div class="summary-chip"><strong>24</strong> 条精选动态</div>
+    <div class="summary-chip">🌊 覆盖 AI · 数字孪生 · 可视化 · 数据质量 · 数据处理 · 共享服务 · 开放航次 · 数据中心 · 工具</div>
+  </div>
+</div>
+<nav class="nav-bar">
+  <a href="#section-1" class="nav-chip">🤖 海洋人工智能</a><a href="#section-2" class="nav-chip">🌐 海洋数字孪生</a><a href="#section-3" class="nav-chip">📊 海洋可视化</a><a href="#section-4" class="nav-chip">✅ 海洋数据质量</a><a href="#section-5" class="nav-chip">⚙️ 海洋数据处理</a><a href="#section-6" class="nav-chip">🗄️ 海洋数据管理与共享服务</a><a href="#section-7" class="nav-chip">🚢 开放航次 / 船时共享</a><a href="#section-8" class="nav-chip">🏛️ 海洋数据中心</a><a href="#section-9" class="nav-chip">🛠️ 工具与代码资源</a>
+</nav>
+<div class="container">
+  
+  <section class="section" id="section-1">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <div>
+        <div class="section-title">一、海洋人工智能</div>
+        <div class="section-en">Ocean AI / Marine Artificial Intelligence</div>
+      </div>
+      <div class="section-count">4 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://marine.copernicus.eu/news/how-artificial-intelligence-powering-next-generation-operational-marine-products" target="_blank" rel="noopener">1. Copernicus Marine Service（2026-05-04）：AI如何推动下一代业务化海洋产品</a>
+          </div>
+          <div class="item-abstract">哥白尼海洋服务发布深度文章，揭示AI正在重塑业务化海洋学：北极海冰预报误差降低41%，全球风场ML偏差校正可延伸至预报场，大西洋波浪预报精度显著提升。四款AI增强产品预计2026至2027年间正式上线，标志着基于物理模型与机器学习深度融合的新阶段。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service</span>
+            <span class="meta-date">📅 2026-05-04</span>
+            <a href="https://marine.copernicus.eu/news/how-artificial-intelligence-powering-next-generation-operational-marine-products" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://news.sciencenet.cn/htmlpaper/2026/4/202641510930755149205.shtm" target="_blank" rel="noopener">2. 科学网（2026-04-15）：中科院海洋研究所——海洋现象智能预报方法体系研究取得重要进展</a>
+          </div>
+          <div class="item-abstract">中国科学院海洋研究所李晓峰、王凡团队在《科学通报》发文，系统梳理海洋状态变量（OSV）预报与海洋现象（OP）预报的概念框架与AI应用进展，提出构建"海洋现象大模型（OP-LOM）"的未来方向，融合多模态数据、物理约束与持续学习，推动海洋预报从"环境场预测"向"事件演化预警"跨越。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 科学网 / 科学通报</span>
+            <span class="meta-date">📅 2026-04-15</span>
+            <a href="https://news.sciencenet.cn/htmlpaper/2026/4/202641510930755149205.shtm" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://arxiv.org/html/2605.00860v1" target="_blank" rel="noopener">3. arXiv（2026-04-21）：基于自适应时空聚类框架的三维海洋次表层温度重建</a>
+          </div>
+          <div class="item-abstract">同济大学团队提出自适应时空聚类框架，结合DP-CNN、ViT等多种深度学习方法，仅使用海表面卫星数据（SST/SSS/SSH/SSW）即可重建三维次表层温度，RMSE相比基准方法提升12.4%～27.2%。该框架具备架构无关性，可广泛集成主流神经网络。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / 同济大学</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="https://arxiv.org/html/2605.00860v1" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            
+            <a href="https://ieeexplore.ieee.org/document/11413853" target="_blank" rel="noopener">4. IEEE（2026-02-25）：AI在海洋卫星遥感中的应用综述</a>
+          </div>
+          <div class="item-abstract">发表于IEEE Transactions on Geoscience and Remote Sensing，系统综述AI技术在海洋卫星遥感三大应用领域的进展：参数反演、数据重建和智能解译。覆盖海表温度、盐度、海浪、海流、叶绿素等核心变量，是近期该领域最全面的综述文章之一。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 IEEE Xplore</span>
+            <span class="meta-date">📅 2026-02-25</span>
+            <a href="https://ieeexplore.ieee.org/document/11413853" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-2">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div>
+        <div class="section-title">二、海洋数字孪生</div>
+        <div class="section-en">Ocean Digital Twin</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://destine.ecmwf.int/news/paper-highlighting-destine-climate-digital-twin-capabilities-published/" target="_blank" rel="noopener">1. Destination Earth（2026-04-29）：DestinE气候数字孪生能力论文在GMD发表</a>
+          </div>
+          <div class="item-abstract">100余位科学家合作在《地球科学模型发展》期刊发表论文，记录DestinE气候变化适应数字孪生的首次业务化实施成果，实现5~10km分辨率、多十年时间尺度的全球气候预测，支持能源、水资源等行业决策。使用ICON、IFS-FESOM、IFS-NEMO三大地球系统模型，集成AI/ML技术进行气候信息生产。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Destination Earth / ECMWF / Geoscientific Model Development</span>
+            <span class="meta-date">📅 2026-04-29</span>
+            <a href="https://destine.ecmwf.int/news/paper-highlighting-destine-climate-digital-twin-capabilities-published/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://cdn.ebiotrade.com/newsf/2026-5/20260501084512922.htm" target="_blank" rel="noopener">2. Journal of Marine Science and Engineering（2026-05-01）：深海观测网络数字孪生原型——虚拟环境重建与数据驱动预测</a>
+          </div>
+          <div class="item-abstract">提出DSON-DT深海观测网络数字孪生框架，采用虚幻引擎5（UE5）进行高保真海洋环境3D渲染（60FPS、延迟<100ms），并设计改进型AR-LSTM模型用于电量状态（SoC）预测（R²=0.9981），通过MQTT+WebSocket+HTTP全栈架构实现实时遥测与远程控制。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Journal of Marine Science and Engineering / MDPI</span>
+            <span class="meta-date">📅 2026-05-01</span>
+            <a href="https://cdn.ebiotrade.com/newsf/2026-5/20260501084512922.htm" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-3">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <div>
+        <div class="section-title">三、海洋可视化</div>
+        <div class="section-en">Ocean Visualization</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://www.northeastoceandata.org/hundreds-of-new-and-updated-plankton-datasets/" target="_blank" rel="noopener">1. Northeast Ocean Data Portal（2026-05-01）：数百个新增浮游生物数据图层正式上线</a>
+          </div>
+          <div class="item-abstract">东北海洋数据门户正式发布数百个浮游生物数据图层，分为浮游植物（基于MODIS/VIIRS卫星叶绿素-a）、浮游动物（NOAA EcoMon调查衍生）、鱼类浮游生物（8个物种季节性分布，2003–2021）三大类。这些数据代表海洋食物网基础，可用于物种分布模型和栖息地适宜性评估。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Northeast Ocean Data Portal / MDAT</span>
+            <span class="meta-date">📅 2026-05-01</span>
+            <a href="https://www.northeastoceandata.org/hundreds-of-new-and-updated-plankton-datasets/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://marine.copernicus.eu/news/copernicus-marine-user-uptake-2025" target="_blank" rel="noopener">2. Copernicus Marine（2026-04-28）：2025年用户使用报告发布——年数据请求超110亿次</a>
+          </div>
+          <div class="item-abstract">哥白尼海洋服务发布2025年KPI亮点报告：网站访问量超160万次，数据下载量近15PB，数据请求次数突破110亿次。MyOcean可视化服务持续升级，已成为全球海洋科学、航运、能源、海岸管理等行业的核心数据基础设施。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service / Mercator Ocean International</span>
+            <span class="meta-date">📅 2026-04-28</span>
+            <a href="https://marine.copernicus.eu/news/copernicus-marine-user-uptake-2025" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-4">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <div>
+        <div class="section-title">四、海洋数据质量</div>
+        <div class="section-en">Ocean Data Quality / QA/QC</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://www.nature.com/articles/s41597-026-06957-2" target="_blank" rel="noopener">1. Scientific Data（2026-04-16）：WOD23——全球最完整海洋原位剖面数据集正式发表</a>
+          </div>
+          <div class="item-abstract">美国NOAA/NCEI团队在Scientific Data发表WOD23数据描述文章，该数据集包含约1860万个水柱剖面、36亿次测量，覆盖27个变量，时间跨度1772-2022年，遵循FAIR原则，通过多层次系统性QC（统计检验+专家审核+重复剔除），是目前全球最大的格式统一、质量受控海洋剖面数据集。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Scientific Data / NOAA NCEI</span>
+            <span class="meta-date">📅 2026-04-16</span>
+            <a href="https://www.nature.com/articles/s41597-026-06957-2" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://marineinsitu.eu/data-from-the-one-ocean-expedition-2025-2026-integrated-into-copernicus-marine/" target="_blank" rel="noopener">2. Copernicus Marine In Situ TAC（2026-04-30）：One Ocean Expedition 2025-2026数据集成入CMEMS</a>
+          </div>
+          <div class="item-abstract">继2022年首次整合后，哥白尼海洋原位TAC再度将One Ocean Expedition 2025-2026航次的观测数据纳入Copernicus Marine数据平台，实现近实时数据共享与多模型同化使用，进一步扩展全球原位观测数据覆盖。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine In Situ TAC</span>
+            <span class="meta-date">📅 2026-04-30</span>
+            <a href="https://marineinsitu.eu/data-from-the-one-ocean-expedition-2025-2026-integrated-into-copernicus-marine/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-5">
+    <div class="section-header">
+      <span class="section-icon">⚙️</span>
+      <div>
+        <div class="section-title">五、海洋数据处理</div>
+        <div class="section-en">Ocean Data Processing</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/01431161.2026.2666912" target="_blank" rel="noopener">1. ESSD / Taylor & Francis（2026-05-05）：融合卫星高度计优化全球海岸潮汐预测</a>
+          </div>
+          <div class="item-abstract">发表于International Journal of Remote Sensing，结合光学遥感与卫星高度计数据，提供全球海洋潮汐模型性能的大陆尺度新洞察，揭示现有潮汐模型在沿海区域存在的显著误差，为海岸管理和海平面监测提供改进基准。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 International Journal of Remote Sensing / Taylor & Francis</span>
+            <span class="meta-date">📅 2026-05-05</span>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/01431161.2026.2666912" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://marine.copernicus.eu/news/how-artificial-intelligence-powering-next-generation-operational-marine-products" target="_blank" rel="noopener">2. CMEMS（2026-05-04）：AI驱动下一代业务化海洋产品——4DVarNet算法应用于SST重建</a>
+          </div>
+          <div class="item-abstract">哥白尼海洋服务发布深度技术文章，介绍4DVarNet算法（结合数据同化概念与神经网络架构）在多传感器海表温度重建中的应用，计划于2027年7月上线新产品，在保留细尺度变率的同时降低计算需求。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service</span>
+            <span class="meta-date">📅 2026-05-04</span>
+            <a href="https://marine.copernicus.eu/news/how-artificial-intelligence-powering-next-generation-operational-marine-products" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://wiki.pangaea.de/wiki/PANGAEA_Community_Workshops#Next_Editions" target="_blank" rel="noopener">3. PANGAEA（2026-05-07/08）：PANGAEA社区研讨会——数据发现与获取实操工作坊（即将举行）</a>
+          </div>
+          <div class="item-abstract">PANGAEA即将于2026年5月7-8日举办线上实操研讨会（CEST 10:30-12:30），面向研究人员、数据管理员和分析师，聚焦三大模块：系统性数据发现策略、数据获取与Jupyter Notebooks集成工作流、编程工具与标准实践。报名已开放。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 PANGAEA / AWI / MARUM</span>
+            <span class="meta-date">📅 2026-05-01</span>
+            <a href="https://wiki.pangaea.de/wiki/PANGAEA_Community_Workshops#Next_Editions" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-6">
+    <div class="section-header">
+      <span class="section-icon">🗄️</span>
+      <div>
+        <div class="section-title">六、海洋数据管理与共享服务</div>
+        <div class="section-en">Ocean Data Management & Sharing</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://marine.copernicus.eu/news/understanding-our-ocean-ocean-observing" target="_blank" rel="noopener">1. Copernicus Marine（2026-04-29）：了解我们的海洋——海洋观测新系列文章首发</a>
+          </div>
+          <div class="item-abstract">哥白尼海洋服务启动"了解我们的海洋"专题系列，首篇聚焦海洋观测体系，探讨如何通过多源观测、建模和数字化手段构建对海洋的系统性理解，为推进数字海洋系统提供科普基础。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Copernicus Marine Service</span>
+            <span class="meta-date">📅 2026-04-29</span>
+            <a href="https://marine.copernicus.eu/news/understanding-our-ocean-ocean-observing" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://seabed2030.org/2026/04/20/global-seabed-mapping-reaches-new-milestone-as-five-million-square-kilometres-added-in-a-year/" target="_blank" rel="noopener">2. Seabed 2030（2026-04-20）：全球海底测绘新里程碑——一年内新增近500万平方公里数据</a>
+          </div>
+          <div class="item-abstract">日本财团-GEBCO Seabed 2030项目宣布全球海底已测绘面积达28.7%，一年内新增近500万平方公里海底数据（创年度记录），距2030年目标取得重大进展。强调海底测绘作为全球公共产品的战略价值，呼吁各国增加数据共享与投入。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Seabed 2030 / Nippon Foundation / GEBCO</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://seabed2030.org/2026/04/20/global-seabed-mapping-reaches-new-milestone-as-five-million-square-kilometres-added-in-a-year/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            
+            <a href="https://iode.org/iode-obis-is-seeking-a-obis-data-expert/" target="_blank" rel="noopener">3. IODE/OBIS（2026-04-10）：IODE/OBIS招募OBIS数据专家——推进Marco-Bolo项目海洋生物多样性数据协调</a>
+          </div>
+          <div class="item-abstract">IODE/OBIS面向EU项目Marco-Bolo发布OBIS数据专家招募公告，该项目旨在加强欧洲海洋生物多样性观测能力建设，优化数据流程与共享机制，招募可帮助推进FAIR数据标准在海洋生物多样性领域落地的数据专家。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 IODE / OBIS / IOC-UNESCO</span>
+            <span class="meta-date">📅 2026-04-10</span>
+            <a href="https://iode.org/iode-obis-is-seeking-a-obis-data-expert/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-7">
+    <div class="section-header">
+      <span class="section-icon">🚢</span>
+      <div>
+        <div class="section-title">七、开放航次 / 船时共享</div>
+        <div class="section-en">Open Cruises / Ship Time Sharing</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/" target="_blank" rel="noopener">1. Schmidt Ocean Institute（2026-05-06）：亚马逊峡谷水下雪崩研究航次即将启航（5月17日）</a>
+          </div>
+          <div class="item-abstract">Schmidt Ocean Institute研究船Falkor(too)将于2026年5月17日启航，赴亚马逊峡谷开展为期35天的浊流（水下雪崩）研究，由MBARI与摩德纳大学联合团队主导，评估浊流频率、速度、地貌影响及有机碳/微塑料迁移，属联合国海洋十年认可项目。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Schmidt Ocean Institute</span>
+            <span class="meta-date">📅 2026-05-06</span>
+            <a href="https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://nautiluslive.org/" target="_blank" rel="noopener">2. Nautilus Live（2026-05-01）：E/V Nautilus发布管水母野外指南视频——深海探索科普</a>
+          </div>
+          <div class="item-abstract">E/V Nautilus于2026年5月1日发布深海管水母（Siphonophores）野外指南视频，展示2026年太平洋中西部考察中捕获的深海影像，继续向全球受众实时直播深海科学探索成果。2025年度已完成7次多学科考察，覆盖马里亚纳群岛、所罗门群岛等西太平洋海域。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Ocean Exploration Trust / Nautilus Live</span>
+            <span class="meta-date">📅 2026-05-01</span>
+            <a href="https://nautiluslive.org/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-8">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <div>
+        <div class="section-title">八、海洋数据中心</div>
+        <div class="section-en">Ocean Data Centers</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://www.gebco.net/news/release-gebco2026-grid" target="_blank" rel="noopener">1. GEBCO / Seabed 2030（2026-04-27）：GEBCO_2026 Grid正式发布可下载</a>
+          </div>
+          <div class="item-abstract">GEBCO于2026年4月27日正式发布2026版全球海底地形网格（GEBCO_2026 Grid），提供15弧秒分辨率全球海洋与陆地高程数据，支持netCDF、GeoTiff、ASCII格式下载及OPeNDAP在线访问，属公共领域免费数据，是全球海洋测绘的最新基准产品。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 GEBCO / IHO / Nippon Foundation</span>
+            <span class="meta-date">📅 2026-04-27</span>
+            <a href="https://www.gebco.net/news/release-gebco2026-grid" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://wiki.pangaea.de/wiki/Event-Campaign-Merge" target="_blank" rel="noopener">2. PANGAEA（2026-04-28）：PANGAEA数据库Event-Campaign Merge架构升级进行中</a>
+          </div>
+          <div class="item-abstract">PANGAEA实施数据库架构重大现代化升级（Event-Campaign Merge），将数据采集事件元数据从固定层级升级为灵活树状层级，支持多级嵌套事件，并新增Location 2字段支持轨迹事件精确定位。升级期间数据搜索与获取服务正常运行，已有数据集与API不受影响。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 PANGAEA / AWI / MARUM</span>
+            <span class="meta-date">📅 2026-04-28</span>
+            <a href="https://wiki.pangaea.de/wiki/Event-Campaign-Merge" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://www.nature.com/articles/s41597-026-06957-2" target="_blank" rel="noopener">3. NOAA NCEI（2026-04-16）：WOD23发表于Scientific Data——全球海洋原位数据基础资源</a>
+          </div>
+          <div class="item-abstract">NOAA NCEI在Scientific Data发表WOD23数据论文，确立世界海洋数据库2023版的基础数据资源地位。数据覆盖97个国家、2.7万个归档数据集、237,525次科考航次，季度持续更新，支持气候研究、地球系统模型、海洋再分析等多种应用，DOI: 10.25921/v92s-y066。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 NOAA NCEI / Scientific Data</span>
+            <span class="meta-date">📅 2026-04-16</span>
+            <a href="https://www.nature.com/articles/s41597-026-06957-2" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <section class="section" id="section-9">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <div>
+        <div class="section-title">九、工具与代码资源</div>
+        <div class="section-en">Tools & Code Resources</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+      
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://pypi.org/project/copernicusmarine/" target="_blank" rel="noopener">1. Copernicus Marine Toolbox（2026-04-20）：copernicusmarine v2.4.0 正式发布</a>
+          </div>
+          <div class="item-abstract">copernicusmarine Python工具箱v2.4.0于2026年4月20日正式发布（当前最新稳定版），主要更新：支持Python 3.10-3.14、新增稀疏数据集NetCDF子集提取、密集数据集CSV导出、优化登录凭证复用流程、兼容pandas>=3.0.0，修复了稀疏数据集下载和空文件生成问题。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 Mercator Ocean International / Copernicus Marine</span>
+            <span class="meta-date">📅 2026-04-20</span>
+            <a href="https://pypi.org/project/copernicusmarine/" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://arxiv.org/abs/2605.00860" target="_blank" rel="noopener">2. arXiv（2026-04-21）：自适应时空聚类+深度学习——海洋次表层温度重建框架开源</a>
+          </div>
+          <div class="item-abstract">同济大学团队在arXiv发布开放代码研究（arXiv:2605.00860），提供针对海洋次表层温度重建的自适应时空聚类框架，兼容DP-CNN、Attention U-Net、ViT、FFNN、LSTM、OCNN等多种神经网络，实验在南海和印度洋数据上验证，RMSE平均提升12.4%-27.2%。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 arXiv / 同济大学</span>
+            <span class="meta-date">📅 2026-04-21</span>
+            <a href="https://arxiv.org/abs/2605.00860" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+        <div class="item-card">
+          <div class="item-title">
+            <span class="item-badge badge-default">近7天</span>
+            <a href="https://wiki.pangaea.de/wiki/PANGAEA_Community_Workshops#Next_Editions" target="_blank" rel="noopener">3. PANGAEA（2026-05-07/08）：PANGAEA社区工作坊——Jupyter Notebooks集成海洋数据访问</a>
+          </div>
+          <div class="item-abstract">面向数据分析师的PANGAEA实操工作坊（线上，5月7-8日），重点演示如何在Jupyter Notebooks等虚拟研究环境中通过编程工具和标准接口无缝访问PANGAEA数据，涵盖数据发现、API调用和工作流集成三大模块，适合海洋数据科学入门用户。</div>
+          <div class="item-meta">
+            <span class="meta-source">📰 PANGAEA / AWI</span>
+            <span class="meta-date">📅 2026-05-01</span>
+            <a href="https://wiki.pangaea.de/wiki/PANGAEA_Community_Workshops#Next_Editions" target="_blank" class="meta-link" rel="noopener">🔗 原文链接</a>
+          </div>
+        </div>
+    </div>
+  </section>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。版权归原作者/机构所有。<br>
+    生成时间：2026-05-06 09:00:43
+  </div>
+</div>
+</body>
+</html>
