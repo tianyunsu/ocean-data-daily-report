@@ -1,0 +1,1504 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+    <!-- contains Cornell logo and sponsor statement -->
+<div class="attribution level is-marginless" role="banner">
+  <div class="level-left">
+    <a class="level-item" href="https://cornell.edu/"><img src="https://static.arxiv.org/static/base/1.0.0a5/images/cornell-reduced-white-SMALL.svg" alt="Cornell University" width="200" aria-label="logo" /></a>
+  </div>
+  <div class="level-right is-marginless"><p class="sponsors level-item is-marginless"><span id="support-ack-url">We gratefully acknowledge support from<br /> the Simons Foundation, <a href="https://info.arxiv.org/about/ourmembers.html">member institutions</a>, and all contributors. <a href="https://info.arxiv.org/about/donate.html">Donate</a></span></p></div>
+</div>
+<!-- contains arXiv identity and search bar -->
+<div class="identity level is-marginless">
+  <div class="level-left">
+    <div class="level-item">
+      <a class="arxiv" href="https://arxiv.org/" aria-label="arxiv-logo">
+        <img src="https://static.arxiv.org/static/base/1.0.0a5/images/arxiv-logo-one-color-white.svg" aria-label="logo" alt="arxiv logo" width="85" style="width:85px;"/>
+      </a>
+    </div>
+  </div>
+  
+  <div class="search-block level-right">
+    <form class="level-item mini-search" method="GET" action="https://arxiv.org/search">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input is-small" type="text" name="query" placeholder="Search..." aria-label="Search term or terms" />
+          <p class="help"><a href="https://info.arxiv.org/help">Help</a> | <a href="https://arxiv.org/search/advanced">Advanced Search</a></p>
+        </div>
+        <div class="control">
+          <div class="select is-small">
+            <select name="searchtype" aria-label="Field to search">
+              <option value="all" selected="selected">All fields</option>
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="abstract">Abstract</option>
+              <option value="comments">Comments</option>
+              <option value="journal_ref">Journal reference</option>
+              <option value="acm_class">ACM classification</option>
+              <option value="msc_class">MSC classification</option>
+              <option value="report_num">Report number</option>
+              <option value="paper_id">arXiv identifier</option>
+              <option value="doi">DOI</option>
+              <option value="orcid">ORCID</option>
+              <option value="author_id">arXiv author ID</option>
+              <option value="help">Help pages</option>
+              <option value="full_text">Full text</option>
+            </select>
+          </div>
+        </div>
+        <input type="hidden" name="source" value="header">
+        <button class="button is-small is-cul-darker">Search</button>
+      </div>
+    </form>
+  </div>
+</div> <!-- closes identity -->
+
+<div class="container">
+    <div class="user-tools is-size-7 has-text-right has-text-weight-bold" role="navigation" aria-label="User menu">
+      <a href="https://arxiv.org/login">Login</a>
+    </div>
+</div>
+    
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;18 of 18 results for all: <span class="mathjax">ocean digital twin</span>
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  <form method="GET" action="/search/"  aria-role="search">
+    
+
+    
+    <div class="field has-addons-tablet">
+      <div class="control is-expanded">
+        <label for="query" class="hidden-label">Search term or terms</label>
+        
+          <input class="input is-medium" id="query" name="query" placeholder="Search term..." type="text" value="ocean digital twin">
+        
+        
+      </div>
+      <div class="select control is-medium">
+        <label class="is-hidden" for="searchtype">Field</label>
+        <select class="is-medium" id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+      </div>
+      <div class="control">
+          <button class="button is-link is-medium">Search</button>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control is-size-7">
+        
+        <label class="radio">
+          <input checked id="abstracts-0" name="abstracts" type="radio" value="show"> Show abstracts
+        </label>
+        
+        <label class="radio">
+          <input id="abstracts-1" name="abstracts" type="radio" value="hide"> Hide abstracts
+        </label>
+        
+      </div>
+    </div>
+    <div class="is-clearfix" style="height: 2.5em"> 
+      <div class="is-pulled-right">
+        
+        <a href="/search/advanced?terms-0-term=ocean+digital+twin&amp;terms-0-field=all&amp;size=50&amp;order=-announced_date_first">Advanced Search</a>
+        
+      </div>
+    </div>
+    <input type="hidden" name="order" value="-announced_date_first">
+    <input type="hidden" name="size" value="50">
+  </form>
+
+  
+
+  
+      
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/">
+      <div style="display: none;">
+        
+          
+            <select id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+          
+        
+          
+            <input id="query" name="query" type="text" value="ocean digital twin">
+          
+        
+          
+        
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option selected value="50">50</option><option value="100">100</option><option value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option selected value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+      
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2604.16343">arXiv:2604.16343</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2604.16343">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Human-Computer Interaction">cs.HC</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Elder-Sim: A Psychometrically Validated Platform for Personality-Stable Elderly <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+J">Jiaqing Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yang%2C+Z">Zhongfang Yang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhu%2C+X">Xingyuan Zhu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+Z">Zong&#39;an Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+H">Hao Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tian%2C+L">Li Tian</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cao%2C+Y">Ying Cao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Qu%2C+X">Xiaomin Qu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Qi%2C+X">Xiang Qi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+B">Bei Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhu%2C+Z">Zheng Zhu</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2604.16343v1-abstract-short" style="display: inline;">
+        Background: LLMs enable patient-facing conversational agents, creating a pathway toward <span class="search-hit mathjax">digital</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2604.16343v1-abstract-full').style.display = 'inline'; document.getElementById('2604.16343v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2604.16343v1-abstract-full" style="display: none;">
+        Background: LLMs enable patient-facing conversational agents, creating a pathway toward <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span> that capture older adults&#39; lived experiences and behavioral responses across time. A central barrier is personality drift -- inconsistent trait expression across repeated interactions -- which undermines reliability of generated trajectories and intervention-response simulation in geriatric care.
+  Objective: To develop ELDER-SIM, a multi-role elderly-care conversational platform for building personality-stable <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> agents, and to propose a psychometric validation framework for quantifying personality consistency in LLM-based agents.
+  Methods: ELDER-SIM was implemented via n8n workflow orchestration with local LLM inference (Ollama/vLLM), integrating (1) Big Five (<span class="search-hit mathjax">OCEAN</span>) trait specifications, (2) a Cognitive Conceptualization Diagram (CCD) grounded in Beck&#39;s CBT framework, and (3) a MySQL-based long-term memory module. Ablation studies across four conditions -- Baseline, +Memory, +CCD, and +LoRA (fine-tuned on 19,717 instruction pairs from CHARLS) -- were evaluated via Cronbach&#39;s $α$, ICC, and role discrimination accuracy.
+  Results: Reliability was acceptable to excellent across conditions (Cronbach&#39;s $α$: 0.70--0.94; ICC: 0.85--0.96). Role discrimination improved from 83.3% (Baseline) to 88.9% (+Memory), 94.4% (+CCD), and 97.2% (+LoRA). CCD produced the largest consistency gain (mean $α$ 0.702$\to$0.892), while LoRA achieved the highest overall consistency ($α$ 0.940; ICC 0.958).
+  Conclusions: ELDER-SIM provides a psychometrically validated approach for constructing personality-consistent elderly <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> agents. Structured cognitive modeling and domain adaptation reduce personality drift, supporting reliable longitudinal simulation for elderly mental health care and reproducible in silico evaluation before clinical deployment.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2604.16343v1-abstract-full').style.display = 'none'; document.getElementById('2604.16343v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 16 March, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2604.13042">arXiv:2604.13042</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2604.13042">pdf</a>, <a href="https://arxiv.org/ps/2604.13042">ps</a>, <a href="https://arxiv.org/format/2604.13042">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Databases">cs.DB</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Software Engineering">cs.SE</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        A Pythonic Functional Approach for Semantic Data Harmonisation in the ILIAD Project
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Nystad%2C+E+J">Erik Johan Nystad</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mart%C3%ADn-Recuerda%2C+F">Francisco Martín-Recuerda</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2604.13042v1-abstract-short" style="display: inline;">
+        Semantic data harmonisation is a central requirement in the ILIAD project, where heterogeneous environmental data must be harmonised according to the <span class="search-hit mathjax">Ocean</span> Information Model (OIM), a modular family of ontologies for enabling the implementation of interoperable&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2604.13042v1-abstract-full').style.display = 'inline'; document.getElementById('2604.13042v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2604.13042v1-abstract-full" style="display: none;">
+        Semantic data harmonisation is a central requirement in the ILIAD project, where heterogeneous environmental data must be harmonised according to the <span class="search-hit mathjax">Ocean</span> Information Model (OIM), a modular family of ontologies for enabling the implementation of interoperable <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> of the <span class="search-hit mathjax">Ocean</span>. Existing approaches to Semantic Data Harmonisation, such as RML and OTTR, offer valuable abstractions but require extensive knowledge of the technical intricacies of the OIM and the Semantic Web standards, including namespaces, IRIs, OWL constructors, and ontology design patterns. Furthermore, RML and OTTR oblige practitioners to learn specialised syntaxes and dedicated tooling. Data scientists in ILIAD have found these approaches overly cumbersome and have therefore expressed the need for a solution that abstracts away these technical details while remaining seamlessly integrated into their Python-based environments. To address these requirements, we have developed a Pythonic functional approach to semantic data harmonisation that enables users to produce correct RDF through simple function calls. The functions, structured as Python libraries, encode the design patterns of the OIM and are organised across multiple levels of abstraction. Low-level functions directly expose OWL and RDF syntax, mid-level functions encapsulate ontology design patterns, and high-level domain-specific functions orchestrate data harmonisation tasks by invoking mid-level functions. According to feedback from ILIAD data scientists, this approach satisfies their requirements and substantially enhances their ability to participate in harmonisation activities. In this paper, we present the details of our Pythonic functional approach to semantic data harmonisation and demonstrate its applicability within the ILIAD Aquaculture pilot.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2604.13042v1-abstract-full').style.display = 'none'; document.getElementById('2604.13042v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 February, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">17 pages, 9 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2602.00598">arXiv:2602.00598</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2602.00598">pdf</a>, <a href="https://arxiv.org/ps/2602.00598">ps</a>, <a href="https://arxiv.org/format/2602.00598">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        HybridOM: Hybrid Physics-Based and Data-Driven Global <span class="search-hit mathjax">Ocean</span> Modeling with Efficient Spatial Downscaling
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Shu%2C+R">Ruiqi Shu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhong%2C+X">Xiaohui Zhong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+Q">Qiusheng Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gou%2C+R">Ruijian Gou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gao%2C+T">Tianrun Gao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+H">Hao Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+X">Xiaomeng Huang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2602.00598v1-abstract-short" style="display: inline;">
+        Global <span class="search-hit mathjax">ocean</span> modeling is vital for climate science but struggles to balance computational efficiency with accuracy. Traditional numerical solvers are accurate but computationally expensive, while pure deep learning approaches, though fast, often lack physical consistency and long-term stability. To address this, we introduce HybridOM, a framework integrating&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2602.00598v1-abstract-full').style.display = 'inline'; document.getElementById('2602.00598v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2602.00598v1-abstract-full" style="display: none;">
+        Global <span class="search-hit mathjax">ocean</span> modeling is vital for climate science but struggles to balance computational efficiency with accuracy. Traditional numerical solvers are accurate but computationally expensive, while pure deep learning approaches, though fast, often lack physical consistency and long-term stability. To address this, we introduce HybridOM, a framework integrating a lightweight, differentiable numerical solver as a skeleton to enforce physical laws, with a neural network as the flesh to correct subgrid-scale dynamics. To enable efficient high-resolution modeling, we further introduce a physics-informed regional downscaling mechanism based on flux gating. This design achieves the inference efficiency of AI-based methods while preserving the accuracy and robustness of physical models. Extensive experiments on the GLORYS12V1 and OceanBench dataset validate HybridOM&#39;s performance in two distinct regimes: long-term subseasonal-to-seasonal simulation and short-term operational forecasting coupled with the FuXi-2.0 weather model. Results demonstrate that HybridOM achieves state-of-the-art accuracy while strictly maintaining physical consistency, offering a robust solution for next-generation <span class="search-hit mathjax">ocean</span> <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span>. Our source code is available at https://github.com/ChiyodaMomo01/HybridOM.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2602.00598v1-abstract-full').style.display = 'none'; document.getElementById('2602.00598v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 31 January, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2509.25730">arXiv:2509.25730</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2509.25730">pdf</a>, <a href="https://arxiv.org/ps/2509.25730">ps</a>, <a href="https://arxiv.org/format/2509.25730">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computational Physics">physics.comp-ph</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        A Physics-Guided Probabilistic Surrogate Modeling Framework for <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> of Underwater Radiated Noise
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Deo%2C+I+K">Indu Kant Deo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Venkateshwaran%2C+A">Akash Venkateshwaran</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jaiman%2C+R+K">Rajeev K. Jaiman</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2509.25730v1-abstract-short" style="display: inline;">
+        Ship traffic is an increasing source of underwater radiated noise in coastal waters, motivating real-time <span class="search-hit mathjax">digital</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2509.25730v1-abstract-full').style.display = 'inline'; document.getElementById('2509.25730v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2509.25730v1-abstract-full" style="display: none;">
+        Ship traffic is an increasing source of underwater radiated noise in coastal waters, motivating real-time <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span> of <span class="search-hit mathjax">ocean</span> acoustics for operational noise mitigation. We present a physics-guided probabilistic framework to predict three-dimensional transmission loss in realistic <span class="search-hit mathjax">ocean</span> environments. As a case study, we consider the Salish Sea along shipping routes from the Pacific <span class="search-hit mathjax">Ocean</span> to the Port of Vancouver. A dataset of over 30 million source-receiver pairs was generated with a Gaussian beam solver across seasonal sound speed profiles and one-third-octave frequency bands spanning 12.5 Hz to 8 kHz. We first assess sparse variational Gaussian processes (SVGP) and then incorporate physics-based mean functions combining spherical spreading with frequency-dependent absorption. To capture nonlinear effects, we examine deep sigma-point processes and stochastic variational deep kernel learning. The final framework integrates four components: (i) a learnable physics-informed mean that represents dominant propagation trends, (ii) a convolutional encoder for bathymetry along the source-receiver track, (iii) a neural encoder for source, receiver, and frequency coordinates, and (iv) a residual SVGP layer that provides calibrated predictive uncertainty. This probabilistic <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> facilitates the construction of sound-exposure bounds and worst-case scenarios for received levels. We further demonstrate the application of the framework to ship speed optimization, where predicted transmission loss combined with near-field source models provides sound exposure level estimates for minimizing acoustic impacts on marine mammals. The proposed framework advances uncertainty-aware <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span> for <span class="search-hit mathjax">ocean</span> acoustics and illustrates how physics-guided machine learning can support sustainable maritime operations.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2509.25730v1-abstract-full').style.display = 'none'; document.getElementById('2509.25730v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 September, 2025; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">26 pages, 13 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2504.19816">arXiv:2504.19816</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2504.19816">pdf</a>, <a href="https://arxiv.org/format/2504.19816">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Software Engineering">cs.SE</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Systems and Control">eess.SY</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span>-based Out-of-Distribution Detection in Autonomous Vessels
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Isaku%2C+E">Erblin Isaku</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sartaj%2C+H">Hassan Sartaj</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ali%2C+S">Shaukat Ali</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2504.19816v1-abstract-short" style="display: inline;">
+        &hellip;system (CPS) with software enabling many key functionalities, e.g., navigation software enables an AV to autonomously or semi-autonomously follow a path to its destination. <span class="search-hit mathjax">Digital</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2504.19816v1-abstract-full').style.display = 'inline'; document.getElementById('2504.19816v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2504.19816v1-abstract-full" style="display: none;">
+        An autonomous vessel (AV) is a complex cyber-physical system (CPS) with software enabling many key functionalities, e.g., navigation software enables an AV to autonomously or semi-autonomously follow a path to its destination. <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">twins</span> of such AVs enable advanced functionalities such as running what-if scenarios, performing predictive maintenance, and enabling fault diagnosis. Due to technological improvements, real-time analyses using continuous data from vessels&#39; real-time operations have become increasingly possible. However, the literature has little explored developing advanced analyses in real-time data in AVs with <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span> built with machine learning techniques. To this end, we present a novel <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span>-based approach (ODDIT) to detect future out-of-distribution (OOD) states of an AV before reaching them, enabling proactive intervention. Such states may indicate anomalies requiring attention (e.g., manual correction by the ship master) and assist testers in scenario-centered testing. The <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> consists of two machine-learning models predicting future vessel states and whether the predicted state will be OOD. We evaluated ODDIT with five vessels across waypoint and zigzag maneuvering under simulated conditions, including sensor and actuator noise and environmental disturbances i.e., <span class="search-hit mathjax">ocean</span> current. ODDIT achieved high accuracy in detecting OOD states, with AUROC and TNR@TPR95 scores reaching 99\% across multiple vessels.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2504.19816v1-abstract-full').style.display = 'none'; document.getElementById('2504.19816v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 April, 2025; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">34 pages, 12 figures, 11 tables</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2502.02594">arXiv:2502.02594</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2502.02594">pdf</a>, <a href="https://arxiv.org/format/2502.02594">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computational Engineering, Finance, and Science">cs.CE</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Systems and Control">eess.SY</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Offshore Wind Turbine Tower Design and Optimization: A Review and AI-Driven Future Directions
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Ribeiro%2C+J+A">João Alves Ribeiro</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ribeiro%2C+B+A">Bruno Alves Ribeiro</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pimenta%2C+F">Francisco Pimenta</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tavares%2C+S+M+O">Sérgio M. O. Tavares</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+J">Jie Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ahmed%2C+F">Faez Ahmed</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2502.02594v1-abstract-short" style="display: inline;">
+        Offshore wind energy leverages the high intensity and consistency of <span class="search-hit mathjax">oceanic</span> winds, playing a key role in the transition to renewable energy. As energy demands grow, larger turbines are required to optimize power generation and reduce the Levelized Cost of Energy (LCoE), which represents the average cost of electricity over a project&#39;s lifetime. However,&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2502.02594v1-abstract-full').style.display = 'inline'; document.getElementById('2502.02594v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2502.02594v1-abstract-full" style="display: none;">
+        Offshore wind energy leverages the high intensity and consistency of <span class="search-hit mathjax">oceanic</span> winds, playing a key role in the transition to renewable energy. As energy demands grow, larger turbines are required to optimize power generation and reduce the Levelized Cost of Energy (LCoE), which represents the average cost of electricity over a project&#39;s lifetime. However, upscaling turbines introduces engineering challenges, particularly in the design of supporting structures, especially towers. These towers must support increased loads while maintaining structural integrity, cost-efficiency, and transportability, making them essential to offshore wind projects&#39; success. This paper presents a comprehensive review of the latest advancements, challenges, and future directions driven by Artificial Intelligence (AI) in the design optimization of Offshore Wind Turbine (OWT) structures, with a focus on towers. It provides an in-depth background on key areas such as design types, load types, analysis methods, design processes, monitoring systems, <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> (DT), software, standards, reference turbines, economic factors, and optimization techniques. Additionally, it includes a state-of-the-art review of optimization studies related to tower design optimization, presenting a detailed examination of turbine, software, loads, optimization method, design variables and constraints, analysis, and findings, motivating future research to refine design approaches for effective turbine upscaling and improved efficiency. Lastly, the paper explores future directions where AI can revolutionize tower design optimization, enabling the development of efficient, scalable, and sustainable structures. By addressing the upscaling challenges and supporting the growth of renewable energy, this work contributes to shaping the future of offshore wind turbine towers and others supporting structures.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2502.02594v1-abstract-full').style.display = 'none'; document.getElementById('2502.02594v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 December, 2024; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2025.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2412.05475">arXiv:2412.05475</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2412.05475">pdf</a>, <a href="https://arxiv.org/format/2412.05475">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computational Engineering, Finance, and Science">cs.CE</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Signal Processing">eess.SP</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        AI-powered <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> of the <span class="search-hit mathjax">Ocean</span>: Reliable Uncertainty Quantification for Real-time Wave Height Prediction with Deep Ensemble
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+D">Dongeon Lee</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yang%2C+S">Sunwoong Yang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Oh%2C+J">Jae-Won Oh</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cho%2C+S">Su-Gil Cho</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+S">Sanghyuk Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kang%2C+N">Namwoo Kang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2412.05475v2-abstract-short" style="display: inline;">
+        &hellip;characterized by differences in wavelength, amplitude, and period. These results demonstrate the model&#39;s capability to deliver reliable predictions, facilitating <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> of the <span class="search-hit mathjax">ocean</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2412.05475v2-abstract-full').style.display = 'inline'; document.getElementById('2412.05475v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2412.05475v2-abstract-full" style="display: none;">
+        Environmental pollution and fossil fuel depletion have prompted the need for renewable energy-based power generation. However, its stability is often challenged by low energy density and non-stationary conditions. Wave energy converters (WECs), in particular, need reliable real-time wave height prediction to address these issues caused by irregular wave patterns, which can lead to the inefficient and unstable operation of WECs. In this study, we propose an AI-powered reliable real-time wave height prediction model that integrates long short-term memory (LSTM) networks for temporal prediction with deep ensemble (DE) for robust uncertainty quantification (UQ), ensuring high accuracy and reliability. To further enhance the reliability, uncertainty calibration is applied, which has proven to significantly improve the quality of the quantified uncertainty. Using real operational data from an oscillating water column-wave energy converter (OWC-WEC) system in Jeju, South Korea, the model achieves notable accuracy (R2 &gt; 0.9), while increasing uncertainty quality by over 50% through simple calibration technique. Furthermore, a comprehensive parametric study is conducted to explore the effects of key model hyperparameters, offering valuable guidelines for diverse operational scenarios, characterized by differences in wavelength, amplitude, and period. These results demonstrate the model&#39;s capability to deliver reliable predictions, facilitating <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> of the <span class="search-hit mathjax">ocean</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2412.05475v2-abstract-full').style.display = 'none'; document.getElementById('2412.05475v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 4 January, 2025; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 6 December, 2024;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> December 2024.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">23 pages, 13 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2412.05454">arXiv:2412.05454</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2412.05454">pdf</a>, <a href="https://arxiv.org/ps/2412.05454">ps</a>, <a href="https://arxiv.org/format/2412.05454">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Fluid Dynamics">physics.flu-dyn</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1029/2025JH000686">10.1029/2025JH000686 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        GLONET: Mercator&#39;s end-to-end neural Global <span class="search-hit mathjax">Ocean</span> forecasting system
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Aouni%2C+A+E">Anass El Aouni</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gaudel%2C+Q">Quentin Gaudel</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Regnier%2C+C">Charly Regnier</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Van+Gennip%2C+S">Simon Van Gennip</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Galloudec%2C+O+L">Olivier Le Galloudec</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Drevillon%2C+M">Marie Drevillon</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Drillet%2C+Y">Yann Drillet</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lellouche%2C+J">Jean-Michel Lellouche</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2412.05454v3-abstract-short" style="display: inline;">
+        Accurate <span class="search-hit mathjax">ocean</span> forecasting is crucial in different areas ranging from science to decision making. Recent advancements in data-driven models have shown significant promise, particularly in weather forecasting community, but yet no data-driven approaches have matched the accuracy and the scalability of traditional global&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2412.05454v3-abstract-full').style.display = 'inline'; document.getElementById('2412.05454v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2412.05454v3-abstract-full" style="display: none;">
+        Accurate <span class="search-hit mathjax">ocean</span> forecasting is crucial in different areas ranging from science to decision making. Recent advancements in data-driven models have shown significant promise, particularly in weather forecasting community, but yet no data-driven approaches have matched the accuracy and the scalability of traditional global <span class="search-hit mathjax">ocean</span> forecasting systems that rely on physics-driven numerical models and can be very computationally expensive, depending on their spatial resolution or complexity. Here, we introduce GLONET, a global <span class="search-hit mathjax">ocean</span> neural network-based forecasting system, developed by Mercator <span class="search-hit mathjax">Ocean</span> International. GLONET is trained on the global Mercator <span class="search-hit mathjax">Ocean</span> physical reanalysis GLORYS12 to integrate physics-based principles through neural operators and networks, which dynamically capture local-global interactions within a unified, scalable framework, ensuring high small-scale accuracy and efficient dynamics. GLONET&#39;s performance is assessed and benchmarked against two other forecasting systems: the global Mercator <span class="search-hit mathjax">Ocean</span> analysis and forecasting 1/12 high-resolution physical system GLO12 and a recent neural-based system also trained from GLORYS12. A series of comprehensive validation metrics is proposed, specifically tailored for neural network-based <span class="search-hit mathjax">ocean</span> forecasting systems, which extend beyond traditional point-wise error assessments that can introduce bias towards neural networks optimized primarily to minimize such metrics. The preliminary evaluation of GLONET shows promising results, for temperature, sea surface height, salinity and <span class="search-hit mathjax">ocean</span> currents. GLONET&#39;s experimental daily forecast are accessible through the European <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> <span class="search-hit mathjax">Ocean</span> platform EDITO.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2412.05454v3-abstract-full').style.display = 'none'; document.getElementById('2412.05454v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 September, 2025; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 6 December, 2024;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> December 2024.
+      
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        Journal of Geophysical Research: Machine Learning and Computation 2.3 (2025)
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2402.03337">arXiv:2402.03337</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2402.03337">pdf</a>, <a href="https://arxiv.org/format/2402.03337">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Reinforcement-learning robotic sailboats: simulator and preliminary results
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Vasconcellos%2C+E+C">Eduardo Charles Vasconcellos</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sampaio%2C+R+M">Ronald M Sampaio</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ara%C3%BAjo%2C+A+P+D">André P D Araújo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Clua%2C+E+W+G">Esteban Walter Gonzales Clua</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Preux%2C+P">Philippe Preux</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Guerra%2C+R">Raphael Guerra</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gon%C3%A7alves%2C+L+M+G">Luiz M G Gonçalves</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mart%C3%AD%2C+L">Luis Martí</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lira%2C+H">Hernan Lira</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sanchez-Pi%2C+N">Nayat Sanchez-Pi</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2402.03337v1-abstract-short" style="display: inline;">
+        This work focuses on the main challenges and problems in developing a virtual <span class="search-hit mathjax">oceanic</span> environment reproducing real experiments using Unmanned Surface Vehicles (USV)&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2402.03337v1-abstract-full').style.display = 'inline'; document.getElementById('2402.03337v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2402.03337v1-abstract-full" style="display: none;">
+        This work focuses on the main challenges and problems in developing a virtual <span class="search-hit mathjax">oceanic</span> environment reproducing real experiments using Unmanned Surface Vehicles (USV) <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span>. We introduce the key features for building virtual worlds, considering using Reinforcement Learning (RL) agents for autonomous navigation and control. With this in mind, the main problems concern the definition of the simulation equations (physics and mathematics), their effective implementation, and how to include strategies for simulated control and perception (sensors) to be used with RL. We present the modeling, implementation steps, and challenges required to create a functional <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> based on a real robotic sailing vessel. The application is immediate for developing navigation algorithms based on RL to be applied on real boats.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2402.03337v1-abstract-full').style.display = 'none'; document.getElementById('2402.03337v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 16 January, 2024; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2024.
+      
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        NeurIPS 2023 Workshop on Robot Learning Workshop: Pretraining, Fine-Tuning, and Generalization with Large Scale Models, Dec 2023, New Orelans, United States
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2401.07985">arXiv:2401.07985</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2401.07985">pdf</a>, <a href="https://arxiv.org/format/2401.07985">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Software Engineering">cs.SE</span>
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/ACCESS.2024.3406510">10.1109/ACCESS.2024.3406510 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        From <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> to <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> Prototypes: Concepts, Formalization, and Applications
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Barbie%2C+A">Alexander Barbie</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hasselbring%2C+W">Wilhelm Hasselbring</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2401.07985v1-abstract-short" style="display: inline;">
+        &hellip;4.0 also transforms the processes of how we develop intelligent manufacturing production systems. To advance the software development of these new (embedded) software systems, <span class="search-hit mathjax">digital</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2401.07985v1-abstract-full').style.display = 'inline'; document.getElementById('2401.07985v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2401.07985v1-abstract-full" style="display: none;">
+        The transformation to Industry 4.0 also transforms the processes of how we develop intelligent manufacturing production systems. To advance the software development of these new (embedded) software systems, <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span> may be employed. However, there is no consensual definition of what a <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> is. In this paper, we give an overview of the current state of the <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> concept and formalize the <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> concept using the Object-Z notation. This formalization includes the concepts of physical <span class="search-hit mathjax">twins</span>, <span class="search-hit mathjax">digital</span> models, <span class="search-hit mathjax">digital</span> templates, <span class="search-hit mathjax">digital</span> threads, <span class="search-hit mathjax">digital</span> shadows, <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span>, and <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> prototypes. The relationships between all these concepts are visualized as UML class diagrams.
+  Our <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> prototype (DTP) approach supports engineers during the development and automated testing of complex embedded software systems. This approach enable engineers to test embedded software systems in a virtual context, without the need of a connection to a physical object. In continuous integration / continuous deployment pipelines such <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> prototypes can be used for automated integration testing and, thus, allow for an agile verification and validation process.
+  In this paper, we demonstrate and report on how to apply and implement a <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> by the example of two real-world field studies (<span class="search-hit mathjax">ocean</span> observation systems and smart farming). For independent replication and extension of our approach by other researchers, we provide a lab study published open source on GitHub.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2401.07985v1-abstract-full').style.display = 'none'; document.getElementById('2401.07985v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 15 January, 2024; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> January 2024.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">25 pages, 20 Figures, 50 Object-Z schemes</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2310.00813">arXiv:2310.00813</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2310.00813">pdf</a>, <a href="https://arxiv.org/format/2310.00813">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Chaotic Dynamics">nlin.CD</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        OceanNet: A principled neural operator-based <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> for regional <span class="search-hit mathjax">oceans</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chattopadhyay%2C+A">Ashesh Chattopadhyay</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gray%2C+M">Michael Gray</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+T">Tianning Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lowe%2C+A+B">Anna B. Lowe</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=He%2C+R">Ruoying He</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2310.00813v2-abstract-short" style="display: inline;">
+        While data-driven approaches demonstrate great potential in atmospheric modeling and weather forecasting, <span class="search-hit mathjax">ocean</span> modeling poses distinct challenges due to complex bathymetry, land, vertical structure, and flow non-linearity. This study introduces OceanNet, a principled neural operator-based&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2310.00813v2-abstract-full').style.display = 'inline'; document.getElementById('2310.00813v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2310.00813v2-abstract-full" style="display: none;">
+        While data-driven approaches demonstrate great potential in atmospheric modeling and weather forecasting, <span class="search-hit mathjax">ocean</span> modeling poses distinct challenges due to complex bathymetry, land, vertical structure, and flow non-linearity. This study introduces OceanNet, a principled neural operator-based <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> for <span class="search-hit mathjax">ocean</span> circulation. OceanNet uses a Fourier neural operator and predictor-evaluate-corrector integration scheme to mitigate autoregressive error growth and enhance stability over extended time scales. A spectral regularizer counteracts spectral bias at smaller scales. OceanNet is applied to the northwest Atlantic <span class="search-hit mathjax">Ocean</span> western boundary current (the Gulf Stream), focusing on the task of seasonal prediction for Loop Current eddies and the Gulf Stream meander. Trained using historical sea surface height (SSH) data, OceanNet demonstrates competitive forecast skill by outperforming SSH predictions by an uncoupled, state-of-the-art dynamical <span class="search-hit mathjax">ocean</span> model forecast, reducing computation by 500,000 times. These accomplishments demonstrate the potential of physics-inspired deep neural operators as cost-effective alternatives to high-resolution numerical <span class="search-hit mathjax">ocean</span> models.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2310.00813v2-abstract-full').style.display = 'none'; document.getElementById('2310.00813v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 4 September, 2024; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 1 October, 2023;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2023.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Supplementary information can be found in: https://drive.google.com/file/d/1NoxJLa967naJT787a5-IfZ7f_MmRuZMP/view?usp=sharing</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2308.03152">arXiv:2308.03152</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2308.03152">pdf</a>, <a href="https://arxiv.org/format/2308.03152">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        AI-GOMS: Large AI-Driven Global <span class="search-hit mathjax">Ocean</span> Modeling System
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Xiong%2C+W">Wei Xiong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xiang%2C+Y">Yanfei Xiang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+H">Hao Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+S">Shuyi Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sun%2C+Y">Yuze Sun</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ma%2C+M">Muyuan Ma</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+X">Xiaomeng Huang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2308.03152v2-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Ocean</span> modeling is a powerful tool for simulating the physical, chemical, and biological processes of the&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2308.03152v2-abstract-full').style.display = 'inline'; document.getElementById('2308.03152v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2308.03152v2-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Ocean</span> modeling is a powerful tool for simulating the physical, chemical, and biological processes of the <span class="search-hit mathjax">ocean</span>, which is the foundation for marine science research and operational oceanography. Modern numerical <span class="search-hit mathjax">ocean</span> modeling mainly consists of governing equations and numerical algorithms. Nonlinear instability, computational expense, low reusability efficiency and high coupling costs have gradually become the main bottlenecks for the further development of numerical <span class="search-hit mathjax">ocean</span> modeling. Recently, artificial intelligence-based modeling in scientific computing has shown revolutionary potential for <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span> and scientific simulations, but the bottlenecks of numerical <span class="search-hit mathjax">ocean</span> modeling have not been further solved. Here, we present AI-GOMS, a large AI-driven global <span class="search-hit mathjax">ocean</span> modeling system, for accurate and efficient global <span class="search-hit mathjax">ocean</span> daily prediction. AI-GOMS consists of a backbone model with the Fourier-based Masked Autoencoder structure for basic <span class="search-hit mathjax">ocean</span> variable prediction and lightweight fine-tuning models incorporating regional downscaling, wave decoding, and biochemistry coupling modules. AI-GOMS has achieved the best performance in 30 days of prediction for the global <span class="search-hit mathjax">ocean</span> basic variables with 15 depth layers at 1/4° spatial resolution. Beyond the good performance in statistical metrics, AI-GOMS realizes the simulation of mesoscale eddies in the Kuroshio region at 1/12° spatial resolution and <span class="search-hit mathjax">ocean</span> stratification in the tropical Pacific <span class="search-hit mathjax">Ocean</span>. AI-GOMS provides a new backbone-downstream paradigm for Earth system modeling, which makes the system transferable, scalable and reusable.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2308.03152v2-abstract-full').style.display = 'none'; document.getElementById('2308.03152v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 10 August, 2023; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 6 August, 2023;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> August 2023.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2307.06688">arXiv:2307.06688</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2307.06688">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Aeolus <span class="search-hit mathjax">Ocean</span> -- A simulation environment for the autonomous COLREG-compliant navigation of Unmanned Surface Vehicles using Deep Reinforcement Learning and Maritime Object Detection
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Vekinis%2C+A+A">Andrew Alexander Vekinis</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Perantonis%2C+S">Stavros Perantonis</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2307.06688v1-abstract-short" style="display: inline;">
+        &hellip;(USVs) in the maritime sector can fundamentally lead towards safer waters as well as reduced operating costs, while also providing a range of exciting new capabilities for <span class="search-hit mathjax">oceanic</span> research, exploration and monitoring. However, achieving such a goal is challenging. USV control systems must, safely and reliably, be able to adhere to the international regulatio&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2307.06688v1-abstract-full').style.display = 'inline'; document.getElementById('2307.06688v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2307.06688v1-abstract-full" style="display: none;">
+        Heading towards navigational autonomy in unmanned surface vehicles (USVs) in the maritime sector can fundamentally lead towards safer waters as well as reduced operating costs, while also providing a range of exciting new capabilities for <span class="search-hit mathjax">oceanic</span> research, exploration and monitoring. However, achieving such a goal is challenging. USV control systems must, safely and reliably, be able to adhere to the international regulations for preventing collisions at sea (COLREGs) in encounters with other vessels as they navigate to a given waypoint while being affected by realistic weather conditions, either during the day or at night. To deal with the multitude of possible scenarios, it is critical to have a virtual environment that is able to replicate the realistic operating conditions USVs will encounter, before they can be implemented in the real world. Such &#34;<span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twins</span>&#34; form the foundations upon which Deep Reinforcement Learning (DRL) and Computer Vision (CV) algorithms can be used to develop and guide USV control systems. In this paper we describe the novel development of a COLREG-compliant DRL-based collision avoidant navigational system with CV-based awareness in a realistic <span class="search-hit mathjax">ocean</span> simulation environment. The performance of the trained autonomous Agents resulting from this approach is evaluated in several successful navigations to set waypoints in both open sea and coastal encounters with other vessels. A binary executable version of the simulator with trained agents is available at https://github.com/aavek/Aeolus-<span class="search-hit mathjax">Ocean</span>
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2307.06688v1-abstract-full').style.display = 'none'; document.getElementById('2307.06688v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 13 July, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> July 2023.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">22 pages, last blank page, 17 figures, 1 table, color, high resolution figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2304.01093">arXiv:2304.01093</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2304.01093">pdf</a>, <a href="https://arxiv.org/format/2304.01093">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Signal Processing">eess.SP</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Demonstration of a Standalone, Descriptive, and Predictive <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> of a Floating Offshore Wind Turbine
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Stadtmann%2C+F">Florian Stadtmann</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wassertheurer%2C+H+G">Henrik Gusdal Wassertheurer</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Rasheed%2C+A">Adil Rasheed</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2304.01093v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Digital</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2304.01093v1-abstract-full').style.display = 'inline'; document.getElementById('2304.01093v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2304.01093v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> bring several benefits for planning, operation, and maintenance of remote offshore assets. In this work, we explain the <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> concept and the capability level scale in the context of wind energy. Furthermore, we demonstrate a standalone <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span>, a descriptive <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span>, and a prescriptive <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> of an operational floating offshore wind turbine. The standalone <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> consists of the virtual representation of the wind turbine and its operating environment. While at this level the <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> does not evolve with the physical turbine, it can be used during the planning-, design-, and construction phases. At the next level, the descriptive <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> is built upon the standalone <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> by enhancing the latter with real data from the turbine. All the data is visualized in virtual reality for informed decision-making. Besides being used for data bundling and visualization, the descriptive <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> forms the basis for diagnostic, predictive, prescriptive, and autonomous tools. A predictive <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> is created through the use of weather forecasts, neural networks, and transfer learning. Finally, <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> technology is discussed in a much wider context of <span class="search-hit mathjax">ocean</span> engineering.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2304.01093v1-abstract-full').style.display = 'none'; document.getElementById('2304.01093v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 3 April, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2023.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2210.10767">arXiv:2210.10767</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2210.10767">pdf</a>, <a href="https://arxiv.org/format/2210.10767">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        CLOINet: <span class="search-hit mathjax">Ocean</span> state reconstructions through remote-sensing, in-situ sparse observations and Deep Learning
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Cutolo%2C+E">Eugenio Cutolo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pascual%2C+A">Ananda Pascual</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ruiz%2C+S">Simon Ruiz</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zarokanellos%2C+N">Nikolaos Zarokanellos</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fablet%2C+R">Ronan Fablet</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2210.10767v3-abstract-short" style="display: inline;">
+        Combining remote-sensing data with in-situ observations to achieve a comprehensive 3D reconstruction of the <span class="search-hit mathjax">ocean</span> state presents significant challenges for traditional interpolation techniques. To address this, we developed the CLuster Optimal Interpolation Neural Network (CLOINet), which combines the robust mathematical framework of the Optimal Interpolatio&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2210.10767v3-abstract-full').style.display = 'inline'; document.getElementById('2210.10767v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2210.10767v3-abstract-full" style="display: none;">
+        Combining remote-sensing data with in-situ observations to achieve a comprehensive 3D reconstruction of the <span class="search-hit mathjax">ocean</span> state presents significant challenges for traditional interpolation techniques. To address this, we developed the CLuster Optimal Interpolation Neural Network (CLOINet), which combines the robust mathematical framework of the Optimal Interpolation (OI) scheme with a self-supervised clustering approach. CLOINet efficiently segments remote sensing images into clusters to reveal non-local correlations, thereby enhancing fine-scale <span class="search-hit mathjax">oceanic</span> reconstructions. We trained our network using outputs from an <span class="search-hit mathjax">Ocean</span> General Circulation Model (OGCM), which also facilitated various testing scenarios. Our Observing System Simulation Experiments aimed to reconstruct deep salinity fields using Sea Surface Temperature (SST) or Sea Surface Height (SSH), alongside sparse in-situ salinity observations. The results showcased a significant reduction in reconstruction error up to $40\%$ and the ability to resolve scales $50\%$ smaller compared to baseline OI techniques. Remarkably, even though CLOINet was trained exclusively on simulated data, it accurately reconstructed an unseen SST field using only glider temperature observations and satellite chlorophyll concentration data. This demonstrates how deep learning networks like CLOINet can potentially lead the integration of modeling and observational efforts in developing an <span class="search-hit mathjax">ocean</span> <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2210.10767v3-abstract-full').style.display = 'none'; document.getElementById('2210.10767v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 12 December, 2023; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 19 October, 2022;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2022.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2110.07100">arXiv:2110.07100</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2110.07100">pdf</a>, <a href="https://arxiv.org/format/2110.07100">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> Earth -- Coasts: Developing a fast and physics-informed surrogate model for coastal floods via neural operators
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Jiang%2C+P">Peishi Jiang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Meinert%2C+N">Nis Meinert</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jord%C3%A3o%2C+H">Helga Jordão</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Weisser%2C+C">Constantin Weisser</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Holgate%2C+S">Simon Holgate</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lavin%2C+A">Alexander Lavin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=L%C3%BCtjens%2C+B">Björn Lütjens</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Newman%2C+D">Dava Newman</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wainwright%2C+H">Haruko Wainwright</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Walker%2C+C">Catherine Walker</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Barnard%2C+P">Patrick Barnard</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2110.07100v1-abstract-short" style="display: inline;">
+        Developing fast and accurate surrogates for physics-based coastal and <span class="search-hit mathjax">ocean</span> models is an urgent need due to the coastal flood risk under accelerating sea level rise, and the computational expense of deterministic numerical models. For this purpose, we develop the first&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2110.07100v1-abstract-full').style.display = 'inline'; document.getElementById('2110.07100v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2110.07100v1-abstract-full" style="display: none;">
+        Developing fast and accurate surrogates for physics-based coastal and <span class="search-hit mathjax">ocean</span> models is an urgent need due to the coastal flood risk under accelerating sea level rise, and the computational expense of deterministic numerical models. For this purpose, we develop the first <span class="search-hit mathjax">digital</span> <span class="search-hit mathjax">twin</span> of Earth coastlines with new physics-informed machine learning techniques extending the state-of-art Neural Operator. As a proof-of-concept study, we built Fourier Neural Operator (FNO) surrogates on the simulations of an industry-standard flood and <span class="search-hit mathjax">ocean</span> model (NEMO). The resulting FNO surrogate accurately predicts the sea surface height in most regions while achieving upwards of 45x acceleration of NEMO. We delivered an open-source \textit{CoastalTwin} platform in an end-to-end and modular way, to enable easy extensions to other simulations and ML-based surrogate methods. Our results and deliverable provide a promising approach to massively accelerate coastal dynamics simulators, which can enable scientists to efficiently execute many simulations for decision-making, uncertainty quantification, and other research activities.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2110.07100v1-abstract-full').style.display = 'none'; document.getElementById('2110.07100v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 13 October, 2021; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2021.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2103.09363">arXiv:2103.09363</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2103.09363">pdf</a>, <a href="https://arxiv.org/format/2103.09363">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Software Engineering">cs.SE</span>
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/MFI49285.2020.9235210">10.1109/MFI49285.2020.9235210 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Prototyping Autonomous Robotic Networks on Different Layers of RAMI 4.0 with <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Barbie%2C+A">Alexander Barbie</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hasselbring%2C+W">Wilhelm Hasselbring</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pech%2C+N">Niklas Pech</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sommer%2C+S">Stefan Sommer</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fl%C3%B6gel%2C+S">Sascha Flögel</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wenzh%C3%B6fer%2C+F">Frank Wenzhöfer</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2103.09363v1-abstract-short" style="display: inline;">
+        &hellip;of this rapid development. The idea is to let different stakeholders of these products speak and understand the same terminology. In this paper, we present an approach using <span class="search-hit mathjax">Digital</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2103.09363v1-abstract-full').style.display = 'inline'; document.getElementById('2103.09363v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2103.09363v1-abstract-full" style="display: none;">
+        In this decade, the amount of (industrial) Internet of Things devices will increase tremendously. Today, there exist no common standards for interconnection, observation, or the monitoring of these devices. In context of the German &#34;Industrie 4.0&#34; strategy the Reference Architectural Model Industry 4.0 (RAMI 4.0) was introduced to connect different aspects of this rapid development. The idea is to let different stakeholders of these products speak and understand the same terminology. In this paper, we present an approach using <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> to prototype different layers along the axis of the RAMI 4.0, by the example of an autonomous <span class="search-hit mathjax">ocean</span> observation system developed in the project ARCHES.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2103.09363v1-abstract-full').style.display = 'none'; document.getElementById('2103.09363v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 16 March, 2021; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> March 2021.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">6 pages, 5 figures, published in 2020 IEEE International Conference on Multisensor Fusion and Integration for Intelligent Systems (MFI)</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2103.08469">arXiv:2103.08469</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2103.08469">pdf</a>, <a href="https://arxiv.org/format/2103.08469">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Software Engineering">cs.SE</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/MIC.2021.3065245">10.1109/MIC.2021.3065245 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Developing an Underwater Network of <span class="search-hit mathjax">Ocean</span> Observation Systems with <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> Prototypes -- A Field Report from the Baltic Sea
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Barbie%2C+A">Alexander Barbie</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pech%2C+N">Niklas Pech</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hasselbring%2C+W">Wilhelm Hasselbring</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fl%C3%B6gel%2C+S">Sascha Flögel</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wenzh%C3%B6fer%2C+F">Frank Wenzhöfer</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Walter%2C+M">Michael Walter</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Shchekinova%2C+E">Elena Shchekinova</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Busse%2C+M">Marc Busse</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=T%C3%BCrk%2C+M">Matthias Türk</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hofbauer%2C+M">Michael Hofbauer</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sommer%2C+S">Stefan Sommer</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2103.08469v1-abstract-short" style="display: inline;">
+        During the research cruise AL547 with RV ALKOR (October 20-31, 2020), a collaborative underwater network of <span class="search-hit mathjax">ocean</span> observation systems was deployed in Boknis Eck (SW Baltic Sea, German exclusive economic zone (EEZ)) in the context of the project ARCHES (Autonomous Robotic Networks to Help Modern Societies). This network was realized via a&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2103.08469v1-abstract-full').style.display = 'inline'; document.getElementById('2103.08469v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2103.08469v1-abstract-full" style="display: none;">
+        During the research cruise AL547 with RV ALKOR (October 20-31, 2020), a collaborative underwater network of <span class="search-hit mathjax">ocean</span> observation systems was deployed in Boknis Eck (SW Baltic Sea, German exclusive economic zone (EEZ)) in the context of the project ARCHES (Autonomous Robotic Networks to Help Modern Societies). This network was realized via a <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twin</span> Prototype approach. During that period different scenarios were executed to demonstrate the feasibility of <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> in an extreme environment such as underwater. One of the scenarios showed the collaboration of stage IV <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> with their physical counterparts on the seafloor. This way, we address the research question, whether <span class="search-hit mathjax">Digital</span> <span class="search-hit mathjax">Twins</span> represent a feasible approach to operate mobile ad hoc networks for <span class="search-hit mathjax">ocean</span> and coastal observation.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2103.08469v1-abstract-full').style.display = 'none'; document.getElementById('2103.08469v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 15 March, 2021; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> March 2021.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">8 pages, 5 figures, to be published in IEEE Internet Computing</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+</ol>
+
+
+  
+
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    
+    <div class="columns is-desktop" role="navigation" aria-label="Secondary">
+  <!-- MetaColumn 1 -->
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/about">About</a></li>
+          <li><a href="https://info.arxiv.org/help">Help</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><title>contact arXiv</title><desc>Click here to contact arXiv</desc><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+            <a href="https://info.arxiv.org/help/contact.html"> Contact</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><title>subscribe to arXiv mailings</title><desc>Click here to subscribe</desc><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+            <a href="https://info.arxiv.org/help/subscribe"> Subscribe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 1 -->
+  <!-- MetaColumn 2 -->
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/help/license/index.html">Copyright</a></li>
+          <li><a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="column sorry-app-links">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/help/web_accessibility.html">Web Accessibility Assistance</a></li>
+          <li>
+            <p class="help">
+              <a class="a11y-main-link" href="https://status.arxiv.org" target="_blank">arXiv Operational Status <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="icon filter-dark_grey" role="presentation"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a><br>
+              Get status notifications via
+              <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/email/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>email</a>
+              or <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/slack/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon filter-black" role="presentation"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>slack</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 2 -->
+</div>
+    
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>

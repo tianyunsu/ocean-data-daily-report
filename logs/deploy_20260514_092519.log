@@ -1,0 +1,47 @@
+[2026-05-14 09:25:19] [INFO] 部署主机: PC-20260312LHBE
+[2026-05-14 09:25:19] [INFO] 当前时间: 2026-05-14 09:25:19
+[2026-05-14 09:25:19] [INFO] 创建锁文件: deploying by PC-20260312LHBE at 2026-05-14T09:25:19.842567
+[2026-05-14 09:25:19] [INFO] ============================================================
+[2026-05-14 09:25:19] [INFO] 检查部署环境
+[2026-05-14 09:25:19] [INFO] ============================================================
+[2026-05-14 09:25:19] [INFO] Python版本: 3.13.12
+[2026-05-14 09:25:20] [INFO] git version 2.53.0.windows.2
+[2026-05-14 09:25:20] [INFO] Git版本: git version 2.53.0.windows.2
+[2026-05-14 09:25:20] [SUCCESS] ✅ HTML生成脚本: 存在
+[2026-05-14 09:25:20] [SUCCESS] ✅ 搜索结果数据: 存在
+[2026-05-14 09:25:20] [INFO] origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+[2026-05-14 09:25:20] [INFO] Git远程仓库:
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+
+[2026-05-14 09:25:20] [SUCCESS] 
+✅ 环境检查通过
+[2026-05-14 09:25:20] [INFO] ============================================================
+[2026-05-14 09:25:20] [INFO] 拉取最新代码
+[2026-05-14 09:25:20] [INFO] ============================================================
+[2026-05-14 09:25:21] [INFO] M	.codebuddy/automations/ai/memory.md
+M	.workbuddy/memory/2026-03-30.md
+M	.workbuddy/memory/MEMORY.md
+M	__pycache__/feishu_write_doc.cpython-313.pyc
+M	check_sections.py
+M	current_prompt.txt
+M	"daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-05-07.html"
+M	feishu_doc_url.txt
+M	feishu_write_doc.py
+M	generate_html_report.py
+[2026-05-14 09:25:30] [INFO] Already up to date.
+[2026-05-14 09:25:30] [SUCCESS] ✅ 代码已更新到最新版本
+[2026-05-14 09:25:30] [INFO] ============================================================
+[2026-05-14 09:25:30] [INFO] 生成今日日报
+[2026-05-14 09:25:30] [INFO] ============================================================
+[2026-05-14 09:25:32] [SUCCESS] ✅ 日报已生成: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-05-14.html
+[2026-05-14 09:25:32] [INFO] ============================================================
+[2026-05-14 09:25:32] [INFO] 复制日报到posts目录
+[2026-05-14 09:25:32] [INFO] ============================================================
+[2026-05-14 09:25:32] [SUCCESS] ✅ 日报已复制: C:\Users\Administrator\WorkBuddy\Claw\posts\2026-05-14.html
+[2026-05-14 09:25:32] [INFO] ============================================================
+[2026-05-14 09:25:32] [INFO] 更新index.html
+[2026-05-14 09:25:32] [INFO] ============================================================
+[2026-05-14 09:25:32] [WARNING] 警告: 未找到reports-container,可能需要手动更新index.html
+[2026-05-14 09:25:32] [INFO] 删除锁文件
