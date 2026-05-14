@@ -1,0 +1,163 @@
+[2026-04-27 20:41:38] [INFO] 部署主机: PC-20260312LHBE
+[2026-04-27 20:41:38] [INFO] 当前时间: 2026-04-27 20:41:38
+[2026-04-27 20:41:38] [INFO] 创建锁文件: deploying by PC-20260312LHBE at 2026-04-27T20:41:38.820196
+[2026-04-27 20:41:38] [INFO] ============================================================
+[2026-04-27 20:41:38] [INFO] 检查部署环境
+[2026-04-27 20:41:38] [INFO] ============================================================
+[2026-04-27 20:41:38] [INFO] Python版本: 3.13.12
+[2026-04-27 20:41:39] [INFO] git version 2.53.0.windows.2
+[2026-04-27 20:41:39] [INFO] Git版本: git version 2.53.0.windows.2
+[2026-04-27 20:41:39] [SUCCESS] ✅ HTML生成脚本: 存在
+[2026-04-27 20:41:39] [SUCCESS] ✅ 搜索结果数据: 存在
+[2026-04-27 20:41:39] [INFO] origin	https://github.com/tianyunsu/ocean-data-daily-report.git (fetch)
+origin	https://github.com/tianyunsu/ocean-data-daily-report.git (push)
+[2026-04-27 20:41:39] [INFO] Git远程仓库:
+origin	https://github.com/tianyunsu/ocean-data-daily-report.git (fetch)
+origin	https://github.com/tianyunsu/ocean-data-daily-report.git (push)
+
+[2026-04-27 20:41:39] [SUCCESS] 
+✅ 环境检查通过
+[2026-04-27 20:41:39] [INFO] ============================================================
+[2026-04-27 20:41:39] [INFO] 拉取最新代码
+[2026-04-27 20:41:39] [INFO] ============================================================
+[2026-04-27 20:41:39] [INFO] M	.codebuddy/automations/ai/memory.md
+M	.workbuddy/memory/2026-03-30.md
+M	.workbuddy/memory/MEMORY.md
+M	__pycache__/feishu_write_doc.cpython-313.pyc
+M	check_sections.py
+M	current_prompt.txt
+M	feishu_doc_url.txt
+M	feishu_write_doc.py
+[2026-04-27 20:41:42] [INFO] Already up to date.
+[2026-04-27 20:41:42] [SUCCESS] ✅ 代码已更新到最新版本
+[2026-04-27 20:41:42] [INFO] ============================================================
+[2026-04-27 20:41:42] [INFO] 生成今日日报
+[2026-04-27 20:41:42] [INFO] ============================================================
+[2026-04-27 20:41:43] [INFO] [OK] HTML报告已生成: C:/Users/Administrator/WorkBuddy/Claw/daily_reports/海洋AI简报_2026-04-27.html
+     共 9 个方向，22 条动态
+[2026-04-27 20:41:43] [SUCCESS] ✅ 日报已生成: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-04-27.html
+[2026-04-27 20:41:43] [INFO] ============================================================
+[2026-04-27 20:41:43] [INFO] 复制日报到posts目录
+[2026-04-27 20:41:43] [INFO] ============================================================
+[2026-04-27 20:41:43] [SUCCESS] ✅ 日报已复制: C:\Users\Administrator\WorkBuddy\Claw\posts\2026-04-27.html
+[2026-04-27 20:41:43] [INFO] ============================================================
+[2026-04-27 20:41:43] [INFO] 更新index.html
+[2026-04-27 20:41:43] [INFO] ============================================================
+[2026-04-27 20:41:43] [INFO] 今日日报链接已存在,跳过更新
+[2026-04-27 20:41:43] [INFO] ============================================================
+[2026-04-27 20:41:43] [INFO] 提交并推送到GitHub
+[2026-04-27 20:41:43] [INFO] ============================================================
+[2026-04-27 20:41:44] [INFO] M .codebuddy/automations/ai/memory.md
+ M .workbuddy/memory/2026-03-30.md
+ M .workbuddy/memory/MEMORY.md
+ M __pycache__/feishu_write_doc.cpython-313.pyc
+ M check_sections.py
+ M current_prompt.txt
+ M feishu_doc_url.txt
+ M feishu_write_doc.py
+M  posts/2026-04-27.html
+?? .workbuddy/memory/2026-04-02.md
+?? .workbuddy/memory/2026-04-07.md
+?? .workbuddy/memory/2026-04-08.md
+?? .workbuddy/memory/2026-04-09.md
+?? .workbuddy/memory/2026-04-13.md
+?? .workbuddy/memory/2026-04-14.md
+?? .workbuddy/memory/2026-04-15.md
+?? .workbuddy/memory/2026-04-16.md
+?? .workbuddy/memory/2026-04-17.md
+?? .workbuddy/memory/2026-04-19.md
+?? .workbuddy/memory/2026-04-20.md
+?? .workbuddy/memory/2026-04-21.md
+?? .workbuddy/memory/2026-04-22.md
+?? .workbuddy/memory/2026-04-23.md
+?? .workbuddy/memory/2026-04-24.md
+?? .workbuddy/memory/2026-04-27.md
+?? analyze_make.py
+?? argo_news.html
+?? arxiv_argo.html
+?? arxiv_da.html
+?? arxiv_dm.html
+?? arxiv_dq.html
+?? arxiv_dt.html
+?? arxiv_marine.html
+?? arxiv_oc.html
+?? arxiv_ocean_ml.html
+?? arxiv_viz.html
+?? arxiv_viz2.html
+?? build_sections_0427.py
+?? check_ai_tt.py
+?? check_archive.py
+?? check_automation_run.py
+?? check_balance.py
+?? check_current_sections.py
+?? check_dates.py
+?? check_dates_0417.py
+?? check_github.py
+?? check_github_posts.py
+?? check_html_0427.py
+?? check_html_dates.py
+?? check_links_0427.py
+?? cmems_news.html
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-07.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-08.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-09.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-14.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-15.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-16.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-17.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-19.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-20.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-21.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-22.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-23.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-24.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-04-27.html"
+?? deep_check.py
+?? deep_check2.py
+?? deploy.lock
+?? do_searches.py
+?? egu2026.html
+?? extract_current.py
+?? extract_titles.py
+?? fix_ai_tt_end.py
+?? fix_indent.py
+?? fix_last_item.py
+?? fix_sections_0424.py
+?? generate_html_0416.py
+?? generate_html_0417.py
+?? generate_html_0419.py
+?? github_api_push.py
+?? link_check_0427.json
+?? logs/
+?? make_new_feishu.py
+?? make_new_feishu_v2.py
+?? replace_sections.py
+?? replace_sections_v2.py
+?? send_notify_0424.py
+?? send_notify_0427.py
+?? update_index.py
+?? update_index_0427.py
+?? update_sections_0407.py
+?? update_sections_0416.py
+?? update_sections_0417.py
+?? url_audit.py
+?? validate_sections.py
+?? verify_dates.py
+?? verify_fix.py
+?? verify_github.py
+?? verify_github_0427.py
+?? verify_html_github.py
+?? verify_result.txt
+?? write_sections_data.py
+[2026-04-27 20:41:45] [INFO] [main 3a106dc] Add 2026-04-27 daily report
+ 1 file changed, 27 insertions(+), 27 deletions(-)
+[2026-04-27 20:42:06] [ERROR] 命令执行失败: git push origin main
+[2026-04-27 20:42:06] [ERROR] 错误信息: fatal: unable to access 'https://github.com/tianyunsu/ocean-data-daily-report.git/': Recv failure: Connection was reset
+
+[2026-04-27 20:42:06] [ERROR] 推送失败
+[2026-04-27 20:42:06] [WARNING] 
+可能的原因:
+[2026-04-27 20:42:06] [WARNING]   1. 认证失败: 请检查SSH密钥或GitHub Token
+[2026-04-27 20:42:06] [WARNING]   2. 网络问题: 请检查网络连接
+[2026-04-27 20:42:06] [WARNING]   3. 权限问题: 请确认你有推送权限
+[2026-04-27 20:42:06] [INFO] 删除锁文件

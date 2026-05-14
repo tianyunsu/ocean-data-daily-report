@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+    <!-- contains Cornell logo and sponsor statement -->
+<div class="attribution level is-marginless" role="banner">
+  <div class="level-left">
+    <a class="level-item" href="https://cornell.edu/"><img src="https://static.arxiv.org/static/base/1.0.0a5/images/cornell-reduced-white-SMALL.svg" alt="Cornell University" width="200" aria-label="logo" /></a>
+  </div>
+  <div class="level-right is-marginless"><p class="sponsors level-item is-marginless"><span id="support-ack-url">We gratefully acknowledge support from<br /> the Simons Foundation, <a href="https://info.arxiv.org/about/ourmembers.html">member institutions</a>, and all contributors. <a href="https://info.arxiv.org/about/donate.html">Donate</a></span></p></div>
+</div>
+<!-- contains arXiv identity and search bar -->
+<div class="identity level is-marginless">
+  <div class="level-left">
+    <div class="level-item">
+      <a class="arxiv" href="https://arxiv.org/" aria-label="arxiv-logo">
+        <img src="https://static.arxiv.org/static/base/1.0.0a5/images/arxiv-logo-one-color-white.svg" aria-label="logo" alt="arxiv logo" width="85" style="width:85px;"/>
+      </a>
+    </div>
+  </div>
+  
+  <div class="search-block level-right">
+    <form class="level-item mini-search" method="GET" action="https://arxiv.org/search">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input is-small" type="text" name="query" placeholder="Search..." aria-label="Search term or terms" />
+          <p class="help"><a href="https://info.arxiv.org/help">Help</a> | <a href="https://arxiv.org/search/advanced">Advanced Search</a></p>
+        </div>
+        <div class="control">
+          <div class="select is-small">
+            <select name="searchtype" aria-label="Field to search">
+              <option value="all" selected="selected">All fields</option>
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="abstract">Abstract</option>
+              <option value="comments">Comments</option>
+              <option value="journal_ref">Journal reference</option>
+              <option value="acm_class">ACM classification</option>
+              <option value="msc_class">MSC classification</option>
+              <option value="report_num">Report number</option>
+              <option value="paper_id">arXiv identifier</option>
+              <option value="doi">DOI</option>
+              <option value="orcid">ORCID</option>
+              <option value="author_id">arXiv author ID</option>
+              <option value="help">Help pages</option>
+              <option value="full_text">Full text</option>
+            </select>
+          </div>
+        </div>
+        <input type="hidden" name="source" value="header">
+        <button class="button is-small is-cul-darker">Search</button>
+      </div>
+    </form>
+  </div>
+</div> <!-- closes identity -->
+
+<div class="container">
+    <div class="user-tools is-size-7 has-text-right has-text-weight-bold" role="navigation" aria-label="User menu">
+      <a href="https://arxiv.org/login">Login</a>
+    </div>
+</div>
+    
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;6 of 6 results for all: <span class="mathjax">Argo float ocean profiling</span>
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  <form method="GET" action="/search/"  aria-role="search">
+    
+
+    
+    <div class="field has-addons-tablet">
+      <div class="control is-expanded">
+        <label for="query" class="hidden-label">Search term or terms</label>
+        
+          <input class="input is-medium" id="query" name="query" placeholder="Search term..." type="text" value="Argo float ocean profiling">
+        
+        
+      </div>
+      <div class="select control is-medium">
+        <label class="is-hidden" for="searchtype">Field</label>
+        <select class="is-medium" id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+      </div>
+      <div class="control">
+          <button class="button is-link is-medium">Search</button>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control is-size-7">
+        
+        <label class="radio">
+          <input checked id="abstracts-0" name="abstracts" type="radio" value="show"> Show abstracts
+        </label>
+        
+        <label class="radio">
+          <input id="abstracts-1" name="abstracts" type="radio" value="hide"> Hide abstracts
+        </label>
+        
+      </div>
+    </div>
+    <div class="is-clearfix" style="height: 2.5em"> 
+      <div class="is-pulled-right">
+        
+        <a href="/search/advanced?terms-0-term=Argo+float+ocean+profiling&amp;terms-0-field=all&amp;size=50&amp;order=-announced_date_first">Advanced Search</a>
+        
+      </div>
+    </div>
+    <input type="hidden" name="order" value="-announced_date_first">
+    <input type="hidden" name="size" value="50">
+  </form>
+
+  
+
+  
+      
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/">
+      <div style="display: none;">
+        
+          
+            <select id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+          
+        
+          
+            <input id="query" name="query" type="text" value="Argo float ocean profiling">
+          
+        
+          
+        
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option selected value="50">50</option><option value="100">100</option><option value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option selected value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+      
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2111.00126">arXiv:2111.00126</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2111.00126">pdf</a>, <a href="https://arxiv.org/format/2111.00126">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Predicting Critical Biogeochemistry of the Southern <span class="search-hit mathjax">Ocean</span> for Climate Monitoring
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Park%2C+E">Ellen Park</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+J+D">Jae Deok Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Aoki%2C+N">Nadege Aoki</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cao%2C+Y+M">Yumeng Melody Cao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Arefeen%2C+Y">Yamin Arefeen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Beveridge%2C+M">Matthew Beveridge</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Nicholson%2C+D">David Nicholson</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Drori%2C+I">Iddo Drori</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2111.00126v1-abstract-short" style="display: inline;">
+        The Biogeochemical-<span class="search-hit mathjax">Argo</span> (BGC-&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2111.00126v1-abstract-full').style.display = 'inline'; document.getElementById('2111.00126v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2111.00126v1-abstract-full" style="display: none;">
+        The Biogeochemical-<span class="search-hit mathjax">Argo</span> (BGC-<span class="search-hit mathjax">Argo</span>) program is building a network of globally distributed, sensor-equipped robotic <span class="search-hit mathjax">profiling</span> <span class="search-hit mathjax">floats</span>, improving our understanding of the climate system and how it is changing. These <span class="search-hit mathjax">floats</span>, however, are limited in the number of variables measured. In this study, we train neural networks to predict silicate and phosphate values in the Southern <span class="search-hit mathjax">Ocean</span> from temperature, pressure, salinity, oxygen, nitrate, and location and apply these models to earth system model (ESM) and BGC-<span class="search-hit mathjax">Argo</span> data to expand the utility of this <span class="search-hit mathjax">ocean</span> observation network. We trained our neural networks on observations from the Global <span class="search-hit mathjax">Ocean</span> Ship-Based Hydrographic Investigations Program (GO-SHIP) and use dropout regularization to provide uncertainty bounds around our predicted values. Our neural network significantly improves upon linear regression but shows variable levels of uncertainty across the ranges of predicted variables. We explore the generalization of our estimators to test data outside our training distribution from both ESM and BGC-<span class="search-hit mathjax">Argo</span> data. Our use of out-of-distribution test data to examine shifts in biogeochemical parameters and calculate uncertainty bounds around estimates advance the state-of-the-art in oceanographic data and climate monitoring. We make our data and code publicly available.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2111.00126v1-abstract-full').style.display = 'none'; document.getElementById('2111.00126v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2021; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2021.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">6 pages, 4 figures</span>
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        Tackling Climate Change with Machine Learning workshop at NeurIPS 2021
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2110.09717">arXiv:2110.09717</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2110.09717">pdf</a>, <a href="https://arxiv.org/format/2110.09717">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Hierarchical Bayesian Modeling of <span class="search-hit mathjax">Ocean</span> Heat Content and its Uncertainty
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Baugh%2C+S">Samuel Baugh</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=McKinnon%2C+K">Karen McKinnon</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2110.09717v2-abstract-short" style="display: inline;">
+        The accurate quantification of changes in the heat content of the world&#39;s <span class="search-hit mathjax">oceans</span> is crucial for our understanding of the effects of increasing greenhouse gas concentrations. The&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2110.09717v2-abstract-full').style.display = 'inline'; document.getElementById('2110.09717v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2110.09717v2-abstract-full" style="display: none;">
+        The accurate quantification of changes in the heat content of the world&#39;s <span class="search-hit mathjax">oceans</span> is crucial for our understanding of the effects of increasing greenhouse gas concentrations. The <span class="search-hit mathjax">Argo</span> program, consisting of Lagrangian <span class="search-hit mathjax">floats</span> that measure vertical temperature <span class="search-hit mathjax">profiles</span> throughout the global <span class="search-hit mathjax">ocean</span>, has provided a wealth of data from which to estimate <span class="search-hit mathjax">ocean</span> heat content. However, creating a globally consistent statistical model for <span class="search-hit mathjax">ocean</span> heat content remains challenging due to the need for a globally valid covariance model that can capture complex nonstationarity. In this paper, we develop a hierarchical Bayesian Gaussian process model that uses kernel convolutions with cylindrical distances to allow for spatial non-stationarity in all model parameters while using a Vecchia process to remain computationally feasible for large spatial datasets. Our approach can produce valid credible intervals for globally integrated quantities that would not be possible using previous approaches. These advantages are demonstrated through the application of the model to <span class="search-hit mathjax">Argo</span> data, yielding credible intervals for the spatially varying trend in <span class="search-hit mathjax">ocean</span> heat content that accounts for both the uncertainty induced from interpolation and from estimating the mean field and other parameters. Through cross-validation, we show that our model out-performs an out-of-the-box approach as well as other simpler models. The code for performing this analysis is provided as the R package BayesianOHC.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2110.09717v2-abstract-full').style.display = 'none'; document.getElementById('2110.09717v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 3 March, 2022; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 18 October, 2021;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2021.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Manuscript 23 pages 7 figures, supplement 6 pages 4 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2105.09707">arXiv:2105.09707</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2105.09707">pdf</a>, <a href="https://arxiv.org/format/2105.09707">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Spatio-temporal Local Interpolation of Global <span class="search-hit mathjax">Ocean</span> Heat Transport using <span class="search-hit mathjax">Argo</span> <span class="search-hit mathjax">Floats</span>: A Debiased Latent Gaussian Process Approach
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Park%2C+B">Beomjo Park</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kuusela%2C+M">Mikael Kuusela</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Giglio%2C+D">Donata Giglio</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gray%2C+A">Alison Gray</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2105.09707v3-abstract-short" style="display: inline;">
+        The world <span class="search-hit mathjax">ocean</span> plays a key role in redistributing heat in the climate system and hence in regulating Earth&#39;s climate. Yet statistical analysis of&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2105.09707v3-abstract-full').style.display = 'inline'; document.getElementById('2105.09707v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2105.09707v3-abstract-full" style="display: none;">
+        The world <span class="search-hit mathjax">ocean</span> plays a key role in redistributing heat in the climate system and hence in regulating Earth&#39;s climate. Yet statistical analysis of <span class="search-hit mathjax">ocean</span> heat transport suffers from partially incomplete large-scale data intertwined with complex spatio-temporal dynamics, as well as from potential model misspecification. We present a comprehensive spatio-temporal statistical framework tailored to interpolating the global <span class="search-hit mathjax">ocean</span> heat transport using in-situ <span class="search-hit mathjax">Argo</span> <span class="search-hit mathjax">profiling</span> <span class="search-hit mathjax">float</span> measurements. We formalize the statistical challenges using latent local Gaussian process regression accompanied by a two-stage fitting procedure. We introduce an approximate Expectation-Maximization algorithm to jointly estimate both the mean field and the covariance parameters, and refine the potentially under-specified mean field model with a debiasing procedure. This approach provides data-driven global <span class="search-hit mathjax">ocean</span> heat transport fields that vary in both space and time and can provide insights into crucial dynamical phenomena, such as El Ni{ñ}o \&amp; La Ni{ñ}a, as well as the global climatological mean heat transport field, which by itself is of scientific interest. The proposed framework and the <span class="search-hit mathjax">Argo</span>-based estimates are thoroughly validated with state-of-the-art multimission satellite products and shown to yield realistic subsurface <span class="search-hit mathjax">ocean</span> heat transport estimates.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2105.09707v3-abstract-full').style.display = 'none'; document.getElementById('2105.09707v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 18 July, 2022; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 20 May, 2021;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2021.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">30 pages, 10 figures with supplementary material 9 pages, 10 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2012.15130">arXiv:2012.15130</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2012.15130">pdf</a>, <a href="https://arxiv.org/format/2012.15130">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Spatio-temporal methods for estimating subsurface <span class="search-hit mathjax">ocean</span> thermal response to tropical cyclones
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Hu%2C+A+J">Addison J. Hu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kuusela%2C+M">Mikael Kuusela</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+A+B">Ann B. Lee</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Giglio%2C+D">Donata Giglio</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wood%2C+K+M">Kimberly M. Wood</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2012.15130v5-abstract-short" style="display: inline;">
+        &hellip;cyclones (TCs), driven by heat exchange between the air and sea, pose a substantial risk to many communities around the world. Accurate characterization of the subsurface <span class="search-hit mathjax">ocean</span> thermal response to TC passage is crucial for accurate TC intensity forecasts and for an understanding of the role that TCs play in the global climate system. However, that characteri&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2012.15130v5-abstract-full').style.display = 'inline'; document.getElementById('2012.15130v5-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2012.15130v5-abstract-full" style="display: none;">
+        Tropical cyclones (TCs), driven by heat exchange between the air and sea, pose a substantial risk to many communities around the world. Accurate characterization of the subsurface <span class="search-hit mathjax">ocean</span> thermal response to TC passage is crucial for accurate TC intensity forecasts and for an understanding of the role that TCs play in the global climate system. However, that characterization is complicated by the high-noise <span class="search-hit mathjax">ocean</span> environment, correlations inherent in spatio-temporal data, relative scarcity of in situ observations, and the entanglement of the TC-induced signal with seasonal signals. We present a general methodological framework that addresses these difficulties, integrating existing techniques in seasonal mean field estimation, Gaussian process modeling, and nonparametric regression into an ANOVA decomposition model. Importantly, we improve upon past work by properly handling seasonality, providing rigorous uncertainty quantification, and treating time as a continuous variable, rather than producing estimates that are binned in time. This ANOVA model is estimated using in situ subsurface temperature <span class="search-hit mathjax">profiles</span> from the <span class="search-hit mathjax">Argo</span> fleet of autonomous <span class="search-hit mathjax">floats</span> through a multi-step procedure, which (1) characterizes the upper <span class="search-hit mathjax">ocean</span> seasonal shift during the TC season; (2) models the variability in the temperature observations; (3) fits a thin plate spline using the variability estimates to account for heteroskedasticity and correlation between the observations. This spline fit reveals the <span class="search-hit mathjax">ocean</span> thermal response to TC passage. Through this framework, we obtain new scientific insights into the interaction between TCs and the <span class="search-hit mathjax">ocean</span> on a global scale, including a three-dimensional characterization of the near-surface and subsurface cooling along the TC storm track and the mixing-induced subsurface warming on the track&#39;s right side.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2012.15130v5-abstract-full').style.display = 'none'; document.getElementById('2012.15130v5-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 14 March, 2024; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 30 December, 2020;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> December 2020.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">39 pages, 14 figures; supplement and code at https://github.com/huisaddison/tc-<span class="search-hit mathjax">ocean</span>-methods</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1909.01845">arXiv:1909.01845</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1909.01845">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applied Physics">physics.app-ph</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Instrumentation and Detectors">physics.ins-det</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1088/1361-6501/ab7405">10.1088/1361-6501/ab7405 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Metered reagent injection into microfluidic continuous flow sampling for conductimetric <span class="search-hit mathjax">ocean</span> dissolved inorganic carbon sensing
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Tweedie%2C+M">Mark Tweedie</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Macquart%2C+A">Antonin Macquart</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Almeida%2C+J">Joao Almeida</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ward%2C+B">Brian Ward</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Maguire%2C+P">Paul Maguire</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1909.01845v1-abstract-short" style="display: inline;">
+        Continuous and autonomous measurement of total dissolved inorganic carbon (TCO2) in the <span class="search-hit mathjax">oceans</span> is critical for modelling important climate change factors such as&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1909.01845v1-abstract-full').style.display = 'inline'; document.getElementById('1909.01845v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1909.01845v1-abstract-full" style="display: none;">
+        Continuous and autonomous measurement of total dissolved inorganic carbon (TCO2) in the <span class="search-hit mathjax">oceans</span> is critical for modelling important climate change factors such as <span class="search-hit mathjax">ocean</span> uptake of atmospheric CO2 and <span class="search-hit mathjax">ocean</span> acidification. Miniaturised chemical analysis systems are therefore required which are small enough for integration into the existing <span class="search-hit mathjax">Argo</span> <span class="search-hit mathjax">ocean</span> <span class="search-hit mathjax">float</span> network for long-term unattended depth <span class="search-hit mathjax">profiling</span> of dissolved CO2 with the accuracy of laboratory bench analysers. A microfluidic conductivity-based approach offers the potential for such miniaturisation. Reagent payload for &gt;3 yr operation is a critical parameter. The precise injection of acid into sample, liberating CO2 from seawater, is addressed here. Laser etched microfluidic snake channel restrictors and asymmetric Y meters were fabricated to adjust the metering ratio between seawater and acid simulants. Laser etching conditions were varied to create a range of channel dimensions down to ~75 microns. Channel flow versus pressure measurements were used to determine hydrodynamic resistances which were compared with finite element simulations using a range of cross-section <span class="search-hit mathjax">profiles</span> and areas. Microfluidic metering circuits were constructed from variable resistance snake channels and dimensionally symmetric or asymmetric Y-junctions. Sample to acid volume ratios (meter ratio) up to 100:1 have been achieved with 300 microns wide snake channel for lengths &gt; 1m. At the highest pattern resolution, this would require a footprint of &gt; 600 mm2 (6 x10-4 m2). Circuits based solely on asymmetric Y-junctions gave meter ratios up to 16:1 with a footprint cost of &lt; 40 mm2 and precision values of ~0.2%. Further design and fabrication refinements will be required to ensure the structural and dimensional integrity of such small channels in future integration of metering units into full TCO2 analysis microfluidic circuits.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1909.01845v1-abstract-full').style.display = 'none'; document.getElementById('1909.01845v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 4 September, 2019; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2019.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">12 pages, 21 figures, 1 table, 3 equation images, 44 references</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1711.00460">arXiv:1711.00460</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1711.00460">pdf</a>, <a href="https://arxiv.org/format/1711.00460">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Methodology">stat.ME</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1098/rspa.2018.0400">10.1098/rspa.2018.0400 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Locally stationary spatio-temporal interpolation of <span class="search-hit mathjax">Argo</span> <span class="search-hit mathjax">profiling</span> <span class="search-hit mathjax">float</span> data
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Kuusela%2C+M">Mikael Kuusela</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Stein%2C+M+L">Michael L. Stein</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1711.00460v3-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Argo</span> <span class="search-hit mathjax">floats</span> measure seawater temperature and salinity in the upper 2,000 m of the global <span class="search-hit mathjax">ocean</span>. Statistical analysis of the resulting spatio-temporal dataset is challenging due to its nonstationary structure and large size. We propose mapping these data using locally stationary G&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1711.00460v3-abstract-full').style.display = 'inline'; document.getElementById('1711.00460v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1711.00460v3-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Argo</span> <span class="search-hit mathjax">floats</span> measure seawater temperature and salinity in the upper 2,000 m of the global <span class="search-hit mathjax">ocean</span>. Statistical analysis of the resulting spatio-temporal dataset is challenging due to its nonstationary structure and large size. We propose mapping these data using locally stationary Gaussian process regression where covariance parameter estimation and spatio-temporal prediction are carried out in a moving-window fashion. This yields computationally tractable nonstationary anomaly fields without the need to explicitly model the nonstationary covariance structure. We also investigate Student-$t$ distributed fine-scale variation as a means to account for non-Gaussian heavy tails in <span class="search-hit mathjax">ocean</span> temperature data. Cross-validation studies comparing the proposed approach with the existing state-of-the-art demonstrate clear improvements in point predictions and show that accounting for the nonstationarity and non-Gaussianity is crucial for obtaining well-calibrated uncertainties. This approach also provides data-driven local estimates of the spatial and temporal dependence scales for the global <span class="search-hit mathjax">ocean</span> which are of scientific interest in their own right.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1711.00460v3-abstract-full').style.display = 'none'; document.getElementById('1711.00460v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 December, 2018; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 1 November, 2017;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2017.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">28 pages, 8 figures, changes to the presentation throughout, some material moved to the supplement, author version of the published paper</span>
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        Proceedings of the Royal Society A 474: 20180400 (2018)
+      </p>
+    
+  </li>
+
+</ol>
+
+
+  
+
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    
+    <div class="columns is-desktop" role="navigation" aria-label="Secondary">
+  <!-- MetaColumn 1 -->
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/about">About</a></li>
+          <li><a href="https://info.arxiv.org/help">Help</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><title>contact arXiv</title><desc>Click here to contact arXiv</desc><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+            <a href="https://info.arxiv.org/help/contact.html"> Contact</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><title>subscribe to arXiv mailings</title><desc>Click here to subscribe</desc><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+            <a href="https://info.arxiv.org/help/subscribe"> Subscribe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 1 -->
+  <!-- MetaColumn 2 -->
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/help/license/index.html">Copyright</a></li>
+          <li><a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="column sorry-app-links">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/help/web_accessibility.html">Web Accessibility Assistance</a></li>
+          <li>
+            <p class="help">
+              <a class="a11y-main-link" href="https://status.arxiv.org" target="_blank">arXiv Operational Status <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="icon filter-dark_grey" role="presentation"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a><br>
+              Get status notifications via
+              <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/email/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>email</a>
+              or <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/slack/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon filter-black" role="presentation"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>slack</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 2 -->
+</div>
+    
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1496 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+    <!-- contains Cornell logo and sponsor statement -->
+<div class="attribution level is-marginless" role="banner">
+  <div class="level-left">
+    <a class="level-item" href="https://cornell.edu/"><img src="https://static.arxiv.org/static/base/1.0.0a5/images/cornell-reduced-white-SMALL.svg" alt="Cornell University" width="200" aria-label="logo" /></a>
+  </div>
+  <div class="level-right is-marginless"><p class="sponsors level-item is-marginless"><span id="support-ack-url">We gratefully acknowledge support from<br /> the Simons Foundation, <a href="https://info.arxiv.org/about/ourmembers.html">member institutions</a>, and all contributors. <a href="https://info.arxiv.org/about/donate.html">Donate</a></span></p></div>
+</div>
+<!-- contains arXiv identity and search bar -->
+<div class="identity level is-marginless">
+  <div class="level-left">
+    <div class="level-item">
+      <a class="arxiv" href="https://arxiv.org/" aria-label="arxiv-logo">
+        <img src="https://static.arxiv.org/static/base/1.0.0a5/images/arxiv-logo-one-color-white.svg" aria-label="logo" alt="arxiv logo" width="85" style="width:85px;"/>
+      </a>
+    </div>
+  </div>
+  
+  <div class="search-block level-right">
+    <form class="level-item mini-search" method="GET" action="https://arxiv.org/search">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input is-small" type="text" name="query" placeholder="Search..." aria-label="Search term or terms" />
+          <p class="help"><a href="https://info.arxiv.org/help">Help</a> | <a href="https://arxiv.org/search/advanced">Advanced Search</a></p>
+        </div>
+        <div class="control">
+          <div class="select is-small">
+            <select name="searchtype" aria-label="Field to search">
+              <option value="all" selected="selected">All fields</option>
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="abstract">Abstract</option>
+              <option value="comments">Comments</option>
+              <option value="journal_ref">Journal reference</option>
+              <option value="acm_class">ACM classification</option>
+              <option value="msc_class">MSC classification</option>
+              <option value="report_num">Report number</option>
+              <option value="paper_id">arXiv identifier</option>
+              <option value="doi">DOI</option>
+              <option value="orcid">ORCID</option>
+              <option value="author_id">arXiv author ID</option>
+              <option value="help">Help pages</option>
+              <option value="full_text">Full text</option>
+            </select>
+          </div>
+        </div>
+        <input type="hidden" name="source" value="header">
+        <button class="button is-small is-cul-darker">Search</button>
+      </div>
+    </form>
+  </div>
+</div> <!-- closes identity -->
+
+<div class="container">
+    <div class="user-tools is-size-7 has-text-right has-text-weight-bold" role="navigation" aria-label="User menu">
+      <a href="https://arxiv.org/login">Login</a>
+    </div>
+</div>
+    
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;18 of 18 results for all: <span class="mathjax">ocean visualization marine data</span>
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  <form method="GET" action="/search/"  aria-role="search">
+    
+
+    
+    <div class="field has-addons-tablet">
+      <div class="control is-expanded">
+        <label for="query" class="hidden-label">Search term or terms</label>
+        
+          <input class="input is-medium" id="query" name="query" placeholder="Search term..." type="text" value="ocean visualization marine data">
+        
+        
+      </div>
+      <div class="select control is-medium">
+        <label class="is-hidden" for="searchtype">Field</label>
+        <select class="is-medium" id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+      </div>
+      <div class="control">
+          <button class="button is-link is-medium">Search</button>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control is-size-7">
+        
+        <label class="radio">
+          <input checked id="abstracts-0" name="abstracts" type="radio" value="show"> Show abstracts
+        </label>
+        
+        <label class="radio">
+          <input id="abstracts-1" name="abstracts" type="radio" value="hide"> Hide abstracts
+        </label>
+        
+      </div>
+    </div>
+    <div class="is-clearfix" style="height: 2.5em"> 
+      <div class="is-pulled-right">
+        
+        <a href="/search/advanced?terms-0-term=ocean+visualization+marine+data&amp;terms-0-field=all&amp;size=50&amp;order=-announced_date_first">Advanced Search</a>
+        
+      </div>
+    </div>
+    <input type="hidden" name="order" value="-announced_date_first">
+    <input type="hidden" name="size" value="50">
+  </form>
+
+  
+
+  
+      
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/">
+      <div style="display: none;">
+        
+          
+            <select id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+          
+        
+          
+            <input id="query" name="query" type="text" value="ocean visualization marine data">
+          
+        
+          
+        
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option selected value="50">50</option><option value="100">100</option><option value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option selected value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+      
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2601.02139">arXiv:2601.02139</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2601.02139">pdf</a>, <a href="https://arxiv.org/ps/2601.02139">ps</a>, <a href="https://arxiv.org/format/2601.02139">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Beyond Segmentation: An Oil Spill Change Detection Framework Using Synthetic SAR Imagery
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Lai%2C+C">Chenyang Lai</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+S">Shuaiyu Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+T">Tianjin Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Song%2C+S">Siyang Song</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cheng%2C+G">Guangliang Cheng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Luo%2C+C">Chunbo Luo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fu%2C+Z">Zeyu Fu</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2601.02139v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Marine</span> oil spills are urgent environmental hazards that demand rapid and reliable detection to minimise ecological and economic damage. While Synthetic Aperture Radar (SAR) imagery has become a key tool for large-scale oil spill monitoring, most existing detection methods rely on deep learning-based segmentation applied to single SAR images. These static app&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2601.02139v1-abstract-full').style.display = 'inline'; document.getElementById('2601.02139v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2601.02139v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Marine</span> oil spills are urgent environmental hazards that demand rapid and reliable detection to minimise ecological and economic damage. While Synthetic Aperture Radar (SAR) imagery has become a key tool for large-scale oil spill monitoring, most existing detection methods rely on deep learning-based segmentation applied to single SAR images. These static approaches struggle to distinguish true oil spills from <span class="search-hit mathjax">visually</span> similar <span class="search-hit mathjax">oceanic</span> features (e.g., biogenic slicks or low-wind zones), leading to high false positive rates and limited generalizability, especially under <span class="search-hit mathjax">data</span>-scarce conditions. To overcome these limitations, we introduce Oil Spill Change Detection (OSCD), a new bi-temporal task that focuses on identifying changes between pre- and post-spill SAR images. As real co-registered pre-spill imagery is not always available, we propose the Temporal-Aware Hybrid Inpainting (TAHI) framework, which generates synthetic pre-spill images from post-spill SAR <span class="search-hit mathjax">data</span>. TAHI integrates two key components: High-Fidelity Hybrid Inpainting for oil-free reconstruction, and Temporal Realism Enhancement for radiometric and sea-state consistency. Using TAHI, we construct the first OSCD dataset and benchmark several state-of-the-art change detection models. Results show that OSCD significantly reduces false positives and improves detection accuracy compared to conventional segmentation, demonstrating the value of temporally-aware methods for reliable, scalable oil spill monitoring in real-world scenarios.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2601.02139v1-abstract-full').style.display = 'none'; document.getElementById('2601.02139v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 5 January, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> January 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2512.07652">arXiv:2512.07652</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2512.07652">pdf</a>, <a href="https://arxiv.org/ps/2512.07652">ps</a>, <a href="https://arxiv.org/format/2512.07652">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        An AI-Powered Autonomous Underwater System for Sea Exploration and Scientific Research
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Almazrouei%2C+H">Hamad Almazrouei</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Nasseri%2C+M+A">Mariam Al Nasseri</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Alzaabi%2C+M">Maha Alzaabi</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2512.07652v1-abstract-short" style="display: inline;">
+        Traditional sea exploration faces significant challenges due to extreme conditions, limited visibility, and high costs, resulting in vast unexplored <span class="search-hit mathjax">ocean</span> regions. This paper presents an innovative AI-powered Autonomous Underwater Vehicle (AUV) system designed to overcome these limitations by automating underwater object detection, analysis, and reporting. T&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2512.07652v1-abstract-full').style.display = 'inline'; document.getElementById('2512.07652v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2512.07652v1-abstract-full" style="display: none;">
+        Traditional sea exploration faces significant challenges due to extreme conditions, limited visibility, and high costs, resulting in vast unexplored <span class="search-hit mathjax">ocean</span> regions. This paper presents an innovative AI-powered Autonomous Underwater Vehicle (AUV) system designed to overcome these limitations by automating underwater object detection, analysis, and reporting. The system integrates YOLOv12 Nano for real-time object detection, a Convolutional Neural Network (CNN) (ResNet50) for feature extraction, Principal Component Analysis (PCA) for dimensionality reduction, and K-Means++ clustering for grouping <span class="search-hit mathjax">marine</span> objects based on <span class="search-hit mathjax">visual</span> characteristics. Furthermore, a Large Language Model (LLM) (GPT-4o Mini) is employed to generate structured reports and summaries of underwater findings, enhancing <span class="search-hit mathjax">data</span> interpretation. The system was trained and evaluated on a combined dataset of over 55,000 images from the DeepFish and OzFish datasets, capturing diverse Australian <span class="search-hit mathjax">marine</span> environments. Experimental results demonstrate the system&#39;s capability to detect <span class="search-hit mathjax">marine</span> objects with a mAP@0.5 of 0.512, a precision of 0.535, and a recall of 0.438. The integration of PCA effectively reduced feature dimensionality while preserving 98% variance, facilitating K-Means clustering which successfully grouped detected objects based on <span class="search-hit mathjax">visual</span> similarities. The LLM integration proved effective in generating insightful summaries of detections and clusters, supported by location <span class="search-hit mathjax">data</span>. This integrated approach significantly reduces the risks associated with human diving, increases mission efficiency, and enhances the speed and depth of underwater <span class="search-hit mathjax">data</span> analysis, paving the way for more effective scientific research and discovery in challenging <span class="search-hit mathjax">marine</span> environments.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2512.07652v1-abstract-full').style.display = 'none'; document.getElementById('2512.07652v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 8 December, 2025; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> December 2025.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2511.15997">arXiv:2511.15997</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2511.15997">pdf</a>, <a href="https://arxiv.org/ps/2511.15997">ps</a>, <a href="https://arxiv.org/format/2511.15997">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Multimedia">cs.MM</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Sensorium Arc: AI Agent System for <span class="search-hit mathjax">Oceanic</span> <span class="search-hit mathjax">Data</span> Exploration and Interactive Eco-Art
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Bissell%2C+N">Noah Bissell</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Paley%2C+E">Ethan Paley</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Harrison%2C+J">Joshua Harrison</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Calil%2C+J">Juliano Calil</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+M">Myungin Lee</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2511.15997v1-abstract-short" style="display: inline;">
+        Sensorium Arc (AI reflects on climate) is a real-time multimodal interactive AI agent system that personifies the <span class="search-hit mathjax">ocean</span> as a poetic speaker and guides users through immersive explorations of complex&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2511.15997v1-abstract-full').style.display = 'inline'; document.getElementById('2511.15997v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2511.15997v1-abstract-full" style="display: none;">
+        Sensorium Arc (AI reflects on climate) is a real-time multimodal interactive AI agent system that personifies the <span class="search-hit mathjax">ocean</span> as a poetic speaker and guides users through immersive explorations of complex <span class="search-hit mathjax">marine</span> <span class="search-hit mathjax">data</span>. Built on a modular multi-agent system and retrieval-augmented large language model (LLM) framework, Sensorium enables natural spoken conversations with AI agents that embodies the <span class="search-hit mathjax">ocean&#39;s</span> perspective, generating responses that blend scientific insight with ecological poetics. Through keyword detection and semantic parsing, the system dynamically triggers <span class="search-hit mathjax">data</span> <span class="search-hit mathjax">visualizations</span> and audiovisual playback based on time, location, and thematic cues drawn from the dialogue. Developed in collaboration with the Center for the Study of the Force Majeure and inspired by the eco-aesthetic philosophy of Newton Harrison, Sensorium Arc reimagines <span class="search-hit mathjax">ocean</span> <span class="search-hit mathjax">data</span> not as an abstract dataset but as a living narrative. The project demonstrates the potential of conversational AI agents to mediate affective, intuitive access to high-dimensional environmental <span class="search-hit mathjax">data</span> and proposes a new paradigm for human-machine-ecosystem.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2511.15997v1-abstract-full').style.display = 'none'; document.getElementById('2511.15997v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 19 November, 2025; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">(to appear) NeurIPS 2025 Creative AI Track</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2511.08070">arXiv:2511.08070</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2511.08070">pdf</a>, <a href="https://arxiv.org/ps/2511.08070">ps</a>, <a href="https://arxiv.org/format/2511.08070">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Methodology">stat.ME</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        ANOVATS: A subsampling-based test to detect differences among short time series in <span class="search-hit mathjax">marine</span> studies
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Goto%2C+Y">Yuichi Goto</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Solvang%2C+H+K">Hiroko Kato Solvang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Taniguchi%2C+M">Masanobu Taniguchi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Falkenhaug%2C+T">Tone Falkenhaug</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2511.08070v1-abstract-short" style="display: inline;">
+        Assessing <span class="search-hit mathjax">marine</span> ecosystems is important for understanding the impacts of climate change and human activity, as well as for maintaining healthy&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2511.08070v1-abstract-full').style.display = 'inline'; document.getElementById('2511.08070v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2511.08070v1-abstract-full" style="display: none;">
+        Assessing <span class="search-hit mathjax">marine</span> ecosystems is important for understanding the impacts of climate change and human activity, as well as for maintaining healthy <span class="search-hit mathjax">oceans</span> and ecosystems. In <span class="search-hit mathjax">marine</span> science, it is common for biologists and geologists to identify regional differences based on expert knowledge, frequently through <span class="search-hit mathjax">data</span> <span class="search-hit mathjax">visualization</span>. However, time series <span class="search-hit mathjax">data</span> collected through surveys in <span class="search-hit mathjax">marine</span> studies typically span only a few decades, limiting the applicability of classical time series methods. Additionally, without expert knowledge, detecting significant differences becomes challenging. To address these issues, we introduce ANOVATS (ANOVA for small-sample time series <span class="search-hit mathjax">data</span>), a subsampling-based method to detect regional differences in small-sample time series <span class="search-hit mathjax">data</span> with a fixed number of groups. This method bypasses the need for spectral density estimation, which requires a large number of time points in the <span class="search-hit mathjax">data</span>. Furthermore, after detecting differences in homogeneity across all areas using the ANOVATS procedure, we devised a simple ANOVATS post hoc procedure to group the areas. Finally, we demonstrate the effectiveness of our method by analyzing zooplankton biomass <span class="search-hit mathjax">data</span> collected in different strata of the North Sea, showing its ability to quantify differences in species between geographical areas without relying on prior biological or geographical knowledge.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2511.08070v1-abstract-full').style.display = 'none'; document.getElementById('2511.08070v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 11 November, 2025; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">23 pages, 12 figures</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">MSC Class:</span>
+          62J10; 62M10; 62F40; 62P12
+        
+
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2511.01019">arXiv:2511.01019</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2511.01019">pdf</a>, <a href="https://arxiv.org/ps/2511.01019">ps</a>, <a href="https://arxiv.org/format/2511.01019">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computation and Language">cs.CL</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computational Engineering, Finance, and Science">cs.CE</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Atmospheric and Oceanic Physics">physics.ao-ph</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        OceanAI: A Conversational Platform for Accurate, Transparent, Near-Real-Time Oceanographic Insights
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+B">Bowen Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gajbhar%2C+J">Jayesh Gajbhar</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dusek%2C+G">Gregory Dusek</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Redmon%2C+R">Rob Redmon</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hogan%2C+P">Patrick Hogan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+P">Paul Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bohnenstiehl%2C+D">DelWayne Bohnenstiehl</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+D">Dongkuan Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=He%2C+R">Ruoying He</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2511.01019v2-abstract-short" style="display: inline;">
+        &hellip;platform that integrates the natural-language fluency of open-source large language models (LLMs) with real-time, parameterized access to authoritative oceanographic <span class="search-hit mathjax">data</span> streams hosted by the National&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2511.01019v2-abstract-full').style.display = 'inline'; document.getElementById('2511.01019v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2511.01019v2-abstract-full" style="display: none;">
+        Artificial intelligence is transforming the sciences, yet general conversational AI systems often generate unverified &#34;hallucinations&#34; undermining scientific rigor. We present OceanAI, a conversational platform that integrates the natural-language fluency of open-source large language models (LLMs) with real-time, parameterized access to authoritative oceanographic <span class="search-hit mathjax">data</span> streams hosted by the National <span class="search-hit mathjax">Oceanic</span> and Atmospheric Administration (NOAA). Each query such as &#34;What was Boston Harbor&#39;s highest water level in 2024?&#34; triggers real-time API calls that identify, parse, and synthesize relevant datasets into reproducible natural-language responses and <span class="search-hit mathjax">data</span> <span class="search-hit mathjax">visualizations</span>. In a blind comparison with three widely used AI chat-interface products, only OceanAI produced NOAA-sourced values with original <span class="search-hit mathjax">data</span> references; others either declined to answer or provided unsupported results. Designed for extensibility, OceanAI connects to multiple NOAA <span class="search-hit mathjax">data</span> products and variables, supporting applications in <span class="search-hit mathjax">marine</span> hazard forecasting, ecosystem assessment, and water-quality monitoring. By grounding outputs and verifiable observations, OceanAI advances transparency, reproducibility, and trust, offering a scalable framework for AI-enabled decision support within the <span class="search-hit mathjax">oceans</span>. A public demonstration is available at https://oceanai.ai4ocean.xyz.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2511.01019v2-abstract-full').style.display = 'none'; document.getElementById('2511.01019v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 6 November, 2025; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 2 November, 2025;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">A related presentation will be given at the AGU(American Geophysical Union) and AMS(American Meteorological Society) Annual Meetings</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2507.10449">arXiv:2507.10449</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2507.10449">pdf</a>, <a href="https://arxiv.org/ps/2507.10449">ps</a>, <a href="https://arxiv.org/format/2507.10449">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        CoralVQA: A Large-Scale <span class="search-hit mathjax">Visual</span> Question Answering Dataset for Coral Reef Image Understanding
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Han%2C+H">Hongyong Han</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+W">Wei Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+G">Gaowei Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+M">Mingjie Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+Y">Yi Wang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2507.10449v2-abstract-short" style="display: inline;">
+        &hellip;conservation. While coral reef images provide essential information in coral monitoring, interpreting such images remains challenging due to the need for domain expertise. <span class="search-hit mathjax">Visual</span> Question Answering (VQA), powered by Large Vision-Language Models (LVLMs), has great potential in user-friendly interaction with coral reef images. However, applying VQA to coral im&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2507.10449v2-abstract-full').style.display = 'inline'; document.getElementById('2507.10449v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2507.10449v2-abstract-full" style="display: none;">
+        Coral reefs are vital yet vulnerable ecosystems that require continuous monitoring to support conservation. While coral reef images provide essential information in coral monitoring, interpreting such images remains challenging due to the need for domain expertise. <span class="search-hit mathjax">Visual</span> Question Answering (VQA), powered by Large Vision-Language Models (LVLMs), has great potential in user-friendly interaction with coral reef images. However, applying VQA to coral imagery demands a dedicated dataset that addresses two key challenges: domain-specific annotations and multidimensional questions. In this work, we introduce CoralVQA, the first large-scale VQA dataset for coral reef analysis. It contains 12,805 real-world coral images from 67 coral genera collected from 3 <span class="search-hit mathjax">oceans</span>, along with 277,653 question-answer pairs that comprehensively assess ecological and health-related conditions. To construct this dataset, we develop a semi-automatic <span class="search-hit mathjax">data</span> construction pipeline in collaboration with <span class="search-hit mathjax">marine</span> biologists to ensure both scalability and professional-grade <span class="search-hit mathjax">data</span> quality. CoralVQA presents novel challenges and provides a comprehensive benchmark for studying vision-language reasoning in the context of coral reef images. By evaluating several state-of-the-art LVLMs, we reveal key limitations and opportunities. These insights form a foundation for future LVLM development, with a particular emphasis on supporting coral conservation efforts.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2507.10449v2-abstract-full').style.display = 'none'; document.getElementById('2507.10449v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 2 November, 2025; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 14 July, 2025;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> July 2025.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2505.18477">arXiv:2505.18477</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2505.18477">pdf</a>, <a href="https://arxiv.org/ps/2505.18477">ps</a>, <a href="https://arxiv.org/format/2505.18477">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        ZooplanktonBench: A Geo-Aware Zooplankton Recognition and Classification Dataset from <span class="search-hit mathjax">Marine</span> Observations
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+F">Fukun Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Greer%2C+A+T">Adam T. Greer</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mai%2C+G">Gengchen Mai</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sun%2C+J">Jin Sun</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2505.18477v3-abstract-short" style="display: inline;">
+        Plankton are small drifting organisms found throughout the world&#39;s <span class="search-hit mathjax">oceans</span> and can be indicators of&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2505.18477v3-abstract-full').style.display = 'inline'; document.getElementById('2505.18477v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2505.18477v3-abstract-full" style="display: none;">
+        Plankton are small drifting organisms found throughout the world&#39;s <span class="search-hit mathjax">oceans</span> and can be indicators of <span class="search-hit mathjax">ocean</span> health. One component of this plankton community is the zooplankton, which includes gelatinous animals and crustaceans (e.g. shrimp), as well as the early life stages (i.e., eggs and larvae) of many commercially important fishes. Being able to monitor zooplankton abundances accurately and understand how populations change in relation to <span class="search-hit mathjax">ocean</span> conditions is invaluable to <span class="search-hit mathjax">marine</span> science research, with important implications for future <span class="search-hit mathjax">marine</span> seafood productivity. While new imaging technologies generate massive amounts of video <span class="search-hit mathjax">data</span> of zooplankton, analyzing them using general-purpose computer vision tools turns out to be highly challenging due to the high similarity in appearance between the zooplankton and its background (e.g., <span class="search-hit mathjax">marine</span> snow). In this work, we present the ZooplanktonBench, a benchmark dataset containing images and videos of zooplankton associated with rich geospatial metadata (e.g., geographic coordinates, depth, etc.) in various water ecosystems. ZooplanktonBench defines a collection of tasks to detect, classify, and track zooplankton in challenging settings, including highly cluttered environments, living vs non-living classification, objects with similar shapes, and relatively small objects. Our dataset presents unique challenges and opportunities for state-of-the-art computer vision systems to evolve and improve <span class="search-hit mathjax">visual</span> understanding in dynamic environments characterized by significant variation and the need for geo-awareness. The code and settings described in this paper can be found on our website: https://lfk118.github.io/ZooplanktonBench_Webpage.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2505.18477v3-abstract-full').style.display = 'none'; document.getElementById('2505.18477v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 May, 2025; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 23 May, 2025;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted to KDD 2025 Datasets and Benchmarks Track</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2310.13596">arXiv:2310.13596</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2310.13596">pdf</a>, <a href="https://arxiv.org/format/2310.13596">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computation and Language">cs.CL</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        MarineGPT: Unlocking Secrets of <span class="search-hit mathjax">Ocean</span> to the Public
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zheng%2C+Z">Ziqiang Zheng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+J">Jipeng Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Vu%2C+T">Tuan-Anh Vu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Diao%2C+S">Shizhe Diao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tim%2C+Y+H+W">Yue Him Wong Tim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yeung%2C+S">Sai-Kit Yeung</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2310.13596v1-abstract-short" style="display: inline;">
+        &hellip;are proposing multi-modal large language models (MLLM), empowering LLMs with the ability to sense multiple modality inputs through constructing a joint semantic space (e.g. <span class="search-hit mathjax">visual</span>-text space). Though significant success was achieved in LLMs and MLLMs, exploring LLMs and MLLMs in domain-specific applications that required domain-specific knowledge and experti&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2310.13596v1-abstract-full').style.display = 'inline'; document.getElementById('2310.13596v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2310.13596v1-abstract-full" style="display: none;">
+        Large language models (LLMs), such as ChatGPT/GPT-4, have proven to be powerful tools in promoting the user experience as an AI assistant. The continuous works are proposing multi-modal large language models (MLLM), empowering LLMs with the ability to sense multiple modality inputs through constructing a joint semantic space (e.g. <span class="search-hit mathjax">visual</span>-text space). Though significant success was achieved in LLMs and MLLMs, exploring LLMs and MLLMs in domain-specific applications that required domain-specific knowledge and expertise has been less conducted, especially for \textbf{<span class="search-hit mathjax">marine</span> domain}. Different from general-purpose MLLMs, the <span class="search-hit mathjax">marine</span>-specific MLLM is required to yield much more \textbf{sensitive}, \textbf{informative}, and \textbf{scientific} responses. In this work, we demonstrate that the existing MLLMs optimized on huge amounts of readily available general-purpose training <span class="search-hit mathjax">data</span> show a minimal ability to understand domain-specific intents and then generate informative and satisfactory responses. To address these issues, we propose \textbf{MarineGPT}, the first vision-language model specially designed for the <span class="search-hit mathjax">marine</span> domain, unlocking the secrets of the <span class="search-hit mathjax">ocean</span> to the public. We present our \textbf{<span class="search-hit mathjax">Marine</span>-5M} dataset with more than 5 million <span class="search-hit mathjax">marine</span> image-text pairs to inject domain-specific <span class="search-hit mathjax">marine</span> knowledge into our model and achieve better <span class="search-hit mathjax">marine</span> vision and language alignment. Our MarineGPT not only pushes the boundaries of <span class="search-hit mathjax">marine</span> understanding to the general public but also offers a standard protocol for adapting a general-purpose assistant to downstream domain-specific experts. We pave the way for a wide range of <span class="search-hit mathjax">marine</span> applications while setting valuable <span class="search-hit mathjax">data</span> and pre-trained models for future research in both academic and industrial communities.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2310.13596v1-abstract-full').style.display = 'none'; document.getElementById('2310.13596v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 20 October, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2023.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">work in progress. Code and <span class="search-hit mathjax">data</span> will be available at https://github.com/hkust-vgd/MarineGPT</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2310.08397">arXiv:2310.08397</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2310.08397">pdf</a>, <a href="https://arxiv.org/format/2310.08397">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Methodology">stat.ME</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Assessing <span class="search-hit mathjax">Marine</span> Mammal Abundance: A Novel <span class="search-hit mathjax">Data</span> Fusion
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Schliep%2C+E+M">Erin M. Schliep</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gelfand%2C+A+E">Alan E. Gelfand</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Clark%2C+C+W">Christopher W. Clark</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mayo%2C+C+M">Charles M. Mayo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=McKenna%2C+B">Brigid McKenna</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Parks%2C+S+E">Susan E. Parks</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yack%2C+T+M">Tina M. Yack</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Schick%2C+R+S">Robert S. Schick</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2310.08397v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Marine</span> mammals are increasingly vulnerable to human disturbance and climate change. Their diving behavior leads to limited&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2310.08397v1-abstract-full').style.display = 'inline'; document.getElementById('2310.08397v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2310.08397v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Marine</span> mammals are increasingly vulnerable to human disturbance and climate change. Their diving behavior leads to limited <span class="search-hit mathjax">visual</span> access during <span class="search-hit mathjax">data</span> collection, making studying the abundance and distribution of <span class="search-hit mathjax">marine</span> mammals challenging. In theory, using <span class="search-hit mathjax">data</span> from more than one observation modality should lead to better informed predictions of abundance and distribution. With focus on North Atlantic right whales, we consider the fusion of two <span class="search-hit mathjax">data</span> sources to inform about their abundance and distribution. The first source is aerial distance sampling which provides the spatial locations of whales detected in the region. The second source is passive acoustic monitoring (PAM), returning calls received at hydrophones placed on the <span class="search-hit mathjax">ocean</span> floor. Due to limited time on the surface and detection limitations arising from sampling effort, aerial distance sampling only provides a partial realization of locations. With PAM, we never observe numbers or locations of individuals. To address these challenges, we develop a novel thinned point pattern <span class="search-hit mathjax">data</span> fusion. Our approach leads to improved inference regarding abundance and distribution of North Atlantic right whales throughout Cape Cod Bay, Massachusetts in the US. We demonstrate performance gains of our approach compared to that from a single source through both simulation and real <span class="search-hit mathjax">data</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2310.08397v1-abstract-full').style.display = 'none'; document.getElementById('2310.08397v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 12 October, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2023.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2307.08781">arXiv:2307.08781</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2307.08781">pdf</a>, <a href="https://arxiv.org/ps/2307.08781">ps</a>, <a href="https://arxiv.org/format/2307.08781">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        The FathomNet2023 Competition Dataset
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Orenstein%2C+E">Eric Orenstein</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Barnard%2C+K">Kevin Barnard</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lundsten%2C+L">Lonny Lundsten</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Patterson%2C+G">Geneviève Patterson</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Woodward%2C+B">Benjamin Woodward</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Katija%2C+K">Kakani Katija</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2307.08781v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Ocean</span> scientists have been collecting&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2307.08781v1-abstract-full').style.display = 'inline'; document.getElementById('2307.08781v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2307.08781v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Ocean</span> scientists have been collecting <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">data</span> to study <span class="search-hit mathjax">marine</span> organisms for decades. These images and videos are extremely valuable both for basic science and environmental monitoring tasks. There are tools for automatically processing these <span class="search-hit mathjax">data</span>, but none that are capable of handling the extreme variability in sample populations, image quality, and habitat characteristics that are common in <span class="search-hit mathjax">visual</span> sampling of the <span class="search-hit mathjax">ocean</span>. Such distribution shifts can occur over very short physical distances and in narrow time windows. Creating models that are able to recognize when an image or video sequence contains a new organism, an unusual collection of animals, or is otherwise out-of-sample is critical to fully leverage <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">data</span> in the <span class="search-hit mathjax">ocean</span>. The FathomNet2023 competition dataset presents a realistic scenario where the set of animals in the target <span class="search-hit mathjax">data</span> differs from the training <span class="search-hit mathjax">data</span>. The challenge is both to identify the organisms in a target image and assess whether it is out-of-sample.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2307.08781v1-abstract-full').style.display = 'none'; document.getElementById('2307.08781v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 17 July, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> July 2023.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Competition was presented as part of the 10th Fine Grained Visual Categorization workshop at the 2023 Computer Vision and Pattern Recognition conference. 4 pages, 4 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2211.05396">arXiv:2211.05396</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2211.05396">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Image and Video Processing">eess.IV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Learning <span class="search-hit mathjax">Visual</span> Representation of Underwater Acoustic Imagery Using Transformer-Based Style Transfer Method
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+X">Xiaoteng Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yu%2C+C">Changli Yu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yuan%2C+S">Shihao Yuan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yuan%2C+X">Xin Yuan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yu%2C+H">Hangchi Yu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Luo%2C+C">Citong Luo</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2211.05396v1-abstract-short" style="display: inline;">
+        Underwater automatic target recognition (UATR) has been a challenging research topic in <span class="search-hit mathjax">ocean</span> engineering. Although deep learning brings opportunities for target recognition on land and in the air, underwater target recognition techniques based on deep learning have lagged due to sensor performance and the size of trainable&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2211.05396v1-abstract-full').style.display = 'inline'; document.getElementById('2211.05396v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2211.05396v1-abstract-full" style="display: none;">
+        Underwater automatic target recognition (UATR) has been a challenging research topic in <span class="search-hit mathjax">ocean</span> engineering. Although deep learning brings opportunities for target recognition on land and in the air, underwater target recognition techniques based on deep learning have lagged due to sensor performance and the size of trainable <span class="search-hit mathjax">data</span>. This letter proposed a framework for learning the <span class="search-hit mathjax">visual</span> representation of underwater acoustic imageries, which takes a transformer-based style transfer model as the main body. It could replace the low-level texture features of optical images with the <span class="search-hit mathjax">visual</span> features of underwater acoustic imageries while preserving their raw high-level semantic content. The proposed framework could fully use the rich optical image dataset to generate a pseudo-acoustic image dataset and use it as the initial sample to train the underwater acoustic target recognition model. The experiments select the dual-frequency identification sonar (DIDSON) as the underwater acoustic <span class="search-hit mathjax">data</span> source and also take fish, the most common <span class="search-hit mathjax">marine</span> creature, as the research subject. Experimental results show that the proposed method could generate high-quality and high-fidelity pseudo-acoustic samples, achieve the purpose of acoustic <span class="search-hit mathjax">data</span> enhancement and provide support for the underwater acoustic-optical images domain transfer research.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2211.05396v1-abstract-full').style.display = 'none'; document.getElementById('2211.05396v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 10 November, 2022; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2022.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">11 pages, 9 figures, conference</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2209.02862">arXiv:2209.02862</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2209.02862">pdf</a>, <a href="https://arxiv.org/format/2209.02862">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        DAVE Aquatic Virtual Environment: Toward a General Underwater Robotics Simulator
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+M+M">Mabel M. Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Choi%2C+W">Woen-Sug Choi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Herman%2C+J">Jessica Herman</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Davis%2C+D">Duane Davis</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Vogt%2C+C">Carson Vogt</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=McCarrin%2C+M">Michael McCarrin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Vijay%2C+Y">Yadunund Vijay</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dutia%2C+D">Dharini Dutia</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lew%2C+W">William Lew</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Peters%2C+S">Steven Peters</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bingham%2C+B">Brian Bingham</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2209.02862v1-abstract-short" style="display: inline;">
+        &hellip;open source simulation stack for underwater robots, sensors, and environments. Conventional robotics simulators are not designed to address unique challenges that come with the <span class="search-hit mathjax">marine</span> environment, including but not limited to environment conditions that vary spatially and temporally, impaired or challenging perception, and the unavailability of&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2209.02862v1-abstract-full').style.display = 'inline'; document.getElementById('2209.02862v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2209.02862v1-abstract-full" style="display: none;">
+        We present DAVE Aquatic Virtual Environment (DAVE), an open source simulation stack for underwater robots, sensors, and environments. Conventional robotics simulators are not designed to address unique challenges that come with the <span class="search-hit mathjax">marine</span> environment, including but not limited to environment conditions that vary spatially and temporally, impaired or challenging perception, and the unavailability of <span class="search-hit mathjax">data</span> in a generally unexplored environment. Given the variety of sensors and platforms, wheels are often reinvented for specific use cases that inevitably resist wider adoption.
+  Building on existing simulators, we provide a framework to help speed up the development and evaluation of algorithms that would otherwise require expensive and time-consuming operations at sea. The framework includes basic building blocks (e.g., new vehicles, water-tracking Doppler Velocity Logger, physics-based multibeam sonar) as well as development tools (e.g., dynamic bathymetry spawning, <span class="search-hit mathjax">ocean</span> currents), which allows the user to focus on methodology rather than software infrastructure. We demonstrate usage through example scenarios, bathymetric <span class="search-hit mathjax">data</span> import, user interfaces for <span class="search-hit mathjax">data</span> inspection and motion planning for manipulation, and <span class="search-hit mathjax">visualizations</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2209.02862v1-abstract-full').style.display = 'none'; document.getElementById('2209.02862v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 6 September, 2022; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2022.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted to IEEE/OES Autonomous Underwater Vehicles Symposium (AUV) 2022</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2111.08736">arXiv:2111.08736</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2111.08736">pdf</a>, <a href="https://arxiv.org/format/2111.08736">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Applications">stat.AP</span>
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1098/rspa.2021.0875">10.1098/rspa.2021.0875 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        <span class="search-hit mathjax">Ocean</span> Mover&#39;s Distance: Using Optimal Transport for Analyzing Oceanographic <span class="search-hit mathjax">Data</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Hyun%2C+S">Sangwon Hyun</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mishra%2C+A">Aditya Mishra</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Follett%2C+C+L">Christopher L. Follett</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jonsson%2C+B">Bror Jonsson</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kulk%2C+G">Gemma Kulk</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Forget%2C+G">Gael Forget</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Racault%2C+M">Marie-Fanny Racault</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jackson%2C+T">Thomas Jackson</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dutkiewicz%2C+S">Stephanie Dutkiewicz</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=M%C3%BCller%2C+C+L">Christian L. Müller</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bien%2C+J">Jacob Bien</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2111.08736v2-abstract-short" style="display: inline;">
+        Remote sensing observations from satellites and global biogeochemical models have combined to revolutionize the study of <span class="search-hit mathjax">ocean</span> biogeochemical cycling, but comparing the two&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2111.08736v2-abstract-full').style.display = 'inline'; document.getElementById('2111.08736v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2111.08736v2-abstract-full" style="display: none;">
+        Remote sensing observations from satellites and global biogeochemical models have combined to revolutionize the study of <span class="search-hit mathjax">ocean</span> biogeochemical cycling, but comparing the two <span class="search-hit mathjax">data</span> streams to each other and across time remains challenging due to the strong spatial-temporal structuring of the <span class="search-hit mathjax">ocean</span>. Here, we show that the Wasserstein distance provides a powerful metric for harnessing these structured datasets for better <span class="search-hit mathjax">marine</span> ecosystem and climate predictions. Wasserstein distance complements commonly used point-wise difference methods such as the root mean squared error, by quantifying differences in terms of spatial displacement in addition to magnitude. As a test case we consider Chlorophyll (a key indicator of phytoplankton biomass) in the North-East Pacific <span class="search-hit mathjax">Ocean</span>, obtained from model simulations, in situ measurements, and satellite observations. We focus on two main applications: 1) Comparing model predictions with satellite observations, and 2) temporal evolution of Chlorophyll both seasonally and over longer time frames. Wasserstein distance successfully isolates temporal and depth variability and quantifies shifts in biogeochemical province boundaries. It also exposes relevant temporal trends in satellite Chlorophyll consistent with climate change predictions. Our study shows that optimal transport vectors underlying Wasserstein distance provide a novel <span class="search-hit mathjax">visualization</span> tool for testing models and better understanding temporal dynamics in the <span class="search-hit mathjax">ocean</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2111.08736v2-abstract-full').style.display = 'none'; document.getElementById('2111.08736v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 4 November, 2022; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 16 November, 2021;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2021.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">6 figures</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">MSC Class:</span>
+          62P12; 86-10
+        
+
+        
+      </p>
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences, year 2022, volume 478, number 2262, pages 20210875
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2109.14646">arXiv:2109.14646</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2109.14646">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Image and Video Processing">eess.IV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        FathomNet: A global image database for enabling artificial intelligence in the <span class="search-hit mathjax">ocean</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Katija%2C+K">Kakani Katija</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Orenstein%2C+E">Eric Orenstein</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Schlining%2C+B">Brian Schlining</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lundsten%2C+L">Lonny Lundsten</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Barnard%2C+K">Kevin Barnard</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sainz%2C+G">Giovanna Sainz</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Boulais%2C+O">Oceane Boulais</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cromwell%2C+M">Megan Cromwell</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Butler%2C+E">Erin Butler</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Woodward%2C+B">Benjamin Woodward</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bell%2C+K+C">Katy Croff Bell</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2109.14646v4-abstract-short" style="display: inline;">
+        The <span class="search-hit mathjax">ocean</span> is experiencing unprecedented rapid change, and&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2109.14646v4-abstract-full').style.display = 'inline'; document.getElementById('2109.14646v4-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2109.14646v4-abstract-full" style="display: none;">
+        The <span class="search-hit mathjax">ocean</span> is experiencing unprecedented rapid change, and <span class="search-hit mathjax">visually</span> monitoring <span class="search-hit mathjax">marine</span> biota at the spatiotemporal scales needed for responsible stewardship is a formidable task. As baselines are sought by the research community, the volume and rate of this required <span class="search-hit mathjax">data</span> collection rapidly outpaces our abilities to process and analyze them. Recent advances in machine learning enables fast, sophisticated analysis of <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">data</span>, but have had limited success in the <span class="search-hit mathjax">ocean</span> due to lack of <span class="search-hit mathjax">data</span> standardization, insufficient formatting, and demand for large, labeled datasets. To address this need, we built FathomNet, an open-source image database that standardizes and aggregates expertly curated labeled <span class="search-hit mathjax">data</span>. FathomNet has been seeded with existing iconic and non-iconic imagery of <span class="search-hit mathjax">marine</span> animals, underwater equipment, debris, and other concepts, and allows for future contributions from distributed <span class="search-hit mathjax">data</span> sources. We demonstrate how FathomNet <span class="search-hit mathjax">data</span> can be used to train and deploy models on other institutional video to reduce annotation effort, and enable automated tracking of underwater concepts when integrated with robotic vehicles. As FathomNet continues to grow and incorporate more labeled <span class="search-hit mathjax">data</span> from the community, we can accelerate the processing of <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">data</span> to achieve a healthy and sustainable global <span class="search-hit mathjax">ocean</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2109.14646v4-abstract-full').style.display = 'none'; document.getElementById('2109.14646v4-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 7 September, 2022; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 29 September, 2021;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2021.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2007.02906">arXiv:2007.02906</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2007.02906">pdf</a>, <a href="https://arxiv.org/format/2007.02906">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Signal Processing">eess.SP</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1121/10.0002670">10.1121/10.0002670 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Compact representation of temporal processes in echosounder time series via matrix decomposition
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+W">Wu-Jung Lee</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Staneva%2C+V">Valentina Staneva</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2007.02906v2-abstract-short" style="display: inline;">
+        The recent explosion in the availability of echosounder <span class="search-hit mathjax">data</span> from diverse&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2007.02906v2-abstract-full').style.display = 'inline'; document.getElementById('2007.02906v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2007.02906v2-abstract-full" style="display: none;">
+        The recent explosion in the availability of echosounder <span class="search-hit mathjax">data</span> from diverse <span class="search-hit mathjax">ocean</span> platforms has created unprecedented opportunities to observe the <span class="search-hit mathjax">marine</span> ecosystems at broad scales. However, the critical lack of methods capable of automatically discovering and summarizing prominent spatio-temporal echogram structures has limited the effective and wider use of these rich datasets. To address this challenge, we develop a <span class="search-hit mathjax">data</span>-driven methodology based on matrix decomposition that builds compact representation of long-term echosounder time series using intrinsic features in the <span class="search-hit mathjax">data</span>. In a two-stage approach, we first remove noisy outliers from the <span class="search-hit mathjax">data</span> by Principal Component Pursuit, then employ a temporally smooth Nonnegative Matrix Factorization to automatically discover a small number of distinct daily echogram patterns, whose time-varying linear combination (activation) reconstructs the dominant echogram structures. This low-rank representation provides biological information that is more tractable and interpretable than the original <span class="search-hit mathjax">data</span>, and is suitable for <span class="search-hit mathjax">visualization</span> and systematic analysis with other <span class="search-hit mathjax">ocean</span> variables. Unlike existing methods that rely on fixed, handcrafted rules, our unsupervised machine learning approach is well-suited for extracting information from <span class="search-hit mathjax">data</span> collected from unfamiliar or rapidly changing ecosystems. This work forms the basis for constructing robust time series analytics for large-scale, acoustics-based biological observation in the <span class="search-hit mathjax">ocean</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2007.02906v2-abstract-full').style.display = 'none'; document.getElementById('2007.02906v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 30 November, 2020; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 6 July, 2020;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> July 2020.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1906.09571">arXiv:1906.09571</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1906.09571">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Networking and Internet Architecture">cs.NI</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        A Practical <span class="search-hit mathjax">Marine</span> Wireless Sensor Network Monitoring System Based on LoRa and MQTT
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+A">Ao Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+M">Mengxing Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Shao%2C+Z">Zhentang Shao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+X">Xu Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+D">Di Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cao%2C+C">Chunjie Cao</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1906.09571v1-abstract-short" style="display: inline;">
+        Under the advocacy of the international community, more and more research topics have been built around the <span class="search-hit mathjax">ocean</span>. This paper proposed an implementation scheme of&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1906.09571v1-abstract-full').style.display = 'inline'; document.getElementById('1906.09571v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1906.09571v1-abstract-full" style="display: none;">
+        Under the advocacy of the international community, more and more research topics have been built around the <span class="search-hit mathjax">ocean</span>. This paper proposed an implementation scheme of <span class="search-hit mathjax">marine</span> wireless sensor network monitoring system based on LoRa and MQTT. Different from the traditional network architecture, the system was constructed by combining with two network forms, and according to their respective characteristics, the overall design followed the transition from LoRa to MQTT. We first used LoRa to interconnect the sensor nodes with the gateway, and on this basis, the collected <span class="search-hit mathjax">data</span> was sent to the server <span class="search-hit mathjax">visualization</span> platform through MQTT, the backend management server would continuously refresh the monitoring page. At the same time, the client could use a browser-based web application to directly access and call <span class="search-hit mathjax">data</span> for global maritime information monitoring. In the future, we will further improve the system and optimize the algorithm, to achieve more dimensions and deeper exploration of the underwater world.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1906.09571v1-abstract-full').style.display = 'none'; document.getElementById('1906.09571v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 23 June, 2019; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> June 2019.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1511.05747">arXiv:1511.05747</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1511.05747">pdf</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Digital Libraries">cs.DL</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Social and Information Networks">cs.SI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        HistComp : bibliographic analysis and <span class="search-hit mathjax">visualization</span> of &#39;The Biological Bulletin&#39;
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Wulff%2C+E">Enrique Wulff</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1511.05747v1-abstract-short" style="display: inline;">
+        A collection of citation <span class="search-hit mathjax">data</span>, the HistComp, is available from the Internet as a database of examples of real life citation networks. The purposes of this approach is the analysis of these citation networks on learned literature by presenting its typical steps and results. We have selected the bibliographic insights into the &#34;The Biological Bulletin&#34;&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1511.05747v1-abstract-full').style.display = 'inline'; document.getElementById('1511.05747v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1511.05747v1-abstract-full" style="display: none;">
+        A collection of citation <span class="search-hit mathjax">data</span>, the HistComp, is available from the Internet as a database of examples of real life citation networks. The purposes of this approach is the analysis of these citation networks on learned literature by presenting its typical steps and results. We have selected the bibliographic insights into the &#34;The Biological Bulletin&#34;, the journal published since 1897 by the Woods Hole <span class="search-hit mathjax">Marine</span> Biological Laboratory. Since the bibliographic networks tend to be very scattered, their <span class="search-hit mathjax">visualization</span> requires of criteria of convergence. To simplify, the main features in such a structure should include the survey for authoritative sources in the hyperlinked environment and the identification of thematic areas. By avoiding excessive loose connections and too dense clustered layouts to be useful, a smooth presentation is obtained by graphically depicting the citation patterns. HistComp computes 8884 articles published by &#39;The Biological Bulletin&#39; between 1945-2003. A two-dimensional positioning of these papers that represent the extent of their bibliographic coupling and co-citation is offered as a histograph. The criteria to construct it is the adequateness of the <span class="search-hit mathjax">visualization</span> relative to the 8884 <span class="search-hit mathjax">data</span> set. The spatial representation obtained optimizes the identification of the clusters or topic areas. The thematic importance of <span class="search-hit mathjax">marine</span> science involves its participation in 7 of the 7 presenting clusters. The mainstream subjects were crustaceans and echinoderms, with some 60% of the material presented in the graph. But sea anemone, with about 16% of the total, remains as the best <span class="search-hit mathjax">visualized</span> topical area. A perspective of the highly relevant papers is readily confirmed by the <span class="search-hit mathjax">visual</span> inspection of width of the glyphs used for nodes representation. For user interaction, HistComp employs mouse-over labels.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1511.05747v1-abstract-full').style.display = 'none'; document.getElementById('1511.05747v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 18 November, 2015; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> November 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">32nd IAMSLIC Annual Conference: Every continent, every <span class="search-hit mathjax">ocean</span>., Oct 2006, Portland, Oregon, United States</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1510.00745">arXiv:1510.00745</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1510.00745">pdf</a>, <a href="https://arxiv.org/format/1510.00745">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        WHOI-Plankton- A Large Scale Fine Grained <span class="search-hit mathjax">Visual</span> Recognition Benchmark Dataset for Plankton Classification
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Orenstein%2C+E+C">Eric C. Orenstein</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Beijbom%2C+O">Oscar Beijbom</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Peacock%2C+E+E">Emily E. Peacock</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sosik%2C+H+M">Heidi M. Sosik</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1510.00745v1-abstract-short" style="display: inline;">
+        Planktonic organisms are of fundamental importance to <span class="search-hit mathjax">marine</span> ecosystems: they form the basis of the food web, provide the link between the atmosphere and the deep&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1510.00745v1-abstract-full').style.display = 'inline'; document.getElementById('1510.00745v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1510.00745v1-abstract-full" style="display: none;">
+        Planktonic organisms are of fundamental importance to <span class="search-hit mathjax">marine</span> ecosystems: they form the basis of the food web, provide the link between the atmosphere and the deep <span class="search-hit mathjax">ocean</span>, and influence global-scale biogeochemical cycles. Scientists are increasingly using imaging-based technologies to study these creatures in their natural habit. Images from such systems provide an unique opportunity to model and understand plankton ecosystems, but the collected datasets can be enormous. The Imaging FlowCytobot (IFCB) at Woods Hole Oceanographic Institution, for example, is an \emph{in situ} system that has been continuously imaging plankton since 2006. To date, it has generated more than 700 million samples. Manual classification of such a vast image collection is impractical due to the size of the <span class="search-hit mathjax">data</span> set. In addition, the annotation task is challenging due to the large space of relevant classes, intra-class variability, and inter-class similarity. Methods for automated classification exist, but the accuracy is often below that of human experts. Here we introduce WHOI-Plankton: a large scale, fine-grained <span class="search-hit mathjax">visual</span> recognition dataset for plankton classification, which comprises over 3.4 million expert-labeled images across 70 classes. The labeled image set is complied from over 8 years of near continuous <span class="search-hit mathjax">data</span> collection with the IFCB at the Martha&#39;s Vineyard Coastal Observatory (MVCO). We discuss relevant metrics for evaluation of classification performance and provide results for a traditional method based on hand-engineered features and two methods based on convolutional neural networks.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1510.00745v1-abstract-full').style.display = 'none'; document.getElementById('1510.00745v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 2 October, 2015; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">2 pages, 1 figure, presented at the Third Workshop on Fine-Grained Visual Categorization at CVPR 2015</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+</ol>
+
+
+  
+
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    
+    <div class="columns is-desktop" role="navigation" aria-label="Secondary">
+  <!-- MetaColumn 1 -->
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/about">About</a></li>
+          <li><a href="https://info.arxiv.org/help">Help</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><title>contact arXiv</title><desc>Click here to contact arXiv</desc><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+            <a href="https://info.arxiv.org/help/contact.html"> Contact</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><title>subscribe to arXiv mailings</title><desc>Click here to subscribe</desc><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+            <a href="https://info.arxiv.org/help/subscribe"> Subscribe</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 1 -->
+  <!-- MetaColumn 2 -->
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/help/license/index.html">Copyright</a></li>
+          <li><a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="column sorry-app-links">
+        <ul class="nav-spaced">
+          <li><a href="https://info.arxiv.org/help/web_accessibility.html">Web Accessibility Assistance</a></li>
+          <li>
+            <p class="help">
+              <a class="a11y-main-link" href="https://status.arxiv.org" target="_blank">arXiv Operational Status <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="icon filter-dark_grey" role="presentation"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a><br>
+              Get status notifications via
+              <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/email/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-black" role="presentation"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>email</a>
+              or <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/slack/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon filter-black" role="presentation"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>slack</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 2 -->
+</div>
+    
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>
