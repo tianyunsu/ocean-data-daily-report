@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 主页 -->
   <url>
     <loc>https://tianyunsu.github.io/ocean-data-daily-report/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- 归档页 -->
   <url>
     <loc>https://tianyunsu.github.io/ocean-data-daily-report/archive.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 日报文章 -->
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-18.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-15.html</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-14.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-13.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-09.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-08.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-07.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-06.html</loc>
     <lastmod>2026-05-06</lastmod>
