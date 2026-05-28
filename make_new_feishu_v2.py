@@ -1,122 +1,256 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-正确的重建脚本：
-1. 提取原始文件的 header（到 today_date 变量定义之后）
-2. 提取原始文件的 functions（从 def tr( 开始）
-3. 用新的 SECTIONS 数据替换旧的 SECTIONS
-4. 写入完整的正确文件
+替换 feishu_write_doc.py 中的 SECTIONS 数据（修正后版本）
+使用 bracket-counting 方法精准定位
 """
+
+NEW_SECTIONS = [
+    {
+        'title': '一、海洋人工智能',
+        'en': 'Ocean AI / Marine Artificial Intelligence',
+        'items': [
+            {
+                'title': 'Njord：首个概率性图神经网络海洋集成预报模型（arXiv, 2026-05-14）',
+                'badge': '近7天',
+                'abstract': '芬兰赫尔辛基大学团队提出Njord——首个用于海洋预报的概率数据驱动模型，突破现有ML海洋模型只能输出确定性预报的局限。Njord将深度潜变量框架与图神经网络架构结合，支持单次前向传播完成集成采样并量化不确定性。模型以0.25度分辨率应用于全球尺度，并以2km分辨率应用于波罗的海区域；引入K-means聚类网格适应不规则海面几何。在OceanBench全球基准上，上层海洋变量平均误差最低，SST预测改进最为显著。',
+                'source': 'arXiv',
+                'url': 'https://arxiv.org/abs/2605.15470',
+                'date': '2026-05-14',
+            },
+            {
+                'title': 'ECMWF：IFS 50r1与AIFS v2正式上线——首次AI驱动波浪预报（2026-05-12）',
+                'badge': '近7天',
+                'abstract': 'ECMWF于2026年5月12日同步上线IFS Cycle 50r1与AIFS v2两大重要升级。IFS 50r1引入全耦合大气-海洋-海冰数据同化和新NEMO4-SI³海洋-海冰模型，新增40余个海洋与海冰变量，改进波浪与海流相互作用表征。AIFS v2则实现ECMWF史上首次AI驱动波浪预报，新增11个波浪变量，中期预报技巧相比IFS物理模型有显著提升，同时增加首套AI驱动积雪覆盖预报产品。',
+                'source': 'ECMWF',
+                'url': 'https://www.ecmwf.int/en/about/media-centre/news/2026/ifs-cycle-50r1-aifsv2-live',
+                'date': '2026-05-12',
+            },
+            {
+                'title': 'STC：基于Swin-Transformer的全球深度学习海洋预报区域后处理校正模型（Frontiers, 2026-05-13）',
+                'badge': '近7天',
+                'abstract': 'Frontiers in Marine Science发表论文，提出Swin-Transformer Corrector（STC）——一种专用于深度学习全球海洋预报系统（GOFS）的轻量级区域后处理校正模型。STC以层次化Swin Transformer为骨干，通过残差校正捕获多尺度空间误差结构，应用于南海区域多变量联合校正，RMSE平均降低20.35%，在热带气旋"海葵"等极端场景下亦表现出强鲁棒性，为"全球预报+区域轻量校正"范式提供了验证范例。',
+                'source': 'Frontiers in Marine Science',
+                'url': 'https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2026.1826293/full',
+                'date': '2026-05-13',
+            },
+        ]
+    },
+    {
+        'title': '二、海洋数字孪生',
+        'en': 'Ocean Digital Twin',
+        'items': [
+            {
+                'title': 'DITTO国际数字孪生海洋峰会2026将于横滨召开（2026年11月）',
+                'badge': '1周~1个月',
+                'abstract': '联合国海洋十年认可项目DITTO（Digital Twins of the Ocean）宣布，第三届国际数字孪生海洋峰会将于2026年11月11-13日在日本横滨举行，主办方为JAMSTEC、GEOMAR等机构。峰会聚焦共享框架、互操作性、假设情景推演能力及海洋保护、治理与蓝色经济实际应用，继伦敦（2022）和厦门（2023）峰会之后，推动全球海洋数字孪生生态系统走向融合。',
+                'source': 'JAMSTEC / DITTO',
+                'url': 'https://www.jamstec.go.jp/j/pr-event/ditto_summit2026/',
+                'date': '2026-05-12',
+            },
+            {
+                'title': 'National Science Review：海洋数字孪生赋能蓝色经济创新综述（NSR, 2026-01-20）',
+                'badge': '1周~1个月',
+                'abstract': '厦门大学柴扉教授联合多国专家在National Science Review发表综述，系统梳理海洋数字孪生核心架构（数据、模型、分析、可视化与交互四大模块），综述其在水产养殖、海上风电、可持续航运、海洋防灾减灾、蓝碳及海洋旅游等蓝色经济核心领域的全生命周期应用，指出海洋数字孪生正推动从被动式数据分析向主动式预测型决策支持的范式跃迁。',
+                'source': 'National Science Review / Oxford Academic',
+                'url': 'https://academic.oup.com/nsr/article/13/3/nwag012/8431396',
+                'date': '2026-01-20',
+            },
+        ]
+    },
+    {
+        'title': '三、海洋可视化',
+        'en': 'Ocean Visualization',
+        'items': [
+            {
+                'title': 'CopernicusLAC Chile：面向拉丁美洲和加勒比的海岸监测可视化平台（2026）',
+                'badge': '近7天',
+                'abstract': 'CopernicusLAC Chile是位于圣地亚哥的哥白尼计划拉美区域中心，基于Sentinel-3、MetOp-B/-C、NOAA-20/SNPP、MODIS Aqua等多源卫星数据，提供SST和叶绿素a等海洋关键变量的连续监测与可视化服务。平台涵盖海岸监测、土地利用、城市地图和Sentinel影像存档四大模块，是欧盟哥白尼计划在拉美地区的数据处理、分发与应用推广核心枢纽。',
+                'source': 'CopernicusLAC Chile / EU / Universidad de Chile',
+                'url': 'https://www.copernicuslac-chile.eu/',
+                'date': '2026',
+            },
+        ]
+    },
+    {
+        'title': '四、海洋数据质量',
+        'en': 'Ocean Data Quality / QA/QC',
+        'items': [
+            {
+                'title': '玄武深海Argo浮标数字孪生模型更新与异常检测应用（IET, 2026-03-17）',
+                'badge': '1周~1个月',
+                'abstract': '研究以中国自主研发并获国际Argo计划认证的"玄武"深海Argo浮标为案例，构建数字孪生模型更新框架，演示其在浮标异常检测中的典型应用，涵盖传感器故障识别、剖面质量评估等场景，为基于数字孪生的Argo数据实时质控提供了新路径。',
+                'source': 'IET / The Institution of Engineering and Technology',
+                'url': 'https://digital-library.theiet.org/doi/pdf/10.1049/icp.2026.0496',
+                'date': '2026-03-17',
+            },
+            {
+                'title': '改进基于路径签名的Argo剖面自动质控方法：融合机器学习实现快速中质量数据集生成（J. Oceanogr., 2026-04-29）',
+                'badge': '近7天',
+                'abstract': 'JAMSTEC团队在Journal of Oceanography发表论文，在前期路径签名（path-signature）Argo自动质控方法基础上引入新型机器学习模型，用于快速生成中质量Argo数据集。以2016年和2022年数据训练的模型在2017-2021年验证期间表现一致且稳健，表明该方法成功学习了QC的一般性特征，判别精度与Argo数据中心人工QC相当，为近实时Argo数据质控提供了高效替代方案。',
+                'source': 'Journal of Oceanography / Springer',
+                'url': 'https://link.springer.com/article/10.1007/s10872-026-00791-1',
+                'date': '2026-04-29',
+            },
+        ]
+    },
+    {
+        'title': '五、海洋数据处理',
+        'en': 'Ocean Data Processing',
+        'items': [
+            {
+                'title': '北太平洋历史营养盐数据集（1895-2024）：基于机器学习与水文观测重建（ESSD, 2026-04-28）',
+                'badge': '近7天',
+                'abstract': 'Earth System Science Data发表论文，从WOD和CCHDO获取北太平洋水文和营养盐（NO₃⁻、NO₂⁻、DIP、Si(OH)₄）观测数据，建立严格的四层QC流程清洗数据后，以高质量CCHDO数据集训练随机森林、LightGBM和高斯过程回归三种机器学习模型，利用经纬度、深度、时间和水团属性（位温、盐度）重建营养盐浓度。最终产出约4.73亿个重建数据点，覆盖192万站次、35744航次，相比原始营养盐观测增加2127-2393倍，数据在Zenodo开放获取。',
+                'source': 'Earth System Science Data / Copernicus',
+                'url': 'https://essd.copernicus.org/articles/18/2951/2026/essd-18-2951-2026.html',
+                'date': '2026-04-28',
+            },
+        ]
+    },
+    {
+        'title': '六、海洋数据管理与共享服务',
+        'en': 'Ocean Data Management & Sharing',
+        'items': [
+            {
+                'title': 'Eos观点：失去美国海平面科学的全球影响（Eos/AGU, 2026-05-15）',
+                'badge': '近7天',
+                'abstract': '多位美国、荷兰、香港科学家在Eos（AGU）联名发表观点文章，分析美国气候科学经费大规模削减（NASA削减24%、NOAA削减27%、NSF削减57%）对全球海平面科研的影响。自1982年以来103项全球平均海平面预测研究中约1/3由美国机构主导，超2000个数据集已从联邦平台下架。文章呼吁多方采取行动保护全球海平面数据和科学基础设施。',
+                'source': 'Eos / AGU',
+                'url': 'https://eos.org/opinions/the-global-impact-of-losing-u-s-sea-level-science',
+                'date': '2026-05-15',
+            },
+            {
+                'title': 'NOAA NCEI：史上最大规模云迁移FAQ发布——AWS迁移进展与用户问答（2026-05-12）',
+                'badge': '近7天',
+                'abstract': 'NOAA NCEI发布云迁移FAQ，详解将海量气候和海洋数据迁移至AWS的进展、用户访问路径变化及数据连续性保障措施，被称为NOAA史上最大规模的数据基础设施转型。FAQ涵盖数据集覆盖范围、访问工具适配、迁移时间表及用户反馈渠道，是国际海洋数据基础设施云化的重要参考案例。',
+                'source': 'NOAA NCEI',
+                'url': 'https://www.ncei.noaa.gov/news/cloud-migration-FAQ',
+                'date': '2026-05-12',
+            },
+            {
+                'title': 'PANGAEA社区工作坊2026年5月：数据发现与检索实践培训（2026-05-07/08）',
+                'badge': '近7天',
+                'abstract': 'PANGAEA（地球与环境数据发布平台）举办为期两天的社区工作坊（每天2小时在线），主题为"从PANGAEA发现与检索数据"，聚焦FAIR²和可持续研究数据管理原则，涵盖系统性数据搜索、利用和集成，以及针对海洋科学领域数据集的实操练习。该系列工作坊为用户导向培训，旨在提升全球海洋与环境科学家的数据素养。',
+                'source': 'PANGAEA / de.NBI / TESS Hub',
+                'url': 'https://tesshub.org/events/pangaea-community-workshop-may-2026-finding-and-retrieving-data-from-pangaea',
+                'date': '2026-05-07',
+            },
+        ]
+    },
+    {
+        'title': '七、开放航次 / 船时共享',
+        'en': 'Open Cruises / Ship Time Sharing',
+        'items': [
+            {
+                'title': '"深蓝百万里"2026西太平洋航次圆满收官——首次在深圳设立"深海共享"数据节点（2026-05-11）',
+                'badge': '近7天',
+                'abstract': '"深蓝百万里"十年计划2026西太平洋航次由"向阳红10"号科考船承担，历时45天圆满完成，科考队于5月11日返回深圳。本航次为联合国"海洋十年"贡献项目，由南方科技大学海洋高等研究院等联合实施，调查了西太平洋关键海洋-大气过程，首次在深圳设立"深海共享"数据节点，推动科考数据向全球开放共享。',
+                'source': '南方科技大学海洋高等研究院',
+                'url': 'https://newshub.sustech.edu.cn/html/202605/47565.html',
+                'date': '2026-05-11',
+            },
+            {
+                'title': 'Schmidt Ocean Institute 2026年科考计划——从巴西深水到中大西洋海山（2026-02-22）',
+                'badge': '1周~1个月',
+                'abstract': 'Schmidt Ocean Institute发布2026年科考计划，国际团队将在巴西深水、中大西洋洋中脊海山开展生物多样性调查、物理化学与地质现象研究及海底测绘，继续推动开放数据政策，所有数据和样品通过在线数据库向全球科学界开放共享，体现国际开放航次共享理念标杆。',
+                'source': 'Schmidt Ocean Institute',
+                'url': 'https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/',
+                'date': '2026-02-22',
+            },
+        ]
+    },
+    {
+        'title': '八、海洋数据中心',
+        'en': 'Ocean Data Centers',
+        'items': [
+            {
+                'title': 'Seabed 2030：全球海底测绘达28.7%里程碑——年增近500万平方公里（IHO, 2026-04-28）',
+                'badge': '1周~1个月',
+                'abstract': 'Nippon Foundation-GEBCO Seabed 2030项目于2026年4月28日宣布，全球海底已完成测绘面积达28.7%，约1.04亿平方公里，过去一年新增约500万平方公里——相当于超过地球陆地面积三分之二的海底数据已实现覆盖。这一里程碑标志着实现2030年百分之百测绘目标的持续进展。',
+                'source': 'IHO / Seabed 2030 / Nippon Foundation-GEBCO',
+                'url': 'https://iho.int/en/global-seabed-mapping-reaches-new-milestone-as-five-million-square-kilometres-added-in-a-year',
+                'date': '2026-04-28',
+            },
+        ]
+    },
+    {
+        'title': '九、工具与代码资源',
+        'en': 'Tools & Code Resources',
+        'items': [
+            {
+                'title': 'pyTMD v3.0.7发布——Python潮汐预测工具文档与功能更新（2026-05-07）',
+                'badge': '近7天',
+                'abstract': 'pyTMD（Python-based tidal prediction software）发布v3.0.7版本，新增计算潮高潮低峰值函数、pint友好单位转换、URL类S3存储桶访问支持及lineage属性记录模型文件名，改进xarray点积计算成分相位，规范化文档和PEP-0639许可证格式。支持OTIS、ATLAS、GOT、FES等主流潮汐模型，广泛用于卫星测高数据处理与潮汐校正。',
+                'source': 'GitHub',
+                'url': 'https://github.com/pyTMD/pyTMD/releases/tag/3.0.7',
+                'date': '2026-05-07',
+            },
+            {
+                'title': 'Copernicus Marine Toolbox v2.4.1发布——修复气候态数据集子集提取缺陷（2026-05-11）',
+                'badge': '近7天',
+                'abstract': '哥白尼海洋数据服务发布Copernicus Marine Toolbox v2.4.1补丁版本，修复了使用subset命令访问气候态（climatology）数据集时失败的关键缺陷：Toolbox此前会错误地将nv维度识别为时间轴，导致子集操作失败。该修复确保Toolbox正确识别和使用原始时间轴进行数据提取，适用于通过Python API和命令行接口的所有数据访问场景。',
+                'source': 'Copernicus Marine Service',
+                'url': 'https://help.marine.copernicus.eu/en/articles/8218641-next-milestones-and-roadmap',
+                'date': '2026-05-11',
+            },
+            {
+                'title': 'Gribstream：ECMWF IFS 50r1/AIFS v2用户迁移指南——GRIB2流参数变更说明（2026-04-02）',
+                'badge': '1周~1个月',
+                'abstract': 'Gribstream发布ECMWF IFS Cycle 50r1与AIFS v2切换技术说明，详细列出2026年5月12日起生效的模型、数据流、波浪和层次参数变更，包括新增NEMO4海洋变量、40余海冰变量和11个AI波浪变量的GRIB键值和访问方式，帮助API用户无缝适配系统升级。',
+                'source': 'Gribstream / ECMWF',
+                'url': 'https://gribstream.com/blog/ecmwf-ifs-cycle-50r1-aifs-v2-may-12-2026',
+                'date': '2026-04-02',
+            },
+        ]
+    },
+]
+
+import ast
 
 with open('feishu_write_doc.py', 'r', encoding='utf-8') as f:
     content = f.read()
 
-print(f"Original file length: {len(content)} chars")
-
-# Step 1: Find where the original SECTIONS = [ starts
-sections_start = content.find("SECTIONS = [")
-print(f"Original SECTIONS starts at: {sections_start}")
-print(f"Content at that position: {repr(content[sections_start:sections_start+50])}")
-
-# Step 2: Find where the original SECTIONS ] ends (the one right after SECTIONS = [)
-# Use bracket counting from sections_start
+# find SECTIONS
+idx = content.find('SECTIONS = [')
+start = idx + len('SECTIONS = ')
 depth = 0
-in_sections = False
-sections_end = 0
-for i in range(sections_start, len(content)):
-    c = content[i]
-    if c == '[':
+end = start
+for i, ch in enumerate(content[start:], start):
+    if ch == '[':
         depth += 1
-        in_sections = True
-    elif c == ']':
+    elif ch == ']':
         depth -= 1
-        if in_sections and depth == 0:
-            sections_end = i
+        if depth == 0:
+            end = i + 1
             break
 
-print(f"Original SECTIONS ends at: {sections_end}")
-print(f"SECTIONS data length: {sections_end - sections_start} chars")
-print(f"Content after SECTIONS: {repr(content[sections_end:sections_end+50])}")
+old_sections_str = content[start:end]
+new_sections_str = repr(NEW_SECTIONS)
 
-# Step 3: Find def tr( for functions
-tr_pos = content.find('def tr(')
-print(f"def tr( at: {tr_pos}")
+new_content = content[:start] + new_sections_str + content[end:]
 
-# Step 4: Build new SECTIONS with all 9 replacements
-new_sections_code = """SECTIONS = [
-    {'title': '一、海洋人工智能', 'en': 'Ocean AI / Marine Artificial Intelligence', 'items': [
-        {'title': '1. AGU GRL（2026-04-22）：北极夏季海冰快速融化事件的驱动机制——风场以外的物理过程', 'badge': '近7天', 'abstract': 'AGU《地球物理研究快报》发表最新研究，系统分析北极夏季快速海冰融化事件（RIME）的驱动因子。研究发现，除传统认知的北极风暴强风外，海洋热通量输送和短波辐射同样扮演关键角色。', 'source': 'AGU Geophysical Research Letters', 'url': 'https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026GL121848', 'date': '2026-04-22'},
-        {'title': '2. Springer（2026-04-18）：基于ConvLSTM的海冰密集度长期预测——南极60天逐日预报新框架', 'badge': '近7天', 'abstract': '《Journal of Earth System Science》利用ConvLSTM对1989-2016年卫星海冰密集度数据进行训练，实现南极海冰60天逐日动态预测，较传统统计方法显著提升预测技能。', 'source': 'Springer Journal of Earth System Science', 'url': 'https://link.springer.com/article/10.1007/s12145-026-02125-7', 'date': '2026-04-18'},
-        {'title': '3. arXiv 2604.07861（2026-04-09）：ML大气强迫 vs. NWP大气强迫驱动海洋预报——首次系统性对比评估', 'badge': '近7天内', 'abstract': '英国国家海洋学中心（NOC）最新预印本，对比使用ML大气强迫与传统NWP驱动业务化海洋预报系统的性能差异，结果表明ML大气强迫在多数指标上具有可比甚至优越的表现。', 'source': 'arXiv 2604.07861 / National Oceanography Centre', 'url': 'https://arxiv.org/abs/2604.07861', 'date': '2026-04-09'},
-        {'title': '4. ScienceDaily/URI（2026-04-21）：AI技术首次揭示肉眼不可见的海洋洋流——GOFLOW媒体聚焦报道', 'badge': '近7天', 'abstract': '罗德岛大学等机构与ScienceDaily于2026-04-21发布科普报道，聚焦已发表于Nature Geoscience的GOFLOW研究。报道介绍AI如何利用气象卫星热红外图像每小时生成高精度海洋表层流场图。', 'source': 'ScienceDaily / University of Rhode Island News', 'url': 'https://www.sciencedaily.com/releases/2026/04/260421042803.htm', 'date': '2026-04-21'},
-    ]},
-    {'title': '二、海洋数字孪生', 'en': 'Ocean Digital Twin', 'items': [
-        {'title': '1. INESC TEC（2026-04-10）：海洋数字孪生互操作性取得新进展——从布鲁塞尔到格拉斯哥的跨平台协作', 'badge': '近7天', 'abstract': 'INESC TEC于2026年4月10日发布最新动态，介绍了其在海洋数字孪生互操作性和可移植性方面的前沿进展，推动EDITO Phase 2等欧盟基础设施项目协作，共同推进欧洲数字孪生海洋的开放生态系统建设。', 'source': 'INESC TEC', 'url': 'https://www.inesctec.pt/en/news/interoperability-ocean-digital-twins-featuring-inesc-tec', 'date': '2026-04-10'},
-        {'title': '2. Copernicus Marine / EuroGOOS（2026-04-13）：EGU 2026大会CMEMS与欧洲数字孪生海洋专题会话预告', 'badge': '近7天', 'abstract': 'Copernicus Marine Service和EuroGOOS联合发布预告，EGU 2026大会（5月3-8日，维也纳）将举办OS4.8专题会话，汇聚EDITO Phase 2、全球海洋模型和AI融合预报等前沿成果。', 'source': 'Copernicus Marine / EuroGOOS', 'url': 'https://events.marine.copernicus.eu/egu-26', 'date': '2026-04-13'},
-        {'title': '3. DITTO Programme（2026）：联合国海洋十年数字孪生海洋计划——全球DTO治理框架与协作平台', 'badge': '近7天', 'abstract': 'DITTO是由联合国海洋十年认可的全球性协作计划，旨在通过数字孪生技术推动海洋保护、海洋治理和可持续蓝色经济发展。2026年将在日本举办DITTO旗舰峰会（International DITTO Summit 2026），推动数字孪生海洋从技术原型向大规模实际应用转型。', 'source': 'DITTO / UN Ocean Decade', 'url': 'https://ditto-oceandecade.org/', 'date': '2026-04-24'},
-    ]},
-    {'title': '三、海洋可视化', 'en': 'Ocean Visualization', 'items': [
-        {'title': '1. Blue-Cloud 2026（2026-04-21）：九份新开放获取海洋分析可视化培训材料发布——涵盖滑翔机工具、沿岸流图等', 'badge': '近7天', 'abstract': 'Blue-Cloud 2026于2026年4月21日正式发布九份全新开放获取训练材料（CC BY 4.0），包括数据可视化工具、Python使用指南、FAO-IOC滑翔机数据工具等，适用场景涵盖海表温度分析、Argo浮标轨迹可视化和海洋-大气耦合研究。', 'source': 'Blue-Cloud 2026 / EURES Foundation', 'url': 'https://blue-cloud.org/content/blue-cloud-2026-factsheet-new-training-materials-2026', 'date': '2026-04-21'},
-        {'title': '2. Argo DAC可视化工具（2026-04-15）：新批次工具简化Argo浮标轨迹和数据质量控制可视化', 'badge': '近7天', 'abstract': 'Argo数据管理团队（Argo DAC）于2026-04-15新增可视化工具集，包括轨迹绘制、数据密度图、温度/盐度剖面质量标记等，支持浮标数据快速质量评估与批量处理。', 'source': 'Argo DAC', 'url': 'https://argo.ucsd.edu/organization/argo-dac/argo-dac-tools/', 'date': '2026-04-15'},
-    ]},
-    {'title': '四、海洋数据质量', 'en': 'Ocean Data Quality', 'items': [
-        {'title': '1. NOAA AOML（2026-04-17）：Argo浮标实时运行与数据质量控制——NOAA大西洋海洋学与气象实验室更新', 'badge': '近7天', 'abstract': 'NOAA AOML海洋观测部门于2026-04-17更新Argo浮标运行状态和数据质量控制工作流，涵盖2026年浮标布放计划、实时传输技术改进及DMQC参数优化等关键内容。', 'source': 'NOAA AOML', 'url': 'https://www.aoml.noaa.gov/', 'date': '2026-04-17'},
-        {'title': '2. Argo Myanmar数据恢复项目（2026-04-15）：南海上空再分析降水数据集支撑历史Argo轨迹校正', 'badge': '近7天', 'abstract': 'Argo Myanmar项目团队利用日本JRA55-do再分析降水数据作为背景场，对2014年前部署的南中国海Argo浮标进行历史DMQC校正，解决了早期浮标缺乏原位降水观测的难题。', 'source': 'Argo Myanmar / JAMSTEC', 'url': 'https://www.sea Claro.org/argo-myanmar/', 'date': '2026-04-15'},
-        {'title': '3. Argo DMQC GitHub（2026-04-24）：Argo盐度延迟模式质量控制工具发布v2.4.2更新', 'badge': '近7天', 'abstract': 'Argo DMQC团队在GitHub发布v2.4.2版本更新，新增支持北太平洋副极地水团识别算法，改进了南大洋Circumpolar Deep Water的质量控制阈值设定，进一步提升盐度数据校正的自动化水平。', 'source': 'Argo DMQC / GitHub', 'url': 'https://github.com/ArgoDMQC/ArgoDMQC', 'date': '2026-04-24'},
-        {'title': '4. ETOOCC2项目（2026-04-01）：海表二氧化碳数据质量控制标准更新——支持碳收支估算模型', 'badge': '近30天', 'abstract': 'ETOOCC2（海表二氧化碳综合观测系统）发布更新版数据质量控制标准，新增对多仪器集成观测系统的协调处理规范，旨在支撑全球海洋碳收支模型的高精度输入需求。', 'source': 'ETOOCC2 / IMarine', 'url': 'https://www.etoocc2.org/', 'date': '2026-04-01'},
-    ]},
-    {'title': '五、数据处理与知识发现', 'en': 'Data Processing & Knowledge Discovery', 'items': [
-        {'title': '1. CMEMS（2026-04-03）：哥白尼海洋服务4月份产品与服务更新公告', 'badge': '近30天', 'abstract': 'CMEMS于2026年4月发布多产品与服务更新：GLO BioGeoChemistry新增高分辨率叶绿素-a日产品，IBI区域新增波浪能流密度再分析数据集，同时优化了数据下载API（MOT客户端v3.4）以支持批量下载断点续传。', 'source': 'Copernicus Marine Service', 'url': 'https://marine.copernicus.eu/access-data/cmems-news', 'date': '2026-04-03'},
-        {'title': '2. EGUsphere预印本（2026-04-21）：数据驱动生物地球化学预测模型——海洋碳循环研究综述', 'badge': '近7天', 'abstract': 'EGUsphere发表综述预印本，系统评估数据驱动方法（机器学习、深度学习）在海洋生物地球化学预测中的应用，涵盖海表pCO₂、溶解氧、碳输出效率等关键变量，指出领域面临的数据稀缺性和可解释性挑战。', 'source': 'EGUsphere / Copernicus', 'url': 'https://egusphere.copernicus.org/', 'date': '2026-04-21'},
-        {'title': '3. NOAA AFSC（2026-04-15）：北太平洋多尺度海洋物理-生物地球化学耦合模拟与数据同化进展', 'badge': '近7天', 'abstract': 'NOAA阿拉斯加渔业科学中心（AFSC）发布北太平洋耦合模型研究进展，将物理场（MITgcm）与生物地球化学模型（EMO2）同化现场观测数据，显著改善中尺度涡旋对初级生产影响的模拟精度。', 'source': 'NOAA AFSC', 'url': 'https://www.fisheries.noaa.gov/about/alaska-fisheries-science-center', 'date': '2026-04-15'},
-        {'title': '4. OceanPredict AI-TT Workshop（2026-04-13）：海洋预报中人工智能测试 bed工作组第三次国际研讨会', 'badge': '近7天', 'abstract': 'Mercator Ocean International于2026年4月6-8日在图卢兹主办OceanPredict AI-TT第三次国际研讨会，聚焦AI/ML方法在海洋状态估计和预报中的应用，议题涵盖天气尺度预报、数据同化、强化学习等前沿方向。', 'source': 'Mercator Ocean International / OceanPredict', 'url': 'https://www.mercator-ocean.eu/en/agenda/oceanpredict-ai-tt-workshop/', 'date': '2026-04-13'},
-    ]},
-    {'title': '六、开放航次与数据共享', 'en': 'Open Cruises & Data Sharing', 'items': [
-        {'title': '1. ICY-TPACIFIC计划（2026-04-17）：太平洋西边界流航次共享平台启动——推动多学科交叉合作', 'badge': '近7天', 'abstract': 'ICY-TPACIFIC国际合作计划于2026-04-17启动太平洋西边界流航次共享平台，汇集来自中国、日本、韩国、美国的13个研究团队航次计划，支持航次数据开放共享和跨学科合作。', 'source': 'ICY-TPACIFIC / JAMSTEC', 'url': 'https://www.jamstec.go.jp/icy-tacific/', 'date': '2026-04-17'},
-        {'title': '2. CMEMS（2026-04-17）：哥白尼海洋数据门户更新——新增实时海表温度网格化产品', 'badge': '近7天', 'abstract': 'CMEMS数据门户于2026年4月17日新增高分辨率（0.01°）实时海表温度网格化产品（OSTIA + GHRSST），覆盖全球主要海域，支持拖曳式API访问和ERDDAP标准接口，同时优化了历史产品检索性能。', 'source': 'Copernicus Marine Service', 'url': 'https://marine.copernicus.eu/access-data/cmems-news', 'date': '2026-04-17'},
-        {'title': '3. SOOSmap项目（2026-04-20）：南极绕极流观测数据地图集——航次与锚系数据一键查询', 'badge': '近7天', 'abstract': 'SOOS（南大洋观测系统）推出SOOSmap更新版，将全球开放航次数据库与锚系观测网络可视化集成，用户可按海域、时间、仪器类型筛选，并直接获取数据DOI链接。', 'source': 'SOOS / IMAS-UTAS', 'url': 'https://www.soos.net/', 'date': '2026-04-20'},
-        {'title': '4. OCEAN:ICE项目（2026-04-10）：北极-大西洋相互作用研究开放数据论文发表', 'badge': '近30天', 'abstract': 'OCEAN:ICE（地平线欧洲资助项目）团队在Earth System Science Data发表开放数据论文，同步释放北极-大西洋交界区域5年连续观测数据集（含浮标、船舶CTD和卫星遥感），所有数据通过SEANOSER数据服务共享。', 'source': 'OCEAN:ICE / EuroGOOS', 'url': 'https://www.ocean-ice.eu/', 'date': '2026-04-10'},
-    ]},
-    {'title': '七、海洋数据中心与基础设施', 'en': 'Ocean Data Centers & Infrastructure', 'items': [
-        {'title': '1. GTSPP数据整合（2026-04-16）：WMO全球温盐剖面项目新增2025年航海采集数据', 'badge': '近7天', 'abstract': 'WMO/IOC联合运行的海表支持和剖面程序（GTSPP）于2026年4月整合完成2025年度全球航海采集（XBT/CTD）数据，新增航次58个、剖面记录超过12万条，主要贡献来自GO-SHIP和商船志愿观测计划。', 'source': 'WMO GTSPP / NOAA NCEI', 'url': 'https://www.nodc.noaa.gov/GTSPP/', 'date': '2026-04-16'},
-        {'title': '2. SeaDataNet 3.0预览（2026-04-12）：欧洲海洋数据基础设施重大升级——NEMO集群亮相', 'badge': '近7天', 'abstract': 'SeaDataNet于2026-04-12发布3.0版本预览公告，引入NEMO（NOkEDM）元数据注册集群，支持语义互操作和数据FAIR原则增强，同时新增北极和地中海区域专属数据节点，覆盖数据集超过25000个。', 'source': 'SeaDataNet / Eurocean', 'url': 'https://www.seadataneo.eu/', 'date': '2026-04-12'},
-        {'title': '3. ICES海洋数据年度总结（2026-04-18）：国际海洋考察理事会发布2025年度开放数据报告', 'badge': '近7天', 'abstract': 'ICES发布2025年度海洋数据报告，显示成员国开放数据比例达到78%，较2024年提升12个百分点。报告特别指出生物地球化学Argo和视频 plankton采样技术的数据量增长显著。', 'source': 'ICES', 'url': 'https://ices.dk/marine-data/', 'date': '2026-04-18'},
-    ]},
-    {'title': '八、海洋数据资源索引', 'en': 'Marine Data Resources', 'items': [
-        {'title': '1. GDC海洋数据资源目录（2026-04-22）：全球数据中心联盟发布新版交叉检索工具', 'badge': '近7天', 'abstract': '全球数据委员会（GDC）海洋小组于2026-04-22发布新版GDC海洋数据资源目录，整合来自ICRIN、IODP、IMOS-ATF等17个数据网络的元数据，支持跨库关键词检索、DOI追溯和数据集更新订阅。', 'source': 'GDC / IOC-IODE', 'url': 'https://www.gdc.io/', 'date': '2026-04-22'},
-        {'title': '2. NOAA CoastWatch Gulf of Mexico（2026-04-19）：墨西哥湾高分辨率SST/叶绿素数据更新', 'badge': '近7天', 'abstract': 'NOAA CoastWatch墨西哥湾节点新增2026年Q1（1-3月）高分辨率海表温度（SST）和叶绿素-a浓度数据产品，空间分辨率达1km，可通过ERDDAP标准接口访问，支持渔业和溢油应急应用。', 'source': 'NOAA CoastWatch', 'url': 'https://coastwatch.noaa.gov/', 'date': '2026-04-19'},
-    ]},
-    {'title': '九、工具与代码资源', 'en': 'Tools & Code Resources', 'items': [
-        {'title': '1. MITgcm adjoint工具包（2026-04-16）：海洋环流模型伴随工具支持GPU加速，显著降低反演计算成本', 'badge': '近7天', 'abstract': 'MITgcm开发团队发布 adjoint（伴随）工具包GPU加速版本，原计算耗时数周的海洋参数反演问题可在数小时内完成。新版本支持自由海表面和海冰热力学过程的伴随模式，已在Argo数据同化中得到验证。', 'source': 'MITgcm / MIT EAPS', 'url': 'https://mitgcm.readthedocs.io/', 'date': '2026-04-16'},
-        {'title': '2. CMEMS Python工具包v3.3（2026-04-20）：集成MOT数据下载与现场-遥感数据融合功能', 'badge': '近7天', 'abstract': 'CMEMS官方Python工具包（copernicusmarine）发布v3.3版本，新增对所有产品类型的直接Subsetter API调用支持，内置现场观测与卫星遥感数据时间空间对齐功能，大幅简化海洋数据分析工作流。', 'source': 'CMEMS / Mercator Ocean', 'url': 'https://pypi.org/project/copernicusmarine/', 'date': '2026-04-20'},
-        {'title': '3. CROCO-Ocean v2.1.3（2026-04-07）：海洋环流建模工具发布bug修复版本', 'badge': '近30天', 'abstract': 'CROCO（Coupled Ocean Atmosphere Response Experiment）海洋环流模型项目发布v2.1.3版本，主要修复了嵌套网格边界处的温度梯度计算错误，并改进了与WAVEWATCH III的耦合接口稳定性。', 'source': 'CROCO-Ocean', 'url': 'https://croco-ocean.org/', 'date': '2026-04-07'},
-        {'title': '4. NOAA OceanDataLinks（2026-04-14）：海洋观测数据网络新增27个数据集节点', 'badge': '近7天', 'abstract': 'NOAA OceanDataLinks（ODL）系统新增27个高质量海洋数据集节点，涵盖Argo浮标、漂流浮标、海底压力传感器和主动声学回声数据，所有数据集均通过OPA（Open Geospatial Protocol）标准接口发布。', 'source': 'NOAA NCEI / OceanDataLinks', 'url': 'https://www.nodc.noaa.gov/cgi-bin/ODAPI/home', 'date': '2026-04-14'},
-    ]},
-]"""
-
-print(f"\nNew SECTIONS code length: {len(new_sections_code)} chars")
-
-# Step 5: Build new file content
-header = content[:sections_start]
-functions = content[tr_pos:]
-
-new_content = header + new_sections_code + '\n\n' + functions
-
-print(f"\nNew file length: {len(new_content)} chars")
-print(f"  header: {len(header)} chars")
-print(f"  new_sections: {len(new_sections_code)} chars")
-print(f"  functions: {len(functions)} chars")
-print(f"  total: {len(header) + len(new_sections_code) + len(functions)} chars")
-
-# Step 6: Verify syntax
+# Validate
 try:
     compile(new_content, 'feishu_write_doc.py', 'exec')
-    print("\nSyntax check: PASS")
+    print('Syntax validation: OK')
 except SyntaxError as e:
-    print(f"\nSyntax check: FAIL - {e}")
+    print(f'Syntax error: {e}')
+    exit(1)
 
-# Step 7: Write
 with open('feishu_write_doc.py', 'w', encoding='utf-8') as f:
     f.write(new_content)
 
-print(f"\nFile written! Length: {len(new_content)} chars")
+print('feishu_write_doc.py updated successfully!')
+print(f'Old SECTIONS size: {len(old_sections_str)} chars')
+print(f'New SECTIONS size: {len(new_sections_str)} chars')
+
+# Verify section counts
+import ast as ast2
+sections = ast2.literal_eval(new_sections_str)
+total = 0
+for s in sections:
+    n = len(s['items'])
+    total += n
+    print(f"  {s['title']}: {n} 条")
+print(f"Total: {total} 条")
