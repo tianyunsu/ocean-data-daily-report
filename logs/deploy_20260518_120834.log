@@ -1,0 +1,94 @@
+[2026-05-18 12:08:34] [INFO] 部署主机: PC-20260312LHBE
+[2026-05-18 12:08:34] [INFO] 当前时间: 2026-05-18 12:08:34
+[2026-05-18 12:08:34] [INFO] 创建锁文件: deploying by PC-20260312LHBE at 2026-05-18T12:08:34.902397
+[2026-05-18 12:08:34] [INFO] ============================================================
+[2026-05-18 12:08:34] [INFO] 检查部署环境
+[2026-05-18 12:08:34] [INFO] ============================================================
+[2026-05-18 12:08:34] [INFO] Python版本: 3.13.12
+[2026-05-18 12:08:35] [INFO] git version 2.53.0.windows.2
+[2026-05-18 12:08:35] [INFO] Git版本: git version 2.53.0.windows.2
+[2026-05-18 12:08:35] [SUCCESS] ✅ HTML生成脚本: 存在
+[2026-05-18 12:08:35] [SUCCESS] ✅ 搜索结果数据: 存在
+[2026-05-18 12:08:35] [INFO] origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+[2026-05-18 12:08:35] [INFO] Git远程仓库:
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+
+[2026-05-18 12:08:35] [SUCCESS] 
+✅ 环境检查通过
+[2026-05-18 12:08:35] [INFO] ============================================================
+[2026-05-18 12:08:35] [INFO] 拉取最新代码
+[2026-05-18 12:08:35] [INFO] ============================================================
+[2026-05-18 12:08:35] [INFO] M	.workbuddy/automations/ai/memory.md
+M	.workbuddy/memory/MEMORY.md
+M	__pycache__/feishu_write_doc.cpython-313.pyc
+M	archive.html
+M	feishu_doc_url.txt
+M	feishu_write_doc.py
+M	make_new_feishu_v2.py
+D	update_index.py
+[2026-05-18 12:08:41] [INFO] Already up to date.
+[2026-05-18 12:08:41] [SUCCESS] ✅ 代码已更新到最新版本
+[2026-05-18 12:08:41] [INFO] ============================================================
+[2026-05-18 12:08:41] [INFO] 生成今日日报
+[2026-05-18 12:08:41] [INFO] ============================================================
+[2026-05-18 12:08:42] [INFO] HTML generated: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-05-18.html
+Total items: 20
+  Section 1: 一、海洋人工智能... - 3 items
+  Section 2: 二、海洋数字孪生... - 2 items
+  Section 3: 三、海洋可视化... - 2 items
+  Section 4: 四、海洋数据质量... - 2 items
+  Section 5: 五、海洋数据处理... - 2 items
+  Section 6: 六、海洋数据管理与共... - 2 items
+  Section 7: 七、开放航次 / 船... - 2 items
+  Section 8: 八、海洋数据中心... - 3 items
+  Section 9: 九、工具与代码资源... - 2 items
+[2026-05-18 12:08:42] [SUCCESS] ✅ 日报已生成: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-05-18.html
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [INFO] 复制日报到posts目录
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [SUCCESS] ✅ 日报已复制: C:\Users\Administrator\WorkBuddy\Claw\posts\2026-05-18.html
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [INFO] 更新index.html
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [INFO] 今日日报链接已存在,跳过更新
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [INFO] 更新 sitemap.xml
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [SUCCESS] ✅ sitemap.xml 已更新，共 34 篇日报 + 2 个页面
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:42] [INFO] 提交并推送到GitHub
+[2026-05-18 12:08:42] [INFO] ============================================================
+[2026-05-18 12:08:43] [INFO] M .workbuddy/automations/ai/memory.md
+ M .workbuddy/memory/MEMORY.md
+ M __pycache__/feishu_write_doc.cpython-313.pyc
+ M archive.html
+ M feishu_doc_url.txt
+ M feishu_write_doc.py
+ M make_new_feishu_v2.py
+M  posts/2026-05-18.html
+ D update_index.py
+?? .workbuddy/memory/2026-05-14.md
+?? .workbuddy/memory/2026-05-18.md
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-05-15.html"
+?? "daily_reports/\346\265\267\346\264\213AI\347\256\200\346\212\245_2026-05-18.html"
+?? deploy.lock
+?? gen_html_0518.py
+?? logs/deploy_20260515_105135.log
+?? logs/deploy_20260518_095227.log
+?? logs/deploy_20260518_120834.log
+?? update_index_archive.py
+?? update_sections_0518.py
+[2026-05-18 12:08:44] [INFO] [main 156dc2f] Add 2026-05-18 daily report
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[2026-05-18 12:08:49] [SUCCESS] ✅ 已成功推送到GitHub
+[2026-05-18 12:08:49] [INFO] 删除锁文件
+[2026-05-18 12:08:49] [SUCCESS] ============================================================
+[2026-05-18 12:08:49] [SUCCESS] 日报发布成功!
+[2026-05-18 12:08:49] [SUCCESS] ============================================================
+[2026-05-18 12:08:49] [SUCCESS] ✅ HTML文件: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-05-18.html
+[2026-05-18 12:08:49] [SUCCESS] ✅ 网站地址: https://tianyunsu.github.io/ocean-data-daily-report/
+[2026-05-18 12:08:49] [SUCCESS] ✅ 日报链接: https://tianyunsu.github.io/ocean-data-daily-report/posts/2026-05-18.html
+[2026-05-18 12:08:49] [SUCCESS] ============================================================
+[2026-05-18 12:08:49] [INFO] 日志文件: C:\Users\Administrator\WorkBuddy\Claw\logs\deploy_20260518_120834.log
