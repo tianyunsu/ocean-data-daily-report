@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年05月29日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.78em;
+    padding: 4px 10px;
+    border-radius: 15px;
+    transition: all 0.2s;
+  }
+  .nav-link:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon { font-size: 1.8em; }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+  }
+  .section-meta {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78em;
+    margin-top: 2px;
+  }
+  .section-badge {
+    background: var(--ocean-teal);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .section-content { padding: 0; }
+  .item {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.2s;
+  }
+  .item:last-child { border-bottom: none; }
+  .item:hover { background: var(--ocean-foam); }
+  .item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .item-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    font-size: 0.68em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .item-title {
+    color: var(--ocean-deep);
+    font-size: 0.95em;
+    font-weight: 600;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    line-height: 1.65;
+    margin: 8px 0;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.75em;
+    color: var(--text-muted);
+  }
+  .item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .item-meta a {
+    color: var(--ocean-light);
+    text-decoration: none;
+  }
+  .item-meta a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8em;
+  }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.6em; }
+    .nav-bar { gap: 5px; }
+    .nav-link { font-size: 0.7em; padding: 3px 8px; }
+    .item { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-badge">OCEAN AI DAILY</div>
+    <h1>海洋AI技术日报</h1>
+    <div class="subtitle">报告日期：2026年05月29日 | 来源：Nature Communications / NOAA / Copernicus / IOCCG / Springer 等 | 自动生成</div>
+    <div class="summary-bar">
+      <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+      <div class="summary-chip"><strong>5</strong> 条精选动态</div>
+      <div class="summary-chip">覆盖 AI · 数字孪生 · 可视化 · 数据...</div>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <a class="nav-link" href="#section-1">🤖 海洋人工智能</a>
+    <a class="nav-link" href="#section-2">🌐 海洋数字孪生</a>
+    <a class="nav-link" href="#section-3">📊 海洋可视化</a>
+    <a class="nav-link" href="#section-4">✅ 海洋数据质量</a>
+    <a class="nav-link" href="#section-5">⚙️ 海洋数据处理</a>
+    <a class="nav-link" href="#section-6">🗄️ 海洋数据管理与共享服务</a>
+    <a class="nav-link" href="#section-7">🚢 开放航次 / 船时共享</a>
+    <a class="nav-link" href="#section-8">🏛️ 海洋数据中心</a>
+    <a class="nav-link" href="#section-9">🛠️ 工具与代码资源</a>
+  </nav>
+  <div class="container">
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <span class="section-icon">🤖</span>
+        <div>
+          <div class="section-title">一、海洋人工智能</div>
+          <div class="section-meta">Ocean AI / Marine Artificial Intelligence</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">近7天</span>
+            <div class="item-title"><a href="https://news.qq.com/rain/a/20260527A03QJY00" target="_blank">OCEANS 2026国际海洋技术大会三亚开幕：海洋AI成为核心专题方向（中国日报 / IEEE OES, 2026-05-26）</a></div>
+          </div>
+          <div class="item-abstract">5月26日，全球海洋工程与科技领域旗舰会议OCEANS 2026在海南三亚启幕。大会以"走向深蓝"为主题，汇聚全球26个国家和地区近750名专家学者、行业精英。海洋人工智能（AI）被列为核心专题之一，来自美国、丹麦、中国等国的专家围绕物理驱动机器学习、AI驱动的海洋感知与预报等议题发表主旨报告。大会设深海探测、海洋AI、水下传感器网络、海上风电、极地观测等6大专题方向，51家海内外参展商集中展示。海南大学作为继上海交通大学之后第二所获得该会议主办权的中国大陆学术机构。</div>
+          <div class="item-meta">
+            <span>📍 来源：中国日报 / IEEE OES</span>
+            <span>📅 2026-05-26</span>
+            <span>🔗 <a href="https://news.qq.com/rain/a/20260527A03QJY00" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <span class="section-icon">🌐</span>
+        <div>
+          <div class="section-title">二、海洋数字孪生</div>
+          <div class="section-meta">Ocean Digital Twin</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <div>
+          <div class="section-title">三、海洋可视化</div>
+          <div class="section-meta">Ocean Visualization</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">近7天</span>
+            <div class="item-title"><a href="https://github.com/ROYCEFTC/Marine-Spatial-Planning-Application---DataViz-Challenge2026/releases" target="_blank">Copernicus Marine海洋空间规划数据可视化平台v1.0-beta发布：交互式3D卫星数据可视化（GitHub, 2026-05-24）</a></div>
+          </div>
+          <div class="item-abstract">面向海洋空间规划的开源数据可视化平台v1.0-beta在GitHub发布（Copernicus Marine DataViz Challenge参赛项目）。该平台旨在降低海洋数据使用门槛，将复杂的卫星观测数据转化为直观的三维可视化，并集成对话式AI辅助分析功能。面向研究人员、学生和海洋管理者，支持Copernicus Marine等海洋数据源的可视化分析，推动海洋数据民主化与开放科学实践。</div>
+          <div class="item-meta">
+            <span>📍 来源：GitHub / Copernicus Marine DataViz Challenge</span>
+            <span>📅 2026-05-24</span>
+            <span>🔗 <a href="https://github.com/ROYCEFTC/Marine-Spatial-Planning-Application---DataViz-Challenge2026/releases" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <span class="section-icon">✅</span>
+        <div>
+          <div class="section-title">四、海洋数据质量</div>
+          <div class="section-meta">Ocean Data Quality / QA/QC</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <span class="section-icon">⚙️</span>
+        <div>
+          <div class="section-title">五、海洋数据处理</div>
+          <div class="section-meta">Ocean Data Processing</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">近7天</span>
+            <div class="item-title"><a href="https://www.sciencedirect.com/science/article/pii/S0925231226014669" target="_blank">OceanSR-Prob：基于扩散模型的全球海洋风速空间降尺度方法（Neurocomputing, 2026-05-22）</a></div>
+          </div>
+          <div class="item-abstract">发表于Neurocomputing期刊，提出OceanSR-Prob生成式扩散框架，用于全球海洋风速剖面的空间降尺度。该方法通过概率建模捕捉海洋风速的多尺度空间变异性，克服传统降尺度方法过度平滑和高分辨率细节丢失的局限。在多个分辨率下（从0.25度降至更精细区域尺度）验证，优于现有插值和统计降尺度基线方法，为高分辨率海气耦合模型和海上风电评估等应用提供可靠的数据预处理工具。</div>
+          <div class="item-meta">
+            <span>📍 来源：Neurocomputing (Elsevier)</span>
+            <span>📅 2026-05-22</span>
+            <span>🔗 <a href="https://www.sciencedirect.com/science/article/pii/S0925231226014669" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-6">
+      <div class="section-header">
+        <span class="section-icon">🗄️</span>
+        <div>
+          <div class="section-title">六、海洋数据管理与共享服务</div>
+          <div class="section-meta">Ocean Data Management & Sharing</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">1周~1个月</span>
+            <div class="item-title"><a href="https://tos.org/oceanography/article/the-pace-data-hackweek-launches-a-new-wave-of-open-science-how-we-did-it-twice-and-why" target="_blank">PACE Data Hackweek开放科学实践报告：两次Hackweek的经验与启示（Oceanography, 2026-05-19）</a></div>
+          </div>
+          <div class="item-abstract">发表于Oceanography期刊的开放科学论文，系统总结了两届NASA PACE（浮游植物、气溶胶、云和海洋生态系统）Data Hackweek的目标、成果和参与者经验。两届Hackweek共为数百名研究人员提供了PACE卫星高光谱海洋颜色数据的实操培训，推动了开放科学协作模式在海洋遥感数据处理中的应用，并探讨了数据访问、培训基础设施和社区建设等持续挑战，为类似海洋数据培训项目提供了参考框架。</div>
+          <div class="item-meta">
+            <span>📍 来源：Oceanography (The Oceanography Society)</span>
+            <span>📅 2026-05-19</span>
+            <span>🔗 <a href="https://tos.org/oceanography/article/the-pace-data-hackweek-launches-a-new-wave-of-open-science-how-we-did-it-twice-and-why" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-7">
+      <div class="section-header">
+        <span class="section-icon">🚢</span>
+        <div>
+          <div class="section-title">七、开放航次 / 船时共享</div>
+          <div class="section-meta">Open Cruises / Ship Time Sharing</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+    <div class="section" id="section-8">
+      <div class="section-header">
+        <span class="section-icon">🏛️</span>
+        <div>
+          <div class="section-title">八、海洋数据中心</div>
+          <div class="section-meta">Ocean Data Centers</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">近7天</span>
+            <div class="item-title"><a href="https://marine.copernicus.eu/news/understanding-our-ocean-ii-collecting-ocean-data" target="_blank">CMEMS推出"理解我们的海洋II：收集海洋数据"科普系列（Copernicus Marine, 2026-05-26）</a></div>
+          </div>
+          <div class="item-abstract">Copernicus Marine Service（CMEMS）发布"Understanding Our Ocean"科普系列第二篇《收集海洋数据》，系统介绍海洋数据的多种采集方式，包括卫星遥感（海面温度、海面高度、海洋颜色）、原位观测（Argo浮标、漂流浮标、锚系阵列、科考船CTD）、滑翔机和水下滑翔器等平台。文章帮助数据用户理解CMEMS数据来源和质量控制流程，是CMEMS提升全球海洋数据素养与用户服务能力的系列举措之一。</div>
+          <div class="item-meta">
+            <span>📍 来源：Copernicus Marine Service (CMEMS)</span>
+            <span>📅 2026-05-26</span>
+            <span>🔗 <a href="https://marine.copernicus.eu/news/understanding-our-ocean-ii-collecting-ocean-data" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-9">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <div>
+          <div class="section-title">九、工具与代码资源</div>
+          <div class="section-meta">Tools & Code Resources</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。版权归原作者/机构所有。
+  </div>
+</body>
+</html>
