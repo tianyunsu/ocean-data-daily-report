@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年06月11日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.78em;
+    padding: 4px 10px;
+    border-radius: 15px;
+    transition: all 0.2s;
+  }
+  .nav-link:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon { font-size: 1.8em; }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+  }
+  .section-meta {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78em;
+    margin-top: 2px;
+  }
+  .section-badge {
+    background: var(--ocean-teal);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .section-content { padding: 0; }
+  .item {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.2s;
+  }
+  .item:last-child { border-bottom: none; }
+  .item:hover { background: var(--ocean-foam); }
+  .item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .item-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    font-size: 0.68em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .item-title {
+    color: var(--ocean-deep);
+    font-size: 0.95em;
+    font-weight: 600;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    line-height: 1.65;
+    margin: 8px 0;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.75em;
+    color: var(--text-muted);
+  }
+  .item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .item-meta a {
+    color: var(--ocean-light);
+    text-decoration: none;
+  }
+  .item-meta a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8em;
+  }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.6em; }
+    .nav-bar { gap: 5px; }
+    .nav-link { font-size: 0.7em; padding: 3px 8px; }
+    .item { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-badge">OCEAN AI DAILY</div>
+    <h1>海洋AI技术日报</h1>
+    <div class="subtitle">报告日期：2026年06月11日 | 来源：Copernicus Marine / DITTO / Schmidt Ocean / arXiv / 自然资源部 等 | 自动生成</div>
+    <div class="summary-bar">
+      <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+      <div class="summary-chip"><strong>8</strong> 条精选动态</div>
+      <div class="summary-chip">覆盖 AI · 数字孪生 · 数据共享 · 航次 等</div>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <a class="nav-link" href="#section-1">🤖 海洋人工智能</a>
+    <a class="nav-link" href="#section-2">🌐 海洋数字孪生</a>
+    <a class="nav-link" href="#section-3">📊 海洋可视化</a>
+    <a class="nav-link" href="#section-4">✅ 海洋数据质量</a>
+    <a class="nav-link" href="#section-5">⚙️ 海洋数据处理</a>
+    <a class="nav-link" href="#section-6">🗄️ 海洋数据管理与共享服务</a>
+    <a class="nav-link" href="#section-7">🚢 开放航次/船时共享</a>
+    <a class="nav-link" href="#section-8">🏛️ 海洋数据中心</a>
+    <a class="nav-link" href="#section-9">🛠️ 工具与代码资源</a>
+  </nav>
+  <div class="container">
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <span class="section-icon">🤖</span>
+        <div>
+          <div class="section-title">一、海洋人工智能</div>
+          <div class="section-meta">Ocean AI / Marine Artificial Intelligence</div>
+        </div>
+        <span class="section-badge">2 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[要闻]</span>
+            <div class="item-title"><a href="https://events.marine.copernicus.eu/digital-ocean-week" target="_blank">Digital Ocean Week开幕——AI Ocean Forum发布2030年海洋AI路线图（Mercator Ocean / Copernicus Marine, 2026-06-11）</a></div>
+          </div>
+          <div class="item-abstract">首届Digital Ocean Week（6月8-12日，布鲁塞尔）于6月11-12日举行为期两天的AI Ocean Forum，汇集政策制定者、科学家、行业和技术专家，聚焦AI在海洋观测、预测和决策支持中的新应用。核心成果包括发布2030年海洋AI路线图，规划欧洲数字海洋社区AI应用的共同方向，涵盖机器学习在海洋预报中的嵌入、AI驱动数据界面和跨平台互操作。论坛由Mercator Ocean International主办，系OceanEye倡议从愿景到实施的关键组成部分。</div>
+          <div class="item-meta">
+            <span>📍 来源：Mercator Ocean International / Copernicus Marine Service</span>
+            <span>📅 2026-06-11</span>
+            <span>🔗 <a href="https://events.marine.copernicus.eu/digital-ocean-week" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2606.12141" target="_blank">arXiv: PCA增强自适应NVAR框架实现东海高分辨率海表温度预测（2026-06-11）</a></div>
+          </div>
+          <div class="item-abstract">Sherkhon Azimov等（墨西哥/韩国联合团队）提出基于奇异值分解降维与自适应非线性向量自回归（NVAR）相结合的东海SST预测框架。方法先将SST场通过SVD压缩为低维表示以提取海洋变异主导模态，再由自适应NVAR建模潜在状态时间演变并重构预测。在多个预测时间范围内，自适应NVAR均优于传统NG-RC/NVAR方法，SVD降维同时降低了计算复杂度，使该框架适用于实时海洋预报。arXiv: 2606.12141。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv (cs.LG)</span>
+            <span>📅 2026-06-11</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2606.12141" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <span class="section-icon">🌐</span>
+        <div>
+          <div class="section-title">二、海洋数字孪生</div>
+          <div class="section-meta">Ocean Digital Twin / Marine Digital Twin</div>
+        </div>
+        <span class="section-badge">2 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[科普]</span>
+            <div class="item-title"><a href="https://marine.copernicus.eu/news/understanding-our-ocean-iv-digital-twin-ocean" target="_blank">CMEMS"理解我们的海洋"系列IV发布：数字孪生海洋——卫星数据+AI+海洋模型融合（Copernicus Marine, 2026-06-08）</a></div>
+          </div>
+          <div class="item-abstract">哥白尼海洋服务发布科普系列第四篇，系统介绍了欧洲数字孪生海洋（EU DTO）的架构与实现路径。EU DTO融合卫星数据、多源传感器实时和历史观测、高级分析与海洋建模来模拟未来情景，并引入AI/机器学习融入海洋预报系统和AI驱动界面以降低使用门槛。平台由Copernicus Marine Service与EMODnet数据支撑，EDITO基础设施提供云计算与建模工具，目标于2030年全面运行，服务海洋保护和科学决策。</div>
+          <div class="item-meta">
+            <span>📍 来源：Copernicus Marine Service (CMEMS)</span>
+            <span>📅 2026-06-08</span>
+            <span>🔗 <a href="https://marine.copernicus.eu/news/understanding-our-ocean-iv-digital-twin-ocean" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[会议]</span>
+            <div class="item-title"><a href="https://www.jamstec.go.jp/j/pr-event/ditto_summit2026/" target="_blank">DITTO 2026国际峰会开放摘要提交——聚焦可互操作与用户驱动的海洋数字孪生（6月5日起，11月横滨举行）</a></div>
+          </div>
+          <div class="item-abstract">联合国海洋十年认可的数字孪生海洋（DITTO）计划第三届国际峰会将于2026年11月11-13日在日本横滨举行，摘要提交已于6月5日开放（截止7月20日）。峰会设六大核心主题：数据观测与建模、数字基础设施与互操作性、AI自动化与优化、跨行业应用、运营系统与工业部署、集成地球-社会系统框架。峰会将汇集研究人员、政策制定者、行业领袖和技术创新者，推动可互操作的运营化海洋数字孪生技术发展。</div>
+          <div class="item-meta">
+            <span>📍 来源：JAMSTEC / DITTO / UN Ocean Decade</span>
+            <span>📅 2026-06-05(开放)</span>
+            <span>🔗 <a href="https://www.jamstec.go.jp/j/pr-event/ditto_summit2026/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <div>
+          <div class="section-title">三、海洋可视化</div>
+          <div class="section-meta">Ocean Visualization / Marine Data Visualization</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <span class="section-icon">✅</span>
+        <div>
+          <div class="section-title">四、海洋数据质量</div>
+          <div class="section-meta">Ocean Data Quality / QA/QC</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <span class="section-icon">⚙️</span>
+        <div>
+          <div class="section-title">五、海洋数据处理</div>
+          <div class="section-meta">Ocean Data Processing</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+    <div class="section" id="section-6">
+      <div class="section-header">
+        <span class="section-icon">🗄️</span>
+        <div>
+          <div class="section-title">六、海洋数据管理与共享服务</div>
+          <div class="section-meta">Ocean Data Management & Sharing</div>
+        </div>
+        <span class="section-badge">2 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[政策]</span>
+            <div class="item-title"><a href="https://finance.sina.com.cn/jjxw/2026-06-08/doc-iniasfpu5655873.shtml" target="_blank">自然资源部发布《海洋数据开放共享目录（第二批，2026年6月）》（自然资源部, 2026-06-08）</a></div>
+          </div>
+          <div class="item-abstract">6月8日（世界海洋日），自然资源部发布第二批海洋数据开放共享目录。在首批37项产品基础上更新了2024-2025年中国海洋观测标准数据集及全球海洋水文气象、水深地形整合数据集；新增10项全球海洋三维温盐、海流、海浪、气压等融合数据集和7项全球海洋水文气象统计分析产品。数据通过国家海洋大数据服务平台（海洋云）开放，首批目录已服务百余用户、提供数据服务超60万次、数据量100TB。</div>
+          <div class="item-meta">
+            <span>📍 来源：自然资源部 / 新浪财经</span>
+            <span>📅 2026-06-08</span>
+            <span>🔗 <a href="https://finance.sina.com.cn/jjxw/2026-06-08/doc-iniasfpu5655873.shtml" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[数据产品]</span>
+            <div class="item-title"><a href="https://marine.copernicus.eu/news/july-release-expanding-copernicus-marine-service-through-global-collaboration" target="_blank">Copernicus Marine Service七月发布预告：COLAB MFC加入，通过全球合作扩展海洋预报覆盖（CMEMS, 2026-06-05）</a></div>
+          </div>
+          <div class="item-abstract">哥白尼海洋服务宣布2026年7月版本将新增COLAB监测与预报中心（MFC），通过国际数据交换合作模式将非哥白尼体系开发的高质量区域海洋预报纳入哥白尼产品目录。首个合作方为加拿大环境与气候变化部（ECCC），首个产品覆盖西北大西洋——从哈特拉斯角至拉布拉多南部（含墨西哥湾流分离区、纽芬兰大浅滩、圣劳伦斯湾等）。生产单元由西班牙NOW Systems运营，使用加利西亚超算中心（CESGA）HPC基础设施。此举开创了国际合作新模式，扩大全球覆盖和科学多样性。</div>
+          <div class="item-meta">
+            <span>📍 来源：Copernicus Marine Service (CMEMS)</span>
+            <span>📅 2026-06-05</span>
+            <span>🔗 <a href="https://marine.copernicus.eu/news/july-release-expanding-copernicus-marine-service-through-global-collaboration" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-7">
+      <div class="section-header">
+        <span class="section-icon">🚢</span>
+        <div>
+          <div class="section-title">七、开放航次/船时共享</div>
+          <div class="section-meta">Open Cruises / Research Vessels / Marine Equipment</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[航次]</span>
+            <div class="item-title"><a href="https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/" target="_blank">施密特海洋研究所旗舰科考航次：亚马逊海底峡谷浊流活动研究（R/V Falkor (too), 2026年5月17日-6月20日）</a></div>
+          </div>
+          <div class="item-abstract">Schmidt Ocean Institute 2026年"西南大西洋"系列航次中的"Underwater Avalanches in the Amazon Canyon"航次于5月17日至6月20日期间执行。研究船R/V Falkor (too)在亚马逊海底峡谷开展浊流活动及其对海底地貌和生态系统影响的调查。同期SOI还公布了2026全年共9个航次计划，覆盖南美至中大西洋海岭海域，聚焦中层透明生物多样性、副热带环流碳输出等前沿课题。</div>
+          <div class="item-meta">
+            <span>📍 来源：Schmidt Ocean Institute</span>
+            <span>📅 2026-05-17至2026-06-20</span>
+            <span>🔗 <a href="https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-8">
+      <div class="section-header">
+        <span class="section-icon">🏛️</span>
+        <div>
+          <div class="section-title">八、海洋数据中心</div>
+          <div class="section-meta">Ocean Data Centers / Repositories</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[数据产品]</span>
+            <div class="item-title"><a href="https://www.gmrt.org/about/news.php" target="_blank">GMRT v4.5.0发布：新版全球多分辨率地形数据整合23次新调查，新增GMRT Downloader工具（LDEO/Columbia, 2026年6月）</a></div>
+          </div>
+          <div class="item-abstract">全球多分辨率地形合成数据（GMRT）发布v4.5.0版本。核心更新包括：升级GEBCO 2026底图、整合23次新增多波束调查数据覆盖大西洋/太平洋/南大洋/印度洋、新增来自OceanXplorer船的红海高分辨率网格数据。同步发布UNH-CCOM开发的GMRT Downloader工具（GitHub开源），支持批量下载多个高分辨率网格并合并为单一复合网格，已集成至多波束咨询委员会（MAC）规划工具中。</div>
+          <div class="item-meta">
+            <span>📍 来源：GMRT / LDEO, Columbia University</span>
+            <span>📅 2026年6月</span>
+            <span>🔗 <a href="https://www.gmrt.org/about/news.php" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-9">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <div>
+          <div class="section-title">九、工具与代码资源</div>
+          <div class="section-meta">Tools & Code Resources</div>
+        </div>
+        <span class="section-badge">0 条</span>
+      </div>
+      <div class="section-content">
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。版权归原作者/机构所有。
+  </div>
+</body>
+</html>
