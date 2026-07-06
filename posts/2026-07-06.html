@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年07月06日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin:0; padding:0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .nav-chip {
+    background: rgba(0,91,154,0.4);
+    border: 1px solid rgba(0,168,181,0.4);
+    color: #a0d8ef;
+    font-size: 0.78em;
+    padding: 4px 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-chip:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+    border-color: var(--ocean-teal);
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(0,30,60,0.18);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon {
+    font-size: 1.8em;
+    flex-shrink: 0;
+  }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .section-en {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78em;
+    margin-top: 3px;
+  }
+  .section-count {
+    margin-left: auto;
+    background: rgba(255,255,255,0.15);
+    color: #a0d8ef;
+    font-size: 0.82em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .section-items {
+    padding: 8px 0;
+  }
+  .item-card {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s;
+  }
+  .item-card:last-child { border-bottom: none; }
+  .item-card:hover { background: #f5faff; }
+  .item-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    font-weight: 600;
+    font-size: 0.96em;
+    text-decoration: none;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 0;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-badge {
+    font-size: 0.72em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badge-new { background: #e8f7f0; color: #1a7a4a; border: 1px solid #a8d8c0; }
+  .badge-review { background: #e8f0ff; color: #2a4aaa; border: 1px solid #a8b8e8; }
+  .badge-conf { background: #fff0e8; color: #a03000; border: 1px solid #e8c8a0; }
+  .badge-policy { background: #f8f0ff; color: #6a1a9a; border: 1px solid #d0a8e8; }
+  .badge-hot { background: #fff0e8; color: #c03000; border: 1px solid #f0c0a0; }
+  .badge-progress { background: #e8f6fa; color: #005b9a; border: 1px solid #a0d0e8; }
+  .badge-standard { background: #fffbe8; color: #8a6000; border: 1px solid #e0d090; }
+  .badge-open { background: #e8ffe8; color: #1a6a1a; border: 1px solid #a0d8a0; }
+  .badge-default { background: #f0f4f8; color: #4a6a8a; border: 1px solid #c0d0e0; }
+  .item-abstract {
+    color: #3a4a5a;
+    font-size: 0.9em;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    align-items: center;
+  }
+  .meta-source { color: var(--ocean-mid); font-weight: 500; }
+  .meta-date { color: #7a8a9a; }
+  .meta-link {
+    color: var(--ocean-teal);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: auto;
+  }
+  .meta-link:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.82em;
+    padding: 20px 0 32px;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">OCEAN AI DAILY</div>
+  <h1>海洋AI技术<span>日报</span></h1>
+  <div class="subtitle">报告日期：2026年07月06日 | 来源：Copernicus · arXiv · NOAA · EMODnet · EOSC · SOI · ISOPE · Nature · 等 | 自动生成</div>
+  <div class="summary-bar">
+    <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+    <div class="summary-chip"><strong>13</strong> 条精选动态</div>
+    <div class="summary-chip">覆盖 AI · 数字孪生 · 可视化 · 数据质量 · 数据处理 · 共享服务 · 开放航次 · 数据中心 · 工具</div>
+  </div>
+</div>
+<nav class="nav-bar"><a href="#section-1" class="nav-chip">🤖 一、海洋人工智能</a><a href="#section-2" class="nav-chip">🌐 二、海洋数字孪生</a><a href="#section-3" class="nav-chip">📊 三、海洋可视化</a><a href="#section-4" class="nav-chip">✅ 四、海洋数据质量</a><a href="#section-5" class="nav-chip">⚙️ 五、海洋数据处理</a><a href="#section-6" class="nav-chip">🗄️ 六、海洋数据管理与共享</a><a href="#section-7" class="nav-chip">🚢 七、开放航次与科考</a><a href="#section-8" class="nav-chip">🏛️ 八、海洋数据中心</a><a href="#section-9" class="nav-chip">🛠️ 九、工具与代码资源</a></nav>
+<div class="container">
+  <section class="section" id="section-1">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <div>
+        <div class="section-title">一、海洋人工智能</div>
+        <div class="section-en">Ocean AI / Marine Artificial Intelligence</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://arxiv.org/abs/2607.01676" target="_blank" rel="noopener">1. arXiv:2607.01676 深度学习地球系统模式模拟印度季风季节内与年际变率（2026-07-03）</a>
+        </div>
+        <div class="item-abstract">本文利用深度学习构建地球系统模式来模拟印度季风的季节内和年际变率，是AI/机器学习在大气-海洋耦合气候系统中的重要应用，展示了数据驱动方法在复杂气候过程建模中的潜力。</div>
+        <div class="item-meta">
+          <span class="meta-source">arXiv physics.ao-ph</span>
+          <span class="meta-date">2026-07-03</span>
+          <a href="https://arxiv.org/abs/2607.01676" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://arxiv.org/abs/2606.31248" target="_blank" rel="noopener">2. arXiv:2606.31248 将风暴分辨大气AI模拟扩展至全球尺度（2026-07-01）</a>
+        </div>
+        <div class="item-abstract">该研究将基于AI的风暴分辨大气模拟扩展至全球尺度，代表了AI在大气与海洋气候模拟前沿应用的重要进展，为全球高分辨率气候模拟提供了新的技术路径。</div>
+        <div class="item-meta">
+          <span class="meta-source">arXiv physics.ao-ph</span>
+          <span class="meta-date">2026-07-01</span>
+          <a href="https://arxiv.org/abs/2606.31248" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://arxiv.org/abs/2606.31957" target="_blank" rel="noopener">3. arXiv:2606.31957 局地平稳Argo海洋热含量估计：建模、验证与不确定性量化（2026-07-01）</a>
+        </div>
+        <div class="item-abstract">该研究利用Argo浮标数据，通过局地平稳模型对海洋热含量进行估计、验证和不确定性量化，将统计方法直接应用于海洋气候观测数据，为海洋热含量估计提供了新的技术框架。</div>
+        <div class="item-meta">
+          <span class="meta-source">arXiv physics.ao-ph</span>
+          <span class="meta-date">2026-07-01</span>
+          <a href="https://arxiv.org/abs/2606.31957" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-2">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div>
+        <div class="section-title">二、海洋数字孪生</div>
+        <div class="section-en">Ocean Digital Twin / Marine Digital Twin</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-review">[动态]</span>
+          <a href="https://sciencebusiness.net/news/open-science/europes-research-node-advance-ocean-science" target="_blank" rel="noopener">1. EOSC Node | 欧洲数字孪生海洋上线：Blue-Cloud 2026成果移交至欧洲开放科学云（2026-06-22）</a>
+        </div>
+        <div class="item-abstract">Blue-Cloud 2026项目成果正式移交至EOSC Node | 欧洲数字孪生海洋平台，该平台连接欧洲开放科学云（EOSC）与EDITO（欧盟海洋数字孪生核心技术平台），提供9个虚拟实验室（含全球金枪鱼渔获地图集）和3个涵盖物理/富营养化/浮游植物变量的工作平台，数据跨度达数十年。</div>
+        <div class="item-meta">
+          <span class="meta-source">Science|Business / Blue-Cloud 2026</span>
+          <span class="meta-date">2026-06-22</span>
+          <a href="https://sciencebusiness.net/news/open-science/europes-research-node-advance-ocean-science" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-3">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <div>
+        <div class="section-title">三、海洋可视化</div>
+        <div class="section-en">Ocean Visualization / Geospatial Display</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-review">[报告]</span>
+          <a href="https://www.mercator-ocean.eu/bulletin/ocean-temperature-bulletin-june-2026/" target="_blank" rel="noopener">1. Copernicus Ocean Temperature Bulletin（2026年6月）发布：全球海表温度创6月历史新高（2026-07-01）</a>
+        </div>
+        <div class="item-abstract">Mercator Ocean International发布2026年6月海洋温度公报，指出全球平均海表温度（SST）在2026年6月突破历史同期纪录，达到20.98°C，超过2023和2024年同期水平，对全球海洋热浪具有重大指示意义。</div>
+        <div class="item-meta">
+          <span class="meta-source">Mercator Ocean / CMEMS</span>
+          <span class="meta-date">2026-07-01</span>
+          <a href="https://www.mercator-ocean.eu/bulletin/ocean-temperature-bulletin-june-2026/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-4">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <div>
+        <div class="section-title">四、海洋数据质量</div>
+        <div class="section-en">Ocean Data Quality Control</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://onepetro.org/ISOPEIOPEC/proceedings/ISOPE26/ISOPE26/ISOPE-I-26-347/801003" target="_blank" rel="noopener">1. ISOPE 2026：AI驱动的多源异构海洋数据质量增强与全生命周期保障框架（2026-05-31，重要性豁免）</a>
+        </div>
+        <div class="item-abstract">本文提出一个AI驱动的框架，用于多源异构海洋数据的质量增强与全生命周期保障，提供高效可扩展的解决方案。该框架将机器学习与现有海洋数据质控规则融合，是海洋数据质量控制在工业应用场景的重要探索。</div>
+        <div class="item-meta">
+          <span class="meta-source">ISOPE 2026 Proceedings</span>
+          <span class="meta-date">2026-05-31</span>
+          <a href="https://onepetro.org/ISOPEIOPEC/proceedings/ISOPE26/ISOPE26/ISOPE-I-26-347/801003" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-5">
+    <div class="section-header">
+      <span class="section-icon">⚙️</span>
+      <div>
+        <div class="section-title">五、海洋数据处理</div>
+        <div class="section-en">Ocean Data Processing / Computing</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://arxiv.org/abs/2606.31957" target="_blank" rel="noopener">1. arXiv:2606.31957 基于Argo观测的海洋热含量局地平稳估计方法（2026-07-01）</a>
+        </div>
+        <div class="item-abstract">该研究提出基于Argo浮标数据的局地平稳模型，对海洋热含量进行统计估计、交叉验证和不确定性量化，避免了传统全局假设带来的偏差，为海洋气候数据处理提供了新的统计工具。</div>
+        <div class="item-meta">
+          <span class="meta-source">arXiv physics.ao-ph</span>
+          <span class="meta-date">2026-07-01</span>
+          <a href="https://arxiv.org/abs/2606.31957" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-6">
+    <div class="section-header">
+      <span class="section-icon">🗄️</span>
+      <div>
+        <div class="section-title">六、海洋数据管理与共享</div>
+        <div class="section-en">Ocean Data Management & Sharing</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-hot">[要闻]</span>
+          <a href="https://blue-cloud.org/eosc-node-european-digital-twin-ocean" target="_blank" rel="noopener">1. EOSC Node 欧洲数字孪生海洋平台正式运营：整合EDITO与EOSC，提供9个虚拟实验室（2026-06-22）</a>
+        </div>
+        <div class="item-abstract">EOSC Node欧洲数字孪生海洋平台正式投入运营，作为欧盟海洋战略的核心数字基础设施，该平台整合了欧洲开放科学云（EOSC）与EDITO（欧盟海洋数字孪生计划），提供涵盖基因组学到野生动物、环境数据的9个虚拟实验室，并由EOSC-Marine项目（2026年9月启动）提供长期支持。</div>
+        <div class="item-meta">
+          <span class="meta-source">EOSC / Blue-Cloud 2026</span>
+          <span class="meta-date">2026-06-22</span>
+          <a href="https://blue-cloud.org/eosc-node-european-digital-twin-ocean" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-review">[动态]</span>
+          <a href="https://www.linkedin.com/pulse/welcome-june-2026-edition-emodnet-newsletter-emodnet-6spce" target="_blank" rel="noopener">2. EMODnet 2026年6月通讯发布：OceanEye正式纳入欧盟海洋政策框架（2026-07-02）</a>
+        </div>
+        <div class="item-abstract">EMODnet发布2026年6月通讯，重点介绍2026年6月3日欧盟委员会正式通过OceanEye倡议，该倡议将欧盟定位为全球海洋情报的领先提供者，EOSC Node是其四大支柱之一，标志着欧洲海洋数据基础设施进入新的整合阶段。</div>
+        <div class="item-meta">
+          <span class="meta-source">EMODnet</span>
+          <span class="meta-date">2026-07-02</span>
+          <a href="https://www.linkedin.com/pulse/welcome-june-2026-edition-emodnet-newsletter-emodnet-6spce" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-7">
+    <div class="section-header">
+      <span class="section-icon">🚢</span>
+      <div>
+        <div class="section-title">七、开放航次与科考</div>
+        <div class="section-en">Open Cruises / Research Expeditions</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-conf">[航次]</span>
+          <a href="https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/" target="_blank" rel="noopener">1. Schmidt Ocean Institute R/V Falkor (too) 特立尼达和多巴哥深海探秘远征正在执行（2026-06-29至07-28）</a>
+        </div>
+        <div class="item-abstract">由Dr. Diva Amon领导的特立尼达和多巴哥深海探秘远征目前正在执行，为期一个月，使用深海成像系统（DORIS）对该国中光带和深海生态系统进行基线调查，并测试新型低温冷冻保存技术，填补特立尼达和多巴哥深水区域探索空白。</div>
+        <div class="item-meta">
+          <span class="meta-source">Schmidt Ocean Institute</span>
+          <span class="meta-date">2026-06-29</span>
+          <a href="https://schmidtocean.org/cruises/schmidt-ocean-institute-2026-expeditions/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-conf">[航次]</span>
+          <a href="https://www.oceansciencetechnology.com/news/deep-sea-rov-expedition-launched-to-map-critical-minerals/" target="_blank" rel="noopener">2. NOAA Okeanos Explorer Cook Islands 海底矿产勘探远征即将启动（2026年7月至8月）</a>
+        </div>
+        <div class="item-abstract">NOAA海洋探索计划与库克群岛海底矿产管理局合作，将于2026年7月至8月开展为期28天的深海勘探任务，使用ROV和先进制图技术探索Manihiki Plateau的深海平原和多金属结核栖息地，所有数据将公开发布并返回库克群岛政府以支持区域海洋资源管理。</div>
+        <div class="item-meta">
+          <span class="meta-source">NOAA Ocean Exploration / Ocean Science & Technology</span>
+          <span class="meta-date">2026-07-01</span>
+          <a href="https://www.oceansciencetechnology.com/news/deep-sea-rov-expedition-launched-to-map-critical-minerals/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-8">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <div>
+        <div class="section-title">八、海洋数据中心</div>
+        <div class="section-en">Ocean Data Centers / Infrastructure</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-hot">[要闻]</span>
+          <a href="https://www.eunews.it/en/2026/07/01/warm-seas-ocean-temperatures-hit-a-record-20-98c-in-june/" target="_blank" rel="noopener">1. Copernicus C3S确认：2026年6月全球海表温度创历史同期新高，达20.98°C（2026-07-01）</a>
+        </div>
+        <div class="item-abstract">欧盟哥白尼气候变化服务（C3S）和哥白尼海洋服务（CMEMS）确认，2026年6月全球平均海表温度达到20.98°C，突破2023和2024年同期纪录，目前热带太平洋已出现厄尔尼诺条件，预计将进一步推高海温，对全球海洋热浪具有重要预警意义。</div>
+        <div class="item-meta">
+          <span class="meta-source">Copernicus C3S / CMEMS</span>
+          <span class="meta-date">2026-07-01</span>
+          <a href="https://www.eunews.it/en/2026/07/01/warm-seas-ocean-temperatures-hit-a-record-20-98c-in-june/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-9">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <div>
+        <div class="section-title">九、工具与代码资源</div>
+        <div class="section-en">Tools & Code Resources</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-open">[开源]</span>
+          <a href="https://pypi.org/project/oceanspy/" target="_blank" rel="noopener">1. OceanSpy v0.3.6 持续维护：支持xarray的海洋模式数据分析和可视化Python包（2026-06-15，本期持续关注）</a>
+        </div>
+        <div class="item-abstract">OceanSpy v0.3.6继续作为海洋模式数据分析的首选Python工具，支持xarray接口，可无缝处理多种海洋模式输出格式。本期持续关注其在2026年的应用进展，包括与Copernicus Marine数据的集成用例。</div>
+        <div class="item-meta">
+          <span class="meta-source">PyPI / OceanSpy</span>
+          <span class="meta-date">2026-06-15</span>
+          <a href="https://pypi.org/project/oceanspy/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="footer">
+  海洋AI研究日报 · 2026年07月06日 · 自动生成 · 仅供学术参考<br>
+  内容来源：Copernicus Marine · arXiv · NOAA Ocean Exploration · SOI · EOSC · EMODnet · ISOPE · Nature 等
+</div>
+</body>
+</html>
