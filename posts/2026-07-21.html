@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年07月21日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin:0; padding:0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .nav-chip {
+    background: rgba(0,91,154,0.4);
+    border: 1px solid rgba(0,168,181,0.4);
+    color: #a0d8ef;
+    font-size: 0.78em;
+    padding: 4px 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-chip:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+    border-color: var(--ocean-teal);
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(0,30,60,0.18);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon {
+    font-size: 1.8em;
+    flex-shrink: 0;
+  }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .section-en {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78em;
+    margin-top: 3px;
+  }
+  .section-count {
+    margin-left: auto;
+    background: rgba(255,255,255,0.15);
+    color: #a0d8ef;
+    font-size: 0.82em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .section-items {
+    padding: 8px 0;
+  }
+  .item-card {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s;
+  }
+  .item-card:last-child { border-bottom: none; }
+  .item-card:hover { background: #f5faff; }
+  .item-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    font-weight: 600;
+    font-size: 0.96em;
+    text-decoration: none;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 0;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-badge {
+    font-size: 0.72em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badge-new { background: #e8f7f0; color: #1a7a4a; border: 1px solid #a8d8c0; }
+  .badge-review { background: #e8f0ff; color: #2a4aaa; border: 1px solid #a8b8e8; }
+  .badge-conf { background: #fff0e8; color: #a03000; border: 1px solid #e8c8a0; }
+  .badge-policy { background: #f8f0ff; color: #6a1a9a; border: 1px solid #d0a8e8; }
+  .badge-hot { background: #fff0e8; color: #c03000; border: 1px solid #f0c0a0; }
+  .badge-progress { background: #e8f6fa; color: #005b9a; border: 1px solid #a0d0e8; }
+  .badge-standard { background: #fffbe8; color: #8a6000; border: 1px solid #e0d090; }
+  .badge-open { background: #e8ffe8; color: #1a6a1a; border: 1px solid #a0d8a0; }
+  .badge-default { background: #f0f4f8; color: #4a6a8a; border: 1px solid #c0d0e0; }
+  .item-abstract {
+    color: #3a4a5a;
+    font-size: 0.9em;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    align-items: center;
+  }
+  .meta-source { color: var(--ocean-mid); font-weight: 500; }
+  .meta-date { color: #7a8a9a; }
+  .meta-link {
+    color: var(--ocean-teal);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: auto;
+  }
+  .meta-link:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.82em;
+    padding: 20px 0 32px;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">OCEAN AI DAILY</div>
+  <h1>海洋AI技术<span>日报</span></h1>
+  <div class="subtitle">报告日期：2026年07月21日 | 来源：arXiv · 澎湃新闻 · 中国科学报 · 上观新闻 · CMEMS · IOCCP · NASA Earthdata · NOAA · Scientific Data · 等 | 自动生成</div>
+  <div class="summary-bar">
+    <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+    <div class="summary-chip"><strong>15</strong> 条精选动态</div>
+    <div class="summary-chip">覆盖 AI · 数字孪生 · 可视化 · 数据质量 · 数据处理 · 共享服务 · 开放航次 · 数据中心 · 工具</div>
+  </div>
+</div>
+<nav class="nav-bar"><a href="#section-1" class="nav-chip">🤖 一、海洋人工智能</a><a href="#section-2" class="nav-chip">🌐 二、数字孪生海洋</a><a href="#section-3" class="nav-chip">📊 三、海洋可视化工具</a><a href="#section-4" class="nav-chip">✅ 四、海洋数据质量与质控</a><a href="#section-5" class="nav-chip">⚙️ 五、海洋数据处理</a><a href="#section-6" class="nav-chip">🗄️ 六、海洋数据共享与FAIR</a><a href="#section-7" class="nav-chip">🚢 七、开放航次与科考</a><a href="#section-8" class="nav-chip">🏛️ 八、海洋数据中心</a><a href="#section-9" class="nav-chip">🛠️ 九、工具与代码资源</a></nav>
+<div class="container">
+  <section class="section" id="section-1">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <div>
+        <div class="section-title">一、海洋人工智能</div>
+        <div class="section-en">Ocean AI / Marine Artificial Intelligence</div>
+      </div>
+      <div class="section-count">6 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://arxiv.org/abs/2607.02708" target="_blank" rel="noopener">1. SALT框架：冻结骨干网络分辨率自适应——海洋动物分割新SOTA（MAS3K mIoU 0.878）</a>
+        </div>
+        <div class="item-abstract">研究冻结视觉基础模型适配细粒度分割时骨干网络选择的关键作用。提出SALT（Side-stem, Attention-gated U-Net, Low-rank Tuning）流程，发现等向性ViT因全局注意力机制随分辨率持续提升，而层次化骨干网络在低分辨率处饱和。六骨干网络对照实验确立规律，编辑骨干网络验证因果：池化保留收益，移除全局注意力则失效。在MAS3K和MAS3K+两个海洋动物基准上达到新SOTA（MAS3K mIoU 0.878），同时在四个伪装目标数据集上取得最佳S-measure。</div>
+        <div class="item-meta">
+          <span class="meta-source">arXiv:2607.02708</span>
+          <span class="meta-date">2026-07-02</span>
+          <a href="https://arxiv.org/abs/2607.02708" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-new">[论文]</span>
+          <a href="https://arxiv.org/abs/2607.04303" target="_blank" rel="noopener">2. AquaStereo：扩散模型驱动水下立体匹配——深度条件扩散+几何自蒸馏+感知增强特征</a>
+        </div>
+        <div class="item-abstract">针对水下环境数据稀缺和图像退化导致立体匹配困难的问题，提出AquaStereo框架。核心创新：(1)深度条件扩散管线生成保持双目几何的水下立体对，轻量级左右一致性模块确保几何对齐；(2)冻结双目教师网络引导水下学生网络的自蒸馏策略，阶段加权序列损失对齐视差；(3)可学习感知帧融合视频骨干时序线索与图像编码器语义特征，构建鲁棒匹配描述符。实验证明在水下场景零样本鲁棒性和泛化性显著提升。代码已开源。</div>
+        <div class="item-meta">
+          <span class="meta-source">arXiv:2607.04303</span>
+          <span class="meta-date">2026-07-05</span>
+          <a href="https://arxiv.org/abs/2607.04303" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-hot">[要闻]</span>
+          <a href="https://m.thepaper.cn/newsDetail_forward_33612766" target="_blank" rel="noopener">3. 崂山实验室发布全球海洋环境高分辨率智能预报模型——1.5分钟预报未来15天海洋环境变化</a>
+        </div>
+        <div class="item-abstract">在WAIC 2026科学前沿论坛上，崂山实验室副主任吴能友介绍了该实验室开发的全球海洋环境高分辨率智能预报模型。该模型基于实际海洋观测数据自动生成四维全要素预报产品，突破传统数值预报三大瓶颈：硬件要求高、预测速度慢、不确定性大。预报误差比国际先进数值预报系统显著更优，1.5分钟即可预报未来15天的海洋环境变化。崂山实验室认为AI可做更长时效、更高分辨率、更全面要素的预报，让海洋更透明。</div>
+        <div class="item-meta">
+          <span class="meta-source">澎湃新闻 / WAIC 2026</span>
+          <span class="meta-date">2026-07-17</span>
+          <a href="https://m.thepaper.cn/newsDetail_forward_33612766" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-hot">[要闻]</span>
+          <a href="https://wap.sciencenet.cn/mobile.php?cat=T&id=568162&mobile=1&type=detail" target="_blank" rel="noopener">4. "蓝鲲智种"蓝色种业大模型平台发布——国际水产育种领域首个专用智能大模型</a>
+        </div>
+        <div class="item-abstract">青岛蓝色种业研究院联合中国海洋大学发布"蓝鲲智种"蓝色种业大模型平台。平台核心为OmniG生物泛基因多效性大模型，可解析基因多层次调控如何决定生物表型，实现对非模式生物"暗基因"功能的系统解析。构建"泛基因多效性大模型—海洋生物垂域模型—智能育种工具链—智慧育种决策管理"四位一体能力架构，支持基因组、转录组、蛋白组、代谢组、表型组及环境数据的多组学协同分析，跨物种迁移覆盖鱼、虾、贝、参、藻等主要养殖物种。</div>
+        <div class="item-meta">
+          <span class="meta-source">中国科学报 / 中国海洋大学</span>
+          <span class="meta-date">2026-07-14</span>
+          <a href="https://wap.sciencenet.cn/mobile.php?cat=T&id=568162&mobile=1&type=detail" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-hot">[要闻]</span>
+          <a href="https://www.toutiao.com/article/7663850038334685696/" target="_blank" rel="noopener">5. WAIC 2026"AI赋能海洋"论坛：中船集团发布AI十大创新成果与十大场景需求</a>
+        </div>
+        <div class="item-abstract">7月18日，WAIC 2026分论坛"AI赋能海洋—智领深蓝 AI+船海产业实景应用"在上海举办，为本次大会唯一聚焦船舶与海洋装备全产业链智能化落地的专业论坛。中船集团发布2026年度AI十大创新成果，包括智能船舶端到端自主航行系统、"智海·鸣鸿"船舶智能体平台、海鲲企业知识智能引擎、蓝豚智能产品安全性测试验证平台V2.0、船舶自主航行高质量数据集等；同步发布十大AI场景需求，涵盖船型智能生成、流固耦合快速预报、分段多机器人涂装等方向。</div>
+        <div class="item-meta">
+          <span class="meta-source">上观新闻 / WAIC 2026</span>
+          <span class="meta-date">2026-07-18</span>
+          <a href="https://www.toutiao.com/article/7663850038334685696/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-review">[动态]</span>
+          <a href="https://www.sohu.com/a/1046430839_121271729" target="_blank" rel="noopener">6. "文鳐"船舶与海洋工程行业大模型入选福建省AI优质行业垂直模型——首个船舶海工行业大模型持续落地</a>
+        </div>
+        <div class="item-abstract">福建省工信厅公示2026年省人工智能项目名单，众数信科与厦门理工学院联合研发的"文鳐"船舶与海洋工程行业垂直大模型入选。这是我国首个船舶与海洋工程行业大模型，涵盖船舶设计、法规、海洋工程规范、港航气象服务等7大领域，已应用于招商南油、长航集团、厦船重工等头部企业。在船舶概念设计场景中将原耗时一两个月的方案压缩至30秒内生成，在设备预测性运维场景中单船年节约维保成本上百万元。团队正布局具身智能水上机器人等前沿应用。</div>
+        <div class="item-meta">
+          <span class="meta-source">众数信科 / 厦门理工学院</span>
+          <span class="meta-date">2026-07-03</span>
+          <a href="https://www.sohu.com/a/1046430839_121271729" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-2">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div>
+        <div class="section-title">二、数字孪生海洋</div>
+        <div class="section-en">Digital Twin Ocean</div>
+      </div>
+      <div class="section-count">暂无</div>
+    </div>
+    <div class="section-items">
+<div style="padding:20px 24px;color:#8a9aaa;font-size:0.9em;">本期暂无相关动态</div>    </div>
+  </section>
+  <section class="section" id="section-3">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <div>
+        <div class="section-title">三、海洋可视化工具</div>
+        <div class="section-en">Ocean Visualization Tools</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-open">[工具]</span>
+          <a href="https://help.marine.copernicus.eu/en/articles/8791030-what-s-new-in-the-latest-version-of-myocean-pro-viewer-v-10" target="_blank" rel="noopener">1. CMEMS MyOcean Pro Viewer v10发布——新增ARCO格式支持与稀疏数据集可视化下载</a>
+        </div>
+        <div class="item-abstract">Copernicus Marine Service发布MyOcean Pro Viewer第10版，引入两项关键功能：(1)ARCO（Analysis-Ready, Cloud-Optimized）格式数据集支持，覆盖100%高度计产品和约70%非网格化现场观测产品，包含离散波浪、生物地球化学、碳、SSH等多类产品，质量标记筛选支持Good/Probably Good/Correctable等六级标记；(2)稀疏数据集ARCO格式地图探索、子集与下载功能，为用户在云端直接分析海洋数据提供更高效路径。MyOcean Pro还计划于2027年1月推出3D可视化工具和MyOcean Light降尺度功能。</div>
+        <div class="item-meta">
+          <span class="meta-source">CMEMS Help Center</span>
+          <span class="meta-date">2026-07</span>
+          <a href="https://help.marine.copernicus.eu/en/articles/8791030-what-s-new-in-the-latest-version-of-myocean-pro-viewer-v-10" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-4">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <div>
+        <div class="section-title">四、海洋数据质量与质控</div>
+        <div class="section-en">Ocean Data Quality & QC</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-progress">[数据]</span>
+          <a href="https://www.ioccp.org/news/glodapv3-a-new-version-release" target="_blank" rel="noopener">1. GLODAPv3发布：1181个航次、50年海洋生物地球化学质控数据产品</a>
+        </div>
+        <div class="item-abstract">全球海洋数据分析项目第3版（GLODAPv3）正式发布。新版本包含1181个航次数据，覆盖1972-2023年逾50年观测，较GLODAPv2.2023新增57个航次。所有数据经过系统差异评估与校正调整，是全球最全面、质控最严格的海洋内部生物地球化学数据产品，支持气候变化与海洋反馈的定量评估。数据托管于NOAA NCEI海洋碳数据系统（OCADS），由欧盟OceanICU项目、NOAA和SCOR-IOC IOCCP联合资助。</div>
+        <div class="item-meta">
+          <span class="meta-source">IOCCP / NOAA NCEI</span>
+          <span class="meta-date">2026-07-08</span>
+          <a href="https://www.ioccp.org/news/glodapv3-a-new-version-release" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-5">
+    <div class="section-header">
+      <span class="section-icon">⚙️</span>
+      <div>
+        <div class="section-title">五、海洋数据处理</div>
+        <div class="section-en">Ocean Data Processing</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-progress">[数据]</span>
+          <a href="https://www.earthdata.nasa.gov/data/alerts-outages/sentinel-6b-altimetry-nrt-stc-datasets-release" target="_blank" rel="noopener">1. NASA PO.DAAC发布Sentinel-6B雷达高度计初始数据集——L1B/L2 NRT/STC产品即时可用</a>
+        </div>
+        <div class="item-abstract">NASA物理海洋分布式活跃档案中心（PO.DAAC）发布Sentinel-6B雷达高度计任务初始数据集。本次发布包括Poseidon-4 SAR高度计L1B和L2低分辨率数据，以及AMR-C微波辐射计地球物理参数。NRT（近实时）和STC（短时间关键）数据集已完成校准验证，后续数据获取后即可即时可用。L2数据提供海面高度异常（SSHA）、有效波高（SWH）和风速，NRT约3小时延迟、STC约36小时延迟，延续Jason系列高精度全球海平面测量记录。</div>
+        <div class="item-meta">
+          <span class="meta-source">NASA Earthdata / PO.DAAC</span>
+          <span class="meta-date">2026-07-16</span>
+          <a href="https://www.earthdata.nasa.gov/data/alerts-outages/sentinel-6b-altimetry-nrt-stc-datasets-release" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-6">
+    <div class="section-header">
+      <span class="section-icon">🗄️</span>
+      <div>
+        <div class="section-title">六、海洋数据共享与FAIR</div>
+        <div class="section-en">Ocean Data Sharing & FAIR</div>
+      </div>
+      <div class="section-count">3 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-review">[动态]</span>
+          <a href="https://oceanexplorer.noaa.gov/news/pathways-to-discovery" target="_blank" rel="noopener">1. NOAA Ocean Exploration发布740,000+生物观测数据至OBIS/GBIF——深海探索数据开放新里程碑</a>
+        </div>
+        <div class="item-abstract">NOAA海洋探索局将2023年三次远征（EX2301西海岸、EX2304 Seascape Alaska 3、EX2306 Seascape Alaska 5）的生物观测数据发布至全球生物多样性数据库OBIS和GBIF。每条记录包含WoRMS分类信息、日期位置及盐度温度溶解氧等科学数据，另含245份ROV潜水与CTD采集的环境DNA（eDNA）水样。至此NOAA海洋探索局已累计贡献超74万条带地理参考的生物记录，并计划将OBIS/GBIF数据提交纳入常规数据工作流，同时回溯历史远征数据。</div>
+        <div class="item-meta">
+          <span class="meta-source">NOAA Ocean Exploration</span>
+          <span class="meta-date">2026-07-09</span>
+          <a href="https://oceanexplorer.noaa.gov/news/pathways-to-discovery" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-progress">[数据]</span>
+          <a href="https://www.ebiotrade.com/newsf/2026-7/20260718001145730.htm" target="_blank" rel="noopener">2. 全球海洋溶解有机磷酸酯数据集(oceanOPEv2025)发布——24种OPE全球浓度空间分布</a>
+        </div>
+        <div class="item-abstract">发表于Scientific Data的oceanOPEv2025数据集汇集2014-2025年间26项研究的760组海水检测数据，全面总结了全球各大洋盆地有机磷酸酯（OPE）浓度情况，提供24种OPE的检测频率、浓度范围及空间分布数据。OPE作为增塑剂和阻燃剂被广泛使用，其在海洋环境中检测频率持续增加，具有持久性、生物累积性和毒性。数据集配完整元数据并公开获取，支持与海洋学数据库整合，推动新兴海洋污染物全球分布研究。</div>
+        <div class="item-meta">
+          <span class="meta-source">Scientific Data</span>
+          <span class="meta-date">2026-07-18</span>
+          <a href="https://www.ebiotrade.com/newsf/2026-7/20260718001145730.htm" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-progress">[数据]</span>
+          <a href="https://www.socat.info/" target="_blank" rel="noopener">3. SOCAT v2026海洋CO2数据集发布——全球海气CO2通量高质量合成产品年度更新（豁免）</a>
+        </div>
+        <div class="item-abstract">Surface Ocean CO2 Atlas（SOCAT）2026版发布，提供海洋CO2汇定量评估的高质量合成产品。SOCAT由全球科学家团队持续维护，整合全球自愿观测船舶、商船和科研船的表面海水CO2分压（pCO2）数据，年度发布更新版本。SOCAT数据是全球碳预算评估海洋碳汇的关键输入，被全球碳计划（GCP）年度碳预算报告引用。本次发布进一步扩展了观测覆盖范围和时间跨度。</div>
+        <div class="item-meta">
+          <span class="meta-source">IOCCP / SOCAT</span>
+          <span class="meta-date">2026-06-18</span>
+          <a href="https://www.socat.info/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-7">
+    <div class="section-header">
+      <span class="section-icon">🚢</span>
+      <div>
+        <div class="section-title">七、开放航次与科考</div>
+        <div class="section-en">Open Voyages & Expeditions</div>
+      </div>
+      <div class="section-count">1 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-conf">[航次]</span>
+          <a href="https://oceanexplorer.noaa.gov?p=26339/" target="_blank" rel="noopener">1. NOAA Ship Okeanos Explorer EX2606美属萨摩亚ROV探险即将启航——8月20日起29天深海测绘与采样</a>
+        </div>
+        <div class="item-abstract">NOAA海洋探索局将在NOAA Ship Okeanos Explorer上领导EX2606远征，于8月20日至9月17日在美属萨摩亚周边深水区开展ROV和测绘远征。远征包括ROV潜水探索海底和水柱、测绘作业以及通过远程呈现技术的岸基参与。数据将增进对美属萨摩亚地质历史和深海生境的理解，为海洋资源管理（包括关键矿物）提供重要信息。此前EX2605 Cook群岛ROV探险（7月19日至8月13日）正在执行中。</div>
+        <div class="item-meta">
+          <span class="meta-source">NOAA Ocean Exploration</span>
+          <span class="meta-date">2026-08-20</span>
+          <a href="https://oceanexplorer.noaa.gov?p=26339/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="section-8">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <div>
+        <div class="section-title">八、海洋数据中心</div>
+        <div class="section-en">Ocean Data Centers</div>
+      </div>
+      <div class="section-count">暂无</div>
+    </div>
+    <div class="section-items">
+<div style="padding:20px 24px;color:#8a9aaa;font-size:0.9em;">本期暂无相关动态</div>    </div>
+  </section>
+  <section class="section" id="section-9">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <div>
+        <div class="section-title">九、工具与代码资源</div>
+        <div class="section-en">Tools & Code Resources</div>
+      </div>
+      <div class="section-count">2 条</div>
+    </div>
+    <div class="section-items">
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-open">[工具]</span>
+          <a href="https://pypi.org/project/pyglider/" target="_blank" rel="noopener">1. pyglider v0.0.9发布——水下滑翔机数据转CF-compliant netCDF Python库</a>
+        </div>
+        <div class="item-abstract">pyglider发布v0.0.9版本，该Python工具包用于处理Teledyne/Webb Slocum和Alseamar SeaExplorer水下滑翔机数据，生成CF合规NetCDF文件。支持原始数据解析、质量控制标记、元数据填充和标准格式输出。由C-SCOOP项目开发，采用Apache-2.0许可证，文档托管于Read the Docs。要求Python 3.9+。</div>
+        <div class="item-meta">
+          <span class="meta-source">PyPI / GitHub (c-proof/pyglider)</span>
+          <span class="meta-date">2026-07-06</span>
+          <a href="https://pypi.org/project/pyglider/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-title">
+          <span class="item-badge badge-open">[工具]</span>
+          <a href="https://pypi.org/project/VirtualFleet/" target="_blank" rel="noopener">2. VirtualFleet v0.5.1发布——Argo浮标虚拟舰队模拟工具基于Parcels拉格朗日框架（豁免）</a>
+        </div>
+        <div class="item-abstract">VirtualFleet发布v0.5.1版本，该Python库用于模拟Argo浮标虚拟舰队行为。基于Parcels拉格朗日框架和3D速度场，用户可设定浮标部署方案和行为参数，模拟虚拟Argo浮标轨迹与采样。由Euro-ArgoRISE项目（欧盟Horizon 2020资助）开发，支持Python 3.10/3.11。当前处于Alpha开发阶段，适用于Argo浮标部署策略优化和观测系统设计研究。</div>
+        <div class="item-meta">
+          <span class="meta-source">PyPI / GitHub (euroargodev/VirtualFleet)</span>
+          <span class="meta-date">2026-06-19</span>
+          <a href="https://pypi.org/project/VirtualFleet/" target="_blank" class="meta-link" rel="noopener">原文链接</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="footer">
+  海洋AI研究日报 · 2026年07月21日 · 自动生成 · 仅供学术参考<br>
+  内容来源：arXiv · 澎湃新闻 · 中国科学报 · 上观新闻 · CMEMS · IOCCP · NASA Earthdata · NOAA · Scientific Data 等
+</div>
+</body>
+</html>
