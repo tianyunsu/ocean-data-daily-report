@@ -127,7 +127,39 @@ ls posts/ | grep 2026-07             # 部署本就齐全
    真正的强制一致性锚点是 `.workbuddy/memory/YYYY-MM-DD.md` 与 `MEMORY.md` 去重基准。
 4. **跨平台编码**：Windows 下 git push 须在 Bash 且 `dangerouslyDisableSandbox: true`；中文内容一律用 Write 工具写文件，禁止 bash heredoc。
 
+## 扩展：跨机器一致性（多台电脑执行同一任务）
+
+当用户在多台电脑上手动触发同一任务时，"一致"的维度从"手动 vs 自动"扩展为"机器 A vs 机器 B"。核心是把三类资产分别归位：
+
+| 资产 | 天然位置 | 跨机器方案 |
+|------|----------|-----------|
+| 记忆文件（日志、去重基准、执行摘要） | 工作区 `.workbuddy/memory`、`.workbuddy/automations` | **纳入 git 版本控制**，随仓库 clone/pull 同步 |
+| skill（权威指令源） | 用户级 `~/.workbuddy/skills/` | **不随仓库**，需在仓库内存副本 + 同步脚本 |
+| 执行脚本、历史产出 | 工作区 | 随仓库同步 |
+
+**标准做法**：
+
+1. 确认 `.workbuddy/` 是否已被 git 跟踪：`git ls-files .workbuddy/ | wc -l`。未跟踪则先 `git add` 纳入（注意先检查有无密钥、token）。
+2. 在仓库内建 `.workbuddy/skills/`，把用户级 skill 复制进去。
+3. 写一个同步脚本（如 `sync_skills.py`），提供三种模式：
+   - `install`：仓库 → 用户目录（新机器配置 / 每次 pull 后）
+   - `collect`：用户目录 → 仓库（本机改了 skill 后回收，准备 push）
+   - `status`：MD5 比对差异，只读不改
+4. 在 skill 的铁律段增加**跨机器铁律**：
+   - 执行前 `git pull` + `sync install`（**不拉最新记忆 = 去重基准过期 = 必然重复产出**）
+   - 执行后必须 `git push` 推送记忆
+   - 禁止两台机器同一天并行执行（git 冲突 + 内容重复）
+   - 非主力机改 skill 须 `collect` 回收后 push，否则改动丢失
+5. 写一份 `SETUP_NEW_MACHINE.md` 放仓库根目录：资产位置表 → 首次配置步骤 → 每次执行标准动作 → 常见问题。
+
+**跨机器特有陷阱**：
+
+- 记忆冲突时不要直接取一侧覆盖——每日日志按日期天然不冲突，但 `MEMORY.md` 去重基准必须**手动合并两侧条目**。
+- 同步脚本用 Python 而非 shell，避免 Windows/macOS 差异。
+- 别把 skill 做成 symlink 跨机器共享，路径在不同机器上不一致，复制才可靠。
+
 ## 适用边界
 
 - 适用于"同一任务有定时自动化 + 用户也会手动触发"的场景（日报、周报、定期抓取、定期分析等）。
+- 跨机器扩展章节适用于"同一任务在多台电脑上执行"的场景，与是否有定时自动化无关。
 - 若任务**只有**定时自动化、从不被手动触发，则无需本 skill，阶段六记忆写入本就是自动化的固有步骤。
