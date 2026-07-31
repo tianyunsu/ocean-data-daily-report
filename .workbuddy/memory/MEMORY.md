@@ -16,6 +16,20 @@
 - **一致性铁律**：手动触发 ≠ 简化执行，必须产出与自动完全相同的工件（`daily_reports/海洋AI简报_YYYY-MM-DD.html` + `posts/YYYY-MM-DD.html` + 记忆文件）。
 - **通用方法论 skill**：`automation-consistency`（用户级 `~/.workbuddy/skills/`）沉淀了"诊断手动/自动记忆断层 → 改 skill 铁律 → 自动化 prompt 纯委托 → 补写历史日志"的完整流程，其他定时任务可复用。
 
+## 跨机器执行机制（2026-07-31 建立）
+
+- **记忆随仓库**：`.workbuddy/memory/`、`.workbuddy/automations/` 已纳入 git 版本控制，clone 即获得完整记忆与去重基准。
+- **skill 随工具**：skill 在用户级 `~/.workbuddy/skills/`，不随仓库。已把副本纳入仓库 `.workbuddy/skills/`，用 `sync_skills.py` 双向同步。
+  - `python sync_skills.py install` — 仓库 → 用户目录（新机器配置 / pull 后执行）
+  - `python sync_skills.py collect` — 用户目录 → 仓库（本机改了 skill 后回收再 push）
+  - `python sync_skills.py status` — 只比对差异
+- **新机器配置指南**：仓库根目录 `SETUP_NEW_MACHINE.md`。
+- **跨机器铁律**（已写入 skill 一致性铁律段）：
+  1. 执行前 `git pull origin main` + `sync_skills.py install`（不拉最新记忆 = 去重基准过期 = 必然重复收录）
+  2. 执行后必须 `git push origin main` 推送记忆
+  3. 禁止两台机器同一天并行执行日报
+  4. 非主力机改 skill 须 `collect` 回收后 push，否则丢失
+
 ## 日报结构
 
 9个方向：海洋AI、数字孪生、可视化、数据质量、数据处理、数据管理与共享、开放航次/船时共享、海洋数据中心、工具与代码资源
