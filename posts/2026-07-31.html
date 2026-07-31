@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI研究日报 - 2026年07月31日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; background: #f0f4f8; color: #1a202c; line-height: 1.7; }
+.container { max-width: 960px; margin: 0 auto; padding: 20px; }
+.header { background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0284c7 100%); color: white; padding: 32px 24px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
+.header h1 { font-size: 1.8em; font-weight: 700; margin-bottom: 8px; }
+.header p { font-size: 0.95em; opacity: 0.9; }
+.header .stats { display: inline-block; background: rgba(255,255,255,0.15); padding: 4px 16px; border-radius: 20px; margin-top: 10px; font-size: 0.85em; }
+.section { background: white; border-radius: 10px; padding: 24px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid #0284c7; }
+.section h2 { font-size: 1.25em; color: #0c4a6e; margin-bottom: 6px; }
+.section .en { font-size: 0.82em; color: #64748b; margin-bottom: 16px; }
+.item { padding: 14px 0; border-bottom: 1px solid #e2e8f0; }
+.item:last-child { border-bottom: none; }
+.item h3 { font-size: 1.02em; color: #1e293b; margin-bottom: 6px; line-height: 1.5; }
+.item .meta { font-size: 0.8em; color: #64748b; margin-bottom: 8px; display: flex; gap: 12px; flex-wrap: wrap; }
+.item .meta span { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; }
+.item .badge { display: inline-block; background: #0284c7; color: white; font-size: 0.75em; padding: 1px 8px; border-radius: 4px; margin-right: 6px; font-weight: 600; }
+.item .abstract { font-size: 0.9em; color: #475569; margin-bottom: 6px; }
+.item .source { font-size: 0.8em; color: #94a3b8; }
+.item a { color: #0369a1; text-decoration: none; font-size: 0.82em; word-break: break-all; }
+.item a:hover { text-decoration: underline; }
+.footer { text-align: center; padding: 30px 20px; color: #94a3b8; font-size: 0.85em; }
+@media (max-width: 640px) { .container { padding: 10px; } .header { padding: 20px 16px; } .section { padding: 16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>海洋AI研究日报</h1>
+<p>2026年07月31日</p>
+<div class="stats">共 16 条 · 覆盖 9/9 个方向</div>
+</div>
+
+<div class="section">
+<h2>一、海洋人工智能</h2>
+<div class="en">Ocean AI / Marine Artificial Intelligence</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> KIST-Ocean：深度学习全球三维海洋环流预报模型（Science Advances，2026-06-12发表 / 07-23公告）</h3>
+<div class="meta"><span>Science Advances (KIST)</span><span>2026-07-23</span></div>
+<div class="abstract">韩国科学技术研究院（KIST）团队在Science Advances发表KIST-Ocean——基于深度学习的全球三维海洋环流预报模型。该模型使用CESM2 1850-2014年全球大集合模拟数据预训练，结合1982-2013年海洋再分析数据微调，利用62个海洋变量预测深达600米的三维海洋状态，以5天为间隔生成最长200天的全球海洋预报。仅用1块NVIDIA A100 GPU即可在6-7秒内完成200天预报，较传统数值模式大幅降低计算成本。模型成功再现了2015年超级厄尔尼诺事件，并在海表温度预测上超越NMME多模式集合达6个月。代码开源（GitHub/Zenodo）。</div>
+<div><a href="https://doi.org/10.1126/sciadv.aed1225" target="_blank" rel="noopener">https://doi.org/10.1126/sciadv.aed1225</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> 从稀疏观测中学习海洋状态演化：基于EM算法的生成式状态空间模型（arXiv，2026-07-21）</h3>
+<div class="meta"><span>arXiv:2607.19147 (中国海洋大学等)</span><span>2026-07-21</span></div>
+<div class="abstract">中国海洋大学等团队提出一种生成式状态空间模型与优化框架，使海洋建模可直接从不完整、含噪声的稀疏观测中学习。模型将海洋物理量视为隐状态、测量值视为观测，构建隐马尔可夫模型；基于期望最大化（EM）算法推导优化框架，交替使用Langevin动力学重建高保真海洋场与优化深度神经网络。在CMIP6模拟数据和FY-3D卫星数据上验证了高保真重建与准确预测，证明稀疏观测可直接改善模型对海洋状态动力学的表征。</div>
+<div><a href="https://arxiv.org/abs/2607.19147" target="_blank" rel="noopener">https://arxiv.org/abs/2607.19147</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> 琅琊2.0海洋大模型：从变量预报迈向现象预报（The Innovation Water，2026-06发布；科学号07-04航次部署琅琊浮标系统）</h3>
+<div class="meta"><span>The Innovation Water / 中科院海洋所</span><span>2026-07-04</span></div>
+<div class="abstract">中科院海洋所自主研发的琅琊海洋大模型2.0构建1+6总体架构——以全球海洋基础大模型为底座，耦合六个面向台风、极端降水、风暴潮等关键海洋现象的垂直预报模型，推动海洋预报从变量预测向现象预报转变。配套的琅琊浮标与潜标系统在7月4日启航的科学号第15次西太平洋共享航次中正式投入观测，形成边云协同、数智融合的深海智能感知与服务体系，标志我国深海研究进入实时感知与智能计算深度融合的新阶段。</div>
+<div><a href="https://www.the-innovation.org/article/doi/10.59717/j.xinn-water.2026.100003" target="_blank" rel="noopener">https://www.the-innovation.org/article/doi/10.59717/j.xinn-water.2026.100003</a></div>
+</div>
+</div>
+<div class="section">
+<h2>二、海洋数字孪生</h2>
+<div class="en">Ocean Digital Twin / Marine Digital Twin</div>
+<div class="item">
+<h3><span class="badge">[动态]</span> 港科大发布新一代互动海洋数字孪生平台WavyOcean 3.0，首度面向公众开放（2026-07-10）</h3>
+<div class="meta"><span>香港科技大学</span><span>2026-07-10</span></div>
+<div class="abstract">香港科技大学海洋科学系甘剑平教授团队发布互动海洋数字孪生平台WavyOcean 3.0，以淘海为理念首度面向公众开放注册。平台覆盖粤港澳大湾区、中国近海（渤黄东南海）及西太平洋关键海区，整合大气、陆地与海洋多源数据，覆盖径流、降水、海流等物理参数和叶绿素、营养盐、溶解氧等生态参数。三维渲染引擎全面优化，内置剖面裁切与诊断分析功能，同步推出公众版和高清专业版，推动海洋数据从科研走向全民共享。</div>
+<div><a href="https://hkust.edu.hk/news/hkust-launches-next-generation-interactive-wavyocean-30-platform" target="_blank" rel="noopener">https://hkust.edu.hk/news/hkust-launches-next-generation-interactive-wavyocean-30-platform</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> Immersive Ocean：基于Unreal Engine 5的欧盟ILIAD海洋虚拟孪生平台（ISPRS IJGI，2026-07-16）</h3>
+<div class="meta"><span>ISPRS Int. J. Geo-Inf. (EU-ILIAD/Breda University)</span><span>2026-07-16</span></div>
+<div class="abstract">荷兰布雷达应用科学大学团队在EU-ILIAD海洋数字孪生计划框架下开发Immersive Ocean虚拟孪生平台，通过Unreal Engine 5程序化生成将EMODnet和哥白尼海洋服务标准化地理空间数据转化为交互式三维海洋环境。平台支持桌面和沉浸式VR两种模式，可视化海上风电场、航运走廊、水产养殖设施及物种分布等空间场景。31名参与者的用户评估显示核心地理可视化能力在不同硬件配置下均稳定（PC 61 FPS，VR 42 FPS），为海洋空间规划的参与式决策支持提供新工具。</div>
+<div><a href="https://www.mdpi.com/2220-9964/15/7/323" target="_blank" rel="noopener">https://www.mdpi.com/2220-9964/15/7/323</a></div>
+</div>
+</div>
+<div class="section">
+<h2>三、海洋可视化</h2>
+<div class="en">Ocean Visualization / Geospatial Display</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> MARIS：首个海洋开放词汇实例分割基准与统一框架（CVPR 2026，2026-06）</h3>
+<div class="meta"><span>CVPR 2026 (西北工业大学)</span><span>2026-06-15</span></div>
+<div class="abstract">西北工业大学李学龙团队在CVPR 2026发表MARIS——首个面向水下开放词汇实例分割的大规模细粒度基准数据集，含16K图像、158个细粒度类别。针对水下图像颜色衰减和语义不对齐问题，提出几何先验增强模块（GPEM）利用深度图稳定结构线索，以及语义对齐注入机制（SAIM）丰富语言嵌入的水下领域先验，框架在域内和跨域设置中均显著优于现有开放词汇基线。代码开源。CVPR 2026同期另有RHCNet（水下目标检测）、BiPA（水下SAM适配）等多篇海洋相关论文。</div>
+<div><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Li_MARIS_Marine_Open-Vocabulary_Instance_Segmentation_CVPR_2026_paper.html" target="_blank" rel="noopener">https://openaccess.thecvf.com/content/CVPR2026/html/Li_MARIS_Marine_Open-Vocabulary_Instance_Segmentation_CVPR_2026_paper.html</a></div>
+</div>
+</div>
+<div class="section">
+<h2>四、海洋数据质量</h2>
+<div class="en">Ocean Data Quality Control</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> VAE无监督检测BGC-Argo浮标生物附着漂移的首个大规模ML基准（EarthArXiv，2026-07-11）</h3>
+<div class="meta"><span>EarthArXiv (预印本)</span><span>2026-07-11</span></div>
+<div class="abstract">针对BGC-Argo浮标叶绿素a和后向散射光学传感器易受生物附着（biofouling）影响、产生渐进偏差污染气候记录的问题，研究者利用变分自编码器（VAE）在86个地中海BGC-Argo浮标的深度分辨剖面上训练无监督异常检测模型。VAE仅在早期清洁剖面上训练后评估完整时间轨迹，重建误差随部署时间增加（34/86个浮标，40%），晚期与早期误差比均值为1.70。这是首个针对自主海洋传感器生物附着检测的大规模ML基准，证明无监督形状VAE可在异构浮标舰队中检测漂移。</div>
+<div><a href="https://eartharxiv.org/repository/view/13909" target="_blank" rel="noopener">https://eartharxiv.org/repository/view/13909</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[��态]</span> CMEMS启动Argo叶绿素未再处理浮标QC3标记（2026-07-08）</h3>
+<div class="meta"><span>Copernicus Marine Service</span><span>2026-07-08</span></div>
+<div class="abstract">哥白尼海洋服务（CMEMS）原位TAC自7月8日起对近实时产品中尚未完成再处理的Argo叶绿素a浮标数据统一标记为QC3（可疑）。Argo叶绿素再处理工作自6月8日启动以来进展顺利但尚未完成，GDAC层面的推进状态可实时追踪。该措施旨在保障用户数据使用的透明度和质量控制可追溯性。</div>
+<div><a href="https://marine.copernicus.eu/user-corner/user-notification-service" target="_blank" rel="noopener">https://marine.copernicus.eu/user-corner/user-notification-service</a></div>
+</div>
+</div>
+<div class="section">
+<h2>五、海洋数据处理</h2>
+<div class="en">Ocean Data Processing / Computing</div>
+<div class="item">
+<h3><span class="badge">[论文]</span> 高动态海洋条件下基于光学水分类的空谱融合方法（ISPRS JPRS，2026-02发表）</h3>
+<div class="meta"><span>ISPRS J. Photogrammetry and Remote Sensing (浙江大学)</span><span>2026-07-25</span></div>
+<div class="abstract">浙江大学海洋学院与自然资源部第二海洋研究所团队针对高动态海洋条件下传统空谱融合方法假设地物不变而失效的问题，提出基于光学水分类的数据融合方法（OWCDF）。通过最大余弦相关匹配重定标、光学水分类光谱回归和残差补偿三步实现精确空谱融合。利用HY-1C/D CZI与GOCI-II数据验证，在1-4小时时间差异下显著优于现有算法，并成功应用于OLCI/S3与CZI/HY-1C/D及CCD/HJ-2A/B的极轨卫星数据融合，实现每日2-3次高空间分辨率定量观测。</div>
+<div><a href="https://doi.org/10.1016/j.isprsjprs.2025.12.018" target="_blank" rel="noopener">https://doi.org/10.1016/j.isprsjprs.2025.12.018</a></div>
+</div>
+</div>
+<div class="section">
+<h2>六、海洋数据管理与共享</h2>
+<div class="en">Ocean Data Management & Sharing</div>
+<div class="item">
+<h3><span class="badge">[动态]</span> 青岛发布海洋可信数据空间：联邦学习+多方安全计算驱动跨部门数据协同（2026-07-24）</h3>
+<div class="meta"><span>青岛国实科技集团</span><span>2026-07-24</span></div>
+<div class="abstract">在2026山东数字强省宣传月启动活动上，青岛国实科技集团发布海洋行业可信数据空间建设方案。该方案以联邦学习、多方安全计算等技术为基础，实现数据不出域、模型多跑路——各方原始数据留在本地，分析任务送到数据所在处，仅返回处理结果。以海上风电防灾为典型场景，气象观测、风电场运营和灾害研判模型提供方可共同参与联合分析。平台设计三级接入方式：国家级核心单位使用软硬件一体化连接器、中型单位使用标准型连接器、小型主体通过SaaS轻量接入。</div>
+<div><a href="https://new.qq.com/rain/a/20260724A0B85E00" target="_blank" rel="noopener">https://new.qq.com/rain/a/20260724A0B85E00</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[政策]</span> 国家数据局印发《数据产权登记工作指引（试行）》，海洋数据确权从地方探索走向全国统一（2026-07）</h3>
+<div class="meta"><span>国家数据局 / 青岛国实科技集团</span><span>2026-07-25</span></div>
+<div class="abstract">2026年7月，国家数据局印发《数据产权登记工作指引（试行）》，从登记机构管理、登记流程规范、登记凭证应用等方面作出系统部署。此前青岛已建成全国首个海洋大数据交易服务平台，构建覆盖18大类、292小类海洋数据的立体化资源体系，利用区块链技术实现可追溯交易。该指引的出台标志着海洋数据确权从地方探索走向全国统一，有望加速海洋数据要素市场化进程。</div>
+<div><a href="https://www.toutiao.com/article/7660060745983427072" target="_blank" rel="noopener">https://www.toutiao.com/article/7660060745983427072</a></div>
+</div>
+</div>
+<div class="section">
+<h2>七、开放航次与科考</h2>
+<div class="en">Open Cruises / Research Expeditions</div>
+<div class="item">
+<h3><span class="badge">[航次]</span> NOAA Okeanos Explorer启动库克群岛ROV深海探测（EX2605，2026-07-19至08-13，进行中）</h3>
+<div class="meta"><span>NOAA Ocean Exploration</span><span>2026-07-19</span></div>
+<div class="abstract">NOAA海洋探索与库克群岛海底矿产管理局（SBMA）合作，于7月19日至8月13日在库克群岛专属经济区开展为期26天的ROV深海探测航次。航次使用多波束声纳和ROV（Discoverer和Seirios），在2500-6000米深度探索海山、深海平原和马尼希基高原，目标是填补该区域地质、生物和水体知识空白，支持库克群岛自主决策。全程通过远程呈现技术直播，7月20日至8月7日期间几乎每日有ROV下潜直播。</div>
+<div><a href="https://oceanexplorer.noaa.gov/expedition/ex2605" target="_blank" rel="noopener">https://oceanexplorer.noaa.gov/expedition/ex2605</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[航次]</span> 科学号启航执行第15次西太平洋科学考察共享航次（2026-07-04）</h3>
+<div class="meta"><span>央视新闻 / 中科院海洋所</span><span>2026-07-04</span></div>
+<div class="abstract">7月4日，科学号综合考察船驶离青岛母港，开启为期约40天的2026年度西太平洋共享航次，这是该共享航次自2010年启动以来的第15次出征。航次汇聚中科院海洋所、中国海洋大学、中山大学、厦门大学等10余家单位科学家，围绕西太平洋主流系与暖池变异、复杂地质地貌演变两大科学问题，部署定点浮潜标+移动滑翔机+船载断面协同观测体系。中科院自主研发的琅琊浮标与潜标系统首次正式投入航次观测。15年来该共享航次已累计完成1100余个站位观测，西太平洋关键断面连续14年时序资料。</div>
+<div><a href="https://english.scio.gov.cn/m/chinavoices/2026-07/06/content_118584288.html" target="_blank" rel="noopener">https://english.scio.gov.cn/m/chinavoices/2026-07/06/content_118584288.html</a></div>
+</div>
+</div>
+<div class="section">
+<h2>八、海洋数据中心</h2>
+<div class="en">Ocean Data Centers / Infrastructure</div>
+<div class="item">
+<h3><span class="badge">[动态]</span> CMEMS发布2026年7月新服务版本：Sentinel-1C集成、FY-3E海面风场等多产品升级（2026-07-07）</h3>
+<div class="meta"><span>Copernicus Marine Service</span><span>2026-07-07</span></div>
+<div class="abstract">哥白尼海洋服务7月7日发布新服务版本，主要更新包括：波浪产品Sentinel-1C测量数据集成至L3近实时烈火产品；有效波高L4产品空间分辨率从2度提升至0.5度、时间分辨率从逐日提升至6小时；海面风场新增中国FY-3E WindRAD L3近实时数据集；海表盐度多源产品更新SMOS SSS输入数据；SST产品气候态基准从1985-2005更新至1991-2020；海平面产品新增Sentinel-6B数据集（待2026年底投入业务运行）。同日CMEMS启动对未再处理Argo叶绿素浮标的QC3标记。</div>
+<div><a href="https://marine.copernicus.eu/user-corner/user-notification-service" target="_blank" rel="noopener">https://marine.copernicus.eu/user-corner/user-notification-service</a></div>
+</div>
+<div class="item">
+<h3><span class="badge">[动态]</span> GEBCO 2026年研讨会开放注册，10月于哥伦比亚卡塔赫纳举行（2026-07-08）</h3>
+<div class="meta"><span>GEBCO / IOC-UNESCO</span><span>2026-07-08</span></div>
+<div class="abstract">GEBCO 2026年研讨会注册于7月8日开放，将于10月8-9日在哥伦比亚卡塔赫纳举行，汇聚全球海洋社区交流知识、激发合作、推进海底与海洋环境认知。此外，Seabed 2030印度洋-太平洋测绘会议暨数据冲刺活动将于10月在马来西亚吉隆坡举行（7月1日起开放注册），GEBCO正招聘政策官员（7月31日截止）。GEBCO还发布了多波束航线测绘指南文档，已收录至Ocean Best Practices知识库。</div>
+<div><a href="https://www.gebco.net" target="_blank" rel="noopener">https://www.gebco.net</a></div>
+</div>
+</div>
+<div class="section">
+<h2>九、工具与代码资源</h2>
+<div class="en">Tools & Code Resources</div>
+<div class="item">
+<h3><span class="badge">[工具]</span> pyo-oracle v1.0.0：Bio-ORACLE海洋环境数据Python客户端正式发布（PyPI，2026-06-02）</h3>
+<div class="meta"><span>PyPI (Bio-ORACLE)</span><span>2026-06-02</span></div>
+<div class="abstract">Bio-ORACLE团队发布pyo-oracle首个稳定版本v1.0.0，作为R包biooracler的Python对应工具，基于erddapy构建。该工具提供统一的Python接口用于发现、检索、子集化、下载和加载Bio-ORACLE海洋环境图层数据（温度、盐度、营养盐、海冰等），支持pandas DataFrame和xarray Dataset两种输出格式，可通过pip或conda安装。适用于海洋物种分布建模、气候变化影响评估等研究场景。</div>
+<div><a href="https://pypi.org/project/pyo-oracle/1.0.0/" target="_blank" rel="noopener">https://pypi.org/project/pyo-oracle/1.0.0/</a></div>
+</div>
+</div>
+
+<div class="footer">
+<p>海洋AI研究日报 · 2026年07月31日 · 自动生成</p>
+<p>本日报覆盖海洋AI、数字孪生、可视化、数据质量、数据处理、数据管理与共享、开放航次、数据中心、工具资源9大方向</p>
+</div>
+</div>
+</body>
+</html>
