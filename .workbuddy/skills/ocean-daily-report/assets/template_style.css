@@ -1,0 +1,133 @@
+/* 海洋AI技术日报 - GitHub Pages 样式 */
+:root {
+  --ocean-deep: #003366;
+  --ocean-mid: #005b9a;
+  --ocean-light: #0082c8;
+  --ocean-teal: #00a8b5;
+  --ocean-foam: #e8f6fa;
+  --accent-gold: #f0a500;
+  --text-dark: #1a2a3a;
+  --text-muted: #5a6a7a;
+  --card-bg: #ffffff;
+  --border-light: #c8e0ee;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* Site Header */
+.site-header {
+  background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--ocean-teal);
+}
+.site-header h1 a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.6em;
+}
+.site-header p {
+  color: rgba(255,255,255,0.6);
+  margin: 8px 0 16px;
+  font-size: 0.9em;
+}
+.site-header nav a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  margin: 0 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  transition: all 0.2s;
+}
+.site-header nav a:hover, .site-header nav a.active {
+  background: rgba(0,168,181,0.3);
+  color: #fff;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* Post Cards */
+.post-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  transition: transform 0.15s;
+}
+.post-card:hover { transform: translateY(-2px); }
+.post-date {
+  color: var(--text-muted);
+  font-size: 0.78em;
+  margin-bottom: 8px;
+}
+.post-card h2 { font-size: 1.1em; margin-bottom: 10px; }
+.post-card h2 a {
+  color: var(--ocean-mid);
+  text-decoration: none;
+}
+.post-card h2 a:hover { color: var(--ocean-teal); text-decoration: underline; }
+.post-excerpt {
+  color: var(--text-muted);
+  font-size: 0.88em;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.read-more {
+  color: var(--ocean-light);
+  font-size: 0.82em;
+  text-decoration: none;
+  font-weight: 600;
+}
+.read-more:hover { text-decoration: underline; }
+
+/* Archive */
+.archive-list { list-style: none; }
+.archive-list li {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.archive-list li a {
+  color: var(--ocean-mid);
+  text-decoration: none;
+  font-weight: 500;
+}
+.archive-list li a:hover { color: var(--ocean-teal); text-decoration: underline; }
+.archive-list li .date {
+  color: var(--text-muted);
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255,255,255,0.6);
+}
+.empty-state h2 { font-size: 1.3em; margin-bottom: 10px; color: rgba(255,255,255,0.8); }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.78em;
+}
