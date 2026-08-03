@@ -65,6 +65,9 @@
 | run_daily_report.py编码错误 | `$env:PYTHONUTF8=1; python run_daily_report.py` |
 | deploy_report.py卡住 | 手动：复制HTML到posts/ → 更新index/archive → git push |
 | Python urllib 出网被拒(WinError 10061) | 沙箱阻断 Python 直连外网。链接校验改用 WebFetch 工具，勿写 Python 探测脚本 |
+| git push 连 127.0.0.1:65532 失败 | 环境变量 `HTTP_PROXY/HTTPS_PROXY` 指向不可用代理。`unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy` 后再 `git -c http.proxy= -c https.proxy= push origin main` |
+| git push 443 超时/Connection reset | GitHub 直连不稳定，**循环重试 3-5 次通常可成功**（注意 Git Bash 无 `sleep`，勿在循环中调用）。SSH 方式因本机无 publickey 不可用 |
+| git commit 报 unable to auto-detect email | 仓库级配置：`git config user.name "tianyunsu" && git config user.email "tianyunsu@users.noreply.github.com"` |
 | generate_html_daily.py 报 No module named 'requests' | 该脚本 `exec` 了 feishu_write_doc.py 头部（含 import requests）。改用 `gen_html_0803.py` 式自包含生成器：`ast.literal_eval` 解析 SECTIONS，不触发任何 import |
 | 改条目后首页仍显示旧内容 | index.html / archive.html 的 post-excerpt 摘要是硬编码文本，删改条目后必须同步 Edit 这两处 |
 | 飞书docx blocks 404 | 疑app token缺docx写入权限 |
