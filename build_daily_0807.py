@@ -176,12 +176,12 @@ NEW_SECTIONS = [
         'en': 'Tools & Code Resources',
         'items': [
             {
-                'title': 'cstar-ocean v0.7.0 发布——海洋碳循环计算系统 Python 库迭代更新（PyPI, 2026-07-24，更新）',
+                'title': 'cstar-ocean v0.8.0 发布——海洋碳循环计算系统 Python 库快速迭代（PyPI, 2026-08-05，更新）',
                 'badge': '[工具]',
-                'abstract': '海洋碳追踪计算系统 Python 库 cstar-ocean 发布 v0.7.0（2026-07-24）。cstar-ocean 面向海洋碳循环建模与追踪，提供数值实验构建、运行与追踪工具链，支持 ROMS 等海洋模型的碳循环计算工作流；依赖 f90nml、roms-tools、prefect 等生态。作为海洋碳科学开源工具链的重要组件，v0.6.0 已于 07-02 收录于 07-24 日报，本版为持续迭代更新，与当前 CMEMS/BGC-Argo 碳循环再处理进展形成工具侧配套。（更新：较 07-24 日报 v0.6.0 新版本）',
+                'abstract': '海洋碳追踪计算系统 Python 库 cstar-ocean 发布 v0.8.0（2026-08-05），距 v0.7.0（07-24）仅两周，保持高速迭代节奏。cstar-ocean 面向海洋碳循环建模与追踪，提供数值实验构建、运行与追踪工具链，支持 ROMS 等海洋模型的碳循环计算工作流；依赖 f90nml、roms-tools、prefect 等生态。作为海洋碳科学开源工具链的重要组件，与当前 CMEMS/BGC-Argo 碳循环再处理进展形成工具侧配套。（更新：较 07-24 日报收录的 v0.6.0 已迭代至 v0.8.0）',
                 'source': 'PyPI / piwheels',
                 'url': 'https://www.piwheels.org/project/cstar-ocean/',
-                'date': '2026-07-24',
+                'date': '2026-08-05',
             },
             {
                 'title': 'oceanspy v0.3.6 发布——海洋模型数据分析与可视化 Python 库（PyPI, 2026-06-15，豁免）',
