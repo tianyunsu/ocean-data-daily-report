@@ -94,12 +94,12 @@ NEW_SECTIONS = [
         'en': 'Ocean Data Management & Sharing',
         'items': [
             {
-                'title': 'Copernicus Marine In Situ TAC 集成 One Ocean Expedition 帆船观测：机会式观测扩充稀疏海域覆盖（2026-08-12）',
+                'title': 'Copernicus Marine In Situ TAC 综述：澳大利亚 32 台滑翔机 150 万条剖面入网，帆船/科考船机会式观测扩充覆盖（2026-07-30，豁免）',
                 'badge': '[动态]',
-                'abstract': 'Copernicus Marine Service 公布 In Situ TAC 最新进展：2025-2026 年 One Ocean Expedition 航次（三桅帆船 Statsraad Lehmkuhl）的观测数据已纳入哥白尼海洋目录。帆船通过连接海水入口的 ferrybox 系统连续测量温盐，经 In Situ TAC 近实时产品传输，形成沿航线近连续记录，在布雷斯特停靠期间完成全流程集成。尽管北冰洋冰况与通信中断造成数据缺口，该航次展示了机会式观测平台（仪表化船舶）对传统观测网络的补充价值，尤其填补弱采样海域覆盖。',
+                'abstract': 'Copernicus Marine Service 发布 In Situ TAC 最新进展综述（2026-07-30）：澳大利亚综合海洋观测系统（IMOS）提供的 32 台自主滑翔机数据（2008-2026 年，超 150 万条垂直剖面，含温盐氧叶绿素硝酸盐）正式加入哥白尼海洋目录，为迄今最全面的滑翔机数据集之一；德国海洋研究联盟 DAM Underway 项目第三阶段（2026-03 启动）持续经 PANGAEA 集成 Sonne、Maria S. Merian、Meteor 等船 2016-2025 年观测；2025-2026 One Ocean Expedition 帆船（Statsraad Lehmkuhl）经 ferrybox 连续温盐观测近实时集成。In Situ TAC 由 Ifremer 协调、16 个欧洲机构支撑，将研究船、浮标、滑翔机、锚系等多平台观测统一为质量受控的全球资源。（豁免：发布 2026-07-30 距今 15 天，顶级来源 CMEMS+不重复）',
                 'source': 'Copernicus Marine Service / In Situ TAC',
-                'url': 'https://marineinsitu.eu/data-from-the-one-ocean-expedition-2025-2026-integrated-into-copernicus-marine/',
-                'date': '2026-08-12',
+                'url': 'https://marine.copernicus.eu/hr/news/advancing-ocean-observations-in-situ-tac',
+                'date': '2026-07-30',
             },
         ]
     },
@@ -120,7 +120,7 @@ NEW_SECTIONS = [
                 'badge': '[航次]',
                 'abstract': 'NOAA 与库克群岛海底矿物管理局合作的 EX2605 库克群岛 ROV 探险于 8 月 13 日收官。26 天航次中，Okeanos Explorer 在 2500-6000 m 水深开展 13 次 ROV 下潜（Discoverer+Seirios 双机），覆盖深渊平原、海底峡谷、海山与 Manihiki 高原等生境，对深海珊瑚、多金属结核、玻璃海绵等做了系统影像记录与有限取样；同步进行多波束测绘、Argo 浮标部署与 CTD 采样，全程遥现直播。数据按 NOAA 公开数据政策入库，支持库克群岛海洋资源管理决策。（更新：07-16/07-31/08-10 收录，本次为收官）',
                 'source': 'NOAA Ocean Exploration',
-                'url': 'https://origin.oceanexplorer.noaa.gov/expedition/ex2605/',
+                'url': 'https://oceanexplorer.noaa.gov/expedition-ex2605-media-resources',
                 'date': '2026-08-13',
             },
         ]
