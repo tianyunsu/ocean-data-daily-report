@@ -126,7 +126,7 @@ SECTIONS = [
                 'date': '2026-08-20',
             },
             {
-                'title': 'NOAA Okeanos Explorer EX2607 美属萨摩亚测绘航次预告（2026-09-23起）',
+                'title': 'NOAA Okeanos Explorer EX2607 美属萨摩亚测绘航次预告（2026-09-24起）',
                 'badge': '[航次]',
                 'abstract': 'NOAA 海洋探索计划公布 2026 年美属萨摩亚测绘航次（EX2607）：9月24日至10月19日，Okeanos Explorer 自斐济苏瓦出发、终抵夏威夷檀香山，开展全天候多波束测绘作业，覆盖海床、水柱与次海床，重点补测美属萨摩亚周边（含罗斯环礁海洋国家保护区等）海床测绘数据空白。该航次与 8-9 月 EX2606 ROV 航次共同构成 NOAA 2026 美属萨摩亚 ROV+测绘组合任务，数据将为海床关键矿产评估与资源管理提供支撑。',
                 'source': 'NOAA Ocean Exploration / NOAA News',
