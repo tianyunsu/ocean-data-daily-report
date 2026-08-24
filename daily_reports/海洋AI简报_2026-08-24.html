@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年08月24日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.78em;
+    padding: 4px 10px;
+    border-radius: 15px;
+    transition: all 0.2s;
+  }
+  .nav-link:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon { font-size: 1.8em; }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+  }
+  .section-meta {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78em;
+    margin-top: 2px;
+  }
+  .section-badge {
+    background: var(--ocean-teal);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .section-content { padding: 0; }
+  .item {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.2s;
+  }
+  .item:last-child { border-bottom: none; }
+  .item:hover { background: var(--ocean-foam); }
+  .item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .item-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    font-size: 0.68em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .item-title {
+    color: var(--ocean-deep);
+    font-size: 0.95em;
+    font-weight: 600;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    line-height: 1.65;
+    margin: 8px 0;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.75em;
+    color: var(--text-muted);
+  }
+  .item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .item-meta a {
+    color: var(--ocean-light);
+    text-decoration: none;
+  }
+  .item-meta a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8em;
+  }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.6em; }
+    .nav-bar { gap: 5px; }
+    .nav-link { font-size: 0.7em; padding: 3px 8px; }
+    .item { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-badge">OCEAN AI DAILY</div>
+    <h1>海洋AI技术日报</h1>
+    <div class="subtitle">报告日期：2026年08月24日 | 来源：ICML / IJCAI / ECCV / Copernicus / IOC / Schmidt Ocean 等 | 自动生成</div>
+    <div class="summary-bar">
+      <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+      <div class="summary-chip"><strong>11</strong> 条精选动态</div>
+      <div class="summary-chip">覆盖 AI · 数字孪生 · 可视化 · 数据质量 · 处理 · 共享 · 航次 · 数据中心 · 工具</div>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <a class="nav-link" href="#section-1">🤖 海洋人工智能</a>
+    <a class="nav-link" href="#section-2">🌐 海洋数字孪生</a>
+    <a class="nav-link" href="#section-3">📊 海洋可视化</a>
+    <a class="nav-link" href="#section-4">✅ 海洋数据质量</a>
+    <a class="nav-link" href="#section-5">⚙️ 海洋数据处理</a>
+    <a class="nav-link" href="#section-6">🗄️ 海洋数据管理与共享</a>
+    <a class="nav-link" href="#section-7">🚢 开放航次与科考</a>
+    <a class="nav-link" href="#section-8">🏛️ 海洋数据中心</a>
+    <a class="nav-link" href="#section-9">🛠️ 工具与代码资源</a>
+  </nav>
+  <div class="container">
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <span class="section-icon">🤖</span>
+        <div>
+          <div class="section-title">一、海洋人工智能</div>
+          <div class="section-meta">Ocean AI / Marine Artificial Intelligence</div>
+        </div>
+        <span class="section-badge">3 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.11545" target="_blank">DLESyM-Ocean：深度学习概率全球上层海洋-海冰模拟模型（arXiv, 2026-08-12）</a></div>
+          </div>
+          <div class="item-abstract">华盛顿大学与NVIDIA团队提出 DLESyM-Ocean——深度学习地球系统模型，模拟全球现代海冰与上层海洋状态。与基于扩散目标或连续排序概率分数的传统概率模型不同，该模型采用 patch energy score loss 训练，在大气强迫驱动下能生成校准良好、空间连贯、技巧可靠的海冰与上层海洋集合预报，且自回归多年运行稳定、相对再分析偏差极小。海冰极端事件、强海洋热浪、2023年厄尔尼诺转换与全球均温飙升等案例验证显示其能产生真实的上层海洋轨迹与充分集合多样性，为次季节-季节预报提供高计算效率工具。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv / physics.ao-ph（华盛顿大学+NVIDIA）</span>
+            <span>📅 2026-08-12</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.11545" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.15598" target="_blank">Underwater Color Restoration with Vanishing Uncertainty：水下颜色恢复不确定性理论（arXiv, 2026-08-16）</a></div>
+          </div>
+          <div class="item-abstract">Sea-thru 作者 Derya Akkaynak 团队从理论侧审视水下颜色恢复：指出在完全数学一般性下该问题病态（fatally ill-posed），需额外约束将解限定到有限不确定区间；当前方法几乎完全依赖经验验证，理论与真实数据约束之间的差距理解不足，难以判断现有方法是否在求解一个实际可解的问题。研究识别出保证有界不确定性（随相机空间分辨率提高收敛至零）的理想化条件，为水下颜色恢复的科学可信度建立理论根基，对海洋科学影像定量分析具有重要意义。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv / eess.IV（Solomatov & Akkaynak）</span>
+            <span>📅 2026-08-16</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.15598" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[要闻]</span>
+            <div class="item-title"><a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_3176a8b080375052" target="_blank">第九届中国模式识别与计算机视觉大会（PRCV 2026）在哈尔滨举办，聚焦水下智能视觉（2026-08-22）</a></div>
+          </div>
+          <div class="item-abstract">8月22日至25日，第九届中国模式识别与计算机视觉大会（PRCV 2026）在哈尔滨举办，10余位院士、1000余名学者与会。大会由四家国家级学会联合主办、哈尔滨工程大学承办——该校依托海洋复杂场景优势深耕水下智能视觉技术攻关，是唯一承办高校。会议设置大模型时代视觉智能、具身智能感知交互、多模态遥感解译等前沿专题，共19场专题论坛、10场特邀报告及30余场学术交流活动，推动智能感知成果向船舶智能系统、水下无人平台转化，服务海洋强国建设。</div>
+          <div class="item-meta">
+            <span>📍 来源：人民网</span>
+            <span>📅 2026-08-22</span>
+            <span>🔗 <a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_3176a8b080375052" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <span class="section-icon">🌐</span>
+        <div>
+          <div class="section-title">二、海洋数字孪生</div>
+          <div class="section-meta">Ocean Digital Twin</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://ocean-ecosystem.wiki/" target="_blank">本周暂无明显进展（日照港数字孪生 08-14、WavyOcean 3.0 07-13 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数字孪生方向近一周无重大新平台或新框架发布。山东港口日照港集装箱数字孪生系统（08-14收录）、WavyOcean 3.0（07-13/07-28收录）、DITTO Summit 2026（07-30收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://ocean-ecosystem.wiki/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <div>
+          <div class="section-title">三、海洋可视化</div>
+          <div class="section-meta">Ocean Visualization</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://myocean.marine.copernicus.eu/" target="_blank">本周暂无明显进展（MyOcean Health 07-01、MyOcean Pro 3D 08-03 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋可视化方向近一周无重大新工具或平台发布。Copernicus MyOcean Health（07-01收录）、MyOcean Pro 3D可视化路线图（08-03收录）、WavyOcean 3.0（07-13收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://myocean.marine.copernicus.eu/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <span class="section-icon">✅</span>
+        <div>
+          <div class="section-title">四、海洋数据质量</div>
+          <div class="section-meta">Ocean Data Quality</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://www.argo.org.cn/" target="_blank">本周暂无明显进展（DTF-Net 08-07、ML辅助事件感知QC 08-08 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数据质量方向近一周无重大新方法或新进展发布。DTF-Net 深度学习风数据质控（08-07收录）、ML辅助事件感知QC框架（08-08收录）、BGC-Argo CHLA 大规模再处理（07-11收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://www.argo.org.cn/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <span class="section-icon">⚙️</span>
+        <div>
+          <div class="section-title">五、海洋数据处理</div>
+          <div class="section-meta">Ocean Data Processing</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.15423" target="_blank">DBSD-Net：海表温度超分辨率的双分支状态位移网络（arXiv, 2026-08-15, IEEE JSTARS）</a></div>
+          </div>
+          <div class="item-abstract">中国海洋大学与密西西比州立大学团队提出 DBSD-Net，面向卫星海表温度（SST）图像超分辨率：双分支架构中，小波频段分支通过离散小波变换显式分离低频与高频分量（引入带门控结构细化的结构状态空间模块SSSM捕获长程依赖、位移门模块DGM学习位移场进行几何感知高频细节调制），VGGUNet分支从冻结的预训练VGG骨干提取多尺度语义特征，缓解卫星数据空间变化退化对海洋锋面等精细热结构的模糊。多个公开SST数据集实验显示其全面超越现有最优方法，已获 IEEE JSTARS 录用。</div>
+          <div class="item-meta">
+            <span>📍 来源：IEEE JSTARS / arXiv（中国海洋大学）</span>
+            <span>📅 2026-08-15</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.15423" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-6">
+      <div class="section-header">
+        <span class="section-icon">🗄️</span>
+        <div>
+          <div class="section-title">六、海洋数据管理与共享</div>
+          <div class="section-meta">Ocean Data Management & Sharing</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://odis.org/" target="_blank">本周暂无明显进展（EMODnet 24届SC 08-03、ODIS筹备IODE-29 07-22 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数据管理与共享方向近一周无重大新政策或新发布。EMODnet 第24届指导委员会会议纪要（08-03收录）、ODIS指导小组筹备IODE-29（07-22收录）、海洋十年第11轮征集（08-10收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://odis.org/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-7">
+      <div class="section-header">
+        <span class="section-icon">🚢</span>
+        <div>
+          <div class="section-title">七、开放航次与科考</div>
+          <div class="section-meta">Open Cruises & Research Expeditions</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[航次]</span>
+            <div class="item-title"><a href="https://www.forsvaret.no/en/news/articles/hiaoos-2026-expedition" target="_blank">HiAOOS 2026 北极航次启航：挪威海岸警卫队 Svalbard 号回收深潜标组网（2026-08-17）</a></div>
+          </div>
+          <div class="item-abstract">8月17日，来自挪威、波兰、美国的24名科学家与工程师登上挪威海岸警卫队 Svalbard 号，开启 HiAOOS 2026 北极航次（逾5周，南森/阿蒙森海盆）。团队将回收 HiAOOS 深海潜标网络（6套潜标+1套为阿尔弗雷德·魏格纳研究所回收）、布放多枚支撑 Euro-Argo 基础设施的剖面浮标、为国际北极浮标计划与 Polhavet 2050 布放冰基观测站。回收的两年级别深潜标时间序列对理解北极深层海洋层结、环流与海冰变率具有里程碑意义，标志着北极深部持续观测体系建设迈出重要一步。</div>
+          <div class="item-meta">
+            <span>📍 来源：Norwegian Armed Forces / NERSC</span>
+            <span>📅 2026-08-17</span>
+            <span>🔗 <a href="https://www.forsvaret.no/en/news/articles/hiaoos-2026-expedition" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-8">
+      <div class="section-header">
+        <span class="section-icon">🏛️</span>
+        <div>
+          <div class="section-title">八、海洋数据中心</div>
+          <div class="section-meta">Ocean Data Centers</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://seabed2030.org/" target="_blank">本周暂无明显进展（GEBCO_2026 WMS 08-04、Argo快照 08-08 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数据中心方向近一周无重大新发布。GEBCO_2026 网格 WMS 图层上线（08-04收录）、Argo GDAC 全球快照（08-08收录）、CMEMS 8月北极潮汐3km产品（路线图标注 Aug 2026，尚无精确发布日期）已纳入跟踪，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://seabed2030.org/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-9">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <div>
+          <div class="section-title">九、工具与代码资源</div>
+          <div class="section-meta">Tools & Code Resources</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://github.com/topics/oceanography" target="_blank">本周暂无明显进展（gridstats v2.6.0 08-12、wavespectra 4.8.0 07-22 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋工具与代码资源方向近一周无重要新版本或新开源项目发布。gridstats v2.6.0（08-12收录）、wavespectra v4.8.0（07-22收录，5.0仍未发布）、cstar-ocean v0.8.0（08-05收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://github.com/topics/oceanography" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。版权归原作者/机构所有。
+  </div>
+</body>
+</html>
