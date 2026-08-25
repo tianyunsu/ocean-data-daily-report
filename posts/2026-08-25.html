@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年08月25日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header .date-line {
+    color: #80c8e0;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--ocean-teal);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title-cn {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .section-title-en {
+    color: #80c8e0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .section-items { padding: 8px 22px 16px; }
+  .section-items p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+  .item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 14px 0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-paper { background: #e3f2fd; color: #1565c0; }
+  .badge-news { background: #e8f5e9; color: #2e7d32; }
+  .badge-dynamic { background: #fff3e0; color: #e65100; }
+  .badge-tool { background: #f3e5f5; color: #7b1fa2; }
+  .badge-data { background: #e0f7fa; color: #00695c; }
+  .badge-cruise { background: #fce4ec; color: #c62828; }
+  .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-default { background: #eceff1; color: #546e7a; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 11px;
+    color: #90a4ae;
+  }
+  .item-meta span { margin-right: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #80b0c8;
+    font-size: 11px;
+  }
+  .summary-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .summary-bar strong { color: var(--ocean-mid); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">Marine AI Daily Brief</div>
+  <h1>海洋AI技术日报</h1>
+  <div class="date-line">2026年08月25日 · 周二</div>
+</div>
+<div class="container">
+<div class="summary-bar">
+  <span>本期共 <strong>25</strong> 条动态</span>
+  <span>|</span>
+  <span>覆盖 <strong>9</strong> 个方向</span>
+  <span>|</span>
+  <span>日期范围：2026年08月25日</span>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title-cn">一、海洋人工智能</div>
+      <div class="section-title-en">Ocean AI / Marine Artificial Intelligence</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://ocean.cctv.com/2026/08/13/ARTIPg7BMSzEiN429IM7JB5e260813.shtml" target="_blank">"盘古"海洋智能预报大模型工程化落地：海洋预报从"天级"到"分钟级"（CCTV, 2026-08-13）</a></div>
+      <div class="item-abstract">全国首个深度融合AI技术、全栈国产算力支撑的"盘古"海洋智能预报大模型实现工程化落地，将海洋预报频次从"天级"颠覆性提升至"分钟级"。该模型基于华为昇腾算力与MindSpore框架，已接入自然资源部第一海洋研究所业务预报系统，每天固定时间点输出预报结果，支撑远洋船舶航线决策。同期，Ocean AI海洋时空智能大模型、海境AI大模型、海洋数字孪生引擎DTO Engine 2.0相继发布，攻克通用大模型落地海洋场景的"水土不服"问题，覆盖海洋生态保护、海洋牧场、海上风电等多场景应用。</div>
+      <div class="item-meta">央视网 / 海洋CCTV · 2026-08-13</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2608.16449" target="_blank">WaveGraph：图神经网络地中海十年波浪重建（arXiv, 2026-08-17）</a></div>
+      <div class="item-abstract">意大利CMCC基金会与博洛尼亚大学团队提出 WaveGraph——基于图神经网络（GNN）的盆地尺度波浪动力学仿真模型。该模型直接在非结构化网格上运行（沿岸分辨率达2-3 km），采用多尺度架构结合非结构化模型网格与均匀图，同时表征局部海岸相互作用与大尺度波浪动力学。模型自回归运行17年无需重新初始化或产生漂移，对浮标和卫星观测验证显示其技巧与输入数据集相当，风强迫驱动长期稳定性而波浪历史改善涌浪驱动动力学，为光谱波浪模型的高效稳定仿真器提供新范式。</div>
+      <div class="item-meta">arXiv / physics.ao-ph（CMCC + Univ. Bologna） · 2026-08-17</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2608.10022" target="_blank">RCNN：深度学习残差校正网络海表温度统计降尺度（arXiv, 2026-08-12）</a></div>
+      <div class="item-abstract">西澳大利亚大学团队提出残差校正神经网络（RCNN）框架，用于海表温度（SST）统计降尺度。该框架先用U-Net创建初始高分辨率SST估计，再通过整合动态缩放的残差进行精炼，有效捕捉SST宏观模式及涡流和锋面等精细特征。案例研究显示该方法在澳大利亚西海岸将SST分辨率从25 km提高到2 km，改进了海洋热浪预测，在准确性和计算效率方面优于传统方法，有望改进沿海影响评估和海洋生态系统研究。</div>
+      <div class="item-meta">arXiv / cs.LG（Univ. Western Australia） · 2026-08-12</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2607.09557" target="_blank">CORAL-AUV：MIT-WHOI水下机器人自主科学探索学习框架（CoRL 2026, arXiv 2607.09557）</a></div>
+      <div class="item-abstract">MIT-WHOI联合团队提出 CORAL-AUV 框架，将强化学习与科学先验知识结合，使自主水下航行器（AUV）能够在深海科学考察中自主决策采样策略。该框架融合科学目标驱动的奖励函数与物理约束的运动规划，使AUV在有限能源预算下最大化科学信息采集量。在CoRL 2026（机器人学习顶会）发表，为深海自主观测从"预编程路径"向"智能自适应探索"转变提供方法论基础，对深海热液、冷泉等极端环境调查具有重要意义。</div>
+      <div class="item-meta">CoRL 2026 / arXiv（MIT-WHOI） · 2026-07-15</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://www.techtimes.com/articles/323073/20260804/ai-early-warning-system-buys-korean-fish-farms-38-hours-before-lethal-heatwaves-strike.htm" target="_blank">GNN-BiLSTM韩国海水养殖海洋热浪AI预警系统：提前38小时预警（Tech Times, 2026-08-04）</a></div>
+      <div class="item-abstract">韩国国立水产科学院开发基于混合图神经网络-双向LSTM（GNN-BiLSTM）的海洋热浪AI预警系统，为韩国南部30个网箱养殖监测站提供提前38小时的致命热浪预警。GNN空间图将30个监测站作为节点、313条无向边表征站点间热耦合结构，当离岸站检测到升温时自动将信息传播至近岸养殖区。系统在28°C预警阈值实现 timely advisory，而精度更高的CNN-LSTM反而错过该阈值。该系统2026年发表于npj Ocean Sustainability，预计韩国养殖气候损失将达483M-1.14B USD。</div>
+      <div class="item-meta">Tech Times / npj Ocean Sustainability · 2026-08-04</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title-cn">二、海洋数字孪生</div>
+      <div class="section-title-en">Ocean Digital Twin</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://huacheng.gz-cmc.com/pages/2026/08/13/eb0991b00d634b91ba0453bb3ccead9e.html" target="_blank">广州南沙海洋经济产业科技创新交流对接会：AquaLink水下数字孪生平台+HKUST(GZ)海洋数字孪生+DeepMatrix多智能体系统（2026-08-13）</a></div>
+      <div class="item-abstract">8月13日，海洋经济产业科技创新交流对接会在广州南沙举行。香港科技大学（广州）刘易团队展示了覆盖近岸环境诊断、海岸带生态修复、养殖区环境容量评估及海洋数字孪生四大应用场景的综合解决方案，在珠江口缺氧区治理、红树林碳汇评估、生蚝养殖水质净化方面取得典型案例。AquaLink水下平台融合水下机器人、AI视觉识别和数字孪生技术，已在香港桥嘴洲海岸公园完成示范应用。深海智人DeepMatrix以多智能体决策大模型为核心，结合全系列水下机器人硬件矩阵，推动从"单机替代"向"体系协同"的范式升级。</div>
+      <div class="item-meta">花城网 / 广州南沙 · 2026-08-13</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[关注]</span> <a href="https://www.ocean-digital-twin.org/" target="_blank">本周暂无明显新进展（DITTO Summit 2026 07-30、WavyOcean 3.0 07-13 已收录）</a></div>
+      <div class="item-abstract">海洋数字孪生方向近一周无重大新平台或新框架发布。DITTO Summit 2026横滨（07-30收录）、WavyOcean 3.0（07-13/07-28收录）、广州南沙AquaLink+DeepMatrix（本期收录）为近期主要动态，本期不重复收录。</div>
+      <div class="item-meta">- · 2026-08-25</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title-cn">三、海洋可视化</div>
+      <div class="section-title-en">Ocean Visualization</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://marine.copernicus.eu/news/ocean-currents-earths-invisible-engine" target="_blank">CMEMS MyOcean Viewer发布"洋流：地球隐形引擎"交互式可视化（2026-08-25）</a></div>
+      <div class="item-abstract">Copernicus Marine Service发布"Ocean Currents: Earth's Invisible Engine"交互式可视化专题，通过MyOcean Pro Viewer展示全球海洋表层流与深层热盐环流的三维动态。用户可查看洋流的实时状态、过去两年历史以及10天预报，可视化覆盖南极绕极流、湾流等关键环流系统。该专题科普洋流作为地球"循环系统"运输热量、营养盐和生命的作用，并关联AMOC对西欧温和气候的影响，结合GLORYS12再分析数据与GLO12预报产品，为海洋环流研究提供直观可视化工具。</div>
+      <div class="item-meta">Copernicus Marine Service (CMEMS) · 2026-08-25</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[关注]</span> <a href="https://viewer.emodnet.eu/" target="_blank">本周暂无明显新工具发布（MyOcean Pro 3D 08-03、SeaDAS v10.0 已收录）</a></div>
+      <div class="item-abstract">海洋可视化方向近一周无重大新工具发布。CMEMS MyOcean Pro 3D可视化路线图（08-03收录）、MyOcean Stories科普叙事功能（06-01收录）均已在此前日报覆盖。CMEMS洋流交互式可视化（本期收录）为近期主要动态。</div>
+      <div class="item-meta">- · 2026-08-25</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title-cn">四、海洋数据质量</div>
+      <div class="section-title-en">Ocean Data Quality</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[关注]</span> <a href="https://www.argo.org.cn/" target="_blank">本周暂无明显新进展（ML辅助事件感知QC 08-08、DTF-Net 08-07 已收录）</a></div>
+      <div class="item-abstract">海洋数据质量方向近一周无重大新方法发布。ML辅助事件感知QC框架（JMSE 08-08收录）、DTF-Net深度学习风数据质控（08-07收录）、BGC-Argo CHLA大规模再处理（07-11收录）均已在此前日报覆盖，本期不重复收录。</div>
+      <div class="item-meta">- · 2026-08-25</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title-cn">五、海洋数据处理</div>
+      <div class="section-title-en">Ocean Data Processing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://gmd.copernicus.org/articles/19/7349/2026/gmd-19-7349-2026.html" target="_blank">SIREN-TV：基于隐式神经表示的卫星高度计海面高度连续重建框架（GMD, 2026）</a></div>
+      <div class="item-abstract">研究团队提出 SIREN-TV 框架，将海面高度（SSH）表示为空间-时间的连续函数，使用基于SIREN的坐标网络从稀疏沿轨观测中学习连续SSH表示，并引入全变差（TV）空间梯度正则化抑制不受支撑的局部变化。该框架在多任务卫星高度计观测和高分辨率数值模拟上评估，显示其能重建主要SSH变异和主导中尺度模式，全球精度与现有插值和数据同化方法相当且有效特征分辨率有所提升。连续全可微表示可直接计算空间导数，支持高阶海洋学诊断，为稀疏不规则采样下的SSH插值提供新途径。</div>
+      <div class="item-meta">Geoscientific Model Development (GMD) · 2026-08-14</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://dl.acm.org/doi/10.1016/j.eswa.2026.132259" target="_blank">SGD-SST 2.0：跨传感器无缝全球日均SST产品（2003-2025, Expert Systems with Applications, 2026-08-06）</a></div>
+      <div class="item-abstract">研究团队开发自适应ConvLSTM时空重建模型，通过贝叶斯优化生成无缝全球日均SST产品（SGD-SST 2.0），空间分辨率9 km，覆盖2003-2025年。模型采用动态时间步选择机制（由缺失率驱动）和自适应后处理策略（考虑纬度效应），并开发VIIRS预训练模型迁移学习策略，解决MODIS数据高缺失率问题，实现跨传感器多源产品无缝重建。验证显示相关系数0.994、RMSE 0.916 K、MAE 0.602 K，较SGD-SST 1.0在中低纬度精度显著提升。数据集已在HuggingFace开放下载。</div>
+      <div class="item-meta">Expert Systems with Applications (Elsevier) · 2026-08-06</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://meetingorganizer.copernicus.org/EGU26/EGU26-21240.html" target="_blank">U-Net地中海SST云遮挡重建：深度学习优于最优插值（EGU26, 2026-08-18）</a></div>
+      <div class="item-abstract">CMCC基金会与博洛尼亚大学团队将基于U-Net的深度学习方法扩展至整个地中海SST重建，解决红外遥感云遮挡导致的数据缺失。训练策略为将随机日期的云掩膜叠加到输入SST上以提供损失计算的ground truth。模型在地中海全域技巧与先前意大利海域模型相当，在云遮挡区域仅产生有限附加误差。与基于最优插值的Level 4产品相比，U-Net在无云区域保留Level 3产品相对漂流浮标的误差和偏差特性，重建区域技巧退化轻微，独立验证显示重建引入的附加误差有限。</div>
+      <div class="item-meta">EGU General Assembly 2026 (CMCC + Univ. Bologna) · 2026-08-18</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title-cn">六、海洋数据管理与共享</div>
+      <div class="section-title-en">Ocean Data Management & Sharing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://www.toutiao.com/article/7673061404434022912/" target="_blank">全国首个海洋公共数据团体标准在青岛发布：分类分级+资源目录编制规则（2026-08-12）</a></div>
+      <div class="item-abstract">《海洋公共数据分类分级指南》《海洋公共数据资源目录编制规则》两项团体标准在2026年第二期青岛市数据要素成果发布会上重磅发布，为全国首个针对海洋公共数据领域的专项标准化成果。《分类分级指南》构建"行业领域-业务职能-内容主题"三级分类体系，将海洋公共数据从高到低划分为核心、重要、一般共六个级别，配套分级安全保护要求与共享、开放、授权运营三类开发利用规则。《目录编制规则》搭建覆盖六大类核心要素的完整元数据体系，统一编制口径、字段规范与技术要求，形成"分类分级定规则、目录编制明底数"的海洋公共数据治理闭环。</div>
+      <div class="item-meta">人民网山东频道 / 今日头条 · 2026-08-12</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://finance.eastmoney.com/a/202608253852757325.html" target="_blank">国家数据局发布会：涉海公共数据"制度先行+场景牵引+多方协同"开发利用路径（2026-08-25）</a></div>
+      <div class="item-abstract">8月25日，国家数据局举办"数据价值化我们在行动"系列新闻发布会第五场。辽宁省数据和政务服务局副局长于冰介绍涉海公共数据开发利用路径：(1)建立分级分类标准制度体系——率先出台海洋科学数据管理、汇交、共享、安全等7项规范，明确数据分级存储、分类授权规则；(2)打造"政校企"协同模式——依托大连海洋大学建成省级海洋与极地科学数据中心，推进海洋行业可信数据空间试点，通过"数据可用不可见"隐私计算技术破解安全与流通矛盾；(3)打通数据要素价值化闭环——推动海洋数据产品进场交易和知识产权登记，形成"数据治理-产品研发-市场交易-价值反哺"闭环路径。</div>
+      <div class="item-meta">新京报贝壳财经 / 东方财富网 · 2026-08-25</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://www.rosascience.org/rosa-releases-data-governance-guidance-for-offshore-wind-fisheries-science/" target="_blank">ROSA发布海上风电渔业科学数据治理指南（ROSA, 2026-08）</a></div>
+      <div class="item-abstract">Responsible Offshore Science Alliance (ROSA)发布 Data Governance Guidance，旨在标准化美国东海岸海上风电渔业与海洋数据的采集、共享和使用。该指南为研究人员、资助者和海上开发商提供通用框架，确保数据保持可访问、可互操作和可信赖，同时尊重数据生成者和管理者的权利。内容涵盖数据管理与共享计划(DMSP)建议时间线、元数据与数据发布、仓库选择指南、敏感或受限数据处理、最低元数据标准与版本控制最佳实践，反映ROSA研究伙伴和顾问的广泛意见，将随领域发展持续更新。</div>
+      <div class="item-meta">ROSA (Responsible Offshore Science Alliance) · 2026-08-15</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div>
+      <div class="section-title-cn">七、开放航次与科考</div>
+      <div class="section-title-en">Open Cruises & Research Expeditions</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://www.gzns.gov.cn/zwgk/zwdt/content/post_10970782.html" target="_blank">"探索6000" AUV南海冷泉区航次实现首次商业化应用（2026-07-28至08-07）</a></div>
+      <div class="item-abstract">由广东智能无人系统研究院（南沙）和中科院沈阳自动化研究所牵头研制的"探索6000" AUV搭乘"实验6"科考船执行国家自然科学基金共享航次任务，实现首次商业化应用。作为航次核心探测装备，"探索6000"执行了近海底精细光学与化学融合探测任务，6天内完成5个潜次作业，累计水下有效作业超30小时，获取近海底3米光学全覆盖测线长度近26000米，成功获取多类型环境化学与光学探测数据，为冷泉区生境调查与生物多样性研究提供关键支撑。团队实现探测载荷模块化搭载与快速集成，验证了从装备研制到商业化运营的全链条服务能力。</div>
+      <div class="item-meta">广州市南沙区人民政府 · 2026-08-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://www.rnz.co.nz/news/pacific/1057866/teeming-with-life-cook-islands-officials-enthuse-over-noaa-deep-dive" target="_blank">NOAA Okeanos Explorer完成库克群岛26天深潜航次：14次ROV下潜（2026-08-19）</a></div>
+      <div class="item-abstract">NOAA船Okeanos Explorer完成为期26天的库克群岛深潜考察后返回拉罗通加。航次在西部库克群岛几乎没有先前数据的水域进行了14次遥控潜水器（ROV）下潜，采集400余个样本，探索了海山、深海平原和Manihiki高原区域，收集23个生物标本（部分疑为新物种）。航次还确认了库克群岛海洋领土内大面积多金属结核场的存在，甚至出现在科学家未预期的区域。超过6万人通过直播观看ROV下潜。美国宣布将在库克群岛设立NOAA科学研究员职位，支持科学与监管过程。</div>
+      <div class="item-meta">RNZ Pacific / NOAA Ocean Exploration · 2026-08-19</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://nautiluslive.org/album/2026/08/03/abyssal-sentry-survey-updates" target="_blank">E/V Nautilus AUV Sentry马里亚纳群岛深海生境调查（NA179/NA180, 2026-08-03）</a></div>
+      <div class="item-abstract">E/V Nautilus在马里亚纳群岛深海生境考察航次（NA179和NA180）中与WHOI AUV Sentry团队合作。Sentry设计用于在低高度和复杂地形下进行海底调查，沿预编程航线收集海底测绘数据，并在500×500米区域进行详细测绘调查，随后下降至距海底6米内使用频闪和相机进行底栖照片调查。该调查方法平衡了大距离覆盖与精细观察。AUV Sentry已有6次部署，其中5次成功收集图像。所有数据将公开存档，无禁运或访问限制，确保深海数据永久可用。第二期航次为期22天。</div>
+      <div class="item-meta">Nautilus Live / WHOI · 2026-08-03</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://oceanexplorer.noaa.gov/expedition/ex2606" target="_blank">NOAA EX2606美属萨摩亚ROV+测绘航次启动：关键矿产与深海生态（2026-08-20至09-17）</a></div>
+      <div class="item-abstract">8月20日至9月17日，NOAA Ocean Exploration在NOAA船Okeanos Explorer上开展2026年美属萨摩亚ROV+测绘航次（EX2606），探索美属萨摩亚深海水域。航次包括ROV下潜（深度2000-6000米）探索海底和水柱、夜间测绘操作和通过远程参与技术的持续岸基参与。航次聚焦建立海洋关键矿产（特别是多金属结核）基线评估，以及海山生境、深水珊瑚和海绵群落、鱼类生境和水柱。潜水每日直播（8AM-8PM SST）。美属萨摩亚被指定为美国专属经济区内最高优先区域，因显著的产业兴趣和多金属结核潜在存在。</div>
+      <div class="item-meta">NOAA Ocean Exploration · 2026-08-20</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div>
+      <div class="section-title-cn">八、海洋数据中心</div>
+      <div class="section-title-en">Ocean Data Centers</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://marine.copernicus.eu/mt/user-corner/product-roadmap/transition-information?page=4" target="_blank">CMEMS 2026年8月产品更新：北极波浪/波罗的海物理/北极潮汐/北极生物地球化学（CMEMS, 2026-08）</a></div>
+      <div class="item-abstract">Copernicus Marine Service 2026年8月发布多项产品更新：(1)北极多年波浪回溯（ARCTIC_MULTIYEAR_WAV_002_013）时间扩展至1960年；(2)波罗的海物理分析与预报（BALTICSEA_ANALYSISFORECAST_PHY_003_006）更新模型测深（基于EMODnet测深2020版+区域修正）并新增冰漂移参数usi/vsi；(3)新增北极海洋潮汐分析与预报产品（ARCTIC_ANALYSISFORECAST_PHY_TIDE_002_015），3km分辨率15层垂直，TOPAZ6确定性潮汐系统受TOPAZ5 EnKF 6km系统约束；(4)北极生物地球化学分析与预报改进中层浮游动物昼夜垂直迁移与碳输出过程，新增POC变量。多项更新采用双重发布期。</div>
+      <div class="item-meta">Copernicus Marine Service (CMEMS) · 2026-08-13</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[关注]</span> <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">本周暂无明显新进展（GEBCO_2026 WMS 08-04、Argo GDAC快照 08-08 已收录）</a></div>
+      <div class="item-abstract">海洋数据中心方向近一周无重大新发布。GEBCO_2026网格WMS图层上线（08-04收录）、Argo GDAC全球快照（08-08收录）、PANGAEA新增GEOMAR锚系数据（08-06）均已在此前日报覆盖。CMEMS 8月产品更新（本期收录）为近期主要动态。</div>
+      <div class="item-meta">- · 2026-08-25</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div>
+      <div class="section-title-cn">九、工具与代码资源</div>
+      <div class="section-title-en">Tools & Code Resources</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://github.com/NOAA-CO-OPS/Next-Gen-NOS-OFS-Skill-Assessment" target="_blank">NOAA Next-Gen NOS OFS Skill Assessment v1.7.1：Python海洋预报模型技巧评估（GitHub, 2026-08-04）</a></div>
+      <div class="item-abstract">NOAA CO-OPS和OCS开发的Next Gen NOS海洋预报模型技巧评估与处理软件更新至v1.7.1。该Python工具替代现有Fortran工具，对NOAA业务化预报系统(OFS)进行近实时技巧评估，在特定点位（1D）和整个二维海面（2D,遥感产品）比较模型预报与观测。新增潮汐分析子包、ADCP安装类型分类与侧视bin处理修复、CHS基准面崩溃修复。OFS支撑航运航道导航、搜救、休闲航行和渔业及风暴效应追踪。v1.7.1更新了README和wiki文档。</div>
+      <div class="item-meta">NOAA CO-OPS / GitHub · 2026-08-04</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://anaconda.org/conda-forge/earthlens" target="_blank">earthlens v0.14.0：多源遥感与气候数据下载Python包（conda-forge, 2026-08-08）</a></div>
+      <div class="item-abstract">earthlens发布v0.14.0版本，是用于从多个数据提供商下载卫星和气候数据的Python包，采用延迟加载后端架构。自v0.11.0起拆分为六个可安装发行版加一个元包：earthlens-core（facade、CLI、抽象与共享传输，无提供商SDK）、earthlens-atmosphere（天气/气候/空气质量/太阳能风能）、earthlens-ocean（海洋/水文/海洋后端）、earthlens-imagery（光学/SAR影像与EO档案）、earthlens-land（陆地/人口/地形）、earthlens-hazards（灾害/人道主义/基础设施）。许可证为GPL-3.0-only，支持conda-forge安装。</div>
+      <div class="item-meta">conda-forge / GitHub (serapeum-org) · 2026-08-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://zenodo.org/records/21699291/latest" target="_blank">MDOcean v1.4.4：海洋波浪能转换器多学科设计优化开源工具（Zenodo, 2026-08-17）</a></div>
+      <div class="item-abstract">Cornell University与University of Michigan团队发布MDOcean v1.4.4，使用多学科设计优化(MDO)优化海洋波浪能转换器的开源代码库。该工具结合多学科设计优化方法与海洋工程应用，支持波浪能转换器的系统级优化设计。v1.4.4版本于8月17日发布，此前在8月5日至17日内连续发布v1.4.0至v1.4.4共5个版本，迭代频繁。许可证为MIT License，代码托管于GitHub (symbiotic-engineering/MDOcean)。</div>
+      <div class="item-meta">Zenodo / Cornell Univ. + Univ. Michigan · 2026-08-17</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <p>海洋AI技术日报 · 自动生成于 2026年08月25日</p>
+  <p>Powered by WorkBuddy AI · Data sources: arXiv, GitHub, CMEMS, NOAA, CNKI and more</p>
+</div>
+</body>
+</html>
