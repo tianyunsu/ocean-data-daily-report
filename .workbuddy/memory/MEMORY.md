@@ -5,9 +5,8 @@
 - **自动化任务ID**：`ai`，Schedule：`FREQ=DAILY;BYHOUR=9;BYMINUTE=0`
 - **GitHub**：https://github.com/tianyunsu/ocean-data-daily-report
 - **网站**：https://tianyunsu.github.io/ocean-data-daily-report/
-- **DATA_SOURCE**：`feishu_write_doc.py`（含 `SECTIONS = [...]`，第18行附近，用 build_daily.py 正则替换）
-- **GH_REPO**：仓库根目录（= WORKSPACE）
-- **PYTHON**：C:\Users\ENVY\.workbuddy\binaries\python\versions\3.13.12\python.exe
+- **DATA_SOURCE**：`feishu_write_doc.py`（含 `SECTIONS = [...]`，用 build_daily.py 正则替换）
+- **GH_REPO**：仓库根目录（= WORKSPACE）；运行 python 用系统 PATH 的 `python` 命令
 
 ## 一致性机制（手动=自动，铁律）
 - `ocean-daily-report` skill 是手动/自动共用唯一权威源；自动化 prompt 纯委托该 skill。
@@ -16,8 +15,7 @@
 
 ## 跨机器执行机制（2026-07-31 建立）
 - 记忆随仓库（`.workbuddy/memory/`、`automations/` 纳入 git）；skill 用 `sync_skills.py` 双向同步（install=仓库→用户目录，collect=用户目录→仓库，status=比对）。
-- 铁律：①执行前 `git pull origin main` + `sync_skills.py install`；②执行后 `git push origin main`；③禁同日并行；④非主力机改skill须 collect 后 push。
-- 新机器配置见仓库根 `SETUP_NEW_MACHINE.md`。
+- 铁律：①执行前 `git pull origin main` + `sync_skills.py install`；②执行后 `git push origin main`；③禁同日并行；④非主力机改skill须 collect 后 push。新机器配置见 `SETUP_NEW_MACHINE.md`。
 
 ## 执行流程（GitHub Pages 为主，飞书为辅）
 ```
@@ -33,7 +31,8 @@
 2. 每条URL必须先 fetch 返回200，404/403/超时一律不收录；
 3. 工具版本特性必须从官方 release notes 核实，不得推断；
 4. 摘要必须从原文提取，不得据标题推断；
-4b. **date 字段必须以 WebFetch 实测页面发布/更新时间为准**，不得按"检索到的月份"填写。凡 date 精度仅到 YYYY-MM 的条目，发布前必须 WebFetch 复核（2026-08-03 教训：两条标 2026-07 的实为 2026-02-12 与 2025-08-29，均逾期）；
+4b. **date 字段必须以 WebFetch 实测页面发布/更新时间为准**，不得按"检索到的月份"填写。凡 date 精度仅到 YYYY-MM 的条目，发布前必须 WebFetch 复核（08-03教训：两条标07实为02-12/2025-08-29）；
+4c. **发布前必须 grep posts/ 目录核查关键词去重**（08-26教训：初稿7处与近3期重复——DLESyM已08-24收、OceanLight/DINOv2声呐已08-21收、EX2606/Argo GDAC快照/CMEMS 8月更新已08-25收、Seagull Coast实为07-14发布>30天；**跨期去重是最高频事故点**）；
 5. 方向归类按文章内容判断，不按来源机构功能；
 6. 跨方向去重：同URL只能出现在一个方向；
 7. 主页新闻必须找具体链接，不得用机构主页URL；
@@ -53,41 +52,39 @@
 
 ## GitHub Pages 架构
 - main 分支：源码+每日日报（posts/、index.html、archive.html）；supplement 分支：另一台机器结果（无需本地拉取）；gh-pages：Actions自动部署（勿手编）。
-- 每次生成后必须同时更新 index.html 和 archive.html。
+- 每次生成后必须同时更新 index.html 和 archive.html（post-excerpt 摘要是硬编码文本，删改条目后必须同步 Edit 两处）。
 
 ## 常见故障处理
 | 问题 | 解决方案 |
 |------|---------|
 | git push TLS错误 | `git config --unset http.sslbackend` |
-| git push代理拦截 | `git config --global --unset http.proxy && git push origin main` |
-| git push HTTPS超时 | `git remote set-url origin git@github.com:tianyunsu/ocean-data-daily-report.git && git push origin main` |
-| sandbox阻止SSH push | `GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new" git push origin main` |
+| git push 代理拦截 | `git config --global --unset http.proxy && git push origin main` |
+| git push 连127.0.0.1:65532失败 | 环境变量代理失效。`unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy` 后再 `git -c http.proxy= -c https.proxy= push origin main` |
+| git push 443超时/Connection reset | GitHub直连不稳定，**循环重试3-5次通常可成功**（Git Bash无sleep勿在循环调用）。SSH因本机无publickey不可用 |
+| git commit 报 unable to auto-detect email | 仓库级：`git config user.name "tianyunsu" && git config user.email "tianyunsu@users.noreply.github.com"` |
 | run_daily_report.py编码错误 | `$env:PYTHONUTF8=1; python run_daily_report.py` |
 | deploy_report.py卡住 | 手动：复制HTML到posts/ → 更新index/archive → git push |
-| Python urllib 出网被拒(WinError 10061) | 沙箱阻断 Python 直连外网。链接校验改用 WebFetch 工具，勿写 Python 探测脚本 |
-| git push 连 127.0.0.1:65532 失败 | 环境变量 `HTTP_PROXY/HTTPS_PROXY` 指向不可用代理。`unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy` 后再 `git -c http.proxy= -c https.proxy= push origin main` |
-| git push 443 超时/Connection reset | GitHub 直连不稳定，**循环重试 3-5 次通常可成功**（注意 Git Bash 无 `sleep`，勿在循环中调用）。SSH 方式因本机无 publickey 不可用 |
-| git commit 报 unable to auto-detect email | 仓库级配置：`git config user.name "tianyunsu" && git config user.email "tianyunsu@users.noreply.github.com"` |
-| generate_html_daily.py 报 No module named 'requests' | 该脚本 `exec` 了 feishu_write_doc.py 头部（含 import requests）。改用 `gen_html_0803.py` 式自包含生成器：`ast.literal_eval` 解析 SECTIONS，不触发任何 import |
-| 改条目后首页仍显示旧内容 | index.html / archive.html 的 post-excerpt 摘要是硬编码文本，删改条目后必须同步 Edit 这两处 |
+| Python urllib 出网被拒(WinError 10061) | 沙箱阻断Python直连外网。链接校验改用 WebFetch 工具，勿写Python探测脚本 |
+| generate_html_daily.py 报 No module named 'requests' | 该脚本exec了feishu_write_doc.py头部。改用自包含生成器：`ast.literal_eval` 解析SECTIONS（如gen_html.py），不触发任何import |
 | 飞书docx blocks 404 | 疑app token缺docx写入权限 |
 
-## 去重基准（滚动更新）
-- 2026-04-30~06-01（合并精简）：GOFLOW、xarray v2026.04.0、GEBCO_2026、OSR 9、Seabed 2030 28.7%、OCEANPILE浙大、GDAL 3.13.0、NCEI Data Tour、探索一号156天、NCEI云迁移AWS、BGC-Argo+二次QC、AxiomOcean arXiv 2605.10455、Njord GNN arXiv 2605.15470、ECMWF IFS 50r1/AIFS v2波浪预报、DITTO Summit 2026横滨、中科院琅琊北极海冰 05-19、DestinE气候DT第二代、SwinIR南海风场降尺度、IOOS QARTOD、六边形DGGS、DEA无代码、OceanAI大模型山东科大 05-28、Volador 1.0、DSON-DT、IOC海洋数据战略、CMEMS Q1 2026扩展、FuXi-Ocean npj Climate。06-11~06-26 supplement分支约100条（去重参考posts/目录）
-- 2026-07-01：扩散模型全球海况/ENSO arxiv、CMEMS第9届大会AI+物理混合、MyOcean Health Viewer、EU OceanEye GOOS、GLODAPv3、Sentinel-6B、ICAMS
-- 2026-07-06：DL印度季风/风暴分辨AI/Argo热含量arxiv、EOSC Blue-Cloud DT、Copernicus Ocean Temp Bulletin
-- 2026-07-09：中科院LangYa框架、CNN海洋生物多样性 Frontiers、ISPRS海洋色遥感3D+AI、EDITO平台、geoai-py
-- 2026-07-13：世航智能沧穹CEORION融资、湛江湾1号海洋鸿蒙、三亚深海科考AI、华大智造海洋生物AI、WavyOcean 3.0(首报)
-- 2026-07-16：DCGNet/域偏移基准/有害藻华ML arxiv、南溟海洋大模型、MOL IBM AI船舶风险
-- 2026-07-21：SALT/AquaStereo arxiv、崂山实验室预报模型、蓝鲲智种大模型、WAIC 2026 AI赋能海洋论坛、pyglider、VirtualFleet
-- 2026-07-24：AUV海底压缩/DREAM VLM/多智能体RL arxiv、CVPR 2026水下视觉(Earth2Ocean/NemoNet/UDVSR-Net/AdaMSCol)、台风风暴潮预报、CMEMS SST产品
-- 2026-07-28：MarineEVT(ECCV 2026)、RHCNet/MARIS/BiPA(CVPR 2026)、MaCVi Workshop(CVPR 2026)、生成状态空间模型、AUV浮游生物、WavyOcean 3.0、Nautilus NA180、wavespectra v4.8.0、raschii v2.0.0、CMEMS Argo QC3
-- 2026-07-31：KIST-Ocean Science Advances、琅琊2.0、Immersive Ocean ILIAD ISPRS、BGC-Argo VAE biofouling、青岛可信数据空间、数据产权登记、Okeanos EX2605、科学号第15次西太、CMEMS 7月新版本、GEBCO 2026研讨会、pyo-oracle v1.0.0。**去重事故**：MARIS/WavyOcean 3.0/CMEMS Argo QC3已在上期报道
-- 2026-08-03（16条/9方向）：HybridOM(ICML 2026)、BALLAST(ICML 2026)、SWIN-DeepONet(IJCAI-ECAI 2026)、多尺度CNN+DropKey-Transformer海况估计(JMSE 07-29)、V-JEPA视频波浪参数(arXiv 07-15)、ECCV 2026海洋视觉研讨会征稿、DestinE第三阶段、CMEMS路线图MyOcean Pro 3D(07-27)、边缘云协同实时QC专利CN122346797A(07-07)、BGC-Argo CHLA再处理(07-11)、ODIS指导小组筹备IODE-29(07-22/23)、IOC执行理事会第59届数据互操作决议(07-03)、Schmidt加勒比盐指航次(08-06起)、CMEMS 7月服务发布新MFC(07-07)、xarray v2026.07.0、uxarray v2026.07.0。**时效修正**：草稿中「海洋十年公民科学FAIR指南」实为2026-02-12发布、「中国Argo智能系统」页面2025-08-29编辑，均>60天已删除替换
-- 2026-08-07（17条/9方向）：盘古海洋智能预报大模型工程化落地(08-03,全国首个AI+全栈国产算力)、生成式AI海啸概率预报arXiv 2608.04327(08-05)、BG4Sea生物地球化学季节预报arXiv 2607.16731(07-18,豁免,Mercator Ocean)、Swimm3R水下3D重建arXiv 2608.00950(08-02)、DITTO Summit 2026早鸟注册/8-25议程(07-30,更新)、2DCNN-LSTM Sentinel-2沙波测深Remote Sens 18(15):2511(08-01)、贝叶斯多模态AUV生境测绘EAAI+multimodal-auv(07-01,豁免)、海洋二所RAISE-Ocean入选联合国科学十年第三批全球计划(08-01)、MDImageNet海废影像资料集CC BY 4.0+国际AI竞赛(中国台湾海洋委员会,07-30)、DORI虎鲸声学数据集5298小时(08-07,KDD 2026审稿)、奋斗者号Nature鲸类化石群(06-10发表,豁免58天)、E/V Nautilus NA181威克岛深海探索(08-20起)、cstar-ocean v0.8.0(08-05,更新)、oceanspy v0.3.6(06-15,豁免53天)
-- 2026-08-10（14条/9方向）：中国科协年会海洋系统AI大模型专题论坛(07-28)、王凡所长多智能体协同大模型战略、UUV视觉控制框架arXiv 2608.04723(08-05,IFAC WC 2026)、UUV规划学习框架arXiv 2608.05365(08-05)、ML辅助事件感知QC框架JMSE 14(16):1462(08-08)、AUV海底图像AI远程感知arXiv 2607.18013(07-30,豁免26天)、青岛发布全国首个海洋公共数据团体标准(08-06)、联合国海洋十年第11轮行动征集、NOAA Okeanos EX2605库克群岛探险进入最后阶段(更新)、E/V Nautilus NA180即将结束NA181接力(更新)、raschii v2.0.1、wavespectra v5.0预告
-- 2026-08-14（13条/9方向）：琅琊海洋大模型技术框架Science Bulletin论文(08-12,更新,1/12°全球1-7天128变量)、Multi-AUV值梯度引导多智能体扩散RL arXiv 2608.12436(08-12)、李群随机PINN水下航行器动力学arXiv 2608.08356(08-08)、BenthiCat光-声多模态数据集ESSD(08-10,约百万SSS瓦片+3.6万标注)、CMEMS In Situ TAC综述澳32台滑翔机150万条剖面入网(07-30,豁免15天)、科学号西太共享航次返港捕捉3次台风(08-07,更新)、NOAA EX2605库克群岛ROV探险收官(08-13,更新)、gridstats v2.6.0(08-12)、π-SUB物理信息合成水下图像基准(arXiv 08-11)。**时效修正**：marinesitu.eu One Ocean文章实为04-30发布(>60天)已改引CMEMS主站07-30综述；EX2605 URL与08-10重复改media-resources页
-- 2026-08-18（12条/9方向）：AMR-Pose主动LED标记+概率切换PnP协同AUV相对位姿arXiv 2608.12866(08-13)、LinStereo线性复杂度全局注意力水下立体匹配+SeaStereo数据集ECCV 2026 arXiv 2606.25437(06-24,豁免55天)、福建渔区海况预报全国首个省级渔区七天逐时预报(08-10)、山东港口日照港集装箱数字孪生系统上线(08-14)、DTF-Net深度学习关联检验风数据质控JMSE 14(16):1453(08-07)、条件多元函数PCA重建海豹生物记录器部分温盐剖面arXiv 2608.05376(08-05)、哨兵-2超时相数据立方体光学测深70-80米Science of Remote Sensing(08-14/EUSPA 08-16)、OBIS南极ROV底栖图像丰度数据集TANGO1-TANGO2(08-14)、NOAA EX2606美属萨摩亚ROV探险(08-19起)、GEBCO_2026网格WMS图层上线(08-04)。**时效剔除**：TIDE(arXiv 2512.07171实为2025-12-08提交>60天)、PDIM(Acta Oceanol Sin 2026-01-23发表>60天)、OceanMCP(coops-mcp首发02-21>60天)、Schmidt/Rutgers盐指航次(与08-03重复)
-- 2026-08-21（13条/9方向）：OceanLight几何自适应非结构化网格+图神经网络全球海洋预报arXiv 2608.16070(08-17,国防科大,GPU-62%/FLOPs-70%)、退化感知跨模态融合基础模型+声呐水下感知arXiv 2608.19710(08-20,DINOv2+声呐33.5%提升)、Dynamic SpectraFormer超高清水下图像增强频域Transformer arXiv 2608.18662(08-19,东京大学)、MHE基于TDOA水下目标跟踪移动时域估计arXiv 2608.16024(08-17,IFAC WC 2026,里斯本大学)、OceanDepths全球表层-次表层配对海洋观测AI-ready数据集arXiv 2608.16373(08-17,ESA,950万配对剖面)、EMODnet第24届指导委员会会议纪要(08-03,豁免18天)、E/V Nautilus NA181威克岛深海探索正式启航(08-20,更新,ROV Hercules+Argo布放)、NOAA EX2607美属萨摩亚测绘航次(08-17新闻/09-24起)。**去重修正**：EX2607共用NOAA总览页与08-18 EX2606重复改news-release页；占位条目主页URL避免重复
-- 2026-08-24（11条/9方向）：DLESyM-Ocean深度学习概率全球上层海洋-海冰模拟arXiv 2608.11545(08-12,华盛顿大学+NVIDIA,patch energy score loss)、Underwater Color Restoration with Vanishing Uncertainty水下颜色恢复不确定性理论arXiv 2608.15598(08-16,Sea-thru作者Akkaynak)、PRCV 2026哈尔滨举办聚焦水下智能视觉(哈尔滨工程大学承办,08-22)、DBSD-Net海表温度超分辨率双分支状态位移网络arXiv 2608.15423(08-15,中国海洋大学,IEEE JSTARS录用)、HiAOOS 2026北极航次启航(08-17,挪威Svalbard号回收6深潜标+Euro-Argo浮标)。**时效剔除**：SeagrassFinder(arXiv 2412.16147原版2024-12>60天)、SIMPGEN(arXiv 2503.21303 2025-03>60天)、WavyOcean 3.0 AOGS展示(与07-13/07-28重复)。**占位URL轮换经验**：连续两期同占位主页URL触发去重，建URL池轮换
-- 2026-08-25（21条/9方向）：盘古海洋智能预报大模型工程化落地(CCTV 08-13)、WaveGraph GNN地中海十年波浪重建(arXiv 2608.16449, 08-17)、RCNN残差校正SST降尺度(arXiv 2608.10022, 08-09)、CORAL-AUV CFD导向RL(arXiv 2607.09557, 07-10, CoRL 2026)、GNN-BiLSTM韩国养殖热浪预警(TechTimes 08-04)、广州南沙AquaLink+HKUST(GZ)海洋DT+DeepMatrix(花城网 08-13)、CMEMS MyOcean洋流可视化(08-25)、SIREN-TV隐式神经表示SSH重建(GMD 08-07)、SGD-SST 2.0跨传感器SST(ESWA 08-06)、U-Net地中海SST云遮挡重建(EGU26 08-18)、青岛海洋公共数据团体标准(08-12)、国家数据局涉海公共数据开发利用(08-25)、ROSA数据治理指南(08月)、探索6000 AUV南海冷泉首次商业化(08-07)、NOAA Okeanos库克群岛26天深潜(08-19)、E/V Nautilus AUV Sentry马里亚纳(08-03)、NOAA EX2606美属萨摩亚ROV+测绘(08-20~09-17)、CMEMS 8月产品更新(北极波浪/Baltic/Arctic潮汐3km/Arctic BGC)、NOAA NOS OFS Skill Assessment v1.7.1(08-04)、earthlens v0.14.0(08-08)、MDOcean v1.4.4(08-17)。**顶会时效**：HybridOM ICML(arXiv 2602=2月>60天排除)、AAAI DRM-Net/DiveSeg(>60天排除)
+## 去重基准（滚动更新，近期=主要比对对象）
+- 04-30~06-01（合并）：GOFLOW/xarray v2026.04.0/GEBCO_2026/OSR 9/Seabed 2030 28.7%/OCEANPILE浙大/GDAL 3.13.0/NCEI Data Tour/探索一号156天/NCEI云迁移AWS/BGC-Argo+二次QC/AxiomOcean 2605.10455/Njord GNN 2605.15470/ECMWF IFS 50r1+AIFS v2波浪/DITTO Summit 横滨/琅琊北极海冰/DestinE DT第二代/SwinIR南海降尺度/IOOS QARTOD/六边形DGGS/DEA无代码/OceanAI大模型山东科大/Volador 1.0/DSON-DT/IOC海洋数据战略/CMEMS Q1扩展/FuXi-Ocean。06-11~06-26 supplement分支约100条（去重参考posts/目录）
+- 07-01：扩散模型海况/ENSO arxiv、CMEMS第9届大会、MyOcean Health、EU OceanEye、GLODAPv3、Sentinel-6B、ICAMS
+- 07-06：DL印度季风/风暴分辨AI/Argo热含量arxiv、EOSC Blue-Cloud DT、Copernicus Ocean Temp Bulletin
+- 07-09：中科院LangYa、CNN海洋生物多样性Frontiers、ISPRS海洋色遥感3D+AI、EDITO、geoai-py
+- 07-13：世航智能沧穹CEORION融资、湛江湾1号海洋鸿蒙、三亚深海科考AI、华大智造海洋生物AI、WavyOcean 3.0(首报)
+- 07-16：DCGNet/域偏移基准/有害藻华ML arxiv、南溟海洋大模型、MOL IBM AI船舶风险
+- 07-21：SALT/AquaStereo arxiv、崂山实验室预报模型、蓝鲲智种大模型、WAIC 2026 AI赋能海洋论坛、pyglider、VirtualFleet
+- 07-24：AUV海底压缩/DREAM VLM/多智能体RL arxiv、CVPR 2026水下视觉(Earth2Ocean/NemoNet/UDVSR-Net/AdaMSCol)、台风风暴潮预报、CMEMS SST产品
+- 07-28：MarineEVT(ECCV)/RHCNet/MARIS/BiPA(CVPR)/MaCVi Workshop/生成状态空间模型/AUV浮游生物/WavyOcean 3.0/Nautilus NA180/wavespectra v4.8.0/raschii v2.0.0/CMEMS Argo QC3
+- 07-31：KIST-Ocean、琅琊2.0、ILIAD ISPRS、BGC-Argo VAE biofouling、青岛可信数据空间、数据产权登记、Okeanos EX2605、科学号西太、CMEMS 7月新版本、GEBCO研讨会、pyo-oracle v1.0.0。**去重事故**：MARIS/WavyOcean 3.0/CMEMS Argo QC3已在上期报道
+- 08-03（16条）：HybridOM(ICML)、BALLAST(ICML)、SWIN-DeepONet(IJCAI-ECAI)、多尺度CNN+DropKey海况估计、V-JEPA波浪、ECCV 2026海洋视觉征稿、DestinE第三阶段、CMEMS MyOcean Pro 3D、边缘云QC专利、BGC-Argo CHLA再处理、ODIS筹备IODE-29、IOC执理会数据互操作决议、Schmidt加勒比盐指航次、CMEMS新MFC、xarray/uxarray v2026.07.0。**时效修正**：海洋十年公民科学FAIR指南实为02-12、中国Argo智能系统2025-08-29编辑，均剔除
+- 08-07（17条）：盘古海洋预报大模型工程化(08-03)、生成式AI海啸概率预报2608.04327、BG4Sea季节预报2607.16731(豁免)、Swimm3R 2608.00950、DITTO Summit早鸟(07-30更新)、2DCNN-LSTM沙波测深、贝叶斯AUV生境测绘(豁免)、RAISE-Ocean入选科学十年、MDImageNet(中国台湾海洋委员会)、DORI虎鲸声学5298h、奋斗者号Nature鲸类化石(豁免)、Nautilus NA181(08-20起)、cstar-ocean v0.8.0、oceanspy v0.3.6(豁免)
+- 08-10（14条）：中国科协海洋AI大模型论坛、王凡多智能体战略、UUV视觉控制2608.04723、UUV规划学习2608.05365、ML事件感知QC JMSE、AUV海底图像远程感知2607.18013(豁免)、青岛海洋公共数据团体标准、海洋十年第11轮征集、EX2605最后阶段(更新)、NA180结束NA181接力(更新)、raschii v2.0.1、wavespectra v5.0预告
+- 08-14（13条）：琅琊大模型Science Bulletin(08-12)、Multi-AUV值梯度扩散RL 2608.12436、李群随机PINN 2608.08356、BenthiCat光-声数据集ESSD、CMEMS In Situ TAC澳滑翔机综述(豁免)、科学号西太返港、EX2605收官(更新)、gridstats v2.6.0、π-SUB水下基准(08-11)。**时效修正**：marinesitu.eu文章实为04-30剔除；EX2605 URL与08-10重复改media-resources
+- 08-18（12条）：AMR-Pose AUV相对位姿2608.12866、LinStereo+SeaStereo ECCV(豁免)、福建渔区海况预报(08-10)、日照港集装箱数字孪生(08-14)、DTF-Net风数据质控JMSE、条件多元函数PCA海豹剖面2608.05376、哨兵-2光学测深70-80米、OBIS南极ROV数据集TANGO、EX2606预告(08-19起)、GEBCO_2026 WMS。**时效剔除**：TIDE(2512.07171)、PDIM(01-23)、OceanMCP(02-21)、Schmidt盐指(与08-03重复)
+- 08-21（13条）：OceanLight 2608.16070(08-17)、退化感知跨模态融合DINOv2+声呐2608.19710(08-20)、Dynamic SpectraFormer 2608.18662、MHE TDOA 2608.16024(IFAC WC)、OceanDepths 2608.16373(ESA)、EMODnet第24届指导委员会、Nautilus NA181启航(更新)、EX2607预告(09-24起)。**去重修正**：EX2607与08-18 EX2606共用NOAA总览页重复改news-release页
+- 08-24（11条）：DLESyM-Ocean 2608.11545(08-12,华盛顿大学+NVIDIA)、Underwater Color Restoration 2608.15598(Sea-thru作者)、PRCV 2026哈尔滨、DBSD-Net SST超分2608.15423、HiAOOS 2026北极航次(08-17)。**时效剔除**：SeagrassFinder(2024-12)、SIMPGEN(2025-03)、WavyOcean AOGS(重复)。**经验**：占位主页URL连续两期重复触发去重，建URL池轮换
+- 08-25（21条）：盘古大模型工程化(CCTV 08-13)、WaveGraph GNN 2608.16449、RCNN SST降尺度2608.10022、CORAL-AUV CFD RL(CoRL)、GNN-BiLSTM韩国热浪预警、广州南沙AquaLink+HKUST(GZ) DT、CMEMS MyOcean洋流可视化、SIREN-TV SSH重建、SGD-SST 2.0、U-Net地中海SST重建、青岛海洋公共数据标准(08-12)、国家数据局涉海数据(08-25)、ROSA数据治理指南、探索6000 AUV南海冷泉商业化、NOAA库克群岛26天深潜、Nautilus AUV Sentry马里亚纳、**EX2606美属萨摩亚ROV+测绘(08-20~09-17)**、**CMEMS 8月产品更新(北极波浪/Baltic/Arctic潮汐3km/Arctic BGC)**、NOAA NOS OFS v1.7.1、earthlens v0.14.0、MDOcean v1.4.4。**顶会时效**：HybridOM(2月>60天)、AAAI DRM-Net/DiveSeg(>60天)均排除
+- 08-26（13条有效/9方向）：IJCAI-ECAI 2026 AI4G #AI4G39海洋热极端预警(08-20,Bremen)、世界模型接地LLM规划AUV/ASV 2608.19661(08-20,IROS 2026 AQ2UASIM)、SAM2点提示底栖密集分割2608.17561(08-18)、生成式资料同化锋面级联2608.14955(08-15,审稿Comms EE)、浑浊水下多标注者2608.15363(08-15,ECCVW'26 Marine Vision)、OLAR DTO四层架构综述10.34133/olar.0160(08-17)、NERACOOS Mariner's Dashboard beta(08-25)、IOOS Model Viewer WFCOM(08-25)、中大西洋HFR SeaSonde R25自动QC(08-25)、PANGAEA元数据架构现代化(08-17)、第10次中俄海洋联合科考(08-20起62天)、库克群岛EX2605欢迎仪式+意外多金属结核场(08-17)、uxarray v2026.08.0(08-18)。**去重教训（07处）**：初稿DLESyM(08-24已收)/OceanLight(08-21已收)/DINOv2声呐(08-21已收)/EX2606(08-25已收)/Argo GDAC快照(08-25已收)/CMEMS 8月更新(08-25已收)/Seagull Coast(07-14>30天)全剔除——**教训4c：发布前grep posts/核查**
