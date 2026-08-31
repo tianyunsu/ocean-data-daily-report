@@ -190,15 +190,36 @@ agent_created: true
 
 | # | 方向 | 主要搜索来源 | 搜索关键词示例 |
 |---|------|-------------|---------------|
-| 1 | 海洋人工智能 | arXiv physics.ao-ph, **顶会论文(强制检索23个会议)**, Nature, npj 系列, 国内新闻 | "ocean AI deep learning 2026", `"CVPR 2026" underwater marine`, "海洋大模型 2026" |
+| 1 | 海洋人工智能 | arXiv physics.ao-ph, **顶会论文(强制检索23个会议)**, Nature, npj 系列, 国内新闻 | "ocean AI deep learning 2026", `"CVPR 2026" underwater marine`, "海洋大模型 2026", **"Arctic sea ice deep learning", "北极海冰 AI 遥感", "sea ice remote sensing review 2026"** |
 | 2 | 海洋数字孪生 | CMEMS, NOAA, 国内政策, **顶会论文(MLSys/NeurIPS)** | "digital twin ocean 2026", "海洋数字孪生 最新" |
 | 3 | 海洋可视化 | CMEMS MyOcean, GitHub, 学术工具, **顶会论文(CVPR/ICCV/ECCV)** | `"CVPR 2026" ocean visualization`, "ocean visualization tool 2026" |
 | 4 | 海洋数据质量 | Springer, Argo, GOOS, **顶会论文(ICML/NeurIPS)** | `"ICML 2026" ocean data quality`, "Argo quality control machine learning 2026" |
-| 5 | 海洋数据处理 | arXiv, Nature Sci Data, **顶会论文(NeurIPS/ICLR)**, J. Oceanography | `"NeurIPS 2026" ocean data`, "ocean data processing AI 2026" |
+| 5 | 海洋数据处理 | arXiv, Nature Sci Data, **顶会论文(NeurIPS/ICLR)**, J. Oceanography | `"NeurIPS 2026" ocean data`, "ocean data processing AI 2026", "SST super-resolution sea ice dataset 2026" |
 | 6 | 数据管理与共享 | IOC, EMODnet, 信通院, CMEMS | "ocean data sharing FAIR policy 2026" |
 | 7 | 开放航次与科考 | NOAA Ocean Exploration, 高校科考新闻, **顶会论文(CoRL/ICRA)** | "NOAA Okeanos Explorer 2026", "海洋科考 2026" |
 | 8 | 海洋数据中心 | GEBCO, ECCO, 国内海洋数据中心 | "GEBCO 2026", "ECCO update" |
 | 9 | 工具与代码资源 | PyPI, GitHub, **顶会论文开源代码**, 学术工具论文 | `"ICLR 2026" ocean code release`, "oceanography Python package release 2026" |
+
+### 补充检索：国内海洋所新闻巡检（每期必查）
+
+国内主要海洋研究机构官网"科研进展"栏目常发布**顶刊论文新闻稿**（重磅综述/里程碑论文），搜索引擎关键词不易覆盖，**每期必须主动巡检**：
+
+| 机构 | 官网路径 | 巡检内容 |
+|------|---------|---------|
+| 中科院海洋研究所（青岛） | `qdio.cas.cn/2019Ver/News/kyjz/` | 海洋AI、遥感、海冰/极地、数据方向论文新闻 |
+| 中科院南海海洋研究所（广州） | `gzb.cas.cn/kyj/` | 南海/热带海洋研究动态 |
+| 自然资源部第一/第二/第三海洋研究所 | 官网"科研动态" | 海洋遥感、数据处理、极地 |
+| 中国极地研究中心 | `chinare.org.cn` 新闻 | 极地/海冰遥感与AI |
+
+> ⚠️ **教训案例（2026-08-31）**：中科院海洋所 08-26 发布《Deep Learning Applications in Arctic Sea Ice Remote Sensing: A Review》（IEEE GRSM, IF 13.7, 任沂斌一作/李晓峰通讯）新闻稿，三期日报（08-25/08-26/08-31）均因**检索关键词未覆盖"海冰/极地"主题**而遗漏。该文完全符合收录条件（顶级期刊综述+发布5天内）。**此后每期检索必须包含 "Arctic sea ice" / "北极海冰" / "极地遥感" 关键词，并巡检上表国内机构新闻栏目。**
+
+### 顶级期刊综述检查（每期必查）
+
+**IEEE GRSM / RSE / Reviews of Geophysics / Nature Reviews Earth & Environment / OLAR 等期刊的重磅综述**属于"顶级来源"，即使发布超过14天，只要 ≤60 天且不与历史重复，可按重要性豁免收录。检索时对以下期刊单独查询最近1-2期目录或新闻稿：
+- IEEE Geoscience and Remote Sensing Magazine（GRSM, IF≈13.7）
+- Remote Sensing of Environment（RSE）
+- Nature Reviews Earth & Environment
+- 中文顶刊综述（《海洋学报》《海洋科学进展》等）
 
 ## 顶会论文检索
 
