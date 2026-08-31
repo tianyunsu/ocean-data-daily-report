@@ -78,15 +78,16 @@ agent_created: true
 
 完整的日报生成分为 **6 个阶段**，按顺序执行，不得跳过：
 
-### 阶段一：顶会论文检索（强制，不可跳过）
+### 阶段一：顶会论文与 IEEE 期刊检索（强制，不可跳过）
 
 ⚠️ **此阶段是 2026-07-31 质检后发现的最大盲区，必须在所有常规检索之前执行。**
 
-**必须检索以下 23 个顶级会议**中与海洋/地球科学相关的 2026 年论文：
+**必须检索以下 23 个顶级会议 + IEEE 学术期刊**中与海洋/地球科学相关的 2026 年论文：
 
 **第一梯队（高相关，10个）**：CVPR、ICCV、ECCV、NeurIPS、ICML、ICLR、AAAI、IJCAI、CoRL、MICCAI
 **第二梯队（中相关，7个）**：ACL、EMNLP、NAACL、COLM、UAI、COLT、MLSYS
 **第三梯队（低相关但纳入，6个）**：INTERSPEECH、IWSLT、NDSS、USENIX-Fast、USENIX-Sec、OSDI
+**IEEE 学术期刊（强制，每期必查）**：JOE、TGRS、GRSL、JSTARS、GRSM（高相关）；T-RO、RA-L、TNNLS、TIP（方法迁移）。详见下文"IEEE 学术期刊清单"。
 
 检索方法（每种都必须使用）：
 1. **OpenReview**: `"ocean" OR "marine" OR "underwater" site:openreview.net`
@@ -96,11 +97,12 @@ agent_created: true
 5. **Papers with Code**: https://paperswithcode.com/search?q=ocean+marine+underwater
 6. **Google Scholar**: `"<CONFERENCE> 2026" ocean OR marine OR underwater`
 7. **WebSearch 通用**: 针对每个会议搜索 `CVPR 2026 underwater marine ocean` 等
+8. **IEEE Xplore**: https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=ocean%20marine%20underwater （或 `site:ieeexplore.ieee.org ocean marine 2026`），按期刊筛选最近 1-2 期
 
 筛选标准：方法应用型 > 方法可迁移型 > 纯方法型。Workshop/Tutorial 中涉及海洋的也收录。
-日期以首次公开可访问日期为准（arXiv v1 或 OpenReview 公开日）。
+日期以首次公开可访问日期为准（arXiv v1、OpenReview 公开日、**IEEE Xplore Early Access 日**）。
 
-**此阶段必须产出 ≥5 条初筛结果**，如不足 5 条则扩大关键词（bathymetry, sea surface temperature, ocean current, plankton, coral, seafloor, AUV, ROV, sonar, acoustics, climate, remote sensing）。
+**此阶段必须产出 ≥5 条初筛结果**，如不足 5 条则扩大关键词（bathymetry, sea surface temperature, ocean current, plankton, coral, seafloor, AUV, ROV, sonar, acoustics, climate, remote sensing, **sea ice, Arctic, polar**）。
 
 常见陷阱：顶会论文日期歧义——以首次公开可访问日期为准，非会议召开日。详见 `references/quality_standards.md` 的"顶会论文日期规则"。
 
@@ -190,11 +192,11 @@ agent_created: true
 
 | # | 方向 | 主要搜索来源 | 搜索关键词示例 |
 |---|------|-------------|---------------|
-| 1 | 海洋人工智能 | arXiv physics.ao-ph, **顶会论文(强制检索23个会议)**, Nature, npj 系列, 国内新闻 | "ocean AI deep learning 2026", `"CVPR 2026" underwater marine`, "海洋大模型 2026", **"Arctic sea ice deep learning", "北极海冰 AI 遥感", "sea ice remote sensing review 2026"** |
+| 1 | 海洋人工智能 | arXiv physics.ao-ph, **顶会论文(强制检索23个会议)**, **IEEE期刊(JOE/TGRS/GRSM)**, Nature, npj 系列, 国内新闻 | "ocean AI deep learning 2026", `"CVPR 2026" underwater marine`, "海洋大模型 2026", **"Arctic sea ice deep learning", "北极海冰 AI 遥感", "sea ice remote sensing review 2026"** |
 | 2 | 海洋数字孪生 | CMEMS, NOAA, 国内政策, **顶会论文(MLSys/NeurIPS)** | "digital twin ocean 2026", "海洋数字孪生 最新" |
 | 3 | 海洋可视化 | CMEMS MyOcean, GitHub, 学术工具, **顶会论文(CVPR/ICCV/ECCV)** | `"CVPR 2026" ocean visualization`, "ocean visualization tool 2026" |
-| 4 | 海洋数据质量 | Springer, Argo, GOOS, **顶会论文(ICML/NeurIPS)** | `"ICML 2026" ocean data quality`, "Argo quality control machine learning 2026" |
-| 5 | 海洋数据处理 | arXiv, Nature Sci Data, **顶会论文(NeurIPS/ICLR)**, J. Oceanography | `"NeurIPS 2026" ocean data`, "ocean data processing AI 2026", "SST super-resolution sea ice dataset 2026" |
+| 4 | 海洋数据质量 | Springer, Argo, GOOS, **顶会论文(ICML/NeurIPS)**, **IEEE期刊(TGRS/GRSL)** | `"ICML 2026" ocean data quality`, "Argo quality control machine learning 2026" |
+| 5 | 海洋数据处理 | arXiv, Nature Sci Data, **顶会论文(NeurIPS/ICLR)**, J. Oceanography, **IEEE期刊(TGRS/JSTARS)** | `"NeurIPS 2026" ocean data`, "ocean data processing AI 2026", "SST super-resolution sea ice dataset 2026" |
 | 6 | 数据管理与共享 | IOC, EMODnet, 信通院, CMEMS | "ocean data sharing FAIR policy 2026" |
 | 7 | 开放航次与科考 | NOAA Ocean Exploration, 高校科考新闻, **顶会论文(CoRL/ICRA)** | "NOAA Okeanos Explorer 2026", "海洋科考 2026" |
 | 8 | 海洋数据中心 | GEBCO, ECCO, 国内海洋数据中心 | "GEBCO 2026", "ECCO update" |
@@ -221,10 +223,10 @@ agent_created: true
 - Nature Reviews Earth & Environment
 - 中文顶刊综述（《海洋学报》《海洋科学进展》等）
 
-## 顶会论文检索
+## 顶会论文与期刊检索
 
-在阶段一搜索时，除 arXiv 和新闻来源外，**必须检索以下顶级会议**中与海洋/地球科学相关的论文。
-这些会议涵盖了计算机视觉、机器学习、NLP、机器人、系统安全等领域中可能应用于海洋AI的方法论和工作。
+在阶段一搜索时，除 arXiv 和新闻来源外，**必须检索以下顶级会议与 IEEE 期刊**中与海洋/地球科学相关的论文。
+这些会议与期刊涵盖了计算机视觉、机器学习、NLP、机器人、系统安全等领域中可能应用于海洋AI的方法论和工作。
 
 ### 会议清单（按相关度分组）
 
@@ -287,6 +289,41 @@ agent_created: true
 5. **Google Scholar 定向检索**：
    - `"<CONFERENCE> 2026" "ocean" OR "marine" OR "underwater"`
    - 可叠加关键词：`bathymetry`, `sea surface temperature`, `ocean current`, `plankton`, `coral`, `seafloor`
+
+6. **IEEE Xplore 期刊检索**（覆盖全部 IEEE 期刊，每期必查）：
+   - 访问 `https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=ocean%20marine%20underwater`
+   - 或搜索 `site:ieeexplore.ieee.org ocean marine 2026`
+   - 建议按期刊筛选（见下方 IEEE 学术期刊清单），优先查看**最近 1-2 期**的 Early Access / 最新论文
+   - 论文日期以 **IEEE Xplore 上的出版日期**为准（Early Access 日期即为首发日，按此判定时效）
+
+### IEEE 学术期刊清单（每期必查）
+
+IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等优先级。按相关度分组：
+
+#### 高相关（海洋/遥感直接对口）
+
+| 期刊缩写 | 全称 | 领域 | 海洋相关切入点 |
+|---------|------|------|---------------|
+| JOE | IEEE Journal of Oceanic Engineering | 海洋工程 | 海洋观测系统、水下声学、AUV/ROV、海洋仪器 |
+| TGRS | IEEE Transactions on Geoscience and Remote Sensing | 遥感 | 海表温度/盐度反演、海冰遥感、SAR海洋应用、遥感深度学习 |
+| GRSL | IEEE Geoscience and Remote Sensing Letters | 遥感（快报） | 同 TGRS，短篇快讯时效更高 |
+| JSTARS | IEEE J. Sel. Topics in Applied Earth Obs. & Remote Sensing | 遥感应用 | 海洋遥感应用、数据立方体、深度学习遥感 |
+| GRSM | IEEE Geoscience and Remote Sensing Magazine | 遥感（综述/顶刊, IF≈13.7） | **重磅综述**（如北极海冰深度学习综述）、应用综述 |
+
+#### 中相关（机器人/AI 方法迁移）
+
+| 期刊缩写 | 全称 | 领域 | 海洋相关切入点 |
+|---------|------|------|---------------|
+| T-RO | IEEE Transactions on Robotics | 机器人 | 水下机器人规划、自主导航 |
+| RA-L | IEEE Robotics and Automation Letters | 机器人快报 | AUV/ROV 感知与控制、水下抓取 |
+| TNNLS | IEEE Trans. on Neural Networks and Learning Systems | 神经网络 | 海洋时序预测、时空深度学习 |
+| TIP | IEEE Transactions on Image Processing | 图像处理 | 水下图像增强/恢复 |
+| TGRS 系列同源 | IEEE Trans. on Computational Imaging / Instrumentation & Measurement | 成像/测量 | 海洋传感器数据处理 |
+
+#### 检索提醒
+- **GRSM 综述优先**：GRSM 每期 1-2 篇重磅综述，属于"顶级来源"豁免范畴（≤60 天可收录），是本期遗漏教训的直接对策（见 2026-08-31 复盘）
+- **TGRS/GRSL 海冰主题**：检索时叠加 `sea ice`、`Arctic`、`polar` 关键词（与 8/31 教训联动）
+- **Early Access 日期即首发日**：IEEE 论文以 Xplore 上线日为 `date` 字段，非正式卷期日
 
 ### 筛选标准
 
