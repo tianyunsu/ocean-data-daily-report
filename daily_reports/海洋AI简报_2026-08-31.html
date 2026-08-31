@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年08月31日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,168,181,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .header h1 span { color: var(--ocean-teal); }
+  .header .subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .summary-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #e0f0ff;
+    font-size: 0.82em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .summary-chip strong { color: var(--ocean-teal); }
+  .nav-bar {
+    background: rgba(0,30,60,0.95);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0,168,181,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.78em;
+    padding: 4px 10px;
+    border-radius: 15px;
+    transition: all 0.2s;
+  }
+  .nav-link:hover {
+    background: rgba(0,168,181,0.3);
+    color: #fff;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon { font-size: 1.8em; }
+  .section-title {
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 700;
+  }
+  .section-meta {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.78em;
+    margin-top: 2px;
+  }
+  .section-badge {
+    background: var(--ocean-teal);
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .section-content { padding: 0; }
+  .item {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.2s;
+  }
+  .item:last-child { border-bottom: none; }
+  .item:hover { background: var(--ocean-foam); }
+  .item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .item-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    font-size: 0.68em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .item-title {
+    color: var(--ocean-deep);
+    font-size: 0.95em;
+    font-weight: 600;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    line-height: 1.65;
+    margin: 8px 0;
+  }
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.75em;
+    color: var(--text-muted);
+  }
+  .item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .item-meta a {
+    color: var(--ocean-light);
+    text-decoration: none;
+  }
+  .item-meta a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8em;
+  }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.6em; }
+    .nav-bar { gap: 5px; }
+    .nav-link { font-size: 0.7em; padding: 3px 8px; }
+    .item { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-badge">OCEAN AI DAILY</div>
+    <h1>海洋AI技术日报</h1>
+    <div class="subtitle">报告日期：2026年08月31日 | 来源：ICML / IJCAI / ECCV / Copernicus / IOC / Schmidt Ocean 等 | 自动生成</div>
+    <div class="summary-bar">
+      <div class="summary-chip"><strong>9</strong> 个研究方向</div>
+      <div class="summary-chip"><strong>10</strong> 条精选动态</div>
+      <div class="summary-chip">覆盖 AI · 数字孪生 · 可视化 · 数据质量 · 处理 · 共享 · 航次 · 数据中心 · 工具</div>
+    </div>
+  </div>
+  <nav class="nav-bar">
+    <a class="nav-link" href="#section-1">🤖 海洋人工智能</a>
+    <a class="nav-link" href="#section-2">🌐 海洋数字孪生</a>
+    <a class="nav-link" href="#section-3">📊 海洋可视化</a>
+    <a class="nav-link" href="#section-4">✅ 海洋数据质量</a>
+    <a class="nav-link" href="#section-5">⚙️ 海洋数据处理</a>
+    <a class="nav-link" href="#section-6">🗄️ 海洋数据管理与共享</a>
+    <a class="nav-link" href="#section-7">🚢 开放航次与科考</a>
+    <a class="nav-link" href="#section-8">🏛️ 海洋数据中心</a>
+    <a class="nav-link" href="#section-9">🛠️ 工具与代码资源</a>
+  </nav>
+  <div class="container">
+    <div class="section" id="section-1">
+      <div class="section-header">
+        <span class="section-icon">🤖</span>
+        <div>
+          <div class="section-title">一、海洋人工智能</div>
+          <div class="section-meta">Ocean AI / Marine Artificial Intelligence</div>
+        </div>
+        <span class="section-badge">2 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.22906" target="_blank">AquaFlow：单目3D高斯溅射SLAM水下流式重建框架（arXiv, 2026-08-25）</a></div>
+          </div>
+          <div class="item-abstract">浙江大学、上海人工智能实验室、上海交通大学、清华大学等六机构联合提出 AquaFlow，面向水下场景的单目3D高斯溅射（3DGS）流式重建框架：先在大规模水下数据上微调3D视觉基础模型以获取鲁棒的相机位姿与点图估计，再通过介质引导的增量高斯初始化将新帧可靠区域加入场景，并构建融合结构化距离条件神经高斯与物理光学模型的混合场景表示，补偿水下成像衰减与散射。在62条水下轨迹（公开基准+网络视频）上，平均定位误差较 WaterSplat-SLAM 降低13.2%、PSNR提高4.74 dB，为水下实时三维重建与SLAM提供新工具。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv / cs.CV（浙大+上海AI实验室等）</span>
+            <span>📅 2026-08-25</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.22906" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.22888" target="_blank">NemoSplat：前馈4D高斯溅射的介质感知水下动态重建（arXiv, 2026-08-24）</a></div>
+          </div>
+          <div class="item-abstract">香港科技大学与北京理工大学团队提出 NemoSplat——首个面向无标定海洋视频的前馈4D高斯溅射介质感知动态重建框架：可提示动态解缠器（Promptable Dynamic Disentangler）利用置信感知融合与语义文本先验隔离海量瞬态物体，介质感知高斯预测器联合估计3D高斯属性与物理介质参数，单次前向即可恢复纯净场景外观；同时构建含大规模动态元素的水下数据集用于训练与评估，实现SOTA级跟踪精度与高保真渲染，为水下动态场景重建与海洋生态监测提供支撑。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv / cs.CV（香港科技大学+北理工）</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.22888" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-2">
+      <div class="section-header">
+        <span class="section-icon">🌐</span>
+        <div>
+          <div class="section-title">二、海洋数字孪生</div>
+          <div class="section-meta">Ocean Digital Twin</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://www.edito.eu/" target="_blank">本周暂无明显进展（日照港数字孪生 08-14、OLAR DTO综述 08-17 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数字孪生方向近一周无重大新平台或新框架发布。山东港口日照港集装箱数字孪生系统（08-14收录）、OLAR DTO四层架构综述（08-17收录）、WavyOcean 3.0（07-13收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-31</span>
+            <span>🔗 <a href="https://www.edito.eu/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-3">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <div>
+          <div class="section-title">三、海洋可视化</div>
+          <div class="section-meta">Ocean Visualization</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://data.marine.copernicus.eu/" target="_blank">本周暂无明显进展（MyOcean Health 07-01、MyOcean Pro 3D 08-03 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋可视化方向近一周无重大新工具或平台发布。Copernicus MyOcean Health（07-01收录）、MyOcean Pro 3D可视化路线图（08-03收录）、IOOS Model Viewer WFCOM（08-25收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-31</span>
+            <span>🔗 <a href="https://data.marine.copernicus.eu/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-4">
+      <div class="section-header">
+        <span class="section-icon">✅</span>
+        <div>
+          <div class="section-title">四、海洋数据质量</div>
+          <div class="section-meta">Ocean Data Quality</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://www.euro-argo.eu/" target="_blank">本周暂无明显进展（DTF-Net 08-07、ML辅助事件感知QC 08-08 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数据质量方向近一周无重大新方法或新进展发布。DTF-Net 深度学习风数据质控（08-07收录）、ML辅助事件感知QC框架（08-08收录）、中大西洋HFR SeaSonde R25自动QC（08-25收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-31</span>
+            <span>🔗 <a href="https://www.euro-argo.eu/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-5">
+      <div class="section-header">
+        <span class="section-icon">⚙️</span>
+        <div>
+          <div class="section-title">五、海洋数据处理</div>
+          <div class="section-meta">Ocean Data Processing</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[论文]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.23173" target="_blank">BenthicFlow：基于流匹配生成可扩展水下底栖3D环境（arXiv, 2026-08-24, ECCV 2026 Marine Vision）</a></div>
+          </div>
+          <div class="item-abstract">埃因霍温理工大学团队提出 BenthicFlow——基于单一条件流匹配模型的水下3D底栖环境生成框架：联合生成对齐的纹理与深度图，通过受MultiDiffusion启发的采样过程在生成轨迹中协调重叠窗口，无需独立拼接模型即可生成空间可扩展的RGBD镶嵌图，再经表面对齐高斯曲面元提升为显式3D底栖环境。在不同地理位置的勘测站点上保持站点特定外观并生成连贯的大规模3D场景，为缺乏高质量3D数据的水下场景理解提供数据域弥合新路径，已录用 ECCV 2026 海洋视觉研讨会。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv / cs.CV（埃因霍温理工大学, ECCV 2026）</span>
+            <span>📅 2026-08-24</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.23173" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-6">
+      <div class="section-header">
+        <span class="section-icon">🗄️</span>
+        <div>
+          <div class="section-title">六、海洋数据管理与共享</div>
+          <div class="section-meta">Ocean Data Management & Sharing</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[政策]</span>
+            <div class="item-title"><a href="https://www.sznews.com/news/content/2026-08/29/content_32159333.htm" target="_blank">全国首份《AI+海洋协同发展共识》在深圳发布，深珠湛共建跨区域产业闭环（2026-08-26）</a></div>
+          </div>
+          <div class="item-abstract">8月26日，深珠湛"AI+海洋"产业协同发展大会在深圳举办，三市海洋主管部门联合发布全国首份《AI+海洋协同发展共识》与《AI+海洋场景需求清单》。《共识》确立"创新引领、开放共享、市场导向、安全合规、协同共治"五大理念，明确支持AI企业攻关海洋垂直大模型与数字孪生技术、有序开放智慧海洋牧场与港口物流等重点场景、推进海洋数据规范开放与可信数据空间试点，构建"技术策源—装备制造—实景验证"跨区域闭环，为大湾区乃至全国海洋AI跨域协同提供可复制范式。</div>
+          <div class="item-meta">
+            <span>📍 来源：深圳新闻网 / 深圳市海洋发展局</span>
+            <span>📅 2026-08-26</span>
+            <span>🔗 <a href="https://www.sznews.com/news/content/2026-08/29/content_32159333.htm" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-7">
+      <div class="section-header">
+        <span class="section-icon">🚢</span>
+        <div>
+          <div class="section-title">七、开放航次与科考</div>
+          <div class="section-meta">Open Cruises & Research Expeditions</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[航次]</span>
+            <div class="item-title"><a href="https://brant.one/2026/08/27/deep-sea-detectives-probe-remote-pacific-abyss-in-hunt-for-lost-wwii-wrecks-and-alien-like-creatures/" target="_blank">E/V Nautilus NA181 威克岛航次进行中：发现小飞象章鱼、探索二战沉船（2026-08-27，更新）</a></div>
+          </div>
+          <div class="item-abstract">海洋探索信托的 E/V Nautilus（NA181）正于威克岛周边执行30天航次（8月20日至9月中旬）：ROV 团队在约5000米深海底完成多次下潜，一次下潜即观测到三只小飞象章鱼（dumbo octopuses），并利用 Hercules/Little Hercules/Atalanta 机器人、多波束测绘系统搜索与威克岛战役（1941）相关的二战沉船遗址；航次还布放特殊浮标监测大洋健康状况。该区域大部分海床从未测绘，是美属管辖下勘测最薄弱区域之一，全程通过 Nautilus Live 直播。（更新：NA181 由启航转入实质下潜阶段）</div>
+          <div class="item-meta">
+            <span>📍 来源：Ocean Exploration Trust / Nautilus Live</span>
+            <span>📅 2026-08-27</span>
+            <span>🔗 <a href="https://brant.one/2026/08/27/deep-sea-detectives-probe-remote-pacific-abyss-in-hunt-for-lost-wwii-wrecks-and-alien-like-creatures/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-8">
+      <div class="section-header">
+        <span class="section-icon">🏛️</span>
+        <div>
+          <div class="section-title">八、海洋数据中心</div>
+          <div class="section-meta">Ocean Data Centers</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[关注]</span>
+            <div class="item-title"><a href="https://www.emodnet.eu/" target="_blank">本周暂无明显进展（GEBCO_2026 WMS 08-04、CMEMS 8月产品更新 08-25 已收录）</a></div>
+          </div>
+          <div class="item-abstract">海洋数据中心方向近一周无重大新发布。GEBCO_2026 网格 WMS 图层（08-04收录）、CMEMS 8月产品更新（北极波浪/Arctic潮汐3km等，08-25收录）、PANGAEA 元数据架构现代化（08-17收录）均已在此前日报覆盖，本期不重复收录。</div>
+          <div class="item-meta">
+            <span>📍 来源：-</span>
+            <span>📅 2026-08-31</span>
+            <span>🔗 <a href="https://www.emodnet.eu/" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-9">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <div>
+          <div class="section-title">九、工具与代码资源</div>
+          <div class="section-meta">Tools & Code Resources</div>
+        </div>
+        <span class="section-badge">1 条</span>
+      </div>
+      <div class="section-content">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-badge">[开源]</span>
+            <div class="item-title"><a href="https://arxiv.org/abs/2608.26888" target="_blank">Beyond Shallow-Water Photorealism：Stonefish 深水物理与传感器仿真扩展（arXiv, 2026-08-27）</a></div>
+          </div>
+          <div class="item-abstract">赫瑞瓦特大学团队发布 Stonefish 水下模拟器的深水物理与传感器增强扩展：在现有流体动力学模型基础上增加随机 IMU 与 DVL 漂移、磁力计扰动、高阶水动力、terramechanics、压力驱动环境变化与基于物理的水下光学模型，更真实地刻画深海 AUV/ROV/着陆器/ASV/滑翔机的受力与测量特征，同时保持实时仿真兼容。该框架面向长时导航与基于学习的自主性研究，弥补现有模拟器过度乐观的浅水仿真局限，为深海机器人感知与自主作业提供更可靠的仿真基础。</div>
+          <div class="item-meta">
+            <span>📍 来源：arXiv / cs.RO（赫瑞瓦特大学）</span>
+            <span>📅 2026-08-27</span>
+            <span>🔗 <a href="https://arxiv.org/abs/2608.26888" target="_blank">原文链接</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    本简报每日自动生成，仅供学术参考。版权归原作者/机构所有。
+  </div>
+</body>
+</html>
