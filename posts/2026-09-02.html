@@ -180,7 +180,7 @@
 </div>
 <div class="container">
 <div class="summary-bar">
-  <span>本期共 <strong>18</strong> 条动态</span>
+  <span>本期共 <strong>20</strong> 条动态</span>
   <span>|</span>
   <span>覆盖 <strong>9</strong> 个方向</span>
   <span>|</span>
@@ -209,6 +209,16 @@
       <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.mdpi.com/2077-1312/14/17/1594" target="_blank">RGI-Net：递归门控注入网络用于海洋检测水下图像复原（JMSE, 2026-08-31）</a></div>
       <div class="item-abstract">广州海洋地质调查局团队在 Journal of Marine Science and Engineering 发表 RGI-Net，针对水下光学影像受波长相关衰减与悬浮颗粒散射影响、色偏与结构雾化耦合退化的问题，提出共享权重两遍式流水线：Pass 1 校正 Lab 色度、Pass 2 精修 RGB 结构，两遍共用同一骨干网络而不重复容量；并通过 1×1 门控注入桥在可学习的逐元素门控下将 Pass 1 瓶颈特征传入 Pass 2，配合含跨遍一致性项的递归对比学习目标。在统一评测流程下（UIEB 训练/测试、LSUI、EUVP、U45、C60）对比 WaterNet、PUIE-Net、CCL-Net、Phaseformer，取得最优 UIEB UIQM（2.21）与 UCIQE（0.372），256×256 推理延迟 41.00 ms（Phaseformer 为 61.64 ms），PSNR/SSIM 与 Phaseformer 统计上无显著差异。</div>
       <div class="item-meta">J. Mar. Sci. Eng. / 广州海洋地质调查局 · 2026-08-31</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://esb.sxdaily.com.cn/pc/content/202609/01/content_2586485.html" target="_blank">西电团队为"深海勇士"号装上"智慧眼"：多相机双景拼接系统完成1500米海试（陕西日报, 2026-09-01）</a></div>
+      <div class="item-abstract">西安电子科技大学电子工程学院吕宁团队自主研发"多相机双景拼接系统"，为"深海勇士"号载人潜水器提供水下目标三维形态重构与从复杂海底背景中精准提取关键细节的能力。系统将 3 台高清相机装于特制支架，突破传统单相机视野狭窄、需反复巡航补拍且数据易冗余或产生拼接缝隙的瓶颈；耐压指标由 4500 米提升至 6000 米，团队耗时近 3 个月找到兼顾极高透光率与承受数百个大气压的透明球罩材料。针对 3 台相机原始数据量巨大的传输瓶颈，团队在潜水器外设计耐压罐体、内置自主研发嵌入式处理板，在舱外完成多路图像实时拼接与初步校正，只将"宽幅全景图"传回舱内，绕开带宽限制并支持现场判断是否补拍，改变了以往"先采集、后处理"的离线模式。2026 年 7 月团队随"深海勇士"号完成海试，两次下潜成功获取多组高质量深海原始勘测图像。</div>
+      <div class="item-meta">陕西日报 / 西安电子科技大学 · 2026-09-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://iopscience.iop.org/article/10.1088/1361-6501/ae9b2d" target="_blank">HFQI-YOLO：面向水下平台的轻量化实时目标检测算法（MST, 2026-09-01）</a></div>
+      <div class="item-abstract">江苏海洋大学计算机工程学院团队在 Measurement Science and Technology 发表 HFQI-YOLO，针对现有水下目标检测模型参数量大、计算成本高、难以在实时与资源受限的水下平台同时实现轻量部署与高检测精度的问题，提出基于 YOLO11n 的轻量化方法：设计带 Dysample 的高层筛选路径聚合网络替代传统 PANet，通过双向特征筛选与动态上采样在提升多尺度特征融合质量的同时显著减少计算资源；在主干网络嵌入特征互补映射模块，经语义-空间互补交互缓解深层语义表示与浅层空间细节失配；引入质量感知共享检测头，同步减少模型参数并解决分类置信度与定位精度不一致问题；采用 Inner WIoU 作为损失函数细化边界框回归、提升小目标实例敏感度。在 URPC2020 数据集上，模型参数量 1.5 M、计算量 4.3 GFLOPs，较基线分别降低 41.7% 与 31.7%，mAP@0.5 提升 0.9 个百分点至 82.6%。</div>
+      <div class="item-meta">Meas. Sci. Technol. / 江苏海洋大学 · 2026-09-01</div>
     </div>
   </div>
 </div>
