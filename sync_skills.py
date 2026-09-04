@@ -99,8 +99,17 @@ def sync(src_root: Path, dst_root: Path, label: str):
             continue
         dst = dst_root / name
         if dst.exists():
-            shutil.rmtree(dst)
-        shutil.copytree(src, dst, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+            try:
+                shutil.rmtree(dst)
+            except Exception as e:
+                # rmtree 失败时不能中断：已删除的文件无法回滚，
+                # 降级为增量覆盖（dirs_exist_ok），保证至少把源端内容完整写回。
+                print(f"[警告] 清理目标目录失败，降级为增量覆盖：{e}")
+        shutil.copytree(
+            src, dst,
+            ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+            dirs_exist_ok=True,
+        )
         n = len(list_files(dst))
         total += n
         print(f"[同步] {name}  ({n} 个文件)")
