@@ -57,7 +57,7 @@
 | git push 443超时/reset | GitHub直连不稳，**循环重试3-5次**（Git Bash 无 sleep，勿放循环内）。SSH 因无 publickey 不可用 |
 | git commit 无法识别身份 | 仓库级 `git config user.name "tianyunsu" && git config user.email "tianyunsu@users.noreply.github.com"` |
 | Python urllib 出网被拒(WinError 10061) | 沙箱阻断 Python 直连外网。链接校验改用 WebFetch 工具，勿写探测脚本 |
-| urllib 返回 403（MDPI 等） | Cloudflare 反爬，非死链。**须用 WebFetch 二次确认**才能判定有效，不得直接判失败剔除（09-04 两条 MDPI 均据此确认） |
+| urllib 返回 403（MDPI/ScienceDirect/Wiley 等） | Cloudflare 反爬，非死链，不得直接剔除。**首选 `verify_paper.py`（Crossref + OpenAlex 官方 API）核实元数据**，不受 403 影响且更快更准；无 DOI 时再用 WebFetch 二次确认（09-04 两条 MDPI、09-07 三条均据此通过）。详见 SKILL.md「反爬站点核实规则」 |
 | arXiv 老文补登伪新稿 | 高 arXiv ID 不等于新成果，必查 v1 提交日与原文年份（09-04 剔除 HorizonNet 2608.30471，实为 2018 旧文） |
 | **present_files 预览污染本地 HTML** | 预览本地 .html 会被注入 `data-page-node-id="..."` 属性（150 处 diff）。**铁律：先 commit+push 再 present；present 后必须 `git status` 复查，若 posts/*.html 变脏立即 `git checkout --` 还原**（线上已是干净版，无需再 push）。09-04 首次发现，历史 20+ 期均无此属性 |
 | **转载站在中国大陆不可访问** | Yahoo / Yahoo News 自 2021-11-01 起对大陆返回"服务不可访问"公告页，链接等于死链。**选源优先原始媒体**；遇到 Yahoo/MSN 类转载，必须回溯首发来源（09-07 BGC-Argo 条目由 Yahoo→KPBS 08-28 首发）。同理核验转载站日期是否为索引日 |

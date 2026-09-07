@@ -168,8 +168,11 @@ agent_created: true
    失效链接须搜索替代来源，修复后重新生成 HTML + 重新 push。
    ⚠️ 部分中国学术期刊网站（如 jao.org.cn）会返回 403 Forbidden（反爬虫机制），
    此时通过搜索引擎确认文章存在且内容一致即可判定链接有效。
+   ⚡ **MDPI / ScienceDirect / Wiley / IEEE 等反爬站点：优先用 `verify_paper.py`（Crossref + OpenAlex 官方 API）核实元数据**，
+   一次拿到标题/期刊/作者/发表日期/摘要，不受 403 影响、比 WebFetch 更快更准。详见 `references/quality_standards.md` 的"反爬站点核实规则"。
 2. **时效性审计**：用 Python 提取所有条目日期，计算距今天数，
    标出 >14天 / >30天 / >60天 的条目。不合格条目须替换或标注豁免理由。
+   `verify_paper.py` 已内置时效判定（OK / 需豁免 / 超期），可直接复用。
 
 ### 阶段六：记忆写入（不可跳过，手动与自动完全一致）
 
