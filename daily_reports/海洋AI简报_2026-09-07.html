@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年09月07日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header .date-line {
+    color: #80c8e0;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--ocean-teal);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title-cn {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .section-title-en {
+    color: #80c8e0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .section-items { padding: 8px 22px 16px; }
+  .section-items p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+  .item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 14px 0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-paper { background: #e3f2fd; color: #1565c0; }
+  .badge-news { background: #e8f5e9; color: #2e7d32; }
+  .badge-dynamic { background: #fff3e0; color: #e65100; }
+  .badge-tool { background: #f3e5f5; color: #7b1fa2; }
+  .badge-data { background: #e0f7fa; color: #00695c; }
+  .badge-cruise { background: #fce4ec; color: #c62828; }
+  .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-default { background: #eceff1; color: #546e7a; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 11px;
+    color: #90a4ae;
+  }
+  .item-meta span { margin-right: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #80b0c8;
+    font-size: 11px;
+  }
+  .summary-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .summary-bar strong { color: var(--ocean-mid); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">Marine AI Daily Brief</div>
+  <h1>海洋AI技术日报</h1>
+  <div class="date-line">2026年09月07日 · 周一</div>
+</div>
+<div class="container">
+<div class="summary-bar">
+  <span>本期共 <strong>17</strong> 条动态</span>
+  <span>|</span>
+  <span>覆盖 <strong>9</strong> 个方向</span>
+  <span>|</span>
+  <span>日期范围：2026年09月07日</span>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title-cn">一、海洋人工智能</div>
+      <div class="section-title-en">Ocean AI / Marine Artificial Intelligence</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.gzb.cas.cn/kyj/202609/t20260901_8274884.html" target="_blank">MHWCorrNet：可解释深度学习订正 ECMWF 模式，全球海洋热浪次季节预报技巧提升约 9%（JGR: MLC, 2026-09-01）</a></div>
+      <div class="item-abstract">海洋热浪（MHW）预警需要在次季节至季节（S2S）尺度上提前数周给出可靠判断，但动力模式在该尺度上存在明显系统性偏差。中科院南海海洋所 CSTO 与 LTO 团队提出可解释深度学习后处理框架 MHWCorrNet，用于订正 ECMWF IFS 的 S2S 海洋热浪预报。结果显示，提前 1–6 周全球平均临界成功指数（CSI）较原始模式提高约 6%–12%，6 周平均提升约 9%；北、南半球中高纬提升幅度更大，分别约 15% 与 22%。空间分析显示南印度洋改善最为突出，部分区域 CSI 提升超过 0.2。更关键的是改进机制呈现纬向差异：热带海域 MHW 与非 MHW 状态的温度对比度较弱、模式更易误报，因此订正主要来自误报率下降；中高纬受中尺度涡与西边界流等局地动力过程影响、模式漏报偏多，改进则主要来自命中率提升。</div>
+      <div class="item-meta">Journal of Geophysical Research: Machine Learning and Computation（中科院南海海洋研究所） · 2026-09-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2608.29347" target="_blank">本体 + 多 LLM 的认知架构用于 AUV 作业共享自主：GPT-OSS 规划最优、Qwen2.5 擅任务识别（arXiv, 2026-08-29）</a></div>
+      <div class="item-abstract">遥控潜水器（ROV）作业高度依赖操作员，而操作员常面临情境意识不足与工作负荷过高的问题。爱丁堡大学与赫瑞瓦特大学团队提出一种由领域本体与多个大语言模型组成的认知架构：每个 LLM 都通过本体获取领域知识约束，并承担单一角色，从而在任务可行性评估、任务规划与仿真执行三个阶段辅助操作员。架构支持操作员介入规划与执行环节，确保方案有效且航行器行为安全。作者对比了 Llama3、GPT-OSS 与 Qwen2.5 三种模型，发现 GPT-OSS 在可行性评估、规划与执行任务上表现最佳，而 Qwen2.5 最适合从自然语言输入中识别任务类型。该工作表明"本体 grounding + LLM 推理"的组合可使决策既扎根于领域知识，又具备通用推理能力。</div>
+      <div class="item-meta">arXiv (cs.RO) · IEEE OES AUV Symposium 2026 Southampton · 2026-08-29</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.03382" target="_blank">SurgeGen：两阶段扩散生成框架合成风暴潮情景，支持连续风暴参数空间探索（arXiv, 2026-09-03）</a></div>
+      <div class="item-abstract">登陆热带气旋引发的风暴潮是沿海洪水与基础设施损毁的主要来源，而 ADCIRC、SLOSH 等高保真水动力模型计算成本高昂，构建最大水位包络图（MEOW）需反复运行大量假设风暴，且只能在离散参数组合上取值。德克萨斯大学奥斯汀分校团队提出 SurgeGen：先用基线模型给出增水高度的粗略估计，再以该估计为条件驱动扩散模型生成精细化的风暴潮情景，从而在连续的风暴参数空间上条件化采样。相比 CNN、时空循环模型等确定性代理模型只能输出单一确定的增水图，SurgeGen 可生成多样化的实现以支撑不确定性分析与风险评估。实验表明该方法在训练分布内外的条件下均能生成逼真的风暴潮情景。</div>
+      <div class="item-meta">arXiv (math.DS) · 2026-09-03</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.ffrc.cn/info/1084/20274.htm" target="_blank">EchoST-SSL：面向渔业回声探测数据的自监督时空表征学习框架（IEEE Sensors Journal, 2026-09-03）</a></div>
+      <div class="item-abstract">回声探测数据的标注成本高，且模型跨水域、跨仪器难以直接迁移。中国水产科学研究院淡水渔业研究中心段金荣团队提出自监督时空表征学习框架 EchoST-SSL：构建时空解耦掩码自编码器，从深度维度挖掘垂直分布特征、从脉冲维度提取短时动态特征，并利用同源 50 kHz 与 200 kHz 双频探测数据开展对比学习。该框架预训练阶段无需任何生物学标签，下游评估时编码器保持冻结。在三文鱼养殖网箱数据集上，冻结表征的线性探针判别养殖病害相关声学状态的马修斯相关系数达 0.576；迁移至安徽杭埠河单频回声数据后，相邻日特征相似度均值达 0.944，并能有效捕捉梅雨降雨带来的水域声学状态变化。</div>
+      <div class="item-meta">IEEE Sensors Journal（中国水产科学研究院淡水渔业研究中心） · 2026-09-03</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.3390/su18178986" target="_blank">RFA + RCSA 改进 YOLO11n：4.19M 参数的轻量化水下海洋垃圾检测器（Sustainability, 2026-09-02）</a></div>
+      <div class="item-abstract">海洋垃圾威胁水生栖息地，也使港口、海床与海上基础设施的检测巡检复杂化。既有轻量化检测器面对弱纹理、边界模糊与多尺度特征杂乱时仍然脆弱，而直接扩大网络又与 onboard 算力受限相冲突。上海工程技术大学与上海理工大学团队以 YOLO11n 为基础，集成感受野聚合（RFA）模块与基于动态残差组的残差通道-空间重校正（RCSA）。实验使用公开的 15 类数据集（10,884 张训练图像、1,001 张验证图像、1,892 个标注目标），全部训练 100 个 epoch；在 42、2026、3407 三个随机种子下，验证集精确率 0.861±0.016、召回率 0.801±0.012、mAP@0.5 达 0.848±0.001。在经审计的组间不相交留出集（498 张图像、963 个实例）上 mAP@0.5 为 0.779±0.018。模型含 4.19M 参数、8.91 GFLOPs。</div>
+      <div class="item-meta">Sustainability · 2026-09-02</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title-cn">二、海洋数字孪生</div>
+      <div class="section-title-en">Ocean Digital Twin</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[备注]</span> <a href="https://tianyunsu.github.io/ocean-data-daily-report/" target="_blank">本方向今日暂无新增符合时效要求的动态</a></div>
+      <div class="item-abstract">本期检索未见新的、符合时效要求（≤14 天且不重复）的海洋数字孪生类动态。近期该方向的主要进展（如 Fugro 新加坡 AI 海洋数字孪生平台、连云港空天地一体化智慧渔港数字孪生场景）已分别在此前两期日报中收录，本期不作重复报道。</div>
+      <div class="item-meta">— · 2026-09-07</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title-cn">三、海洋可视化</div>
+      <div class="section-title-en">Ocean Visualization</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[备注]</span> <a href="https://tianyunsu.github.io/ocean-data-daily-report/" target="_blank">本方向今日暂无新增符合时效要求的动态</a></div>
+      <div class="item-abstract">本期检索未见新的、符合时效要求（≤14 天且不重复）的海洋可视化方法/工具/平台类动态。CMEMS 的 Mediterranean in Motion 交互式叙事已于 09-03 日报收录，本期不作重复报道。检索中出现的若干可视化平台资讯（如部分海岸带遥感共享系统）来源日期无法核实，按质量标准不予收录。</div>
+      <div class="item-meta">— · 2026-09-07</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title-cn">四、海洋数据质量</div>
+      <div class="section-title-en">Ocean Data Quality</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.sciencedirect.com/science/article/pii/S0029801826030842" target="_blank">PhyEnv-GAN：融合船舶运动学约束与海况条件的船舶行为异常检测（Ocean Engineering, 2026-09-01）</a></div>
+      <div class="item-abstract">船舶异常检测对海上交通安全至关重要，但既有深度学习方法普遍忽略海况影响与船舶运动学约束，容易把受风浪影响产生的正常偏航误判为异常。研究提出生成对抗框架 PhyEnv-GAN 对不同海况下正常船舶轨迹的概率分布进行建模：环境感知生成器以条件变分模块的形式，基于历史位置与海况条件重建物理上合理的轨迹；TCN 判别器通过对抗学习增强结构真实性；同时引入物理信息约束对生成过程正则化，强制运动学一致性并减少物理上不合理的输出。大量对比实验表明，PhyEnv-GAN 使正常轨迹的重构误差较既有方法降低 20%–30%，案例分析进一步验证了其对锯齿形机动与航速失配等异常行为的识别能力。</div>
+      <div class="item-meta">Ocean Engineering · 2026-09-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title-cn">五、海洋数据处理</div>
+      <div class="section-title-en">Ocean Data Processing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026JH001279" target="_blank">S-DEIM：稀疏离散经验插值 + RNN，仅需 0.2% 格点观测即可重建高分辨率海表温度场（JGR: MLC, 2026-08-27）</a></div>
+      <div class="item-abstract">从稀疏的海表温度（SST）观测重建高分辨率 SST 场对分析地球系统过程至关重要，但在观测稀疏时推断精度往往很差。研究提出稀疏离散经验插值法（S-DEIM）作为一种无需模型的数据同化方法：估计量由两部分构成，一部分用经验插值从瞬时原位观测直接计算，另一部分用循环神经网络（RNN）从观测的历史时间序列中学习得到。作者使用 NOAA 1989–2021 年周平均高分辨率 SST 数据集训练 RNN，在 2022 年 1 月至 2023 年 1 月的测试数据上检验：S-DEIM 仅用 100 个原位观测（占高分辨率空间网格的 0.2%）即可完成重建，精度比 DEIM、Q-DEIM 等经验插值方法高约 40%，且 91% 的估计值与真实 SST 相差在 ±1°C 以内。该方法对传感器布放位置具有鲁棒性——即使随机布放，重建误差也仅劣化 1%–2%，且 RNN 离线训练约 1 分钟、在线重建不到 1 秒。</div>
+      <div class="item-meta">Journal of Geophysical Research: Machine Learning and Computation · 2026-08-27</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.hydro-international.com/content/news/new-method-fills-the-gaps-in-coastal-tide-monitoring" target="_blank">以海滩为"标尺"：卫星岸线时间序列把近岸潮汐分辨率从 10 km 提升到 100 m（Communications Earth & Environment, 2026-09-01）</a></div>
+      <div class="item-abstract">验潮站只能提供点位上的精确数据，而近岸区域卫星测高分辨率往往不足，导致许多沿海地区的潮汐变化难以准确把握。慕尼黑工业大学（TUM）德意志大地测量研究所与牛津大学团队提出一种新思路：不再直接测量水深，而是把海滩本身当作"标尺"——将卫星影像上可见的水边线与已知的海滩坡度相结合，从而反演海面高度并计算潮汐变化。该方法基于 NASA Landsat 与美国地质调查局超过 40 年的卫星影像，空间精度可达 100 米，而此前卫星数据只能提供约 10 公里分辨率，相差两个数量级。应用于新西兰库克海峡一段 90 公里长的海岸线时，新方法揭示出单一海湾内潮差可达近 1 米，这类小尺度差异直接决定相邻区域在同一次风暴中是否被淹没。</div>
+      <div class="item-meta">Communications Earth & Environment（TUM / University of Oxford） · 2026-09-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title-cn">六、海洋数据管理与共享</div>
+      <div class="section-title-en">Ocean Data Management & Sharing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[政策]</span> <a href="https://ieo.csic.es/noticias/miteco-y-el-ieo-csic-refuerzan-el-seguimiento-cientifico-de-los-mares-espanoles-con-un-nuevo-convenio-de-cerca-de-26-millones-de-euros/" target="_blank">西班牙 MITECO 与 IEO-CSIC 签署新协议：2576 万欧元支撑 2026–2027 海洋战略科学基础（IEO-CSIC, 2026-09-01）</a></div>
+      <div class="item-abstract">西班牙部长会议批准生态转型与人口挑战部（MITECO）与西班牙国家研究委员会（CSIC）下属西班牙海洋研究所（IEO-CSIC）签署新协议，在 2026–2027 年投入 2575.88 万欧元（其中 MITECO 海岸与海洋总局出资上限 1564.98 万欧元），用于持续开发与完善西班牙海洋战略（Marine Strategies）的科学与技术基础。该协议延续了 IEO 自 2010 年以来的工作：评估西班牙海域环境状况、制定良好环境状态的定义与环境目标，并建立周期性的监测与评估体系。IEO-CSIC 将继续执行生物多样性、栖息地、污染、海洋垃圾、水下噪声、外来入侵物种与气候变化等人类压力要素的监测计划。IEO 主任 Rosa Figueroa 指出，海洋战略是把数十年观测、海洋学考察与科学知识转化为可用信息的公共服务典范。</div>
+      <div class="item-meta">IEO-CSIC（西班牙海洋研究所） · 2026-09-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://ooifb.org/news/community-input-opportunity-future-ocean-observing-priorities" target="_blank">NSF 就未来海洋观测优先级公开征集意见：截止 9 月 30 日，覆盖 OOI、GO-BGC Argo 等设施（OOIFB, 2026-09）</a></div>
+      <div class="item-abstract">美国国家科学基金会（NSF）发布 Dear Colleague Letter，就未来海洋观测系统的能力建设公开征求学界意见，征集内容包括优先事项、战略与技术方案，涉及海洋观测计划（OOI）、全球海洋生物地球化学阵列（GO-BGC Argo）、卡斯卡迪亚俯冲带观测站（COSZO）、海底地震仪中心（OBISC）等提供时间序列与长期观测的项目。 NSF 围绕观测缺口、固定与移动资产、国内国际计划协调、业务化应用与利益相关方、影响力度量，以及现有观测组合中哪些应维持或更新等问题征询回应，每个问题回复上限 3250 字符。回应截止日期为 2026 年 9 月 30 日。OOI 设施委员会（OOIFB）将在 DCL 截止前组织多场按主题划分的线上"海洋观测交流会"，并计划在 AGU 2026 年会前（12 月 4–5 日，旧金山）举办社区论坛，产出 2–4 页的行动建议摘要。</div>
+      <div class="item-meta">OOI Facility Board（NSF） · 2026-09-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div>
+      <div class="section-title-cn">七、开放航次与科考</div>
+      <div class="section-title-en">Open Cruises & Research Vessels</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://www.mbari.org/news/mbari-researchers-film-chance-encounter-with-a-rare-deep-sea-bigfin-squid" target="_blank">MBARI"海山热点"航次：ROV Doc Ricketts 在 3277 米深处拍到罕见大鳍鱿鱼（MBARI, 2026-09-02）</a></div>
+      <div class="item-abstract">在 MBARI 旗舰科考船 R/V David Packard 执行的为期 10 天的"海山热点"（Seamount Hotspots）航次中，MBARI 科学家与 NOAA 合作者在距蒙特雷西南约 130 公里的戴维森海山附近、约 3277 米水深作业期间，用遥控潜水器 ROV Doc Ricketts 观测到一只罕见的大鳍鱿鱼（Magnapinna sp.）。全球有记录的大鳍鱿鱼观测或采集仅约 70 例，这是东北太平洋首次确认的活体观测，也是蒙特雷湾国家海洋保护区内的首次确认记录。团队用 ROV 的激光测距系统估算该个体从体顶到腕足末端长约 1.25 米。航次同时部署了多种技术手段，研究海山隆起如何偏转海流、富集营养盐并支撑繁盛生物群落，并探寻海底泥质沉积上的神秘沟槽是否由喙鲸取食造成。</div>
+      <div class="item-meta">MBARI（蒙特雷湾海洋研究所） · 2026-09-02</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://www.marinetechnologynews.com/news/announces-marine-observation-665768" target="_blank">OSIL 发布 3.0 米海洋观测浮标：兼顾关键基础设施安防与海洋学/水质监测（Marine Technology News, 2026-09-04）</a></div>
+      <div class="item-abstract">英国 Ocean Scientific International Ltd（OSIL）发布 3.0 米海洋观测浮标，该平台面向海军港口、关键国家基础设施、军事设施与商业港口部署，用于水面与水下的入侵监测预警，同时可支撑广泛的海洋学、气象与水质应用。平台可搭载摄像机、水听器以及伽马辐射与化学探测传感器；基于 OSIL 可定制的数据浮标平台构建，仪器可从近表层布放至海床，并支持单点、双点与顺应式系泊。为保障偏远与恶劣环境下的可靠运行，浮标可配置最多 6 块 160W 太阳能板、备用电池、导航与警示灯，遥测方式涵盖 UHF/VHF、GSM、GPRS 与卫星通信，并配套桌面或基于 Web 的数据软件。</div>
+      <div class="item-meta">Marine Technology News（OSIL） · 2026-09-04</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://www.yahoo.com/news/science/articles/ocean-tracking-robots-going-way-203001610.html" target="_blank">美国 BGC-Argo 浮标网络面临资金中断：18 国阵列中半数由美方部署（Surfer, 2026-09-03）</a></div>
+      <div class="item-abstract">生物地球化学 Argo（BGC-Argo）浮标可测量海洋酸化、温度、氧气与叶绿素等深层数据，并通过卫星回传，是斯克里普斯海洋研究所等机构研究海洋生态系统、天气型态及有害藻华威胁的重要数据来源。目前全球约 500 台 BGC 浮标、由 18 个国家共同维持，其中约一半由美国部署。NOAA 已非正式支持该项目 16 年，但作为 2025 年 NOAA 预算削减的一部分，联邦资金将于 10 月终止。浮标依靠浮力驱动，靠外部气囊充放气实现升降，五年的工作寿命内可下潜超过一英里、每 10 天浮出水面传输一次数据。斯克里普斯估算，维持该网络的美方成本约为纳税人每人每年 10 美分。美国海军、气象预报机构与多家研究中心均在使用该数据流。</div>
+      <div class="item-meta">Surfer（经 Yahoo 转载） · 2026-09-03</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div>
+      <div class="section-title-cn">八、海洋数据中心</div>
+      <div class="section-title-en">Ocean Data Centers</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://www.europeanboatingindustry.eu/newsroom/latest-news/item/1276-european-marina-mapping-on-emodnet-supporting-effective-decision-making" target="_blank">EMODnet 首次纳入欧洲游艇码头数据：统一"50 泊位以上"口径并与 OSM 要素对齐（EBI, 2026-09-01）</a></div>
+      <div class="item-abstract">欧洲海岸空间日益拥挤，若游艇码头与休闲划船活动未被纳入海洋空间规划讨论，其空间需求可能在用海分配中被忽视。此前欧洲码头数据分散在各家商业导航 App、国家登记系统与区域机构，口径、格式与语言各异，难以跨境汇总。为此，主导 EMODnet"人类活动"主题的 Cogea BIP Group 联合覆盖 11 国的 TransEurope Marinas 与欧洲船舶工业协会（EBI）启动数据汇聚与协调：各方首先统一了码头定义——包含带浮栈的干舱设施、排除无配套港口，并以 50 个泊位为阈值识别重要设施。爱沙尼亚海洋工业协会、法国休闲港联合会、英国游艇港协会与 TransEurope Marinas 率先提交数据，现已可在 EMODnet 上结合 OpenStreetMap 的点位与面要素查看。</div>
+      <div class="item-meta">European Boating Industry / EMODnet · 2026-09-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div>
+      <div class="section-title-cn">九、工具与代码资源</div>
+      <div class="section-title-en">Tools & Code Resources</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://pypi.org/project/coops-mcp/" target="_blank">coops-mcp 0.1.1 发布：把 NOAA CO-OPS 潮汐/水位/海流数据接入 MCP 客户端（PyPI, 2026-09-04）</a></div>
+      <div class="item-abstract">OceanMCP 是一组独立安装的 MCP（Model Context Protocol）服务器集合，用于让 AI 助手直接访问海洋与海岸数据。本次 coops-mcp 发布 0.1.1 版本（PyPI 记录发布日 2026-09-04），封装 NOAA CO-OPS 的数据 API、元数据 API 与衍生产品 API 三套接口，无需 API key。功能涵盖站点检索（按类型/州/坐标查找最近站点）、实时与历史水位（支持多种基准面）、调和潮汐预报（6 分钟/小时/高低潮）、气象观测（风、气温水温、气压、湿度、能见度）、PORTS 站点海流观测与预报，以及极端水位、洪水统计、海平面趋势、风暴事件与潮汐基准面等衍生产品，共 12 个工具。同仓库另有 erddap-mcp、ndbc-mcp、ofs-mcp、rtofs-mcp、ww3-mcp、goes-mcp 等 13 个已发布到 PyPI 的服务器。</div>
+      <div class="item-meta">PyPI / GitHub (oceanmodeling/ocean-mcp) · 2026-09-04</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <p>海洋AI技术日报 · 自动生成于 2026年09月07日</p>
+  <p>Powered by WorkBuddy AI · Data sources: arXiv, GitHub, CMEMS, NOAA, CNKI and more</p>
+</div>
+</body>
+</html>
