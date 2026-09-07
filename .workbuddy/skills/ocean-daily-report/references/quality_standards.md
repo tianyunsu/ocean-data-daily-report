@@ -54,6 +54,33 @@
 3. 摘要中**必须同时注明预印本原始公开日**（如"arXiv:xxxx，2025-11"），以保留时效性透明度。
 该例外仅用于"以会议为新闻时点"的条目；**纯预印本（无会议录用）一律使用 arXiv v1 或 OpenReview 公开日**，不得套用会议日期。
 
+### 反爬站点（MDPI / ScienceDirect / Wiley / IEEE 等）核实规则
+
+这类站点对 urllib/Requests 常返回 **403（Cloudflare 反爬）**，部分还会返回"200 但内容是挑战页"（如 PyPI 的 `Client Challenge`）。**403 ≠ 死链，不得据此剔除条目。**
+
+**首选方案：用官方元数据 API，根本不抓网页**（推荐，最快最准）
+仓库根目录提供 `verify_paper.py`：
+
+```bash
+python verify_paper.py 10.3390/su18178986              # 单个 DOI 或含 DOI 的 URL
+python verify_paper.py <doi1> <doi2> --today 2026-09-07  # 批量 + 指定基准日
+python verify_paper.py <doi> --json                    # JSON 输出，供脚本消费
+```
+
+数据源为 **Crossref**（出版方注册数据，权威）+ **OpenAlex**（含摘要、OA、被引）交叉校验，
+免费、公开、合法、无需 API key、不受反爬影响。一次拿到：标题 / 期刊 / 作者 / 发表日期 / 摘要 / OA 状态 / 时效判定。
+
+判定要点：
+- **两源日期一致** → 直接采信
+- **两源日期不一致** → 以出版方/首次公开日为准，并用 WebFetch 打开原文复核（如 Elsevier 常见 Crossref 记正式发表日、OpenAlex 记 available-online 日）
+- **Crossref 只精确到月/年** → 工具按当月 1 号估算并提示，须 WebFetch 补准确日
+- **API 无摘要** → 用 WebFetch 补（多为 OA closed 的订阅制期刊）
+
+**备选方案：WebFetch 二次确认**
+API 取不到（如尚无 DOI 的新闻稿）时，用 WebFetch 打开原文，确认标题、作者、期刊、发布日期与条目一致即可判定链接有效。
+
+**不推荐**：代理池、伪造 UA 批量抓取、绕过付费墙等手段——违反站点 ToS、不稳定，且日报只需要元数据而非全文，无必要。
+
 ### 交叉验证要求
 编写条目前，必须对日期做以下核实：
 1. **内容交叉验证**：若摘要提及某会议/事件（如"IODE第26次会议推动"），搜索确认该事件的实际召开年份，与条目日期做比对——如果事件发生在数年前，条目日期大概率不是发布日期
