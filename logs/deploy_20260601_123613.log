@@ -1,0 +1,53 @@
+[2026-06-01 12:36:13] [INFO] 部署主机: PC-20260312LHBE
+[2026-06-01 12:36:13] [INFO] 当前时间: 2026-06-01 12:36:13
+[2026-06-01 12:36:13] [INFO] 创建锁文件: deploying by PC-20260312LHBE at 2026-06-01T12:36:13.748759
+[2026-06-01 12:36:13] [INFO] ============================================================
+[2026-06-01 12:36:13] [INFO] 检查部署环境
+[2026-06-01 12:36:13] [INFO] ============================================================
+[2026-06-01 12:36:13] [INFO] Python版本: 3.13.12
+[2026-06-01 12:36:15] [INFO] git version 2.54.0.windows.1
+[2026-06-01 12:36:15] [INFO] Git版本: git version 2.54.0.windows.1
+[2026-06-01 12:36:15] [SUCCESS] ✅ HTML生成脚本: 存在
+[2026-06-01 12:36:15] [SUCCESS] ✅ 搜索结果数据: 存在
+[2026-06-01 12:36:16] [INFO] origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+[2026-06-01 12:36:16] [INFO] Git远程仓库:
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+
+[2026-06-01 12:36:16] [SUCCESS] 
+✅ 环境检查通过
+[2026-06-01 12:36:16] [INFO] ============================================================
+[2026-06-01 12:36:16] [INFO] 拉取最新代码
+[2026-06-01 12:36:16] [INFO] ============================================================
+[2026-06-01 12:36:17] [INFO] M	.workbuddy/automations/ai/memory.md
+M	.workbuddy/memory/MEMORY.md
+M	__pycache__/feishu_write_doc.cpython-313.pyc
+M	feishu_doc_url.txt
+M	feishu_write_doc.py
+[2026-06-01 12:36:27] [INFO] Already up to date.
+[2026-06-01 12:36:27] [SUCCESS] ✅ 代码已更新到最新版本
+[2026-06-01 12:36:27] [INFO] ============================================================
+[2026-06-01 12:36:27] [INFO] 生成今日日报
+[2026-06-01 12:36:27] [INFO] ============================================================
+[2026-06-01 12:36:28] [INFO] HTML generated: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-06-01.html
+Total items: 4
+  Section 1: 一、海洋人工智能... - 2 items
+  Section 2: 二、海洋数字孪生... - 0 items
+  Section 3: 三、海洋可视化... - 0 items
+  Section 4: 四、海洋数据质量... - 0 items
+  Section 5: 五、海洋数据处理... - 0 items
+  Section 6: 六、海洋数据管理与共... - 2 items
+  Section 7: 七、开放航次/船时共... - 0 items
+  Section 8: 八、海洋数据中心... - 0 items
+  Section 9: 九、工具与代码资源... - 0 items
+[2026-06-01 12:36:28] [SUCCESS] ✅ 日报已生成: C:\Users\Administrator\WorkBuddy\Claw\daily_reports\海洋AI简报_2026-06-01.html
+[2026-06-01 12:36:28] [INFO] ============================================================
+[2026-06-01 12:36:28] [INFO] 复制日报到posts目录
+[2026-06-01 12:36:28] [INFO] ============================================================
+[2026-06-01 12:36:28] [SUCCESS] ✅ 日报已复制: C:\Users\Administrator\WorkBuddy\Claw\posts\2026-06-01.html
+[2026-06-01 12:36:28] [INFO] ============================================================
+[2026-06-01 12:36:28] [INFO] 更新index.html
+[2026-06-01 12:36:28] [INFO] ============================================================
+[2026-06-01 12:36:28] [WARNING] 警告: 未找到reports-container,可能需要手动更新index.html
+[2026-06-01 12:36:28] [INFO] 删除锁文件

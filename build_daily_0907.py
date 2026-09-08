@@ -133,7 +133,7 @@ SECTIONS = [
                 'abstract': '美国国家科学基金会（NSF）发布 Dear Colleague Letter，就未来海洋观测系统的能力建设公开征求学界意见，征集内容包括优先事项、战略与技术方案，涉及海洋观测计划（OOI）、全球海洋生物地球化学阵列（GO-BGC Argo）、卡斯卡迪亚俯冲带观测站（COSZO）、海底地震仪中心（OBISC）等提供时间序列与长期观测的项目。 NSF 围绕观测缺口、固定与移动资产、国内国际计划协调、业务化应用与利益相关方、影响力度量，以及现有观测组合中哪些应维持或更新等问题征询回应，每个问题回复上限 3250 字符。回应截止日期为 2026 年 9 月 30 日。OOI 设施委员会（OOIFB）将在 DCL 截止前组织多场按主题划分的线上"海洋观测交流会"，并计划在 AGU 2026 年会前（12 月 4–5 日，旧金山）举办社区论坛，产出 2–4 页的行动建议摘要。',
                 'source': 'OOI Facility Board（NSF）',
                 'url': 'https://ooifb.org/news/community-input-opportunity-future-ocean-observing-priorities',
-                'date': '2026-09-01',
+                'date': '2026-09-02',
             },
         ]
     },
@@ -150,12 +150,12 @@ SECTIONS = [
                 'date': '2026-09-02',
             },
             {
-                'title': 'OSIL 发布 3.0 米海洋观测浮标：兼顾关键基础设施安防与海洋学/水质监测（Marine Technology News, 2026-09-04）',
+                'title': 'OSIL 发布 3.0 米海洋观测浮标：兼顾关键基础设施安防与海洋学/水质监测（Marine Technology News, 2026-09-03）',
                 'badge': '[动态]',
                 'abstract': '英国 Ocean Scientific International Ltd（OSIL）发布 3.0 米海洋观测浮标，该平台面向海军港口、关键国家基础设施、军事设施与商业港口部署，用于水面与水下的入侵监测预警，同时可支撑广泛的海洋学、气象与水质应用。平台可搭载摄像机、水听器以及伽马辐射与化学探测传感器；基于 OSIL 可定制的数据浮标平台构建，仪器可从近表层布放至海床，并支持单点、双点与顺应式系泊。为保障偏远与恶劣环境下的可靠运行，浮标可配置最多 6 块 160W 太阳能板、备用电池、导航与警示灯，遥测方式涵盖 UHF/VHF、GSM、GPRS 与卫星通信，并配套桌面或基于 Web 的数据软件。',
                 'source': 'Marine Technology News（OSIL）',
                 'url': 'https://www.marinetechnologynews.com/news/announces-marine-observation-665768',
-                'date': '2026-09-04',
+                'date': '2026-09-03',
             },
             {
                 'title': '美国 BGC-Argo 浮标网络面临资金中断：18 国阵列中半数由美方部署（Surfer, 2026-09-03）',

@@ -1,0 +1,37 @@
+[2026-06-01 12:33:48] [INFO] 部署主机: PC-20260312LHBE
+[2026-06-01 12:33:48] [INFO] 当前时间: 2026-06-01 12:33:48
+[2026-06-01 12:33:48] [INFO] 创建锁文件: deploying by PC-20260312LHBE at 2026-06-01T12:33:48.896071
+[2026-06-01 12:33:48] [INFO] ============================================================
+[2026-06-01 12:33:48] [INFO] 检查部署环境
+[2026-06-01 12:33:48] [INFO] ============================================================
+[2026-06-01 12:33:48] [INFO] Python版本: 3.13.12
+[2026-06-01 12:33:50] [INFO] git version 2.54.0.windows.1
+[2026-06-01 12:33:50] [INFO] Git版本: git version 2.54.0.windows.1
+[2026-06-01 12:33:50] [SUCCESS] ✅ HTML生成脚本: 存在
+[2026-06-01 12:33:50] [SUCCESS] ✅ 搜索结果数据: 存在
+[2026-06-01 12:33:52] [INFO] origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+[2026-06-01 12:33:52] [INFO] Git远程仓库:
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (fetch)
+origin	git@github.com:tianyunsu/ocean-data-daily-report.git (push)
+
+[2026-06-01 12:33:52] [SUCCESS] 
+✅ 环境检查通过
+[2026-06-01 12:33:52] [INFO] ============================================================
+[2026-06-01 12:33:52] [INFO] 拉取最新代码
+[2026-06-01 12:33:52] [INFO] ============================================================
+[2026-06-01 12:33:53] [INFO] M	.workbuddy/automations/ai/memory.md
+M	.workbuddy/memory/MEMORY.md
+M	__pycache__/feishu_write_doc.cpython-313.pyc
+M	feishu_doc_url.txt
+M	feishu_write_doc.py
+[2026-06-01 12:34:04] [ERROR] 命令执行失败: git pull origin main
+[2026-06-01 12:34:04] [ERROR] 错误信息: hostkeys_find_by_key_hostfile: hostkeys_foreach failed for /c/Users/Administrator/.ssh/known_hosts: Permission denied
+Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+[2026-06-01 12:34:04] [ERROR] 拉取代码失败
+[2026-06-01 12:34:04] [INFO] 删除锁文件
