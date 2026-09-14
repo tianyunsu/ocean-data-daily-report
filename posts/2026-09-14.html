@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年09月14日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header .date-line {
+    color: #80c8e0;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--ocean-teal);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title-cn {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .section-title-en {
+    color: #80c8e0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .section-items { padding: 8px 22px 16px; }
+  .section-items p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+  .item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 14px 0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-paper { background: #e3f2fd; color: #1565c0; }
+  .badge-news { background: #e8f5e9; color: #2e7d32; }
+  .badge-dynamic { background: #fff3e0; color: #e65100; }
+  .badge-tool { background: #f3e5f5; color: #7b1fa2; }
+  .badge-data { background: #e0f7fa; color: #00695c; }
+  .badge-cruise { background: #fce4ec; color: #c62828; }
+  .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-default { background: #eceff1; color: #546e7a; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 11px;
+    color: #90a4ae;
+  }
+  .item-meta span { margin-right: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #80b0c8;
+    font-size: 11px;
+  }
+  .summary-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .summary-bar strong { color: var(--ocean-mid); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">Marine AI Daily Brief</div>
+  <h1>海洋AI技术日报</h1>
+  <div class="date-line">2026年09月14日 · 周日</div>
+</div>
+<div class="container">
+<div class="summary-bar">
+  <span>本期共 <strong>17</strong> 条动态</span>
+  <span>|</span>
+  <span>覆盖 <strong>9</strong> 个方向</span>
+  <span>|</span>
+  <span>日期范围：2026年09月14日</span>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title-cn">一、海洋人工智能</div>
+      <div class="section-title-en">Ocean AI / Marine Artificial Intelligence</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.11230" target="_blank">KiloDA：扩散模型从稀疏站点观测重建公里尺度近地面风场，仅需 0.24% 格点观测即可恢复局地风结构（arXiv, 2026-09-10）</a></div>
+      <div class="item-abstract">公里尺度近地面风场对理解复杂地形上的大气过程至关重要，但稀疏不均匀的站点观测使重建极具挑战。研究提出 KiloDA——一个基于扩散框架的逐时公里尺度风场重建方法。KiloDA 从历史 3 km WRF 模式预报中学习风场的统计分布与空间结构，重建时无需同期 WRF 场，仅靠站点观测约束当前大气状态并引导后验采样。理想化实验中，仅 0.24% 格点被观测时即可恢复局地风结构，全面优于传统插值方法。在完全留出区域的真实观测实验中，KiloDA 相对 ERA5 再分析将风速中位 RMSE 降低 19%，在高海拔和高地形起伏区域改善最大，证明历史模式档案可为稀疏观测风场重建提供有效结构先验。</div>
+      <div class="item-meta">arXiv (physics.ao-ph) · 2026-09-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2505.22071" target="_blank">Ocean-E2E：混合物理与数据驱动的全球极端海洋热浪预报框架，结合端到端神经同化实现 40 天预报（KDD 2026, 清华SAIL, 2026-08-09）</a></div>
+      <div class="item-abstract">极端海洋热浪（MHW）对海洋生态系统有深远影响，精准预报具有重要科学与经济价值。清华大学地球系统科学系 SAIL 团队在 KDD 2026 AI for Sciences Track 作口头报告，提出 Ocean-E2E——混合物理与数据驱动的全球 MHW 预报框架。该框架基于 MHW 物理本质，显式建模海洋中尺度平流与海气相互作用（动态核），实现端到端数据同化与区域高分辨率预测，可完全脱离数值模式独立运行。实验表明 Ocean-E2E 在全球至区域、短期至长期（1-40 天）预报中均优于当前最先进的海洋数值/AI 预报-同化模型，尤其在最极端 MHW 事件上表现突出。代码已在 GitHub 开源。</div>
+      <div class="item-meta">KDD 2026 AI for Sciences Track（清华大学 + 崂山实验室） · 2026-08-09</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.10920" target="_blank">高频雷达波浪高度估计：窗口包络统计方法从时域信号提取有效波高（arXiv, 2026-09-11）</a></div>
+      <div class="item-abstract">高频（HF）雷达是近岸海浪观测的重要手段，但从未校准的雷达回波中准确估计有效波高（Hs）仍面临挑战。研究提出窗口包络统计方法，利用时域回波信号的包络特征在多个时间窗口内提取波浪信息，实现 Hs 的稳健估计。该方法不依赖经验标定即可从原始雷达信号中获取波浪高度，为近岸波浪监测提供了一种新的信号处理路径，具有在现有 HF 雷达网络上部署的潜力。</div>
+      <div class="item-meta">arXiv (physics.ao-ph) · 2026-09-11</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.10564" target="_blank">机器学习天气预报模型在挪威北部的站点评估：复杂北极环境下 ML 模型 skill 检验（arXiv, 2026-09-11）</a></div>
+      <div class="item-abstract">近年来基于机器学习的天气预报模型（如 Pangu-Weather、GraphCast）在全球尺度展现出与数值模式相当的预报能力，但在高纬度复杂地形下的表现尚缺乏系统评估。研究针对挪威北部——一个具有极夜、极地低层云和复杂海岸地形的高纬度区域，对多个 ML 天气预报模型进行站点级评估。使用稠密地面观测网络验证 2 m 温度、10 m 风速等要素，系统检验 ML 模型在北极环境下的预报 skill、偏差模式与季节敏感性，为 ML 天气预报在高纬度地区的业务化应用提供基准参考。</div>
+      <div class="item-meta">arXiv (physics.ao-ph / cs.LG)（挪威科技大学等） · 2026-09-11</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.09247" target="_blank">扩散先验引导稀疏观测的高分辨率温度降尺度：Steering Diffusion 实现从粗到细的温度场重建（arXiv, 2026-09-10）</a></div>
+      <div class="item-abstract">从粗分辨率观测中恢复高分辨率温度场是气候与海洋研究的基础需求。研究提出一种以扩散先验引导稀疏观测的温度降尺度方法——Steering Diffusion。该方法从历史高分辨率数据中学习温度场的扩散先验分布，在推理时以稀疏观测为条件引导后验采样，生成与观测一致且物理合理的高分辨率温度场。在理想化与真实数据实验中，该方法在保留小尺度结构的同时显著降低了重建误差，为卫星 SST 降尺度、海洋剖面插值等场景提供了新的生成式建模工具。</div>
+      <div class="item-meta">arXiv (physics.ao-ph / cs.LG)（印度统计研究所等） · 2026-09-10</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title-cn">二、海洋数字孪生</div>
+      <div class="section-title-en">Ocean Digital Twin</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://ec.europa.eu/newsroom/emodnet/newsletter-archives/78661" target="_blank">EMODnet 全量数据集实现与 EDITO 数据湖的自动化同步：欧洲数字孪生海洋核心基础设施重大里程碑（EMODnet, 2026 Summer）</a></div>
+      <div class="item-abstract">EMODnet 宣布完成一项重要里程碑——所有 EMODnet 数据集现已通过全自动化同步机制无缝集成至 EDITO 数据湖（EDITO Data Lake）。这确保了 EDITO 生态系统中持续可获取最新、可信的 EMODnet 原位海洋数据，提升了欧洲海洋数据的可访问性与互操作性。EDITO 是欧洲数字孪生海洋（EU DTO）的核心公共基础设施，由 Mercator Ocean International 和 VLIZ 联合开发，整合了 Copernicus Marine Service 与 EMODnet 的数据和服务。此次自动化同步标志着 EU DTO 从数据汇集向实时孪生迈出关键一步。</div>
+      <div class="item-meta">EMODnet Newsletter (Summer 2026) · 2026-09-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title-cn">三、海洋可视化</div>
+      <div class="section-title-en">Ocean Visualization</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://dev.to/william_carne_1332c355841/building-wakeatlas-ships-shipwrecks-and-ocean-science-on-a-free-cesiumjs-globe-1e62" target="_blank">WakeAtlas：基于 CesiumJS 的免费三维海洋探索平台上线，整合 AIS 船舶、沉船、Argo 剖面与 Copernicus 生物地球化学层（DEV Community, 2026-09-12）</a></div>
+      <div class="item-abstract">开发者 William Carne 发布了 WakeAtlas（wakeatlas.uk），一个免费的三维海洋探索平台。该平台基于 CesiumJS 构建，将原本分散在各自目录中的海洋信息整合到一个交互式三维地球仪上。可探索内容包括：实时 AIS 船舶位置（流式更新可见区域内的位置变化）、沉船历史与历史船舶信息、美国主要港口的高分辨率影像、Argo 海洋剖面（显示随深度变化的海洋状况）、Copernicus Marine 生物地球化学层（含氧气、营养盐和浮游生物）、北极和南极海冰密集度（含不同日期对比）。平台无需注册即可免费使用，定位为探索与研究工具而非导航系统。开发者在性能优化方面采用了仅流式传输可见船舶位置变化、预缓存港口影像瓦片等策略。</div>
+      <div class="item-meta">DEV Community / wakeatlas.uk · 2026-09-12</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title-cn">四、海洋数据质量</div>
+      <div class="section-title-en">Ocean Data Quality / QA-QC</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.mdpi.com/2077-1312/14/16/1453" target="_blank">DTF-Net：双轨信息融合网络实现无邻站条件下海洋浮标风数据深度学习质量控制（JMSE, 2026-08-07）</a></div>
+      <div class="item-abstract">海洋浮标风数据质量控制传统依赖邻站空间验证，但稀疏观测网络中物理邻站往往不可用。自然资源部北海预报减灾中心提出 DTF-Net（Dual-Track Information Fusion Network），通过时间轨提取风速局部时序变化特征、全局轨挖掘温度-气压-风向等多要素物理耦合关系，在无邻站条件下实现多维度协同异常检测。结合动态三倍标准差尖峰检测与基于深度学习预测的 3δ-RMSE 空间验证，1 h/12 h/24 h 风速预报 MAE 分别为 0.217、0.398、0.462，较 AutoFormer/ITransformer/FiLM 降低 3.8-61.3%。异常检出率 0.33-9.20%，可有效识别浮标维护期、设备故障和短临天气过程中的数据异常。</div>
+      <div class="item-meta">J. Mar. Sci. Eng. 2026, 14(16), 1453（自然资源部北海预报减灾中心） · 2026-08-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.mdpi.com/2077-1312/14/16/1462" target="_blank">区分传感器异常与区域海洋事件：机器学习辅助、物理引导的事件保留型海岸浮标温度 QC 框架（JMSE, 2026-08-08）</a></div>
+      <div class="item-abstract">海岸上升流和台风混合可在数小时内使浮标温度下降数度，传感器故障也是如此——仅按残差大小标记异常的 QC 方案可能误删真实事件。韩国国立水产科学院与江原大学提出一种机器学习辅助、物理引导、事件保留的 QC 框架，分析韩国东海岸 6 个浮标 3 层深度 2008-2024 年的 30 分钟温度记录。该框架使用三个物理可解释轴（邻站空间一致性、层间垂直一致性、ERA5+台风最佳路径大气强迫）分类冷却事件。残差大小区分传感器异常与区域事件能力差（AUC 0.52-0.56），而物理轴分离度极高（多变量交叉验证平均 AUC 0.987）。框架保留区域事件候选，对月均值影响≤0.0005°C，但保留达 8°C 的事件尺度冷却。</div>
+      <div class="item-meta">J. Mar. Sci. Eng. 2026, 14(16), 1462（韩国国立水产科学院 + 江原大学） · 2026-08-08</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title-cn">五、海洋数据处理</div>
+      <div class="section-title-en">Ocean Data Processing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.mdpi.com/2072-4292/18/17/3003" target="_blank">MG-GCNN：多粒度图协作神经网络从稀疏观测网格重建卫星辅助三维海洋环境场，地形感知+垂直特征+多粒度聚合（RS, 2026-09-04）</a></div>
+      <div class="item-abstract">海洋遥感将卫星广域面观测与稀疏水下观测结合，但从不规则采样、垂直非平稳性与水深障碍中重建连续三维环境场仍具挑战。西北工业大学提出多粒度图协作神经网络（MG-GCNN），将离散观测点抽象为拓扑图中的异质节点，融合高分辨率水深作为几何先验，通过地形感知图构建、垂直特征整合、多粒度聚合与自监督掩码节点重建，在有限观测下捕获空间与垂直依赖关系。实验表明 MG-GCNN 在不同稀疏度（含高稀疏与 Argo 采样配置）下，在温度、盐度和流场重建精度上全面优于基线插值与卷积模型，尤其在水下地形复杂与极端采样稀疏区域优势显著。重建场可为海洋声学传播建模、水下感知等后续应用提供三维环境输入。</div>
+      <div class="item-meta">Remote Sens. 2026, 18(17), 3003（西北工业大学） · 2026-09-04</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title-cn">六、数据管理与共享</div>
+      <div class="section-title-en">Data Management & Sharing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://ec.europa.eu/newsroom/emodnet/redirection/item/952541" target="_blank">联合国海洋十年发布社会经济数据共享指南：EMODnet 参与制定，为全球社会经济海洋数据共享提供基础框架（DCO-ODS, 2026-09-10）</a></div>
+      <div class="item-abstract">联合国海洋十年数据共享协调办公室（DCO-ODS）正式发布《社会经济数据共享指南》。该指南由 DCO-ODS 与 EMODnet 及多方专家共同制定，提供高级别原则并突出相关资源，旨在促进负责任、开放、透明的社会经济数据共享实践。EMODnet 秘书处负责人 Kate Larkin 在 9 月 10 日的 DCO-ODS 网络研讨会上发表演讲，讨论推进社会经济海洋数据可及性与共享的重要性。指南覆盖数据许可、元数据标准、FAIR 原则在社会经济数据中的实施等关键议题，为加强全球社会经济数据共享实践提供了基础性框架，填补了海洋十年数据战略中社会经济维度的空白。</div>
+      <div class="item-meta">UN Ocean Decade / DCO-ODS / EMODnet · 2026-09-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://emodnet.ec.europa.eu/en/" target="_blank">EMODnet Biology 发布北海底拖网捕捞对底栖动物影响新数据产品（EMODnet, 2026-09-11）</a></div>
+      <div class="item-abstract">EMODnet Biology 发布了关于北海荷兰部分底拖网捕捞对底栖动物影响的新数据产品。底层渔业是全球食品供应的重要贡献者，但也显著影响海洋生态系统功能——渔具与海底的物理接触会导致沉积物变化和底栖生物直接死亡。该数据产品应用了渔业影响模型于底栖动物群，评估拖网捕捞的生态影响，为渔业影响评估和管理提供数据支撑。该产品通过 EMODnet 地图查看器可视化，体现了 EMODnet 在支持基于生态系统的渔业管理方面的持续贡献。</div>
+      <div class="item-meta">EMODnet Biology · 2026-09-11</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div>
+      <div class="section-title-cn">七、开放航次与科考</div>
+      <div class="section-title-en">Open Cruises & Ship-time</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://www.msa.gov.cn/html/cnmsa/hxaq/article/2026/bf4707763896446bbe04145b2d98b066.html" target="_blank">2026 年度东海科学考察实验研究秋季共享航次启航：向阳红 18 在长江口 10 个固定点位开展综合调查（自然资源部第一海洋研究所, 2026-09-10）</a></div>
+      <div class="item-abstract">国家自然科学基金项目 2026 年度东海科学考察实验研究秋季共享航次于 9 月 10 日至 19 日在长江口以下 10 个固定点位及点位连线之间水域开展，日夜作业。作业由自然资源部第一海洋研究所负责，考察船"向阳红 18"执行。调查覆盖 31N-32N、122-30E 至 124-30E 之间的东海陆架区，进行水文、化学、生物等多学科综合观测与采样。该航次是基金委共享航次计划的年度例行任务之一，为东海物质能量输运、陆架动力过程及生态环境变化研究提供基础数据。截至 2025 年底，向阳红 18 已承担包括国家专项、基金委共享航次等 57 个航次/段，年平均出海 142 天。</div>
+      <div class="item-meta">中华人民共和国海事局 / 自然资源部第一海洋研究所 · 2026-09-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://www.mnr.gov.cn/dt/hy/202609/t20260911_2830895.html" target="_blank">西太平洋海底热液区联合科考：向阳红 10 号起航，清华+青岛海洋地质所+上海交大联合开展（2026-09-11 报道）</a></div>
+      <div class="item-abstract">向阳红 10 号科考船自 8 月 10 日起航赴西太平洋开展海底热液区联合科学考察。该航次由清华大学、青岛海洋地质研究所和上海交通大学联合组织，聚焦西太平洋海底热液系统的地质、化学与生物综合调查，包括热液喷口定位、流体采样、生物群落调查及海底地形测绘。航次于 9 月 11 日获媒体报道，是多方联合开展深海热液区科考的典型案例，对理解海底热液系统的成矿过程、极端环境生物多样性和深海生态系统功能具有重要意义。</div>
+      <div class="item-meta">新华社 / 青岛海洋地质研究所 · 2026-09-11</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://www.mnr.gov.cn/dt/hy/202609/t20260911_2830896.html" target="_blank">第 16 次北冰洋考察：雪龙 2 号为法国塔拉极地站破冰引航 110 海里，中法北极科考合作深化（2026年9月）</a></div>
+      <div class="item-abstract">中国第 16 次北冰洋科学考察中，"雪龙 2"号破冰船为法国塔拉极地站（Tara Polar Station）执行破冰引航任务，在北冰洋冰区开辟航道 110 海里，保障法方科考平台的安全航行与定位。此次中法北极科考合作展示了国际极地科学考察的协同精神，也体现了"雪龙 2"号的双向破冰能力在极地后勤保障中的关键作用。该任务与 9 月初雪龙 2 号冰站作业和无人机浮标投放（已见于前期简报）属同一次考察的不同任务阶段，但破冰引航法国极地站是本次考察的新亮点。</div>
+      <div class="item-meta">新华社 / 自然资源部 · 2026-09-11</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div>
+      <div class="section-title-cn">八、海洋数据中心</div>
+      <div class="section-title-en">Ocean Data Centers</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://emodnet.ec.europa.eu/en/" target="_blank">EMODnet 数据吸纳服务新阶段启动：CMCC 牵头，聚焦蓝经济与公民科学数据纳入（EMODnet, 2026-08-31）</a></div>
+      <div class="item-abstract">EMODnet 数据吸纳服务（Data Ingestion, DI）于 2026 年夏季启动新阶段，由意大利 CMCC 牵头的更新联盟负责。新阶段延续现有服务的同时，基于"EMODnet Vision 2035"战略推进数据吸纳服务的战略性演进。未来 DI 将重点关注吸纳来自蓝经济与更广泛私营部门、海岸与海洋开发许可活动、公民科学及其他代表性不足的公共来源和新兴观测系统的数据。这标志着 EMODnet 从国家海洋数据中心（NODC）为主的传统管道向更包容、更多元化数据提供者扩展，是欧洲海洋数据基础设施向全域覆盖的重要一步。</div>
+      <div class="item-meta">EMODnet · 2026-08-31</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div>
+      <div class="section-title-cn">九、工具与代码资源</div>
+      <div class="section-title-en">Tools & Code Resources</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[备注]</span> 暂无新增</div>
+      <div class="item-abstract">本期检索窗口内（2026-08-31 至 2026-09-14）未发现符合条件的海洋软件新版本发布或代码工具更新。OceanParcels v3.1.4（Zenodo 标注 2025-08-07）超出 60 天时效窗口，已剔除。</div>
+      <div class="item-meta"></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <p>海洋AI技术日报 · 自动生成于 2026年09月14日</p>
+  <p>Powered by WorkBuddy AI · Data sources: arXiv, GitHub, CMEMS, NOAA, CNKI and more</p>
+</div>
+</body>
+</html>
