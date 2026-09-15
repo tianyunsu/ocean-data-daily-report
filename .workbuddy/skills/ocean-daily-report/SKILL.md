@@ -14,7 +14,8 @@ agent_created: true
 ## 概述
 
 本技能为"海洋AI研究日报"任务提供完整的可重复工作流：从内容搜集到质量审查。日报覆盖 9 大方向，
-每方向 2-3 条精选动态，全日报 18-22 条。产出物为 HTML 简报，发布到 GitHub Pages。
+**每方向 3-5 条**精选动态，**全日报 27-45 条**（某方向确无新内容时可为 0，见「常见陷阱 1」宁缺不凑数）。
+产出物为 HTML 简报，发布到 GitHub Pages + 飞书文档。
 
 ## 前置条件
 
@@ -64,7 +65,7 @@ agent_created: true
 - 执行完成后**严格按阶段六写入以下全部记忆文件**（手动与自动完全一致，不可因触发方式不同而产生差异）
 - 如发现有新经验/新规则，同步更新本 skill 和 MEMORY.md
 
-⚠️ **一致性铁律**：手动执行 ≠ 简化执行。手动触发的日报必须产出与自动化定时运行**完全相同**的工件与记忆文件，包括 `daily_reports/海洋AI简报_YYYY-MM-DD.html`、`posts/YYYY-MM-DD.html`、`.workbuddy/memory/YYYY-MM-DD.md`、以及 `MEMORY.md` 去重基准更新。任何"跳过某步"的做法都会造成记忆断层，必须避免。
+⚠️ **一致性铁律**：手动执行 ≠ 简化执行。手动触发的日报必须产出与自动化定时运行**完全相同**的工件与记忆文件，包括 `daily_reports/海洋AI简报_YYYY-MM-DD.html`、`posts/YYYY-MM-DD.html`、飞书文档、`.workbuddy/memory/YYYY-MM-DD.md`、以及 `MEMORY.md` 去重基准更新。任何"跳过某步"的做法都会造成记忆断层，必须避免。
 
 ⚠️ **跨机器铁律**（多台电脑执行时必须遵守）：记忆随 git 仓库同步，skill 随 `sync_skills.py` 同步。
 
@@ -108,12 +109,18 @@ agent_created: true
 
 ### 阶段二：常规来源检索
 
-1. **读取历史日报**：从 `$GH_REPO/posts/` 读取最近 14 天的日报，解析出已报道的事件/论文/产品，
+1. **读取历史日报**：从 `$GH_REPO/posts/` 读取**最近 12 期**日报（不是只看 5 份或 14 天），解析出已报道的事件/论文/产品，
    构建去重黑名单（同时参考 `$WORKSPACE/.workbuddy/memory/MEMORY.md` 的去重基准）。
+   - `supplement` 分支自 2026-06-14 起已停更（最新提交 `4638ad5`），**当前不再纳入去重范围**；
+     若该分支将来恢复更新，须重新纳入检查。
 2. **逐方向搜索**：对 9 大方向逐一执行 WebSearch/WebFetch，搜索近两周（≤14天）的新内容。
+   **每方向目标 3-5 条**；同一方向内若候选多于 5 条，**优先取近 7 天内发布的**（排序权重见
+   `references/quality_standards.md` 的"近 7 天优先权重"）。
    预印本优先：arXiv physics.ao-ph, cs.CV, cs.LG；EarthArXiv；ESSOAr。
    ⚠️ **必须同时按下方「来源覆盖矩阵」逐项打卡**——9 方向表只给"主要来源"提示，
    不等于完整来源清单；仅按 9 方向表检索会长期漏掉长尾来源（见该节历史教训）。
+   **打卡留痕（强制）**：每检索一组来源，就地记录"来源组 + 用过的关键词 + 命中条数"，
+   阶段五据此复核覆盖率。**不得只在事后补写"已全覆盖"。**
 3. **时效性预检**：**在搜集阶段**即标记每条素材的发布日期，
    剔除不满足条件的条目（规则见阶段六的 `references/quality_standards.md`）。
    ⚠️ **日期核实**：搜索引擎显示的日期可能是网页索引/修改日期，非原始发布日期。
@@ -183,6 +190,22 @@ agent_created: true
 5. **页脚声明必须与实际来源一致**：HTML 页脚不得硬编码未实际使用的来源
    （历史遗留 `Data sources: arXiv, GitHub, CMEMS, NOAA, CNKI and more` 中的 CNKI 实测从未使用过——
    `gen_html_*.py` 应改为按本期实际域名动态生成页脚，或至少删去未使用的来源名）。
+6. **打卡留痕模板**（建议原样复制到当日日志，逐组填写后再写"已覆盖"）：
+   ```text
+   | 来源组 | 是否检索 | 关键词 | 命中 |
+   |--------|---------|--------|------|
+   | 预印本 arXiv/EarthArXiv/ESSOAr | Y/N | ... | n |
+   | 学术索引 OpenAlex/Crossref/Scholar | ... | ... | n |
+   | 出版商（Elsevier/Springer/Wiley/IEEE/T&F/SAGE/ACS/RSC/Science/IOP/MDPI/Frontiers/EGU/ACM） | ... | ... | n |
+   | 开放获取 DOAJ | ... | ... | n |
+   | 中文平台 CNKI/万方/维普 + 院所官网 | ... | ... | n |
+   | 代码与发布 GitHub/PyPI/conda-forge/DockerHub | ... | ... | n |
+   | 标准与治理 W3C/ISO/OGC/CF/OceanBestPractices/RDA | ... | ... | n |
+   | 数据服务 CMEMS/NOAA/PANGAEA/Argo/SeaDataNet/IODE/SEANOE/Euro-Argo | ... | ... | n |
+   | 科技媒体（国内官媒 + Eos/Oceanography/MTS） | ... | ... | n |
+   | 阶段一：23 会议 + IEEE 期刊 | ... | ... | n |
+   ```
+   **判定门槛**：零覆盖组超过 **6 组** 即视为本轮检索不足，须回到阶段二补检后再收尾。
 
 ### 阶段三：编写数据
 
@@ -205,8 +228,12 @@ agent_created: true
    ```
 2. **用 Write 工具**将 sections 数据写入 `$WORKSPACE/build_daily.py`。
    ⚠️ **不要用 bash heredoc**：中文内容会乱码。
-3. 执行 `$PYTHON $WORKSPACE/build_daily.py`，通过正则替换将 SECTIONS 写入 `$DATA_SOURCE` 第18行。
-4. 生成 HTML 脚本 `$WORKSPACE/gen_html.py`（读取 DATA_SOURCE → 生成 `海洋AI简报_YYYY-MM-DD.html`）
+   ⚠️ **字符串值统一用单引号**，避免双引号嵌套导致 SyntaxError。
+3. **归类自检（写入文件前必须执行）**：对每条内容逐条回答"这条内容的核心主题是否与所在方向的定义匹配？"
+   不匹配的要么移到正确方向，要么删除。判定标准见 `references/quality_standards.md` 的「方向归类严格规则」。
+   自检结果（改归/删除了几条）记入当日日志。
+4. 执行 `$PYTHON $WORKSPACE/build_daily.py`，通过正则替换将 SECTIONS 写入 `$DATA_SOURCE` 第18行。
+5. 生成 HTML 脚本 `$WORKSPACE/gen_html.py`（读取 DATA_SOURCE → 生成 `海洋AI简报_YYYY-MM-DD.html`）
    并执行。
 
 ### 阶段四：发布
@@ -224,24 +251,39 @@ agent_created: true
    ```
    - **git push 必须在 Bash 中执行且 `dangerouslyDisableSandbox: true`**（Windows 下 PowerShell 编码问题会导致失败）。
    - rebase 冲突时：`GIT_EDITOR=true git rebase --continue`
+   - ⚠️ **先 commit+push，再做任何本地 HTML 预览**（预览会注入 `data-page-node-id` 属性污染文件，见「常见陷阱」）。
+5. **推送飞书文档**：执行 `$PYTHON $DATA_SOURCE`（即 `feishu_write_doc.py`），把 SECTIONS 内容推送到飞书文档。
+   - 若飞书 API 超时/404，**不阻断发布**：如实记入当日日志（含错误码），GitHub Pages 侧照常产出。
+6. **发送飞书机器人通知**：执行 `$PYTHON $RUN_DAILY_REPORT`（`run_daily_report.py`）。
+   - 未配置 `FEISHU_WEBHOOK_URL` 时脚本会跳过，记入日志即可，不视为失败。
+
+> **关于 `deploy_report.py`**：旧流程用它发布到 GitHub Pages，现已由第 4 步的直接 `git push` 取代
+> （更可控、可 review diff）。该脚本**已废弃，不再调用**；若保留在仓库中仅作历史参考。
 
 ### 阶段五：质量审查
 
-加载 `references/quality_standards.md` 执行**三项审查**：
+加载 `references/quality_standards.md` 执行**五项审查**（缺一不可）：
 
-1. **链接验证**：用 WebFetch 逐条验证所有 href 链接。
-   失效链接须搜索替代来源，修复后重新生成 HTML + 重新 push。
-   ⚠️ 部分中国学术期刊网站（如 jao.org.cn）会返回 403 Forbidden（反爬虫机制），
-   此时通过搜索引擎确认文章存在且内容一致即可判定链接有效。
-   ⚡ **MDPI / ScienceDirect / Wiley / IEEE 等反爬站点：优先用 `verify_paper.py`（Crossref + OpenAlex 官方 API）核实元数据**，
-   一次拿到标题/期刊/作者/发表日期/摘要，不受 403 影响、比 WebFetch 更快更准。详见 `references/quality_standards.md` 的"反爬站点核实规则"。
+1. **链接有效性与摘要一致性**：
+   - **有效性**：逐条验证所有 href 是否返回 200。失效链接须搜索替代来源，修复后重新生成 HTML + 重新 push。
+   - **一致性（易漏）**：逐条核对简报摘要与原文内容是否相符——摘要须准确反映原文核心观点，
+     **不得出现与原文不符的表述，也不得把相邻条目的事实张冠李戴**。摘要里的关键数字（精度、天数、分辨率、
+     样本量、金额、台站名）必须在原文中能找到出处。
+   - ⚠️ 部分中国学术期刊网站（如 jao.org.cn）会返回 403 Forbidden（反爬虫机制），
+     此时通过搜索引擎确认文章存在且内容一致即可判定链接有效。
+   - ⚡ **MDPI / ScienceDirect / Wiley / IEEE 等反爬站点：优先用 `verify_paper.py`（Crossref + OpenAlex 官方 API）核实元数据**，
+     一次拿到标题/期刊/作者/发表日期/摘要，不受 403 影响、比 WebFetch 更快更准。详见 `references/quality_standards.md` 的"反爬站点核实规则"。
 2. **时效性审计**：用 Python 提取所有条目日期，计算距今天数，
-   标出 >14天 / >30天 / >60天 的条目。不合格条目须替换或标注豁免理由。
+   标出 >7天 / >14天 / >60天 的条目。不合格条目须替换或标注豁免理由。
+   **同方向内若有 >7 天的条目与 ≤7 天的条目并存，须优先保留近 7 天的**（排序权重规则）。
    `verify_paper.py` 已内置时效判定（OK / 需豁免 / 超期），可直接复用。
 3. **来源覆盖自检**：按上文「来源覆盖矩阵 · C 组」统计本期实际来源域名，
    与近 12 期比对，列出零覆盖来源组并逐条归因（确无新内容 / 检索无结果 / 未检索→当场补检）。
    ⚠️ **不得只在日志里写"已全覆盖"**——跨机器接手时对方日志的质检自述不可采信（见「常见陷阱 12」），
    必须给出域名清单或命令输出作为证据。
+4. **归类与条目数终检**：对照 `references/quality_standards.md` 的「方向归类严格规则」复核每条归属；
+   统计各方向条数，**目标每方向 3-5 条**（某方向确无新内容时可为 0，不得凑数）。
+5. **去重复核**：URL 集合差（本期 vs 近 12 期）+ 关键词/DOI/卷期号 grep，确认 0 重复。
 
 ### 阶段六：记忆写入（不可跳过，手动与自动完全一致）
 
@@ -249,6 +291,8 @@ agent_created: true
 
 1. **每日工作日志** `$WORKSPACE/.workbuddy/memory/YYYY-MM-DD.md`
    - 追加（不覆盖）执行日志：条目数、覆盖方向、关键发现、异常说明（如飞书API 404、WEBHOOK 未配置、git冲突解决等）
+   - **必含三项留痕**：① 阶段二的来源检索打卡（来源组 + 关键词 + 命中数）；
+     ② 阶段三的归类自检结果（改归/删除几条、原因）；③ 阶段五的来源覆盖率小结（零覆盖组 + 归因）。
    - 若文件不存在则创建
 2. **去重基准** `$WORKSPACE/.workbuddy/memory/MEMORY.md`
    - 在本期"去重基准（滚动更新）"小节中追加本期核心条目（标题 + 日期 + 方向），供未来去重检索
@@ -262,6 +306,9 @@ agent_created: true
 
 ## 9大方向与搜索策略
 
+> **规模口径**：每方向目标 **3-5 条**（全日报 27-45 条）；某方向确无新内容时**可为 0，不得凑数**。
+> 本表只给"主要来源"**提示**，**不等于完整来源清单**——每期必须同时按上文「来源覆盖矩阵」逐组打卡。
+
 | # | 方向 | 主要搜索来源 | 搜索关键词示例 |
 |---|------|-------------|---------------|
 | 1 | 海洋人工智能 | arXiv physics.ao-ph, **顶会论文(强制检索23个会议)**, **IEEE期刊(JOE/TGRS/GRSM)**, Nature, npj 系列, 国内新闻 | "ocean AI deep learning 2026", `"CVPR 2026" underwater marine`, "海洋大模型 2026", **"Arctic sea ice deep learning", "北极海冰 AI 遥感", "sea ice remote sensing review 2026"** |
@@ -269,8 +316,8 @@ agent_created: true
 | 3 | 海洋可视化 | CMEMS MyOcean, GitHub, 学术工具, **顶会论文(CVPR/ICCV/ECCV)** | `"CVPR 2026" ocean visualization`, "ocean visualization tool 2026" |
 | 4 | 海洋数据质量 | Springer, Argo, GOOS, **顶会论文(ICML/NeurIPS)**, **IEEE期刊(TGRS/GRSL)** | `"ICML 2026" ocean data quality`, "Argo quality control machine learning 2026" |
 | 5 | 海洋数据处理 | arXiv, Nature Sci Data, **顶会论文(NeurIPS/ICLR)**, J. Oceanography, **IEEE期刊(TGRS/JSTARS)** | `"NeurIPS 2026" ocean data`, "ocean data processing AI 2026", "SST super-resolution sea ice dataset 2026" |
-| 6 | 数据管理与共享 | IOC, EMODnet, 信通院, CMEMS | "ocean data sharing FAIR policy 2026" |
-| 7 | 开放航次与科考 | NOAA Ocean Exploration, 高校科考新闻, **顶会论文(CoRL/ICRA)** | "NOAA Okeanos Explorer 2026", "海洋科考 2026" |
+| 6 | 数据管理与共享（**含地质样品共享**、数据共享平台） | IOC, EMODnet, 信通院, CMEMS | "ocean data sharing FAIR policy 2026", "geological sample sharing", "海洋地质样品 共享" |
+| 7 | 开放航次与科考（**含船时共享**） | NOAA Ocean Exploration, 高校科考新闻, **顶会论文(CoRL/ICRA)** | "NOAA Okeanos Explorer 2026", "海洋科考 2026", "ship time sharing", "船时共享" |
 | 8 | 海洋数据中心 | GEBCO, ECCO, 国内海洋数据中心 | "GEBCO 2026", "ECCO update" |
 | 9 | 工具与代码资源 | PyPI, GitHub, **顶会论文开源代码**, 学术工具论文 | `"ICLR 2026" ocean code release`, "oceanography Python package release 2026" |
 
@@ -455,3 +502,10 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
 15. **skill 双副本漂移（仓库版 vs 用户级目录）**：仓库 `.workbuddy/skills/ocean-daily-report/` 与 `~/.workbuddy/skills/ocean-daily-report/` 是**两份文件**，靠 `sync_skills.py` 手动对齐。2026-09-15 实测两份 `SKILL.md` md5 不同（仓库版停留在 09-08，用户版已更新到 09-14，差 4 条陷阱），意味着**非主力机加载的是缺 4 条规则的旧版**。
     - **铁律**：每次修改 skill 后，主力机执行 `python sync_skills.py collect`（用户目录 → 仓库）并 `git push`；其他机器执行前用 `python sync_skills.py install`（仓库 → 用户目录）。
     - **阶段五自检**：`python sync_skills.py status`，两份不一致即视为质检不合格，当场对齐后再收尾。
+
+16. **量化口径散落多处导致漂移**：时效（7/14/60 天）、去重窗口（5 份 / 12 期 / 14 天）、条目数（2-3 / 3-5）等数字曾散落在 `SKILL.md`、`references/quality_standards.md`、`MEMORY.md`、automation prompt 四处且互不一致——2026-09-15 核对实测：`quality_standards.md` 写"最近 **5 份**"、`SKILL.md` 写"最近 **14 天**"，而实践用"近 **12 期**"，三者并存。
+    - **铁律**：任何口径变更必须**一次性同步全部载体**，并 grep 全库（含 `~/.workbuddy/skills/`、`$GH_REPO/.workbuddy/skills/`、自动化 prompt）确认无残留旧值。
+
+17. **放宽口径 → 检索轮次减少 → 长尾来源被"合法"漏掉**：2026-07-31 起时效放宽到 14/60 天、条目数下调到每方向 2-3 条后，检索强度随之下降，近 14 期里 arXiv 独占 49/111 个链接，27 组来源中 11 组零覆盖（含 IEEE Xplore 零命中）。
+    - **用户 2026-09-15 拍板口径**：时效维持 **≤14 天**，但**近 7 天作为同方向内的排序优先权重**；条目数**回到每方向 3-5 条**。
+    - **原则**：口径与检索强度必须联动评估——放宽时效或减少条数时，不会自动减少检索义务，来源覆盖矩阵照旧逐组打卡。
