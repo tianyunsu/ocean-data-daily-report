@@ -1,0 +1,233 @@
+# -*- coding: utf-8 -*-
+"""
+build_daily_0915.py — 将 2026-09-15 日报 SECTIONS 写入 feishu_write_doc.py
+本机执行说明：来源覆盖按 skill「来源覆盖矩阵」执行（A组直检 + B组 verify_paper.py API 替代）。
+"""
+import re
+
+SECTIONS = [
+    {
+        'title': '一、海洋人工智能',
+        'en': 'Ocean AI / Marine Artificial Intelligence',
+        'items': [
+            {
+                'title': 'MambaMPD：频域增强与多尺度边缘引导的 Mamba 分割框架用于海洋污染遥感检测（arXiv, 2026-09-14）',
+                'badge': '[论文]',
+                'abstract': '海洋污染检测（MPD）对保护海岸生态系统与海洋生物多样性至关重要，但受信噪比低、污染斑块破碎、污染物与海水视觉相似导致边界不清等困难制约。研究提出 MambaMPD——在 Mamba 架构上引入两类互补结构先验：频域感知增强（FAA）通过小波变换把编码器特征分解到多尺度频率子带，兼顾低频上下文语义与高频结构细节，以识别小而低对比度的不规则污染斑块；多尺度边缘引导注意力（EGA）将拉普拉斯派生的层级边界线索与深层语义自适应融合，在解码前锐化边界。配合带压缩激励注意力与深监督的 U-Net 式解码器，模型在两个 MPD 基准上取得更高 mIoU，且算力需求显著低于基础模型方案：MADOS 上 F1 较 OSDMamba 提升 3.6%，M4D 上溢油 IoU 较 TransOilSeg 提升 6.82%。',
+                'source': 'arXiv (cs.CV)',
+                'url': 'https://arxiv.org/abs/2609.15676',
+                'date': '2026-09-14',
+            },
+            {
+                'title': 'CatchMonitor：用半监督机器视觉自动量化拖网渔船丢弃渔获（arXiv, 2026-09-14）',
+                'badge': '[论文]',
+                'abstract': '研究报道 CatchMonitor 原型的持续开发成果——一个从渔船远程电子监控（REM）视频中自动量化丢弃渔获的计算机视觉系统。船上监控画面分析在真实作业条件下极具挑战：光照多变、目标密集遮挡、鱼体姿态任意。团队在前期工作基础上引入半监督学习提升鱼种识别精度，并采用简洁稳健的目标跟踪方法构建丢弃量化流程。研究还系统分析了多位专家人工量化结果的离散度，并以此为基准对比系统性能，为渔业电子监控的自动化监管提供可量化的精度参照。',
+                'source': 'arXiv (cs.CV)',
+                'url': 'https://arxiv.org/abs/2609.15484',
+                'date': '2026-09-14',
+            },
+            {
+                'title': 'LeadNet：Sentinel-1 SAR 支撑 80 米分辨率泛北极冬季冰间水道制图，同步公开约 1.09 TB 数据集（中科院海洋所, 2026-09-10）',
+                'badge': '[论文]',
+                'abstract': '海冰间水道（leads）是海冰中的线性开口，对海气相互作用与区域热通量有重要调制作用，但恶劣极地环境使高分辨率泛北极观测长期稀缺。中国科学院海洋研究所团队开发深度学习模型 LeadNet，基于 Sentinel-1 SAR 实现 80 米分辨率的泛北极冬季冰间水道提取，并完成长度、宽度等形态参数的精细刻画；成果发表于 International Journal of Digital Earth（DOI 10.1080/17538947.2026.2728309，2026-09-04 在线），通讯作者为任沂斌副研究员，合作者包括李晓峰研究员。研究同步以 GeoTIFF 格式公开发布约 1.09 TB 数据集，可支撑北极海冰动力变化、海气热通量估算与高分辨率气候模式评估，也为深度学习在大规模极地遥感数据处理中的应用提供参考。',
+                'source': '中国科学院海洋研究所 / International Journal of Digital Earth',
+                'url': 'https://qdio.cas.cn/2019Ver/News/kyjz/202609/t20260910_8280576.html',
+                'date': '2026-09-10',
+            },
+        ],
+    },
+    {
+        'title': '二、海洋数字孪生',
+        'en': 'Ocean Digital Twin',
+        'items': [
+            {
+                'title': 'DISCUSS：数字孪生驱动的深海微生物闭环智能研究系统，属水平可培养率提升至 7.7%（Nature Sensors, 2026-09-14 报道）',
+                'badge': '[论文]',
+                'abstract': '深海微生物广泛参与全球生物地球化学循环并具极端生物资源价值，但传统采样与分离纯化流程难以在样品从海底进入实验室的全过程中持续维持原位环境，可培养性差成为瓶颈。南方海洋科学与工程广东省实验室（广州）张偲院士团队冯景春课题组首次提出并开发面向深海微生物研究的闭环智能系统 DISCUSS：以光学、化学、物理、力学多模态传感信息为基础，通过数字孪生与反馈控制驱动不同实验模块协同运行，把原位微环境保持从单一设备的静态保温保压拓展为跨设备、跨过程的动态重构与补偿，弥合采样装备与实验室培养分选装置之间的“感知—执行”断层。成果发表于《自然-传感器》（Nature Sensors），系统实现 7.7% 的属水平可培养率，显著高于传统深海培养方法通常低于 1% 的水平，其中 11 株分离菌与已知模式菌株 16S rRNA 相似度低于 98.65%。',
+                'source': '《自然-传感器》(Nature Sensors) / 中国科学报·科学网',
+                'url': 'https://news.sciencenet.cn/htmlnews/2026/9/571381.shtm',
+                'date': '2026-09-14',
+            },
+            {
+                'title': 'DTO-BioFlow 线上研讨会：海洋生物多样性数据如何接入欧洲数字孪生海洋（EDITO）（2026-09-09 公告，会议 09-16）',
+                'badge': '[动态]',
+                'abstract': 'DTO-BioFlow 项目发布匹配交流活动公告，将于 2026 年 9 月 16 日线上举办主题为 Marine Biodiversity Data and the European Digital Twin 的研讨会。会议面向欧盟使命项目及从事海洋与生物多样性数据的各类倡议，重点展示 DTO-BioFlow 示范用例（Demonstrator Use Cases）成果，探讨这些工具与服务如何支撑更广泛的生物多样性数据社区以及欧洲数字孪生海洋（EDITO）基础设施，并说明项目如何接入、贡献并受益于不断演进的 DTO 生态。',
+                'source': 'NF-POGO Alumni Network / DTO-BioFlow',
+                'url': 'https://nf-pogo-alumni.org/09092026-5',
+                'date': '2026-09-09',
+            },
+        ],
+    },
+    {
+        'title': '三、海洋可视化',
+        'en': 'Ocean Visualization',
+        'items': [
+            {
+                'title': 'CCGS Amundsen 2026 年北极考察第 3 航段实时数据门户持续更新：导航—气象—海水要素与 360 度影像统一呈现（页面时间戳 2026-09-15）',
+                'badge': '[动态]',
+                'abstract': '加拿大海岸警卫队 Amundsen 号破冰科考船 2026 年考察第 3 航段正在进行，其公开的实时数据平台随船同步更新航迹、位置与航速，以及 21.6 米高度的风速风向、气压、气温湿度，和 7 米深度的海水温度、盐度、荧光、溶解氧、声速等要素；平台还以时间轴列出最近 24 小时的科学作业站位与类型（CTD 采水、冰站作业、直升机探测等），并提供 360 度相机与全天相机影像，以及活动日志 XLS、KMZ 轨迹等下载。该门户把航次观测、船载传感器数据与影像资料整合进统一可视化界面，并以可下载轨迹的方式对外开放，是北极海洋观测数据实时公开共享的典型案例。',
+                'source': 'Université Laval / CCGS Amundsen 实时数据平台',
+                'url': 'https://data.amundsen.ulaval.ca/',
+                'date': '2026-09-15',
+            },
+        ],
+    },
+    {
+        'title': '四、海洋数据质量',
+        'en': 'Ocean Data Quality / QA-QC',
+        'items': [
+            {
+                'title': 'SST 强迫数据集的一次静默切换使 CFSR 海洋再分析偏差由暖转冷，并系统性带偏 ENSO 季节预报（Climate Dynamics, 2026-09-08）',
+                'badge': '[论文]',
+                'abstract': 'CFSR 长期存在热带太平洋海表温度（SST）预报暖偏差，该不连续现象约在 1999 年前后出现。研究发现 2020 年海洋再分析中用于 nudging 的 SST 数据集发生切换后，偏差符号被有效反转——由暖偏差变为冷偏差，使预报系统的误差不再平稳：基于某一时期标定的偏差订正、统计后处理与机器学习订正都会随之失效。技术根源在于两类产品所测量的物理量不同：OISST 分析面向的是排除日变化的 foundation SST，而 NSST 方案代表模式最上层温度，包含可与本体温度不同的近表层梯度；当再分析以强约束把模式顶层拉向定义不同的产品时即引入系统性偏移，并通过耦合预报初值传播到每一次预测。作者指出全球多个业务化海洋再分析系统都面临同类选择，SST 数据集切换应与模式物理或观测网变更接受同等审视，并建议把产品间一致性监测、切换点不连续性量化与初值偏差传播评估列为数据流变更的标准动作。',
+                'source': 'Climate Dynamics（DOI 10.1007/s00382-026-08375-x）',
+                'url': 'https://doi.org/10.1007/s00382-026-08375-x',
+                'date': '2026-09-08',
+            },
+            {
+                'title': '事件化检测框架揭示韩国东岸区域差异显著的沿岸冷水事件，并给出 GLORYS12 再分析的精度评估（JGR: Oceans, 2026-09-01）',
+                'badge': '[论文]',
+                'abstract': '沿岸冷水事件（CWEs）会显著降低近岸海表温度并造成生态与社会经济影响，但在受西边界流影响的边缘海中，客观检测与基于过程的诊断仍十分有限。研究基于站点观测建立事件化检测框架：先用 25 小时滑动平均滤除日循环，再以 60 天滑动平均提取低频背景信号，两者相减得到相对即时热背景的冷水异常，从而避免固定气候态基线在长期偏冷海域漏检急性降温的问题。研究以该框架评估 CMEMS 的 GLORYS12V1 全球海洋再分析产品对海岸冷水事件的复现精度，并结合卫星测高海面高度与地转流场分析中尺度表层变化，指出局地沿岸冷水事件在有限分辨率的再分析产品中可能未被充分解析，为再分析产品在近岸事件尺度上的适用边界提供定量参照。',
+                'source': 'Journal of Geophysical Research: Oceans（DOI 10.1029/2026JC024312）',
+                'url': 'https://doi.org/10.1029/2026JC024312',
+                'date': '2026-09-01',
+            },
+        ],
+    },
+    {
+        'title': '五、海洋数据处理',
+        'en': 'Ocean Data Processing',
+        'items': [
+            {
+                'title': 'Med-CORDEX 耦合高分辨率区域气候系统模式对地中海 SST 与海洋热浪的降尺度增值评估（Ocean Science, 2026-09-09）',
+                'badge': '[论文]',
+                'abstract': '海洋热浪（MHW）对地中海海洋生态系统与沿岸经济构成显著威胁，其频率与强度预计将随气候变化上升。研究系统评估 Med-CORDEX 全套耦合区域气候系统模式（RCSM）相对其驱动全球气候模式（GCM）在表征海表温度与海洋热浪上的降尺度增值：对去中位数 SST 异常、上尾 SST 异常、MHW 持续时间与强度四类参量逐格点计算增值指标，并只在 9 个模拟中至少 6 个与多模式平均同号的格点保留统计，以保证结论稳健。研究还以两套独立 SST 产品（高分辨率日变化 subskin SST 分析与 CMEMS 地中海物理再分析）检验结论对观测参考的敏感性，结果显示产品间差异远小于 RCSM 与 GCM 之间的差异，表明所诊断的降尺度增值稳健，可为地中海区域海洋热浪的降尺度预测能力评估提供方法参照。',
+                'source': 'Ocean Science（DOI 10.5194/os-22-2725-2026）',
+                'url': 'https://doi.org/10.5194/os-22-2725-2026',
+                'date': '2026-09-09',
+            },
+        ],
+    },
+    {
+        'title': '六、海洋数据管理与共享',
+        'en': 'Ocean Data Management & Sharing',
+        'items': [
+            {
+                'title': '把海洋空间数据基础设施与开放科学对齐：以 FAIR 与可持续海洋知识体系为目标的整合述评（npj Ocean Sustainability, 2026-09-12）',
+                'badge': '[论文]',
+                'abstract': '海洋空间数据基础设施（MSDI）与开放科学（OS）各自重塑了海洋数据的管理、共享与复用方式，但长期作为两条平行脉络演进。该整合性述评系统梳理两者如何对齐以推进 FAIR（可发现、可访问、可互操作、可复用）原则与可持续海洋知识体系：指出海洋数据格式高度异质（模式 netCDF、生物多样性 Darwin Core、生境制图 Shapefile/GeoJSON、声学与光学传感器专有格式）与词汇体系不匹配是语义互操作的主要障碍；主张以 ISO 19115 等国际元数据标准、持久标识符、基于 OGC 与 SPARQL 的开放 API 以及可追溯的数据血缘为基础，把耗时的双边数据共享协议替换为可即时组合的数据服务。文章同时强调基础设施与文化、公平不可分割，并提醒为人类用户设计的 FAIR 设施未必适配机器可读的新需求，而海洋基础模型、数字孪生与自动化异常检测正依赖后者所提供的数据底座。',
+                'source': 'npj Ocean Sustainability（DOI 10.1038/s44183-026-00246-6）',
+                'url': 'https://doi.org/10.1038/s44183-026-00246-6',
+                'date': '2026-09-12',
+            },
+            {
+                'title': '首届国际电子海洋钻探计划（E-ODP）研讨会在同济大学举行：整合近 60 年 500 公里岩心数据遗产以支撑 AI 发现（2026-09-09 至 09-11）',
+                'badge': '[动态]',
+                'abstract': '首届国际电子海洋钻探计划（E-ODP）研讨会于 2026 年 9 月 9—11 日在上海同济大学举行，最终议程于 09-06 发布。会议指出，DSDP、ODP、IODP 等国际海洋钻探计划近六十年来在全球钻探超过 4200 个孔位、获取约 500 公里岩心，形成涵盖岩性地层、沉积、古生物、地球化学与地球物理等 200 余类数据的科学遗产；但这些数据目前分散于不同来源、格式碎片化且异质，其科学潜力仍被严重低估。E-ODP 倡议旨在推进全球海洋钻探数据的整合与同化，从而支撑 AI 辅助的科学发现，与 2050 科学框架中的大数据分析赋能要素相衔接，并已在 2025 年 10 月首届科学钻探论坛上获得认可。会议设海洋钻探数据库专门分会，讨论分散记录的整合与数据处理工具；合作伙伴包括 DODP、ECORD、ANZIC、INCT-Atlântico 与 ICDP。',
+                'source': '中国大洋发现计划（IODP-China）/ 同济大学海洋地质国家重点实验室',
+                'url': 'https://www.iodp-china.org/E-ODP_workshop/Default/HomePage',
+                'date': '2026-09-09',
+            },
+        ],
+    },
+    {
+        'title': '七、开放航次与科考',
+        'en': 'Open Cruises & Ship Time Sharing',
+        'items': [
+            {
+                'title': '中俄首次在北冰洋开展走航海冰现场联合观测，人工目测与卫星遥感形成互补（新华社, 2026-09-04）',
+                'badge': '[航次]',
+                'abstract': '执行中国第 16 次北冰洋考察任务的“雪龙2”号在北冰洋航行期间，中方考察队员与两名来自俄罗斯南北极研究所的俄籍队员联合开展走航海冰现场观测，这是中俄首次在海冰观测领域进行现场观测合作。进入冰区前，双方海冰观测负责人先沟通各自标准与方法，确认主体观测内容高度重合并讨论细小差别。走航观测即船舶航行期间的人工目测，内容涵盖海冰密集度、类型、尺寸、厚度与积雪厚度，并增加大气基础环境要素、船舶动能要素及大型动物等记录，具有空间分辨率高、受云雾天气影响小、航行路线全覆盖、厚度观测精细等优势，可与卫星遥感形成有效互补。中方海冰队队长林龙表示，本次联合观测相比以往航次更具实用性，在提升北极海冰变化认知的同时，也考虑了对冰区船舶设计与通航性评估等工作的支撑作用。',
+                'source': '新华社（记者温竞华）· 经网易转载',
+                'url': 'https://www.163.com/dy/article/L6LN7VPC05561FZU.html',
+                'date': '2026-09-04',
+            },
+        ],
+    },
+    {
+        'title': '八、海洋数据中心',
+        'en': 'Ocean Data Centers / Archives / Repositories',
+        'items': [
+            {
+                'title': 'Copernicus Marine 发布核心产品数据可用性通告：全球波浪 L4 近实时产品中断后已恢复，生化表层数据汇交异常仍在处置（2026-09-11）',
+                'badge': '[数据]',
+                'abstract': '欧盟哥白尼海洋服务（CMEMS）用户通告服务发布产品可用性提示。WAV-305：由于技术故障，WAVE_GLO_PHY_SWH_L4_NRT_014_003 产品自 2026 年 9 月 5 日起中断生成 cmems_obs-wave_glo_phy-swh_nrt_multi-l4-0.5deg_PT6H-i 数据集（0.5 度、6 小时分辨率的全球近实时有效波高产品）；通告于 09-11 11:00 UTC 标记为处置中，随后在 09-11 15:00 UTC 更新为已解决、运行恢复正常。同期另一条通告 MOB-397 指出，因上游 ABI 文件可用性异常，MULTIOBS_GLO_BGC_SURFACE_NRT_015_016 产品自 2026 年 9 月 10 日起数据汇交受到影响，服务方持续监控并尽快恢复。两条通告提示依赖上述产品的波浪与生化业务化应用需注意相应时段的数据缺口，也反映 CMEMS 对产品可用性实行逐条公开通告的运维机制。',
+                'source': 'Copernicus Marine Service（CMEMS）用户通告服务',
+                'url': 'https://marine.copernicus.eu/user-corner/user-notification-service/wav-305-waveglophyswhl4nrt-delayed-data-2026-09-06',
+                'date': '2026-09-11',
+            },
+        ],
+    },
+    {
+        'title': '九、工具与代码资源',
+        'en': 'Tools & Code Resources',
+        'items': [
+            {
+                'title': 'Parcels v4.0 发布：拉格朗日海洋模拟框架重构为纯 Python，支持非结构网格与 Parquet 轨迹输出（2026-09-09）',
+                'badge': '[工具]',
+                'abstract': '海洋拉格朗日粒子追踪框架 Parcels 发布 v4.0，这是一次彻底重构，目标是比此前版本更灵活、更易扩展。v4 成为纯 Python 包，充分利用 Xarray、Dask、Zarr 等 Pangeo 地球科学工具生态；粒子平流与插值改为向量化运算，提升性能并便于实现粒子间相互作用。主要改进包括：支持非结构网格；Kernel 编写更灵活（可在 Kernel 中使用 Python 函数、可在 Kernel 内直接写输出）；支持用户自定义插值器；嵌套网格支持更稳健。输出格式改为 Parquet 表格格式，更适合轨迹数据的读写，官方同时提供完整的 v3 到 v4 迁移指南。开发由 GEOMAR、FluidNumerics 与乌得勒支大学合作完成，受德国 BMFTR 与荷兰 NWO 项目支持。需注意 v4.0 属早期版本，粒子数超过约 10 万时性能仍低于 v3，暂不应视为稳定版。',
+                'source': 'Parcels 官方博客 / conda-forge',
+                'url': 'https://parcels-code.org/blog/parcels-v4',
+                'date': '2026-09-09',
+            },
+            {
+                'title': 'hydrolib-core 1.3.0 发布：D-HYDRO 水动力模型文件的 Python 封装库（PyPI, 2026-09-14）',
+                'badge': '[工具]',
+                'abstract': 'Deltares 维护的 hydrolib-core 发布 1.3.0（PyPI 上传时间 2026-09-14，距 09-09 发布的 1.2.0 仅 5 天）。该库是 D-HYDRO 模型输入输出文件的 Python 封装核心，可作为水动力模拟工作流各类前后处理工具的基础，支持模型文件的结构化读写与校验，服务于水文水动力建模的自动化流程。项目提供快速上手教程、功能清单与 API 参考、变更日志，issue 与功能请求通过 GitHub 跟踪；采用 MIT 许可，要求 Python 3.10 以上。该版本连续迭代节奏表明 D-HYDRO 生态的前后处理工具链处于积极维护状态。',
+                'source': 'PyPI / Deltares',
+                'url': 'https://pypi.org/project/hydrolib-core/',
+                'date': '2026-09-14',
+            },
+            {
+                'title': 'oceanval 0.5.4 发布：面向海洋模式的自动化验证工具，一周内三次迭代（PyPI/conda-forge, 2026-09-11）',
+                'badge': '[工具]',
+                'abstract': '海洋模式验证工具 oceanval 发布 0.5.4（PyPI 上传时间 2026-09-11；此前 0.5.0 之后 0.5.2 于 09-08、0.5.3 于 09-10 相继发布，一周内三次小版本迭代）。该包面向海洋模型的自动化验证，以 Python 实现，采用 GPL-3.0 许可，通过 conda-forge 分发，文档托管于 oceanval.readthedocs.io。作为可自动化的模式评估工具，它可降低海洋业务化与科研建模中重复开展验证工作的成本，近期密集更新显示该项目处于活跃开发状态。',
+                'source': 'PyPI / conda-forge',
+                'url': 'https://pypi.org/project/oceanval/',
+                'date': '2026-09-11',
+            },
+        ],
+    },
+]
+
+# ---- write to feishu_write_doc.py ----
+with open('feishu_write_doc.py', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+new_sections_line = 'SECTIONS = ' + repr(SECTIONS).replace('\\x27', "'")
+
+idx_start = content.find('SECTIONS = [')
+if idx_start == -1:
+    idx_start = content.find('SECTIONS=[')
+if idx_start == -1:
+    print("ERROR: Could not find SECTIONS in feishu_write_doc.py")
+    exit(1)
+
+idx_end = content.find('\ndef tr(')
+if idx_end == -1:
+    print("ERROR: Could not find 'def tr(' after SECTIONS")
+    exit(1)
+
+new_content = content[:idx_start] + new_sections_line + '\n' + content[idx_end + 1:]
+
+with open('feishu_write_doc.py', 'w', encoding='utf-8') as f:
+    f.write(new_content)
+
+import ast
+try:
+    tree = ast.parse(new_content)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and target.id == 'SECTIONS':
+                    s = ast.literal_eval(node.value)
+                    total = sum(len(sec['items']) for sec in s)
+                    effective = sum(1 for sec in s for item in sec['items'] if item.get('badge') != '[备注]')
+                    print(f"OK: SECTIONS written. Total items: {total} (effective: {effective})")
+                    print(f"Sections: {len(s)}, sections with content: {sum(1 for sec in s if sec['items'])}")
+                    break
+            else:
+                continue
+            break
+except SyntaxError as e:
+    print(f"SYNTAX ERROR: {e}")
