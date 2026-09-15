@@ -112,12 +112,77 @@ agent_created: true
    构建去重黑名单（同时参考 `$WORKSPACE/.workbuddy/memory/MEMORY.md` 的去重基准）。
 2. **逐方向搜索**：对 9 大方向逐一执行 WebSearch/WebFetch，搜索近两周（≤14天）的新内容。
    预印本优先：arXiv physics.ao-ph, cs.CV, cs.LG；EarthArXiv；ESSOAr。
+   ⚠️ **必须同时按下方「来源覆盖矩阵」逐项打卡**——9 方向表只给"主要来源"提示，
+   不等于完整来源清单；仅按 9 方向表检索会长期漏掉长尾来源（见该节历史教训）。
 3. **时效性预检**：**在搜集阶段**即标记每条素材的发布日期，
    剔除不满足条件的条目（规则见阶段六的 `references/quality_standards.md`）。
    ⚠️ **日期核实**：搜索引擎显示的日期可能是网页索引/修改日期，非原始发布日期。
    对于政策文件、战略计划、国际会议文档等，必须通过内容交叉验证（如摘要中提及的会议年份）
    或多源比对（如 AGRIS、OceanExpert）确认真实发布日期。详见 `references/quality_standards.md` 的"日期核实规则"。
 4. **去重确认**：对比历史黑名单 + MEMORY.md 去重基准，剔除重复条目。
+
+### 来源覆盖矩阵（每期必查 · 强制，不得遗漏）
+
+> ⚠️ **历史教训（2026-07-31 迁移丢失，2026-09-15 复盘确认）**
+> 2026-07-31 将自动化 prompt 重构为对本 skill 的"**纯委托**"（单一权威源，消除双源漂移）时，
+> 原 prompt 中「**检索来源（每次执行必须全覆盖以下所有来源类型，不得遗漏）**」整节
+> **没有被迁移进 skill**（初始版本 `3514a0b` 已实测：ProQuest/Semantic Scholar/DOAJ/CNKI/DockerHub/SeaDataNet/ISO/OGC 命中数均为 0）。
+> 此后每期（手动+自动）都只在"9 大方向表"的"主要搜索来源"提示下检索，实际收敛为
+> **arXiv / MDPI / CMEMS / NOAA / 国内政府网站** 五家，长尾来源连续 12 期零覆盖。
+> **本节即为该约束的正式归宿。阶段二必须逐项打卡，阶段五必须复核覆盖率。**
+>
+> 迁移类教训通用规则：**把一份自包含提示词收敛为"纯委托 skill"时，必须逐条 diff 原提示词的约束清单，
+> 确认每一条都在 skill 中有归宿——"精简"不等于"可以丢约束"。**
+
+#### A 组 · 可直接检索（每期必须实际发起检索）
+
+| 来源组 | 具体来源 | 检索方式 |
+|--------|---------|---------|
+| 预印本 | arXiv（physics.ao-ph / cs.CV / cs.LG）、EarthArXiv、ESSOAr | arXiv API 按 `submittedDate` 倒序；EarthArXiv/ESSOAr 走 `site:` 检索 |
+| 学术索引 | Google Scholar、OpenAlex、Semantic Scholar、Crossref | OpenAlex/Crossref 用 API（`verify_paper.py` 已内置）；Scholar/Semantic 用 WebSearch |
+| 开放获取聚合 | DOAJ | `site:doaj.org <关键词>` |
+| 出版商（可直连） | EGU/Copernicus（Ocean Science、Biogeosciences、GMD、ESSD）、Frontiers、MDPI（RS/JMSE）、Springer Nature 及 Nature 子刊（Nat. Commun./Nat. Clim. Change/Sci. Rep.） | WebSearch + WebFetch；MDPI/Springer 遇 403 改用 `verify_paper.py` |
+| 代码与发布 | GitHub Releases、PyPI、conda-forge、DockerHub | `site:github.com/<org>/releases`；PyPI JSON API `https://pypi.org/pypi/<pkg>/json` |
+| 数据服务 | Copernicus Marine (CMEMS)、NOAA（NCEI / IOOS / CoastWatch / OceanReports / Okeanos）、PANGAEA、Argo GDAC、SeaDataNet、IODE/IOC-UNESCO、Euro-Argo ERIC、SEANOE | 各站 news / product / dataset 页 WebFetch |
+| 标准与治理 | W3C、ISO、OGC、CF Conventions、OceanBestPractices、RDA | WebSearch + 站点 news |
+| 中文平台 | 知网 CNKI、万方、维普；中科院/自然资源部/教育部高校发布 | `site:cnki.net`、`site:wanfangdata.com.cn`、`site:cqvip.com`；院所新闻巡检见「补充检索」节 |
+| 科技媒体 | 国内：搜狐、腾讯、光明日报、科技日报、中国海洋报、中国科学报、新华网；国际：Eos（AGU）、Oceanography Magazine、MTS Journal | WebSearch |
+
+#### B 组 · 需 API/间接访问（不能直爬，须走替代路径，并在日志注明"经 API 核实"）
+
+| 来源 | 障碍 | 替代路径 |
+|------|------|---------|
+| Elsevier（ScienceDirect） | 403 反爬 | `verify_paper.py`（Crossref+OpenAlex）+ WebSearch 标题检索 |
+| Wiley / AGU（JGR-Oceans、GRL、Earth's Future） | 403 反爬 | 同上；AGU/Eos 新闻稿作补充入口 |
+| IEEE Xplore（JOE/TGRS/GRSL/JSTARS/GRSM/RA-L/T-RO/TNNLS/TIP） | 403 反爬 | `verify_paper.py` + `site:ieeexplore.ieee.org`（IEEE 期刊为**阶段一强制项**） |
+| Taylor & Francis（J. Operational Oceanography） | 反爬 | `site:tandfonline.com` + `verify_paper.py` |
+| SAGE（Progress in Oceanography） | 订阅 | 同上 |
+| ACS（ES&T、ACS Earth Space Chem.）/ RSC（ES: Processes & Impacts） | 反爬 | 同上 |
+| Science / AAAS | 订阅 + 反爬 | `site:science.org` + `verify_paper.py` |
+| ACM Digital Library | 反爬 | `site:dl.acm.org` |
+| IOP（Environmental Research Letters） | 反爬 | `site:iopscience.iop.org` |
+| **ProQuest** | **商业数据库，无公开入口** | **不可直接检索**；学位论文/灰色文献改由 DOAJ + Google Scholar + 万方 覆盖，并在日志注明"ProQuest 无公开入口，已用 Scholar/DOAJ 替代" |
+
+> B 组的正确用法：**发现 → 用 WebSearch 标题检索定位 → 用 `verify_paper.py` 核实元数据 → 用 WebFetch 复核**。
+> 不要因为站点 403 就把整组来源从检索计划里划掉；也不要因为"点不开"就伪造链接（见「常见陷阱 10」）。
+
+#### C 组 · 覆盖自检（阶段五新增，强制）
+
+生成 HTML 后，除链接验证与时效审计外，**必须**执行来源覆盖自检：
+
+1. **统计本期实际来源**：
+   ```bash
+   grep -oE 'https?://[a-zA-Z0-9._-]+' posts/YYYY-MM-DD.html | sed 's|https\?://||' | sort | uniq -c | sort -rn
+   ```
+2. **与近 12 期做覆盖率比对**，列出本期**零覆盖的来源组**（A 组 + B 组 + 阶段一的 23 会议/IEEE 期刊）。
+3. 对零覆盖组逐条归因，只能落成三类之一：
+   - `本期确无新内容`（须已实际检索过）
+   - `检索无结果`（须给出用过的关键词）
+   - `未检索` → **必须当场补检，不得留到下期**
+4. 把覆盖率小结（含零覆盖组与归因）写入当日 `.workbuddy/memory/YYYY-MM-DD.md`。
+5. **页脚声明必须与实际来源一致**：HTML 页脚不得硬编码未实际使用的来源
+   （历史遗留 `Data sources: arXiv, GitHub, CMEMS, NOAA, CNKI and more` 中的 CNKI 实测从未使用过——
+   `gen_html_*.py` 应改为按本期实际域名动态生成页脚，或至少删去未使用的来源名）。
 
 ### 阶段三：编写数据
 
@@ -162,7 +227,7 @@ agent_created: true
 
 ### 阶段五：质量审查
 
-加载 `references/quality_standards.md` 执行两项审查：
+加载 `references/quality_standards.md` 执行**三项审查**：
 
 1. **链接验证**：用 WebFetch 逐条验证所有 href 链接。
    失效链接须搜索替代来源，修复后重新生成 HTML + 重新 push。
@@ -173,6 +238,10 @@ agent_created: true
 2. **时效性审计**：用 Python 提取所有条目日期，计算距今天数，
    标出 >14天 / >30天 / >60天 的条目。不合格条目须替换或标注豁免理由。
    `verify_paper.py` 已内置时效判定（OK / 需豁免 / 超期），可直接复用。
+3. **来源覆盖自检**：按上文「来源覆盖矩阵 · C 组」统计本期实际来源域名，
+   与近 12 期比对，列出零覆盖来源组并逐条归因（确无新内容 / 检索无结果 / 未检索→当场补检）。
+   ⚠️ **不得只在日志里写"已全覆盖"**——跨机器接手时对方日志的质检自述不可采信（见「常见陷阱 12」），
+   必须给出域名清单或命令输出作为证据。
 
 ### 阶段六：记忆写入（不可跳过，手动与自动完全一致）
 
@@ -378,3 +447,11 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
     - 接手发现缺陷时，按"改数据源 → 重新生成 HTML → 同步 index/archive → 重新质检 → commit+push"完整闭环修复，不要在已发布 HTML 上做散点修补（会与 `build_daily_*.py` 源文件脱钩）。
 
 13. **链接指向站点首页**：条目 `url` 不得用机构/平台首页（如 `emodnet.ec.europa.eu/en/`），必须给到**承载该条内容的页面**（数据产品页、文章页、release 页）。阶段五质检应专门扫一遍"是否有点向首页的 URL"。
+
+14. **"纯委托"重构时静默丢失约束**：把自包含 prompt 收敛为"唯一权威源 skill"能消除双源漂移，但**收敛过程本身会丢约束**。2026-07-31 的改造就丢掉了整节「来源全覆盖清单」，直到 2026-09-15 才被发现——期间每期都少检索了 10+ 组来源，且因为 skill 是唯一权威源，**缺口被自动继承、无人再提**。
+    - **铁律**：任何"prompt → skill"或"skill A → skill B"的迁移，**必须逐条 diff 原文本的约束清单**，并逐条确认在新载体中有归宿；无法迁移的条目要显式记录"已废弃 + 原因"，不得静默消失。
+    - 同理，**页脚/README 里的来源声明要与实际使用一致**（见「常见陷阱 13 / 覆盖矩阵 C 组第 5 条」）。
+
+15. **skill 双副本漂移（仓库版 vs 用户级目录）**：仓库 `.workbuddy/skills/ocean-daily-report/` 与 `~/.workbuddy/skills/ocean-daily-report/` 是**两份文件**，靠 `sync_skills.py` 手动对齐。2026-09-15 实测两份 `SKILL.md` md5 不同（仓库版停留在 09-08，用户版已更新到 09-14，差 4 条陷阱），意味着**非主力机加载的是缺 4 条规则的旧版**。
+    - **铁律**：每次修改 skill 后，主力机执行 `python sync_skills.py collect`（用户目录 → 仓库）并 `git push`；其他机器执行前用 `python sync_skills.py install`（仓库 → 用户目录）。
+    - **阶段五自检**：`python sync_skills.py status`，两份不一致即视为质检不合格，当场对齐后再收尾。
