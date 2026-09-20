@@ -393,3 +393,11 @@
 - **修复后质检**：时效 0 超期（1 条会议日豁免已合规）；16 条链接全实测（NASA 瞬时 429、MDPI 403 经 `verify_paper.py` 核实）；URL 级比对近 12 期 172 个 URL，0 重复。
 - **推送**：commit `2fbb024`，`4acab73..2fbb024 main -> main`。
 - **新增铁律**：①严禁凭 URL 模式推断链接；②期刊整期批量取稿须逐个 DOI grep；③不采信其他机器的质检自述；④条目 url 不得指向站点首页。
+
+# 2026-09-20 执行摘要
+- 产出：9方向 27条有效+1备注（方向二无新增），`posts/2026-09-20.html` 已发布，commit `defc0ef` 推送成功（GitHub Pages 生效）。
+- 流程：skill 六阶段全跑完；顶会初筛 ≥5 条达标（arXiv ao-ph/cs/cs.RO 联合查询）；覆盖矩阵零覆盖 5 组（≤6 达标）；去重 31 标识符逐一 grep，3 处命中已替换；时效 25/27 ≤14 天，2 条重要性豁免（UN 海洋十年讨论稿 08-27、OSR10 预告 09-04）。
+- 质量审查五项全过；详见 `.workbuddy/memory/2026-09-20.md`。
+- 环境注意：默认 `python` 无 requests，须用 `py -3`。
+- 遗留：`feishu_write_doc.py` 404（飞书文档 token KYOkd4j0XoXPbmxdIE5ciLSsn3g 失效，需苏老师更新）；机器人通知脚本正常跑完（邮件未配置跳过）。
+- 记忆：MEMORY.md 基准追加 09-20、裁 09-07；本文件路径以 `.workbuddy/automations/ai/memory.md` 为准（`.workbuddy/memory/automations/ai/` 不存在，勿建双源）。
