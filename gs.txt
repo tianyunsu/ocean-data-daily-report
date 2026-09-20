@@ -1,0 +1,6 @@
+﻿ M data/source_metrics.json
+?? data/pending_journals.txt
+?? gl.txt
+?? gs.txt
+?? gstat.txt
+?? sync_log2.txt

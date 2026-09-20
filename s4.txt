@@ -1,0 +1,56 @@
+﻿姹犳枃浠?2026-09-20.jsonl 路 鍘熷 3468 鏉?鈫?姹犲唴 170 鏉★紙鐪嬫澘 170 鏉★級
+鍒嗙骇鍒嗗竷锛?{'A': 67, 'B': 42, 'C': 51, 'D': 8, 'S': 2}
+鏂瑰悜鍒嗗竷锛?{'涓€銆佹捣娲嬩汉宸ユ櫤鑳?: 76, '浜屻€佹捣娲嬫暟瀛楀鐢?: 7, '涓夈€佹捣娲嬪彲瑙嗗寲': 15, '鍥涖€佹捣娲嬫暟鎹川閲?: 8, '浜斻€佹捣娲嬫暟鎹鐞?: 11, '鍏€佹暟鎹鐞嗕笌鍏变韩': 4, '涓冦€佸紑鏀捐埅娆′笌绉戣€?: 37, '鍏€佹捣娲嬫暟鎹腑蹇?: 3, '涔濄€佸伐鍏蜂笌浠ｇ爜璧勬簮': 9}
+寰呯‘璁ゆ湡鍒?0 鏈?鈫?锛堟棤锛?
+姹犲唴 170 | 鐪嬫澘 170
+[S] 2026-09-12 | npj Ocean Sustainability               | Aligning Marine Spatial Data Infrastructures and Open Science for FAIR
+[S] 2026-09-11 | Nature Geoscience                      | Rapid submarine caldera collapse during the 2022 climactic eruption of
+[A] 2026-09-16 | Scientific Reports                     | Graph neural networks for antarctic sea ice concentration forecasting
+[A] 2026-09-16 | Measurement Science and Technology     | A bearing fault diagnosis method across operating conditions based on 
+[A] 2026-09-16 | Biological Conservation                | Echoes of the past, warnings for the future: seven decades (1956鈥?025)
+[A] 2026-09-16 | Ocean Engineering                      | A Cummins-equation-based physics-informed neural network for response 
+[A] 2026-09-15 | Ocean Engineering                      | Immersive human鈥揷omputer interaction simulation and emergency buoyancy
+[A] 2026-09-18 | Ocean Engineering                      | Process-oriented evaluation of machine learning and physics-based mode
+[A] 2026-09-18 | Molecular Ecology Resources            | Surveying Biodiverse Coral Reef Ecosystems Across the Tree of Life Wit
+[A] 2026-09-17 | Journal of Geophysical Research Machin | Enhancing Significant Wave Height Simulations Using Distribution鈥怉ware
+[A] 2026-09-17 | International Journal of Disaster Risk | A deep reinforcement learning framework for coastal multi-hazard emerg
+[A] 2026-09-17 | Small                                  | Mechanically Robust and Underwater鈥怱table Hydrogels via Synergistic Mo
+[A] 2026-09-17 | Polymer Engineering and Science        | Synergistically Modified High鈥怐ensity Polyethylene Composites by Basal
+[A] 2026-09-17 | F1000Research                          | Implementation of Governance Capacity on Blue Economy Development Poli
+--- 棰勮鍒婃潯鐩?---
+[D] Remote Sensing                   | Seafloor Topography Prediction from Altimetry-Derive | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+[D] Remote Sensing                   | Deep Learning-Based Classification of Plunging Break | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+[D] Frontiers in Microbiology        | Artificial intelligence applications in biofilm rese | 棰勮鍚嶅崟锛氫腑淇℃墍2025
+[D] Journal of Marine Science and En | Grain-Size Constrained Quantitative Calibration of M | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+[D] Fishes                           | Revealing Seasonal Environmental Associations and Sp | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+[D] Mathematics                      | Research on High-Precision Prediction of Vertical Hy | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+[D] Remote Sensing                   | Error Budget Analysis of a Sun Glint Based In-Flight | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+[D] Journal of Marine Science and En | Formation Reconfiguration for Underwater Gliders Und | MDPI 鍑虹増闆嗗洟锛堝瀹剁鐮旀満鏋勪笌瀛︽湳鍥㈤槦鍒椾负棰勮锛岃嫃鑰佸笀鎸?
+--- 鍚勬柟鍚?Top3 ---
+D6 [S] npj Ocean Sustainability | Aligning Marine Spatial Data Infrastructures and Open Science 
+D9 [S] Nature Geoscience | Rapid submarine caldera collapse during the 2022 climactic eru
+D1 [A] Scientific Reports | Graph neural networks for antarctic sea ice concentration fore
+D1 [A] Measurement Science and Techno | A bearing fault diagnosis method across operating conditions b
+D7 [A] Biological Conservation | Echoes of the past, warnings for the future: seven decades (19
+D1 [A] Ocean Engineering | A Cummins-equation-based physics-informed neural network for r
+D3 [A] Ocean Engineering | Immersive human鈥揷omputer interaction simulation and emergency 
+D7 [A] Molecular Ecology Resources | Surveying Biodiverse Coral Reef Ecosystems Across the Tree of 
+D3 [A] Small | Mechanically Robust and Underwater鈥怱table Hydrogels via Synerg
+D3 [A] Polymer Engineering and Scienc | Synergistically Modified High鈥怐ensity Polyethylene Composites 
+D7 [A] F1000Research | Implementation of Governance Capacity on Blue Economy Developm
+D5 [A] Essays in Biochemistry | Expanding the chemical biology toolbox: cyclic peptides emergi
+D2 [A] Earth system science data | A global gridded dataset of significant wave height via fusion
+D5 [A] Environmental Monitoring and A | Temporal variability of emerging contaminants and estrogenic a
+D4 [A] Ocean Modelling | Development and validation of a high-resolution ROMS model for
+D9 [A] Geoscientific model developmen | SeapoPym v0.1: implementation of the SEAPODYM low and mid trop
+D4 [A] Advanced Optical Materials | Overcoming High Bit Error Rate With Wavelength Bipolar Control
+D4 [A] Signal Processing | A compound-Gaussian sea clutter model with generalized lognorm
+D2 [A] Marine Drugs | Biomedical Potential of the Deep-Sea Vent Mussel Bathymodiolus
+D5 [A] Pattern Recognition | UD-SfPNet: An underwater descattering shape-from-polarization 
+D2 [A] Geophysical Research Letters | Freshwater鈥怚nduced Surface Cooling of the Subpolar North Atlan
+D8 [A] Palaeogeography Palaeoclimatol | A quality-screened Holocene relative sea-level database for th
+D9 [A] Journal of Cancer Research and | Comment on 鈥淓xceptional long-term responses from OCEAN and HOR
+D8 [A] Palaeogeography Palaeoclimatol | A Silurian volcanic island slope as an archive of mixed terres
+D6 [B] Journal of Northwest Atlantic  | Standards to Inform an Ecosystem Approach to Deep-sea Bottom F
+D8 [C] Frontiers in Marine Science | ENSO-related variability in typhoon-induced high-wave exposure
+D6 [C] PLoS ONE | Cost-efficient filtration and replication strategies match or 
