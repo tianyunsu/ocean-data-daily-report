@@ -105,6 +105,14 @@ agent_created: true
 
 **此阶段必须产出 ≥5 条初筛结果**，如不足 5 条则扩大关键词（bathymetry, sea surface temperature, ocean current, plankton, coral, seafloor, AUV, ROV, sonar, acoustics, climate, remote sensing, **sea ice, Arctic, polar**）。
 
+> ⚠️ **来源限定（2026-09-20 新增，堵住"arXiv 顶数"漏洞）**：
+> 这 ≥5 条中**至少 2 条必须来自会议论文或 IEEE 期刊**（可为 OpenAlex `type:proceedings-article`、
+> OpenReview、CVF/ACL Anthology、IEEE Xplore Early Access），**arXiv 预印本不得全额顶数**。
+> 若某期确实检索不到会议论文（如 9 月中旬处于顶会周期空档：CVPR 6 月、ICCV 10 月、NeurIPS 12 月、
+> IGARSS 7 月、OCEANS 9 月底），**必须用 `harvest.py` 的 `type:proceedings-article` 结果举证**，
+> 并在日志写明"本期会议论文确为 0，已举证"。
+> 历史教训：2026-09-20 期 IEEE Xplore 零覆盖的同时 arXiv 占比冲到 63%，即此漏洞所致。
+
 常见陷阱：顶会论文日期歧义——以首次公开可访问日期为准，非会议召开日。详见 `references/quality_standards.md` 的"顶会论文日期规则"。
 
 ### 阶段二：常规来源检索
@@ -206,6 +214,81 @@ agent_created: true
    | 阶段一：23 会议 + IEEE 期刊 | ... | ... | n |
    ```
    **判定门槛**：零覆盖组超过 **6 组** 即视为本轮检索不足，须回到阶段二补检后再收尾。
+
+---
+
+## 前沿跟踪四层架构（2026-09-20 苏老师拍板 · 新增）
+
+> **背景**：日报是"精选摘要"，不是"跟踪工具"。实测近 14 天窗口内全海洋类期刊论文约 **2,249 篇**，
+> 与海洋AI/数字孪生/数据类相关的约 **350 篇**，而日报只呈现 27–45 条（留存率约 10%）。
+> 若只用日报一个出口，必然"看得到近的、看不到全的"。故增设 L0/L1 两层采集与承载，
+> **日报（L2）质量红线不降级**：池内条目允许只有元数据，进日报的仍必须逐条核链、核时效、核摘要一致。
+
+| 层 | 职责 | 产出物 | 工具 |
+|----|------|--------|------|
+| **L0 采集** | 9 方向查询模板 × OpenAlex/arXiv 全量抓取（T+1） | `data/pool/YYYY-MM-DD.jsonl` | `harvest.py` |
+| **L1 文献池** | 去重（DOI/arXiv ID/标题指纹）+ 期刊分级 + 相关度打分 + 历史比对 | `data/library.db`、`data/pool_index.json` | `screen.py`、`tier_engine.py`、`source_metrics.py` |
+| **L2 日报** | 从 S/A 级池中精选，逐条核实（现有流程，不变） | `daily_reports/`、`posts/` | `build_daily_*.py`、`gen_html_*.py` |
+| **L3 新出口** | ① 前沿看板：全池可检索（方向/分级/时间/关键词）② 周报：池内统计驱动的趋势综述 | `frontier.html`、`weekly/` | 静态 JSON + 前端筛选 |
+
+**执行顺序**：阶段二开始时**先跑 `harvest.py` + `screen.py`**，用池结果指导方向检索（池内已有的一律不重复找），
+再补 A/B 组的人工检索（媒体、政策、代码发布等池覆盖不到的来源）。
+
+```bash
+py -3 harvest.py --date YYYY-MM-DD --days 14     # L0：约 3,000+ 条/14 天
+py -3 source_metrics.py --limit 400              # 期刊指标缓存（首次可分批）
+py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 300 条入池
+```
+
+### 期刊分级口径（2026-09-20 苏老师拍板，权威）
+
+判定顺序：**预印本 → 人工登记表 → 最新一期预警名单 → 出版集团规则 → 指标自动评级 → 待确认**
+
+| 等级 | 含义 | 举例 |
+|------|------|------|
+| **S** | Science / Nature / PNAS **正刊及顶级子刊**（最高优先级） | Nature, Science, PNAS, Nature Climate Change, Nature Geoscience, Nature Sustainability, Nature Communications, Communications Earth & Environment, Science Advances, npj Ocean Sustainability |
+| **A** | 领域权威期刊（学会旗舰刊、高影响力子刊） | JGR: Oceans, GRL, RSE, IEEE TGRS, IEEE JOE, Ocean Modelling, Progress in Oceanography, ESSD, Ocean Science, GMD, Biogeosciences, ICES JMS, JPO, Scientific Reports（全科子刊，归 A 待校准） |
+| **B** | 主流 SCI 期刊 | Marine Pollution Bulletin, Applied Ocean Research, Ocean Dynamics, Marine Geology, Marine Policy, Acta Oceanologica Sinica, 海洋学报 |
+| **C** | 一般期刊 / 新刊 / 开放获取集团刊 | Frontiers in Marine Science, PLOS ONE, Heliyon, PeerJ |
+| **P** | 预印本（未经同行评审）**独立标记，排序低于 S/A 期刊论文** | arXiv, EarthArXiv, ESSOar |
+| **D** | **预警 / 受限期刊（强制标注，不删除，供人工取舍）** | MDPI 全集团刊（JMSE/Remote Sensing/Water/Sensors/Sustainability/Fishes/Oceans…）、Hindawi 系、中科院与中信所预警名单刊 |
+
+**三条硬规则**：
+1. **期刊质量优先于一切**：同等相关度下 S > A > B > C > P > D，D 级强制置底。
+2. **预警刊不得静默剔除**：必须保留 + 在标题处标注原因（哪个名单、哪一年），由苏老师取舍；
+   标注不是论文评价，不否定该刊全部成果。
+3. **预警名单只用最新一期**：中科院官方明确"不应把多年累积列表合并使用"，整改移出后即不再预警。
+   名单数据存于 `data/journal_tiers.json` 的 `warning_lists`，`active` 字段控制是否生效。
+
+**已知名单（2026-09-20 核实）**：
+- 中科院文献情报中心 2025 年（2025-03-19 发布，5 本）：Wireless Personal Communications、Natural Resources Forum、
+  Computers & Electrical Engineering、Numerical Heat Transfer Part A-Applications、Scalable Computing-Practice and Experience
+- 中信所 2025 年（2025-12-07 发布，103 本；本表仅录入已核实条目）：Agronomy、Coatings、Genes、Chemosphere、
+  Computers in Biology and Medicine、IEEE Transactions on Intelligent Vehicles、Environmental Toxicology、
+  Bioengineered、Cureus、Frontiers in Microbiology/Endocrinology/Energy Research/Cell and Developmental Biology 等
+- **待办**：中信所完整 103 本名单需导入 `data/journal_tiers.json`
+
+### 期刊分级问答式校准（每期可执行）
+
+自动评级无法覆盖所有期刊。**未登记期刊自动进入待确认清单**，由苏老师用问答方式确认后入库，
+不需要苏老师手工整理样例：
+
+1. 每期筛选后查看清单：`py -3 tier_engine.py --pending`，或读 `data/pending_journals.txt`（按命中篇数降序）
+2. 在日报交付时**只挑命中 ≥2 篇的期刊**（通常 5–10 本）向苏老师提问，格式：
+   > 「《Ocean Engineering》命中 3 篇，当前自动评级为 A。请确认：维持 A / 升为 S / 降为 B？」
+3. 苏老师回复后写入 `data/journal_tiers.json` 的 `journals` 段（登记表优先于自动评级），并记入日志。
+
+### 每期必报的覆盖指标（写入当日日志）
+
+| 指标 | 口径 | 目标 |
+|------|------|------|
+| 采集量 | `harvest.py` 原始条数 | 记录即可 |
+| 池内量 | `screen.py` 池内条数 | 记录即可 |
+| 日报收录 | 本期有效条数 | 27–45 |
+| 留存率 | 日报 / 池内 | 记录即可（透明化，不设阈值） |
+| **arXiv 占比** | arXiv 条数 / 日报条数 | **≤ 50%** |
+| **期刊来源占比** | 期刊条数 / 日报条数 | **≥ 40%** |
+| 零覆盖来源组 | C 组自检 | ≤ 6 组 |
 
 ### 阶段三：编写数据
 
@@ -509,3 +592,27 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
 17. **放宽口径 → 检索轮次减少 → 长尾来源被"合法"漏掉**：2026-07-31 起时效放宽到 14/60 天、条目数下调到每方向 2-3 条后，检索强度随之下降，近 14 期里 arXiv 独占 49/111 个链接，27 组来源中 11 组零覆盖（含 IEEE Xplore 零命中）。
     - **用户 2026-09-15 拍板口径**：时效维持 **≤14 天**，但**近 7 天作为同方向内的排序优先权重**；条目数**回到每方向 3-5 条**。
     - **原则**：口径与检索强度必须联动评估——放宽时效或减少条数时，不会自动减少检索义务，来源覆盖矩阵照旧逐组打卡。
+
+18. **只依赖 arXiv 导致期刊进展整体漏检**：2026-09-20 期 arXiv 占比冲到 **63%（17/27）**，为近 9 期最高（区间 6%–54%）。反证实测（OpenAlex 官方 API，同一 14 天窗口）：
+    全海洋类期刊论文 **2,249 篇**，其中海洋+深度学习 **225 篇**、海洋数字孪生/同化/数值模式 **80 篇**——**期刊侧从不空窗**。
+    漏检实例：`10.1016/j.oceaneng.2026.128203`（Ocean Engineering，深海采矿立管损伤识别，大连海事大学，在线首发 09-18）、
+    `10.1016/j.marpolbul.2026.120317`（Marine Pollution Bulletin，语义子原型遥感溢油检测，09-18）均未被收录。
+    - **根因**：来源覆盖矩阵 A 组把 OpenAlex/Crossref 的检索方式写成"用 API（`verify_paper.py` 已内置）"，
+      **角色被定义为"核验工具"而非"发现工具"**，实战中只用于事后核实，从未用于主动发现。
+    - **铁律**：每期**必须**执行 `harvest.py`（L0 全量采集）→ `screen.py`（L1 筛选），用池结果驱动方向检索；
+      arXiv 占比 > 50% 视为检索结构异常，须在日志举证原因。
+    - **区分客观因素**：顶会周期确有空档（9 月中旬 CVPR/ICCV/NeurIPS/IGARSS/OCEANS 均不在出版期），
+      会议论文少属实；但**期刊不存在空档**，"只剩 arXiv"不能归因于客观空窗。
+
+19. **期刊"在线首发"与"期号日"混用导致误判**：Elsevier/Wiley 等期刊的 Crossref 记录返回的是**期号日**，
+    OpenAlex 返回的是**在线首发日**，二者可差数月。2026-09-20 实测同一篇论文：Crossref = 2026-10-01 / 2026-12-01，
+    OpenAlex = 2026-09-18。
+    - **铁律**：**时效判定以 OpenAlex `publication_date`（在线首发日）为准**，Crossref 期号日仅作参考；
+      若只信 Crossref，会把最新在线论文判成"未来出版"或"超期"而错误剔除。
+    - 同理，`verify_paper.py` 输出中若出现"两源日期不一致"，须人工判断以在线首发日为准。
+
+20. **预警期刊被静默剔除**：MDPI 等预警刊、中科院/中信所预警名单刊内容被直接丢弃，会导致"高质量内容未收录、低质量内容看不见"的双重不透明。
+    - **铁律**：预警/受限期刊**保留在池内、强制置底、标题标注原因（名单 + 年份）**，由苏老师取舍；
+      标注不是论文评价，不否定该刊全部成果。
+    - 预警名单**只用最新一期**（中科院官方规则：不累积使用，整改移出后即不再预警），
+      原始数据存于 `data/journal_tiers.json` 的 `warning_lists`，用 `active` 字段控制生效。
