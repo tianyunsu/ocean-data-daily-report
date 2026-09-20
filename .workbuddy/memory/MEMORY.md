@@ -83,12 +83,12 @@
 ## 去重基准（只留最近 5 期；更早一律 `grep -rl posts/`）
 > `posts/` 即全量存档，规则 4c 的 grep 比读基准更可靠。本节仅列「易被再次检索命中」的标识符。
 
-- **09-07（15条+2备注[D2/D3空]）**：MHWCorrNet(南海所,JGR:MLC)、2608.29347、2609.03382 SurgeGen、EchoST-SSL(水科院)、su18178986、PhyEnv-GAN、S-DEIM、卫星岸线(Comm.Earth&Env)、西班牙MITECO战略、NSF OOIFB、BGC-Argo资金(KPBS)、OSIL浮标、coops-mcp 0.1.1
 - **09-08（13条+2备注[D3/D4空]）**：NWM混合海浪(中山大学)、2609.04411 AquaBEV、SEMI-DETR白鲸、2609.04635、Fugro OCEANITY、A-Predator(RS3035)、JMSE14(17)1657、EMODnet392万欧元招标、雪龙2号浮标、极地数据中心开放课题、南海大数据平台、2609.02605 Mini-Girona、2609.03207水声信道库
 - **09-09（13条+1备注[D2空]）**：Neptune(2609.08606,CMCC)、"丝路海运"北极气象导航+港口气象智能体、2609.07399 SKANN、2609.06261、2609.06253 DARB、Water18(17)2209、2609.02996 GNN海图、2609.07998 DQN、CORD、深海一号+蛟龙、2609.08241、cstar-ocean 0.13.5
 - **09-14（16条+1备注[D9空]）**：2609.11230 KiloDA、Ocean-E2E(KDD,清华SAIL)、2609.10920 HFR、2609.10564、2609.09247、EMODnet→EDITO同步、WakeAtlas、Sentinel-6B、CFOSAT SWIM三代、RS3003 MG-GCNN、UN海洋十年指南、EMODnet Biology底拖网、向阳红18、向阳红10西太热液区、雪龙2号破冰引航、NOAA SOUP
 - **09-15（16条，9方向全有）**：2609.15676 MambaMPD、2609.15484 CatchMonitor、LeadNet泛北极冰间水道(qdio)、DISCUSS深海微生物数字孪生(科学网/Nature Sensors)、DTO-BioFlow、CCGS Amundsen门户、SST强迫静默切换(Climate Dynamics)、韩国东岸冷水(10.1029/2026JC024312)、Med-CORDEX(os-22-2725-2026)、FAIR海洋空间数据(npj Ocean Sust)、E-ODP研讨会、中俄北冰洋走航科考(网易转载)、CMEMS WAV-305、Parcels v4.0、hydrolib-core、oceanval
-- **已剔除（勿再收）**：OceanParcels v3.1.4、Fugro OCEANITY、WavyOcean 3.0、HorizonNet(2018)、Fengyun-3/AOSL(>60天)、MBARI MOLA(原发05-04)
+- **09-20（27条+1备注[D2空]）**：2609.19768 OceanMoE、海洋Token工厂(海洋合作发展论坛,10699119)、2609.16288 Drift Field Net、2609.16347 海冰多标签比例学习、2609.20680 OceanSim合成数据、2609.18737 水下3D高斯泼溅、2609.11673 浮游生物扩散生成、2609.17124 LOTUSim-Energy、2609.20350 PAMGuard 3D声定位误差、2609.13659 UniqueShip水声基准、2609.09451 多冰图软监督海冰制图、SeaExplorer滑翔机QC管线(fmars.2026)、GDCM-EOF叶绿素重建(remotesensing.1064)、2609.18531 高光谱叶绿素符号回归、2609.12744 AquaCubeAI Φsat-2、2609.17929 声呐+光学因子图建图、JMSE 14(18)1676 多波束底检测蒸馏、UN海洋十年数据共享与国家安全讨论稿(EU newsroom 952324)、海洋十年公益倡议(网易L779I5MM)、中-海管局联合培训研究中心(腾讯20260918A0AOBG00)、2609.10230 CougarTail/CUB、Sentinel-3C发射(CMEMS)、OSR10预告(09-30)、中国海洋发展指数132.3(中新社10698393)、2609.20691 PX4空海两栖固件、2609.20620 SPAR LLM-AUV诊断、2609.10484 HoloOcean沿岸场景生成
+- **已剔除（勿再收）**：OceanParcels v3.1.4、Fugro OCEANITY、WavyOcean 3.0、HorizonNet(2018)、Fengyun-3/AOSL(>60天)、MBARI MOLA(原发05-04)、ICE-3D与DenseNet-121(往期已收)、ditto_summit2026(06-18旧)、EX2606(08-25旧)、Ocean State Report旧期链接(03-25/03-27)
 
 ## 经验教训（勿重复犯）
 - **跨期去重**：最高频事故。占位主页 URL 连续两期重复会触发去重，应建 URL 池轮换；Nautilus/EX 系列共用总览页须改用具体 news-release 页。
