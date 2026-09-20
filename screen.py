@@ -145,8 +145,8 @@ def main():
         if tier == "?":
             key = r.get("journal") or "(未知刊)"
             unknown[key]["n"] += 1
-            unknown[key]["pub"].add(r.get("publisher") or "")
-            tier_engine.add_pending(r.get("journal"), r.get("publisher"),
+            unknown[key]["pub"].add(pub or "")
+            tier_engine.add_pending(r.get("journal"), pub,
                                     DIR_TITLE.get(r.get("direction_id"), ""), 1, title[:120])
 
         blob = (title + " " + (r.get("abstract") or "")).lower()
@@ -170,11 +170,12 @@ def main():
 
         wd = abs((day - datetime.date.fromisoformat(r["date"])).days) if r.get("date") else 99
         is_new = not (doi in hist_doi or (r.get("arxiv_id") and r["arxiv_id"] in hist_arx))
+        s = score(r, tier, hit_n, wd)
+        s += 10 if ocean_in_title else -20   # 标题不含海洋词：降权（保留可见，不删除）
         r.update({
             "tier": tier, "tier_label": ti["label"], "flags": ti["flags"], "tier_note": ti["note"],
             "direction_id": hit_dir, "direction": DIR_TITLE.get(hit_dir, ""),
-            "rel": hit_n, "score": score(r, tier, hit_n, wd) + (10 if ocean_in_title else 0),
-            "days_ago": wd, "ocean_in_title": ocean_in_title,
+            "rel": hit_n, "score": round(s, 2), "days_ago": wd, "ocean_in_title": ocean_in_title,
             "is_new": is_new, "fp": fp,
         })
         rows.append(r)

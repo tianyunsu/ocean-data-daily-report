@@ -313,6 +313,72 @@
       "tier": "B",
       "publisher": "Elsevier"
     },
+    "journal of geophysical research machine learning and computation": {
+      "tier": "A",
+      "publisher": "AGU",
+      "note": "AGU 新刊（AI/ML × 地学），2026-09-20 由待确认清单补入"
+    },
+    "weather and climate dynamics": {
+      "tier": "A",
+      "publisher": "Copernicus",
+      "note": "Copernicus 刊，2026-09-20 补入"
+    },
+    "science of remote sensing": {
+      "tier": "B",
+      "publisher": "Elsevier",
+      "note": "2026-09-20 补入，待校准"
+    },
+    "results in engineering": {
+      "tier": "B",
+      "publisher": "Elsevier",
+      "note": "2026-09-20 补入，待校准"
+    },
+    "npj heritage science": {
+      "tier": "S",
+      "publisher": "Springer Nature",
+      "note": "npj 系列，按苏老师口径归 S，待校准"
+    },
+    "ocean and society": {
+      "tier": "C",
+      "publisher": "Ocean and Society",
+      "note": "海洋社会研究新刊，2026-09-20 补入"
+    },
+    "discover environment": {
+      "tier": "C",
+      "publisher": "Springer Nature",
+      "note": "Discover 系列"
+    },
+    "discover geoscience": {
+      "tier": "C",
+      "publisher": "Springer Nature",
+      "note": "Discover 系列"
+    },
+    "discover artificial intelligence": {
+      "tier": "C",
+      "publisher": "Springer Nature",
+      "note": "Discover 系列"
+    },
+    "discover cities": {
+      "tier": "C",
+      "publisher": "Springer Nature",
+      "note": "Discover 系列"
+    },
+    "frontiers in artificial intelligence": {
+      "tier": "C",
+      "publisher": "Frontiers"
+    },
+    "frontiers in climate": {
+      "tier": "C",
+      "publisher": "Frontiers"
+    },
+    "frontiers in water": {
+      "tier": "C",
+      "publisher": "Frontiers"
+    },
+    "frontiers in sustainable food systems": {
+      "tier": "C",
+      "publisher": "Frontiers"
+    },
     "acta oceanologica sinica": {
       "tier": "B",
       "publisher": "Springer/海洋学报",

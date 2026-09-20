@@ -1,0 +1,183 @@
+{
+ "week": "2026-W38",
+ "start": "2026-09-07",
+ "end": "2026-09-20",
+ "pool_total": 170,
+ "tiers": {
+  "A": 67,
+  "C": 51,
+  "B": 42,
+  "S": 2,
+  "D": 8
+ },
+ "directions": {
+  "一、海洋人工智能": 76,
+  "四、海洋数据质量": 8,
+  "五、海洋数据处理": 11,
+  "三、海洋可视化": 15,
+  "二、海洋数字孪生": 7,
+  "七、开放航次与科考": 37,
+  "六、数据管理与共享": 4,
+  "九、工具与代码资源": 9,
+  "八、海洋数据中心": 3
+ },
+ "warned": 8,
+ "preprints": 0,
+ "top_journals": [
+  [
+   "Ocean Engineering",
+   11
+  ],
+  [
+   "PLoS ONE",
+   6
+  ],
+  [
+   "Frontiers in Marine Science",
+   5
+  ],
+  [
+   "Scientific Reports",
+   3
+  ],
+  [
+   "Earth system science data",
+   3
+  ],
+  [
+   "Ocean science",
+   2
+  ],
+  [
+   "Palaeogeography Palaeoclimatology Palaeoecology",
+   2
+  ],
+  [
+   "Black Sea Journal of Engineering and Science",
+   2
+  ],
+  [
+   "Journal of Hydrology",
+   2
+  ],
+  [
+   "Marine Pollution Bulletin",
+   2
+  ],
+  [
+   "Computational Geosciences",
+   2
+  ],
+  [
+   "Molecular Ecology Resources",
+   2
+  ],
+  [
+   "Measurement Science and Technology",
+   1
+  ],
+  [
+   "Reliability Engineering & System Safety",
+   1
+  ],
+  [
+   "Signal Processing",
+   1
+  ],
+  [
+   "International Journal of Disaster Risk Reduction",
+   1
+  ],
+  [
+   "Advances in Applied Clifford Algebras",
+   1
+  ],
+  [
+   "International Journal of Civil Engineering",
+   1
+  ],
+  [
+   "The International Journal of Nautical Archaeology",
+   1
+  ],
+  [
+   "npj Ocean Sustainability",
+   1
+  ]
+ ],
+ "top_words": [
+  [
+   "machine",
+   16
+  ],
+  [
+   "prediction",
+   15
+  ],
+  [
+   "underwater",
+   14
+  ],
+  [
+   "framework",
+   13
+  ],
+  [
+   "wave",
+   11
+  ],
+  [
+   "neural",
+   9
+  ],
+  [
+   "artificial",
+   9
+  ],
+  [
+   "network",
+   8
+  ],
+  [
+   "under",
+   7
+  ],
+  [
+   "hybrid",
+   7
+  ],
+  [
+   "monitoring",
+   7
+  ],
+  [
+   "water",
+   7
+  ],
+  [
+   "reconstruction",
+   6
+  ],
+  [
+   "environmental",
+   6
+  ],
+  [
+   "control",
+   6
+  ],
+  [
+   "intelligence",
+   6
+  ],
+  [
+   "mapping",
+   6
+  ],
+  [
+   "emerging",
+   6
+  ]
+ ],
+ "high_tier_count": 69
+}
