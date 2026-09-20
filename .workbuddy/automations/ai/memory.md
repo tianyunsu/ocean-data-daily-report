@@ -401,3 +401,10 @@
 - 环境注意：默认 `python` 无 requests，须用 `py -3`。
 - 遗留：`feishu_write_doc.py` 404（飞书文档 token KYOkd4j0XoXPbmxdIE5ciLSsn3g 失效，需苏老师更新）；机器人通知脚本正常跑完（邮件未配置跳过）。
 - 记忆：MEMORY.md 基准追加 09-20、裁 09-07；本文件路径以 `.workbuddy/automations/ai/memory.md` 为准（`.workbuddy/memory/automations/ai/` 不存在，勿建双源）。
+
+# 2026-09-20 追加：前沿跟踪四层架构实施（苏老师批准）
+- 决策：期刊质量优先分级（S/A/B/C/P/D），MDPI 等预警集团刊与中科院/中信所预警刊列为 D 级并强制标注；预印本独立标记 P。
+- 新增工件：`data/journal_tiers.json`（登记表+真实预警名单）、`tier_engine.py`、`source_metrics.py`（ISSN→OpenAlex 指标，已缓存 1745 个）、`harvest.py`（L0）、`screen.py`（L1）、`frontier.html`（看板）、`weekly_report.py`+`weekly/2026-W38.html`（L3 周报）。
+- 实测：14 天窗口抓到 3,468 条 → 筛后入池 170 条（A67/B42/C51/D8/S2，未登记 0 本），日报收录 27 条；留存率约 16%（池口径）。
+- 规则变更：阶段一"≥5 条初筛"须 ≥2 条来自会议论文或 IEEE 期刊（arXiv 不得全额顶数）；时效以 OpenAlex 在线首发日为准；预警刊不得静默剔除。已写入 skill 并同步仓库副本。
+- 提交：b1675f9、9442ddf；遗留：arXiv 429 限流待下期重试、中信所完整名单待导入、自动评级阈值待校准。

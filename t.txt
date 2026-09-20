@@ -1,0 +1,3 @@
+﻿- 环境注意：默认 `python` 无 requests，须用 `py -3`。
+- 遗留：`feishu_write_doc.py` 404（飞书文档 token KYOkd4j0XoXPbmxdIE5ciLSsn3g 失效，需苏老师更新）；机器人通知脚本正常跑完（邮件未配置跳过）。
+- 记忆：MEMORY.md 基准追加 09-20、裁 09-07；本文件路径以 `.workbuddy/automations/ai/memory.md` 为准（`.workbuddy/memory/automations/ai/` 不存在，勿建双源）。

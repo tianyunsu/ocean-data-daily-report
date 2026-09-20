@@ -1,0 +1,9 @@
+﻿git : To github.com:tianyunsu/ocean-data-daily-report.git
+所在位置 行:445 字符: 137
++ ... s_proxy=""; git -c http.proxy= -c https.proxy= push origin main 2>&1  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To github.com:t...aily-report.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   3b0e22d..9442ddf  main -> main
+
