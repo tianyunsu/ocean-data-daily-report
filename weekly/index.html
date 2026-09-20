@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前沿周报 - 海洋AI技术日报</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+ .wk-wrap{max-width:920px;margin:0 auto;padding:0 18px 60px;}
+ .wk-card{border:1px solid #e6e9ee;border-radius:12px;padding:16px 18px;margin:16px 0;background:#fff;}
+ .wk-card h2{font-size:16px;margin:0 0 10px;}
+ ul.wk-ul{list-style:none;margin:0;padding:0;}
+ li.wk-li{padding:12px 0;border-bottom:1px solid #f0f2f5;}
+ li.wk-li:last-child{border-bottom:none;}
+ .wk-link{font-size:15px;color:#12457a;text-decoration:none;}
+ .wk-link:hover{text-decoration:underline;}
+ .wk-sum{margin-top:4px;line-height:1.6;}
+</style></head><body>
+<header class="site-header">
+  <h1><a href="../index.html">🌊 海洋AI技术日报</a></h1>
+  <p>前沿周报 · 逐周汇总池内文献，含各领域主要进展综述</p>
+  <nav><a href="../index.html">首页</a><a href="../frontier.html">前沿跟踪</a>
+  <a href="index.html" class="active">前沿周报</a>
+  <a href="../archive.html">全部归档</a></nav>
+</header>
+<main class="wk-wrap">
+  <div class="wk-card"><h2>全部周报（共 1 期）</h2>
+    <ul class="wk-ul"><li class="wk-li"><a class="wk-link" href="2026-W38.html"><b>2026-W38</b><span class="sub"> · 2026-09-07 至 2026-09-20</span></a><div class="sub wk-sum">池内 183 条 · S/A 38 · 预印本 13 · 预警/受限 10 · 降权 18 · 分级 A36 / B64 / C58 / D10 / P13 / S2 · 深度综述</div></li></ul>
+  </div>
+  <div class="wk-card"><h2>如何生成综述</h2>
+    <p class="sub" style="line-height:1.8">
+    周报综述分两层：<br>
+    ① <b>自动综述</b>——由 weekly_report.py 直接生成，逐方向列出主题簇、代表文献与主要期刊，始终可用；<br>
+    ② <b>深度综述</b>——把逐方向解读写入 <code>weekly/synth/YYYY-Www.md</code>，再运行
+    <code>py -3 weekly_report.py --end YYYY-MM-DD --days 14</code>，页面顶部即出现「本期综述 · 各领域主要进展」。
+    运行脚本时还会同时产出 <code>weekly/synth/YYYY-Www.draft.md</code> 写作草稿（含各方向主题簇与代表文献）。</p>
+  </div>
+</main>
+<footer class="site-footer"><p>© 2026 海洋AI技术日报 · Powered by GitHub Pages</p></footer>
+</body></html>
