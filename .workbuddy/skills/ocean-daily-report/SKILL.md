@@ -229,16 +229,31 @@ agent_created: true
 | **L0 采集** | 9 方向查询模板 × OpenAlex/arXiv 全量抓取（T+1） | `data/pool/YYYY-MM-DD.jsonl` | `harvest.py` |
 | **L1 文献池** | 去重（DOI/arXiv ID/标题指纹）+ 期刊分级 + 相关度打分 + 历史比对 | `data/library.db`、`data/pool_index.json` | `screen.py`、`tier_engine.py`、`source_metrics.py` |
 | **L2 日报** | 从 S/A 级池中精选，逐条核实（现有流程，不变） | `daily_reports/`、`posts/` | `build_daily_*.py`、`gen_html_*.py` |
-| **L3 新出口** | ① 前沿看板：全池可检索（方向/分级/时间/关键词）② 周报：池内统计驱动的趋势综述 | `frontier.html`、`weekly/` | 静态 JSON + 前端筛选 |
+| **L3 新出口** | ① 前沿看板：全池可检索（方向/分级/时间/关键词/**海洋契合度**）② 周报：池内统计驱动的趋势综述 | `frontier.html`、`weekly/` | 静态 JSON + 前端筛选 |
+
+**L1 海洋契合度分档（决定看板可读性，2026-09-20 新增）**：池内噪声主因是**把海水当实验介质**的
+材料/化学/医学/农学论文（海水电解、MXene 催化剂、铀吸附、水凝胶、溢油吸附剂…），它们靠 A 级期刊权重挤进前列。
+判据区分**海洋"对象"**与**海洋"介质"**：标题含 `ocean/marine/coastal/sea-ice/bathymetry/seabed/fisheries/Arctic…`
+＝研究海洋（+10）；仅含 `seawater/water/wave/polar/tide` 且同时出现非海洋领域词
+（`catalyst/battery/clinical/crop/hydrogel/uranium…`）＝**用海而非研究海**（−150，标 `off`）。
+**降权不删除**：看板默认"排除降权项"，可切"仅被降权项（复核用）"，保持可审计。
 
 **执行顺序**：阶段二开始时**先跑 `harvest.py` + `screen.py`**，用池结果指导方向检索（池内已有的一律不重复找），
 再补 A/B 组的人工检索（媒体、政策、代码发布等池覆盖不到的来源）。
 
 ```bash
-py -3 harvest.py --date YYYY-MM-DD --days 14     # L0：约 3,000+ 条/14 天
+py -3 harvest.py --date YYYY-MM-DD --days 14     # L0：约 3,000+ 条/14 天（期刊 + 预印本 + 会议）
+py -3 harvest.py --date YYYY-MM-DD --days 14 --preprint-only   # 仅补预印本通道（arXiv 被拦截时用）
 py -3 source_metrics.py --limit 400              # 期刊指标缓存（首次可分批）
-py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 300 条入池
+py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 180-300 条入池
 ```
+
+**预印本通道（务必确认有产出）**：`harvest.py` 的预印本走 **OpenAlex 索引的 arXiv 记录**
+（`filter=locations.source.id:S4306400194`），**不要依赖 `export.arxiv.org/api/query`** ——
+该端点 2026-09-20 起对本机**全部 User-Agent 返回 406**（此前 429），而 `arxiv.org/abs/*` 网页正常，
+属端点级 WAF 拦截。预印本通道正常产出时每期应有 **300–500 条**；若为 0，说明通道失败，
+须用 `--preprint-only` 补跑并在日志记录。OpenAlex 的 `locations` 还会附带**期刊版本**信息，
+直接驱动"预印本按所属期刊等级排序"（见分级口径规则 4）。
 
 ### 期刊分级口径（2026-09-20 苏老师拍板，权威）
 
@@ -610,6 +625,9 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
 15. **skill 双副本漂移（仓库版 vs 用户级目录）**：仓库 `.workbuddy/skills/ocean-daily-report/` 与 `~/.workbuddy/skills/ocean-daily-report/` 是**两份文件**，靠 `sync_skills.py` 手动对齐。2026-09-15 实测两份 `SKILL.md` md5 不同（仓库版停留在 09-08，用户版已更新到 09-14，差 4 条陷阱），意味着**非主力机加载的是缺 4 条规则的旧版**。
     - **铁律**：每次修改 skill 后，主力机执行 `python sync_skills.py collect`（用户目录 → 仓库）并 `git push`；其他机器执行前用 `python sync_skills.py install`（仓库 → 用户目录）。
     - **阶段五自检**：`python sync_skills.py status`，两份不一致即视为质检不合格，当场对齐后再收尾。
+    - **⚠️ 方向不能搞错（2026-09-20 实测踩坑）**：`collect` 是**用户目录 → 仓库**，会**覆盖仓库侧尚未同步的改动**。
+      本次直接改了仓库副本后再跑 `collect`，两处新增内容被旧版覆盖、需重做。
+      **口诀：改用户目录 → `collect`；改仓库副本 → `install`。改完必须 `md5` 或 `status` 复核，别只看命令是否报成功。**
 
 16. **量化口径散落多处导致漂移**：时效（7/14/60 天）、去重窗口（5 份 / 12 期 / 14 天）、条目数（2-3 / 3-5）等数字曾散落在 `SKILL.md`、`references/quality_standards.md`、`MEMORY.md`、automation prompt 四处且互不一致——2026-09-15 核对实测：`quality_standards.md` 写"最近 **5 份**"、`SKILL.md` 写"最近 **14 天**"，而实践用"近 **12 期**"，三者并存。
     - **铁律**：任何口径变更必须**一次性同步全部载体**，并 grep 全库（含 `~/.workbuddy/skills/`、`$GH_REPO/.workbuddy/skills/`、自动化 prompt）确认无残留旧值。
