@@ -69,6 +69,60 @@ OCEAN_WORDS = ["ocean", "marine", "sea", "seawater", "seafloor", "sea-ice", "sea
                "bathymetry", "plankton", "coral", "coastal", "estuar", "underwater",
                "oceanograph", "arctic", "antarctic", "polar", "wave", "tide", "tidal"]
 
+# 强海洋词：歧义低，出现即可判定为海洋主题（"wave"/"water"/"polar" 等在物理/化学语境中同样常见，故归弱）
+STRONG_OCEAN = ["ocean", "marine", "seawater", "seafloor", "sea-ice", "sea ice",
+                "bathymetry", "plankton", "coral", "coastal", "estuar", "oceanograph",
+                "arctic", "antarctic", "reef", "upwelling", "fisheries", "aquaculture",
+                "gulf", "strait", "tidal", "seabed", "sea level", "sea-level", "deep-sea"]
+
+# 海洋"对象"词：以海洋本身为研究对象 → 领域契合
+OCEAN_OBJECT = ["ocean", "marine", "seafloor", "sea-ice", "sea ice", "bathymetry",
+                "plankton", "coral", "coastal", "estuar", "oceanograph", "arctic",
+                "antarctic", "reef", "upwelling", "fisheries", "aquaculture", "gulf",
+                "strait", "tidal", "seabed", "sea level", "sea-level", "deep-sea",
+                "seabird", "seagrass", "mangrove", "tsunami", "swell", "marine spatial"]
+
+# 海洋"介质"词：可能只是把海水/水当实验介质（材料、化学、医学、农业等领域常见）
+OCEAN_MEDIUM = ["seawater", "sea water", "water", "wave", "polar", "tide", "tidal",
+                "underwater", "sea", "aquatic", "flood", "river"]
+
+# 非海洋领域词：与海洋介质词同现时，判定为"用海而非研究海"
+OFFDOMAIN = ["electroly", "catalyst", "adsorbent", "mxene", "corrosion", "membrane",
+             "uranium", "lithium", "hydrogel", "battery", "supercapacitor", "fuel cell",
+             "drug delivery", "polymer", "alloy", "welding", "dielectric", "pharmacokinet",
+             "biochar", "crop", "soil", "wheat", "olive", "maize", "patient", "clinical",
+             "hospital", "nursing", "tourism", "hotel", "student", "classroom", "traffic",
+             "vehicle", "pedestrian", "photocatalys", "solar cell", "thermoelectric",
+             "concrete", "cement", "tribolog", "lubricant"]
+
+
+def domain_fit(title_l, abs_l):
+    """
+    领域契合度判定，返回 (标签, 分值, 说明)。
+    核心区分：**研究海洋**（对象）vs **把海水/水当实验介质**（介质）。
+    后者在材料、化学、医学、农学等领域大量出现，是池内噪声的主要来源。
+    """
+    obj_t = any(w in title_l for w in OCEAN_OBJECT)
+    med_t = any(w in title_l for w in OCEAN_MEDIUM)
+    off_t = any(w in title_l for w in OFFDOMAIN)
+    obj_a = any(w in abs_l for w in OCEAN_OBJECT)
+    med_a = any(w in abs_l for w in OCEAN_MEDIUM)
+    off_a = any(w in abs_l for w in OFFDOMAIN)
+
+    if obj_t:
+        return "title", 10, ""
+    if med_t and not off_t:
+        return "weak", 0, ""
+    if med_t and off_t:
+        return "off", -150, "海洋介质型（以海水/水为实验介质，非海洋研究）"
+    if obj_a and not off_a:
+        return "weak", -20, ""
+    if obj_a and off_a:
+        return "off", -150, "海洋相关性弱（海洋词与非海洋学科主题词同现）"
+    if med_a:
+        return "off", -150, "海洋相关性弱（仅海洋介质词，非海洋研究）"
+    return "off", -150, "海洋相关性弱（标题与摘要均无明确海洋主题词）"
+
 
 def history_ids():
     """从 posts/ 全量存档提取历史 DOI / arXiv ID 集合（规则 4c）。"""
@@ -97,6 +151,24 @@ def score(rec, tier, rel, days_ago):
     return round(s, 2)
 
 
+def parse_journal_ref(ref):
+    """从 arXiv journal_ref 解析期刊名，例如：
+       'Journal of Geophysical Research: Oceans, 2026'  -> 'Journal of Geophysical Research: Oceans'
+       '10.1016/j.oceaneng.2026.128203'                 -> ''（DOI 形式，交由 registry 兜底）
+    """
+    if not ref:
+        return ""
+    s = str(ref).strip()
+    if s.lower().startswith("10."):          # 纯 DOI
+        return ""
+    parts = [p.strip() for p in s.split(",")]
+    while parts and (parts[-1].isdigit() or len(parts[-1]) <= 4):
+        parts.pop()
+    s = ", ".join(parts).strip()
+    s = re.sub(r"\b(vol\.?|volume|pp\.?|no\.?)\b.*$", "", s, flags=re.I).strip(" .,;:")
+    return s
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default="")
@@ -116,11 +188,28 @@ def main():
     seen_doi, seen_fp = set(), set()
     rows, unknown = [], defaultdict(lambda: {"n": 0, "pub": set()})
 
+    # ---- 第一遍：用"期刊版本"记录建索引，供预印本升级（苏老师 2026-09-20 决策 7）----
+    raw = []
     for line in pool.read_text(encoding="utf-8").splitlines():
         try:
-            r = json.loads(line)
+            raw.append(json.loads(line))
         except Exception:
             continue
+    jrn_by_doi, jrn_by_fp = {}, {}
+    for r0 in raw:
+        if r0.get("is_preprint") or not r0.get("journal"):
+            continue
+        j = {"journal": r0.get("journal"), "issn": r0.get("issn") or "",
+             "publisher": r0.get("publisher") or ""}
+        d0 = (r0.get("doi") or "").lower()
+        if d0:
+            jrn_by_doi[d0] = j
+        f0 = re.sub(r"[^a-z0-9]+", "", (r0.get("title") or "").lower())[:80]
+        if f0:
+            jrn_by_fp.setdefault(f0, j)
+
+    # ---- 第二遍：分类、去重、打分 ----
+    for r in raw:
         title = r.get("title") or ""
         if not title:
             continue
@@ -139,9 +228,32 @@ def main():
             if m:
                 pub = m.get("publisher") or ""
                 r["publisher"] = pub
-        ti = tier_engine.classify(r.get("journal"), pub,
-                                  is_preprint=is_pre, issn=r.get("issn"))
+
+        # 预印本升级：① 采集阶段已识别（OpenAlex locations）→ ② 同 DOI → ③ 同标题 → ④ journal_ref
+        pj, psrc, p_issn, p_pub = None, "", None, None
+        if is_pre:
+            if r.get("preprint_journal"):
+                pj, psrc = r["preprint_journal"], r.get("preprint_src") or "record"
+                p_issn, p_pub = r.get("issn"), None
+            else:
+                hit = jrn_by_doi.get(doi) if doi else None
+                if hit:
+                    pj, psrc = hit["journal"], "doi"
+                elif fp in jrn_by_fp:
+                    pj, psrc, hit = jrn_by_fp[fp]["journal"], "title", jrn_by_fp[fp]
+                if pj:
+                    p_issn, p_pub = (hit or {}).get("issn"), (hit or {}).get("publisher")
+                else:
+                    ref_j = parse_journal_ref(r.get("journal_ref"))
+                    if ref_j:
+                        pj, psrc = ref_j, "journal_ref"
+
+        ti = tier_engine.classify(pj or r.get("journal"), p_pub or pub,
+                                  is_preprint=is_pre, issn=r.get("issn") or p_issn,
+                                  preprint_journal=pj, preprint_src=psrc)
         tier = ti["tier"]
+        if pj:
+            r["journal"], r["preprint_journal"], r["preprint_src"] = pj, pj, psrc
         if tier == "?":
             key = r.get("journal") or "(未知刊)"
             unknown[key]["n"] += 1
@@ -153,6 +265,7 @@ def main():
         if not any(w in blob for w in OCEAN_WORDS):
             continue
         title_l = title.lower()
+        abs_l = (r.get("abstract") or "").lower()
         ocean_in_title = any(w in title_l for w in OCEAN_WORDS)
         rel, hit_dir, hit_n = 0, r.get("direction_id"), 0
         for did, terms in REL_TERMS.items():
@@ -171,12 +284,15 @@ def main():
         wd = abs((day - datetime.date.fromisoformat(r["date"])).days) if r.get("date") else 99
         is_new = not (doi in hist_doi or (r.get("arxiv_id") and r["arxiv_id"] in hist_arx))
         s = score(r, tier, hit_n, wd)
-        s += 10 if ocean_in_title else -20   # 标题不含海洋词：降权（保留可见，不删除）
+        ocean_fit, fit_delta, fit_note = domain_fit(title_l, abs_l)
+        s += fit_delta
+        if fit_note:
+            ti["flags"] = list(ti["flags"]) + [fit_note + "，已降权供复核"]
         r.update({
             "tier": tier, "tier_label": ti["label"], "flags": ti["flags"], "tier_note": ti["note"],
             "direction_id": hit_dir, "direction": DIR_TITLE.get(hit_dir, ""),
             "rel": hit_n, "score": round(s, 2), "days_ago": wd, "ocean_in_title": ocean_in_title,
-            "is_new": is_new, "fp": fp,
+            "ocean_fit": ocean_fit, "is_new": is_new, "fp": fp,
         })
         rows.append(r)
 
@@ -209,11 +325,15 @@ def main():
         if len(board) >= a.board_cap:
             break
         board.append({
-            "t": r["title"][:220], "j": r.get("journal", "") or ("arXiv 预印本" if r.get("is_preprint") else "—"),
+            "t": r["title"][:220],
+            "j": (r.get("journal", "") or "") + ("（预印本）" if r.get("preprint_journal")
+                                                 else ("" if r.get("journal") else
+                                                       ("arXiv 预印本" if r.get("is_preprint") else "—"))),
             "p": r.get("publisher", ""), "tier": r["tier"], "dir": did, "d": r.get("date", ""),
             "doi": r.get("doi", ""), "url": r.get("url", ""), "score": r["score"],
             "rel": r["rel"], "cited": r.get("cited_by") or 0, "oa": r.get("oa", ""),
-            "flags": r["flags"], "new": r["is_new"],
+            "flags": r["flags"], "new": r["is_new"], "pre": 1 if r.get("preprint_journal") else 0,
+            "fit": r.get("ocean_fit", ""),
             "inst": "、".join((r.get("institutions") or [])[:2]),
         })
     INDEX.write_text(json.dumps({

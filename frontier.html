@@ -27,6 +27,9 @@
   .t-\\?{background:#f1f1f1;color:#666;}
   .fw-warn{background:#fdecec;color:#a52a2a;}
   .fw-new{background:#e8f0fe;color:#12457a;}
+  .fw-pre{background:#eaf7ef;color:#1f6b45;}
+  .fw-off{background:#f2f3f5;color:#6b7280;}
+  .fw-weak{background:#fdf6e3;color:#8a6d1f;}
   .fw-note{font-size:12.5px;color:#7a828e;margin:14px 0 0;line-height:1.6;}
   .fw-empty{padding:30px;text-align:center;color:#7a828e;font-size:14px;}
 </style>
@@ -68,6 +71,13 @@
       <option value="3">近 3 天</option>
       <option value="0">全部</option>
     </select>
+    <select id="fit">
+      <option value="clean" selected>排除降权项（默认）</option>
+      <option value="title">仅标题即海洋主题</option>
+      <option value="weak">仅弱相关（需人工判断）</option>
+      <option value="off">仅被降权项（复核用）</option>
+      <option value="">全部（含降权项）</option>
+    </select>
     <select id="sort">
       <option value="score">按综合评分</option>
       <option value="date">按日期</option>
@@ -85,9 +95,13 @@
   <div class="fw-list" id="list"><div class="fw-empty">加载中…</div></div>
   <p class="fw-note">
     分级口径：S = Nature/Science/PNAS 正刊及顶级子刊；A = 学会旗舰刊与高影响力子刊；
-    B = 主流 SCI；C = 一般期刊/新刊/开放获取集团刊；P = 预印本（未经同行评审）；
-    D = MDPI 等预警集团刊与中科院/中信所预警名单期刊（强制标注）。
-    自动评级项标有「未登记，待校准」。
+    B = 主流 SCI（含中文刊学科影响因子前 25%）；C = 一般期刊/新刊/开放获取集团刊；
+    P = 预印本（**若已对应期刊论文则按该刊等级排序**，标注「预印本」）；
+    D = MDPI 等预警集团刊、中科院/中信所预警名单、SCI(SCIE)/EI 剔除刊（强制标注，可一键隐藏）。
+    自动评级项标有「未登记，待校准」。<br>
+    海洋契合度：「标题即海洋主题」= 标题含 ocean/marine/coastal/sea-ice 等研究对象词；
+    「弱相关」= 仅摘要出现海洋词，需人工判断；「海洋介质型」= 海水/水仅作实验介质
+    （材料、化学、医学等），已降权，默认不显示但**不删除**，可用筛选调出复核。
   </p>
 </main>
 
@@ -116,6 +130,7 @@ function render(){
   const dir = el('dir').value, tier = el('tier').value;
   const days = parseInt(el('days').value, 10);
   const onlyNew = el('onlyNew').checked, hideWarn = el('hideWarn').checked;
+  const fit = el('fit').value;
   const sort = el('sort').value;
 
   let rows = DATA.filter(r => {
@@ -125,6 +140,10 @@ function render(){
     if(days > 0 && daysAgo(r.d) > days) return false;
     if(onlyNew && !r.new) return false;
     if(hideWarn && r.tier === 'D') return false;
+    if(fit === 'clean' && (r.fit||'') !== 'title') return false;  // 默认只留"标题即海洋主题"
+    if(fit === 'title' && (r.fit||'') !== 'title') return false;
+    if(fit === 'weak' && (r.fit||'') !== 'weak') return false;
+    if(fit === 'off' && (r.fit||'') !== 'off') return false;
     return true;
   });
   if(sort === 'date') rows.sort((a,b) => (b.d||'').localeCompare(a.d||''));
@@ -142,6 +161,9 @@ function render(){
     const warn = r.tier === 'D';
     const badges = ['<span class="fw-badge t-' + r.tier + '">' + TIER_LABEL[r.tier] + '</span>'];
     if(r.new) badges.push('<span class="fw-badge fw-new">未收录过</span>');
+    if(r.pre) badges.push('<span class="fw-badge fw-pre">预印本·已按期刊等级</span>');
+    if(r.fit === 'off') badges.push('<span class="fw-badge fw-off">海洋介质型/弱相关</span>');
+    if(r.fit === 'weak') badges.push('<span class="fw-badge fw-weak">弱相关</span>');
     if(warn) badges.push('<span class="fw-badge fw-warn">' + esc((r.flags||[])[0] || '预警/受限').slice(0,26) + '</span>');
     return '<div class="fw-item"><h3><a href="' + esc(r.url || ('https://doi.org/' + r.doi)) +
       '" target="_blank" rel="noopener">' + esc(r.t) + '</a></h3><div class="fw-meta">' +
@@ -153,7 +175,7 @@ function render(){
   }).join('');
 }
 
-['q','dir','tier','days','sort','onlyNew','hideWarn'].forEach(id =>
+['q','dir','tier','days','sort','onlyNew','hideWarn','fit'].forEach(id =>
   el(id).addEventListener('input', render));
 
 fetch('data/pool_index.json').then(r => r.json()).then(d => {
