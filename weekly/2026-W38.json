@@ -2,28 +2,33 @@
  "week": "2026-W38",
  "start": "2026-09-07",
  "end": "2026-09-20",
- "pool_total": 170,
+ "pool_total": 183,
  "tiers": {
-  "A": 67,
-  "C": 51,
-  "B": 42,
+  "B": 64,
+  "A": 36,
+  "C": 58,
   "S": 2,
-  "D": 8
+  "D": 10,
+  "P": 13
  },
  "directions": {
-  "一、海洋人工智能": 76,
-  "四、海洋数据质量": 8,
-  "五、海洋数据处理": 11,
-  "三、海洋可视化": 15,
-  "二、海洋数字孪生": 7,
-  "七、开放航次与科考": 37,
+  "一、海洋人工智能": 80,
+  "四、海洋数据质量": 11,
+  "五、海洋数据处理": 12,
+  "三、海洋可视化": 16,
+  "二、海洋数字孪生": 8,
+  "七、开放航次与科考": 39,
   "六、数据管理与共享": 4,
   "九、工具与代码资源": 9,
-  "八、海洋数据中心": 3
+  "八、海洋数据中心": 4
  },
- "warned": 8,
- "preprints": 0,
+ "warned": 10,
+ "preprints": 13,
  "top_journals": [
+  [
+   "arXiv",
+   13
+  ],
   [
    "Ocean Engineering",
    11
@@ -99,10 +104,6 @@
   [
    "The International Journal of Nautical Archaeology",
    1
-  ],
-  [
-   "npj Ocean Sustainability",
-   1
   ]
  ],
  "top_words": [
@@ -111,32 +112,32 @@
    16
   ],
   [
+   "underwater",
+   16
+  ],
+  [
    "prediction",
    15
   ],
   [
-   "underwater",
+   "framework",
    14
   ],
   [
-   "framework",
-   13
-  ],
-  [
    "wave",
-   11
+   12
   ],
   [
    "neural",
+   10
+  ],
+  [
+   "network",
    9
   ],
   [
    "artificial",
    9
-  ],
-  [
-   "network",
-   8
   ],
   [
    "under",
@@ -155,6 +156,10 @@
    7
   ],
   [
+   "energy",
+   6
+  ],
+  [
    "reconstruction",
    6
   ],
@@ -167,17 +172,13 @@
    6
   ],
   [
+   "quality",
+   6
+  ],
+  [
    "intelligence",
-   6
-  ],
-  [
-   "mapping",
-   6
-  ],
-  [
-   "emerging",
    6
   ]
  ],
- "high_tier_count": 69
+ "high_tier_count": 38
 }

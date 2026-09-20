@@ -5,13 +5,19 @@ tier_engine.py — 期刊分级引擎（海洋AI研究日报专用）
 分级口径（2026-09-20 苏老师拍板）：
   S  Science / Nature / PNAS 正刊及顶级子刊（最高优先级）
   A  领域权威期刊（学会旗舰刊、高影响力子刊）
-  B  主流 SCI 期刊
-  C  一般期刊 / 新刊 / 开放获取集团刊
-  P  预印本（未经同行评审，独立标记，排序低于 S/A 期刊论文）
-  D  预警 / 受限期刊（MDPI 等集团刊、中科院与中信所预警名单，强制标注，供取舍）
+  B  主流 SCI 期刊 / 中文刊学科影响因子前 25%
+  C  一般期刊 / 新刊 / 开放获取集团刊 / 中文普通核心
+  P  预印本（无期刊版本时独立标记；已对应期刊论文则按该刊等级排序）
+  D  预警 / 受限期刊（MDPI 等集团刊、中科院与中信所预警、SCI-EI 剔除，强制标注，供取舍）
   ?  未登记（自动进入待确认清单，供问答式校准）
 
-判定顺序：预印本 → 逐刊登记表 → 最新一期预警名单 → 出版集团规则 → 待确认
+判定顺序：
+  0) 预印本升级：同一 DOI / 同标题 / journal_ref 命中期刊记录 → 按该刊等级
+  1) 逐刊登记表（人工确认，最高优先）
+  2) 最新一期预警/剔除名单（中科院、中信所、SCI-EI 剔除）
+  3) 出版集团规则（MDPI=D、Hindawi=D、Frontiers=C）
+  4) 指标自动评级（阈值按学科下调，标注「待校准」）
+  5) 待确认（人工问答式校准）
 
 用法：
   py -3 tier_engine.py "Journal of Marine Science and Engineering" --publisher MDPI
@@ -44,11 +50,23 @@ def load_metrics():
 def auto_tier(issn=None, publisher=None, journal=None):
     """
     指标自动评级（人工登记表未覆盖时使用）。依据 OpenAlex Sources：
-      h_index / 两年均被引 / 是否 DOAJ。
-    阈值设定（2026-09-20 初版，待苏老师按学科经验校准）：
-      A : h_index ≥ 120 或 两年均被引 ≥ 6.0
-      B : h_index ≥ 50  或 两年均被引 ≥ 3.0
-      C : h_index ≥ 15  或 两年均被引 ≥ 1.0
+      h_index / 两年均被引 / 年发文量 / 是否 DOAJ。
+
+    阈值设定（2026-09-20 苏老师拍板「整体下调」，按实测分布校准）：
+
+      实测（登记表内各档期刊的 OpenAlex 指标）：S 档 h 中位 280；A 档 210（P25 130）；
+      B 档 106（P25 88）；C 档 54（P25 27）→ 海洋/地学类整体低于生物医学，故 h 门槛下调。
+
+      A : h ≥ 120          或  h ≥ 70 且 两年均被引 ≥ 3.0
+      B : h ≥ 50           或  h ≥ 30 且 两年均被引 ≥ 2.0   或  两年均被引 ≥ 4.0
+      C : h ≥ 8            或  两年均被引 ≥ 0.5
+      低于 C 线仍归 C，但标注「指标偏低，建议复核」
+
+    与初版（A: h≥120 或 c≥6.0；B: h≥50 或 c≥3.0；C: h≥15 或 c≥1.0）相比：
+      · 下调面：h 档新增「70 且 c≥3.0」进 A、「30 且 c≥2.0」进 B —— 海洋类中坚刊不再掉到 C。
+      · 收紧面：**取消"仅凭两年均被引"即可进 A** 的通道（原 c≥6.0 单条件会让巨型综合刊虚高误判），
+        现该通道需同时满足 h ≥ 70。
+    巨型刊防误判：年发文 > 2500 篇且未登记 → 自动降一级并标注。
     返回 (tier, note) 或 (None, None)
     """
     m = None
@@ -58,17 +76,26 @@ def auto_tier(issn=None, publisher=None, journal=None):
         return None, None
     h = m.get("h_index") or 0
     c = m.get("citedness") or 0
-    if h >= 120 or c >= 6.0:
+    works = m.get("works") or 0
+
+    if h >= 120 or (h >= 70 and c >= 3.0):
         t = "A"
-    elif h >= 50 or c >= 3.0:
+    elif h >= 50 or (h >= 30 and c >= 2.0) or c >= 4.0:
         t = "B"
-    elif h >= 15 or c >= 1.0:
-        t = "C"
     else:
         t = "C"
+
+    guard = ""
+    if works > 2500 and c < 8.0 and t in ("A", "B"):
+        # 仅当"发文量巨大且篇均被引偏低"时降一级（如巨型开放获取综合刊）；
+        # 高被引巨型刊（Advanced Materials 等）不降，避免误伤真正的顶刊。
+        t = "B" if t == "A" else "C"
+        guard = f"；巨型综合刊（年发文 {works}，两年均被引仅 {c}），指标虚高，已降一级"
+    low = "；指标偏低，建议复核" if (h < 8 and c < 0.5) else ""
+
     note = (f"自动评级（h-index {h}，两年均被引 {c}，"
             f"{'DOAJ 收录' if m.get('in_doaj') else '非 DOAJ'}，"
-            f"年发文 {m.get('works')}）· 未登记，待校准")
+            f"年发文 {works}）· 未登记，待校准{guard}{low}")
     return t, note
 
 
@@ -110,19 +137,37 @@ def _build_index(reg):
 
 
 def _active_warning(reg):
-    """汇总【最新一期】预警名单（官方规则：不累积使用）。"""
+    """
+    汇总【最新一期】预警/剔除名单（官方规则：不累积使用）。
+    返回 {归一化刊名: [名单名...]}，同名同时按 ISSN 建索引（键形如 "issn:1234-5678"）。
+    journals 元素可以是字符串，也可以是 {"name":..., "issn":..., "reason":...}。
+    """
     hits = {}
     lists = reg.get("warning_lists", {})
     active = {k: v for k, v in lists.items() if v.get("active")}
     for lname, ldata in active.items():
         for j in ldata.get("journals", []) or []:
-            hits.setdefault(norm(j), []).append(lname)
+            if isinstance(j, dict):
+                nm = j.get("name") or ""
+                issn = re.sub(r"[^0-9xX]", "", str(j.get("issn") or "")).lower()
+            else:
+                nm, issn = str(j), ""
+            tag = lname + (f"（{j['reason']}）" if isinstance(j, dict) and j.get("reason") else "")
+            if nm:
+                hits.setdefault(norm(nm), []).append(tag)
+            if issn:
+                hits.setdefault("issn:" + issn, []).append(tag)
     return hits
 
 
-def classify(journal=None, publisher=None, is_preprint=False, issn=None):
+def classify(journal=None, publisher=None, is_preprint=False, issn=None,
+             preprint_journal=None, preprint_src=None):
     """
-    返回 dict: tier / label / flags[] / note / matched
+    返回 dict: tier / label / flags[] / note / matched / weight
+
+    preprint_journal: 预印本已对应的期刊名（由 screen.py 用 DOI/标题/journal_ref 匹配得到）。
+                      给出时按该刊等级排序，并保留「预印本」标注（时效优先）。
+    preprint_src:     匹配依据（doi / title / journal_ref），用于留痕。
     """
     reg = load_registry()
     weights = reg["policy"]["weights"]
@@ -130,6 +175,18 @@ def classify(journal=None, publisher=None, is_preprint=False, issn=None):
     flags = []
     note = ""
     auto = False
+
+    if is_preprint and preprint_journal:
+        # 预印本升级：按所属期刊等级排序，但保留"预印本"标记
+        sub = classify(preprint_journal, publisher, is_preprint=False, issn=issn)
+        sub["flags"] = ["预印本（已对应期刊论文，按《%s》等级排序，依据 %s）"
+                        % (preprint_journal, preprint_src or "记录匹配")] + [
+            f for f in sub["flags"] if "预印本" not in f]
+        sub["note"] = (sub["note"] + " " if sub["note"] else "") + \
+                      "预印本升级：同一成果的期刊版本，时效以预印本首发日计。"
+        sub["matched"] = "preprint->journal"
+        sub["preprint_journal"] = preprint_journal
+        return sub
 
     if is_preprint or not journal:
         if is_preprint:
@@ -155,11 +212,13 @@ def classify(journal=None, publisher=None, is_preprint=False, issn=None):
     else:
         tier = None
 
-    if n in warn:
+    issn_key = "issn:" + re.sub(r"[^0-9xX]", "", str(issn or "")).lower() if issn else ""
+    if n in warn or (issn_key and issn_key in warn):
         tier = "D"
-        flags.append("预警名单：" + "、".join(warn[n]))
+        hits = warn.get(n) or warn.get(issn_key) or []
+        flags.append("预警/剔除名单：" + "、".join(dict.fromkeys(hits)))
         matched = matched or "warning"
-        note = (note + " " if note else "") + "最新一期预警名单命中"
+        note = (note + " " if note else "") + "最新一期预警/剔除名单命中"
     elif tier is None:
         pub = norm(publisher)
         for pubkey, rule in reg.get("publisher_rules", {}).items():
@@ -223,7 +282,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("journal", nargs="?")
     ap.add_argument("--publisher")
+    ap.add_argument("--issn")
     ap.add_argument("--preprint", action="store_true")
+    ap.add_argument("--preprint-journal", dest="pj", help="预印本已对应的期刊名（测试升级通道）")
     ap.add_argument("--pending", action="store_true")
     ap.add_argument("--stats", action="store_true")
     a = ap.parse_args()
@@ -251,7 +312,8 @@ def main():
     if not a.journal:
         ap.print_help()
         return
-    r = classify(a.journal, a.publisher, is_preprint=a.preprint)
+    r = classify(a.journal, a.publisher, is_preprint=a.preprint, issn=a.issn,
+                 preprint_journal=a.pj, preprint_src="manual")
     print(json.dumps(r, ensure_ascii=False, indent=2))
 
 

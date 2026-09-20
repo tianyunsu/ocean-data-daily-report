@@ -55,8 +55,10 @@ DIRECTIONS = {
 }
 OCEAN_TERMS = "(ocean OR marine OR sea OR seawater OR seafloor OR sea-ice OR bathymetry OR plankton OR coral OR coastal OR estuarine OR underwater)"
 
-SELECT = ("id,doi,title,publication_date,type,primary_location,authorships,"
+SELECT = ("id,doi,title,publication_date,type,primary_location,locations,authorships,"
           "abstract_inverted_index,cited_by_count,open_access,language")
+
+ARXIV_SOURCE = "S4306400194"   # OpenAlex 中 arXiv 的 source id
 
 
 def _get(url, timeout=40, retries=3, backoff=2.0):
@@ -158,6 +160,66 @@ def norm_rec(w, direction_id, direction_name):
     }
 
 
+def fetch_preprints(d, start, end, max_pages=2):
+    """
+    预印本通道（走 OpenAlex 索引的 arXiv 记录，替代被 WAF 拦截的 arXiv export API）。
+
+    为什么用 OpenAlex 而不是 arXiv API：
+      - 2026-09-20 实测 `export.arxiv.org/api/query` 对全部 User-Agent 返回 **406 Not Acceptable**
+        （脚本 429、手动 406），而 `arxiv.org/abs/*` 网页正常 → 是 API 端点被 WAF 拦截，非网络问题。
+      - OpenAlex 完整索引 arXiv（source id S4306400194），并额外提供 `locations`：
+        可据此**直接判断该预印本是否已有期刊版本**，驱动「预印本按所属期刊等级排序」（苏老师 2026-09-20 决策）。
+    """
+    expr = f"{d['oa']} AND {OCEAN_TERMS}"
+    filters = [f"from_publication_date:{start}", f"to_publication_date:{end}",
+               f"locations.source.id:{ARXIV_SOURCE}"]
+    out, cursor = [], "*"
+    for _ in range(max_pages):
+        url = ("https://api.openalex.org/works?filter=" + ",".join(filters)
+               + "&search=" + urllib.parse.quote(expr)
+               + f"&per-page=200&cursor={urllib.parse.quote(cursor)}"
+               + f"&select={SELECT}&mailto={MAILTO}")
+        data = _get(url)
+        res = data.get("results", [])
+        out.extend(res)
+        cursor = data.get("meta", {}).get("next_cursor")
+        if not cursor or len(res) < 200:
+            break
+        time.sleep(1.0)
+    return out
+
+
+def norm_preprint(w, direction_id, direction_name):
+    """归一化一条预印本记录；若 OpenAlex 的 locations 中存在期刊版本，写入 preprint_journal。"""
+    r = norm_rec(w, direction_id, direction_name)
+    jname, jissn, jpub = "", "", ""
+    for l in (w.get("locations") or []):
+        s = l.get("source") or {}
+        if s.get("type") == "journal" and s.get("display_name"):
+            jname = s["display_name"]
+            jissn = s.get("issn_l") or ""
+            jpub = s.get("host_organization_name") or ""
+            break
+    aid = ""
+    for l in (w.get("locations") or []):
+        u = l.get("landing_page_url") or ""
+        if "arxiv.org/abs/" in u:
+            aid = u.rsplit("/", 1)[-1].split("v")[0]
+            break
+    r.update({
+        "source": "openalex-arxiv",
+        "is_preprint": True,
+        "journal": "arXiv",
+        "journal_ref": jname,
+        "preprint_journal": jname,
+        "preprint_src": "openalex_locations" if jname else "",
+        "arxiv_id": aid,
+        "issn": jissn,
+        "publisher": jpub or "arXiv",
+    })
+    return r
+
+
 def wide_url(w, doi):
     loc = w.get("primary_location") or {}
     if loc.get("landing_page_url"):
@@ -193,6 +255,7 @@ def fetch_arxiv(d, start, end, max_results=150):
             "arxiv_id": base, "title": " ".join((e.findtext("a:title", "", ARXIV_NS) or "").split()),
             "abstract": " ".join((e.findtext("a:summary", "", ARXIV_NS) or "").split())[:600],
             "date": pub, "updated": upd, "type": "preprint", "journal": "arXiv",
+            "journal_ref": " ".join((e.findtext("a:journal_ref", "", ARXIV_NS) or "").split()),
             "publisher": "arXiv", "issn": "", "url": pid,
             "institutions": [], "cited_by": 0, "oa": "green", "lang": "en",
             "direction_id": d["id"], "direction": d["name"], "is_preprint": True,
@@ -211,6 +274,8 @@ def main():
     ap.add_argument("--dirs", default="")
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--skip-arxiv", action="store_true")
+    ap.add_argument("--preprint-only", action="store_true",
+                    help="只跑预印本通道并追加到池文件（arXiv 官方 API 被拦截时的补救/补跑）")
     a = ap.parse_args()
 
     day = datetime.date.fromisoformat(a.date)
@@ -235,35 +300,58 @@ def main():
             print(f"[跳过] 方向{did} {d['name']}（断点续跑）")
             continue
         cnt = 0
-        try:
-            recs = fetch_openalex(d, start, end)
-        except Exception as e:
-            print(f"!! 方向{did} OpenAlex 失败：{e}")
-            recs = []
-        for w in recs:
-            r = norm_rec(w, did, d["name"])
-            fp = fingerprint(r["title"])
-            key = r["doi"] or r["id"] or fp
-            if key in seen or fp in seen:
-                continue
-            seen.update([key, fp])
-            rows.append(r)
-            cnt += 1
-        time.sleep(0.5)
-        if did == 1 and not a.skip_arxiv:
+        if not a.preprint_only:
             try:
-                for r in fetch_arxiv(d, start, end):
+                recs = fetch_openalex(d, start, end)
+            except Exception as e:
+                print(f"!! 方向{did} OpenAlex 失败：{e}")
+                recs = []
+            for w in recs:
+                r = norm_rec(w, did, d["name"])
+                fp = fingerprint(r["title"])
+                key = r["doi"] or r["id"] or fp
+                if key in seen or fp in seen:
+                    continue
+                seen.update([key, fp])
+                rows.append(r)
+                cnt += 1
+            time.sleep(0.5)
+
+        # 预印本通道（每方向都跑；OpenAlex 索引的 arXiv 记录 + 期刊版本识别）
+        pre_n = 0
+        if not a.skip_arxiv:
+            try:
+                for w in fetch_preprints(d, start, end):
+                    r = norm_preprint(w, did, d["name"])
                     fp = fingerprint(r["title"])
-                    if r["arxiv_id"] in seen or fp in seen:
+                    key = r["doi"] or r["id"] or fp
+                    if (r.get("arxiv_id") and r["arxiv_id"] in seen) or fp in seen:
                         continue
-                    seen.update([r["arxiv_id"], fp])
+                    seen.update([key, fp])
                     rows.append(r)
                     cnt += 1
+                    pre_n += 1
             except Exception as e:
-                print(f"!! 方向{did} arXiv 失败：{e}")
-            time.sleep(3)
+                print(f"!! 方向{did} 预印本通道失败：{e}")
+            time.sleep(1.0)
+
+            # arXiv 官方 API（可选补充；2026-09-20 起该端点对新请求返回 406/429，失败可忽略）
+            if did == 1:
+                try:
+                    for r in fetch_arxiv(d, start, end):
+                        fp = fingerprint(r["title"])
+                        if r["arxiv_id"] in seen or fp in seen:
+                            continue
+                        seen.update([r["arxiv_id"], fp])
+                        rows.append(r)
+                        cnt += 1
+                    print("   [arXiv 官方 API] 成功")
+                except Exception as e:
+                    print(f"   [arXiv 官方 API] 不可用（已由 OpenAlex 通道覆盖）：{e}")
+                time.sleep(2)
+
         conf = 0
-        if did == 1:
+        if did == 1 and not a.preprint_only:
             try:
                 for w in fetch_openalex(d, start, end, want_conf=True, max_pages=2):
                     r = norm_rec(w, did, d["name"])
@@ -276,9 +364,9 @@ def main():
                     conf += 1
             except Exception as e:
                 print(f"!! 方向{did} 会议论文失败：{e}")
-        print(f"[完成] 方向{did} {d['name']}: {cnt} 条（其中会议论文 {conf}）")
+        print(f"[完成] 方向{did} {d['name']}: {cnt} 条（预印本 {pre_n} · 会议论文 {conf}）")
 
-    mode = "a" if a.resume else "w"
+    mode = "a" if (a.resume or a.preprint_only) else "w"
     with outfile.open(mode, encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")

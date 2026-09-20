@@ -242,23 +242,41 @@ py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 30
 
 ### 期刊分级口径（2026-09-20 苏老师拍板，权威）
 
-判定顺序：**预印本 → 人工登记表 → 最新一期预警名单 → 出版集团规则 → 指标自动评级 → 待确认**
+判定顺序：**预印本升级 → 人工登记表 → 最新一期预警/剔除名单 → 出版集团规则 → 指标自动评级 → 待确认**
 
 | 等级 | 含义 | 举例 |
 |------|------|------|
 | **S** | Science / Nature / PNAS **正刊及顶级子刊**（最高优先级） | Nature, Science, PNAS, Nature Climate Change, Nature Geoscience, Nature Sustainability, Nature Communications, Communications Earth & Environment, Science Advances, npj Ocean Sustainability |
-| **A** | 领域权威期刊（学会旗舰刊、高影响力子刊） | JGR: Oceans, GRL, RSE, IEEE TGRS, IEEE JOE, Ocean Modelling, Progress in Oceanography, ESSD, Ocean Science, GMD, Biogeosciences, ICES JMS, JPO, Scientific Reports（全科子刊，归 A 待校准） |
-| **B** | 主流 SCI 期刊 | Marine Pollution Bulletin, Applied Ocean Research, Ocean Dynamics, Marine Geology, Marine Policy, Acta Oceanologica Sinica, 海洋学报 |
-| **C** | 一般期刊 / 新刊 / 开放获取集团刊 | Frontiers in Marine Science, PLOS ONE, Heliyon, PeerJ |
-| **P** | 预印本（未经同行评审）**独立标记，排序低于 S/A 期刊论文** | arXiv, EarthArXiv, ESSOar |
-| **D** | **预警 / 受限期刊（强制标注，不删除，供人工取舍）** | MDPI 全集团刊（JMSE/Remote Sensing/Water/Sensors/Sustainability/Fishes/Oceans…）、Hindawi 系、中科院与中信所预警名单刊 |
+| **A** | 领域权威期刊（学会旗舰刊、高影响力子刊） | JGR: Oceans, GRL, RSE, IEEE TGRS, IEEE JOE, Ocean Modelling, Progress in Oceanography, ESSD, Ocean Science, GMD, Biogeosciences, ICES JMS, JPO, **Scientific Reports**（2026-09-20 确认）、**Ocean Engineering**（确认）、**npj Heritage Science**（由 S 下调，确认） |
+| **B** | 主流 SCI 期刊；**中文刊按各学科影响因子排名前 25%** | Marine Pollution Bulletin, Applied Ocean Research, Ocean Dynamics, Marine Geology, Marine Policy, Acta Oceanologica Sinica, **海洋学报**、**遥感学报** |
+| **C** | 一般期刊 / 新刊 / 开放获取集团刊；中文普通核心 | **Frontiers 全集团**、PLOS ONE、Heliyon、PeerJ、**海洋科学**、**中国海洋大学学报**、热带海洋学报 |
+| **P** | 预印本**无期刊版本**时独立标记，排序低于 S/A 期刊论文 | arXiv, EarthArXiv, ESSOar |
+| **D** | **预警 / 受限期刊（强制标注，不删除，供人工取舍）** | MDPI 全集团刊（JMSE/Remote Sensing/Water/Sensors/Sustainability/Fishes/Oceans…）、Hindawi 系、中科院与中信所预警名单刊、**SCI(SCIE)/EI 剔除刊** |
 
-**三条硬规则**：
+**四条硬规则**：
 1. **期刊质量优先于一切**：同等相关度下 S > A > B > C > P > D，D 级强制置底。
 2. **预警刊不得静默剔除**：必须保留 + 在标题处标注原因（哪个名单、哪一年），由苏老师取舍；
    标注不是论文评价，不否定该刊全部成果。
-3. **预警名单只用最新一期**：中科院官方明确"不应把多年累积列表合并使用"，整改移出后即不再预警。
+3. **预警/剔除名单只用最新一期**：中科院官方明确"不应把多年累积列表合并使用"，整改移出后即不再预警。
    名单数据存于 `data/journal_tiers.json` 的 `warning_lists`，`active` 字段控制是否生效。
+4. **预印本升级（时效优先，2026-09-20 苏老师新增）**：预印本若**已对应期刊论文**，按**所属期刊等级**排序
+   （不再一律压到 P 之下），并保留"预印本"标注。匹配依据依次为：① 同一 DOI 的期刊记录 →
+   ② 同一标题（归一化指纹）的期刊记录 → ③ arXiv `journal_ref` 解析出的刊名。均未命中才归 P。
+   理由：预印本是最快的时效渠道，不应因其形态被降级；发现新成果的时间点以预印本首发日计。
+
+**中文期刊口径（2026-09-20 确认）**：按**各学科影响因子排名**分档（《中国学术期刊影响因子年报》学科分区 /
+CNKI 学科排名）——学科前 25% → B，其余 → C 并标注。已确认：海洋学报 B、遥感学报 B、海洋科学 C、
+中国海洋大学学报 C、热带海洋学报 C。
+
+**指标自动评级阈值（2026-09-20 整体下调，海洋/地学类 h-index 普遍低于生物医学）**：
+| 等级 | 条件 |
+|------|------|
+| A | `h ≥ 90 且 两年均被引 ≥ 2.5`，或 `h ≥ 200` |
+| B | `h ≥ 35 且 两年均被引 ≥ 1.2`，或 `h ≥ 90`，或 `两年均被引 ≥ 4.0` |
+| C | `h ≥ 8` 或 `两年均被引 ≥ 0.5`；低于此线仍归 C 但标注「指标偏低，建议复核」 |
+
+- 由 **OR 改为双条件**，避免巨型综合刊（年发文 > 2500）指标虚高误判；该类刊自动降一级并标注。
+- 自动评级结果一律带「未登记，待校准」标记，进入问答式校准流程。实现在 `tier_engine.py::auto_tier`。
 
 **已知名单（2026-09-20 核实）**：
 - 中科院文献情报中心 2025 年（2025-03-19 发布，5 本）：Wireless Personal Communications、Natural Resources Forum、
@@ -266,7 +284,14 @@ py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 30
 - 中信所 2025 年（2025-12-07 发布，103 本；本表仅录入已核实条目）：Agronomy、Coatings、Genes、Chemosphere、
   Computers in Biology and Medicine、IEEE Transactions on Intelligent Vehicles、Environmental Toxicology、
   Bioengineered、Cureus、Frontiers in Microbiology/Endocrinology/Energy Research/Cell and Developmental Biology 等
-- **待办**：中信所完整 103 本名单需导入 `data/journal_tiers.json`
+- **EI Compendex DISCONTINUED（2026-07-09 更新，全表 228 条）**：本表录入 `Final Coverage ≥2022` 的 **19 条近期剔除刊**
+  （Scalable Computing、Computational Intelligence and Neuroscience、Computer Systems Science and Engineering、
+  Waves in Random and Complex Media、Neutrosophic Sets and Systems、Data and Metadata 等）；早年已停检的 209 条归 `EI剔除存档`
+  （不生效，仅备查）。数据源：`https://www.ei-cn.com/News/309.html`
+- **Web of Science 核心合集剔除（Clarivate 2025-12 ～ 2026-07 月度更新，SCIE/SSCI 部分）**：本表录入已核实的 **16 条**，
+  含本领域相关的 **Sea Technology（2026-02 Cease）**、Ingegneria Sismica、Traitement du Signal、
+  Mechanics of Advanced Materials and Structures 等。ESCI 变动量过大未全录，需按需补录。
+- **待办**：中信所完整 103 本名单、WoS ESCI 剔除完整名单需继续导入 `data/journal_tiers.json`
 
 ### 期刊分级问答式校准（每期可执行）
 
@@ -616,3 +641,19 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
       标注不是论文评价，不否定该刊全部成果。
     - 预警名单**只用最新一期**（中科院官方规则：不累积使用，整改移出后即不再预警），
       原始数据存于 `data/journal_tiers.json` 的 `warning_lists`，用 `active` 字段控制生效。
+
+21. **预印本"一刀切压级"造成时效损失**：原口径把预印本一律压到 S/A 期刊论文之下（P 权重 2.5 vs A 5）。
+    但预印本是**最快的时效渠道**——同一成果常常先上 arXiv、数月后才见刊；若其已发表/被期刊接受，仍按 P 排序，
+    等于用"形态"惩罚"速度"，与"尽可能及时掌握前沿"的目标冲突。
+    - **铁律（2026-09-20 苏老师拍板）**：预印本**若已对应期刊论文**，按**所属期刊等级**排序并保留"预印本"标注；
+      匹配依据依次为 ① 同 DOI 的期刊记录 → ② 同标题（归一化指纹）的期刊记录 → ③ arXiv `journal_ref` 解析刊名。
+      均未命中才归 P。实现见 `screen.py` 第一阶段索引 + `tier_engine.classify(preprint_journal=...)`。
+    - **注意**：升级后仍保留"预印本"标记，避免把关口径被误解为"预印本=同行评审成果"。
+
+22. **只看 SCI 而漏掉 EI / 剔除刊**：苏老师 2026-09-20 指出 SCI 与 EI **都有预警期刊和定期剔除的期刊**，
+    这些刊也应归 D 级或排除检索。此前只录入了中科院/中信所预警名单，**未覆盖数据库剔除维度**。
+    - **已补名单**：`EI剔除2026`（EI Compendex DISCONTINUED，2026-07-09 更新，全表 228 条，录入 Final Coverage ≥2022 的 19 条）、
+      `WoS剔除2026`（Clarivate 2025-12～2026-07 月度更新，SCIE/SSCI 剔除 16 条，含海洋领域相关的 Sea Technology）。
+    - **铁律**：名单按"是否可能出现在当期检索中"筛选——**终检年份早于窗口的条目归存档（`active: false`）**，
+      不参与实时判定，避免把早已停检的刊误报为预警。名单支持 `{"name","issn","reason"}` 结构化条目，ISSN 亦可命中。
+    - **遗留**：中信所 103 本全表、WoS **ESCI** 剔除全表（量级大）待补录。
