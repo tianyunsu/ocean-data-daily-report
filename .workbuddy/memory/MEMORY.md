@@ -5,6 +5,23 @@
 - **GitHub**：https://github.com/tianyunsu/ocean-data-daily-report ｜ **站点**：https://tianyunsu.github.io/ocean-data-daily-report/
 - **DATA_SOURCE**：`feishu_write_doc.py`（含 `SECTIONS=[...]`），由 `build_daily_YYYYMMDD.py` 正则替换；`GH_REPO`=仓库根目录；用系统 PATH 的 `python`
 - **HTML 生成器**：`gen_html_YYYYMMDD.py`（自包含，`ast.literal_eval` 解析 SECTIONS，禁止 import feishu 模块）
+- **本机 Python**：默认 `python` 缺 `requests`，跑飞书/机器人须用 **`py -3`**；Bash 环境偶发 PATH 损坏（grep/head 不可用）→ 改用 PowerShell + 专用工具
+
+## 前沿跟踪四层架构（2026-09-20 落地）
+- **为什么**：日报每方向 3-5 条是**排版口径**，非覆盖口径。实测 14 天窗口内全海洋类期刊 2,249 篇、海洋AI/数字孪生/数据相关约 350 篇，日报只呈现 27 条（留存 ~10%）。故新增 L0/L1/L3，**L2 日报质量红线不降级**。
+- **L0** `harvest.py` → `data/pool/YYYY-MM-DD.jsonl`（9 方向 × OpenAlex + arXiv，T+1；实测 3,468 条/14天）
+- **L1** `screen.py` + `tier_engine.py` + `source_metrics.py` → `data/library.db` + `data/pool_index.json`（去重+分级+打分；实测 3,468→170 条，未登记期刊 0）
+- **L2** 日报（现有 6 阶段流程不变）
+- **L3** `frontier.html`（全池可检索看板）+ `weekly_report.py` → `weekly/YYYY-Www.html`（周报，建议周一）
+- **每期必报指标**：采集量 / 池内量 / 日报收录 / 留存率 / **arXiv 占比 ≤50%** / **期刊占比 ≥40%** / 零覆盖来源组 ≤6
+
+## 期刊分级口径（2026-09-20 苏老师拍板）
+- **S**：Science/Nature/PNAS 正刊及顶级子刊　**A**：领域权威（AGU/Copernicus/IEEE/Elsevier 顶刊）　**B**：主流 SCI
+- **C**：一般期刊/新刊/开放获取集团刊（Frontiers、PLOS ONE 等）　**P**：预印本（独立标记，排序低于 S/A）　**D**：预警/受限刊（MDPI 全集团、Hindawi、中科院/中信所预警名单），**强制置底并标注，不删除**
+- 判定顺序：预印本 → 登记表 → **最新一期**预警名单 → 出版集团规则 → 指标自动评级（h-index/两年均被引，标"待校准"）→ 待确认
+- 预警名单官方规则：**不累积使用**（移出即不再预警）；数据存 `data/journal_tiers.json` 的 `warning_lists`，`active` 控制生效
+- 已核实名单：中科院2025（5本）、中信所2025（103本，已录14条）、中科院2024（存档）
+- **问答式校准**：未登记期刊自动进 `data/pending_journals.txt`（按命中篇数降序），交付时挑 ≥2 篇的期刊向苏老师提问确认后写入登记表
 
 ## 一致性机制（手动=自动，铁律）
 - `ocean-daily-report` skill 是手动/自动共用唯一权威源，自动化 prompt 纯委托该 skill。
@@ -20,7 +37,7 @@
 阶段0  git pull origin main + sync_skills.py install（跨机器同步；禁同日并行）
 阶段1  顶会论文检索(23会议+IEEE期刊,≥5条强制,不可跳过)
 阶段1B 国内院所新闻巡检(海洋所/南海所/深海所/青大/南科大等) + 顶级期刊综述检查(GRSM/RSE等)
-阶段2  9方向常规检索 + 来源覆盖矩阵逐组打卡(A组9组+B组+阶段一)，建去重黑名单(近12期)
+阶段2  9方向常规检索 + 【先跑 harvest.py + screen.py 取全量池】+ 来源覆盖矩阵逐组打卡(A组9组+B组+阶段一)，建去重黑名单(近12期)
 阶段3  build_daily_XXX.py写SECTIONS + 归类自检(写入前) + gen_html_XXX.py生成HTML
 阶段4  复制posts/ + 更新index.html/archive.html + commit + push
 阶段4.5 飞书推送 feishu_write_doc.py（推文档）+ run_daily_report.py（机器人通知，需 $env:PYTHONUTF8=1）
