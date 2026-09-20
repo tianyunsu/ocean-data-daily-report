@@ -10,7 +10,10 @@
 - **为什么**：日报每方向 3-5 条是**排版口径**，非覆盖口径。实测 14 天窗口全海洋类期刊 2,249 篇、海洋AI/数字孪生/数据相关约 350 篇，日报仅呈现 27 条（留存 ~10%）。故加 L0/L1/L3，**L2 日报质量红线不降级**。
 - **L0** `harvest.py` → `data/pool/YYYY-MM-DD.jsonl`（9 方向 × OpenAlex 期刊 + **OpenAlex-arXiv 预印本通道** + 会议，T+1；实测 3,932 条/14 天）
 - **L1** `screen.py` + `tier_engine.py` + `source_metrics.py` → `data/library.db` + `data/pool_index.json`（去重+分级+契合度+打分；实测 3,932→183 条，未登记期刊 0）
-- **L2** 日报（6 阶段流程不变）　**L3** `frontier.html`（全池可检索看板）+ `weekly_report.py` → `weekly/YYYY-Www.html`
+- **L2** 日报（6 阶段流程不变）　**L3** `frontier.html`（全池可检索看板）+ `weekly_report.py` → `weekly/YYYY-Www.html` + `weekly/index.html` 索引 + `weekly/synth/YYYY-Www.draft.md`
+- **周报综述板块（2026-09-20 新增）**：两层——① 自动综述（脚本生成，逐方向主题簇+代表文献+主要期刊，`TERM_CN` 中文簇名词典）；② 深度综述（写 `weekly/synth/YYYY-Www.md` 后跑脚本自动注入页顶）。综述样本＝池内**剔除 D 级预警刊与「已降权」项**（183→155），剔除数单列不删除。
+- **周报访问入口（三处，缺一则用户找不到）**：`index.html`/`archive.html`/`frontier.html` 导航「前沿周报」→ `weekly/index.html`；首页 `</header>` 与 `<main>` 之间的横幅卡片（放 main 外防被 post-card 顶下去）。线上 `…/weekly/index.html`。
+- **铁律**：综述里每条链接必须回查 `library.db` 的 `url`，**严禁凭 DOI 规则手写**（09-20 实测臆造 2 处）
 - **每期必报指标**：采集量 / 池内量 / 日报收录 / 留存率 / **arXiv 占比 ≤50%** / **期刊占比 ≥40%** / 零覆盖来源组 ≤6
 - **L1 打分**：期刊权重（S6/A5/B4/C3/P2.5/D1）×100 + 相关度×8 + 时效 + **海洋契合度**
   - **海洋对象 vs 介质**（09-20 新增，看板降噪关键）：`ocean/marine/coastal/bathymetry/seabed/fisheries/Arctic…`＝研究海洋；

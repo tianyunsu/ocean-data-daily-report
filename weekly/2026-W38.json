@@ -24,6 +24,7 @@
  },
  "warned": 10,
  "preprints": 13,
+ "off_penalized": 18,
  "top_journals": [
   [
    "arXiv",
@@ -140,10 +141,6 @@
    9
   ],
   [
-   "under",
-   7
-  ],
-  [
    "hybrid",
    7
   ],
@@ -178,7 +175,1049 @@
   [
    "intelligence",
    6
+  ],
+  [
+   "mapping",
+   6
   ]
  ],
- "high_tier_count": 38
+ "high_tier_count": 38,
+ "synthesis_source": "深度综述来源：2026-W38.md",
+ "dir_digest": {
+  "一、海洋人工智能": {
+   "n": 80,
+   "sample": 62,
+   "sa": 14,
+   "preprint": 3,
+   "journals": [
+    {
+     "j": "Ocean Engineering",
+     "n": 5
+    },
+    {
+     "j": "arXiv",
+     "n": 3
+    },
+    {
+     "j": "Scientific Reports",
+     "n": 2
+    },
+    {
+     "j": "Black Sea Journal of Engineering and Science",
+     "n": 2
+    }
+   ],
+   "clusters": [
+    {
+     "name": "机器学习建模",
+     "n": 19,
+     "rep": [
+      {
+       "title": "Process-oriented evaluation of machine learning and physics-based models for wave parameter prediction under extreme conditions in a fetch-limited sea",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128227",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Remote sensing and artificial intelligence integration for seabed seagrass distribution and probabilistic seagrass biomass carbon potential",
+       "url": "https://doi.org/10.1016/j.scitotenv.2026.182300",
+       "journal": "The Science of The Total Environment",
+       "tier": "A"
+      },
+      {
+       "title": "Application of Machine Learning to Assess Sensitivity to Forest Fires and Floods in Agricultural Areas of Coastal Provinces of Vietnam",
+       "url": "https://doi.org/10.1007/s41742-026-01245-8",
+       "journal": "International Journal of Environmental Research",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "神经网络",
+     "n": 10,
+     "rep": [
+      {
+       "title": "Graph neural networks for antarctic sea ice concentration forecasting",
+       "url": "https://doi.org/10.1038/s41598-026-70984-7",
+       "journal": "Scientific Reports",
+       "tier": "A"
+      },
+      {
+       "title": "A Cummins-equation-based physics-informed neural network for response prediction and system identification of wave energy converters",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.127974",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Data-driven soliton solutions for the perturbed modified Gardner equation in stratified oceanic fluids via orthogonal neural network",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.127954",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "预测建模",
+     "n": 5,
+     "rep": [
+      {
+       "title": "A hybrid day-ahead wind speed prediction model based on refined WRF and attention-LSTM for coastal complex terrain",
+       "url": "https://doi.org/10.1038/s41598-026-71231-9",
+       "journal": "Scientific Reports",
+       "tier": "A"
+      },
+      {
+       "title": "Benchmarking architectures of deep learning-based models for sea ice concentration and thickness spatiotemporal prediction",
+       "url": "https://doi.org/10.1007/s13131-026-2744-9",
+       "journal": "Acta Oceanologica Sinica",
+       "tier": "B"
+      },
+      {
+       "title": "Prediction of TLP tensioner dynamics under second-order waves via wavelet-enhanced deep learning",
+       "url": "https://doi.org/10.1080/17445302.2026.2730544",
+       "journal": "Ships and Offshore Structures",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "框架方法",
+     "n": 5,
+     "rep": [
+      {
+       "title": "A chaotic optimization and variational mode decomposition based transformer framework for mooring tension inversion and reliability support of marine platforms",
+       "url": "https://doi.org/10.1016/j.ress.2026.113528",
+       "journal": "Reliability Engineering & System Safety",
+       "tier": "A"
+      },
+      {
+       "title": "An underwater precision fish counting framework using transformer with feature offset aggregation and occlusion-aware attention in aquaculture",
+       "url": "https://doi.org/10.1007/s44443-026-01240-1",
+       "journal": "Journal of King Saud University - Computer and Information Sciences",
+       "tier": "B"
+      },
+      {
+       "title": "A deep reinforcement learning framework for coastal multi-hazard emergency response",
+       "url": "https://doi.org/10.1016/j.ijdrr.2026.106439",
+       "journal": "International Journal of Disaster Risk Reduction",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "海浪",
+     "n": 5,
+     "rep": [
+      {
+       "title": "Enhancing Significant Wave Height Simulations Using Distribution‐Aware Deep Learning and Environmental Predictors",
+       "url": "https://doi.org/10.1029/2026jh001338",
+       "journal": "Journal of Geophysical Research Machine Learning and Computation",
+       "tier": "A"
+      },
+      {
+       "title": "Deep learning based reconstruction of fiber orientation in short fiber reinforced composites from ultrasonic wave responses",
+       "url": "https://doi.org/10.1016/j.ymssp.2026.114936",
+       "journal": "Mechanical Systems and Signal Processing",
+       "tier": "A"
+      },
+      {
+       "title": "A bearing fault diagnosis method across operating conditions based on Wavelet Packet Decomposition and impulse spatiotemporal modeling",
+       "url": "https://doi.org/10.1088/1361-6501/aea87f",
+       "journal": "Measurement Science and Technology",
+       "tier": "B"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Graph neural networks for antarctic sea ice concentration forecasting",
+     "url": "https://doi.org/10.1038/s41598-026-70984-7",
+     "journal": "Scientific Reports",
+     "tier": "A",
+     "date": "2026-09-16",
+     "score": 566.0
+    },
+    {
+     "title": "A chaotic optimization and variational mode decomposition based transformer framework for mooring tension inversion and reliability support of marine platforms",
+     "url": "https://doi.org/10.1016/j.ress.2026.113528",
+     "journal": "Reliability Engineering & System Safety",
+     "tier": "A",
+     "date": "2026-09-15",
+     "score": 548.0
+    },
+    {
+     "title": "A Cummins-equation-based physics-informed neural network for response prediction and system identification of wave energy converters",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.127974",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-09-16",
+     "score": 548.0
+    },
+    {
+     "title": "A hybrid day-ahead wind speed prediction model based on refined WRF and attention-LSTM for coastal complex terrain",
+     "url": "https://doi.org/10.1038/s41598-026-71231-9",
+     "journal": "Scientific Reports",
+     "tier": "A",
+     "date": "2026-09-13",
+     "score": 544.0
+    },
+    {
+     "title": "Process-oriented evaluation of machine learning and physics-based models for wave parameter prediction under extreme conditions in a fetch-limited sea",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128227",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-09-18",
+     "score": 544.0
+    }
+   ]
+  },
+  "二、海洋数字孪生": {
+   "n": 8,
+   "sample": 7,
+   "sa": 3,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "Earth system science data",
+     "n": 1
+    },
+    {
+     "j": "PLoS ONE",
+     "n": 1
+    },
+    {
+     "j": "Ocean science",
+     "n": 1
+    },
+    {
+     "j": "Geophysical Research Letters",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "耦合模式",
+     "n": 3,
+     "rep": [
+      {
+       "title": "Freshwater‐Induced Surface Cooling of the Subpolar North Atlantic in a Large‐Ensemble, High‐Resolution, Coupled Model",
+       "url": "https://doi.org/10.1029/2026gl122236",
+       "journal": "Geophysical Research Letters",
+       "tier": "A"
+      },
+      {
+       "title": "The dynamics of early transoceanic voyages: A resource-coupled model of crew health and survival",
+       "url": "https://doi.org/10.1142/s0129183127501531",
+       "journal": "International Journal of Modern Physics C",
+       "tier": "C"
+      },
+      {
+       "title": "A multi-field coupled model for gas migration in high-temperature coal seams considering fracture zones and fracture roughness",
+       "url": "https://doi.org/10.1371/journal.pone.0349721",
+       "journal": "PLoS ONE",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "A global gridded dataset of significant wave height via fusion of multi-mission altimetry and numerical hindcast",
+     "url": "https://doi.org/10.5194/essd-18-6841-2026",
+     "journal": "Earth system science data",
+     "tier": "A",
+     "date": "2026-09-16",
+     "score": 540.0
+    },
+    {
+     "title": "Current status of ocean observation, ensemble reanalysis and CMIP6 models in describing Antarctic Bottom Water",
+     "url": "https://doi.org/10.5194/os-22-2691-2026",
+     "journal": "Ocean science",
+     "tier": "A",
+     "date": "2026-09-07",
+     "score": 520.0
+    },
+    {
+     "title": "Freshwater‐Induced Surface Cooling of the Subpolar North Atlantic in a Large‐Ensemble, High‐Resolution, Coupled Model",
+     "url": "https://doi.org/10.1029/2026gl122236",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-09-08",
+     "score": 512.0
+    },
+    {
+     "title": "From predictive combustion modeling to real-time power plant digital twins: An integrated synthesis framework for low-carbon marine engines",
+     "url": "https://doi.org/10.1177/14680874261485432",
+     "journal": "International Journal of Engine Research",
+     "tier": "B",
+     "date": "2026-09-12",
+     "score": 430.0
+    },
+    {
+     "title": "The dynamics of early transoceanic voyages: A resource-coupled model of crew health and survival",
+     "url": "https://doi.org/10.1142/s0129183127501531",
+     "journal": "International Journal of Modern Physics C",
+     "tier": "C",
+     "date": "2026-09-11",
+     "score": 328.0
+    }
+   ]
+  },
+  "三、海洋可视化": {
+   "n": 16,
+   "sample": 13,
+   "sa": 2,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "International Journal of Civil Engineering",
+     "n": 1
+    },
+    {
+     "j": "Geomatics Natural Hazards and Risk",
+     "n": 1
+    },
+    {
+     "j": "Frontiers in Cellular and Infection Microbiology",
+     "n": 1
+    },
+    {
+     "j": "Journal of the Indian Society of Remote Sensing",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "GIS 与空间分析",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Assessment of tropical cyclone vulnerability in East Africa coastal areas using a GIS-based Analytic Hierarchy Process: the case of Dar es Salaam Metropolitan City, Tanzania",
+       "url": "https://doi.org/10.1080/19475705.2026.2731736",
+       "journal": "Geomatics Natural Hazards and Risk",
+       "tier": "A"
+      },
+      {
+       "title": "A GIS-Based Comparative Environmental Sustainability Assessment of an Underground Metro Corridor in Coastal Mumbai",
+       "url": "https://doi.org/10.14445/23488352/ijce-v13i8p115",
+       "journal": "International Journal of Civil Engineering",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "可视化表达",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Visualization and animation trials of 3D geospatial marine oceanographic datasets",
+       "url": "https://doi.org/10.5194/ica-abs-12-50-2026",
+       "journal": "Abstracts of the ICA",
+       "tier": "C"
+      },
+      {
+       "title": "Data-driven Atlas of Acinetobacter baumannii vaccine research: a multi-database bibliometric and visualization analysis",
+       "url": "https://doi.org/10.3389/fcimb.2026.1922186",
+       "journal": "Frontiers in Cellular and Infection Microbiology",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "沉浸式交互",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Immersive human–computer interaction simulation and emergency buoyancy control of submerged body in the South China Sea internal solitary wave",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128029",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Research on immersive emotional experience design of interactive digital video art",
+       "url": "https://doi.org/10.54254/2753-7080/2026.36822",
+       "journal": "Advances in Humanities Research",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Assessment of tropical cyclone vulnerability in East Africa coastal areas using a GIS-based Analytic Hierarchy Process: the case of Dar es Salaam Metropolitan City, Tanzania",
+     "url": "https://doi.org/10.1080/19475705.2026.2731736",
+     "journal": "Geomatics Natural Hazards and Risk",
+     "tier": "A",
+     "date": "2026-09-15",
+     "score": 548.0
+    },
+    {
+     "title": "Immersive human–computer interaction simulation and emergency buoyancy control of submerged body in the South China Sea internal solitary wave",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128029",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-09-15",
+     "score": 546.0
+    },
+    {
+     "title": "Synergistically Modified High‐Density Polyethylene Composites by Basalt Fibers and Scales for Marine Engineering Applications",
+     "url": "https://doi.org/10.1002/pen.70868",
+     "journal": "Polymer Engineering and Science",
+     "tier": "B",
+     "date": "2026-09-17",
+     "score": 452.0
+    },
+    {
+     "title": "Synergistic regulation of soil water and salt through mud blanket mulching and raised fields improves rainfed winter wheat yield on coastal saline-alkali land",
+     "url": "https://doi.org/10.1016/j.agwat.2026.110745",
+     "journal": "Agricultural Water Management",
+     "tier": "B",
+     "date": "2026-09-10",
+     "score": 434.0
+    },
+    {
+     "title": "VR scuba diving with harbor seals increases ocean connectedness, and the effect of conversational AI on pro-environmental engagement depends on prior experience with seals",
+     "url": "https://doi.org/10.1016/j.cexr.2026.100181",
+     "journal": "Computers & Education X Reality",
+     "tier": "B",
+     "date": "2026-09-07",
+     "score": 428.0
+    }
+   ]
+  },
+  "四、海洋数据质量": {
+   "n": 11,
+   "sample": 9,
+   "sa": 1,
+   "preprint": 3,
+   "journals": [
+    {
+     "j": "arXiv",
+     "n": 3
+    },
+    {
+     "j": "Signal Processing",
+     "n": 1
+    },
+    {
+     "j": "Ocean Modelling",
+     "n": 1
+    },
+    {
+     "j": "Applied Ocean Research",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "验证评估",
+     "n": 3,
+     "rep": [
+      {
+       "title": "Development and validation of a high-resolution ROMS model for the Central Great Barrier Reef using LP-optimised bathymetry and realistic river forcing",
+       "url": "https://doi.org/10.1016/j.ocemod.2026.102825",
+       "journal": "Ocean Modelling",
+       "tier": "A"
+      },
+      {
+       "title": "Experimental and numerical validation of a multi-DOF point absorber wave energy converter with a linear eddy-current power take-off",
+       "url": "https://doi.org/10.1016/j.apor.2026.105241",
+       "journal": "Applied Ocean Research",
+       "tier": "B"
+      },
+      {
+       "title": "Block-modular grey-box identification of a short-stroke seawater-pump power take-off for wave energy: loss decomposition and multi-regime validation",
+       "url": "https://arxiv.org/abs/2609.15835",
+       "journal": "arXiv",
+       "tier": "P"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Development and validation of a high-resolution ROMS model for the Central Great Barrier Reef using LP-optimised bathymetry and realistic river forcing",
+     "url": "https://doi.org/10.1016/j.ocemod.2026.102825",
+     "journal": "Ocean Modelling",
+     "tier": "A",
+     "date": "2026-09-11",
+     "score": 536.0
+    },
+    {
+     "title": "Heteroscedastic uncertainty quantification for GGM-inverted bathymetry: A zero-mean Laplace distribution framework",
+     "url": "https://doi.org/10.1007/s10596-026-10498-3",
+     "journal": "Computational Geosciences",
+     "tier": "B",
+     "date": "2026-09-17",
+     "score": 452.0
+    },
+    {
+     "title": "Experimental and numerical validation of a multi-DOF point absorber wave energy converter with a linear eddy-current power take-off",
+     "url": "https://doi.org/10.1016/j.apor.2026.105241",
+     "journal": "Applied Ocean Research",
+     "tier": "B",
+     "date": "2026-09-13",
+     "score": 434.0
+    },
+    {
+     "title": "A compound-Gaussian sea clutter model with generalized lognormal texture and GRNN-based outlier-robust parameter estimation",
+     "url": "https://doi.org/10.1016/j.sigpro.2026.110908",
+     "journal": "Signal Processing",
+     "tier": "B",
+     "date": "2026-09-11",
+     "score": 418.0
+    },
+    {
+     "title": "Overcoming High Bit Error Rate With Wavelength Bipolar Control: A Self‐Powered Ultraviolet Optoelectronic Platform for Underwater Intelligent Imaging and Communication",
+     "url": "https://doi.org/10.1002/adom.71765",
+     "journal": "Advanced Optical Materials",
+     "tier": "B",
+     "date": "2026-09-11",
+     "score": 418.0
+    }
+   ]
+  },
+  "五、海洋数据处理": {
+   "n": 12,
+   "sample": 12,
+   "sa": 3,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "Advances in Applied Clifford Algebras",
+     "n": 1
+    },
+    {
+     "j": "Ocean science",
+     "n": 1
+    },
+    {
+     "j": "Journal of Atmospheric and Oceanic Technology",
+     "n": 1
+    },
+    {
+     "j": "Ocean & Coastal Management",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "新兴议题",
+     "n": 6,
+     "rep": [
+      {
+       "title": "Expanding the chemical biology toolbox: cyclic peptides emerging as versatile chemical probes",
+       "url": "https://doi.org/10.1042/ebc20260008",
+       "journal": "Essays in Biochemistry",
+       "tier": "A"
+      },
+      {
+       "title": "Smartphone-Based Analytical Platforms: Portable Supplementary Tools for Seawater Monitoring of Nutrients, Heavy Metals, and Emerging Contaminants",
+       "url": "https://doi.org/10.1080/10408347.2026.2729456",
+       "journal": "Critical Reviews in Analytical Chemistry",
+       "tier": "A"
+      },
+      {
+       "title": "Emerging research for the effective co-management of small-scale fisheries",
+       "url": "https://doi.org/10.1016/j.ocecoaman.2026.108344",
+       "journal": "Ocean & Coastal Management",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "时空重构",
+     "n": 4,
+     "rep": [
+      {
+       "title": "An improvement to short term variability in Global Mean Sea Level reconstruction",
+       "url": "https://doi.org/10.5194/os-22-2673-2026",
+       "journal": "Ocean science",
+       "tier": "A"
+      },
+      {
+       "title": "A Novel Hybrid Framework for Spatio-Temporal Reconstruction of HF Radar Surface Currents along the Western Andaman Sea",
+       "url": "https://doi.org/10.1175/jtech-d-25-0110.1",
+       "journal": "Journal of Atmospheric and Oceanic Technology",
+       "tier": "B"
+      },
+      {
+       "title": "UD-SfPNet: An underwater descattering shape-from-polarization network for 3D normal reconstruction",
+       "url": "https://doi.org/10.1016/j.patcog.2026.114827",
+       "journal": "Pattern Recognition",
+       "tier": "B"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Expanding the chemical biology toolbox: cyclic peptides emerging as versatile chemical probes",
+     "url": "https://doi.org/10.1042/ebc20260008",
+     "journal": "Essays in Biochemistry",
+     "tier": "A",
+     "date": "2026-09-17",
+     "score": 542.0
+    },
+    {
+     "title": "Smartphone-Based Analytical Platforms: Portable Supplementary Tools for Seawater Monitoring of Nutrients, Heavy Metals, and Emerging Contaminants",
+     "url": "https://doi.org/10.1080/10408347.2026.2729456",
+     "journal": "Critical Reviews in Analytical Chemistry",
+     "tier": "A",
+     "date": "2026-09-13",
+     "score": 534.0
+    },
+    {
+     "title": "An improvement to short term variability in Global Mean Sea Level reconstruction",
+     "url": "https://doi.org/10.5194/os-22-2673-2026",
+     "journal": "Ocean science",
+     "tier": "A",
+     "date": "2026-09-07",
+     "score": 520.0
+    },
+    {
+     "title": "Emerging research for the effective co-management of small-scale fisheries",
+     "url": "https://doi.org/10.1016/j.ocecoaman.2026.108344",
+     "journal": "Ocean & Coastal Management",
+     "tier": "B",
+     "date": "2026-09-15",
+     "score": 448.0
+    },
+    {
+     "title": "Temporal variability of emerging contaminants and estrogenic activity in sediments of a tropical coastal lagoon",
+     "url": "https://doi.org/10.1007/s10661-026-15919-5",
+     "journal": "Environmental Monitoring and Assessment",
+     "tier": "B",
+     "date": "2026-09-15",
+     "score": 448.0
+    }
+   ]
+  },
+  "六、数据管理与共享": {
+   "n": 4,
+   "sample": 4,
+   "sa": 1,
+   "preprint": 0,
+   "journals": [
+    {
+     "j": "npj Ocean Sustainability",
+     "n": 1
+    },
+    {
+     "j": "PLoS ONE",
+     "n": 1
+    },
+    {
+     "j": "Journal of Northwest Atlantic Fishery Science",
+     "n": 1
+    },
+    {
+     "j": "Environmental Research Food Systems",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "可持续治理",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Aligning Marine Spatial Data Infrastructures and Open Science for FAIR and sustainable ocean knowledge systems",
+       "url": "https://doi.org/10.1038/s44183-026-00246-6",
+       "journal": "npj Ocean Sustainability",
+       "tier": "S"
+      },
+      {
+       "title": "Who benefits from sustainable seafood? Examining equity across voluntary sustainability standards in small-scale fisheries",
+       "url": "https://doi.org/10.1088/2976-601x/aea4b8",
+       "journal": "Environmental Research Food Systems",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Aligning Marine Spatial Data Infrastructures and Open Science for FAIR and sustainable ocean knowledge systems",
+     "url": "https://doi.org/10.1038/s44183-026-00246-6",
+     "journal": "npj Ocean Sustainability",
+     "tier": "S",
+     "date": "2026-09-12",
+     "score": 646.0
+    },
+    {
+     "title": "Standards to Inform an Ecosystem Approach to Deep-sea Bottom Fisheries Management in the High Seas: Examples from the South Pacific Ocean",
+     "url": "https://doi.org/10.2960/j.v57.m760",
+     "journal": "Journal of Northwest Atlantic Fishery Science",
+     "tier": "B",
+     "date": "2026-09-11",
+     "score": 428.0
+    },
+    {
+     "title": "Cost-efficient filtration and replication strategies match or exceed detection sensitivity for marine eDNA diversity at an intertidal site under a standardized laboratory workflow",
+     "url": "https://doi.org/10.1371/journal.pone.0350111",
+     "journal": "PLoS ONE",
+     "tier": "C",
+     "date": "2026-09-10",
+     "score": 326.0
+    },
+    {
+     "title": "Who benefits from sustainable seafood? Examining equity across voluntary sustainability standards in small-scale fisheries",
+     "url": "https://doi.org/10.1088/2976-601x/aea4b8",
+     "journal": "Environmental Research Food Systems",
+     "tier": "C",
+     "date": "2026-09-09",
+     "score": 324.0
+    }
+   ]
+  },
+  "七、开放航次与科考": {
+   "n": 39,
+   "sample": 36,
+   "sa": 5,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "Ocean Engineering",
+     "n": 3
+    },
+    {
+     "j": "Frontiers in Marine Science",
+     "n": 2
+    },
+    {
+     "j": "Molecular Ecology Resources",
+     "n": 2
+    },
+    {
+     "j": "The International Journal of Nautical Archaeology",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "水下感知与作业",
+     "n": 5,
+     "rep": [
+      {
+       "title": "Design development and performance evaluation of a novel bistable metallic shells enabled underwater glider",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128114",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "DESIGN AND DEVELOPMENT OF A MULTIMODAL UNDERWATER ROBOT: AN ALL-IN-ONE DRIFTER, GLIDER, AND THRUSTER",
+       "url": "https://doi.org/10.1115/1.4072705",
+       "journal": "ASME Letters in Translational Robotics",
+       "tier": "C"
+      },
+      {
+       "title": "Review on Generation Mechanisms, Monitoring Methods and Control Technologies of Underwater Noise from Offshore Wind Power",
+       "url": "https://doi.org/10.54254/2755-2721/2026.36666",
+       "journal": "Applied and Computational Engineering",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "调查与普查",
+     "n": 5,
+     "rep": [
+      {
+       "title": "Surveying Biodiverse Coral Reef Ecosystems Across the Tree of Life With Environmental DNA",
+       "url": "https://doi.org/10.1111/1755-0998.70196",
+       "journal": "Molecular Ecology Resources",
+       "tier": "B"
+      },
+      {
+       "title": "Separating Faces in ARMS Metabarcoding Improves Marine Biodiversity Monitoring: A Comparison Across Protocols, Experimental Designs and Photographic Surveys",
+       "url": "https://doi.org/10.1111/1755-0998.70188",
+       "journal": "Molecular Ecology Resources",
+       "tier": "B"
+      },
+      {
+       "title": "Evaluation and combination of multi-sensor shipborne gravity surveys in the German exclusive economic zone of the North Sea",
+       "url": "https://doi.org/10.1080/01490419.2026.2726371",
+       "journal": "Marine Geodesy",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "珊瑚礁",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Echoes of the past, warnings for the future: seven decades (1956–2025) of coral reef trajectories under repeated bleaching and local pressures in Addu Atoll, Maldives",
+       "url": "https://doi.org/10.1016/j.biocon.2026.112110",
+       "journal": "Biological Conservation",
+       "tier": "B"
+      },
+      {
+       "title": "Drone-Transect: a non-destructive operational protocol for drone-based conservation studies on intertidal coral reefs",
+       "url": "https://doi.org/10.47193/mafis.39420260011010",
+       "journal": "Marine and Fishery Sciences (MAFIS)",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "海上工程",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Installation-method compatibility for floating offshore wind: A foundation–depth–metocean matrix applied to the Korean East Sea",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.127824",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Intermediate-scale sea testing of the Hexafloat floating offshore wind turbine: Initial investigation at MaRELab",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.127564",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "流场",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Event-triggered practical prescribed-time 3-D path-following control for underactuated AUVs under ocean currents and input saturation",
+       "url": "https://doi.org/10.1080/20464177.2026.2731652",
+       "journal": "Journal of Marine Engineering & Technology",
+       "tier": "B"
+      },
+      {
+       "title": "Channel-scale tidal currents from vessel-mounted ADCP in three navigation channels of the Colombian Pacific: phase-dependent vertical structure and its dissociation from stratification",
+       "url": "https://doi.org/10.3389/fmars.2026.1898407",
+       "journal": "Frontiers in Marine Science",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "An assessment of the multi-scalar risks and mitigative responses of Arctic cruise shipping",
+     "url": "https://doi.org/10.1016/j.jhtm.2026.101557",
+     "journal": "Journal of Hospitality and Tourism Management",
+     "tier": "A",
+     "date": "2026-09-16",
+     "score": 550.0
+    },
+    {
+     "title": "Design development and performance evaluation of a novel bistable metallic shells enabled underwater glider",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128114",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-09-17",
+     "score": 542.0
+    },
+    {
+     "title": "Circum-Arctic Sediment PROvenance Database (CASPROD): a database of mineralogy and geochemistry for the Circum-Arctic surface sediments",
+     "url": "https://doi.org/10.5194/essd-18-6649-2026",
+     "journal": "Earth system science data",
+     "tier": "A",
+     "date": "2026-09-10",
+     "score": 526.0
+    },
+    {
+     "title": "Installation-method compatibility for floating offshore wind: A foundation–depth–metocean matrix applied to the Korean East Sea",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.127824",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-09-08",
+     "score": 522.0
+    },
+    {
+     "title": "Intermediate-scale sea testing of the Hexafloat floating offshore wind turbine: Initial investigation at MaRELab",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.127564",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-09-11",
+     "score": 518.0
+    }
+   ]
+  },
+  "八、海洋数据中心": {
+   "n": 4,
+   "sample": 4,
+   "sa": 0,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "Palaeogeography Palaeoclimatology Palaeoecology",
+     "n": 2
+    },
+    {
+     "j": "arXiv",
+     "n": 1
+    },
+    {
+     "j": "Frontiers in Marine Science",
+     "n": 1
+    }
+   ],
+   "clusters": [],
+   "top": [
+    {
+     "title": "A quality-screened Holocene relative sea-level database for the northern South China Sea and evidence for a mid-Holocene highstand",
+     "url": "https://doi.org/10.1016/j.palaeo.2026.114210",
+     "journal": "Palaeogeography Palaeoclimatology Palaeoecology",
+     "tier": "B",
+     "date": "2026-09-08",
+     "score": 422.0
+    },
+    {
+     "title": "A Silurian volcanic island slope as an archive of mixed terrestrial and marine biota from the Prague Basin, Czech Republic: an integrated biochemostratigraphy and multiproxy analysis",
+     "url": "https://doi.org/10.1016/j.palaeo.2026.114183",
+     "journal": "Palaeogeography Palaeoclimatology Palaeoecology",
+     "tier": "B",
+     "date": "2026-09-07",
+     "score": 420.0
+    },
+    {
+     "title": "ENSO-related variability in typhoon-induced high-wave exposure along the Guangdong coast",
+     "url": "https://doi.org/10.3389/fmars.2026.1922361",
+     "journal": "Frontiers in Marine Science",
+     "tier": "C",
+     "date": "2026-09-11",
+     "score": 326.0
+    },
+    {
+     "title": "Could Underwater Data Centers Pose a Risk to AI Treaty Verification?",
+     "url": "https://arxiv.org/abs/2609.18824",
+     "journal": "arXiv",
+     "tier": "P",
+     "date": "2026-09-16",
+     "score": 290.0
+    }
+   ]
+  },
+  "九、工具与代码资源": {
+   "n": 9,
+   "sample": 8,
+   "sa": 2,
+   "preprint": 0,
+   "journals": [
+    {
+     "j": "Aquaculture International",
+     "n": 1
+    },
+    {
+     "j": "Frontiers in Marine Science",
+     "n": 1
+    },
+    {
+     "j": "Digital Water",
+     "n": 1
+    },
+    {
+     "j": "Remote Sensing Letters",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "质量控制",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Alternatives to antibiotics for bacterial disease control in tilapia aquaculture: a scoping review",
+       "url": "https://doi.org/10.1007/s10499-026-02672-2",
+       "journal": "Aquaculture International",
+       "tier": "B"
+      },
+      {
+       "title": "An open-source quality control pipeline for SeaExplorer glider data: a case study in La Palma, Canary Islands",
+       "url": "https://doi.org/10.3389/fmars.2026.1905807",
+       "journal": "Frontiers in Marine Science",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "框架方法",
+     "n": 2,
+     "rep": [
+      {
+       "title": "SeapoPym v0.1: implementation of the SEAPODYM low and mid trophic levels in Python with a flexible optimization framework",
+       "url": "https://doi.org/10.5194/gmd-19-8349-2026",
+       "journal": "Geoscientific model development",
+       "tier": "A"
+      },
+      {
+       "title": "A one-way nested 2D-3D modelling framework for estuarine salinity variation",
+       "url": "https://doi.org/10.1080/28375807.2026.2724265",
+       "journal": "Digital Water",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "快速方法与应急",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Rapid submarine caldera collapse during the 2022 climactic eruption of Hunga volcano (Tonga)",
+       "url": "https://doi.org/10.1038/s41561-026-02099-7",
+       "journal": "Nature Geoscience",
+       "tier": "S"
+      },
+      {
+       "title": "A rapid UAV LiDAR-based method for sea ice thickness retrieval in the Arctic",
+       "url": "https://doi.org/10.1080/2150704x.2026.2731606",
+       "journal": "Remote Sensing Letters",
+       "tier": "B"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Rapid submarine caldera collapse during the 2022 climactic eruption of Hunga volcano (Tonga)",
+     "url": "https://doi.org/10.1038/s41561-026-02099-7",
+     "journal": "Nature Geoscience",
+     "tier": "S",
+     "date": "2026-09-11",
+     "score": 628.0
+    },
+    {
+     "title": "SeapoPym v0.1: implementation of the SEAPODYM low and mid trophic levels in Python with a flexible optimization framework",
+     "url": "https://doi.org/10.5194/gmd-19-8349-2026",
+     "journal": "Geoscientific model development",
+     "tier": "A",
+     "date": "2026-09-09",
+     "score": 522.0
+    },
+    {
+     "title": "A rapid UAV LiDAR-based method for sea ice thickness retrieval in the Arctic",
+     "url": "https://doi.org/10.1080/2150704x.2026.2731606",
+     "journal": "Remote Sensing Letters",
+     "tier": "B",
+     "date": "2026-09-16",
+     "score": 458.0
+    },
+    {
+     "title": "Evaluating eDNA metabarcoding methods for marine vertebrate monitoring",
+     "url": "https://doi.org/10.3897/mbmg.10.191426",
+     "journal": "Metabarcoding and Metagenomics",
+     "tier": "B",
+     "date": "2026-09-10",
+     "score": 434.0
+    },
+    {
+     "title": "Alternatives to antibiotics for bacterial disease control in tilapia aquaculture: a scoping review",
+     "url": "https://doi.org/10.1007/s10499-026-02672-2",
+     "journal": "Aquaculture International",
+     "tier": "B",
+     "date": "2026-09-09",
+     "score": 424.0
+    }
+   ]
+  }
+ }
 }

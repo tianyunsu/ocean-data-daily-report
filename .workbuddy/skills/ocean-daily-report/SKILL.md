@@ -255,6 +255,56 @@ py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 18
 须用 `--preprint-only` 补跑并在日志记录。OpenAlex 的 `locations` 还会附带**期刊版本**信息，
 直接驱动"预印本按所属期刊等级排序"（见分级口径规则 4）。
 
+### L3 前沿周报与综述板块（2026-09-20 新增）
+
+**访问入口（三处，缺一用户就找不到）**
+
+| 位置 | 说明 |
+|------|------|
+| 导航栏「前沿周报」 | `index.html` / `archive.html` / `frontier.html` 三个页面顶部导航均已加 `<a href="weekly/index.html">前沿周报</a>`，**新增页面时须同步此导航** |
+| 首页顶部横幅 | `index.html` 的 `</header>` 与 `<main class="container">` 之间有一段周报入口卡片（放在 `<main>` 之外，避免被每日插入的新 post-card 往下顶） |
+| 索引页 | `weekly/index.html` —— 由 `weekly_report.py` 在每次运行时**自动重建**（扫描 `weekly/*.json`），列出全部期次、池量、分级分布、是否含深度综述 |
+
+线上地址：`https://tianyunsu.github.io/ocean-data-daily-report/weekly/index.html`
+
+**综述板块（两层，缺任一层页面仍可用）**
+
+1. **自动综述（始终生成）**：`weekly_report.py` 逐方向输出 **主题簇（标题关键词聚类）+ 代表文献（带链接）+ 主要期刊**，
+   并单列"其他单篇进展"。聚类口径：`TERM_CN` 词典做中文簇名映射（近义词合并、同条目去重），
+   只显示出现 ≥2 篇的簇；新领域词若频繁出现应补进 `TERM_CN`，未收录词直接以英文词作簇名。
+   综述样本口径 = 池内条目 **剔除 D 级预警/受限刊 + 剔除"已降权"（海洋介质型/弱相关）项**；
+   被剔除的数量在页面统计区与逐方向注脚中单列，**不删除、可审计**。
+2. **深度综述（人工/模型撰写，推荐每周做）**：写 `weekly/synth/YYYY-Www.md`，再运行脚本即自动注入页面顶部
+   （标题「本期综述 · 各领域主要进展」）。建议结构：
+   ① 本期总体判断（3–5 条跨方向主线）② 逐方向主要进展（每方向 2–4 句 + 2–3 条代表文献链接）
+   ③ 值得跟进的 3–5 条线索 ④ 口径说明。Markdown 支持 `#/##/###`、`- ` 列表、`> ` 引用块、`**加粗**`、`[文字](链接)`。
+3. **写作草稿（必读）**：脚本同时产出 `weekly/synth/YYYY-Www.draft.md`，含各方向期刊分布、主题簇、Top5 代表文献，
+   **撰写深度综述必须以草稿为依据**，不要凭空回忆。
+
+```bash
+py -3 weekly_report.py --end 2026-09-20 --days 14                     # 周报（含自动综述）+ 索引页 + 写作草稿
+py -3 weekly_report.py --end 2026-09-20 --days 14 --synth weekly/synth/2026-W38.md   # 指定注入某份综述（默认自动找同名文件）
+```
+
+⚠️ **铁律：综述里的每一条链接必须回查池内真实 URL，严禁凭 DOI 规则拼写。**
+2026-09-20 实测发生两处臆造（Pattern Recognition 的水下偏振重建、Frontiers 的滑翔机 QC 管线），
+被"逐条比对 `library.db` 的 `url` 字段"脚本抓出。核验命令模板：
+
+```bash
+py -3 -c "
+import sqlite3,re
+d={r[0]:r[1] for r in sqlite3.connect('data/library.db').execute('select title,url from works')}
+s=open('weekly/synth/2026-W38.md',encoding='utf-8').read()
+for m in re.finditer(r'\[([^\]]+)\]\((https?://[^)]+)\)', s):
+    t=m.group(1).strip(); hit=[k for k in d if t.lower()[:45] in k.lower()]
+    if not (hit and d[hit[0]]==m.group(2)): print('CHECK', m.group(2), d.get(hit[0] if hit else ''))
+"
+```
+
+**口径区分（对外解释时务必说清）**：日报是**排版口径**（每方向 3–5 条），周报/看板是**覆盖口径**（全池条目）。
+周报综述回答"本周各领域主要进展是什么"，日报回答"今天最值得看的几条是什么"。
+
+
 ### 期刊分级口径（2026-09-20 苏老师拍板，权威）
 
 判定顺序：**预印本升级 → 人工登记表 → 最新一期预警/剔除名单 → 出版集团规则 → 指标自动评级 → 待确认**
@@ -379,6 +429,16 @@ CNKI 学科排名）——学科前 25% → B，其余 → C 并标注。已确�
    - 若飞书 API 超时/404，**不阻断发布**：如实记入当日日志（含错误码），GitHub Pages 侧照常产出。
 6. **发送飞书机器人通知**：执行 `$PYTHON $RUN_DAILY_REPORT`（`run_daily_report.py`）。
    - 未配置 `FEISHU_WEBHOOK_URL` 时脚本会跳过，记入日志即可，不视为失败。
+7. **前沿周报（每周日随当日流程一起产出）**：
+   ```bash
+   py -3 weekly_report.py --end YYYY-MM-DD --days 14        # 生成 weekly/YYYY-Www.html + 索引页 + 写作草稿
+   # 读 weekly/synth/YYYY-Www.draft.md → 撰写 weekly/synth/YYYY-Www.md（深度综述，结构见下）
+   # 跑链接核验脚本（异常须为 0）→ 再跑一次注入：
+   py -3 weekly_report.py --end YYYY-MM-DD --days 14
+   git add weekly/ && git commit -m "weekly: YYYY-Www 前沿周报（池内 N 条 + 各领域综述）" && git push origin main
+   ```
+   - 深度综述结构：① 本期总体判断 ② 逐方向主要进展 ③ 值得跟进的 3–5 条线索 ④ 口径说明。
+   - 见「L3 前沿周报与综述板块」，含链接核验铁律与写作口径。
 
 > **关于 `deploy_report.py`**：旧流程用它发布到 GitHub Pages，现已由第 4 步的直接 `git push` 取代
 > （更可控、可 review diff）。该脚本**已废弃，不再调用**；若保留在仓库中仅作历史参考。
@@ -675,3 +735,15 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
     - **铁律**：名单按"是否可能出现在当期检索中"筛选——**终检年份早于窗口的条目归存档（`active: false`）**，
       不参与实时判定，避免把早已停检的刊误报为预警。名单支持 `{"name","issn","reason"}` 结构化条目，ISSN 亦可命中。
     - **遗留**：中信所 103 本全表、WoS **ESCI** 剔除全表（量级大）待补录。
+
+23. **周报综述里臆造链接（2026-09-20 实测发生）**：撰写 `weekly/synth/*.md` 深度综述时，凭"期刊+年份+流水号"的
+    DOI 规则手写链接，会产出**不存在或指向他文**的 URL。实测两处：Pattern Recognition 的水下偏振重建写成
+    `10.1016/j.patcog.2026.113548`（真实 `…114827`）、Frontiers 滑翔机 QC 管线写成 `fmars.2026.1922361`
+    （真实 `…1905807`，且 1922361 是另一篇台风论文的 DOI）。
+    - **铁律**：综述中每条链接必须**回查 `data/library.db` 的 `url` 字段**，禁止手写；核验脚本见
+      「L3 前沿周报与综述板块」小节，交付前必须跑一遍且异常数为 0。
+    - 同理，综述中的数字（条数、S/A 数、样本数）应从 `weekly/YYYY-Www.json` 或草稿中取，不得目测估计。
+
+24. **周报只写统计、不写进展**：周报若只有分级分布、期刊频次、Top15 这类统计表，苏老师仍需自己逐条读完才能知道
+   "本周发生了什么"。**周报必须包含综述板块**（自动综述 + 深度综述两层，见「L3 前沿周报与综述板块」），
+   综述要回答"各领域主要进展是什么"，而不只是给出可检索的清单。
