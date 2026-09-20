@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年09月20日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header .date-line {
+    color: #80c8e0;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--ocean-teal);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title-cn {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .section-title-en {
+    color: #80c8e0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .section-items { padding: 8px 22px 16px; }
+  .section-items p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+  .item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 14px 0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-paper { background: #e3f2fd; color: #1565c0; }
+  .badge-news { background: #e8f5e9; color: #2e7d32; }
+  .badge-dynamic { background: #fff3e0; color: #e65100; }
+  .badge-tool { background: #f3e5f5; color: #7b1fa2; }
+  .badge-data { background: #e0f7fa; color: #00695c; }
+  .badge-cruise { background: #fce4ec; color: #c62828; }
+  .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-default { background: #eceff1; color: #546e7a; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 11px;
+    color: #90a4ae;
+  }
+  .item-meta span { margin-right: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #80b0c8;
+    font-size: 11px;
+  }
+  .summary-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .summary-bar strong { color: var(--ocean-mid); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">Marine AI Daily Brief</div>
+  <h1>海洋AI技术日报</h1>
+  <div class="date-line">2026年09月20日 · 周日</div>
+</div>
+<div class="container">
+<div class="summary-bar">
+  <span>本期共 <strong>28</strong> 条动态</span>
+  <span>|</span>
+  <span>覆盖 <strong>9</strong> 个方向</span>
+  <span>|</span>
+  <span>日期范围：2026年09月20日</span>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title-cn">一、海洋人工智能</div>
+      <div class="section-title-en">Ocean AI / Marine Artificial Intelligence</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.19768" target="_blank">OceanMoE：条件稀疏专家混合框架用于长时程多变量海洋预报</a></div>
+      <div class="item-abstract">arXiv 2609.19768 提出面向长时程多变量海洋预报的 OceanMoE 框架，通过内容条件化的稀疏路由在共享海洋上下文与自适应专家特化之间取得平衡，兼顾多变量耦合关系与区域差异，为长时效海洋预报提供了结构化条件稀疏计算的新范式。</div>
+      <div class="item-meta">arXiv (cs.LG) · 2026-09-17</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://m.chinanews.com/wap/detail/cht/zw/10699119.shtml" target="_blank">2026海洋合作发展论坛：中国首个海洋Token（词元）工厂发布，汇聚130多类涉海数据与20余个海洋大模型</a></div>
+      <div class="item-abstract">9月17-18日在青岛举行的2026海洋合作发展论坛上，面向海洋产业的专属智能要素供给平台"深蓝智擎·海洋Token工厂"正式发布并落地青岛。该平台由山东移动海洋实验室主导建设，汇聚130多类涉海数据、20余个海洋领域专有大模型，实现海洋智能服务"即开即用"；论坛同期报道了"琅琊"海洋大模型2.0将台风、风暴潮纳入智能预报体系，以及"蓝鲲智种"蓝色种业大模型等成果。</div>
+      <div class="item-meta">中新社（青岛） · 2026-09-18</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.16288" target="_blank">Drift Field Net：从现场与卫星观测学习海洋拉格朗日漂移场，定位误差较业务模式减小约20公里</a></div>
+      <div class="item-abstract">arXiv 2609.16288 提出深度神经网络 Drift Field Net，直接从卫星与现场观测学习海洋表层流场并预报拉格朗日漂移，用于漂浮物轨迹与搜救支撑；对比业务化数值模式，平均定位误差减小约20公里，展示了数据驱动漂移预报在应急场景的应用价值。</div>
+      <div class="item-meta">arXiv (physics.ao-ph) · 2026-09-14</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.16347" target="_blank">多标签比例学习重新定义海冰类型预测：冰图弱监督下MAE最高降低21.5%</a></div>
+      <div class="item-abstract">arXiv 2609.16347 将海冰类型预测重构为弱监督的多标签比例学习问题，以冰区图（ice chart）多边形为弱标签训练，无需逐像素标注；在SAR与多模态输入上，相比基线MAE分别降低14.5%与21.5%，为业务化海冰制图提供了低标注成本的训练范式。</div>
+      <div class="item-meta">arXiv (cs.CV) · 2026-09-14</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.20680" target="_blank">OceanSim 扩展：以合成数据规模化海洋感知，真实海胆检测任务验证</a></div>
+      <div class="item-abstract">arXiv 2609.20680 在海底模拟器 OceanSim 基础上构建合成数据生成管线，用于规模化训练水下感知模型，并在真实世界的海胆检测任务上验证了合成到真实的迁移效果，为海洋生物监测中标注数据稀缺问题提供了可扩展的解决方案。</div>
+      <div class="item-meta">arXiv (cs.CV) · 2026-09-17</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title-cn">二、海洋数字孪生</div>
+      <div class="section-title-en">Digital Twin of the Ocean</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[备注]</span> 本方向暂无新增</div>
+      <div class="item-abstract">本期未收录新条目：DISCUSS 深海微生物数字孪生系统、DTO-BioFlow 生物多样性数据接入研讨会、E-ODP 电子海洋钻探研讨会与 OCEANITY/EDITO 相关动态均已在 09-15 期及此前收录；DITTO Summit 2026 议程公布与 06-18 期（摘要征集）为同一官网页面，按去重铁律不重复收录。</div>
+      <div class="item-meta"></div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title-cn">三、海洋可视化</div>
+      <div class="section-title-en">Ocean Visualization</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.18737" target="_blank">稀疏视角水下3D高斯泼溅：密集几何先验显著改善水下重建几何质量</a></div>
+      <div class="item-abstract">arXiv 2609.18737 研究水下稀疏视角三维高斯泼溅（3DGS）重建，将基于物理的水下成像模型引入泼溅优化，并系统分析几何初始化质量对重建的影响，提出利用密集几何先验缓解水下散射与稀疏视角导致的几何畸变，可服务于水下遗迹数字化与生态调查可视化。</div>
+      <div class="item-meta">arXiv (cs.CV) · 2026-09-16</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.11673" target="_blank">分类学条件控制的浮游生物图像生成：CLIP编码器+扩散Transformer应对长尾数据</a></div>
+      <div class="item-abstract">arXiv 2609.11673 提出以分类学标签为条件的浮游生物显微图像生成框架，采用CLIP文本编码器与扩散Transformer生成分类学一致的合成图像，用于增广长尾分布的浮游生物自动成像数据集，提升稀有类识别能力。</div>
+      <div class="item-meta">arXiv (cs.CV) · 2026-09-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.17124" target="_blank">LOTUSim-Energy：面向海上风电运维的多域人-无人机实时海事仿真平台</a></div>
+      <div class="item-abstract">arXiv 2609.17124 发布 LOTUSim-Energy，一个覆盖 UAV、USV、AUV、ROV 多域平台的实时海事仿真器，支持海上运维场景中的人-无人机交互研究与三维可视化演练，为海上风电运维培训与自主作业策略评估提供平台工具。</div>
+      <div class="item-meta">arXiv (cs.RO) · 2026-09-15</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title-cn">四、海洋数据质量</div>
+      <div class="section-title-en">Ocean Data Quality (QA/QC)</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.20350" target="_blank">PAMGuard 3D鲸类声定位器存在重大未报告误差，声学监测数据质量引发关注</a></div>
+      <div class="item-abstract">arXiv 2609.20350 对广泛使用的被动声学监测软件 PAMGuard 的两个三维定位器进行系统评估，发现其对鲸类叫声的三维定位存在此前未报告的大幅误差，提示依赖该工具产出的鲸类声学定位数据集需重新审视误差结构，对海洋生物声学数据质量控制具有直接意义。</div>
+      <div class="item-meta">arXiv (physics.ao-ph) · 2026-09-17</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://arxiv.org/abs/2609.13659" target="_blank">UniqueShip：控制数据泄漏的水声船舶分类基准发布，含4218艘船2460小时数据</a></div>
+      <div class="item-abstract">arXiv 2609.13659 指出既有水声船舶识别基准普遍存在同一船舶跨训练/测试集的数据泄漏问题，并基于 Ocean Networks Canada 数据构建 UniqueShip 基准：2460小时音频、4218艘唯一船舶，按船只唯一性严格划分，为水声分类模型的真实泛化能力提供了可信评测基础。</div>
+      <div class="item-meta">arXiv (cs.SD) · 2026-09-12</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.09451" target="_blank">多冰图不确定性感知的海冰类型制图：软监督提升与多标注者分歧的一致性</a></div>
+      <div class="item-abstract">arXiv 2609.09451 融合多国海冰服务机构的多种冰区图产品，量化标注不确定性与模型不确定性，以软监督策略训练海冰发展阶段分类模型；结果显示软监督显著提升模型输出与多标注者分歧的相关性，为海冰数据集标注质量控制提供了不确定性量化框架。</div>
+      <div class="item-meta">arXiv (cs.LG) · 2026-09-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[开源]</span> <a href="https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2026.1905807/full" target="_blank">SeaExplorer滑翔机数据开源质量控制管线发布（加那利群岛La Palma案例）</a></div>
+      <div class="item-abstract">Frontiers in Marine Science（Ocean Observation栏目）发表面向 SeaExplorer 系列滑翔机数据的开源质量控制管线，并在加那利群岛 La Palma 以东海域给出案例验证，涵盖声速、溶解氧等传感器数据的延迟模式QC流程，代码与流程可供滑翔机数据管理中心复用（经出版商页面核实，2026-09-07发表）。</div>
+      <div class="item-meta">Frontiers in Marine Science · 2026-09-07</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title-cn">五、海洋数据处理</div>
+      <div class="section-title-en">Ocean Data Processing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://spj.science.org/doi/10.34133/remotesensing.1064" target="_blank">GDCM-EOF：自监督时空重构填补卫星叶绿素a观测缺口，加勒比海R²提升至0.998</a></div>
+      <div class="item-abstract">Journal of Remote Sensing（Science合作期刊）发表 GDCM-EOF 自监督时空缺口填充框架：以地理位置编码表征大尺度空间梯度，以EOF低秩模态注入背景一致性先验，并采用分阶段知识迁移与多尺度注意力增强极端缺失下的鲁棒性。在ESA OC-CCI v6.0日尺度叶绿素a数据上，加勒比海测试RMSE由0.107降至0.019、R²由0.803升至0.998，全球尺度R²由0.904升至0.979，并能恢复热带不稳定波等中尺度结构。</div>
+      <div class="item-meta">Journal of Remote Sensing (Science Partner Journal) · 2026-09-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.18531" target="_blank">高光谱叶绿素反演究竟需要多少光谱信息？符号回归给出量化答案</a></div>
+      <div class="item-abstract">arXiv 2609.18531 以符号回归系统评估高光谱反射率中叶绿素浓度反演所需的光谱信息量，识别对反演贡献最大的波段组合与光谱特征，为下一代水色卫星（如高光谱任务）的波段配置与反演算法设计提供定量依据。</div>
+      <div class="item-meta">arXiv (physics.ao-ph) · 2026-09-16</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.12744" target="_blank">AquaCubeAI：Φsat-2星上部署的轻量化近岸浊度监测模型</a></div>
+      <div class="item-abstract">arXiv 2609.12744 提出可在 Φsat-2 卫星嵌入式VPU上运行的轻量机器学习模型 AquaCubeAI，直接在星上完成多光谱影像的近岸水体浊度估计，实现低延迟近岸水质监测，是"在轨AI处理海洋光学数据"的代表性实践。</div>
+      <div class="item-meta">arXiv (cs.CV) · 2026-09-11</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.17929" target="_blank">多会话多模态水下建图：声呐+光学数据的因子图联合优化框架</a></div>
+      <div class="item-abstract">arXiv 2609.17929 提出跨会话、声学与光学联合的多模态水下建图框架，以因子图优化同时估计轨迹与声呐-光学数据配准，解决长时间尺度水下调查中漂移累积与多源数据一致性问题，可服务于海底考古与生境制图的数据融合处理。</div>
+      <div class="item-meta">arXiv (cs.RO) · 2026-09-15</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://www.mdpi.com/2077-1312/14/18/1676" target="_blank">多波束水体数据全扫幅空间上下文深度学习底检测，知识蒸馏支持嵌入式实时推理</a></div>
+      <div class="item-abstract">JMSE 14(18):1676（东海实验室海洋感知中心）提出建模全扫幅空间上下文的深度卷积架构，用于多波束测深仪水体数据中的海底检测，在EM302/EM710深水数据上克服鱼群与气泡羽流干扰导致的误检，并经知识蒸馏压缩后可在嵌入式边缘设备上高速推理。</div>
+      <div class="item-meta">J. Mar. Sci. Eng. (MDPI) · 2026-09-09</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title-cn">六、数据管理与共享</div>
+      <div class="section-title-en">Data Management & Sharing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[政策]</span> <a href="https://ec.europa.eu/newsroom/emodnet/items/952324/en" target="_blank">UN海洋十年发布《海洋数据共享与国家安全》讨论稿，线上调查征询至9月底</a></div>
+      <div class="item-abstract">联合国"海洋十年"发布讨论稿《Ocean Data Sharing and National Security》（OceanExpert文档38785），探讨政府、科研机构、产业、国防与数据管理者如何在保障正当国家安全关切的同时最大化海洋数据共享收益，并开放线上调查征集意见（截至2026年9月底）。该稿原始发布于8月27日（>14天，因征询窗口仍在进行中按重要性豁免收录），EMODnet表态支持"尽可能开放、必要时限制"原则。</div>
+      <div class="item-meta">UN Ocean Decade / EC EMODnet Newsroom · 2026-08-27</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[政策]</span> <a href="https://www.163.com/dy/article/L779I5MM05346RC6.html" target="_blank">2026海洋合作发展论坛发起"海洋十年"海洋公益行动全球倡议：海洋预报等公共产品面向全球开放共享</a></div>
+      <div class="item-abstract">9月17日举行的2026海洋合作发展论坛发起"海洋十年"海洋公益行动全球倡议，提出推动海洋预报、防灾减灾等公共产品与治理工具面向全球开放共享，支持公益组织与志愿者参与生态监测、修复巡护和社区教育。论坛同期发布《中国海洋发展指数报告2026》与《国家海洋综合试验场（威海）海上试验流程》（五阶段19节点，见八、九方向相关条目）。</div>
+      <div class="item-meta">新华社报道 · 网易号转载稿（转载关系已标注） · 2026-09-19</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div>
+      <div class="section-title-cn">七、开放航次与科考</div>
+      <div class="section-title-en">Open Cruises & Ship-time</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-news">[要闻]</span> <a href="https://news.qq.com/rain/a/20260918A0AOBG00" target="_blank">中国-海管局联合培训研究中心深海科研项目在青岛落地启动，聚焦国际海底数据处理分析</a></div>
+      <div class="item-abstract">9月17日，2026海洋合作发展论坛平行论坛"探索深海——海洋未来产业的价值变革"在青岛西海岸新区举行，中国-国际海底管理局联合培训研究中心深海科研项目正式落地启动，聚焦国际海底数据处理分析与西北太平洋深海生物多样性研究，补齐全球深海科研数据短板；十余位院士专家联名发布《海洋矿产勘查开发与生态环境保护协同发展倡议书》。</div>
+      <div class="item-meta">腾讯新闻 · 2026-09-18</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[开源]</span> <a href="https://arxiv.org/abs/2609.10230" target="_blank">CougarTail与CUB：开源圆柱形水下耐压舱通用电子桅杆与中央公用板</a></div>
+      <div class="item-abstract">arXiv 2609.10230 发布面向圆柱形水下耐压舱的开源电子组件：CUB中央公用板与CougarTail传感器桅杆，统一供电、通信与传感器接口，显著压缩舱内堆叠体积、提升载荷能力，为科研与教育级水下平台提供可复用的开源硬件方案（硬件装备归入本方向）。</div>
+      <div class="item-meta">arXiv (cs.RO) · 2026-09-09</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div>
+      <div class="section-title-cn">八、海洋数据中心</div>
+      <div class="section-title-en">Ocean Data Centers</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://marine.copernicus.eu/news/copernicus-sentinel-3c-launched" target="_blank">Copernicus Sentinel-3C发射成功：海洋水色、海表温度与海平面观测能力再增强</a></div>
+      <div class="item-abstract">9月15日，哥白尼Sentinel-3C从法属圭亚那欧洲航天港发射入轨，与两颗姊妹星组网。星上搭载海洋水色、海表温度与海平面测量三类互补载荷，将接续保障CMEMS等业务化海洋监测与预报服务的卫星观测数据链（CMEMS于9月16日发布专题报道）。</div>
+      <div class="item-meta">Copernicus Marine Service · 2026-09-16</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-report">[报告]</span> <a href="https://marine.copernicus.eu/news/what-ocean-state-report" target="_blank">CMEMS第10期《海洋状况报告》(OSR10)将于9月30日发布：十年海洋科学评估纪念版</a></div>
+      <div class="item-abstract">哥白尼海洋服务预告：第10期海洋状况报告（OSR10）将于2026年9月30日发布，纪念该系列报告发布十周年。本期延续独立同行评审（发表于State of the Planet期刊），内容涵盖海洋盐度与海平面变化、海洋热浪、极端事件对沿海基础设施的影响及海洋生态系统变化，并以"海洋叙事"方法聚焦极地与小岛屿发展中国家（SIDS）两个热点区域（原发布日09-04，因十周年节点按重要性豁免收录）。</div>
+      <div class="item-meta">Copernicus Marine Service · 2026-09-04</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-report">[报告]</span> <a href="https://www.chinanews.com.cn/sh/2026/09-17/10698393.shtml" target="_blank">《中国海洋发展指数报告2026》发布：2025年指数132.3，海洋生产总值达11万亿元</a></div>
+      <div class="item-abstract">国家海洋信息中心与中国海洋发展研究会在2026海洋合作发展论坛上发布《中国海洋发展指数报告2026》：2025年中国海洋发展指数为132.3，比上年增长2.5%；其中科技创新指数138.5，"瞰海"等海洋领域AI大模型相继发布、深海探测与数智技术装备取得新进展；全国海洋生产总值达11万亿元，同比增长5.5%。</div>
+      <div class="item-meta">中国新闻网 · 2026-09-17</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div>
+      <div class="section-title-cn">九、工具与代码资源</div>
+      <div class="section-title-en">Tools & Code Resources</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[开源]</span> <a href="https://arxiv.org/abs/2609.20691" target="_blank">面向空-海两栖混合任务的自定义PX4固件发布</a></div>
+      <div class="item-abstract">arXiv 2609.20691 发布面向空-海两栖混合任务的PX4自定义固件扩展，在保留标准飞行功能的同时，支持两栖无人机自主海洋导航任务的统一规划与执行，为开源飞控社区贡献海空跨介质任务能力。</div>
+      <div class="item-meta">arXiv (cs.RO) · 2026-09-17</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2609.20620" target="_blank">SPAR：LLM驱动的AUV故障诊断与恢复闭环仿真平台</a></div>
+      <div class="item-abstract">arXiv 2609.20620 提出SPAR闭环仿真架构，将AUV仿真软件与大语言模型驱动的故障诊断、恢复规划耦合，实现无人干预下的故障缓解策略评估，为AUV自主运维工具链提供可复现的测试平台（软件平台归入本方向）。</div>
+      <div class="item-meta">arXiv (cs.RO) · 2026-09-17</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://arxiv.org/abs/2609.10484" target="_blank">HoloOcean沿岸环境自动生成管线：从航拍影像到UE5水下仿真场景</a></div>
+      <div class="item-abstract">arXiv 2609.10484 为开源水下机器人仿真器 HoloOcean 增加沿岸环境自动生成能力：基于Unreal Engine 5，从俯视影像自动构建沿岸仿真场景，降低海洋机器人算法在真实沿岸环境中的仿真验证门槛，工具能力以论文形式正式发布。</div>
+      <div class="item-meta">arXiv (cs.RO) · 2026-09-09</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <p>海洋AI技术日报 · 自动生成于 2026年09月20日</p>
+  <p>Powered by WorkBuddy AI · 本期来源：arXiv、Frontiers in Marine Science、Journal of Remote Sensing（Science合作期刊）、JMSE（MDPI）、Copernicus Marine、欧盟新闻室/UN Ocean Decade、中新社、中国新闻网、腾讯新闻、新华社（网易号转载）</p>
+</div>
+</body>
+</html>
