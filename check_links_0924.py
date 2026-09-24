@@ -6,7 +6,8 @@ import urllib.request
 import urllib.error
 from concurrent.futures import ThreadPoolExecutor
 
-HTML = 'daily_reports/海洋AI简报_2026-09-24.html'
+import sys
+HTML = sys.argv[1] if len(sys.argv)>1 else 'daily_reports/海洋AI简报_2026-09-24.html'
 src = open(HTML, encoding='utf-8').read()
 urls = []
 for m in re.finditer(r'<div class="item-title">.*?<a href="([^"]+)"', src, re.S):
