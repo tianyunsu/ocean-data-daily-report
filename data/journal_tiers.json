@@ -915,7 +915,7 @@
       "journal": "International Journal of Computer Vision",
       "publisher": "Springer Science+Business Media",
       "direction": "一、海洋人工智能",
-      "count": 6,
+      "count": 7,
       "examples": [
         "Source-Free Domain Adaptation with Vision-Language Prior"
       ],
@@ -937,7 +937,7 @@
       "journal": "Algorithmica",
       "publisher": "Springer Science+Business Media",
       "direction": "一、海洋人工智能",
-      "count": 6,
+      "count": 7,
       "examples": [
         "Couples can be Tractable: New Algorithms and Hardness Results for the Hospitals/Residents Problem with Couples"
       ],
@@ -964,6 +964,4331 @@
         "Research Progress of Terahertz Technology in Microbiology"
       ],
       "first_seen": "2026-09-20",
+      "asked": false
+    },
+    {
+      "journal": "Thalassas An International Journal of Marine Sciences",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Machine Learning Framework for Genus - Level Coral Classification in the Lakshadweep Reef Ecosystem"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Frontiers of Earth Science",
+      "publisher": "Higher Education Press",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "A review on storm surge modeling and predictions in coastal waters"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Stochastic Environmental Research and Risk Assessment",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "Uncertainty analysis of a machine learning-aided ensemble forecast for coastal flood maps",
+        "Ebola-virus outbreaks are teleconnected with macroclimatic oscillations"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Bulletin of the American Meteorological Society",
+      "publisher": "American Meteorological Society",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Near Real-time Evaluation of Operational Oceanographic Predictions: Over a Decade of Intercomparison by Global Ocean For"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Science and Technology Nexus",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Bridging Nature, Data, and Artificial Intelligence: An Interdisciplinary Approach for Natural Products Discovery"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Combinatorial Optimization Problems and Informatics.",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "Meteorological Time Series Interpolation: A Literature Review of Classical, Machine Learning and Deep Learning Approache",
+        "Hybrid metaheuristic NNHGS algorithm for PID controller tuning in UAVs"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Artificial Intelligence",
+      "publisher": "Taylor & Francis",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Multi-Model Forecasting of Shoreline Air Temperature using Machine Learning and Deep Learning: The CidAlmeida Station, P"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Peer Community In Ecology",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Recommendation of: PlanktonFlow : hands-on deep-learning classification of plankton images for biologists. Round#2"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Multidisciplinary journal of engineering and technology.",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "MACHINE LEARNING MODEL TO PREDICT SNR IN 6G IOT NETWORKS"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Earth System Science",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "Performance of deep learning based long-term CHIRPS rainfall prediction using CNN and LSTM models in Karnataka State, In",
+        "The impact of spatiotemporal variability of rainfall across Uttar Pradesh, India"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal Of Big Data",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "A mutually reinforcing pixel-level deep network-driven explainable AI for biofouling segmentation and structural health "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Assessment & Evaluation in Higher Education",
+      "publisher": "Taylor & Francis",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "How artificial intelligence transforms the feedback ecosystem in higher education"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "JURNAL ILMU FISIKA | UNIVERSITAS ANDALAS",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "The Impact of Extreme Weather on Air Quality: A Satellite-Based Deep Learning Analysis for Air Quality Prediction A Case"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Artificial Intelligence and Agent Systems",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "A Deep Learning-Powered Multi-Agent Framework with Responsible AI Governance for Trustworthy EEG-Based Neurological Dise"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Identidad Bolivariana",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Artificial Intelligence in the Formative Assessment of Soft Skills in Upper Elementary Students"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "IJORER International Journal of Recent Educational Research",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Building English Literacy Through Mall and Deep Learning: Challenges and Needs of Elementary School English Teachers"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Energy efficiency first.",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "An integrated simulation-based optimization framework for energy-efficient haulage in open-pit mining with machine learn"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "New Horizons Journal of Basic and Applied Sciences",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Integrative taxonomy of selected Dictyotaceae from Hurghada, Egypt: An AI-assisted approach"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Landscape Ecology",
+      "publisher": "De Gruyter Open",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Forecasting Urbanization Dynamics On İstanbul’s European Side Using Deep Learning And Extrapolation Techniques"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Southern Hemisphere Earth System Science",
+      "publisher": "CSIRO Publishing",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Winter forecasting of September–October rainfall in the Murray–Darling Basin and south-eastern Australia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Review of Financial Analysis",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Multihorizon forward forecasting of crude oil futures realized volatility based on dual-interpretable deep learning"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Computer Applications",
+      "publisher": "Foundation of Computer Science",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "A Hybrid Ensembled Deep Learning Framework for Explainable Skin Cancer Classification and Lesion Detection",
+        "Derivation of Dose Conversion Factors by Measurement of Patients’ Organ Size in Computed Tomography Machine"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Nature and Conservation",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "UAV photogrammetry and remote sensing for coastal biodiversity and habitat conservation"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Machine learning for computational science and engineering",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Damage detection, localization, and sizing in composite structures using modal shape and multi-head convolutional neural"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Educational Academic Research",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "Examining University Students' Acceptance and Use of Artificial Intelligence Tools Within the Context of UTAUT2: An Anal",
+        "University Teachers' 'Good Teacher' Characteristics and 'Undesirable Behaviors'"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Computer-Aided Civil and Infrastructure Engineering",
+      "publisher": "Wiley",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Deep learning-based automatic pixel-level detection and severity classification of freeze-thaw damage in concrete dams"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Ecotoxicology and Environmental Safety",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 4,
+      "examples": [
+        "Unravelling gut-kidney axis alterations in BPA-related CKD: Integrating network toxicology and machine learning with exp",
+        "Ecohydrological methods for characterizing groundwater dependence of terrestrial ecosystems to support sustainable water",
+        "Unveiling pollution of benzophenone and triazine-derived ultraviolet filters in fishing-port sediment: Implications for ",
+        "Ecotoxicity of bauxite residue leachates during amendment-assisted revegetation: Multi-organ oxidative and genotoxic eff"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of River Basin Management",
+      "publisher": "Taylor & Francis",
+      "direction": "一、海洋人工智能",
+      "count": 3,
+      "examples": [
+        "Spatial prediction of groundwater nitrate through machine learning and stakeholder co-creation: the Chalk aquifer case i",
+        "Evolution of soil erosion and sediment delivery modelling over six decades: paradigms, limitations and new solutions",
+        "Aftermath of rebuilding low-head dams in river basins: hydraulic study of two rivers located in the northern and western"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Vestnik Gosudarstvennogo universiteta morskogo i rechnogo flota imeni admirala S O Makarova",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 4,
+      "examples": [
+        "Analysis of modern automated ship route planning systems: functional capabilities, limitations, and development trends",
+        "Detailed survey of seafloor relief on the continental slope of the arctic ocean and methods for presenting its results u",
+        "Assessment of sea passenger ferry berth occupancy under dynamic formation and changes in regional route networks",
+        "Intelligent Fuzzy Inference-Based Decision-Support System for Marine Main Diesel Engines"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Discover Forests",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Assessing spatial suitability and climate resilience of agroforestry systems in the Indian Himalaya of Uttarakhand using"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Nigerian Journal of Biotechnology and Life Sciences",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 4,
+      "examples": [
+        "Algal Biodiversity as a Sentinel of Freshwater Ecosystem Health",
+        "Isolation and Identification of Fungi Associated with Spoilage of Tomato Samples Obtained from Kubwa, Iddo and Adelabu M",
+        "Evaluation of Heavy Metal Contamination in Soils and Vegetable Crops from Agbara Industrial Zone, Ogun State, Nigeria",
+        "Primary Productivity in Man-Made Lakes of Northwestern Nigeria: A Review of Recent Evidence, Environmental Drivers and R"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Artificial Intelligence in Health",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Multimodal data-driven intelligent diagnosis in traditional Chinese medicine: Current status and future perspectives"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Solar-Terrestrial Physics",
+      "publisher": "Infra-M Academic Publishing House",
+      "direction": "一、海洋人工智能",
+      "count": 3,
+      "examples": [
+        "Machine-learning method for reconstructing near-Earth low-energy cosmic ray fluxes from ground-based SOPO neutron monito",
+        "Global warming of the troposphere vs global cooling of the thermosphere",
+        "Approximation of reception coefficients of cosmic ray neutron components for latitude measurements"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Ainara Journal (Jurnal Penelitian dan PKM Bidang Ilmu Pendidikan)",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Development of RADEC-Based Deep Learning Lesson Planning to Enhance Fifth-Grade Students’ Critical Thinking Skills in In"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Corrosion Science",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Interpretable multi-task learning for corrosion state prediction of carbon steel in simulated marine atmospheric environ"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Inflammation Research",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Identification of immune cell mitochondrial dysfunction characteristics and clinical predictive biomarkers in sepsis via"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Visión Académica",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Impacto de la IA en la formación de estudiantes de ingeniería. Un dilema ético."
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "California Management Review",
+      "publisher": "SAGE Publishing",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Realizing Agentic AI Value:A Systems Approach to Autonomy and Risk"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Mini-Reviews in Medicinal Chemistry",
+      "publisher": "Bentham Science Publishers",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Natural Molecules as Modulators of Drug Resistance: Emerging Strategies"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Artificial Intelligence & Environment",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "AI-enabled environmental digital twins: a new paradigm for predictive environmental research"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Bio- and Tribo-Corrosion",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Microbiologically Influenced Corrosion: Advances in Mechanistic Understanding, Smart Detection Technologies, and Sustain"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Systematic and Applied Acarology",
+      "publisher": "Systematic & Applied Acarology Society",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "Projected expansion of Tetranychus truncatus Ehara (Acari: Tetranychidae) in China under future climate scenarios: A Max",
+        "Updated checklist of non-psoroptidid Astigmata in China (Acariformes)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Question",
+      "publisher": "National University of La Plata",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Aprendizaje digital y pensamiento crítico en la universidad"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Energy Storage",
+      "publisher": "Wiley",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Electric Vehicle Charging Demand Forecasting Using Progressive Graph Convolutional Networks With Waterwheel Plant Optimi"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Computing and Geosciences",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Identification of granitic pegmatites based on GF-5 hyperspectral data and LSTM-Transformer model"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Environment Engineering and Education",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Reconstructing and Projecting Urban Expansion in Makassar Using Integrated ANN–CA and Bayesian Weights of Evidence, 2005"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "IDEAS - International Journal of Literature Arts Science and Culture",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "The Impact of ChatGPT and Gemini on Academic Writing among Bangladeshi Private University Students",
+        "Juvenile Gangs in Bangladesh: A Case Study of Their Impact on Civil Society"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Scientific and analytical journal Burganov House The space of culture",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "MUTUAL INFLUENCE AND CONTEMPORARY DEVELOPMENT OF CHINESE AND RUSSIAN PROPAGANDA POSTERS",
+        "THE GEOPOETICS OF GUILLAUME MUSSO’S NOVELS"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Telos Revista de Estudios Interdisciplinarios en Ciencias Sociales",
+      "publisher": "Rafael Belloso Chacín University",
+      "direction": "一、海洋人工智能",
+      "count": 3,
+      "examples": [
+        "Ecosistema de líneas de investigación en entornos virtuales: soberanía intelectual y gestión científica",
+        "Soberanía intelectual y descolonización del conocimiento: Investigación-Acción Participativa en el Cabildo Finzenú, Colo",
+        "Marketing sostenible y valor de marca en las Pymes gastronómicas: revisión de literatura"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Engineering Science in Additive Manufacturing",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "3D bioprinting technologies: Current applications and emerging trends"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Economic scope",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "METHODOLOGY OF AI-DRIVEN PERSONNEL SUBSTITUTION FOR LEADERSHIP AND MANAGEMENT ADAPTATION RESULTING FROM DIGITALIZATION"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Maritime Technology and Research",
+      "publisher": "Chiang Mai University",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Environment-adaptive automatic ship collision avoidance system"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Information Management and Business Review",
+      "publisher": "International Foundation for Research and Development",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Mapping the Global Trends and Thematic Evolution of Big Data Analytics Capabilities Research: A Bibliometric Review"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Research Journal in Civil Industrial and Mechanical Engineering",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Integrated Approaches to Sustainable Infrastructure, Smart Construction, and Disaster-Resilient Urban Development"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "American Antiquity",
+      "publisher": "Cambridge University Press",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "A Computer Vision Survey of the Northern San Juan"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Energy and AI",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "State-Adaptive Forecast Error Recalibration for probabilistic wind power forecasting"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Arandu-UTIC.",
+      "publisher": "National Technological University",
+      "direction": "一、海洋人工智能",
+      "count": 3,
+      "examples": [
+        "ChatGPT Voice and Role-Play Activities on English Oral Communicative Competence: A Pilot Study with Secondary Learners",
+        "Percepciones de los estudiantes universitarios de Inglés como Lengua Extranjera en el uso de la Inteligencia Artificial ",
+        "Ecosistema emprendedor y comportamiento emprendedor en estudiantes universitarios: simulación mediante un modelo basado "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Nano Research",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Electric-field-coupled rotary DBD plasma-modified mBN enables epoxy encapsulation with both high thermal conductivity an"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Current Educational Studies",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Exploring Teachers’ Latent Resistance to AI-Supported Teaching: A Qualitative Study"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Infection Genetics and Evolution",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Biofilm-driven antimicrobial resistance: A review of molecular mechanisms, clinical implications, and therapeutic innova"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Research",
+      "publisher": "Wiley",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "A Bibliometric Review and Visualization of Research Progress in Computational Modeling for Biofuels",
+        "Upcycling Automotive Recyclate and Miscanthus Derived‐Biocarbon for Sustainable Composite in Automotive Applications"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Trama Revista de Ciencias Sociales y Humanidades",
+      "publisher": "Costa Rica Institute of Technology",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Actitudes del estudiantado hacia una experiencia didáctica mediada por inteligencia artificial generativa en el aprendiz"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "PLOS Sustainability and Transformation",
+      "publisher": "Public Library of Science",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Impact of swidden agriculture on palm populations in South-Central Guyana"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Environmental Monitoring and Analysis",
+      "publisher": "Science Publishing Group",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Towards Automated Environmental Monitoring Using YOLOv8 Variants"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Mechanical Sciences",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Structural design strategies for energy-absorbing auxetic metamaterials: a review"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Quantitative InfraRed Thermography Journal",
+      "publisher": "Taylor & Francis",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Front-side detection and quantitative characterization of non-visible corrosion using active infrared thermography"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International journal of intelligent engineering and systems",
+      "publisher": "Intelligent Networks and Systems Society",
+      "direction": "一、海洋人工智能",
+      "count": 6,
+      "examples": [
+        "RA-UNetX: A Lightweight Residual–Attention U-Net with Segmentation-guided ConvNeXt-Tiny for Multi-class Lung Disease Dia",
+        "Univariate CNN-LSTM for One-step-ahead Daily Maximum and Minimum Temperature Forecasting: A Case Study Across Algeria's ",
+        "HEXAID: A Task-adaptive Multimodal Ensemble Framework for Disease Identification and Severity Stratification in Emergenc",
+        "LW-Sync: A Low-complexity Event-driven Offset Correction Scheme for Underwater Pairwise Acoustic Communication",
+        "An Enhanced RSSI-based Secret Key Generation Framework for Secure Agricultural Edge-IoT Systems",
+        "Kinkajou Optimization Algorithm: A Novel Bio-inspired Metaheuristic Algorithm Based on Wide Tree-canopy Exploration and "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Environmental Management Engineering and Technology",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "An optimization framework for designing CO2 curing regimes for concrete based on life cycle assessment"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of environment pollution and human health",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Validation of MODIS Terra and Aqua Monthly Aerosol Optical Depth against AERONET Measurements over Dust-Affected Middle "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Smart Materials and Structures",
+      "publisher": "IOP Publishing",
+      "direction": "一、海洋人工智能",
+      "count": 3,
+      "examples": [
+        "Metamaterials as transducers for structural health monitoring: a critical review and perspective",
+        "Conical dielectric elastomer generators for wave energy harvesting: hyperelastic parametric modelling, experimental char",
+        "A three-dimensionally tunable mechanical metamaterial enabled by a coupled concave–chiral architecture"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Chemical Engineering Journal Engineered Materials",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "Engineering electrocatalytic materials for green hydrogen production: Design principles, stability, and industrial trans",
+        "Nano-enabled strategies to inhibit mobile genetic elements and antimicrobial resistance in wastewater systems"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Icarus",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "A fully compressible viscoelastic framework for modeling the planetary response to surface loading and tidal forces"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Coğrafi Bilimler Dergisi",
+      "publisher": "Association of Food Technology, Turkey",
+      "direction": "一、海洋人工智能",
+      "count": 2,
+      "examples": [
+        "HEC-RAS and GIS Based Flood Hazard Analysis: A Case Study of Muş Basin",
+        "İklim Riskinin KTKGB ve TM’lerin Ilan ve Mekânsal Planlama Süreçlerine Entegrasyonu: Türkiye’den Ulusal Ölçekli Bir Çerç"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "İDEALKENT",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "The educational role of public spaces in climate literacy: A comparative study on UNESCO Learning Cities in Türkiye"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Zoologica Scripta",
+      "publisher": "Wiley",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Differentiation and Population Structure of Idyla bicristata (Gastropoda: Clausiliidae) on Euboea, Greece"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Destination Marketing & Management",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "From eco-signals to green trust: How tourists evaluate sustainability credibility through online reviews"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Revista Multidisciplinar de Estudios Generales",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 3,
+      "examples": [
+        "Uso de realidad aumentada educativa para mejorar la enseñanza de Ciencias Naturales en Educación General Básica",
+        "Predicción del bajo rendimiento académico mediante técnicas de minería de datos educativos en instituciones fiscales",
+        "Evaluación del pensamiento crítico frente al uso de herramientas de inteligencia artificial generativa en adolescentes"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Integrative Organismal Biology",
+      "publisher": "Oxford University Press",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Typifying tiny teeth: A standardized coding system to quantify morphological variation in fish teeth for comparative eco"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "EDUCATIONAL Jurnal Inovasi Pendidikan & Pengajaran",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "INTEGRASI NILAI KARAKTER KERJA MELAYU DALAM PEMBELAJARAN PRAKTIK PERMESINAN KAPAL DI SMK KEMARITIMAN"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Post Axial Futuristic Teaching and Learning",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "IoT-Based Smart Fishery as an Appropriate Technology Solution for Optimizing Freshwater Fish Farming in Remote Areas of "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Chemical Thermodynamics and Thermal Analysis",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Experimental and numerical investigation of gas hydrate formation dynamics under variable pressure and temperature condi"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Griya Journal of Mathematics Education and Application",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Pemodelan Prediksi Curah Hujan Bulanan Menggunakan LSTM Berbasis Deret Waktu di Provinsi Sumatera Utara"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Artificial Intelligence for Engineering",
+      "publisher": "",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Variance‐Guided Evolutionary Reinforcement Learning for Multi‐Objective Energy Scheduling in Dairy Farms"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of the Franklin Institute",
+      "publisher": "Elsevier BV",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Least-squares adaptive filter-based Cohen’s class time-frequency distribution for signal denoising"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Software & Systems Modeling",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Systems of twinned systems: a systematic literature review"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The European Physical Journal C",
+      "publisher": "Springer Science+Business Media",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Updated flexible global parametrization of generalized parton distributions from elastic and deep inelastic inclusive sc"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "SciPost Physics",
+      "publisher": "SciPost.org",
+      "direction": "一、海洋人工智能",
+      "count": 1,
+      "examples": [
+        "Random matrix theory of sparse neuronal networks with heterogeneous timescales"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Aquacultural Engineering",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "A digital twin fish farm framework coupling underwater visual perception and multivariate water quality forecasting for "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Nonlinear processes in geophysics",
+      "publisher": "Copernicus Publications",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Data assimilation of coherent structures in parametric and gridded spaces: an idealized ocean eddy study"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Asia-Pacific Journal of Atmospheric Sciences",
+      "publisher": "Springer Science+Business Media",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "K-ACE2: Model Overview and Evaluation of Pre-industrial Climate"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Aircraft",
+      "publisher": "American Institute of Aeronautics and Astronautics",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Optimal Flight Planning for Marine Mammal Surveillance from a Seaplane Unmanned Aerial Vehicle"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Electrostatics",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Estimation of electrohydrodynamic force and gas heating fields of plasma actuators using data assimilation"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Sedimentary Research",
+      "publisher": "Society for Sedimentary Geology",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Numerical modeling of aeolian-dune development in carbonate island settings: exploring last interglacial environmental c"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Climatic Change",
+      "publisher": "Springer Science+Business Media",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "A large-scale Atlantic-European circulation dipole amplifies western mediterranean wave climate and intensifies under cl"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Theoretical Biology",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Self-organized pattern formation of a common tropical alga"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Desalination",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Continuous platform for seawater mining of valuable rubidium via ZIF–potassium hexacyanoferrate ion-exchange column"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Energy",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Diagnosis of energy conversion efficiency degradation in a mixed-flow pump under rotational-speed and flow-rate mismatch"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Silniki Spalinowe/Combustion Engines",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Diagnostic analysis of exhaust gas with a rapidly changing temperature from a marine diesel engine: interaction analysis"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Geomate",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 6,
+      "examples": [
+        "PERFORMANCE OF SHALLOW FOUNDATIONS ON WATER-SATURATED CLAY SOILS AND THEIR REINFORCEMENT USING MICROPILES: A CASE STUDY ",
+        "MODELING OF 2020 LAND SUBSIDENCE IN NINH KIEU DISTRICT, VIETNAM: FINITE ELEMENT ANALYSIS AND INSAR COMPARISON",
+        "URBAN BLACK CARBON: TREND OF RESEARCH AND ASSIMILATIVE CAPACITY IN THE MEDIUM SIZE CITY",
+        "CALIBRATION OF CONVERSE-LABARRE EQUATION FOR BORED PILE GROUPS IN BANGKOK SUBSOIL USING 3D FEM",
+        "EXPERIMENTAL STUDY OF BEARING CAPACITY OF SOIL STABILIZATION WITH MARBLE DUST",
+        "FLOOD INUNDATION ANALYSES AND THREE-DIMENSIONAL HAZARD MAPPING APPROACHES FOR SMALL-SIZED RIVERS"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Rare Metals",
+      "publisher": "Springer Science+Business Media",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Ultrasonic Vibration Assisted Laser Processing: A Hybrid Paradigm for Extreme Surface Enhancement"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Soils and Rocks",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Application of the dynamic replacement method in geotechnical soil improvement"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Hyperspectral Remote Sensing",
+      "publisher": "Federal University of Pernambuco",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Analysis of the water balance of representative basins of the mesoregions of Pernambuco based on the influence of SAWP-I"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Revista de Investigación en Tecnologías de la Información",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Brechas rurales en la Política Nacional de Confianza y Seguridad Digital de Colombia: un análisis comparativo con la Guí"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Civil Engineering Beyond Limits",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Structural Response and Local Alternate Load Path Assessment of an Aging Steel Truss Railway Bridge: A Computational Stu"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Weather",
+      "publisher": "Wiley",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Royal Meteorological Society Early Career and Student Conference 2026"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Sustainability Research",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Does the Social Energy Tariff Reach Energy-Poor Households? A Municipal Framework for Assessing Hidden Winter and Summer"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Management Research and Review",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Implementing Lean Port Management to Enhance Operational Efficiency and Reduce Waste in Ship Cargo Handling Operations a"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Distributed Generation & Alternative Energy Journal",
+      "publisher": "Taylor & Francis",
+      "direction": "二、海洋数字孪生",
+      "count": 2,
+      "examples": [
+        "A Health Condition Assessment and Safety Early Warning Framework for Hydropower Equipment Using Multi-Source Data Fusion",
+        "Research on Cross-Domain Defect Diagnosis and Model Generalization of Power Equipment for High-Penetration Distributed G"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Built Heritage",
+      "publisher": "Springer Nature",
+      "direction": "二、海洋数字孪生",
+      "count": 2,
+      "examples": [
+        "Pilot application of technical standards for hidden danger investigation of ancient masonry arch bridges: a pilot study ",
+        "Static stability of monumental moai–pukao assemblies on the ahu of Rapa Nui: a closed-form structural model for built he"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Innovation in Applied Natural Science",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "The Quality of Ethnic Fermented Bamboo Shoots (Lemea) From Bengkulu (Indonesia) by Using Different Fermentors"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Sustainability in Environment",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Analysis of Habitat Quality Changes and Their Driving Factors in Rock Desertification Control Areas of Guizhou Province"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Geomorphology",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 2,
+      "examples": [
+        "Scouring process in river sinuosities: Insights from a large field dataset from south-east France",
+        "Bathymetry, sediment architecture and buried subglacial topography of two contrasting high-mountain lakes from ground-pe"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Insights into Regional Development",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 2,
+      "examples": [
+        "Public governance, transport safety and regional sustainability: a qualitative analysis of urban freight systems in deve",
+        "Tourism opportunities created by COVID-19 pandemic in Vhembe District Municipality, Limpopo Province, South Africa"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Nondestructive Evaluation",
+      "publisher": "Springer Science+Business Media",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Non-Contact Evaluation of Concrete Floor Abrasion Using 3D Optical Scanning"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "REST Journal on Advances in Mechanical Engineering",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "GRA Method for Bearing Fault Classification: Two-Stage Model with Statistical Feature Extraction"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of the European Optical Society Rapid Publications",
+      "publisher": "Springer Nature",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "EOSAM 2025 - EDITORIAL"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Data Science and Analysis",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Adaptive Cloud-Based Big Data Analytics Model for Sustainable Supply Chain Management"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Coal Science & Technology",
+      "publisher": "Springer International Publishing",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Review on ammonia/coal co-combustion fundamental and technology in thermal power generation"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "npj Climate Action",
+      "publisher": "Springer Science+Business Media",
+      "direction": "二、海洋数字孪生",
+      "count": 2,
+      "examples": [
+        "Future Mediterranean agrivoltaics: prospective life cycle assessment under climatic and socio-economic scenarios",
+        "Climate frameworks must better account for river ecosystem responses and feedbacks"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Thermoplastic Composite Materials",
+      "publisher": "SAGE Publishing",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Vat photopolymerization additive manufacturing: A critical review of materials, processes, applications, and sustainabil"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Quality and Reliability Engineering International",
+      "publisher": "Wiley",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Development and Validation of a Dynamic Bayesian Network‐Based Adaptive Reliability Optimization Model Using Design of E"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Communication Technology",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "A Decade of Super Bowl Ads (2015-2024): A Content Analysis of Trends and User Engagement"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Sustainable and Green Energy",
+      "publisher": "Science Publishing Group",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Regional Coordination of Electricity Pricing, Cross-Border Interconnection and Shared Storage for the West African Power"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Geo-Engineering",
+      "publisher": "Springer Nature",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Numerical analysis of seismic performance of deep strutted excavation-structure interaction in sandy soil"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Revista Eletrônica de Iniciação Científica em Computação",
+      "publisher": "",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Evaluation of Python Libraries for Visualization of Weather Fields"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Energy Sustainable Development/Energy for sustainable development",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Multidimensional energy poverty in Indonesia: Urban-rural perspectives"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Composites Part C Open Access",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Unit cell based discrete equivalent method for predicting nonlinear creep behavior of unidirectional fiber-reinforced ep"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Extreme Mechanics Letters",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Zero Poisson’s ratio mechanical metamaterials with geometrically discontinuous interlocking gears"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Landslides",
+      "publisher": "Springer Science+Business Media",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Investigation of dynamic fragmentation in bidisperse flow impact against a rigid barrier"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Thermal Engineering",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Overview and outlook of heat-driven oscillating systems for sustainable heating, cooling and power generation"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "JCIS Open",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Interfacial carbon-shell engineering in polyethylene terephthalate-derived FeNi@C nanostructures for adsorption-dominate"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Chemical Engineering Journal Green and Sustainable",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Comparative life cycle sustainability assessment of biomass gasification, autothermal reforming, and proton exchange mem"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Saudi Chemical Society",
+      "publisher": "Elsevier BV",
+      "direction": "二、海洋数字孪生",
+      "count": 1,
+      "examples": [
+        "Microscopic mechanisms of oil-water-rock interactions during CO2 enhanced oil recovery and storage: a comprehensive revi"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Al-Azhar University Engineering Sector",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Evaluation of Coastal Changes in Gamasa and Baltim, Egypt Using Remote Sensing and GIS Techniques"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Water Resources Planning and Management",
+      "publisher": "American Society of Civil Engineers",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Mapping Coastal Resource–Environment Carrying Capacity in an Intensively Developed Coastal Area: Evidence from Rui’an, C"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "American Journal of Science",
+      "publisher": "Yale University",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Plio-Pleistocene Stratigraphy, Paleoenvironments, and Isotope-Derived Water Temperatures at Beeline Quarry, Orange Count",
+        "Thrombolite Genesis Under Dynamic Hydrocarbon Fluid Flux: Microbial Records From New Zealand Paleo-Seeps"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Interpersona An International Journal on Personal Relationships",
+      "publisher": "PsychOpen",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Building digital competence for a high-skilled workforce: An institutional analysis of North Central and Central Coastal"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Raman Spectroscopy",
+      "publisher": "Wiley",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "The Carbonate Raman Processing and Plotting Tool: A Software Application for 2‐Dimensional Raman Image Peak‐Fitting and "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Marine Problems and Threats.",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Ecosystem management analysis study in tourist villages"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Education and e-Learning Research",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Immersive geospatial learning for flood disaster education: Integrating GIS, augmented reality, spatial literacy, and ec"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Spatial Analysis and Policy",
+      "publisher": "Springer Science+Business Media",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "A Spatial Multi-Criteria Decision Framework for Eco-Industrial Park Siting in Syria’s Reconstruction: A Case Study in th"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Carnets de géologie (Notebooks on geology)",
+      "publisher": "Society for Sedimentary Geology",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Serra Gelada (Alicante, Spain): Evidence and implications of a paleo-island setting during the Jurassic-Cretaceous trans",
+        "Late Jurassic-Early Cretaceous phytoplankton ecosystem evolution interrupted by the late Valanginian Weissert carbon iso"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Environmental Policy & Planning",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Sustainability put to the test: environment and regional spatial planning in Chilean public policy (1994–2021)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Mathematical Methods in the Applied Sciences",
+      "publisher": "Wiley",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Spatiotemporal Dynamics, Stability and Interaction Mechanisms of Multidimensional Nonlinear Waves in Complex Physical Me"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Poultry Science",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Biocontrol potential and genomic analysis of novel lytic bacteriophage CABI-SEA 2302 against multidrug-resistant avian p"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Explora Environment and Resource",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Microplastics, much more than water contaminants: Environmental trajectory and the state of particles at exposure",
+        "Toward sustainable river tourism in the Brahmaputra River Basin: A socio-ecological perspective on climate adaptation, s"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "IJGIE (International Journal of Graduate of Islamic Education)",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "The Effect Of An Ethnopedagogy-Based Pop-Up Book Learning Medium On The Beginning Reading Skills Of Year 2 Pupils AT SDN"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Aquademia",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Improving preschool children’s understanding of water pollution through experiential learning"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal Of Recent Trends In Multidisciplinary Research",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Spatio-Temporal Dynamics and Variability of Rainfall in North-Western Rajasthan, India (1991–2024)",
+        "Nitrosoamine Impurities: Current Status, Challenges and Future Perspectives"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Alcheringa An Australasian Journal of Palaeontology",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Distribution and preservation of Kimberella quadrata from the Ediacara Member, South Australia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Akademik İncelemeler Dergisi",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Travel Motivations and Destination Attributes in Online Tourist Reviews: A Qualitative Study of Cittaslow Demre, Antalya"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Aquaculture",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Origin and fate of long-chain polyunsaturated fatty acid (LC-PUFA) in reproduction of female Hediste diversicolor (OF Mü"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Papéis Avulsos de Zoologia",
+      "publisher": "University of São Paulo",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Anatomic description of Graptacme obtura (Scaphopoda: Dentaliidae) from Trindade Island, Brazil",
+        "New records and invasion risk of Stenochrus portoricensis Chamberlin, 1922 (Schizomida: Hubbardiidae) in Brazil"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Business Law and Education",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "A Corridor-Based Integration Model for Tourism Village Development in the Malang–Batu Tourism Corridor"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Sustainable Science and Innovation",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "From Waste to Resource: Recent Trends in Plastic Recycling and Upcycling"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Thermal Science and Engineering Progress",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Plasma jet ignition on lean methane-air mixture in a constant volume combustion chamber"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Revista Multidisciplinar Epistemología de las Ciencias",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Ciberseguridad: pilar estratégico clave para la resiliencia, gobernanza y transformación digital de la organización empr"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "ISEJ Indonesian Science Education Journal",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Analysis of Elevation Effects on the Chemical Composition Of Moringa Oleifera Leaves Using a Multivariate Statistical Ap",
+        "Development and Preliminary Evaluation of Project-Based Learning Teaching Materials for Animal Development Courses to Su"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The European Zoological Journal",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Challenge from nomenclature changes: the case of ascidian biodiversity",
+        "Multi-scale environmental influence on the spatial and bathymetric distribution of the solitary ascidian Halocynthia pap"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Earth System Governance",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "From pixels to people: The social footprint of satellite Earth observation in Aotearoa New Zealand and Australia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Kahramanmaraş Sütçü İmam Üniversitesi Tarım ve Doğa Dergisi",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Türkiye’de Mavi Ekonominin Sektörel Dinamikleri: Su Ürünleri Avcılığının ve Yetiştiriciliğinin Ekonomik Büyüme Üzerindek",
+        "Dose-Dependent Effects of Sewage Sludge on Matthiola incana: A Sustainable Approach for Ornamental Plant Production"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Waste Management",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "When the impact is not the same everywhere: The need for regionalized characterization factors in the LCA of plastics"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Globalizations",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Global solidarity? Philanthropic legitimacy, environmental justice, and vulnerabilities in Japanese foundations"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Sustainable Cement-Based Materials",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Ex-situ replication of concrete pore solution: alkali-activated concrete"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Studies In Australasian Cinema",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "The earth above: participatory immersion, transdisciplinarity, and the planetarium as research space"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Greenhouse Gases Science and Technology",
+      "publisher": "Wiley",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "A Comparison of Screening Methods for Assessing Legacy Wells Within CO 2 Storage Licences: Application to Offshore Norwa",
+        "Deterministic Cost Estimation Approaches for Carbon Capture, Utilization, and Storage: A Review"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Urban Intelligence and Smart Systems",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Geospatial Intelligence for Peri-Urban Land-Use Conflicts: Evaluating Agricultural Suitability against Rapid Urbanisatio"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Ankara Üniversitesi Veteriner Fakültesi Dergisi",
+      "publisher": "Ankara University",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "In silico detection of a candidate disease-associated microorganism in metagenomic data from otter clams (Lutraria rhync"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Asian Journal of Atmospheric Environment",
+      "publisher": "Springer Nature",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Preliminary assessment of airborne microplastics: a case study of Bandung City, Indonesia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Open Journal of Science Philosophy & Theology (ISSN 3105-3041)",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Beyond Disaster Counts: A Multidimensional Evidence Audit of Global Hazard Severity, Environmental Modification, Crisis "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Critical humanistic social theory.",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Study on the English-Language Converged Media Communication of Rizhao Handicraft Culture in the Context of Digital Cultu"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "JOURNAL OF LAW AND GLOBAL POLICY",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Analysis of Legal Aspects: The Musi River Waste Management and Its Impact on River Basins in Palembang City Using the IR",
+        "Techno-Convergence and Evidentiary Contemporaneity: Comparative Analysis of Application in Advanced Jurisdictions and Ni"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Academia Earth and Planetary Science",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Mapping current Iberian tectonic stress regimes using Gutenberg–Richter b-values"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Hymenoptera Research",
+      "publisher": "Pensoft Publishers",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "First record of gynandromorphy in Andrena florivaga and an additional case in Nomada lathburiana from Germany (Hymenopte"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Architektúra & urbanizmus",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "The Juliánov Housing Estate in Brno – Its Art and Landscape Architecture"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Revista Colombiana de Cardiología",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Factores asociados a desenlaces adversos en pacientes con falla cardíaca crónica hospitalizados por SARS-CoV-2/COVID-19"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Exploration of Foods and Foodomics",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Interactions of climate change, economic and social factors on food security: a three-decade impact and threat assessmen"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The Extractive Industries and Society",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Energy transition materials, climate knowledge, and the imagined supply chain: Escaping the productive paradox of necess"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Letters In Animal Biology",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Time-dependent modulation of post-hatch cortisol and antioxidant responses in Melanotaenia boesemani embryos exposed to "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "South Florida Journal of Environmental and Animal Science",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Registration and Skeletal Preparation of a Specimen of the Black Shearwater (Procellaria aequinoctialis- Linnaeus, 1758)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Geografiska Annaler Series A Physical Geography",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Multiple portraits of dry snow avalanche slopes near villages in Nunavik, Canada"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Asia Journal of Social Innovation and Development",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Research on Carbon Zero Emissions Machine That Converts CO2 into Energy and New Materials"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "REGEPE Entrepreneurship and Small Business Journal",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 2,
+      "examples": [
+        "Peer review report of the manuscript: Application of technology readiness levels (TRL) in the assessment of an R&D proje",
+        "Application of technology readiness levels (TRL) in the assessment of an R&D project in a Brazilian industrial automatio"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Participatory Research Methods",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "The Dream Garden Game: Integrating Gamification and Playful Design to Support Public Participation in Urban Greening Pol"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Doğuş Üniversitesi Dergisi",
+      "publisher": "Doğuş University",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "INNOVATION PERFORMANCE ASSESSMENT OF SELECTED BALKAN COUNTRIES BASED ON THE GLOBAL INNOVATION INDEX USING AN ENTROPY-BAS"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Nature Chemical Biology",
+      "publisher": "Nature Portfolio",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Biosynthetic allene and alkyne formation by enzymatic prenyl demethylation"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Agroforestry Systems",
+      "publisher": "Springer Science+Business Media",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Mapping conservation status and land use change drivers in Chilean espinal agroforestry systems using CORONA KH‑4B and S"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Quaternary Environments and Humans",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Extreme events and the spread of Uralic languages"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Molecular Neuroscience",
+      "publisher": "Springer Science+Business Media",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "ABCC9/SUR2 has a Complex Expression Pattern in Human Brain Gliovascular Unit Cells, Including Astrocytes"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Quality Assurance in Hospitality & Tourism",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Reimagining Tourism Through Traveller-Centric Activism Within the Tourism Consumption System: An Upstream Social Marketi"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "JURNAL BIOS LOGOS",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Isolation and Identification of Bacterial Isolate Associated with the Plastisphere from Plastic Waste at the Sumompo Lan"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The Pan-Pacific Entomologist",
+      "publisher": "Pacific Coast Entomological Society",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Population ecology and geographic distribution of the endangered Zayante band-winged grasshopper, Trimerotropis infantil"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "REGION",
+      "publisher": "ERSA",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Population Density and Air Pollution: Should Incentives Be the Same Across U.S. Cities and States?"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Landscape Research",
+      "publisher": "Taylor & Francis",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Geographies of the underused: reflections on the overlooked heritage in the Lake Albano waterscape (Italy)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "مجلة العلوم الهندسية و تكنولوجيا المعلومات",
+      "publisher": "",
+      "direction": "三、海洋可视化",
+      "count": 3,
+      "examples": [
+        "Random Forest Prediction of Universal Accessibility Feature Adoption in Makkah City Establishments: Structural, Sectoral",
+        "A Silence Louder than Words: Dramatic Function of Silence in August Wilsons’ Fences",
+        "Kolvitsa Karelians in the 21st Century: Ethnic Identity and Historical Memory"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Physics D Applied Physics",
+      "publisher": "Institute of Physics",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "H2O2 pre-spraying enhances peroxynitrous acid generation for rapid plasma-activated gas disinfection"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The European Physical Journal E",
+      "publisher": "Springer Science+Business Media",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Thermodiffusion in aqueous alkali halide solutions from ambient to supercooled conditions: ion-specific, structural, and"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Combustion and Flame",
+      "publisher": "Elsevier BV",
+      "direction": "三、海洋可视化",
+      "count": 1,
+      "examples": [
+        "Nonlinear flame describing function and mean shift kinematics of slit flames under combined axial-transverse forcing"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Measurement and Control",
+      "publisher": "SAGE Publishing",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "WPP-LLM: Multi-source heterogeneous data fusion for wind power prediction and early fault warning based on fine-tuned LL"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Modern information security",
+      "publisher": "",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "REAL-TIME SPATIO-TEMPORAL DEDUPLICATION IN DISTRIBUTED MULTITARGET TRACKING VIA A BOUNDED-DEGRADATION ARCHITECTURE"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Hydrology",
+      "publisher": "Science Publishing Group",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Spatiotemporal Dynamics of Rainfall and Temperature Extreme Indices over Ethiopia, East Africa"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Forest Ecology and Management",
+      "publisher": "Elsevier BV",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Height-threshold-dependent estimates of forest gap characteristics, spatial patterns, and dynamics: Evidence from multi-"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Chemical Engineering Research Progress",
+      "publisher": "",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Experimental Investigation of Joule-Thomson Cooling Induced by Welded Joint Geometry in Natural Gas Pipelines"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Human Genetics",
+      "publisher": "Springer Science+Business Media",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Mitochondrial dysfunction drives metabolic reprogramming in Gitelman syndrome: insights from proteomics and isogenic mod"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Environmental Science and Engineering Technology",
+      "publisher": "",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Fusion-Based Water Extraction Using Multiple Spectral Water Indices for Accurate Wetland Mapping"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Integrated Environmental Assessment and Management",
+      "publisher": "Wiley",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Safe and Sustainable by Design Assessment of Flame Retardant Alternatives in Household Electronic Devices: A Comparison "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Communications in Partial Differential Equations",
+      "publisher": "Taylor & Francis",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Sharp well-posedness for the k-dispersion generalized Benjamin-Ono equations: short and long time results"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Robotics and Autonomous Systems",
+      "publisher": "Elsevier BV",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "A hierarchical framework for smooth and safe trajectory generation and finite-time tracking of greenhouse robots"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Geochemistry",
+      "publisher": "Elsevier BV",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "The performance of PHREEQC databases for modelling the solubility of CO2, N2, CO2-N2 mixtures, calcite and barite at ele"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Sustainable Cities and Society",
+      "publisher": "Elsevier BV",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Intelligent simulation of urban vacant land: A coupled DLPD and improved NSGA-III model with dual-scale objectives"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Advances in Bamboo Science",
+      "publisher": "Elsevier BV",
+      "direction": "五、海洋数据处理",
+      "count": 1,
+      "examples": [
+        "Predictive mapping of bamboo cultivation suitability in Thailand using cloud-based modeling"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Apollo Journal of Tourism and Business",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Tarakan as a Tourism Gateway: Integrating Coastal and Inland Destinations in North Kalimantan"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Aquaculture & Marine Biology",
+      "publisher": "MedCrave Group",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Value chain performance and market dynamics of small-scale bivalve fisheries: a case study from coastal cox’s bazar, Ban"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "INTERNATIONAL JOURNAL OF MEDICAL EVALUATION AND PHYSICAL REPORT",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Determination Of Iodine Concentration in Table Salt Consumed in Nigeria"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Dyskurs Prawniczy i Administracyjny.",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "UNCLOS and the Challenge of Private Law in Offshore Project Finance"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "British Journal of Psychology",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Psychometric properties of the EPDS ‐ 3A across pregnancy and postpartum: Factor structure and invariance in a nationwid"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of sociology, psychology & religious studies.",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "When Care Becomes Harm: Sexual Exploitation, Abuse and Harassment in Mental Health Care: Advancing a Mental Health Safeg"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Neurology Genetics",
+      "publisher": "Wolters Kluwer",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Association of Bilateral Vestibulopathy With the ZNF91/LINC01224 Locus"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Critical Public Health",
+      "publisher": "Taylor & Francis",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Prevalence and distribution of selected risk factors for non-communicable diseases in Ghana"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "African Journal of Marine Science",
+      "publisher": "Taylor & Francis",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Seasonal windows of opportunity: exploratory trawling for mesopelagic fishes off South Africa’s west coast"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Advances in Bridge Engineering",
+      "publisher": "Springer Nature",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Emerging deployment of Engineered Cementitious Composites (ECC) for durable and resilient bridge infrastructure"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Soil & Environmental Health",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Struvite-compost blends outperform triple superphosphate for sustained phosphorus release in acidic forest soils"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Discover Internet of Things",
+      "publisher": "Springer Nature",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Real time monitoring of cross border E-commerce end delivery status through low power IoT sensing"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "INTERNATIONAL JOURNAL OF HEALTH AND PHARMACEUTICAL RESEARCH",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Health Risk Measurement of Polycyclic Aromatic Hydrocarbons (Pahs) In Barbecue Food “Nile Tilapia” (Oreochromis Niloticu"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "World Journal of Biology Pharmacy and Health Sciences",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 2,
+      "examples": [
+        "GUYANA’S WATER GOVERNANCE, PUBLIC HEALTH, AND INDIGENOUS EQUITY: A REVIEW OF LEGAL AND POLICY FRAMEWORKS AFFECTING AMERI",
+        "ISOLATION, MOLECULAR IDENTIFICATION AND IMIDACLOPRID TOLERANCE OF HALOTOLERANT ENDOPHYTIC BACTERIA ASSOCIATED WITH NATIV"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Agricultural Food Science and Biotechnology",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Perceived effects of climate change and adaptive strategies by catfish processors in agricultural zone D, Kogi state, Ni"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Educational Research",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "AI-Enabled Approaches to Developing Critical Thinking Among Graduate Students in Universities of Applied Sciences"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Sensors and Materials",
+      "publisher": "MYU K.K.",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Performance Analysis for Ultrasonic Sensors Using Arduino UNO on Controller Area Network System"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Asian Journal of Engineering Social and Health",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Strengthening The Social License to Operate through Area-Based Community Empowerment: A Case Study of Lopak Alai, Kasang"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Preventive Oncology & Epidemiology",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Incidence, sex ratio, and age distribution of oesophageal cancer in Tanzania: A population-based multi-registry analysis"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Mitochondrial DNA Part B",
+      "publisher": "Taylor & Francis",
+      "direction": "四、海洋数据质量",
+      "count": 2,
+      "examples": [
+        "Complete mitochondrial genome and phylogenetic analysis of Taiwanese Wedgefish ( Rhynchobatus immaculatus )",
+        "De novo assembly and characterization of the complete chloroplast genome of Amorphophallus myosuroides Hett. & A. Gallow"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "American Journal of Applied Chemistry",
+      "publisher": "Science Publishing Group",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Assessment of Drinking Water Pollution in the Department of Dar Al-Fawakeh"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Oral Microbiology",
+      "publisher": "Taylor & Francis",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Laminin functionalization of zirconia abutments modulates early oral biofilm formation in vitro"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Bulletin of Latin American Research",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "The Memory State: Disputing the Past in Plurinational Bolivia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Philosophy & Social Criticism",
+      "publisher": "SAGE Publishing",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Rethinking Secularization: The Religion-Secular Binary, Christianity, and the Politics of Exclusion"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Intelligent Material Systems and Structures",
+      "publisher": "SAGE Publishing",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "From lab to market: A system integration perspective on flexible smart sensors"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Limnology and Freshwater Fisheries Research",
+      "publisher": "Fisheries Research Institute, Eğirdir",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "İşgalci Tür Dreissena polymorpha (Pallas, 1771)’nın (Bivalvia) Trakya’daki Lentik Ekosistemlerdeki Dağılımı ve Çevresel "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Truth in Research",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "The Carbon That Should Not Be There: Intrinsic C14 in Ancient Material?"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Slavery and Abolition",
+      "publisher": "Frank Cass & Co.",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "New Orleans and the Illegal Transatlantic Slave Trade, 1857–1861"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Research Journal of Agricultural Economics and Development",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Economics of Fish Marketing in Yenagoa Local Government Area, Bayelsa State, Nigeria"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "G3 Genes Genomes Genetics",
+      "publisher": "Genetics Society of America",
+      "direction": "四、海洋数据质量",
+      "count": 2,
+      "examples": [
+        "Comparative genomics of Sympodiorosea identifies genome evolution mediated through selective pressure on the metabolic g",
+        "Identification of novel inhibitors of Mycobacterium smegmatis growth through genome-wide overexpression of Cluster P3 my"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Jurnal JOS-MRK",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "COMPARATIVE ANALYSIS OF TIME AND COST ALLFORM AND SEMI SYSTEM FORMWORK BANK MANDIRI PIK 2"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Discover Chemistry.",
+      "publisher": "Springer, Singapore",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Multidrug-resistant Escherichia coli in selected sachet water and associated public health risk assessment in Ago-Iwoye "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Movement Disorders",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "SLC7A6OS Founder Mutation: A Rare Cause of Progressive Myoclonus Epilepsy Dated to 1100 Years Ago"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Agriculture and Human Values",
+      "publisher": "Springer Nature (Netherlands)",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Soil, solidarity, and sustainable agriculture: the grounded negotiation of environmental care in eco-farming"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Microbial Genomics",
+      "publisher": "Microbiology Society",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Deciphering the genomic landscape of Trichophyton indotineae in China and exploring a correlative model for azole resist"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Nanoparticle Research",
+      "publisher": "Springer Science+Business Media",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "An integrated framework for evaluating nano-enabled agro-inputs: linking environmental fate, exposure and field translat"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Medical and Biomedical Studies",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Chronic Methanol Exposure as a Potential Environmental Trigger of Behçet’s Disease: A Hypothesis"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Next Materials",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 2,
+      "examples": [
+        "Water-regulated processing window of soil–cement–epoxy hybrid binders for cohesive soil interface applications",
+        "Advances in carbon material synthesis for energy storage and sustainable development: an ESG aligned perspective"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal La Multiapp",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Analysis of Strategies to Improve the Financial Feasibility of the Rantauprapat–Kisaran Toll Road Section"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Health Medicine and Nursing Practice",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Qualité de l’Eau de Boisson et Pratiques Domestiques de Conservation dans l’Aire de Santé de Musumba (Likasi, RDC) : Une"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Agricultural Economics",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Pushing the Boundaries: Studies on Consumers and Food Demand in the Journal of Agricultural Economics"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Structural Concrete",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "A probabilistic framework for modeling chloride‐induced corrosion and related load‐deformation behaviour of reinforced c"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of International Development",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Time and Free Trade Agreements: Implications for the AfCFTA"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "mLife",
+      "publisher": "Wiley",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "IS Aba1‐ mediated crp‐osmC amplification enhances host‐associated fitness in Acinetobacter baumannii"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Applied Life Sciences and Environment",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Evaluation of empirical reference evapotranspiration estimation methods in the Ziway Area, Central Rift Valley, Ethiopia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Balkan Science and Technology",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Contributions to the Flora of Kızıldağ National Park (Isparta/Türkiye)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Waste Management Bulletin",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Recycled concrete aggregates: Performance, enhancement strategies, and circular construction pathways"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Photochemical & Photobiological Sciences",
+      "publisher": "Springer Science+Business Media",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Zerumbone combined with antimicrobial photodynamic inactivation reduces growth of Candida albicans biofilms and modulate"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Arts and Media Researches",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "“HEROINES” – AN EXHIBITION-STUDY OF WOMEN’S FASHION AND THE ROLE OF WOMEN DURING WORLD WAR II"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Green Analytical Chemistry",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Green molecularly imprinted polymer-based electrochemical sensors: Toward sustainable analytical applications"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Progress in Neurobiology",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "The dimorphic brain in ischemic stroke: How sex and age shape molecular pathophysiology and therapeutic responsiveness"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Phytomedicine Plus",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Thunbergia laurifolia in Thai traditional medicine: phytochemistry, detoxification mechanisms, safety considerations, an"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Biometeorology",
+      "publisher": "Springer Science+Business Media",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Transcriptomic analysis reveals physiological adaptations and immune system modulation in Romanian Holstein cattle durin"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "American Journal of Economic and Management Business (AJEMB)",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Sustainable Business Model Development Strategy for Arae Fashion Using the Triple Layered Business Model Canvas (TLBMC)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Parasites & Vectors",
+      "publisher": "BioMed Central",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Effects of urban building structures on the distribution of breeding sites and ovitrap egg counts of Aedes albopictus in"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Medical Microbiology",
+      "publisher": "Microbiology Society",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Influenza A and other respiratory viruses show distinct associations with acute respiratory presentations and temporal c"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "ABUAD International  Journal of Natural and Applied Sciences",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Colour-Dependent Variability of Toxic Metals in Commercial Acrylic Paints in Ado-Ekiti, Nigeria"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The Journals of Gerontology Series A",
+      "publisher": "Oxford University Press",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "DNA methylation variability provides a complementary epigenetic signature of aging heterogeneity: Findings from the Cana"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Media Publikasi Promosi Kesehatan Indonesia (MPPKI)",
+      "publisher": "",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Cross-Sectional Associations of Work Fatigue with Repetitive-Task Risk, Sleep Quality, and Body Mass Index among Informa"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "European Journal of Clinical Microbiology & Infectious Diseases",
+      "publisher": "Springer Science+Business Media",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Development of a rapid diagnostic test for the cefazolin inoculum effect in methicillin-susceptible Staphylococcus aureu"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Materiales de Construcción",
+      "publisher": "Spanish National Research Council",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Influence of interfacial transition zone on mechanical behavior of GGBS-modified concrete: experimental and numerical st"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Advanced Manufacturing Polymer & Composites Science",
+      "publisher": "Taylor & Francis",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Process-dependent effects of electromagnetic field exposure on epoxy network development and thermo-mechanical behaviour"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "World Journal of Gastrointestinal Surgery",
+      "publisher": "Baishideng Publishing Group",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Enhanced recovery after surgery in colorectal surgery: Do average benefits mask heterogeneous effects in patients underr"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Molecular Biomedicine",
+      "publisher": "Springer Nature",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Extracellular vesicles in targeted drug delivery: from biological functions to surface engineering"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Photoacoustics",
+      "publisher": "Elsevier BV",
+      "direction": "四、海洋数据质量",
+      "count": 1,
+      "examples": [
+        "Photoacoustic and ultrasound Imaging of placental functions in gestational diabetes: From diagnosis to precision interve"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Optics",
+      "publisher": "IOP Publishing",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Physical-layer security of underwater wireless optical communication systems under non-line-of-sight eavesdropping"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "TATOHI Jurnal Ilmu Hukum",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Customary-Based Coastal Conservation: The Responsibility of Indigenous Law Communities in Dealing with Mining Company Ac"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Children s Literature in Education",
+      "publisher": "Springer Nature",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Between Tradition and Transformation: ATU Classification and Lüthian Formal Analysis of Sophia de Mello Breyner Andresen"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Ekuilibrium Jurnal Ilmiah Bidang Ilmu Ekonomi",
+      "publisher": "Muhammadiyah University of Ponorogo",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "The Impact of Montara Compensation on Business Sustainability and The Potential for Increased Profitability Amongst Smal"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Comparative Legilinguistics",
+      "publisher": "De Gruyter",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Invisible Pollution, Inadequate Law: Rethinking Civil Liability for Non-Persistent Oil Spills in International Maritime "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Unram Journal of Community Service",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Dissemination of Sustainable Whiteleg Shrimp Farming Practices for GEDSI Groups in Dadap Village, Sambelia, East Lombok"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Higher Education Research",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "International Approaches to Environmental Protection in Chinese Enterprises’ Overseas Investment under the Silk Road Eco"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "American Journal of Life Sciences",
+      "publisher": "Science Publishing Group",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Ethnobotanical Knowledge and Traditional Uses of Griffonia simplicifolia (DC.) Baill. (Fabaceae) in Togo: Focus on Seed "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "London Journal of Research In Humanities and Social Sciences",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Oil Pollution and Environmental Challenges in the Niger Delta Region of Nigeria: The Way Forward"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Social Science and Human Research Studies",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 2,
+      "examples": [
+        "Safeguarding Vietnamese Traditional Musical Instruments in the Digital Era: A Cultural Management Perspective",
+        "From Traditional Practice to Professional Training: Vietnamese Instruments in Higher Education"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Frontiers in Ecology and the Environment",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "A multi‐objective decision‐analysis framework for addressing human–wildlife conflicts"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Gender Place & Culture",
+      "publisher": "Taylor & Francis",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Reproductive hesitation in the Norwegian petrostate"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The School of Public Policy Publications",
+      "publisher": "University of Calgary Press",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "The Fiscal Implications of Separation: Expenditures"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Flow Measurement and Instrumentation",
+      "publisher": "Elsevier BV",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Prediction of inlet gas volume fraction of a rotary vane pump based on GWO-SVR model"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Al Qodiri Jurnal Pendidikan Sosial dan Keagamaan",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Arabic for Religious Purposes A Curriculum Analysis at STAI Ali bin Abi Thalib Surabaya"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "DNA Research",
+      "publisher": "University of Oxford",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Genome Microbiology at 20 Years: Who We Are and Where We Are Going"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "JCMS Journal of Common Market Studies",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Trump's National Security Strategy and the Future of US–European Relations"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Anatolian Journal of Botany",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Lithological context of source-audited nickel hyperaccumulator and accumulator plant records in Türkiye: A descriptive g"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Nation State Journal of International Studies",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Narrative and Operational Communication on X"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of General Virology",
+      "publisher": "Microbiology Society",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Amino acid homorepeats in tape measure proteins correlate with bacteriophage tail length"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "BDJ",
+      "publisher": "Springer Nature",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Where NHS dental access in England is least resilient"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Business and Economics Journal",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "power of consumer knowledge in achieving sustainable goals"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Finance & Economics",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Minority State Ownership and Compensation Outcomes in Privately Owned Enterprises: Evidence From China"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Corporate Social Responsibility and Environmental Management",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Media Narratives of Ethical Succession: Socially Constructing Corporate Social Responsibility in Chinese Television Dram"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Indian Journal of Forensic and Community Medicine",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Palatal rugae as biological signatures: A pilot forensic evaluation of gender-related morphological variations in a Nort"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Advances in Social Behavior Research",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Sport for all: an examination of how rural sports events are designed under the all-age-friendly idea - a case study of "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Research on Multidisciplinary Studies",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Research-Related Competence, Productivity, and Culture among Secondary Mathematics Teachers in the Schools Division of D"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Energy Research & Social Science",
+      "publisher": "Elsevier BV",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Governing green enabling megaprojects: reconciling transformative risk-taking with megaproject delivery discipline"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "JOURNAL OF GEOETHICS AND SOCIAL GEOSCIENCES",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Evaluating geoscience campaigns in the conservation of water resources in the Western Region, Ghana"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Te Kaharoa",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Shirking Responsibility and Accountability: Racial Capitalism, Biculturalism and the Ethics of the Crusaders Super Rugby"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Business Preneur Jurnal Ilmu Administrasi Bisnis",
+      "publisher": "Universitas Pasundan",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "STRATEGI PENINGKATAN KEPUASAN DAN LOYALITAS PELANGGAN MELALUI KUALITAS PELAYANAN DI PT. SAHABAT PUTRA SERAYU DIENG"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Environmental Planning and Management",
+      "publisher": "Taylor & Francis",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Professional legitimacy in Swedish wildlife management: frontline bureaucrats in a gendered governance landscape"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Religion and Health",
+      "publisher": "Springer Science+Business Media",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "The Spiritual Dimension of Palliative Care Patients and Their Caregivers in a Compassionate Community in Two Brazilian F"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Discover Green Chemistry",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Research progress in the preparation of lactic acid from biomass by chemical catalytic process"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Al-Risalah Forum Kajian Hukum dan Sosial Kemasyarakatan",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "ADVANCING SDGs THROUGH FIQH AL-BI'AH: A SWOT Analysis of Perlang Village, Central Bangka Regency"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Biology of Sport",
+      "publisher": "Termedia Publishing House",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Context-dependent effects of environmental conditions on match running performance in elite soccer"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Law & Society Review",
+      "publisher": "Cambridge University Press",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "From borders to courts: assembling pushback cases in a hostile transnational setting"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Ethics and Society",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Cultural Evolution Theory – Bridging Which Gap?"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Policing & Society",
+      "publisher": "Taylor & Francis",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Policing interactions and outcomes under shifting decriminalization policies in British Columbia: insights from people w"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Supply Chain Management An International Journal",
+      "publisher": "Emerald Publishing Limited",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Navigating blockchain assimilation in supply chain organisations: an integrated institutional and innovation assimilatio"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Digithum",
+      "publisher": "Open University of Catalonia",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Trabajo, relaciones sociales y emociones: una mirada a la economía de la esperanza en el sur del Perú"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Comparative Legal History",
+      "publisher": "Taylor & Francis",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Between usury and legitimate profit: confessional normative frameworks and the five per cent contract in early modern Ge"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The Round Table",
+      "publisher": "Taylor & Francis",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Protest, silence and repression: Gaza and the state of freedom and democracy in the Commonwealth"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "German Life and Letters",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "GENDER, POWER AND IMPLICATION IN ANTJE RÁVIK STRUBEL'S NOVEL BLAUE FRAU"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Pamukkale University Journal of Social Sciences Institute",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "THE IMPACT OF FAILED STATES ON GLOBAL SECURITY: AFGHANISTAN, IRAQ AND SYRIA"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Economía & Negocios",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Alineación estratégica de las 5P: Cuantificación del valor sostenible en el IPC a través de LSEG ESG Analytics"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Applied Psychology Health and Well-Being",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "How behavioural changes can help deal with the health impacts of climate change to achieve SDG 13 (climate action)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Trakya Üniversitesi sosyal bilimler dergisi/Trakya Üniversitesi Sosyal Bilimler dergisi",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "A Bibliometric Analysis of Airline Consumers’ Purchasing Behaviour in Digital Age"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Innovative Research and Scientific Studies",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "QoS-aware routing in software-defined internet of things: A comparative evaluation of Dijkstra and bellman–ford under he"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Frontiers in Business Economics and Management",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Research on Improving Supply Chain Risk Management and Resilience of Energy Production Enterprises"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Academic Research in Business and Social Sciences",
+      "publisher": "Human Resource Management Academic Research Society",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "From Context to Process: A Narrative Literature Review of Analytical Models in Linguistic Landscape Research"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Current Oncology Reports",
+      "publisher": "Springer Science+Business Media",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Next-Generation Sequencing in Translational Sarcoma Research: Biological Insights and Emerging Directions"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "European Financial Management",
+      "publisher": "Wiley",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "The Spillover Effects of Exogenous Events on Management Forecasts: Evidence From U.S. Major Hurricanes"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Indret: Revista para el Análisis del Derecho",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Voluntas, arbitrium y malitia en la configuración unilateral del contrato"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Economics & Business Management",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "The impact of national strategies on the high-quality development of the Yellow River Cultural Tourism Belt -- A quasi-n"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "INTERNATIONAL JOURNAL OF EDUCATION AND EVALUATION",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Attainment of Sustainable Economic Development through Digital Instructional Technologies in the Nigerian Universities"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Griffith Law Review",
+      "publisher": "Taylor & Francis",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Children’s rights at crossroads: how do children’s rights hold up in the twenty-first century?"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Arts and Humanities",
+      "publisher": "",
+      "direction": "六、数据管理与共享",
+      "count": 1,
+      "examples": [
+        "Release Them and Let Them Go"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Maps",
+      "publisher": "Taylor & Francis",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Submarine geomorphological features of the Gran Canaria island based on multibeam bathymetry"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Fluid Dynamics",
+      "publisher": "Pleiades Publishing",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "CFD-Based Investigation of the Drag-Reduction Characteristics in Heterogeneous Autonomous Underwater Vehicle Formations"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Systems Science",
+      "publisher": "Taylor & Francis",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Distributed adaptive safety-critical coverage control of multiple autonomous underwater vehicles"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Proceedings of the Institution of Mechanical Engineers Part I Journal of Systems and Control Engineering",
+      "publisher": "SAGE Publishing",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Sliding mode control for trajectory tracking of autonomous underwater vehicles via predefined time disturbance observer"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "National Academy Science Letters",
+      "publisher": "Springer Science+Business Media",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Parental Care Behaviour in the Genus Stenella: A Field-Based Documentation from the Southeastern Arabian Sea"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Problems of fisheries",
+      "publisher": "",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Biological characteristic of the Laptev sea greenland halibut Reinhardtius hippoglossoides (Pleuronectidae) and comparat"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Contemporary Problems of Ecology",
+      "publisher": "Pleiades Publishing",
+      "direction": "七、开放航次与科考",
+      "count": 2,
+      "examples": [
+        "Aeromycota of Barentsburg (Spitsbergen Archipelago) and Adjacent Territories",
+        "Mycobiota of the Bottom Sediments of the White Sea: Metabarcoding and Cultural Method"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Contributions to Mineralogy and Petrology",
+      "publisher": "Springer Science+Business Media",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Cr-spinel-hosted inclusions provide evidence for reactive melt transport in layered gabbros from the lower oceanic crust"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Lankesteriana",
+      "publisher": "Lankester Botanical Garden",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Orchidaceae Spirito-Sanctensis: A taxonomic and conservation synopsis of orchid diversity in the state of Espírito Santo"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of the Iranian Chemical Society",
+      "publisher": "Springer Science+Business Media",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Aqueous extract of Nasturtium officinale: a potential therapeutic approach to be explored in the fight against multidrug"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Islamic history and literature.",
+      "publisher": "Jomard Publishing",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Western Writings on Ottoman Algeria: Between Historical Documentation, Ideological Bias, and Military Intelligence"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Turcology Research",
+      "publisher": "",
+      "direction": "七、开放航次与科考",
+      "count": 3,
+      "examples": [
+        "Topography of the High Country, Ancient Spatial Transformation of Eastern Anatolia from Uruatri to Armenia",
+        "Mongolian Loanwords in Kazakh: A Semantic and Cultural Analysis",
+        "The Educational Experiences of Students from the Republic of Azerbaijan in Weimar Germany (1920-1924)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Tourism Planning & Development",
+      "publisher": "Taylor & Francis",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Understanding Obese Tourists’ Travel Intentions: Integrating Social Identity and Complexity Theories"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Automation Control and Intelligent Systems",
+      "publisher": "Science Publishing Group",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Design and Stability Analysis of an Aerosonde UAV Using Linear Quadratic Regulator Control"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The Classical Quarterly",
+      "publisher": "Cambridge University Press",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "WARDING OFF A ROMAN INVASION IN AETHIOPIA (UPPER NUBIA) WITH TALL ELEPHANT TALES? REVISITING PLINY, NATURALIS HISTORIA 6"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Herança",
+      "publisher": "Eduardo Manuel de Almeida Leite",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Rethinking “Dead” Objects: Baya Pandang and the Cultural Lives of Iban Artifacts in Sarawak Museum Collections"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "The Design Journal",
+      "publisher": "Routledge",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Undisciplining service design: Towards a grammar of possibility"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Children s Geographies",
+      "publisher": "Taylor & Francis",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "Colonial memories in landscapes and waterways: the vital materialism of troubling childhood histories"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Agrarian South Journal of Political Economy A triannual Journal of Agrarian South Network and CARES",
+      "publisher": "SAGE Publishing",
+      "direction": "七、开放航次与科考",
+      "count": 1,
+      "examples": [
+        "From Nahda to Naksa: Some Marxist Perspectives on the Arab National Question"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Sustainable Marine Structures",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Sentinel-2 Bathymetry Indicates River-Mouth Migration and Asymmetric Sediment Redistribution at Cua Dai, Vietnam"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Inkanyiso",
+      "publisher": "African Journals OnLine",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Sonic selves, ancestral archives: Identity, language and cultural memory in amaXhosa sacred practice"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Discover Hazards",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Documenting the coastal erosion-driven collapse of a Cold War underground monitoring station via laser scanning"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Jurnal Ilmiah Manajemen Kesatuan",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Strategic Management of Household Economic Resilience among Coastal Communities under Relocation Pressure"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Biotechnic & Histochemistry",
+      "publisher": "Taylor & Francis",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Pathologic and immunohistochemical findings in sea bass (Dicentrarchus labrax) naturally infected with Aeromonas veronii"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Carbohydrate Research",
+      "publisher": "Elsevier BV",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Molecular recognition of glycosaminoglycans and their sulfated deep-sea bacteria-derived mimetics, diabolican and infern"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Comparative Studies in Society and History",
+      "publisher": "Cambridge University Press",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Coerced Labor, Caste, and Aspirations for Liberty in Early Nineteenth-Century Bengal: Revisiting the Antislavery Debate "
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Scientific Drilling",
+      "publisher": "Copernicus Publications",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "GRIND-ECT: geological research through integrated Neoproterozoic drilling – Ediacaran–Cambrian transition"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Econometrics Journal",
+      "publisher": "Oxford University Press",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "The Global Carbon Budget as a cointegrated system"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Bon Voyage",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Migration, Displacement, and Identity Transformation in Gaiutra Bahadur’s Coolie Woman: The Odyssey of Indenture"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Ethnobiology and Conservation",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Wood identification and traditional boatbuilding along the Amazonian coast"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "ENVIRONMENTAL SMOKE",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "FROM ANCESTRAL LANDSCAPES TO THE TWENTY-FIRST CENTURY: A HISTORICAL AND SOCIO-ENVIRONMENTAL SYNTHESIS OF PARAÍBA, NORTHE"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Pomorstvo",
+      "publisher": "University of Rijeka, Faculty of maritime studies",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Cargo-vessel Congestion at Three Major United States Gateways During the 2020–2022 Supply-chain Disruption"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Asian Journal of Fisheries and Aquatic Research",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Length-weight Relationship and Condition Factor of Some Commercial Artisanal Fish Species in Bamusso Coast, Cameroon"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Sciences and Innovation Engineering",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "India's Disaster Management Policy: Mandate vs. Ground Reality"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Journal of Language and Literary Studies",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "A Comparative Study of Solastalgia in Contemporary Post-Disaster Fiction"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "ETDC Indonesian Journal of Research and Educational Review",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Transmitting Values Through Maudu’ Lompoa: Vernacular Ritual and Character Education in Pluralistic Indonesia"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Cambridge Review of International Affairs",
+      "publisher": "Taylor & Francis",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Exporting nuclear secrecy. The transatlantic diffusion of nuclear secrecy practices in the postwar period (1945-1953)"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Oil Palm Research",
+      "publisher": "Malaysian Palm Oil Board",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "GLOBAL RESEARCH TRENDS ON PALM OIL FUEL ASH (POFA) FROM 1995 TO 2025: A BIBLIOMETRIC ANALYSIS"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "African Journal of History and Geography",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "A Historical Analysis of the Social and Cultural Profile of Songea Town in the United Republic of Tanzania, 1960-2022"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Clinical Social Work Journal",
+      "publisher": "Springer Science+Business Media",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Nature-Based Interventions in Practice: A Scoping Review of Social Work Literature"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Peer Community Journal",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Comparing DNA extraction protocols for freshwater prokaryotic communities: impacts on yield and microbial profiling"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Horizontes Revista de Investigación en Ciencias de la Educación",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "La evolución de los modelos de investigación-acción en la formación inicial docente: Una revisión sistemática"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "World Economy",
+      "publisher": "Wiley",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Environmental Provisions in Preferential Trade Agreements and Chinese Firms' Domestic Value‐Added Ratio in Exports: Tech"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Emerging contaminants",
+      "publisher": "KeAi",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Microbial succession and functional responses in riverine sediments following transient 6PPD exposure and rapid contamin"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Animal Ecology",
+      "publisher": "Wiley",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Contrasting associations between parental coordination and breeding success in albatrosses across differing environmenta"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Biogeochemistry",
+      "publisher": "Springer Science+Business Media",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Investigating the persistence of iron-bound phosphorus in lake sediment under sulfidic conditions"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Advances in Agriculture & Botanics",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Microplastics along the food chain: contamination pathways, consumer perception, and implications for sustainable food s"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Dietary Supplements and Nutraceuticals",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Nutraceuticals, functional foods, and bioactive compounds for healthy skin aging: Effects on hydration, elasticity, wrin"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Pacific Archaeology",
+      "publisher": "",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Wiggles, Plateaus, and Precision: High-Resolution Radiocarbon Dating of the Transition from Early East Polynesian to Cla"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Functional Ecology",
+      "publisher": "Wiley",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "When is the bait worth the risk? A mechanistic model of a compensatory ecological trap in seabirds"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "International Agrophysics",
+      "publisher": "De Gruyter Open",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Managing soil contamination risks: Microbiome and agricultural practices: a review"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Journal of Archaeological Method and Theory",
+      "publisher": "Springer Science+Business Media",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "Unbowed: Raiding and Hunting with Paracas Spearthrowers and Slings and the Conspicuous Absence of the Bow in Western Sou"
+      ],
+      "first_seen": "2026-09-24",
+      "asked": false
+    },
+    {
+      "journal": "Operations Research Letters",
+      "publisher": "Elsevier BV",
+      "direction": "八、海洋数据中心",
+      "count": 1,
+      "examples": [
+        "A computational comparison of handling distance constraints in MINLP"
+      ],
+      "first_seen": "2026-09-24",
       "asked": false
     }
   ]
