@@ -202,7 +202,7 @@ html = '''<!DOCTYPE html>
 <div class="header">
   <div class="header-badge">Marine AI Daily Brief</div>
   <h1>海洋AI技术日报</h1>
-  <div class="date-line">''' + TODAY_CN + ''' · 周日</div>
+  <div class="date-line">''' + TODAY_CN + ''' · 周四</div>
 </div>
 <div class="container">
 <div class="summary-bar">
@@ -258,7 +258,7 @@ for si, section in enumerate(sections, 1):
 html += '''</div>
 <div class="footer">
   <p>海洋AI技术日报 · 自动生成于 ''' + TODAY_CN + '''</p>
-  <p>Powered by WorkBuddy AI · 本期来源：Ocean Engineering、Scientific Reports、JGR: Machine Learning and Computation、Engineering Applications of AI、npj Climate and Atmospheric Science、Communications Earth & Environment、AquaCultural Engineering、Earth System Science Data、Scientific Data、Computational Geosciences、Remote Sensing Letters、Molecular Ecology Resources、PLOS ONE、Marine Mammal Science、Ocean Modelling、Nonlinear Processes in Geophysics、BAMS、Journal of Maps、Critical Reviews in Analytical Chemistry、Peer Community in Ecology、Frontiers in Marine Science、arXiv、Copernicus Marine（CMEMS）、EuroGOOS/欧盟委员会、葡萄牙水文研究所、中科院海洋研究所、澎湃新闻</p>
+  <p>Powered by WorkBuddy AI · 本期来源：arXiv、Ocean Engineering、Scientific Reports、Communications Earth &amp; Environment、npj Climate and Atmospheric Science、Earth System Science Data、Scientific Data、Marine Pollution Bulletin、Computers &amp; Geosciences、JGR: ML and Computation、Frontiers in Marine Science、PLOS ONE、Aquacultural Engineering、Journal of Maps、Remote Sensing Letters、PCI Ecology、Copernicus Marine、EDITO（欧洲数字孪生海洋）、IOC-UNESCO、欧盟委员会、EuroGOOS、NOAA Ocean Exploration、Nautilus Live、中科院海洋所、中国科学报/科学网、SEANOE、GEBCO</p>
 </div>
 </body>
 </html>'''
