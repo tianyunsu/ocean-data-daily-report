@@ -1,159 +1,28 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-直接以数据对象形式定义，绕过字符串引号冲突
-"""
-import requests
-import json
-import sys
-import time
-from datetime import datetime, timedelta
+"""Write SECTIONS for 2026-09-27 into feishu_write_doc.py (regex replace)."""
+import re
 
-APP_ID = "cli_a93d483f6ff81bca"
-APP_SECRET = "CU3EPesfCzNayK4bqsnh6droaJsf4HV8"
-TENANT_DOMAIN = "wcn5jx0ifkx3.feishu.cn"
-
-yesterday_cn = (datetime.now()).strftime('%Y年%m月%d日')
-today_date = (datetime.now()).strftime('%Y-%m-%d')
 SECTIONS = [{'title': '一、海洋人工智能', 'en': 'Ocean AI / Marine Artificial Intelligence', 'items': [{'title': '打开海浪学习的黑箱：从特征混合网络到函数关系', 'badge': '[论文]', 'abstract': 'Journal of Physical Oceanography 刊文针对深度学习海浪模型可解释性不足的问题，系统剖析特征混合（feature-mixing）网络从输入场中提取何种信息、以何种方式映射为波浪场响应，并结合 Integrated Gradients 归因与符号回归将网络学到的映射蒸馏为显式函数关系，使"海浪学习"从黑箱预测走向可核查的物理理解，为海洋ML模型的可信化评估提供方法论范式。', 'source': 'Journal of Physical Oceanography', 'url': 'https://doi.org/10.1175/jpo-d-26-0131.1', 'date': '2026-09-20'}, {'title': '基于Cummins方程的物理信息神经网络：波浪能装置响应预测与系统辨识', 'badge': '[论文]', 'abstract': 'Ocean Engineering 刊文将波浪能转换器（WEC）经典 Cummins 方程嵌入 PINN 框架，在仅利用少量波浪与运动观测的条件下同时完成响应预测与水动力系统辨识，兼顾物理约束与数据驱动优势，为波浪能装置的实时响应评估与设计迭代提供新工具。', 'source': 'Ocean Engineering', 'url': 'https://doi.org/10.1016/j.oceaneng.2026.127974', 'date': '2026-09-20'}, {'title': 'CoralscapesV2：珊瑚礁全景分割与细粒度视觉场景理解', 'badge': '[论文]', 'abstract': 'arXiv 2609.12826 在珊瑚礁场景理解基准 Coralscapes 基础上推出 V2 版本，将任务从语义分割扩展到全景分割与细粒度物种级识别，覆盖更多站位与更丰富的底栖类别，并给出当前视觉模型在珊瑚礁复杂纹理与浑浊水体条件下的系统性评测，为礁栖生态的自动化监测奠定数据与评测基础。', 'source': 'arXiv (cs.CV)', 'url': 'https://arxiv.org/abs/2609.12826', 'date': '2026-09-20'}, {'title': '计算机视觉简化环斑海豹数量估算：从航拍到丰度评估', 'badge': '[论文]', 'abstract': 'Polar Biology 刊文针对环斑海豹（Pusa hispida）种群及幼崽产量评估中传统目视计数成本高、可重复性差的问题，构建了基于计算机视觉的检测与计数流程，利用航空影像自动完成海豹个体识别与丰度估算，显著压缩人工核查工作量，为北极冰区哺乳动物的大范围业务化监测提供可行路径。', 'source': 'Polar Biology', 'url': 'https://doi.org/10.1007/s00300-026-03548-0', 'date': '2026-09-27'}, {'title': 'Underwater C3-JEPA：面向ROV打捞的物体中心跨视角世界模型', 'badge': '[论文]', 'abstract': 'arXiv 2609.30214 提出面向水下机器人打捞作业的跨视角世界模型 C3-JEPA，以物体为中心的表征学习融合不同视角与模态的观测，在预训练-微调范式下提升 ROV 对水下目标状态的理解与操作策略泛化能力，是联合嵌入式预测（JEPA）路线在水下操纵场景的较早落地尝试。', 'source': 'arXiv (cs.RO)', 'url': 'https://doi.org/10.48550/arxiv.2609.30214', 'date': '2026-09-27'}]}, {'title': '二、海洋数字孪生', 'en': 'Ocean Digital Twin', 'items': [{'title': 'LORA-QG v2.0：LETKF准全球海洋再分析产品发布与多套再分析交叉验证', 'badge': '[论文]', 'abstract': 'Ocean Science 刊文发布基于集合卡尔曼滤波（LETKF）的准全球海洋研究分析产品 LORA-QG 2.0，并与多套涡分辨全球海洋再分析数据集开展系统交叉验证，评估其在中尺度涡、层结与环流表征上的相对优势与局限，为数字孪生海洋提供可复现、可更新的再分析底座。', 'source': 'Ocean Science', 'url': 'https://doi.org/10.5194/os-22-2915-2026', 'date': '2026-09-27'}, {'title': '观测、集合再分析与CMIP6模式对南极底层水的表征现状评估', 'badge': '[论文]', 'abstract': 'Ocean Science 刊文系统评估当前观测网络、集合再分析与 CMIP6 模式对南极底层水（AABW）生成、输运与变化过程的刻画能力，指出观测稀疏与模式偏差叠加导致 AABW 长期趋势估计仍存在显著不确定性，为孪生海洋中深水环流的同化与模拟改进列出优先事项。', 'source': 'Ocean Science', 'url': 'https://doi.org/10.5194/os-22-2691-2026', 'date': '2026-09-20'}, {'title': '面向地中海西部波浪能应用的Copernicus Marine再分析偏差订正', 'badge': '[论文]', 'abstract': 'Applied Ocean Research 刊文针对 Copernicus Marine 波浪再分析产品在地中海西部近岸的系统性偏差，发展面向波浪能资源评估的偏差订正方案，订正后的有效波高与波能流密度统计更贴近浮标观测，为区域海洋能规划提供更可靠的数据输入。', 'source': 'Applied Ocean Research', 'url': 'https://doi.org/10.1016/j.apor.2026.105259', 'date': '2026-09-27'}]}, {'title': '三、海洋可视化', 'en': 'Ocean Visualization & Interaction', 'items': [{'title': 'VR与斑海豹共潜：沉浸式体验提升海洋联结感，对话式AI效果因经验而异', 'badge': '[论文]', 'abstract': 'Computers & Education: X Reality 刊文通过受控实验发现，与斑海豹"同潜"的VR体验显著提升参与者的海洋联结感（ocean connectedness）；而对话式AI助手对亲环境行为意向的增益依赖于参与者先前的海豹接触经验，提示海洋传播类沉浸式设计需按受众分层，为海洋科普可视化交互设计提供实证依据。', 'source': 'Computers & Education: X Reality', 'url': 'https://doi.org/10.1016/j.cexr.2026.100181', 'date': '2026-09-20'}, {'title': '面向神经多样性群体的水下VR潜水参与研究', 'badge': '[论文]', 'abstract': 'Journal of Enabling Technologies 刊文探索水下虚拟现实如何帮助神经多样性（neurodivergent）群体参与潜水活动与海洋体验，分析VR介入在学习曲线、焦虑水平与参与意愿上的作用，拓展了海洋可视化技术在包容性设计维度的应用边界。', 'source': 'Journal of Enabling Technologies', 'url': 'https://doi.org/10.1108/jet-04-2026-0032', 'date': '2026-09-20'}, {'title': '"此处有鲨鱼！"：用游戏化三维可视化提升鲨鱼科学传播', 'badge': '[论文]', 'abstract': 'arXiv 2609.08386 介绍了一套面向公众的鲨鱼追踪数据可视化系统，将个体鲨鱼的卫星轨迹与栖息地信息以游戏化三维界面呈现，支持探索式交互与科学解读，展示了科研轨迹数据经由可视化设计转化为公众科学传播资产的路径。', 'source': 'arXiv', 'url': 'https://arxiv.org/abs/2609.08386', 'date': '2026-09-20'}, {'title': '三维地理空间海洋数据集的可视化与动画化试验', 'badge': '[论文]', 'abstract': 'ICA 摘要集收录工作针对三维地理空间海洋学数据集开展可视化与动画表达试验，比较不同渲染与叙事化手段在表达垂向结构与时变过程上的效果，为海洋制图社区的三维数据可视化实践提供参考案例。', 'source': 'Abstracts of the ICA', 'url': 'https://doi.org/10.5194/ica-abs-12-50-2026', 'date': '2026-09-20'}]}, {'title': '四、海洋数据质量', 'en': 'Ocean Data Quality', 'items': [{'title': '大堡礁中部高分辨率ROMS模式：LP优化水深与真实径流强迫下的开发与验证', 'badge': '[论文]', 'abstract': 'Ocean Modelling 刊文为大堡礁中部构建高分辨率 ROMS 模式，采用线性规划优化的水深数据并引入真实河流径流强迫，通过与观测的系统性验证评估环流与水团结构模拟改善，说明地形质量控制与径流强迫的合理设定对近岸高分辨率模式质量的决定性作用。', 'source': 'Ocean Modelling', 'url': 'https://doi.org/10.1016/j.ocemod.2026.102825', 'date': '2026-09-20'}]}, {'title': '五、海洋数据处理', 'en': 'Ocean Data Processing', 'items': [{'title': '全球平均海平面重建短期变率的改进：风场驱动订正', 'badge': '[论文]', 'abstract': 'Ocean Science 刊文指出全球平均海平面（GMSL）重建产品在短期时间尺度上受风场驱动的区域信号影响而存在变率偏差，提出针对性的订正方案，改进后的 GMSL 重建与独立观测的一致性显著提升，为海平面变化监测与归因提供更干净的低频信号。', 'source': 'Ocean Science', 'url': 'https://doi.org/10.5194/os-22-2673-2026', 'date': '2026-09-20'}, {'title': 'VIIRS夜间海洋液态云光学与微物理参数反演：物理信息机器学习方案', 'badge': '[论文]', 'abstract': 'Remote Sensing of Environment 刊文针对夜间无可见光条件下云光学厚度与粒子有效半径反演难题，基于 VIIRS 红外波段构建物理信息机器学习反演框架，将辐射传输约束嵌入学习过程，实现夜间海洋液态云参数的稳定反演，为昼夜连续的海洋气象数据记录补齐关键一环。', 'source': 'Remote Sensing of Environment', 'url': 'https://doi.org/10.1016/j.rse.2026.115684', 'date': '2026-09-27'}, {'title': '超越平坦海底：侧扫声呐重建的闭式两视约束', 'badge': '[论文]', 'abstract': 'arXiv 2609.25271 针对侧扫声呐三维重建中"平海底"假设的局限，推导一种闭式两视几何约束，将非平坦地形下的声线几何关系显式纳入重建方程，在仿真与实测数据上均提升了重建精度与稳定性，为AUV侧扫测绘数据的精细处理提供解析工具。', 'source': 'arXiv', 'url': 'https://arxiv.org/abs/2609.25271', 'date': '2026-09-27'}, {'title': 'FP-MUSIC：抗浪条件下被动AUV定位', 'badge': '[论文]', 'abstract': 'arXiv 2609.27712 提出波扰条件下的被动AUV声源定位方法 FP-MUSIC，通过改进的子空间分解与频率处理抑制海浪噪声对到达角估计的污染，在仿真与湖试/海试数据中验证了低信噪比条件下的定位稳健性，服务于AUV编队的无源协同导航。', 'source': 'arXiv', 'url': 'https://arxiv.org/abs/2609.27712', 'date': '2026-09-27'}, {'title': '机器学习后验改进地中海波浪再分析数据', 'badge': '[论文]', 'abstract': 'Applied Ocean Research 刊文用机器学习方法对地中海波浪再分析产品开展后验改进，学习再分析场与观测残差之间的非线性映射，显著降低有效波高误差并改善极端海况下的统计特征，为现有再分析数据集的低成本"增值"处理提供范例。', 'source': 'Applied Ocean Research', 'url': 'https://doi.org/10.1016/j.apor.2026.105271', 'date': '2026-09-27'}]}, {'title': '六、数据管理与共享', 'en': 'Data Management & Sharing', 'items': [{'title': 'EMODnet Ingestion：面向开放科学的欧洲海洋数据汇交机制', 'badge': '[论文]', 'abstract': 'Rendiconti Online 刊文系统介绍 EMODnet 数据汇交（Ingestion）机制如何将分散于欧洲科研机构、项目与个体研究者手中的"沉睡"海洋数据经质控、元数据规范化后纳入开放科学基础设施，并总结十余年运行中在数据授权、激励与互操作方面的经验教训，对区域海洋数据治理具有借鉴意义。', 'source': 'Rendiconti Online SGI', 'url': 'https://doi.org/10.3301/rol.2026.33', 'date': '2026-09-27'}, {'title': '推进海洋公民科学数据集成：协作研讨会洞见', 'badge': '[论文]', 'abstract': 'Frontiers in Marine Science 刊文基于多利益相关方协作研讨会的成果，梳理海洋公民科学数据在质量保障、元数据标准、平台互操作与激励设计等环节的集成瓶颈，给出面向数据基础设施运营者的行动建议，推动公民科学观测真正进入主流海洋数据体系。', 'source': 'Frontiers in Marine Science', 'url': 'https://doi.org/10.3389/fmars.2026.1894836', 'date': '2026-09-27'}, {'title': 'ISO/TC8海洋技术分委会（SC13）召开第十三次全会', 'badge': '[要闻]', 'abstract': '9月14-18日，ISO/TC8第45届全会期间，海洋技术分委会（SC13）在加拿大哈利法克斯召开第13次全会。SC13主席陈大可院士主持会议；2026年SC13已发布海底地形地貌探测、潜水器、海水淡化等领域国际标准6项，成员国增至22个。ISO/TC8全会决议决定在SC13启动深海采矿标准化相关工作，对接国际立法机构、工业界与学术界的标准需求。', 'source': '自然资源部第二海洋研究所', 'url': 'https://www.sio.org.cn/a/snyw/23338.html', 'date': '2026-09-23'}]}, {'title': '七、开放航次与科考', 'en': 'Open Cruises & Expeditions', 'items': [{'title': 'E/V Nautilus启航NA182：夏威夷群岛深海新增栖息地探查', 'badge': '[航次]', 'abstract': '9月22日至10月12日，E/V Nautilus 执行 2026 年度收官航次 NA182"夏威夷群岛深海栖息地"，聚焦帕帕哈瑙莫夸凯国家海洋保护区东部未勘查海岭与海山、主群岛西南深积平原，利用 ROV 与测绘系统开展公开直播式探查，并部署夏威夷大学新研制的海底着陆器与低光相机系统支撑深海珊瑚监测。', 'source': 'Nautilus Live / OET', 'url': 'https://nautiluslive.org/cruise/NA182', 'date': '2026-09-22'}, {'title': '德国北海专属经济区多传感器船测重力调查的评估与融合', 'badge': '[论文]', 'abstract': 'Marine Geodesy 刊文对德国北海专属经济区内多航次、多型号重力仪获得的船测重力数据进行系统评估与融合，量化不同传感器与作业条件下的误差结构，给出多源船测重力数据一致化处理流程，为高分辨率区域重力场构建与海底构造解释提供数据质量参考。', 'source': 'Marine Geodesy', 'url': 'https://doi.org/10.1080/01490419.2026.2726371', 'date': '2026-09-20'}, {'title': '哥伦比亚太平洋三条航道走航ADCP观测的道尺度潮流结构', 'badge': '[论文]', 'abstract': 'Frontiers in Marine Science 刊文利用走航式ADCP在哥伦比亚太平洋三条航运通道开展潮流观测，揭示相位依赖的垂向结构及其与层结的解耦关系，示范了商船航线上的低成本走航观测如何贡献于水道动力学认识与通航安全数据基础。', 'source': 'Frontiers in Marine Science', 'url': 'https://doi.org/10.3389/fmars.2026.1898407', 'date': '2026-09-20'}]}, {'title': '八、海洋数据中心', 'en': 'Ocean Data Centers', 'items': [{'title': '南海北部全新世相对海平面数据库：质量筛查与中全新世高海面证据', 'badge': '[数据]', 'abstract': 'Palaeogeography, Palaeoclimatology, Palaeoecology 刊文发布经质量筛查的南海北部全新世相对海平面数据库，统一整理指示物类型、测年与高程基准信息，并据此识别出中全新世高海面（highstand）信号，为区域地壳均衡与海平面变化模拟提供可复用的基准数据集。', 'source': 'Palaeogeography Palaeoclimatology Palaeoecology', 'url': 'https://doi.org/10.1016/j.palaeo.2026.114210', 'date': '2026-09-20'}]}, {'title': '九、工具与代码资源', 'en': 'Tools & Code', 'items': [{'title': 'SeapoPym v0.1：SEAPODYM低中营养级模块的Python实现与灵活优化框架', 'badge': '[工具]', 'abstract': 'Geoscientific Model Development 刊文发布 SeapoPym v0.1，将海洋生态系统-渔业耦合模型 SEAPODYM 的低中营养级动力学以 Python 重新实现，并提供灵活的参数优化框架，降低模型开发与区域化应用的门槛，支持与新兴数据同化工作流的衔接。', 'source': 'Geoscientific Model Development', 'url': 'https://doi.org/10.5194/gmd-19-8349-2026', 'date': '2026-09-20'}, {'title': 'TOS²CA：主题观测搜索、分割、汇编与分析系统', 'badge': '[工具]', 'abstract': 'F1000Research 刊文介绍 TOS²CA 系统，面向海洋与气候研究社区提供对多源主题观测数据的搜索、分割、汇编与分析一体化流水线，支持从原始观测到分析就绪数据集的自动化处理，提升跨数据中心的观测数据复用效率。', 'source': 'F1000Research', 'url': 'https://doi.org/10.12688/f1000research.190102.1', 'date': '2026-09-27'}]}]
 
 
-
-def tr(text, bold=False, link=None):
-    element = {"text_run": {"content": text}}
-    if bold:
-        element["text_run"]["style"] = {"bold": True}
-    if link:
-        element["text_run"]["link"] = {"url": link}
-    return element
-
-
-def paragraph(elements):
-    return {"block_type": 2, "text": {"elements": elements, "style": {}}}
-
-
-def heading(text, level=1):
-    prefix = {1: "\u3010", 2: "  >> "}.get(level, "    ")
-    suffix = {1: "\u3011", 2: ""}.get(level, "")
-    return paragraph([tr(prefix + text + suffix, bold=True)])
-
-
-def divider():
-    return paragraph([tr("\u2500" * 50)])
-
-
-def item_block(num, title, badge, abstract, source, date, url):
-    blocks = []
-    badge_text = badge if badge else ""
-    title_text = f"{badge_text} {title}" if badge_text else title
-    blocks.append(paragraph([tr(f"  {num}. ", bold=True), tr(title_text, bold=True, link=url)]))
-    blocks.append(paragraph([tr(abstract)]))
-    meta_parts = []
-    if source:
-        meta_parts.append(f"来源：{source}")
-    if date:
-        meta_parts.append(f"日期：{date}")
-    if url:
-        meta_parts.append(f"链接：{url}")
-    blocks.append(paragraph([tr(" | ".join(meta_parts), bold=False)]))
-    blocks.append(divider())
-    return blocks
-
-
-def section_block(title, en_title, items):
-    blocks = []
-    blocks.append(heading(title, 1))
-    blocks.append(paragraph([tr(en_title, bold=False)]))
-    blocks.append(divider())
-    for i, item in enumerate(items, 1):
-        blocks.extend(item_block(
-            i,
-            item.get('title', ''),
-            item.get('badge', ''),
-            item.get('abstract', ''),
-            item.get('source', ''),
-            item.get('date', ''),
-            item.get('url', '')
-        ))
-    return blocks
-
-
-def build_blocks():
-    blocks = []
-    blocks.append(heading(f"海洋AI技术日报 · {datetime.now().strftime('%Y年%m月%d日')}", 1))
-    blocks.append(divider())
-    for section in SECTIONS:
-        blocks.extend(section_block(
-            section['title'],
-            section.get('en', ''),
-            section.get('items', [])
-        ))
-    return blocks
-
-
-def create_document_and_write(tenant_access_token):
-    url = "https://open.feishu.cn/open-apis/docx/v1/documents"
-    payload = {"title": f"海洋AI技术日报 {datetime.now().strftime('%Y-%m-%d')}"}
-    headers = {
-        "Authorization": f"Bearer {tenant_access_token}",
-        "Content-Type": "application/json"
-    }
-    resp = requests.post(url, headers=headers, json=payload)
-    resp.raise_for_status()
-    doc_id = resp.json()["data"]["document"]["document_id"]
-    print(f"文档创建成功: {doc_id}")
-    return doc_id
-
-
-def write_blocks_to_doc(token, doc_id, blocks, max_retries=3, batch_size=30):
-    """分批写入内容块到飞书文档"""
-    base_url = f"https://open.feishu.cn/open-apis/docx/v1/documents/{doc_id}/blocks"
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json"
-    }
-    
-    # 分批处理
-    total_batches = (len(blocks) + batch_size - 1) // batch_size
-    for batch_idx in range(total_batches):
-        batch_start = batch_idx * batch_size
-        batch_end = min((batch_idx + 1) * batch_size, len(blocks))
-        batch_blocks = blocks[batch_start:batch_end]
-        
-        for attempt in range(max_retries):
-            try:
-                payload = {
-                    "blocks": batch_blocks
-                }
-                resp = requests.post(base_url, headers=headers, json=payload)
-                resp.raise_for_status()
-                print(f"Batch {batch_idx + 1}/{total_batches}: blocks {batch_start}-{batch_end-1} written successfully")
-                break
-            except requests.exceptions.RequestException as e:
-                if attempt < max_retries - 1:
-                    wait_time = 2 ** attempt
-                    print(f"Batch {batch_idx + 1} attempt {attempt + 1} failed: {e}. Retrying in {wait_time}s...")
-                    time.sleep(wait_time)
-                else:
-                    print(f"Batch {batch_idx + 1} failed after {max_retries} attempts: {e}")
-                    raise
-    print(f"All {len(blocks)} blocks written to document {doc_id}")
-
-
 def main():
-    resp = requests.post("https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal", json={
-        "app_id": APP_ID,
-        "app_secret": APP_SECRET
-    })
-    resp.raise_for_status()
-    token = resp.json()["tenant_access_token"]
+    src_path = 'feishu_write_doc.py'
+    with open(src_path, 'r', encoding='utf-8') as f:
+        content = f.read()
 
-    doc_id = create_document_and_write(token)
-    blocks = build_blocks()
-    write_blocks_to_doc(token, doc_id, blocks)
+    new_repr = repr(SECTIONS).replace('\\x27', "'")
+    pattern = re.compile(r'SECTIONS = \[.*?(?=\ndef tr\(|\n# ---|\Z)', re.DOTALL)
+    if not pattern.search(content):
+        raise SystemExit('ERROR: SECTIONS block not found in feishu_write_doc.py')
+    content = pattern.sub('SECTIONS = ' + new_repr + '\n\n\n', content, count=1)
 
-    print(f"Document URL: https://{TENANT_DOMAIN}/docx/{doc_id}")
+    with open(src_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+    total = sum(len(s['items']) for s in SECTIONS)
+    effective = sum(1 for s in SECTIONS for i in s['items'] if i.get('badge') != '[备注]')
+    print(f'OK: SECTIONS written. Total items: {total} (effective: {effective})')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
