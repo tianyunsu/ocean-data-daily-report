@@ -1,738 +1,735 @@
-# 待确认期刊（2026-09-27，按命中篇数降序）
+# 待确认期刊（2026-09-30，按命中篇数降序）
 
-[  9 篇] Journal of Applied and Natural Science · Applied and Natural Science Foundation
-[  7 篇] Vestnik Gosudarstvennogo universiteta morskogo i rechnogo flota imeni admirala S O Makarova
-[  6 篇] TELKOMNIKA (Telecommunication Computing Electronics and Control) · Ahmad Dahlan University
-[  6 篇] Trudy VNIRO
-[  6 篇] International Journal of Geomate
-[  5 篇] Ecotoxicology and Environmental Safety · Elsevier BV
-[  5 篇] Smart Materials and Structures · IOP Publishing
-[  5 篇] ALGAE · Korean Society of Phycology
-[  4 篇] Nigerian Journal of Biotechnology and Life Sciences
-[  4 篇] Pasavento Revista de Estudios Hispánicos · University of Alcalá
-[  4 篇] International Journal of Education and Social Development
-[  4 篇] International journal of intelligent engineering and systems · Intelligent Networks and Systems Society
+[  6 篇] Vestnik Gosudarstvennogo universiteta morskogo i rechnogo flota imeni admirala S O Makarova
+[  5 篇] TELKOMNIKA (Telecommunication Computing Electronics and Control) · Ahmad Dahlan University
+[  4 篇] Proceedings of the ACM on Human-Computer Interaction · Association for Computing Machinery
+[  4 篇] Proceedings of the Zoological Institute RAS · Zoological Institute of the Russian Academy of Sciences
+[  4 篇] Ecotoxicology and Environmental Safety · Elsevier BV
+[  4 篇] Journal of Ecological Engineering · Polish Society of Ecological Engineering
 [  4 篇] Greece and Rome · Cambridge University Press
-[  3 篇] Proceedings of the ACM on Human-Computer Interaction · Association for Computing Machinery
-[  3 篇] Journal of Petroleum Research and Studies
-[  3 篇] International Journal of River Basin Management · Taylor & Francis
-[  3 篇] Geosystems of Transition Zones
+[  4 篇] Trudy VNIRO
+[  4 篇] Journal of Threatened Taxa · Wildlife Information Liaison Development Society
+[  4 篇] International Journal of Education and Social Development
+[  3 篇] Nature and Conservation
+[  3 篇] Fisheries
+[  3 篇] Nature Environment and Pollution Technology
+[  3 篇] Nigerian Journal of Biotechnology and Life Sciences
+[  3 篇] Sustainable Marine Structures
+[  3 篇] Stochastic Environmental Research and Risk Assessment · Springer Science+Business Media
+[  3 篇] Advanced International Journal for Research
+[  3 篇] Journal of Youth Impact
+[  3 篇] International journal of intelligent engineering and systems · Intelligent Networks and Systems Society
+[  3 篇] G3 Genes Genomes Genetics · Genetics Society of America
+[  3 篇] International Journal of Advanced Research
+[  3 篇] Mining of Mineral Deposits
+[  3 篇] Journal of Decision Support Systems and Multi-Criteria Decision Making
 [  3 篇] Solar-Terrestrial Physics · Infra-M Academic Publishing House
-[  3 篇] Malaysian Journal of Mathematical Sciences · University of Putra Malaysia
-[  3 篇] Arandu-UTIC. · National Technological University
-[  3 篇] Ege Üniversitesi Ziraat Fakültesi Dergisi · Ege University
-[  3 篇] Annals of Geophysics · National Institute of Geophysics and Volcanology
-[  3 篇] 3 SEKTÖR SOSYAL EKONOMİ DERGİSİ
-[  3 篇] The Historical Journal · Cambridge University Press
-[  3 篇] Turcology Research
-[  2 篇] Thalassas An International Journal of Marine Sciences · Springer Science+Business Media
-[  2 篇] Stochastic Environmental Research and Risk Assessment · Springer Science+Business Media
-[  2 篇] Archives of Current Research International
-[  2 篇] International Journal of Combinatorial Optimization Problems and Informatics.
-[  2 篇] Polar Biology · Springer Science+Business Media
-[  2 篇] Applied Acoustics · Elsevier BV
-[  2 篇] Fisheries
-[  2 篇] Journal of Earth System Science · Springer Science+Business Media
-[  2 篇] Emerging contaminants · KeAi
-[  2 篇] Sustainable Marine Structures
-[  2 篇] Nature and Conservation
-[  2 篇] International Journal of Computer Applications · Foundation of Computer Science
-[  2 篇] Marine Structures · Elsevier BV
-[  2 篇] Machine learning for computational science and engineering
-[  2 篇] Educational Academic Research
-[  2 篇] MANU Jurnal Pusat Penataran Ilmu dan Bahasa (PPIB)
-[  2 篇] Structural Concrete · Wiley
-[  2 篇] SKYHAWK Jurnal Aviasi Indonesia
-[  2 篇] Interpersona An International Journal on Personal Relationships · PsychOpen
-[  2 篇] Systematic and Applied Acarology · Systematic & Applied Acarology Society
-[  2 篇] Question · National University of La Plata
-[  2 篇] Applied Computing and Geosciences · Elsevier BV
-[  2 篇] IDEAS - International Journal of Literature Arts Science and Culture
-[  2 篇] Scientific and analytical journal Burganov House The space of culture
-[  2 篇] Telos Revista de Estudios Interdisciplinarios en Ciencias Sociales · Rafael Belloso Chacín University
-[  2 篇] Maritime Technology and Research · Chiang Mai University
-[  2 篇] American Antiquity · Cambridge University Press
-[  2 篇] npj Wireless Technology · Springer Science+Business Media
-[  2 篇] PLOS Sustainability and Transformation · Public Library of Science
-[  2 篇] Archives des sciences a multidisciplinary journal
-[  2 篇] Krakow Review of Economics and Management/Zeszyty Naukowe Uniwersytetu Ekonomicznego w Krakowie
-[  2 篇] Chemical Engineering Journal Engineered Materials
-[  2 篇] Coğrafi Bilimler Dergisi · Association of Food Technology, Turkey
-[  2 篇] Zoologica Scripta · Wiley
-[  2 篇] GPS Solutions · Springer Science+Business Media
-[  2 篇] Climatic Change · Springer Science+Business Media
+[  3 篇] Círculo de lingüística aplicada a la comunicación · Complutense University of Madrid
+[  3 篇] Journal of Petroleum Research and Studies
+[  3 篇] Journal of Applied and Natural Science · Applied and Natural Science Foundation
+[  3 篇] Pasavento Revista de Estudios Hispánicos · University of Alcalá
+[  2 篇] Journal of Geodesy · Springer Science+Business Media
+[  2 篇] Surveys in Geophysics · Springer Science+Business Media
+[  2 篇] Journal of the Franklin Institute · Elsevier BV
+[  2 篇] The European Physical Journal C · Springer Science+Business Media
+[  2 篇] Water Research X · Elsevier BV
 [  2 篇] Marine Micropaleontology · Elsevier BV
-[  2 篇] Weather · Wiley
-[  2 篇] International Journal of Applied Earth Observation and Geoinformation · Elsevier BV
-[  2 篇] Earth System Dynamics · Copernicus Publications
-[  2 篇] Research in Ecology · Bilingual Publishing
-[  2 篇] Contributions to Mineralogy and Petrology · Springer Science+Business Media
-[  2 篇] Journal of Sustainability Research
-[  2 篇] Journal of Asian Architecture and Building Engineering · Taylor & Francis
-[  2 篇] Jammu Kashmir Journal of Agriculture
-[  2 篇] Distributed Generation & Alternative Energy Journal · Taylor & Francis
-[  2 篇] Geomorphology · Elsevier BV
-[  2 篇] Built Heritage · Springer Nature
-[  2 篇] Palestine Exploration Quarterly · Taylor & Francis
-[  2 篇] Insights into Regional Development
-[  2 篇] npj Climate Action · Springer Science+Business Media
-[  2 篇] Applied Thermal Engineering · Elsevier BV
-[  2 篇] American Journal of Science · Yale University
-[  2 篇] The European Zoological Journal · Taylor & Francis
-[  2 篇] Conservation Genetics · Springer Science+Business Media
-[  2 篇] Jurnal Pengelolaan Sumberdaya Alam dan Lingkungan (Journal of Natural Resources and Environmental Management) · Bogor Institute of Agriculture
-[  2 篇] Rendiconti online della Società Geologica Italiana
-[  2 篇] PhytoTalks
-[  2 篇] ZDM · Springer Science+Business Media
-[  2 篇] International Journal Of Recent Trends In Multidisciplinary Research
-[  2 篇] Papéis Avulsos de Zoologia · University of São Paulo
-[  2 篇] AMBIO · Springer Science+Business Media
-[  2 篇] Kahramanmaraş Sütçü İmam Üniversitesi Tarım ve Doğa Dergisi
-[  2 篇] Mitochondrial DNA Part B · Taylor & Francis
-[  2 篇] AoB Plants · Oxford University Press
-[  2 篇] Mudra Jurnal Seni Budaya · Indonesian Institute of the Arts
-[  2 篇] Bird Study · Taylor & Francis
 [  2 篇] Geopolitics · Taylor & Francis
-[  2 篇] Jahangirnagar University Journal of Biological Sciences
+[  2 篇] Conservation Genetics · Springer Science+Business Media
+[  2 篇] Environmental Research · Elsevier BV
+[  2 篇] Environmental Geochemistry and Health · Springer Science+Business Media
+[  2 篇] International Journal of Professional Practice
+[  2 篇] Computational Biology and Chemistry · Elsevier BV
 [  2 篇] Asian Journal of Applied Chemistry Research
-[  2 篇] History · Wiley
+[  2 篇] LWT · Elsevier BV
+[  2 篇] Polar Biology · Springer Science+Business Media
+[  2 篇] Biomedicine & Pharmacotherapy · Elsevier BV
+[  2 篇] Future Foods · Elsevier BV
+[  2 篇] Archives of Current Research International
+[  2 篇] Frontiers in Science and Engineering
+[  2 篇] International Journal of Bioprinting
+[  2 篇] Journal of Navigation · Cambridge University Press
+[  2 篇] Waste Management · Elsevier BV
+[  2 篇] Mitochondrial DNA Part B · Taylor & Francis
+[  2 篇] Earth System Governance · Elsevier BV
+[  2 篇] Earth System Dynamics · Copernicus Publications
+[  2 篇] Climatic Change · Springer Science+Business Media
+[  2 篇] Revista de teledetección: Revista de la Asociación Española de Teledetección
+[  2 篇] npj Climate Action · Springer Science+Business Media
+[  2 篇] International Journal of Evaluation and Research in Education (IJERE) · Institute of Advanced Engineering and Science (IAES)
+[  2 篇] Journal of Asian Architecture and Building Engineering · Taylor & Francis
+[  2 篇] Geoderma · Elsevier BV
 [  2 篇] INTERNATIONAL JOURNAL OF HEALTH AND PHARMACEUTICAL RESEARCH
-[  2 篇] World Journal of Biology Pharmacy and Health Sciences
-[  2 篇] G3 Genes Genomes Genetics · Genetics Society of America
+[  2 篇] International Journal of River Basin Management · Taylor & Francis
+[  2 篇] Geofísica Internacional
+[  2 篇] Distributed Generation & Alternative Energy Journal · Taylor & Francis
+[  2 篇] Renewable and Sustainable Energy Reviews · Elsevier BV
+[  2 篇] Krakow Review of Economics and Management/Zeszyty Naukowe Uniwersytetu Ekonomicznego w Krakowie
+[  2 篇] International Educational Research
+[  2 篇] International Journal of Advances in Engineering and Pure Sciences · Süleyman Demirel University
+[  2 篇] Applied Research · Wiley
+[  2 篇] FWU Journal of Social Sciences
+[  2 篇] Neurocomputing · Elsevier BV
+[  2 篇] AoB Plants · Oxford University Press
+[  2 篇] 3 SEKTÖR SOSYAL EKONOMİ DERGİSİ
+[  2 篇] International Journal of Combinatorial Optimization Problems and Informatics.
+[  2 篇] The Historical Journal · Cambridge University Press
+[  2 篇] Next Chemical Engineering · Elsevier BV
+[  2 篇] PLOS Sustainability and Transformation · Public Library of Science
+[  2 篇] International Journal of Computer Applications · Foundation of Computer Science
+[  2 篇] Precision Agriculture · Springer Science+Business Media
+[  2 篇] International Journal of Innovative Technologies in Social Science
 [  2 篇] Journal of Maps · Taylor & Francis
+[  2 篇] Russian Journal of Water Transport
+[  2 篇] The European Zoological Journal · Taylor & Francis
 [  2 篇] Problems of fisheries
-[  2 篇] Contemporary Problems of Ecology · Pleiades Publishing
+[  2 篇] Marine Geophysical Research · Springer Science+Business Media
 [  2 篇] Ventana Indiscreta · Academia Nacional de Seguridad Pública
+[  2 篇] Pakistan Journal of Botany · Pakistan Botanical Society
+[  2 篇] Water Science · Taylor & Francis
+[  2 篇] Thalassas An International Journal of Marine Sciences · Springer Science+Business Media
+[  2 篇] Maritime Technology and Research · Chiang Mai University
+[  2 篇] Doğuş Üniversitesi Dergisi · Doğuş University
+[  2 篇] Turcology Research
 [  2 篇] The Classical Quarterly · Cambridge University Press
+[  2 篇] Vestnik NSU Series History and Philology
 [  2 篇] JOURNAL OF GEOETHICS AND SOCIAL GEOSCIENCES
-[  2 篇] mLife · Wiley
+[  2 篇] Systematic and Applied Acarology · Systematic & Applied Acarology Society
 [  2 篇] Archeologické rozhledy · Institute of Archaeology of the Czech Academy of Sciences
-[  2 篇] UF Journal of Undergraduate Research · George A. Smathers Libraries
-[  2 篇] Peer Community Journal
+[  2 篇] International Journal of Corrosion and Scale Inhibition · VACOR
+[  2 篇] Science and Technology Nexus
+[  2 篇] Risk Analysis · Wiley
+[  2 篇] Energy and AI · Elsevier BV
+[  2 篇] Marine Development · Springer Science+Business Media
+[  2 篇] Marine Structures · Elsevier BV
+[  2 篇] Educational Academic Research
+[  2 篇] Yönetim ve Ekonomi Araştırmaları Dergisi
+[  2 篇] MANU Jurnal Pusat Penataran Ilmu dan Bahasa (PPIB)
+[  2 篇] Malaysian Journal of Mathematical Sciences · University of Putra Malaysia
+[  2 篇] Applied Computing and Geosciences · Elsevier BV
+[  2 篇] American Antiquity · Cambridge University Press
+[  2 篇] International Journal of Mechatronics and Applied Mechanics
+[  2 篇] PLOS Water · Public Library of Science
+[  2 篇] Ege Üniversitesi Ziraat Fakültesi Dergisi · Ege University
+[  2 篇] Smart Materials and Structures · IOP Publishing
+[  2 篇] AI & Society · Springer Nature
+[  2 篇] Aquatic Conservation Marine and Freshwater Ecosystems · Wiley
+[  2 篇] KSCE Journal of Civil Engineering · Springer Science+Business Media
+[  2 篇] ZDM · Springer Science+Business Media
+[  2 篇] Veredas do Direito Direito Ambiental e Desenvolvimento Sustentável · Editora Dom Helder
+[  2 篇] Inovbiz Jurnal Inovasi Bisnis
 [  2 篇] Greenation International Journal of Law and Social Sciences
+[  2 篇] Flow Measurement and Instrumentation · Elsevier BV
 [  2 篇] ETRI Journal · Electronics and Telecommunications Research Institute
 [  2 篇] Energy Research & Social Science · Elsevier BV
 [  2 篇] Iranian Studies · Cambridge University Press
-[  1 篇] Frontiers of Earth Science · Higher Education Press
-[  1 篇] Bulletin of the American Meteorological Society · American Meteorological Society
-[  1 篇] Science and Technology Nexus
-[  1 篇] Technology in Society · Elsevier BV
-[  1 篇] Marine Geophysical Research · Springer Science+Business Media
-[  1 篇] Applied Artificial Intelligence · Taylor & Francis
-[  1 篇] Peer Community In Ecology
-[  1 篇] Multidisciplinary journal of engineering and technology.
-[  1 篇] Nigerian Journal of Theoretical and Environmental Physics
-[  1 篇] Water Science · Taylor & Francis
-[  1 篇] Current Pharmaceutical Analysis · Bentham Science Publishers
-[  1 篇] Journal Of Big Data · Springer Science+Business Media
-[  1 篇] New Horizons Journal of Basic and Applied Sciences
-[  1 篇] The International Journal of Engineering Sciences
-[  1 篇] Journal of Geodesy · Springer Science+Business Media
-[  1 篇] The journal of classics teaching · Cambridge University Press
-[  1 篇] Assessment & Evaluation in Higher Education · Taylor & Francis
-[  1 篇] Intelligent Service Robotics · Springer Science+Business Media
-[  1 篇] Babylonian Journal of Mechanical Engineering
-[  1 篇] JURNAL ILMU FISIKA | UNIVERSITAS ANDALAS
-[  1 篇] Journal of Southern Hemisphere Earth System Science · CSIRO Publishing
-[  1 篇] Identidad Bolivariana
-[  1 篇] International Journal of Artificial Intelligence and Agent Systems
-[  1 篇] IJORER International Journal of Recent Educational Research
-[  1 篇] Science Journal of Energy Engineering · Science Publishing Group
-[  1 篇] Energy efficiency first.
-[  1 篇] Toxicological Research · Springer Science+Business Media
-[  1 篇] Journal of Landscape Ecology · De Gruyter Open
-[  1 篇] Gazi University Journal of Science Part A Engineering and Innovation · Gazi University
-[  1 篇] Revista de Engenharia e Pesquisa Aplicada
-[  1 篇] Savunma Bilimleri Dergisi
-[  1 篇] RESEARCH JOURNAL OF HUMANITIES AND CULTURAL STUDIES
-[  1 篇] Brodogradnja · Faculty of Mechanical Engineering and Naval Architecture
-[  1 篇] eFood · Atlantis Press
-[  1 篇] Turkish Journal of Remote Sensing and GIS
-[  1 篇] Revista de teledetección: Revista de la Asociación Española de Teledetección
+[  1 篇] Environmetrics · Wiley
+[  1 篇] Journal of the European Meteorological Society.
+[  1 篇] Accounts of Materials Research · American Chemical Society
 [  1 篇] Statistics and Computing · Springer Science+Business Media
-[  1 篇] Sound&Vibration
-[  1 篇] Journal of Environmental Engineering and Landscape Management · Vilnius Gediminas Technical University
-[  1 篇] International Journal of Urban Sciences · Taylor & Francis
-[  1 篇] Computer-Aided Civil and Infrastructure Engineering · Wiley
-[  1 篇] DS Journal of Artificial Intelligence and Robotics
-[  1 篇] npj Computational Materials · Nature Portfolio
-[  1 篇] Journal of African Population Studies
-[  1 篇] Emergency Medicine Australasia · Wiley
-[  1 篇] Science Engineering and Technology
-[  1 篇] Discover Forests
-[  1 篇] International Journal of Advanced Research
-[  1 篇] MRS Advances · Springer Science+Business Media
-[  1 篇] Journal of Artificial Intelligence and Technology
-[  1 篇] Moore and More
-[  1 篇] Artificial Intelligence in Health
-[  1 篇] Environmental Geochemistry and Health · Springer Science+Business Media
-[  1 篇] Ainara Journal (Jurnal Penelitian dan PKM Bidang Ilmu Pendidikan)
-[  1 篇] Corrosion Science · Elsevier BV
-[  1 篇] Educational Regent Multidisciplinary Journal
-[  1 篇] INTERNATIONAL JOURNAL OF MATHEMATICS AND COMPUTER RESEARCH
-[  1 篇] Inflammation Research · Springer Science+Business Media
-[  1 篇] Discovery Medicine · Discovery Medicine
-[  1 篇] BJR|Open · British Institute of Radiology
-[  1 篇] Medicina Moderna - Modern Medicine
-[  1 篇] Spatial Economic Analysis · Routledge
-[  1 篇] Visión Académica
-[  1 篇] Optical Switching and Networking · Elsevier BV
-[  1 篇] Progress in Organic Coatings · Elsevier BV
-[  1 篇] California Management Review · SAGE Publishing
+[  1 篇] Journal of Computational Science · Elsevier BV
+[  1 篇] Computers in Human Behavior Artificial Humans · Elsevier BV
 [  1 篇] Technometrics · Taylor & Francis
-[  1 篇] Mini-Reviews in Medicinal Chemistry · Bentham Science Publishers
-[  1 篇] Environmental and Ecological Statistics · Springer Science+Business Media
-[  1 篇] International Journal of Natural Resources and Environmental Studies
-[  1 篇] Journal of Integrated Circuits and Systems
-[  1 篇] Journal of Bio- and Tribo-Corrosion · Springer Science+Business Media
-[  1 篇] International Journal of Environment Engineering and Education
-[  1 篇] Energy Storage · Wiley
-[  1 篇] Fronteiras - Revista de Teologia da Unicap
-[  1 篇] European Journal of Engineering and Technologies
-[  1 篇] Asian Journal of Law and Society · Cambridge University Press
-[  1 篇] Defence Studies · Taylor & Francis
-[  1 篇] PRAWO i WIĘŹ
-[  1 篇] Materials Reports Solidwaste and Ecomaterials · Tsinghua University Press
-[  1 篇] Economic scope
-[  1 篇] Information Management and Business Review · International Foundation for Research and Development
-[  1 篇] EAI Endorsed Transactions on Digital Transformation of Industrial Processes
-[  1 篇] Research Journal in Civil Industrial and Mechanical Engineering
-[  1 篇] Dia-noesis.
-[  1 篇] Literary Horizons Review
-[  1 篇] Advances in Complex Systems · World Scientific
-[  1 篇] Asian Journal of Biochemistry Genetics and Molecular Biology
-[  1 篇] Molecular Medicine Reports · Spandidos Publishing
-[  1 篇] Energy and AI · Elsevier BV
-[  1 篇] Energy Reviews · Elsevier BV
-[  1 篇] Системи управління навігації та зв’язку Збірник наукових праць · Poltava National Technical Yuriy Kondratyuk University
-[  1 篇] Nigeria Journal of Home Economics (ISSN 2782-8131)
-[  1 篇] Crop Health · Springer Science+Business Media
-[  1 篇] npj Materials Degradation · Nature Portfolio
-[  1 篇] Nano Research · Springer Science+Business Media
-[  1 篇] International Journal of Current Educational Studies
-[  1 篇] Infection Genetics and Evolution · Elsevier BV
-[  1 篇] Trama Revista de Ciencias Sociales y Humanidades · Costa Rica Institute of Technology
-[  1 篇] Applied Research · Wiley
-[  1 篇] ICCK Transactions on Intelligent Systematics
-[  1 篇] Visnyk Taras Shevchenko National University of Kyiv Military-Special Sciences · Taras Shevchenko National University of Kyiv
-[  1 篇] Norwegian Journal of Geology · Norwegian Geological Society
-[  1 篇] Asian Journal of Fisheries and Aquatic Research
-[  1 篇] International Journal of Environmental Monitoring and Analysis · Science Publishing Group
-[  1 篇] International Journal of Modern Science and Research Technology
-[  1 篇] Disaster in Civil Engineering and Architecture
-[  1 篇] Quantitative InfraRed Thermography Journal · Taylor & Francis
-[  1 篇] Chemical Biology Letters
-[  1 篇] ChemistrySelect · Wiley
-[  1 篇] AI & Society · Springer Nature
-[  1 篇] Journal of environment pollution and human health
-[  1 篇] Environmental Management Engineering and Technology · Elsevier BV
-[  1 篇] npj Sustainable Agriculture · Springer Science+Business Media
-[  1 篇] American Journal of Health Research · Science Publishing Group
-[  1 篇] Smart Construction
-[  1 篇] Icarus · Elsevier BV
-[  1 篇] Low-carbon Materials and Green Construction · Springer Science+Business Media
-[  1 篇] Advanced Information and Communication
-[  1 篇] Pedagogy and Psychology of Sport · Kazimierz Wielki University in Bydgoszcz
-[  1 篇] Acta Botanica Mexicana · Instituto de Ecología, UNAM
-[  1 篇] Journal Of Vacation Marketing · SAGE Publishing
-[  1 篇] İDEALKENT
-[  1 篇] Journal of the Nigerian Society of Physical Sciences
-[  1 篇] Journal of Engineering and Applied Sciences Technology
-[  1 篇] Optical Fiber Technology · Elsevier BV
-[  1 篇] Journal of Destination Marketing & Management · Elsevier BV
-[  1 篇] Eureka Herba Indonesia
-[  1 篇] Vegetation Classification and Survey · Pensoft Publishers
-[  1 篇] Revista Multidisciplinar de Estudios Generales
+[  1 篇] Machine Learning Science and Technology · IOP Publishing
+[  1 篇] npj Wireless Technology · Springer Science+Business Media
+[  1 篇] Spatial Statistics · Elsevier BV
 [  1 篇] Research · American Association for the Advancement of Science
 [  1 篇] International Journal of Computer Vision · Springer Science+Business Media
-[  1 篇] Journal of the Franklin Institute · Elsevier BV
+[  1 篇] Advanced Robotics · Taylor & Francis
+[  1 篇] Machine Learning · Springer Science+Business Media
+[  1 篇] International Journal of Data Science and Analytics · Springer International Publishing
+[  1 篇] Sustainable Computing Informatics and Systems · Elsevier BV
 [  1 篇] Software & Systems Modeling · Springer Science+Business Media
-[  1 篇] The European Physical Journal C · Springer Science+Business Media
+[  1 篇] Biometrika · Oxford University Press
+[  1 篇] Numerical Linear Algebra with Applications · Wiley
 [  1 篇] Nature Physics · Nature Portfolio
-[  1 篇] Algorithmica · Springer Science+Business Media
-[  1 篇] SciPost Physics · SciPost.org
-[  1 篇] Aquacultural Engineering · Elsevier BV
-[  1 篇] Nonlinear processes in geophysics · Copernicus Publications
-[  1 篇] Libyan Studies · Cambridge University Press
-[  1 篇] Asia-Pacific Journal of Atmospheric Sciences · Springer Science+Business Media
-[  1 篇] Journal of Aircraft · American Institute of Aeronautics and Astronautics
-[  1 篇] Journal of Electrostatics · Elsevier BV
-[  1 篇] Blue Economy
-[  1 篇] Journal of Sedimentary Research · Society for Sedimentary Geology
-[  1 篇] Urban Planning · Cogitatio
-[  1 篇] Atmospheric Research · Elsevier BV
-[  1 篇] Journal of Offshore Renewable Energy and Grid Integration
-[  1 篇] Journal of Theoretical Biology · Elsevier BV
-[  1 篇] Latvian Journal of Physics and Technical Sciences · De Gruyter Open
-[  1 篇] Energy · Elsevier BV
-[  1 篇] Journal of Ecology & Natural Resources
-[  1 篇] Silniki Spalinowe/Combustion Engines
-[  1 篇] Frontiers in Science and Engineering
-[  1 篇] Fuel Processing Technology · Elsevier BV
-[  1 篇] Journal of Earth and Environmental Sciences Research
-[  1 篇] Indian Journal of Physics · Springer Science+Business Media
-[  1 篇] Mezhdunarodnyi sel skokhozyaistvennyi zhurnal
-[  1 篇] Rare Metals · Springer Science+Business Media
-[  1 篇] Comparative Legilinguistics · De Gruyter
-[  1 篇] Journal of Hyperspectral Remote Sensing · Federal University of Pernambuco
-[  1 篇] Soils and Rocks
-[  1 篇] Chemical Thermodynamics and Thermal Analysis · Elsevier BV
-[  1 篇] Revista de Investigación en Tecnologías de la Información
-[  1 篇] Civil Engineering Beyond Limits
-[  1 篇] Central Asia observation.
-[  1 篇] Environment, social and governance.
-[  1 篇] Journal La Multiapp
-[  1 篇] Sustainable Cities and Society · Elsevier BV
-[  1 篇] International Journal of Knowledge Management · IGI Global
-[  1 篇] Aeolian Research · Elsevier BV
-[  1 篇] The Aeronautical Journal · Cambridge University Press
-[  1 篇] PLOS Water · Public Library of Science
-[  1 篇] International Journal of Automotive and Mechanical Engineering · Universiti Malaysia Pahang
-[  1 篇] Journal of Electrical Systems and Information Technology · Springer Science+Business Media
-[  1 篇] Journal of Energy Storage · Elsevier BV
-[  1 篇] Renewable and Sustainable Energy Reviews · Elsevier BV
-[  1 篇] International Journal of Biometeorology · Springer Science+Business Media
-[  1 篇] Social Issues (Azerbaijan University)
-[  1 篇] Journal of Management Research and Review
-[  1 篇] Expert Systems · Wiley
-[  1 篇] Northwest Science · Washington State University Press
-[  1 篇] Journal of educational theory and practice.
-[  1 篇] Communications Physics · Nature Portfolio
-[  1 篇] Journal of Innovation in Applied Natural Science
-[  1 篇] Sustainability in Environment
-[  1 篇] Energy Sustainability and Society · Springer Nature
-[  1 篇] Journal of Nondestructive Evaluation · Springer Science+Business Media
-[  1 篇] River · Wiley
-[  1 篇] Journal of Global Warming and Climate Change
-[  1 篇] Strojniški vestnik – Journal of Mechanical Engineering · University of Ljubljana
-[  1 篇] Економічний вісник Національного технічного університету України «Київський політехнічний інститут» · Igor Sikorsky Kyiv Polytechnic Institute
-[  1 篇] Applied Geography · Elsevier BV
-[  1 篇] REST Journal on Advances in Mechanical Engineering
-[  1 篇] Journal of the European Optical Society Rapid Publications · Springer Nature
-[  1 篇] Irrigation Science · Springer Science+Business Media
-[  1 篇] Polymer Composites · Wiley
-[  1 篇] Appetite · Elsevier BV
-[  1 篇] International Journal of Coal Science & Technology · Springer International Publishing
-[  1 篇] European Journal of Nutrition · Springer Science+Business Media
-[  1 篇] Urban Planning and Transport Research · Taylor & Francis
-[  1 篇] Mathematical Modelling and Applications · Science Publishing Group
-[  1 篇] Journal of Thermoplastic Composite Materials · SAGE Publishing
-[  1 篇] Quality and Reliability Engineering International · Wiley
-[  1 篇] Journal of Copyright in Education & Librarianship · University of Colorado, Colorado Springs
-[  1 篇] International Journal of Sustainable and Green Energy · Science Publishing Group
-[  1 篇] International Journal of Geo-Engineering · Springer Nature
-[  1 篇] Additive Manufacturing Letters · Elsevier BV
-[  1 篇] Diyala Journal of Engineering Sciences
-[  1 篇] Signal Transduction and Targeted Therapy · Springer Nature
-[  1 篇] Journal of Elastomers & Plastics · SAGE Publishing
-[  1 篇] International Journal on Interactive Design and Manufacturing (IJIDeM) · Springer Science+Business Media
-[  1 篇] Energy Conversion and Management · Elsevier BV
-[  1 篇] Energy Sustainable Development/Energy for sustainable development · Elsevier BV
-[  1 篇] Surveys in Geophysics · Springer Science+Business Media
-[  1 篇] Asian Soil Research Journal
-[  1 篇] Composites Part C Open Access · Elsevier BV
-[  1 篇] Landscape and Urban Planning · Elsevier BV
-[  1 篇] Landslides · Springer Science+Business Media
-[  1 篇] JCIS Open · Elsevier BV
-[  1 篇] Chemical Engineering Journal Green and Sustainable · Elsevier BV
-[  1 篇] Journal of Advances in Biology & Biotechnology · Sciencedomain International
-[  1 篇] Educational Psychology Review · Springer Science+Business Media
-[  1 篇] Journal of Saudi Chemical Society · Elsevier BV
-[  1 篇] Ocean Ecosystems
-[  1 篇] Proceedings of the Royal Society B Biological Sciences · Royal Society
-[  1 篇] Water Research X · Elsevier BV
-[  1 篇] Journal of Al-Azhar University Engineering Sector
-[  1 篇] Journal of Water Resources Planning and Management · American Society of Civil Engineers
-[  1 篇] Ocean Microbiology
-[  1 篇] International Journal of Heat and Fluid Flow · Elsevier BV
-[  1 篇] Journal of Marine Problems and Threats.
-[  1 篇] ISME Host Microbe
-[  1 篇] Bulletin of Mathematical Biology · Springer Science+Business Media
-[  1 篇] Journal of Raman Spectroscopy · Wiley
-[  1 篇] Journal of Education and e-Learning Research
-[  1 篇] BMC Marine Science
-[  1 篇] Anthropology Now · Taylor & Francis
-[  1 篇] Applied Spatial Analysis and Policy · Springer Science+Business Media
-[  1 篇] Journal of Coastal and Hydraulic Structures
-[  1 篇] Journal of Hydroinformatics · IWA Publishing
-[  1 篇] Carnets de géologie (Notebooks on geology) · Society for Sedimentary Geology
-[  1 篇] Annals of Forest Science · Springer Science+Business Media
-[  1 篇] Journal of Environmental Policy & Planning · Taylor & Francis
-[  1 篇] KIVA · Taylor & Francis
-[  1 篇] Laser & Photonics Review · Wiley
-[  1 篇] Journal of Engineering Research and Development
-[  1 篇] Mathematical Methods in the Applied Sciences · Wiley
-[  1 篇] Desalination · Elsevier BV
-[  1 篇] Proceedings of the Human Factors and Ergonomics Society Annual Meeting · SAGE Publishing
-[  1 篇] Journal of Experimental Marine Biology and Ecology · Elsevier BV
-[  1 篇] Geothermics · Elsevier BV
-[  1 篇] International Journal of Innovations in Science and Technology
-[  1 篇] Poultry Science · Elsevier BV
-[  1 篇] Jupiter Publikasi Ilmu Keteknikan Industri Teknik Elektro dan Informatika
-[  1 篇] Maine policy review
-[  1 篇] International Journal of Undergraduate Research and Creative Activities · Pacific University Library
-[  1 篇] Journal of the Indian Ocean Region · Taylor & Francis
-[  1 篇] JPRAS Open · Elsevier BV
-[  1 篇] IJGIE (International Journal of Graduate of Islamic Education)
-[  1 篇] Transportation Research Interdisciplinary Perspectives · Elsevier BV
-[  1 篇] Aquatic Toxicology · Elsevier BV
-[  1 篇] Aquademia
-[  1 篇] Alcheringa An Australasian Journal of Palaeontology · Taylor & Francis
-[  1 篇] Akademik İncelemeler Dergisi
-[  1 篇] Latin American Antiquity · Cambridge University Press
-[  1 篇] Veredas do Direito Direito Ambiental e Desenvolvimento Sustentável · Editora Dom Helder
-[  1 篇] BMC Oral Health · BioMed Central
-[  1 篇] Future Foods · Elsevier BV
-[  1 篇] Aquaculture · Elsevier BV
-[  1 篇] Revista de Arquitetura IMED · Faculdade Meridional (IMED)
-[  1 篇] International Journal of Osteoarchaeology · Wiley
-[  1 篇] International Journal of Business Law and Education
-[  1 篇] Medical Herald of the South of Russia
-[  1 篇] Journal of Animal Ecology · Wiley
-[  1 篇] Precambrian Research · Elsevier BV
-[  1 篇] Next Materials · Elsevier BV
-[  1 篇] Environmental Research Water
-[  1 篇] Chinese Physics B · IOP Publishing
-[  1 篇] Zoologischer Anzeiger · Elsevier BV
-[  1 篇] Sustainable Science and Innovation
-[  1 篇] Technological and Economic Development of Economy · Vilnius Gediminas Technical University
-[  1 篇] Thermal Science and Engineering Progress · Elsevier BV
-[  1 篇] Revista Multidisciplinar Epistemología de las Ciencias
-[  1 篇] Journal of Neurogastroenterology and Motility · The Korean Society of Neurogastroenterology and Motility
-[  1 篇] Journal of Sustainability
-[  1 篇] Journal of Trace Elements in Medicine and Biology · Elsevier BV
-[  1 篇] Journal of Natural History · Taylor & Francis
-[  1 篇] Integrative Organismal Biology · Oxford University Press
-[  1 篇] Fatigue & Fracture of Engineering Materials & Structures · Wiley
-[  1 篇] Cladistics · Wiley
-[  1 篇] Quaternary and Environmental Geosciences · Associação Brasileira de Estudos do Quaternário (ABEQUA)
-[  1 篇] Landscape Online · International Association for Landscape Ecology, Chapter Germany
-[  1 篇] Earth System Governance · Elsevier BV
-[  1 篇] Toxicology Reports · Elsevier BV
-[  1 篇] Applied Geochemistry · Elsevier BV
-[  1 篇] Space Science Reviews · Springer Science+Business Media
-[  1 篇] Waste Management · Elsevier BV
-[  1 篇] Aquaculture Economics & Management · Taylor & Francis
-[  1 篇] Journal of Economic Surveys · Wiley
-[  1 篇] Globalizations · Taylor & Francis
-[  1 篇] Water and Environment Journal · Wiley
-[  1 篇] Journal of Sustainable Cement-Based Materials · Taylor & Francis
-[  1 篇] Studies In Australasian Cinema · Taylor & Francis
-[  1 篇] Greenhouse Gases Science and Technology · Wiley
-[  1 篇] Revista de la Academia Colombiana de Ciencias Exactas Físicas y Naturales
-[  1 篇] Microsystems & Nanoengineering · Springer Nature
-[  1 篇] International Journal of Medical Microbiology · Elsevier BV
-[  1 篇] Interdisciplinary Academic and Research Journal
-[  1 篇] Jurnal Multidisiplin Indonesia
-[  1 篇] OBSERVATÓRIO DE LA ECONOMÍA LATINOAMERICANA · Servicios Academicos Intercontinentales
-[  1 篇] Anthropocene · Elsevier BV
-[  1 篇] Microbiology and Biotechnology Letters · Springer Science+Business Media
-[  1 篇] Theoretical and Applied Genetics · Springer Science+Business Media
-[  1 篇] American Journal of Environmental Protection · Science Publishing Group
-[  1 篇] Journal of Urban Intelligence and Smart Systems
-[  1 篇] INTERNATIONAL JOURNAL OF SOCIAL SCIENCE AND EDUCATION RESEARCH STUDIES
-[  1 篇] Journal of Radiation Protection and Research
-[  1 篇] Medical and Veterinary Entomology · Wiley
-[  1 篇] Ankara Üniversitesi Veteriner Fakültesi Dergisi · Ankara University
-[  1 篇] Revista Ibero-Americana de Ciências Ambientais · Escola Superior de Sustentabilidade
-[  1 篇] Asian Journal of Atmospheric Environment · Springer Nature
 [  1 篇] The European Physical Journal E · Springer Science+Business Media
+[  1 篇] Communications in Theoretical Physics · Institute of Physics
+[  1 篇] Contemporary Physics · Taylor & Francis
+[  1 篇] Journal of Computational Biology · Mary Ann Liebert, Inc.
 [  1 篇] Combustion and Flame · Elsevier BV
 [  1 篇] Infectious Disease Modelling · KeAi
+[  1 篇] International Journal of Agriculture and Biosciences
 [  1 篇] TURKISH JOURNAL OF ZOOLOGY
+[  1 篇] Ad Hoc Networks · Elsevier BV
 [  1 篇] Apollo Journal of Tourism and Business
+[  1 篇] Jahangirnagar University Journal of Biological Sciences
 [  1 篇] Suranaree Journal of Science and Technology
 [  1 篇] International Journal of Pathogen Research
 [  1 篇] Journal of Aquaculture & Marine Biology · MedCrave Group
 [  1 篇] Archives of Environmental Contamination and Toxicology · Springer Science+Business Media
 [  1 篇] Measurement and Control · SAGE Publishing
+[  1 篇] Biotechnology for Food Future
+[  1 篇] Journal of Contemporary Education Research
 [  1 篇] INTERNATIONAL JOURNAL OF MEDICAL EVALUATION AND PHYSICAL REPORT
 [  1 篇] GeoHumanities · Taylor & Francis
+[  1 篇] Journal of Engineering Research and Development
+[  1 篇] Postharvest Biology and Technology · Elsevier BV
+[  1 篇] Atmospheric Research · Elsevier BV
 [  1 篇] European Journal of Education · Wiley
+[  1 篇] The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences · Copernicus Publications
+[  1 篇] OnBoard Knowledge Journal
 [  1 篇] Journal of Forensic Science and Research · Heighten Science Publications
 [  1 篇] Sensors and Actuators B Chemical · Elsevier BV
+[  1 篇] Maine policy review
+[  1 篇] Case Studies in Chemical and Environmental Engineering · Elsevier BV
 [  1 篇] Water Waves · Birkhäuser
+[  1 篇] Journal of the Indian Ocean Region · Taylor & Francis
+[  1 篇] Indonesian Journal Economic Review (IJER)
+[  1 篇] Comparative Legilinguistics · De Gruyter
 [  1 篇] Dyskurs Prawniczy i Administracyjny.
+[  1 篇] Journal of environment pollution and human health
+[  1 篇] MethodsX · Elsevier BV
+[  1 篇] Journal of Animal Ecology · Wiley
+[  1 篇] Aquatic Toxicology · Elsevier BV
+[  1 篇] Chemical Biology Letters
 [  1 篇] British Journal of Psychology · Wiley
 [  1 篇] Journal of sociology, psychology & religious studies.
 [  1 篇] Integrated Environmental Assessment and Management · Wiley
 [  1 篇] Nature Medicine · Nature Portfolio
+[  1 篇] International Journal Of Science Technology & Management
+[  1 篇] Journal of South Asian Logistics and Transport
 [  1 篇] Comparative Studies in Society and History · Cambridge University Press
-[  1 篇] Neurology Genetics · Wolters Kluwer
+[  1 篇] Remote Sensing in Ecology and Conservation · Wiley
+[  1 篇] Emergency Medicine Journal · BMJ
+[  1 篇] Journal of the Nigerian Society of Physical Sciences
 [  1 篇] Digital Technologies Research and Applications
 [  1 篇] Critical Public Health · Taylor & Francis
 [  1 篇] Scientific Journal of Technology
+[  1 篇] Journal of Trace Elements in Medicine and Biology · Elsevier BV
 [  1 篇] African Journal of Marine Science · Taylor & Francis
-[  1 篇] Journal of Navigation · Cambridge University Press
-[  1 篇] Modern information security
+[  1 篇] Environment and Pollution · Canadian Center of Science and Education
+[  1 篇] Jurnal Pengelolaan Sumberdaya Alam dan Lingkungan (Journal of Natural Resources and Environmental Management) · Bogor Institute of Agriculture
+[  1 篇] Journal of Engineering and Applied Sciences Technology
+[  1 篇] Food Nutrition · Elsevier BV
+[  1 篇] Toxicology Reports · Elsevier BV
+[  1 篇] Norwegian Journal of Geology · Norwegian Geological Society
+[  1 篇] Annals of Geophysics · National Institute of Geophysics and Volcanology
+[  1 篇] History · Wiley
+[  1 篇] Applied Geochemistry · Elsevier BV
+[  1 篇] Journal of Artificial Intelligence and Technology
+[  1 篇] Water and Environment Journal · Wiley
+[  1 篇] Journal of Radiation Protection and Research
+[  1 篇] Journal of Offshore Renewable Energy and Grid Integration
+[  1 篇] The International Journal of Engineering Sciences
+[  1 篇] Process Safety and Environmental Protection · Elsevier BV
+[  1 篇] The Aeronautical Journal · Cambridge University Press
 [  1 篇] QUT JOURNAL OF RELIGION PHILOSOPHY AND CULTURE
 [  1 篇] South Asian Journal of Research in Microbiology
+[  1 篇] Attahadi Medical Journal
 [  1 篇] Journal of Quality Assurance in Hospitality & Tourism · Taylor & Francis
+[  1 篇] International Journal of Concrete Structures and Materials · Springer Nature
+[  1 篇] INTERNATIONAL JOURNAL OF SOCIAL SCIENCE AND EDUCATION RESEARCH STUDIES
+[  1 篇] Sustainable Cities and Society · Elsevier BV
 [  1 篇] Advances in Bridge Engineering · Springer Nature
 [  1 篇] Discover Internet of Things · Springer Nature
-[  1 篇] Geoderma · Elsevier BV
+[  1 篇] Ankara Üniversitesi Veteriner Fakültesi Dergisi · Ankara University
+[  1 篇] International Journal of Knowledge Management · IGI Global
+[  1 篇] International Journal of Environmental Monitoring and Analysis · Science Publishing Group
 [  1 篇] Journal of Environmental Management · Elsevier BV
+[  1 篇] Environmental Toxicology and Chemistry · Wiley
+[  1 篇] Environmental Science and Ecotechnology · Elsevier BV
+[  1 篇] Research Journal in Civil Industrial and Mechanical Engineering
+[  1 篇] Molecular Phylogenetics and Evolution · Elsevier BV
+[  1 篇] Davao Research Journal
+[  1 篇] World Journal of Biology Pharmacy and Health Sciences
+[  1 篇] Emerging contaminants · KeAi
 [  1 篇] BMC Agriculture
 [  1 篇] Contemporary Review of the Middle East · SAGE Publishing
+[  1 篇] Biotechnology Advances · Elsevier BV
 [  1 篇] Journal of Agricultural Food Science and Biotechnology
-[  1 篇] Economics and Management Innovation
 [  1 篇] Helvetica Chimica Acta · Wiley
-[  1 篇] International Journal of Environment and Climate Change · Sciencedomain International
+[  1 篇] Geodata and AI.
+[  1 篇] Nature Cities · Springer Science+Business Media
+[  1 篇] International Journal of Computer Science and Engineering
+[  1 篇] Expert Systems · Wiley
 [  1 篇] Journal of Tourism and Hospitality Studies · Al-Kindi Center for Research and Development
-[  1 篇] International Educational Research
+[  1 篇] International Journal of Environment and Climate Change · Sciencedomain International
+[  1 篇] Urban Planning · Cogitatio
+[  1 篇] Babylonian Journal of Mechanical Engineering
+[  1 篇] International Journal of Advanced Business Studies
 [  1 篇] Sensors and Materials · MYU K.K.
+[  1 篇] GEMA Lingkungan Kesehatan
+[  1 篇] International Journal for Quality Research · Center for Quality, Faculty of Engineering, University of Kragujevac, Serbia
 [  1 篇] Journal of Raptor Research · Raptor Research Foundation
+[  1 篇] Geographia Technica
+[  1 篇] Soils and Rocks
+[  1 篇] Frontiers in Engineering
 [  1 篇] Asian Journal of Engineering Social and Health
-[  1 篇] Biomedicine & Pharmacotherapy · Elsevier BV
+[  1 篇] Science Engineering and Technology
+[  1 篇] Applied Artificial Intelligence · Taylor & Francis
+[  1 篇] Journal of Nondestructive Evaluation · Springer Science+Business Media
+[  1 篇] Best Journal of Administration and Management
+[  1 篇] Eskişehir Technical University Journal of Science and Technology A - Applied Sciences and Engineering
+[  1 篇] Communications in Mathematics and Statistics · Springer Science+Business Media
 [  1 篇] Preventive Oncology & Epidemiology
 [  1 篇] Jurnal Keteknikan Pertanian · Bogor Institute of Agriculture
 [  1 篇] Egyptian Journal of Biological Pest Control · Springer Nature
 [  1 篇] ISEJ Indonesian Science Education Journal
-[  1 篇] Neurocomputing · Elsevier BV
-[  1 篇] Journal of Water and Health · UWA Publishing
 [  1 篇] Current Perspectives in Social Sciences
+[  1 篇] Journal of Water and Health · UWA Publishing
 [  1 篇] Journal of Food and Nutrition Sciences · Science Publishing Group
-[  1 篇] Journal of Oral Microbiology · Taylor & Francis
+[  1 篇] Trends in Food Science & Technology · Elsevier BV
+[  1 篇] Groundwater for Sustainable Development · Elsevier BV
+[  1 篇] Indonesian Journal of Education and Social Studies
+[  1 篇] Moore and More
 [  1 篇] American Journal of Applied Chemistry · Science Publishing Group
-[  1 篇] Journal Africain des Sciences
-[  1 篇] Journal La Bisecoman
+[  1 篇] Dia-noesis.
 [  1 篇] Bulletin of Latin American Research · Wiley
-[  1 篇] LWT · Elsevier BV
+[  1 篇] Journal La Bisecoman
+[  1 篇] Biology Open · The Company of Biologists
+[  1 篇] The International Journal of the History of Sport · Routledge
 [  1 篇] Journal of Modern European History · SAGE Publishing
+[  1 篇] Mountain Research and Development · International Mountain Society
+[  1 篇] Urban Climate · Elsevier BV
+[  1 篇] International Journal of Automotive and Mechanical Engineering · Universiti Malaysia Pahang
 [  1 篇] Alpine Botany · Springer Science+Business Media
+[  1 篇] Journal of Electrical Systems and Information Technology · Springer Science+Business Media
+[  1 篇] Smart Construction
+[  1 篇] REST Journal on Emerging trends in Modelling and Manufacturing
 [  1 篇] Druze studies journal.
 [  1 篇] Journal of Intelligent Material Systems and Structures · SAGE Publishing
+[  1 篇] Східноєвропейський історичний вісник
 [  1 篇] Philosophy & Social Criticism · SAGE Publishing
-[  1 篇] Next Chemical Engineering · Elsevier BV
-[  1 篇] Journal of Limnology and Freshwater Fisheries Research · Fisheries Research Institute, Eğirdir
 [  1 篇] Arthritis Care & Research · Wiley
+[  1 篇] Journal of Limnology and Freshwater Fisheries Research · Fisheries Research Institute, Eğirdir
+[  1 篇] Papéis Avulsos de Zoologia · University of São Paulo
+[  1 篇] Latino Studies · Palgrave Macmillan
 [  1 篇] Contemporary Social Science · Taylor & Francis
 [  1 篇] Slavery and Abolition · Frank Cass & Co.
+[  1 篇] International Journal of Biometeorology · Springer Science+Business Media
 [  1 篇] Journal of business and management sciences
+[  1 篇] Bioelectrochemistry · Elsevier BV
 [  1 篇] International Journal of Clinical Pharmacy · Springer Science+Business Media
-[  1 篇] Emerging Microbes & Infections · Taylor & Francis
 [  1 篇] Research Journal of Agricultural Economics and Development
+[  1 篇] Emerging Microbes & Infections · Taylor & Francis
 [  1 篇] AGROBUSINESS SCIENCE AND TECHNOLOGY
+[  1 篇] Journal of Local Government Research and Innovation · AOSIS
+[  1 篇] Poultry Science · Elsevier BV
+[  1 篇] Journal of Measurements in Engineering · JVE International
 [  1 篇] Jurnal JOS-MRK
 [  1 篇] Records of Natural Products · ACG Publications
 [  1 篇] Journal of Advance Research in Applied Science (ISSN 2208-2352)
+[  1 篇] East African Journal of Business and Economics
 [  1 篇] Journal of Zoo and Wildlife Medicine · American Association of Zoo Veterinarians
+[  1 篇] Literary Horizons Review
+[  1 篇] Oftalmología clínica y experimental.
+[  1 篇] Gazi University Journal of Science Part A Engineering and Innovation · Gazi University
+[  1 篇] ACM Transactions on Asian and Low-Resource Language Information Processing · Association for Computing Machinery
 [  1 篇] Revista Multidisciplinaria Perspectivas Investigativas
+[  1 篇] Infection Genetics and Evolution · Elsevier BV
+[  1 篇] Kahramanmaraş Sütçü İmam Üniversitesi Tarım ve Doğa Dergisi
 [  1 篇] Modern & Contemporary France · Taylor & Francis
-[  1 篇] European Journal of Creative Practices in Cities and Landscapes · University of Bologna
+[  1 篇] International Journal of Artificial Intelligence and Agent Systems
 [  1 篇] Human Behavior, Development and Society · Asia-Pacific International University
+[  1 篇] Journal of Global Warming and Climate Change
+[  1 篇] European Journal of Creative Practices in Cities and Landscapes · University of Bologna
 [  1 篇] Food Safety and Risk
-[  1 篇] Journal of Central and Eastern European African Studies
-[  1 篇] English Today · Cambridge University Press
 [  1 篇] Journal of Hematology and Allied Sciences · Scientific Scholar
+[  1 篇] Journal of Central and Eastern European African Studies
+[  1 篇] Bird Study · Taylor & Francis
+[  1 篇] English Today · Cambridge University Press
+[  1 篇] Meditari Accountancy Research · Emerald Publishing Limited
+[  1 篇] Asian Journal of Agricultural Extension Economics & Sociology · Sciencedomain International
+[  1 篇] Digital Transformation and Society · Emerald Publishing Limited
+[  1 篇] Laser & Photonics Review · Wiley
+[  1 篇] Journal of Innovation in Applied Natural Science
 [  1 篇] Review of European Comparative & International Environmental Law · Wiley
+[  1 篇] Machine learning for computational science and engineering
+[  1 篇] Defence Studies · Taylor & Francis
+[  1 篇] eFood · Atlantis Press
 [  1 篇] Geohazards & Remediation
 [  1 篇] Green Chemistry Letters and Reviews · Taylor & Francis
+[  1 篇] Medical and Veterinary Entomology · Wiley
 [  1 篇] New plant protection. · eLife Sciences Publications Ltd
 [  1 篇] Quality in Sport · Kazimierz Wielki University in Bydgoszcz
+[  1 篇] International Journal of Geomate
 [  1 篇] Forest Ecology and Management · Elsevier BV
 [  1 篇] Journal of Rural Studies · Elsevier BV
 [  1 篇] Discover Chemistry. · Springer, Singapore
-[  1 篇] ShodhSamajik Journal of Social Studies · Granthaalayah Publications and Printers
-[  1 篇] Worldwide Waste · Ubiquity Press
-[  1 篇] Student s Journal of Health Research Africa
-[  1 篇] American Mineralogist · Mineralogical Society of America
-[  1 篇] Comparative Immunology Reports · Elsevier BV
-[  1 篇] Movement Disorders · Wiley
-[  1 篇] International Journal of Health and Pharmaceutical (IJHP)
-[  1 篇] npj Aging · Springer Science+Business Media
+[  1 篇] Medicine Bulletin
+[  1 篇] Waste Management Bulletin · Elsevier BV
+[  1 篇] Next Materials · Elsevier BV
+[  1 篇] Chemistry of Materials · American Chemical Society
+[  1 篇] Physica D Nonlinear Phenomena · Elsevier BV
+[  1 篇] Journal of Mathematical Fluid Mechanics · Birkhäuser
+[  1 篇] Communications in Partial Differential Equations · Taylor & Francis
+[  1 篇] Journal of Statistical Computation and Simulation · Taylor & Francis
+[  1 篇] North American Actuarial Journal · Taylor & Francis
+[  1 篇] ACM Transactions on Algorithms · Association for Computing Machinery
 [  1 篇] Fluid Dynamics · Pleiades Publishing
+[  1 篇] Physical Communication · Elsevier BV
+[  1 篇] MAUSAM · India Meteorological Department
+[  1 篇] Libyan Studies · Cambridge University Press
 [  1 篇] International Journal of Systems Science · Taylor & Francis
+[  1 篇] Journal of the American Statistical Association
+[  1 篇] Space Science Reviews · Springer Science+Business Media
+[  1 篇] Journal of Aircraft · American Institute of Aeronautics and Astronautics
 [  1 篇] Proceedings of the Institution of Mechanical Engineers Part I Journal of Systems and Control Engineering · SAGE Publishing
-[  1 篇] Journal of Optics · IOP Publishing
 [  1 篇] National Academy Science Letters · Springer Science+Business Media
-[  1 篇] Proceedings of the Zoological Institute RAS · Zoological Institute of the Russian Academy of Sciences
+[  1 篇] Journal of Optics · IOP Publishing
 [  1 篇] Cahiers de biologie marine · Roscoff Biological Station
+[  1 篇] Anthropology Now · Taylor & Francis
+[  1 篇] Contemporary Problems of Ecology · Pleiades Publishing
+[  1 篇] Contributions to Mineralogy and Petrology · Springer Science+Business Media
+[  1 篇] Theory Culture & Society · SAGE Publishing
+[  1 篇] Journal of Spacecraft and Rockets · American Institute of Aeronautics and Astronautics
+[  1 篇] Journal of Field Archaeology · Taylor & Francis
+[  1 篇] JAS (Journal of ASEAN Studies) · Bina Nusantara University
+[  1 篇] Journal of Comparative Physiology B · Springer Science+Business Media
+[  1 篇] European Journal of Engineering and Technologies
+[  1 篇] Revista de la Academia Colombiana de Ciencias Exactas Físicas y Naturales
 [  1 篇] Bangladesh Journal of Zoology
 [  1 篇] Journal of Manufacturing Science and Mechanical Engineering
 [  1 篇] Lankesteriana · Lankester Botanical Garden
+[  1 篇] Transportation Research Interdisciplinary Perspectives · Elsevier BV
+[  1 篇] PAMM · Wiley
+[  1 篇] SKYHAWK Jurnal Aviasi Indonesia
 [  1 篇] Journal of the Iranian Chemical Society · Springer Science+Business Media
+[  1 篇] Journal of Natural History · Taylor & Francis
 [  1 篇] Akdeniz Üniversitesi İktisadi ve İdari Bilimler Fakültesi Dergisi
+[  1 篇] Contemporary Social Sciences
 [  1 篇] Islamic history and literature. · Jomard Publishing
-[  1 篇] Journal of Comparative Physiology B · Springer Science+Business Media
+[  1 篇] Research in Ecology · Bilingual Publishing
 [  1 篇] Green Letters · Taylor & Francis
-[  1 篇] Doğuş Üniversitesi Dergisi · Doğuş University
+[  1 篇] International Journal of Natural Resources and Environmental Studies
+[  1 篇] Greenhouse Gases Science and Technology · Wiley
+[  1 篇] Asia Europe Journal · Springer Science+Business Media
+[  1 篇] International Journal of Qualitative Studies on Health and Well-Being · Taylor & Francis
+[  1 篇] Journal Africain des Sciences
+[  1 篇] Nordic Studies in Science Education · University of Oslo
 [  1 篇] CAAI Transactions on Intelligence Technology · Institution of Engineering and Technology
 [  1 篇] REGION · ERSA
 [  1 篇] Tourism Planning & Development · Taylor & Francis
+[  1 篇] Computer-Aided Civil and Infrastructure Engineering · Wiley
+[  1 篇] Palestine Exploration Quarterly · Taylor & Francis
 [  1 篇] Automation Control and Intelligent Systems · Science Publishing Group
+[  1 篇] Journal of Archaeological Research · Springer Nature
+[  1 篇] Sustainable Energy Technologies and Assessments · Elsevier BV
+[  1 篇] New Zealand Journal of Botany · Taylor & Francis
 [  1 篇] Geoforum · Elsevier BV
+[  1 篇] Critical Arts · Taylor & Francis
 [  1 篇] Federal Grants & Contracts · Wiley
 [  1 篇] Herança · Eduardo Manuel de Almeida Leite
 [  1 篇] Revista de Filología Románica · Complutense University of Madrid
+[  1 篇] Insights into Regional Development
 [  1 篇] İstanbul Gelişim Üniversitesi Sosyal Bilimler Dergisi · Istanbul Gelisim University Press
-[  1 篇] Explora Environment and Resource
+[  1 篇] Scientia Tecnológica
+[  1 篇] Fuel Processing Technology · Elsevier BV
 [  1 篇] Optimal Control Applications and Methods · Wiley
+[  1 篇] NIU journal of social sciences.
+[  1 篇] Northwest Science · Washington State University Press
+[  1 篇] PASOS Revista de Turismo y Patrimonio Cultural · Instituto de Investigación Social y Turismo
 [  1 篇] The Design Journal · Routledge
 [  1 篇] Ukrainian journal of veterinary sciences · National University of Life and Environmental Sciences of Ukraine
 [  1 篇] Knygotyra · Vilnius University Press
 [  1 篇] Journal of Automation Mobile Robotics & Intelligent Systems
 [  1 篇] Botanical Sciences · Sociedad Botánica de México, A. C.
 [  1 篇] Children s Geographies · Taylor & Francis
-[  1 篇] Agrarian South Journal of Political Economy A triannual Journal of Agrarian South Network and CARES · SAGE Publishing
 [  1 篇] Scientific Journal Of Humanities and Social Sciences
+[  1 篇] Agrarian South Journal of Political Economy A triannual Journal of Agrarian South Network and CARES · SAGE Publishing
 [  1 篇] Kew Bulletin · Springer Science+Business Media
+[  1 篇] Journal of Global History · Cambridge University Press
+[  1 篇] International Journal of Ancient History
+[  1 篇] Revista Bio Ciencias · Autonomous University of Nayarit
+[  1 篇] Genel Türk Tarihi Araştırmaları Dergisi
 [  1 篇] Interventions · Routledge
+[  1 篇] Natural History Collections and Museomics
 [  1 篇] Teaching Statistics · Wiley
 [  1 篇] Disability and Rehabilitation · Informa
+[  1 篇] Spatial Economic Analysis · Routledge
 [  1 篇] Critical African Studies · Taylor & Francis
 [  1 篇] Nouveaux cahiers de Marge
 [  1 篇] Cuardernos de documentación multimedia/Cuadernos de documentación multimedia
-[  1 篇] Geology · Geological Society of America
-[  1 篇] Terrae Incognitae · Taylor & Francis
-[  1 篇] Ecosystem Services · Elsevier BV
-[  1 篇] RIVISTA ITALIANA DI PALEONTOLOGIA E STRATIGRAFIA · University of Milan
-[  1 篇] Discover Hazards
-[  1 篇] Inkanyiso · African Journals OnLine
-[  1 篇] ZOOLOGICAL SCIENCE · Zoological Society of Japan
-[  1 篇] Conflict Security and Development · Taylor & Francis
-[  1 篇] Jurnal Ilmiah Manajemen Kesatuan
-[  1 篇] Biotechnic & Histochemistry · Taylor & Francis
-[  1 篇] Mycorrhiza · Springer Science+Business Media
-[  1 篇] Acta Physica Sinica · Science Press
-[  1 篇] Carbohydrate Research · Elsevier BV
-[  1 篇] UNED Research Journal · Distance State University
-[  1 篇] Advances in Engineering and Information Sciences
-[  1 篇] The International Journal of Life Cycle Assessment · Springer Science+Business Media
-[  1 篇] Scientific Drilling · Copernicus Publications
-[  1 篇] H-ART Revista de historia teoría y crítica de arte · Universidad de Los Andes
-[  1 篇] Финно-угорский мир
-[  1 篇] Architektúra & urbanizmus
-[  1 篇] Advances in Research · Sciencedomain International
-[  1 篇] Academic journal of management and social sciences
 [  1 篇] Econometrics Journal · Oxford University Press
-[  1 篇] Bon Voyage
-[  1 篇] Ethnobiology and Conservation
-[  1 篇] ENVIRONMENTAL SMOKE
-[  1 篇] Pomorstvo · University of Rijeka, Faculty of maritime studies
-[  1 篇] Sedimentologika
-[  1 篇] Urban Studies · SAGE Publishing
-[  1 篇] Journal of the Royal Musical Association · Cambridge University Press
-[  1 篇] Journal of Education Health and Sport · Kazimierz Wielki University in Bydgoszcz
-[  1 篇] International Journal of Language and Literary Studies
-[  1 篇] Madrygal Revista de Estudios Gallegos · Servicio de Publicaciones
-[  1 篇] Atmospheric Pollution Research · Elsevier BV
-[  1 篇] ETDC Indonesian Journal of Research and Educational Review
-[  1 篇] Environmental Archaeology · Taylor & Francis
-[  1 篇] Journal of Policy History · Cambridge University Press
-[  1 篇] Labor History · Taylor & Francis
-[  1 篇] Theatre Research International · Cambridge University Press
-[  1 篇] Quaternary Geochronology · Elsevier BV
-[  1 篇] Cambridge Review of International Affairs · Taylor & Francis
-[  1 篇] One Ecosystem · Pensoft Publishers
-[  1 篇] International Journal of Islamic Finance and Sustainable Development
-[  1 篇] Revista de Estudios Espaciales · National University of La Plata
-[  1 篇] International Journal of Anthropology and Ethnology · Springer Nature
-[  1 篇] Journal of Social Science and Human Research Studies
-[  1 篇] Kompleksnoe Ispolzovanie Mineralnogo Syra = Complex Use of Mineral Resources
-[  1 篇] Journal of Oil Palm Research · Malaysian Palm Oil Board
-[  1 篇] Archivos de la Facultad de Medicina de Zaragoza
-[  1 篇] African Journal of History and Geography
-[  1 篇] Biomedical Sciences · Science Publishing Group
-[  1 篇] Eesti ja soome-ugri keeleteaduse ajakiri Journal of Estonian and Finno-Ugric Linguistics · University of Tartu Press
-[  1 篇] Clinical Social Work Journal · Springer Science+Business Media
-[  1 篇] Revista de Gestão e Projetos · Universidade Nove de Julho
-[  1 篇] iCirculation
-[  1 篇] Investment Management and Financial Innovations · Business Perspectives
-[  1 篇] MONTENEGRIN JOURNAL OF ECONOMICS
-[  1 篇] JOURNAL OF LAW AND GLOBAL POLICY
-[  1 篇] Revista de Odontopediatría Latinoamericana · Editorial Ripano
-[  1 篇] World Economy · Wiley
-[  1 篇] American Fern Journal · American Fern Society
-[  1 篇] International Journal of Social Sciences Language and Linguistics
-[  1 篇] Italian Journal of Geosciences · Società geologica italiana
-[  1 篇] Operations Research Letters · Elsevier BV
-[  1 篇] Communications in Partial Differential Equations · Taylor & Francis
-[  1 篇] ACM Transactions on Algorithms · Association for Computing Machinery
-[  1 篇] Marine Development · Springer Science+Business Media
+[  1 篇] Journal of Astrophysics and Astronomy · Springer Nature
+[  1 篇] The Journal of Physical Chemistry C · American Chemical Society
+[  1 篇] Frontiers of Earth Science · Higher Education Press
+[  1 篇] Bulletin of the American Meteorological Society · American Meteorological Society
+[  1 篇] Technology in Society · Elsevier BV
+[  1 篇] Peer Community In Ecology
+[  1 篇] Applied Acoustics · Elsevier BV
+[  1 篇] Journal of Surgery and Advanced Medical Research
+[  1 篇] International Maritime Health · Via Medica
+[  1 篇] Aquaculture Journal
+[  1 篇] Multidisciplinary journal of engineering and technology.
+[  1 篇] International Journal of Machine Learning and Cybernetics · Springer Science+Business Media
+[  1 篇] Nigerian Journal of Theoretical and Environmental Physics
+[  1 篇] International Journal of Social Health and Medical Research
+[  1 篇] New Horizons Journal of Basic and Applied Sciences
+[  1 篇] Journal of Earth System Science · Springer Science+Business Media
+[  1 篇] Journal Of Big Data · Springer Science+Business Media
+[  1 篇] Applied Physics B · Springer Science+Business Media
+[  1 篇] The journal of classics teaching · Cambridge University Press
+[  1 篇] Revista de Investigación en Tecnologías de la Información
+[  1 篇] Assessment & Evaluation in Higher Education · Taylor & Francis
+[  1 篇] Intelligent Service Robotics · Springer Science+Business Media
+[  1 篇] JURNAL ILMU FISIKA | UNIVERSITAS ANDALAS
+[  1 篇] International Journal of Responsible Artificial Intelligence Research
+[  1 篇] Journal of Southern Hemisphere Earth System Science · CSIRO Publishing
+[  1 篇] Identidad Bolivariana
+[  1 篇] IJORER International Journal of Recent Educational Research
+[  1 篇] Science Journal of Energy Engineering · Science Publishing Group
+[  1 篇] Energy efficiency first.
+[  1 篇] Jammu Kashmir Journal of Agriculture
+[  1 篇] Toxicological Research · Springer Science+Business Media
+[  1 篇] Journal of Landscape Ecology · De Gruyter Open
+[  1 篇] Fiscaoeconomia · Fsecon
+[  1 篇] Green Intelligent Systems and Applications
+[  1 篇] Journal of Electronic Materials · Springer Science+Business Media
+[  1 篇] Revista de Engenharia e Pesquisa Aplicada
+[  1 篇] Savunma Bilimleri Dergisi
+[  1 篇] Marine Georesources and Geotechnology · Taylor & Francis
+[  1 篇] Critical Insights in Climate Change
+[  1 篇] Sensors and Actuators Reports · Elsevier BV
+[  1 篇] RESEARCH JOURNAL OF HUMANITIES AND CULTURAL STUDIES
+[  1 篇] Brodogradnja · Faculty of Mechanical Engineering and Naval Architecture
+[  1 篇] Turkish Journal of Remote Sensing and GIS
+[  1 篇] Nonlinear science.
+[  1 篇] Sound&Vibration
+[  1 篇] Journal of Environmental Engineering and Landscape Management · Vilnius Gediminas Technical University
+[  1 篇] International Journal of Urban Sciences · Taylor & Francis
+[  1 篇] IP International Journal of Comprehensive and Advanced Pharmacology
+[  1 篇] Journal of Data Science and Intelligent Systems
+[  1 篇] Mathematical Biology and Bioinformatics
+[  1 篇] DS Journal of Artificial Intelligence and Robotics
+[  1 篇] npj Computational Materials · Nature Portfolio
+[  1 篇] REGIONOLOGY · National Research Mordova State University; MRSU
+[  1 篇] Journal of African Population Studies
+[  1 篇] Emergency Medicine Australasia · Wiley
+[  1 篇] Structural Concrete · Wiley
+[  1 篇] Scientific Annals of the Danube Delta Institute
+[  1 篇] Discover Forests
+[  1 篇] MRS Advances · Springer Science+Business Media
+[  1 篇] International Journal of Pavement Engineering · Taylor & Francis
+[  1 篇] Geosystems of Transition Zones
+[  1 篇] Ainara Journal (Jurnal Penelitian dan PKM Bidang Ilmu Pendidikan)
+[  1 篇] Corrosion Science · Elsevier BV
+[  1 篇] Educational Regent Multidisciplinary Journal
+[  1 篇] INTERNATIONAL JOURNAL OF MATHEMATICS AND COMPUTER RESEARCH
+[  1 篇] JURNAL PESISIR DAN LAUT TROPIS
+[  1 篇] Inflammation Research · Springer Science+Business Media
+[  1 篇] Discovery Medicine · Discovery Medicine
+[  1 篇] Siwo Revista de Teología · National University, Costa Rica
+[  1 篇] Visión Académica
+[  1 篇] Optical Switching and Networking · Elsevier BV
+[  1 篇] International Journal of Innovations in Science and Technology
+[  1 篇] Journal of Essential Oil and Plant Composition 
+[  1 篇] California Management Review · SAGE Publishing
+[  1 篇] Ecological Solutions and Evidence · Wiley
+[  1 篇] Progress in Organic Coatings · Elsevier BV
+[  1 篇] Mini-Reviews in Medicinal Chemistry · Bentham Science Publishers
+[  1 篇] Environmental and Ecological Statistics · Springer Science+Business Media
+[  1 篇] Scholars Journal of Engineering and Technology
+[  1 篇] Microbial Genomics · Microbiology Society
+[  1 篇] Journal of Integrated Circuits and Systems
+[  1 篇] Journal of Bio- and Tribo-Corrosion · Springer Science+Business Media
+[  1 篇] Question · National University of La Plata
+[  1 篇] Energy Storage · Wiley
+[  1 篇] International Journal of Environment Engineering and Education
+[  1 篇] Fronteiras - Revista de Teologia da Unicap
+[  1 篇] Computational Urban Science · Springer Nature
+[  1 篇] Asian Journal of Law and Society · Cambridge University Press
+[  1 篇] Journal of Management Studies · Wiley
+[  1 篇] National Materials
+[  1 篇] Telos Revista de Estudios Interdisciplinarios en Ciencias Sociales · Rafael Belloso Chacín University
+[  1 篇] PRAWO i WIĘŹ
+[  1 篇] Materials Reports Solidwaste and Ecomaterials · Tsinghua University Press
+[  1 篇] Economic scope
+[  1 篇] Jurnal Ilmiah Manajemen Kesatuan
+[  1 篇] Information Management and Business Review · International Foundation for Research and Development
+[  1 篇] EAI Endorsed Transactions on Digital Transformation of Industrial Processes
+[  1 篇] Advances in Complex Systems · World Scientific
+[  1 篇] Molecular Medicine Reports · Spandidos Publishing
+[  1 篇] Asian Journal of Biochemistry Genetics and Molecular Biology
+[  1 篇] Plant Signaling & Behavior · Taylor & Francis
+[  1 篇] Energy Reviews · Elsevier BV
+[  1 篇] PhotoniX · Springer Nature
+[  1 篇] Системи управління навігації та зв’язку Збірник наукових праць · Poltava National Technical Yuriy Kondratyuk University
+[  1 篇] Crop Health · Springer Science+Business Media
+[  1 篇] Nigeria Journal of Home Economics (ISSN 2782-8131)
+[  1 篇] Nano Research · Springer Science+Business Media
+[  1 篇] Aeronautical and Aerospace Engineering
+[  1 篇] npj Materials Degradation · Nature Portfolio
+[  1 篇] Arandu-UTIC. · National Technological University
+[  1 篇] International Journal of Current Educational Studies
+[  1 篇] Remote Sensing in Earth Systems Sciences · Springer Science+Business Media
+[  1 篇] ICCK Transactions on Intelligent Systematics
+[  1 篇] International Journal of Modern Science and Research Technology
+[  1 篇] Visnyk Taras Shevchenko National University of Kyiv Military-Special Sciences · Taras Shevchenko National University of Kyiv
+[  1 篇] Asian Journal of Fisheries and Aquatic Research
+[  1 篇] NIU journal of educational research.
+[  1 篇] Concurrency and Computation Practice and Experience · Wiley
+[  1 篇] Current Plant Biology · Elsevier BV
+[  1 篇] Quantitative InfraRed Thermography Journal · Taylor & Francis
+[  1 篇] Disaster in Civil Engineering and Architecture
+[  1 篇] Archives des sciences a multidisciplinary journal
+[  1 篇] Journal of Earth and Environmental Sciences Research
+[  1 篇] ChemistrySelect · Wiley
+[  1 篇] Humanity & Society · SAGE Publishing
+[  1 篇] Environmental Management Engineering and Technology · Elsevier BV
+[  1 篇] Advances in Engineering and Information Sciences
+[  1 篇] npj Sustainable Agriculture · Springer Science+Business Media
+[  1 篇] American Journal of Health Research · Science Publishing Group
+[  1 篇] Low-carbon Materials and Green Construction · Springer Science+Business Media
+[  1 篇] Reviews in Aquaculture · Wiley
+[  1 篇] İmgelem
+[  1 篇] Rendiconti online della Società Geologica Italiana
+[  1 篇] Ocean Microbiology
+[  1 篇] Blue Economy
+[  1 篇] ISME Host Microbe
+[  1 篇] Journal of Hydroinformatics · IWA Publishing
 [  1 篇] TATOHI Jurnal Ilmu Hukum
+[  1 篇] Nonlinear processes in geophysics · Copernicus Publications
+[  1 篇] Journal of Copyright in Education & Librarianship · University of Colorado, Colorado Springs
+[  1 篇] Journal of Ecology & Natural Resources
+[  1 篇] Dhaka University Law Journal
+[  1 篇] Environmental Impact Assessment Review · Elsevier BV
 [  1 篇] Children s Literature in Education · Springer Nature
+[  1 篇] Journal of Mammalogy · Oxford University Press
+[  1 篇] Optical Fiber Technology · Elsevier BV
 [  1 篇] Ekuilibrium Jurnal Ilmiah Bidang Ilmu Ekonomi · Muhammadiyah University of Ponorogo
 [  1 篇] Laboral Open Access Revista (LOAR)
-[  1 篇] London Journal of Research in Management & Business
+[  1 篇] Zagadnienia Ekonomiki Rolnej / Problems of Agricultural Economics
 [  1 篇] Ensambles
+[  1 篇] Urban Studies · SAGE Publishing
+[  1 篇] International Journal of Osteoarchaeology · Wiley
 [  1 篇] Unram Journal of Community Service
+[  1 篇] Akademik İncelemeler Dergisi
 [  1 篇] Journal of Higher Education Research
 [  1 篇] Mumtaz.
 [  1 篇] Agronomy for Sustainable Development · Springer Science+Business Media
 [  1 篇] Machine Learning with Applications · Elsevier BV
+[  1 篇] MONTENEGRIN JOURNAL OF ECONOMICS
 [  1 篇] American Journal of Life Sciences · Science Publishing Group
+[  1 篇] One Ecosystem · Pensoft Publishers
+[  1 篇] Quaternary Geochronology · Elsevier BV
+[  1 篇] Journal of Destination Marketing & Management · Elsevier BV
+[  1 篇] Journal La Sociale
 [  1 篇] International Journal of Business Law and Political Science
+[  1 篇] International Journal of Linguistics
+[  1 篇] Health Promotion Journal of Australia · Wiley
+[  1 篇] REVISTA DE HISTORIOGRAFÍA (RevHisto) · Carlos III University of Madrid
 [  1 篇] International Journal of Instruction · Osmangazi University
-[  1 篇] KSCE Journal of Civil Engineering · Springer Science+Business Media
-[  1 篇] Nordisk välfärdsforskning | Nordic Welfare Research · Universitetsforlaget
+[  1 篇] Kompleksnoe Ispolzovanie Mineralnogo Syra = Complex Use of Mineral Resources
+[  1 篇] Administration and Policy in Mental Health and Mental Health Services Research · Springer Science+Business Media
+[  1 篇] Integrative Organismal Biology · Oxford University Press
+[  1 篇] International Journal of Social Sciences Language and Linguistics
+[  1 篇] Environment, social and governance.
+[  1 篇] The Compass Earth Science Journal of Sigma Gamma Epsilon
+[  1 篇] Journal of Economic Surveys · Wiley
 [  1 篇] Journal of Chemical Biological and Physical Sciences
 [  1 篇] Territory Politics Governance · Taylor & Francis
-[  1 篇] INTERNATIONAL JOURNAL OF MULTIDISCIPLINARY RESEARCH AND ANALYSIS
+[  1 篇] Observatorio Latinoamericano y Caribeño
 [  1 篇] GEO DATA
+[  1 篇] INTERNATIONAL JOURNAL OF MULTIDISCIPLINARY RESEARCH AND ANALYSIS
 [  1 篇] Plant Cell & Environment · Wiley
 [  1 篇] Journal of Law and Resilient Future
+[  1 篇] npj Antimicrobials and Resistance · Springer Science+Business Media
 [  1 篇] London Journal of Research In Humanities and Social Sciences
+[  1 篇] Climate Change Ecology · Elsevier BV
+[  1 篇] Area · Wiley
+[  1 篇] Journal of Social Research Development
+[  1 篇] Shock Waves · Springer Science+Business Media
+[  1 篇] Architektúra & urbanizmus
+[  1 篇] Journal of Social Science and Human Research Studies
 [  1 篇] Revista Colombiana de Cardiología · Elsevier BV
 [  1 篇] Journal of Molecular Neuroscience · Springer Science+Business Media
+[  1 篇] Corporate Law & Governance Review
 [  1 篇] Journal of the American Planning Association · Taylor & Francis
-[  1 篇] Reviews in Fisheries Science & Aquaculture · Taylor & Francis
+[  1 篇] Advanced Synthesis & Catalysis · Wiley
+[  1 篇] Weather · Wiley
+[  1 篇] The Microbe · Elsevier BV
 [  1 篇] TURKISH JOURNAL OF ELECTRICAL ENGINEERING & COMPUTER SCIENCES · Scientific and Technological Research Council of Turkey (TUBITAK)
+[  1 篇] Reviews in Fisheries Science & Aquaculture · Taylor & Francis
+[  1 篇] Water Policy · UWA Publishing
 [  1 篇] ICST Transactions on Scalable Information Systems · European Alliance for Innovation
 [  1 篇] Frontiers in Ecology and the Environment · Wiley
 [  1 篇] Gender Place & Culture · Taylor & Francis
-[  1 篇] Flow Measurement and Instrumentation · Elsevier BV
 [  1 篇] The School of Public Policy Publications · University of Calgary Press
+[  1 篇] Leiden Journal of International Law · Cambridge University Press
 [  1 篇] DNA Research · University of Oxford
+[  1 篇] Journal of Applied Philosophy · Wiley
 [  1 篇] Journal of clinical technology and theory.
-[  1 篇] Scholars Journal of Arts Humanities and Social Sciences
+[  1 篇] Advanced Information and Communication
+[  1 篇] Transactions of the Institute of Measurement and Control · SAGE Publishing
+[  1 篇] Geography Department University of Sao Paulo
+[  1 篇] JURNAL ILMIAH DETUBUYA
+[  1 篇] International Journal of Law and Politics Studies · Al-Kindi Center for Research and Development
+[  1 篇] Investment Management and Financial Innovations · Business Perspectives
 [  1 篇] International Journal for the Semiotics of Law - Revue internationale de Sémiotique juridique · Springer Science+Business Media
 [  1 篇] Mycopathologia · Springer Science+Business Media
 [  1 篇] JCMS Journal of Common Market Studies · Wiley
 [  1 篇] Gut Microbes · Landes Bioscience
+[  1 篇] GPS Solutions · Springer Science+Business Media
 [  1 篇] European Journal of Taxonomy · Consortium of European Natural History Museums
+[  1 篇] International Journal on Science and Technology
 [  1 篇] Information Technology and Libraries · American Library Association
 [  1 篇] Animal Microbiome · BioMed Central
+[  1 篇] Evolutionary Journal of the Linnean Society · Oxford University Press
 [  1 篇] International Journal of Applied and Natural Sciences
+[  1 篇] Journal of Taiji Science
+[  1 篇] Sleep Medicine · Elsevier BV
 [  1 篇] Anatolian Journal of Botany
+[  1 篇] Journal of Systems Architecture · Elsevier BV
 [  1 篇] Parasites & Vectors · BioMed Central
+[  1 篇] Jurnal Teknologi dan Manajemen Industri Terapan
+[  1 篇] Indonesian Health Journal
 [  1 篇] Nation State Journal of International Studies
+[  1 篇] npj Aging · Springer Science+Business Media
 [  1 篇] International Journal of Biochemistry Research & Review · Sciencedomain International
+[  1 篇] Peer Community Journal
 [  1 篇] Yönetim ve Ekonomi Dergisi · Manisa Celal Bayar University
-[  1 篇] Communications Chemistry · Nature Portfolio
-[  1 篇] Journal of the Royal Anthropological Institute · Wiley
+[  1 篇] Egyptian Journal of Bronchology · Springer Science+Business Media
 [  1 篇] La Mecedora Divulga
+[  1 篇] Communications Chemistry · Nature Portfolio
+[  1 篇] Results in Surfaces and Interfaces · Elsevier BV
+[  1 篇] Journal of the Royal Anthropological Institute · Wiley
 [  1 篇] Journal of General Virology · Microbiology Society
 [  1 篇] Risk Management and Insurance Review · Wiley
+[  1 篇] Internet Policy Review · Alexander von Humboldt Institute for Internet and Society
+[  1 篇] Journal of Thermoplastic Composite Materials · SAGE Publishing
+[  1 篇] Educational Role of Language Journal
+[  1 篇] World Scientific Research
+[  1 篇] Business And Management Studies An International Journal · Akademik Platform
+[  1 篇] Mesoamericana
+[  1 篇] Journal of Communication Sustainability and Empowerment
+[  1 篇] Chemical Thermodynamics and Thermal Analysis · Elsevier BV
 [  1 篇] International Journal of Urban and Regional Research · Wiley
+[  1 篇] Jurnal pengukuran kualiti dan analisis/Journal of Quality Measurement and Analysis
+[  1 篇] e-Revista Multidisciplinaria del Saber
 [  1 篇] BDJ · Springer Nature
+[  1 篇] Nordic Journal of Comparative and International Education (NJCIE) · Oslo and Akershus University College of Applied Sciences
+[  1 篇] International Journal Of Recent Trends In Multidisciplinary Research
+[  1 篇] Space and Culture India · ACCB Publishing
 [  1 篇] Palmas
 [  1 篇] Applied Business and Economics Journal
-[  1 篇] International Journal of Finance & Economics · Wiley
 [  1 篇] Corporate Social Responsibility and Environmental Management · Wiley
+[  1 篇] International Journal of Finance & Economics · Wiley
 [  1 篇] Indian Journal of Forensic and Community Medicine
+[  1 篇] Persona · University of Lima
+[  1 篇] Journal of Sustainability
+[  1 篇] International Journal of Multidisciplinary Applied Business and Education Research
+[  1 篇] Journal of educational theory and practice.
+[  1 篇] Journal of Education Culture and Society · Foundation Pro Scientia Publica
 [  1 篇] Open Journal of Stigmatized Knowledge & Suppressed Discourses (ISSN 3105-3033)
 [  1 篇] Advances in Social Behavior Research
 [  1 篇] European Spine Journal · Springer Science+Business Media
+[  1 篇] AMBIO · Springer Science+Business Media
 [  1 篇] Cellular and Molecular Bioengineering · Springer Science+Business Media
-[  1 篇] The Pacific Review · Taylor & Francis
-[  1 篇] International Journal of Research on Multidisciplinary Studies
 [  1 篇] Trakya University Journal of Natural Sciences · Trakya University
+[  1 篇] International Journal of Research on Multidisciplinary Studies
+[  1 篇] The Pacific Review · Taylor & Francis
+[  1 篇] Baha i Studies Review · Intellect
 [  1 篇] Revista de la Facultad de Derecho y Ciencias Políticas · Pontifical Bolivarian University
-[  1 篇] Journal of Environmental Economics and Policy · Taylor & Francis
+[  1 篇] SÖYLEM Filoloji Dergisi · Söylemiş
+[  1 篇] Direito Processo e Cidadania
+[  1 篇] Journal for Veterinary Medicine Biotechnology and Biosafety
+[  1 篇] Food and Humanity · Elsevier BV
 [  1 篇] European Law Open · Cambridge University Press
-[  1 篇] Te Kaharoa
 [  1 篇] ChemElectroChem · Wiley
-[  1 篇] Schmalenbach Journal of Business Research · Springer Science+Business Media
+[  1 篇] Revista Tópicos.
+[  1 篇] Te Kaharoa
+[  1 篇] Journal of Environmental Economics and Policy · Taylor & Francis
 [  1 篇] Business Preneur Jurnal Ilmu Administrasi Bisnis · Universitas Pasundan
-[  1 篇] Journal of Economics Law and Society
-[  1 篇] Journal of Environmental Planning and Management · Taylor & Francis
-[  1 篇] Philosophy & Technology · Springer Nature (Netherlands)
-[  1 篇] Gender Issues · Springer Science+Business Media
-[  1 篇] Journal of Religion and Health · Springer Science+Business Media
-[  1 篇] World Journal of Gastrointestinal Oncology
-[  1 篇] Diabetologia · Springer Science+Business Media
-[  1 篇] Environmental and Resource Economics · Springer Science+Business Media
-[  1 篇] Discover Green Chemistry
-[  1 篇] Feminist Theory · SAGE Publishing
-[  1 篇] Proyección: Teología y mundo actual
+[  1 篇] Schmalenbach Journal of Business Research · Springer Science+Business Media
