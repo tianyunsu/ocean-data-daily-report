@@ -233,6 +233,20 @@ agent_created: true
 | **L2 日报** | 从 S/A 级池中精选，逐条核实（现有流程，不变） | `daily_reports/`、`posts/` | `build_daily_*.py`、`gen_html_*.py` |
 | **L3 新出口** | ① 前沿看板：全池可检索（方向/分级/时间/关键词/**海洋契合度**）② 周报：池内统计驱动的趋势综述 | `frontier.html`、`weekly/` | 静态 JSON + 前端筛选 |
 
+**L3 看板外壳生成（2026-10-05 补建 `gen_frontier.py`）**：`frontier.html` 是**静态外壳**，
+前端 `fetch('data/pool_index.json')` 动态渲染，故每期**数据自动更新、外壳无需改动**。
+但外壳此前仅有 2026-09-20 一次手工落地、**无生成脚本**（丢失即不可复现，苏老师 2026-10-05 指出并要求补建）。
+现由 `gen_frontier.py` 负责：读取 `pool_index.json` 的 `window_days/total_pool/board_count/generated`，
+把它们同步进外壳的「近 N 天」标题、时间窗下拉首项与页脚署名行，然后**幂等写盘**（内容不变则不写）。
+- 用法：`py -3 gen_frontier.py`（默认 `--index data/pool_index.json --out frontier.html`）。
+- **外壳内含四处导航**（首页 / 前沿跟踪 / 前沿周报 / 全部归档）；**新增页面时须同步**（见陷阱「导航栏」）。
+- 依赖的是 `pool_index.json`，不是 `library.db`；`pool_index.json` **已入库**（`library.db` 不入库）。
+- 排查提示：若看板空白，先确认 `data/pool_index.json` 存在且为当日（`screen.py` 产出），再跑本脚本重生成外壳。
+
+**跨机器复用池文件（2026-10-05 苏老师要求）**：`data/pool/YYYY-MM-DD.jsonl`（L0 全量池）
+**正式入库**（`.gitignore` 仅忽略 `data/pool/_*.jsonl` 备份/临时文件）；`data/library.db` 仍不入库（可由池 jsonl 重建）。
+故 `git pull` 后另一台机器可直接复算池与看板，无需重新采集。
+
 **L1 海洋契合度分档（决定看板可读性，2026-09-20 新增）**：池内噪声主因是**把海水当实验介质**的
 材料/化学/医学/农学论文（海水电解、MXene 催化剂、铀吸附、水凝胶、溢油吸附剂…），它们靠 A 级期刊权重挤进前列。
 判据区分**海洋"对象"**与**海洋"介质"**：标题含 `ocean/marine/coastal/sea-ice/bathymetry/seabed/fisheries/Arctic…`

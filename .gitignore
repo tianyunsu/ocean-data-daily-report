@@ -1,7 +1,9 @@
-# 原始采集数据（体积大，不入库；每次执行可重新生成）
-data/pool/*.jsonl
+# 池数据：正式采集文件 data/pool/YYYY-MM-DD.jsonl 入库，
+# 以保证跨机器复用同一份池（苏老师 2026-10-05 要求）。
+# 备份与临时文件（_bak_*.jsonl / _pool_ok.jsonl / _rerun_*.jsonl）不入库。
+data/pool/_*.jsonl
 
-# SQLite 全量池（本地累积，不入库）
+# SQLite 全量池（本地累积，可由池 jsonl 重建，不入库）
 data/library.db
 data/library.db-journal
 
