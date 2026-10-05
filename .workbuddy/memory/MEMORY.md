@@ -3,11 +3,12 @@
 ## 系统配置
 - **用户**：苏老师 · **自动化ID**：`ai`（`FREQ=DAILY;BYHOUR=9;BYMINUTE=0`）
 - **仓库**：https://github.com/tianyunsu/ocean-data-daily-report ｜ **站点**：https://tianyunsu.github.io/ocean-data-daily-report/
-- **DATA_SOURCE**：`feishu_write_doc.py`（`SECTIONS=[...]`，由 `build_daily_YYYYMMDD.py` repr 正则替换）；**HTML**：`gen_html_YYYYMMDD.py`（自包含，`ast.literal_eval` 解析，禁止 import feishu）；**发布**：`publish_YYYYMMDD.py`（幂等，含跨月自动建 archive 分组）
+- **DATA_SOURCE**：`feishu_write_doc.py`（`SECTIONS=[...]`，由 `build_daily_YYYYMMDD.py` repr 正则替换）；**HTML**：`gen_html_YYYYMMDD.py`（自包含，`ast.literal_eval` 解析，禁止 import feishu）；**发布**：`publish_YYYYMMDD.py`（幂等，含跨月自动建 archive 分组）；**L3 看板外壳**：`gen_frontier.py`（2026-10-05 补建，读 `pool_index.json` 幂等生成 `frontier.html`）
 - **本机 Python**：默认 `python` 缺 requests，飞书/机器人/校验脚本用 **`py -3`**；链接实测用系统 `Python313\python.exe`
 
 ## 前沿跟踪四层架构（2026-09-20 落地）
-- **L0** `harvest.py` → `data/pool/YYYY-MM-DD.jsonl`（9 方向 × OpenAlex 期刊 + arXiv 预印本通道 + 会议）；**L1** `screen.py`+`tier_engine.py` → `data/library.db` + `data/pool_index.json`；**L2** 日报；**L3** `frontier.html` + `weekly_report.py` → `weekly/YYYY-Www.html` + `weekly/index.html` + `weekly/synth/*.draft.md`
+- **L0** `harvest.py` → `data/pool/YYYY-MM-DD.jsonl`（9 方向 × OpenAlex 期刊 + arXiv 预印本通道 + 会议）；**L1** `screen.py`+`tier_engine.py` → `data/library.db` + `data/pool_index.json`；**L2** 日报；**L3** `frontier.html`（外壳由 `gen_frontier.py` 生成）+ `weekly_report.py` → `weekly/YYYY-Www.html` + `weekly/index.html` + `weekly/synth/*.draft.md`
+- **跨机复用池（2026-10-05 苏老师要求）**：`.gitignore` 仅忽略 `data/pool/_*.jsonl`（备份/临时），**正式池文件 `data/pool/YYYY-MM-DD.jsonl` 入库**；`data/library.db` 仍不入库（可由池 jsonl 重建）。另一台机器 `git pull` 后即可复算池与看板，无需重新采集
 - **周报两层综述**：① 自动综述（脚本，主题簇+代表文献+期刊）；② 深度综述（写 `weekly/synth/YYYY-Www.md` 后重跑脚本自动注入）。综述样本＝池内剔除 D 级预警刊 + 「已降权」项（剔除数单列、不删除）
 - **周报入口三处**：`index.html`/`archive.html`/`frontier.html` 导航「前沿周报」→ `weekly/index.html`；首页 `</header>` 与 `<main>` 间横幅卡片
 - **周报触发**：当日为周日，**或距上期 ≥7 天**（2026-10-05 实测：距 09-27 已 8 天 → 触发；`--end` 取运行当日，ISO 周为标签，W40 因 10-04 未跑而跳过，14 天窗口已完整覆盖）
@@ -39,6 +40,7 @@
 阶段3  build_daily → 归类自检 → gen_html（改 TODAY/TODAY_CN/**星期**/日期范围/页脚来源）
 阶段4  posts/ + index.html + archive.html + commit + push；飞书文档 + 机器人（不阻断）；
        第7步 前沿周报（周日或距上期≥7天）：读 draft → 写 synth md → 链接核验须 0 异常 → 重跑注入 → push
+       第8步 L3 看板外壳：py -3 gen_frontier.py（读 pool_index.json 幂等重生成 frontier.html）
 阶段5  五审：链接+摘要一致性 / 时效 / 来源覆盖 / 归类与条数 / 去重
 阶段6  写日志 + 滚动本文件去重基准 + 追加 automations 摘要
 ```
@@ -57,6 +59,8 @@
 |------|---------|
 | git push TLS/代理失败 | `unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy` 后 `git -c http.proxy= -c https.proxy= push origin main` |
 | git push 超时/reset | 重试 3–5 次；Windows 下 push 需 Bash + `dangerouslyDisableSandbox: true` |
+| **push 报 `hostkeys_foreach failed for ~/.ssh/known_hosts: Permission denied` / `Host key verification failed`** | 沙箱拦截 `~/.ssh` 读取（非仓库问题）→ 必须 `dangerouslyDisableSandbox: true` 并让苏老师放行；放行后即可推 |
+| **首次纳入池文件后 push 变慢** | `git add -A` 现含 `data/pool/*.jsonl`（约 22 MB / 5 文件）；属正常，勿中断 |
 | git commit 身份 | 仓库级 `user.name=tianyunsu` / `user.email=tianyunsu@users.noreply.github.com` |
 | **pull --rebase 因未暂存改动失败** | `screen.py` 会改 `data/journal_tiers.json`/`pending_journals.txt`；**先 `git add -A` 再 rebase/push** |
 | **`git add` 后 commit 报 "nothing to commit" 但提交已生成** | 若上一步返回非零会短路 push；**须单独核对 `git rev-parse HEAD` vs `origin/main` 并补推** |

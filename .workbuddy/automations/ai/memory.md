@@ -488,3 +488,9 @@
 - **新增陷阱（已并入 MEMORY.md 故障表）**：① `screen.py` 改 `journal_tiers.json`/`pending_journals.txt` → **必须先 `git add -A` 再 rebase**，否则 `pull --rebase` 报 "unstaged changes"；② 复合 git 命令**任一环返回非零会静默中断后续**（本期 pull 与 commit 各中断一次）→ 收尾必查 `HEAD == origin/main`；③ 链接脚本对 Zenodo 报 **502 "Tunnel connection failed" = 沙箱代理异常非死链** → 改 WebFetch 复核。
 - **MEMORY.md 整理**：16.3 KB → 约 9 KB（合并重复「已剔除」段、压缩故障表与教训、去重基准滚动为 09-27/09-30/10-05，裁去 09-24）。
 
+### 2026-10-05 追加（苏老师三项指令，commit `f619186`）
+- **① 飞书文档**：按指令本期不再跟进（文档 API 404 为已知遗留，不阻断；机器人正常）。
+- **② 补建 `gen_frontier.py`**：L3 看板外壳此前仅 09-20 一次手工落地、无生成脚本 → 新建幂等生成器（读 `pool_index.json` 的 window_days/total_pool/board_count/generated 同步进标题/下拉/页脚；`__TOKEN__`+replace 避免与 CSS/JS 花括号冲突）。实测 240 条渲染无误，**顺带修复原 CSS 转义 bug `.t-\\?` → `.t-\?`**（「未登记」徽章此前无样式）。SKILL.md L3 节 + `file_locations.md`（`$GEN_FRONTIER`）已补，双副本 install 对齐。
+- **③ 池文件跨机复用**：`.gitignore` 改为仅忽略 `data/pool/_*.jsonl`；**正式池文件 `YYYY-MM-DD.jsonl` 入库**（5 文件 / 18,119 条 / 约 22 MB）；`library.db` 仍不入库。
+- **新踩坑**：push 报 `hostkeys_foreach failed for ~/.ssh/known_hosts: Permission denied` = 沙箱拦 `~/.ssh`（非仓库问题）→ 须 `dangerouslyDisableSandbox: true` 放行；首次纳入池文件后 push 变慢属正常。
+
