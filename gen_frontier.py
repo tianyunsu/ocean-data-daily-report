@@ -1,4 +1,46 @@
-<!DOCTYPE html>
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+gen_frontier.py — 前沿跟踪看板（L3）外壳生成器
+
+背景：`frontier.html` 是「全量文献池可检索看板」，前端 `fetch('data/pool_index.json')`
+动态渲染，故其**外壳**（导航 / 筛选控件 / CSS / JS / 口径说明）长期静态。
+此前该外壳由 2026-09-20 一次手工落地后即无生成脚本，存在「丢失即无法复现」的风险
+（苏老师 2026-10-05 指出，要求补建）。
+
+本脚本职责（幂等，仅在外壳内容变化时写盘）：
+  1. 读取 `data/pool_index.json` 的 window_days / total_pool / board_count / generated，
+     把「近 N 天」「池内共 X 条」等**动态口径**同步进外壳；
+  2. 生成完整 `frontier.html`（含首页/前沿跟踪/前沿周报/全部归档四处导航）；
+  3. 若 `data/pool_index.json` 缺失，给出明确提示（须先跑 harvest.py + screen.py）。
+
+用法：
+    py -3 gen_frontier.py                 # 用默认 data/pool_index.json
+    py -3 gen_frontier.py --index data/pool_index.json --out frontier.html
+
+注意：本脚本只生成「外壳」，不产出数据；数据由 L0/L1（harvest.py + screen.py）产出。
+"""
+
+import argparse
+import datetime as _dt
+import json
+import os
+import sys
+
+TOKENS = {
+    "__WINDOW__": "14",
+    "__GENERATED__": "",
+    "__TOTAL__": "0",
+    "__BOARD__": "0",
+    "__BUILT__": "",
+    "__OPT_WINDOW__": "",
+}
+
+# ---------------------------------------------------------------------------
+# 外壳模板（raw string：CSS 中的 `.t-\?` 等反斜杠原样保留；
+# 占位符用 __XXX__ 而非 str.format，以免与 CSS/JS 的花括号冲突）
+# ---------------------------------------------------------------------------
+TEMPLATE = r"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -48,7 +90,7 @@
 </header>
 
 <main class="container">
-  <h2 style="font-size:18px;margin:6px 0 4px;">前沿跟踪 · 近 14 天文献池</h2>
+  <h2 style="font-size:18px;margin:6px 0 4px;">前沿跟踪 · 近 __WINDOW__ 天文献池</h2>
   <p style="font-size:13px;color:#5b6472;margin:0;">
     日报是精选摘要（每方向 3–5 条），这里承载<b>全部检索结果</b>，按期刊等级排序。
     预警与受限期刊强制置底并标注，仅供取舍参考，不代表否定其全部成果。
@@ -68,7 +110,7 @@
       <option value="?">未登记</option>
     </select>
     <select id="days">
-      <option value="14">近 14 天</option>
+__OPT_WINDOW__
       <option value="7">近 7 天</option>
       <option value="3">近 3 天</option>
       <option value="0">全部</option>
@@ -105,7 +147,7 @@
     「弱相关」= 仅摘要出现海洋词，需人工判断；「海洋介质型」= 海水/水仅作实验介质
     （材料、化学、医学等），已降权，默认不显示但**不删除**，可用筛选调出复核。
   </p>
-  <p class="fw-built">数据日期：2026-10-05 ｜ 池内 240 条 ｜ 看板展示 240 条 ｜ 外壳生成于 2026-10-05 12:32</p>
+  <p class="fw-built">数据日期：__GENERATED__ ｜ 池内 __TOTAL__ 条 ｜ 看板展示 __BOARD__ 条 ｜ 外壳生成于 __BUILT__</p>
 </main>
 
 <script>
@@ -191,3 +233,75 @@ fetch('data/pool_index.json').then(r => r.json()).then(d => {
 </script>
 </body>
 </html>
+"""
+
+
+def load_index(path):
+    """读取 pool_index.json；缺失时返回 None。"""
+    if not os.path.exists(path):
+        return None
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_html(idx):
+    """依据 pool_index.json 渲染外壳。idx 可为 None（此时用占位口径）。"""
+    if idx:
+        window = int(idx.get("window_days") or 14)
+        generated = str(idx.get("generated") or "")
+        total = int(idx.get("total_pool") or 0)
+        board = int(idx.get("board_count") or len(idx.get("items") or []))
+    else:
+        window, generated, total, board = 14, "", 0, 0
+
+    tokens = dict(TOKENS)
+    tokens["__WINDOW__"] = str(window)
+    tokens["__GENERATED__"] = generated or "—"
+    tokens["__TOTAL__"] = str(total)
+    tokens["__BOARD__"] = str(board)
+    tokens["__BUILT__"] = _dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    # 时间窗下拉的第一项跟随 window_days
+    tokens["__OPT_WINDOW__"] = '      <option value="%d">近 %d 天</option>' % (window, window)
+
+    html = TEMPLATE
+    for k, v in tokens.items():
+        html = html.replace(k, v)
+    return html
+
+
+def write_if_changed(path, content):
+    """幂等写盘：内容相同则不写。返回 True 表示已更新。"""
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            old = f.read()
+        if old == content:
+            return False
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(content)
+    return True
+
+
+def main():
+    ap = argparse.ArgumentParser(description="生成前沿跟踪看板外壳 frontier.html")
+    ap.add_argument("--index", default=os.path.join("data", "pool_index.json"),
+                    help="pool_index.json 路径（默认 data/pool_index.json）")
+    ap.add_argument("--out", default="frontier.html", help="输出 HTML 路径（默认 frontier.html）")
+    args = ap.parse_args()
+
+    idx = load_index(args.index)
+    if idx is None:
+        print("[warn] 未找到 %s —— 请先执行 harvest.py + screen.py 生成池数据；"
+              "本次将按占位口径（近 14 天 / 0 条）生成外壳。" % args.index, file=sys.stderr)
+
+    html = build_html(idx)
+    changed = write_if_changed(args.out, html)
+
+    w = int(idx.get("window_days") or 14) if idx else 14
+    total = int(idx.get("total_pool") or 0) if idx else 0
+    items = len(idx.get("items") or []) if idx else 0
+    print("[ok] %s %s ｜ 时间窗 近 %d 天 ｜ 池内 %d 条 ｜ 展示 %d 条"
+          % (args.out, "已更新" if changed else "无变化（幂等跳过）", w, total, items))
+
+
+if __name__ == "__main__":
+    main()

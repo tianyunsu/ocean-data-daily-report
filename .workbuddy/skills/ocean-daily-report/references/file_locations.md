@@ -13,6 +13,7 @@
 | `$HTML_OUT` | HTML 输出目录 | `$WORKSPACE/../daily_reports/` |
 | `$GH_REPO` | GitHub Pages 仓库根目录 | `$WORKSPACE/../ocean-data-daily-report/` |
 | `$RUN_DAILY_REPORT` | 飞书机器人通知脚本 | `C:\...\WorkBuddy\Claw\run_daily_report.py` |
+| `$GEN_FRONTIER` | 前沿跟踪看板外壳生成脚本（读 `data/pool_index.json`，幂等） | `$GH_REPO/gen_frontier.py` |
 | `$PYTHON` | Python 可执行文件路径 | `~\.workbuddy\binaries\python\versions\x.x.xx\python.exe` |
 
 > `$DATA_SOURCE` 同时承担两个职责：① 存放 `SECTIONS` 数据；② 执行它即把简报**推送到飞书文档**（阶段四第 5 步）。
