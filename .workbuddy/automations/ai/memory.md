@@ -475,3 +475,16 @@
 - **飞书双链路**：文档 API 404（历史遗留，token 待更新）；机器人 webhook **成功**（StatusCode 0）。
 - **已兑现上期承诺**：`send_notify.py` 由硬编码 `now()-1day` +「39 条」改为**当日日期 + 从 SECTIONS 动态解析条数/方向数**，并补 GitHub Pages 链接。
 - **环境**：默认 `python` 缺 requests，飞书/校验脚本须用 `py -3`；链接实测脚本用系统 Python（`...Python313\python.exe`）直连可行。
+
+## 2026-10-05 期（周一·**含 W41 周报**）
+- **日报**：32 条（一5/二3/三3/四5/五4/六3/七3/八3/九3），9 方向全有；**跨月 → archive.html 自动新建「2026年10月」分组**；commit `f18f58f`（日报）+ `684ded7`（池数据）+ `178d580`（周报），终态 `HEAD = origin/main = 178d580`。
+- **周报判定**：距上期 W39（09-27）已 **8 天 ≥7 天 → 触发**；`weekly_report.py --end 2026-10-05 --days 14` → **2026-W41**（池内 778 / S/A 123 / 预警 61 / 综述样本 633）；深度综述 27 链接 **100% 回查 library.db，异常 0**（陷阱 23 通过）。注：**`--end` 取运行当日 → ISO 周标签为 W41**，W40 因 10-04 未跑而跳过，14 天窗口已完整覆盖该时段。
+- **规模指标**：harvest **一次成功、无 429**，9 方向全成功 **4,521 条**（预印本 542）→ screen 池内 **240 条**（S3/A34/B48/C35/D18/P12/?90）→ 日报 32 条。
+- **阶段一**：初筛 ≥5 达标，含 IEEE/会议 1 条（IEEE VIS 2026 最佳论文荣誉提名·KAUST 多尺度海洋流场可视化）；`harvest.py` 9 方向 `会议论文` 计数**均为 0**（CVPR/ICCV/NeurIPS/OCEANS 周期空窗），已按 skill 举证。
+- **去重**：URL 集合差 32 vs 近 12 期 236 → **交集 0**；关键词/DOI 命中 2 组（北冰洋考察、OSR10）经复核判为**新进展**（凯旋+成果 / 正式发布）予以保留。**「预告↔正式发布」可视为两次事件**（新增经验）。
+- **覆盖矩阵**：零覆盖 **6 组**（DOAJ / CNKI-万方 / GitHub-PyPI-conda / W3C-ISO-OGC-CF-RDA / EarthArXiv-ESSOAr / 会议论文）≤6 达标并归因；**17 个唯一域名**。
+- **五审结果**：链接 27×200 + 5 异常（3×403 反爬经 Crossref 核验、2×502 沙箱代理隧道经 WebFetch 核验）→ **异常数 0**；时效 ≤7 天 30 / 8–14 天 2 / >14 天 **0**（无需豁免）；arXiv 占比 3.1% ✅ / 期刊占比 46.9% ✅。
+- **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（token 又变更为 `I48KdPvBDoBBOfx6kd6c9WRnnor` / `XZljdFTkyoFPs7xSAu1cSF31nDb`，**待苏老师更新**）；邮件未配置。
+- **新增陷阱（已并入 MEMORY.md 故障表）**：① `screen.py` 改 `journal_tiers.json`/`pending_journals.txt` → **必须先 `git add -A` 再 rebase**，否则 `pull --rebase` 报 "unstaged changes"；② 复合 git 命令**任一环返回非零会静默中断后续**（本期 pull 与 commit 各中断一次）→ 收尾必查 `HEAD == origin/main`；③ 链接脚本对 Zenodo 报 **502 "Tunnel connection failed" = 沙箱代理异常非死链** → 改 WebFetch 复核。
+- **MEMORY.md 整理**：16.3 KB → 约 9 KB（合并重复「已剔除」段、压缩故障表与教训、去重基准滚动为 09-27/09-30/10-05，裁去 09-24）。
+
