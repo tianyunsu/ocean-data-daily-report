@@ -494,3 +494,14 @@
 - **③ 池文件跨机复用**：`.gitignore` 改为仅忽略 `data/pool/_*.jsonl`；**正式池文件 `YYYY-MM-DD.jsonl` 入库**（5 文件 / 18,119 条 / 约 22 MB）；`library.db` 仍不入库。
 - **新踩坑**：push 报 `hostkeys_foreach failed for ~/.ssh/known_hosts: Permission denied` = 沙箱拦 `~/.ssh`（非仓库问题）→ 须 `dangerouslyDisableSandbox: true` 放行；首次纳入池文件后 push 变慢属正常。
 
+## 2026-10-08 期（周四·**无周报**）
+- **日报**：35 条（一5/二4/三4/四4/五4/六4/七3/八3/九4），9 方向全有；commit `6d8fb95`（日报+池+脚本）+ `f30a5b8`（frontier 刷新），终态 `HEAD = origin/main = f30a5b8`。
+- **周报判定**：当日为**周四**，距上期 W41（10-05）仅 **3 天 <7 天 → 不触发**，跳过第 7 步；第 8 步 `gen_frontier.py` 执行（近 14 天 / 池内 240 / 展示 240）。
+- **规模指标**：harvest 一次成功、无 429，9 方向全成功 **4,472 条**（预印本合计 466；会议论文全 0）→ screen 池内 **240 条**（?93/A35/B47/C34/D14/P14/S3）→ 日报 35 条，留存率 14.6%。
+- **阶段一**：初筛 ≥5 达标；候选 IEEE VIS 2026 任务驱动可视化**经去重发现 10-05 已发 → 剔除**；harvest 9 方向 `会议论文` 计数均为 0（客观空窗），已举证。
+- **去重（本期最关键）**：双路 grep `posts/` 命中 **1 条跨期重复**（arXiv 2609.37964 任务驱动海洋流场可视化 = 10-05「IEEE VIS 2026 最佳论文荣誉提名」，新闻链接 vs DOI 链接同成就 → 陷阱 27 变体），**替换为 Bluegraph 三维海况可视化**（0 命中）；另确认 OceanStream Globe / MyOcean Pro v17 / CASPROD / GLODAPv3 / EMSO EVOLVE / OceanEye 均已发文，未再收。
+- **覆盖矩阵**：零覆盖 **4 组**（标准治理 W3C/ISO/OGC / CNKI-万方 / EarthArXiv-ESSOAr / 会议论文）≤6 达标并归因；**18 个唯一域名**；本期工具组重点检索（PyPI copernicusmarine 2.5.0 / GitHub OSEkit）。
+- **五审结果**：链接 **30×200 + 5 异常（全部经二次核实有效）→ 异常数 0**（3×403 反爬经 Crossref/OpenAlex 核验、1×405 bluegraph HEAD→GET 200、1×404 ecit HEAD→GET 200）；时效 ≤7 天 25 / 8–14 天 10 / >14 天 **0**；arXiv 占比 14.3% ✅ / 期刊占比 40.0% ✅。
+- **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
+- **新增陷阱（已并入 MEMORY.md 故障表）**：**HEAD 返回 404/405 但链接有效**——部分站禁用 HEAD（`bluegraph.io` 405、`ecit.cn` 404，GET 均 200）→ 批量核链须 **HEAD 失败回退 GET**。
+
