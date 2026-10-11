@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年10月11日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header .date-line {
+    color: #80c8e0;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--ocean-teal);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title-cn {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .section-title-en {
+    color: #80c8e0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .section-items { padding: 8px 22px 16px; }
+  .section-items p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+  .item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 14px 0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-paper { background: #e3f2fd; color: #1565c0; }
+  .badge-news { background: #e8f5e9; color: #2e7d32; }
+  .badge-dynamic { background: #fff3e0; color: #e65100; }
+  .badge-tool { background: #f3e5f5; color: #7b1fa2; }
+  .badge-data { background: #e0f7fa; color: #00695c; }
+  .badge-cruise { background: #fce4ec; color: #c62828; }
+  .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-default { background: #eceff1; color: #546e7a; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 11px;
+    color: #90a4ae;
+  }
+  .item-meta span { margin-right: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #80b0c8;
+    font-size: 11px;
+  }
+  .summary-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .summary-bar strong { color: var(--ocean-mid); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">Marine AI Daily Brief</div>
+  <h1>海洋AI技术日报</h1>
+  <div class="date-line">2026年10月11日 · 周日</div>
+</div>
+<div class="container">
+<div class="summary-bar">
+  <span>本期共 <strong>28</strong> 条动态</span>
+  <span>|</span>
+  <span>覆盖 <strong>9</strong> 个方向</span>
+  <span>|</span>
+  <span>日期范围：2026-09-27 ~ 2026-10-11</span>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title-cn">一、海洋人工智能</div>
+      <div class="section-title-en">Ocean AI / Marine Artificial Intelligence</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1038/s41598-026-73332-x" target="_blank">混合 Mamba-Transformer 网络重思水下图像增强</a></div>
+      <div class="item-abstract">水下图像常因光散射与波长相关衰减而出现色偏、低对比与细节模糊，阻碍水下视觉任务。研究提出一种混合 Mamba-Transformer 网络用于水下图像增强，把状态空间模型的长程依赖建模与 Transformer 的全局注意力相结合，在保持计算效率的同时改善颜色恢复与纹理细节，为水下感知与机器人视觉提供更稳健的预处理手段。（Nature Portfolio / Scientific Reports）</div>
+      <div class="item-meta">Scientific Reports · 2026-10-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1016/j.oceaneng.2026.128631" target="_blank">深海采矿履带车主动悬架的耦合自适应神经网络控制</a></div>
+      <div class="item-abstract">深海采矿履带车在软底质上作业时需在复杂扰动下维持姿态稳定。研究针对其主动悬架提出耦合自适应神经网络控制方法，通过在线补偿模型不确定性与外部扰动，改善车辆在不平海底与复杂水力环境下的姿态控制与行驶平顺性，为深海采矿装备自主控制提供方案。（Elsevier / Ocean Engineering）</div>
+      <div class="item-meta">Ocean Engineering · 2026-10-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1016/j.cviu.2026.104971" target="_blank">水下深度与表面法线估计的实用方法</a></div>
+      <div class="item-abstract">单目水下图像的深度与表面法线估计对三维重建、机器人感知与海底测绘意义重大，但水下成像退化使该任务困难。研究提出一种实用性方法，联合估计水下场景的深度与表面法线，以应对浑浊、低对比与颜色衰减等退化，提升水下三维几何感知的准确性与鲁棒性。（Elsevier / CVIU）</div>
+      <div class="item-meta">Computer Vision and Image Understanding · 2026-10-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1093/gji/ggag421" target="_blank">Sentinel-2 联合多源重力数据的浅水海底地形精细反演（深度分层 XGBoost）</a></div>
+      <div class="item-abstract">浅水区海底地形对航行安全与海洋工程十分重要，但传统测深成本高、覆盖有限。研究融合 Sentinel-2 光学影像与多源重力数据，采用按水深分层的 XGBoost 模型反演浅水海底地形，缓解不同水深下反演误差分布不均的问题，提升了浅水测深的精度与空间覆盖。（Oxford / Geophysical Journal International）</div>
+      <div class="item-meta">Geophysical Journal International · 2026-10-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1016/j.jastp.2026.106988" target="_blank">通用深度学习框架实现海洋海盐气溶胶全球时空预报</a></div>
+      <div class="item-abstract">海盐气溶胶是海气相互作用与气候辐射收支的重要组分。研究提出可推广的深度学习框架，对海洋海盐气溶胶进行全球时空预报，刻画其时空演变规律，为海气交换研究与气候模式的气溶胶参数化提供数据驱动的预报手段。（Elsevier / JASTP）</div>
+      <div class="item-meta">Journal of Atmospheric and Solar-Terrestrial Physics · 2026-10-05</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title-cn">二、海洋数字孪生</div>
+      <div class="section-title-en">Ocean Digital Twin</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://www.edito.eu/event/edito-side-event-ditto-summit/" target="_blank">EDITO 携手 UN Ocean Decade 举办「迈向全球海洋数字孪生网络」边会（DITTO Summit 2026）</a></div>
+      <div class="item-abstract">作为 DITTO Summit 2026 的边会，欧洲数字孪生海洋（EDITO）联合 Mercator Ocean International、VLIZ、Seascape Belgium，并协同 UN Ocean Decade 数据共享协调办公室（DCO-ODS）等机构，于 10 月 28-29 日举办两场在线对话，汇聚全球海洋社区就数字孪生海洋（DTO）的区域需求、期望、机遇与挑战展开交流，推动构建互联互通的全球数字海洋。</div>
+      <div class="item-meta">EDITO / EMODnet · 2026-10-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://dto-bioflow.eu/" target="_blank">DTO-BioFlow：SUBSIM 海底图像分析服务与海洋数字孪生集成</a></div>
+      <div class="item-abstract">DTO-BioFlow 举办「海底图像分析服务」技术展示，介绍面向海洋数字孪生（DTO）的 SUBSIM 图像分析服务组合，内容涵盖其架构与功能、代码库，以及如何集成进欧洲数字孪生海洋基础设施，面向开发者、基础设施方与科研人员，支撑自主观测与计算机视觉方法在海洋生物多样性监测中的应用。</div>
+      <div class="item-meta">DTO-BioFlow · 2026-10-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://www.edito.eu/news/european-digital-twin-ocean-engages-the-social-simulation-community-at-ssc-2026/" target="_blank">欧洲数字孪生海洋（EDITO）与社会仿真社区对接（SSC 2026）</a></div>
+      <div class="item-abstract">EDITO 与 SEAtwins 项目 SURIMI、SEADOTs 在 Social Simulation Conference 2026 上举办专题，展示社会仿真研究者如何借助 EDITO 公共平台获取海洋数据、协作空间、免费算力与存储，从而降低社会-生态建模门槛，把 agent-based 建模与数字孪生海洋基础设施相连，服务可持续海洋治理。</div>
+      <div class="item-meta">EDITO · 2026-10-05</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title-cn">三、海洋可视化</div>
+      <div class="section-title-en">Ocean Visualization</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1016/j.oceaneng.2026.128641" target="_blank">SA-SRDC-Loc：单 AUV 辅助的三维水下定位</a></div>
+      <div class="item-abstract">水下定位是海洋观测与作业的基础。研究提出 SA-SRDC-Loc，利用单台自主水下航行器（AUV）辅助实现三维水下定位，通过稀疏表示与深度约束提升在多径、浑浊等复杂水下环境中的定位精度与稳健性，为低成本水下定位与协同导航提供新思路。（Elsevier / Ocean Engineering）</div>
+      <div class="item-meta">Ocean Engineering · 2026-10-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://marine.copernicus.eu/user-corner/product-roadmap/transition-information" target="_blank">Copernicus Marine 产品路线图：MyOcean Pro 3D 可视化工具与 EDITO 全量集成</a></div>
+      <div class="item-abstract">Copernicus Marine Service 公布产品路线图：2026 年 12 月将在 MyOcean Pro 中完成对 EDITO 的全面集成，使用户可在同一环境内访问与可视化 EDITO 上存储的全部数据集（含公私数据）；2027 年 1 月将推出沉浸式 3D Viewer，除数字地球外还渲染高分辨率地形与水深数据，为海洋变量提供空间上下文；同期 MyOcean Light 将把降尺度可视化能力从模式输出扩展到观测数据。</div>
+      <div class="item-meta">Copernicus Marine Service · 2026-10-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://discourse.paraview.org/t/paraview-6-2-0-is-now-available/17753/1" target="_blank">ParaView 6.2.0 发布：开源科学可视化增强（延续 ONNX/AI 集成）</a></div>
+      <div class="item-abstract">Kitware 发布开源科学可视化软件 ParaView 6.2.0，面向大规模并行数据的交互式分析与可视化，广泛用于海洋、气候与流体仿真数据的后处理，原生支持 NetCDF/HDF 等格式并可通过 Python（pvpython）脚本化。6.x 系列引入 ANARI 多渲染后端与 ONNX 机器学习集成，本次 6.2.0 由 38 位开发者贡献。</div>
+      <div class="item-meta">Kitware / ParaView · 2026-10-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title-cn">四、海洋数据质量</div>
+      <div class="section-title-en">Ocean Data Quality / QA-QC</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.5194/bg-23-7043-2026" target="_blank">高效液相色谱浮游植物色素分析的精密度评估（NASA 全球水色验证数据集）</a></div>
+      <div class="item-abstract">浮游植物色素的高效液相色谱（HPLC）分析是海洋生物地球化学研究与水色遥感定标的基础。研究针对由 NASA 分析处理的全球水色验证数据集，系统评估 HPLC 色素测定的精密度，量化不同色素与操作环节的误差来源，为色素数据的质量控制与多实验室可比性提供依据。（Copernicus / Biogeosciences）</div>
+      <div class="item-meta">Biogeosciences · 2026-10-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1177/03091333261488345" target="_blank">UAV 与 USV 多模态数据融合的沿岸带水深监测方法验证</a></div>
+      <div class="item-abstract">沿岸带水深变化监测对海岸管理与防灾意义重大。研究在一次综合测量活动中，融合无人机（UAV）与无人水面艇（USV）获取的多模态地理空间数据，验证一种沿岸带水深监测方法，评估其在近岸浅水环境中的精度与适用性，为沿岸地形变化提供低成本、高频次的监测路径。（SAGE / Progress in Physical Geography）</div>
+      <div class="item-meta">Progress in Physical Geography: Earth and Environment · 2026-10-07</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title-cn">五、海洋数据处理</div>
+      <div class="section-title-en">Ocean Data Processing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.5194/gmd-19-9441-2026" target="_blank">LADDIE v2.0：南极冰-海交换动力降尺度的单层模式</a></div>
+      <div class="item-abstract">南极冰架-海洋交换的精细模拟对海平面预估至关重要。研究发布 LADDIE v2.0（One-Layer Antarctic model for Dynamical Downscaling of Ice-ocean Exchanges），以单层垂向结构实现冰-海交换的高效动力降尺度，提升对冰架底部融化与热盐交换的模拟能力，为冰川-海洋耦合模式提供可复现的降尺度工具。（Copernicus / GMD）</div>
+      <div class="item-meta">Geoscientific Model Development · 2026-10-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1186/s40645-026-00851-6" target="_blank">XRF 岩芯扫描仪高分辨率重建沉积物氧化还原变化</a></div>
+      <div class="item-abstract">沉积岩芯的氧化还原记录是古海洋环境重建的重要载体。研究展示利用 XRF 岩芯扫描仪数据并结合深度-年龄校正，对沉积物氧化还原变化进行高分辨率重建的方法，提升古氧化还原条件代用指标的时空分辨率与可解释性，为古海洋研究提供数据处理范式。（Springer / Progress in Earth and Planetary Science）</div>
+      <div class="item-meta">Progress in Earth and Planetary Science · 2026-10-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1080/01431161.2026.2742387" target="_blank">弱监督多源遥感的海水入侵制图</a></div>
+      <div class="item-abstract">海水入侵威胁沿海地下水与生态安全。研究提出弱监督的多源遥感数据融合方法用于海水入侵范围制图，缓解高密度实地标签稀缺的问题，在缺乏充分采样的区域提升海水入侵识别的空间覆盖与精度。（Taylor & Francis / International Journal of Remote Sensing）</div>
+      <div class="item-meta">International Journal of Remote Sensing · 2026-10-04</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title-cn">六、海洋数据管理与共享服务</div>
+      <div class="section-title-en">Ocean Data Management & Sharing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.3897/rio.12.e215133" target="_blank">NFDI4Microbiota 第二阶段资助提案：面向微生物组研究的国家研究数据基础设施</a></div>
+      <div class="item-abstract">NFDI4Microbiota 公布其第二阶段资助提案，规划面向微生物组研究的德国国家研究数据基础设施，涵盖数据标准、工具建设与跨机构协作，推动微生物组（含海洋微生物）数据的可发现、可互操作与可复用，为微生物多样性数据的长期管理与共享提供基础设施支撑。（Pensoft / RIO）</div>
+      <div class="item-meta">Research Ideas and Outcomes · 2026-10-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1186/s44479-026-00009-w" target="_blank">整合分子方法实现北海生物多样性与生态系统动态的标准化监测</a></div>
+      <div class="item-abstract">传统形态学监测难以满足高频、大范围的生物多样性监测需求。研究整合 eDNA 等分子方法，提出面向北海生物多样性与生态系统动态的标准化监测框架，讨论采样、质控与数据共享流程，为跨区域海洋生物多样性数据的可比性、可复用性与共享提供路径。（Springer / BMC Marine Science）</div>
+      <div class="item-meta">BMC Marine Science · 2026-09-30</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-report">[报告]</span> <a href="https://oceandecade.org/?p=24941/" target="_blank">海洋数据：从愿景到行动——UN Ocean Decade 数据共享指南体系</a></div>
+      <div class="item-abstract">UN Ocean Decade 发布「Ocean data: from vision to action」，系统梳理其数据与信息战略及配套指南体系，包括数据管理计划指南、数据出版手册，以及水深、公民科学、海洋巨型动物和社会经济数据共享指南等，为 Decade 各类行动提供负责任、开放、透明的数据共享与引用框架。</div>
+      <div class="item-meta">UN Ocean Decade · 2026-10-05</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div>
+      <div class="section-title-cn">七、开放航次与科考</div>
+      <div class="section-title-en">Open Cruises / Scientific Expeditions</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://epaper.tianjinwe.com/tjrb/html/2026-10/10/content_143082_3904097.htm" target="_blank">「蛟龙」号首赴南太平洋：中国大洋100航次第二航段起航</a></div>
+      <div class="item-abstract">搭载「蛟龙」号载人潜水器的「深海一号」船从福建厦门起航，赴南太平洋执行中国大洋100航次第二航段科考，这是「蛟龙」号首次在南太平洋开展调查作业。本航段聚焦「数字化深海典型生境」大科学计划，通过载人深潜、CTD 采水与表层浮游生物拖网等手段开展水体与海底生态调查，预计 91 天，将获取生境分布规律与生态基线数据、填补该区域公海生态数据空白，并邀请南太平洋岛国科学家参航。（新华社）</div>
+      <div class="item-meta">新华社 / 天津日报 · 2026-10-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://m.gmw.cn/2026-10/11/content_1304574115.htm" target="_blank">「蛟龙」号第466次下潜：抵达西太平洋东加罗林海盆作业区</a></div>
+      <div class="item-abstract">10 月 10 日，搭载「蛟龙」号载人潜水器的「深海一号」船抵达西太平洋东加罗林海盆作业区开展深海科考，实施「蛟龙」号第 466 次下潜，也是中国大洋100航次第二航段在该区域的首个潜次，计划下潜深度约 4500 米。（央视新闻 / 光明网）</div>
+      <div class="item-meta">央视新闻 / 光明网 · 2026-10-11</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://www.163.com/dy/article/L88GJ77O0514R9KQ.html" target="_blank">阿根廷马德普拉塔海底初步确认发现57种海洋新物种</a></div>
+      <div class="item-abstract">阿根廷国家科学与技术研究理事会表示，科研人员已完成「4号陆坡」科考活动样品的分析与归类，初步鉴定出 57 种可能为科学界此前未知的海洋物种，含 20 种桡足类、22 种棘皮动物、14 种刺胞动物和 1 种掘足类软体动物，并发现 5 个新属。该航次历时 21 天，对马德普拉塔海底峡谷进行考察并对水下科考进行直播。（新华社）</div>
+      <div class="item-meta">新华社 · 2026-10-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://wap.sciencenet.cn/mobile.php?cat=T&id=572507&mobile=1&type=detail" target="_blank">中国工程院「海洋装备绿色智能融合发展」研讨会在烟台召开</a></div>
+      <div class="item-abstract">由中国工程院机械与运载工程学部主办的中国工程院工程科技学术研讨会「海洋装备绿色智能融合发展」在山东烟台召开，130 余家单位、400 余名专家现场参会。会议围绕海洋装备绿色智能制造与数字化转型、海洋信息感知获取与通信定位、海洋数据融合赋能、全球海洋数字治理等设 6 个专题论坛，李家彪等院士就深海装备与人工智能融合等作主旨报告。（中国科学报 / 科学网）</div>
+      <div class="item-meta">中国科学报 / 科学网 · 2026-10-05</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div>
+      <div class="section-title-cn">八、海洋数据中心</div>
+      <div class="section-title-en">Ocean Data Centers / Archives</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.5194/sp-7-osr10-10-2026" target="_blank">基于 GlobColour/Copernicus Marine 产品的全球海洋透明度趋势评估（含不确定性）</a></div>
+      <div class="item-abstract">海洋透明度（水体清澈度）是重要的生态与气候指标。研究基于 Copernicus Marine Service 的 GlobColour 产品评估全球海洋透明度的长期趋势，并系统处理与量化相关的不确定性，提升对海洋生态与碳循环变化趋势判读的可信度（收录于 Copernicus Ocean State Report）。（Copernicus / State of the Planet）</div>
+      <div class="item-meta">State of the Planet (Copernicus OSR) · 2026-09-30</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.5194/eo-1-129-2026" target="_blank">泛南极 NSIDC 海冰漂移产品的高分辨率 SAR 与浮标评估</a></div>
+      <div class="item-abstract">海冰漂移产品是极区海冰与海气相互作用研究的关键数据。研究利用高分辨率 SAR 与浮标数据，对 NSIDC 海冰漂移产品开展泛南极范围的评估，检验其在不同季节与冰情下的精度与偏差，为数据产品的质量把关与改进指明方向。（Copernicus / Earth Observation）</div>
+      <div class="item-meta">Earth Observation · 2026-09-30</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div>
+      <div class="section-title-cn">九、工具与代码资源调研</div>
+      <div class="section-title-en">Tools & Code Resources</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://github.com/xcdat/xcdat/releases/tag/v0.11.5" target="_blank">xCDAT v0.11.5：面向海洋/气候数据的 xarray 分析扩展库更新</a></div>
+      <div class="item-abstract">xCDAT 是一个基于 xarray 的气候与海洋数据分析扩展库，围绕 CF 规范提供时空坐标处理、气候学计算与水平/垂直重网格等功能，广泛用于地球系统模式与观测数据分析。项目于 2026 年 10 月 8 日发布 v0.11.5，持续修复问题并提升数据处理效率与一致性。（GitHub）</div>
+      <div class="item-meta">GitHub (xcdat/xcdat) · 2026-10-08</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[开源]</span> <a href="https://github.com/ioos/compliance-checker" target="_blank">IOOS compliance-checker 与 ioos_qc：海洋数据合规检查与质量控制开源工具更新</a></div>
+      <div class="item-abstract">美国综合海洋观测系统（IOOS）维护的开源工具近期更新：compliance-checker 用于按 CF/ACDD 等标准检查数据集合规性，ioos_qc 实现 QARTOD 等海洋观测数据质量控制测试。二者帮助数据提供方在入库前完成合规与质控，提升海洋数据的互操作性与可复用性。（GitHub）</div>
+      <div class="item-meta">GitHub (ioos) · 2026-10-09</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[开源]</span> <a href="https://arxiv.org/abs/2610.02194" target="_blank">SW1D：一维弹性介质地震面波求解的 Python 包</a></div>
+      <div class="item-abstract">研究发布 SW1D，一个用于求解一维弹性介质中地震面波（频散/本征）解的 Python 包，面向海洋地球物理与地壳结构反演等场景，提供可复现、易集成的开源实现，便于研究者开展面波频散正演与反演分析。（arXiv）</div>
+      <div class="item-meta">arXiv · 2026-10-01</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <p>海洋AI技术日报 · 自动生成于 2026年10月11日</p>
+  <p>Powered by WorkBuddy AI · 本期来源：Scientific Reports、Ocean Engineering、Computer Vision and Image Understanding、Geophysical Journal International、Journal of Atmospheric and Solar-Terrestrial Physics、Biogeosciences、Geoscientific Model Development、Progress in Earth and Planetary Science、Progress in Physical Geography、International Journal of Remote Sensing、BMC Marine Science、Research Ideas and Outcomes、Earth Observation、State of the Planet (Copernicus OSR)、arXiv、EDITO、EMODnet、DTO-BioFlow、Copernicus Marine Service、Kitware / ParaView、UN Ocean Decade、GitHub (xcdat / ioos)、新华社、央视新闻、中国科学报</p>
+</div>
+</body>
+</html>
