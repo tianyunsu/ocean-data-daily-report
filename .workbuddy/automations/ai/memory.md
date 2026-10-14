@@ -517,3 +517,15 @@
 - **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（`WuBudDq8ooU0cnxZRR8cY2E0nhh` / `QEX1dM7fRoAHYSxwTRIc3pabnze` 建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
 - **待确认**：10-05 与 10-11 两次 `--end` 均落在 ISO 2026-W41 → `weekly/2026-W41.*` 被本期覆盖刷新为最新 14 天窗口，W40（10-04 未跑）历史缺期；如需保留 10-05 版请按周号归档。
 
+
+## 2026-10-14 期（周三·非周报期）
+- **日报**：32 条（一5/二4/三3/四3/五3/六3/七4/八4/九3），9 方向全有；commit `a50c295`（日报+池+脚本）+ `4a53fb1`（frontier 刷新）+ `4c7657a`（补 NeurIPS DC-Ocean），终态 `HEAD = origin/main = 4c7657a`。
+- **周报判定**：当日为**周三**、距上期 2026-W41（10-11）仅 3 天 < 7 天 → **未触发**，第 7 步跳过；第 8 步 `gen_frontier.py` 执行（近 14 天 / 池内 240 / 展示 240）。
+- **阶段零**：起点 `cb587d2`（10-12 中断的 MEMORY.md 压缩提交已在开头补推）；pull 已最新；`sync_skills.py install` 9 文件、status 一致。
+- **规模指标**：harvest 一次成功 **4,477 条**（窗口 09-30~10-14）→ screen 池内 **240 条**（?91/A43/B46/C28/D15/P14/S3）→ 日报 32 条，留存率 13.3%；arXiv 占比 15.6% ✅ / 期刊占比 43.8% ✅ / 零覆盖 3 组 ≤6 ✅。
+- **阶段一**：初筛 ≥5 达标——NeurIPS 2026 `DC-Ocean`（全球 1/12° 高分辨率海洋预报深度潜在压缩，poster 152997，**本期采纳进方向一**）、`OceanCBM`（海洋预报机理可解释性 CBM，poster 150573）；ECCV 2026 Marine Vision `PatchMatch`（会期 09-08，>14 天且同源，未收）；IEEE Xplore 跨域异构海事物联感知、IEEE MetroSea 2026（初筛）。
+- **去重（本期关键拦截）**：`arXiv 2610.03888 REACT`（活性示踪剂重建）经 grep 确认 **10-08 已发**，从构建稿移除并替换为 ESSD 两篇新数据集论文（WAPOSAL / 中美近岸 Rrs）。
+- **发布后修订（本期教训）**：阶段五审查发现**顶会覆盖为空** → 按阶段一成果补入 NeurIPS `DC-Ocean`，将方向一最旧一条 `WaBViC`（ApOR 09-30）替换（维持 5 条）；回滚 index/archive（`git show cb587d2:...`）后重跑 publish 避免重复卡片。**已记入记忆：阶段一采纳清单须列为构建前置检查项。**
+- **五审结果**：链接 **23×200 + 1×404→200（tio.org.cn GET 回退）+ 9 异常（5×403 经 Crossref 核验、4×ERR 经 WebFetch 确认在线）→ 异常数 0**；时效 ≤7 天 15 / 8–14 天 17 / >14 天 **0**；**14 个唯一域名**。
+- **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（`OS2gd4Rquo4hVGxEfWScTKkunaf` 建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
+- **新增经验**：沙箱对 `neurips.cc` / `zenodo.org` / `seanoe.org` 直连 curl 返回 000，但 WebFetch 可达 → **curl 000 ≠ 死链，核链以 WebFetch 为准**。
