@@ -1,0 +1,207 @@
+# -*- coding: utf-8 -*-
+"""Write SECTIONS for 2026-10-14 into feishu_write_doc.py (regex replace)."""
+import re
+
+SECTIONS = [
+{'title': '一、海洋人工智能', 'en': 'Ocean AI / Marine Artificial Intelligence', 'items': [
+    {'title': '卷积神经网络识别北极易发快速海冰消亡的状态',
+     'badge': '[论文]',
+     'abstract': '北极「快速海冰消亡事件」指九月海冰在数年内大幅减少的现象，气候模式模拟中可见而观测记录尚短。研究用六个大型气候模式集合训练卷积神经网络，诊断各状态对快速海冰消亡的脆弱性；留一交叉验证显示模型能区分高风险与低风险状态，并强调持续性薄冰、剩余海冰范围与持续偏高的上层海洋热含量是关键预测因子。将该 CNN 应用于卫星时代观测数据，可见 2007 年前后骤降之前的快速消亡信号。（arXiv 预印本）',
+     'source': 'arXiv',
+     'url': 'https://arxiv.org/abs/2610.16584', 'date': '2026-10-12'},
+    {'title': 'ArcticQA / ArcticAbstain：面向北极科学的 LLM「弃答」基准',
+     'badge': '[论文]',
+     'abstract': '大语言模型在科学多选题无有效选项时应当弃答，但高频弃答并不等于对答案可得性敏感。研究构建 ArcticQA 数据集（194 道题，源自北极一手研究），以自动化手段核查选项是否有源文支持、干扰项是否与证据矛盾；并进一步构建 ArcticAbstain 配对基准，在「有答案」与「无答案」两种条件下比较模型表现。研究评测了 Gemini、Claude、ChatGPT 三个家族共八个模型，每条件三次重复，共记录 9,312 条响应。（arXiv 预印本）',
+     'source': 'arXiv',
+     'url': 'https://arxiv.org/abs/2610.09446', 'date': '2026-10-07'},
+    {'title': '可解释深度学习揭示东亚极端冬季可预报性的未来变化',
+     'badge': '[论文]',
+     'abstract': '深度学习已成为季节预报的有力工具，但对极端异常的预报技巧仍然有限，且气候变暖可能改变可预报性来源。研究提出基于卷积神经网络的框架，评估未来气候下季节可预报性如何变化，聚焦东亚极端冬季。CNN 基于 CESM2-LENS 集合的历史时段训练，可识别预报技巧的来源与结构，为理解暖化背景下极端事件的潜在可预报性提供依据。（Springer Nature / npj Climate and Atmospheric Science）',
+     'source': 'npj Climate and Atmospheric Science',
+     'url': 'https://doi.org/10.1038/s41612-026-01564-9', 'date': '2026-10-05'},
+    {'title': 'WaBViC：基于水槽视频与 3D CNN 的破碎波型客观分类',
+     'badge': '[论文]',
+     'abstract': '波浪破碎是海岸水动力学中复杂且高耗能的过程，但破碎波型分类长期依赖主观、离散的判断。研究提出 Wave Breaker Video Classifier（WaBViC）机器学习框架，将时空视觉特征与实验受控参数相结合，实现数据驱动的破碎波型预测，使分类更客观、一致，并可在不同底坡条件下推广。（Elsevier / Applied Ocean Research）',
+     'source': 'Applied Ocean Research',
+     'url': 'https://doi.org/10.1016/j.apor.2026.105284', 'date': '2026-09-30'},
+    {'title': '基于异常检测的海底热液羽流在线综合识别算法',
+     'badge': '[论文]',
+     'abstract': '热液羽流探测是发现活动海底热液区与勘探海底资源的关键。为使 AUV 实时调整调查策略，研究提出将实时异常检测与流体类型分类相耦合的在线综合识别算法，模型基于「蛟龙」号 AUV 历史数据训练。该算法可在水下作业过程中即时判断羽流存在与类型，为海底热液系统的自主探测提供技术路径。（Elsevier / Results in Engineering）',
+     'source': 'Results in Engineering',
+     'url': 'https://doi.org/10.1016/j.rineng.2026.113466', 'date': '2026-10-01'}]},
+
+{'title': '二、海洋数字孪生', 'en': 'Ocean Digital Twin', 'items': [
+    {'title': '不确定性感知的数字孪生驱动 AUV 容错控制',
+     'badge': '[论文]',
+     'abstract': 'AUV 在复杂海洋环境中作业，执行器故障、推进性能退化与环境扰动会显著影响任务安全与轨迹跟踪。已有研究多将故障诊断与容错控制作为独立任务。该研究把故障诊断、预测型数字孪生与不确定性感知控制整合到统一框架中，通过数字孪生预测系统行为并量化不确定性，实现更可靠的 AUV 轨迹跟踪与安全运行。（Elsevier / Ocean Engineering）',
+     'source': 'Ocean Engineering',
+     'url': 'https://doi.org/10.1016/j.oceaneng.2026.128726', 'date': '2026-10-12'},
+    {'title': '混合数字孪生辅助多智能体强化学习实现波浪能转换器预测性协同控制',
+     'badge': '[论文]',
+     'abstract': '波浪能是可再生能源的重要方向，但随机海况与阵列中多台波浪能转换器（WEC）之间复杂的水动力相互作用导致功率波动、并网可靠性下降。研究提出混合数字孪生辅助的多智能体强化学习框架，以数字孪生提供高保真水动力环境，实现 WEC 阵列的预测性协同控制，平抑功率波动并提升发电质量。（Elsevier / Energy Conversion and Management: X）',
+     'source': 'Energy Conversion and Management: X',
+     'url': 'https://doi.org/10.1016/j.ecmx.2026.102346', 'date': '2026-10-01'},
+    {'title': '能力还是参与？海洋数字孪生的维度分析及其对海洋空间规划的含义',
+     'badge': '[论文]',
+     'abstract': '海洋数字孪生（DTO）日益被推为海洋空间规划（MSP）的决策支撑骨干，但该术语在不同社群中至少对应四种互不兼容的构想，且多数海洋决策支撑工具在实践中从未被真正采用。该文通过维度分析梳理这些构想的差异，并追问 DTO 究竟应被理解为能力建设还是参与机制，为 MSP 中数字孪生的定位与治理提供批判性框架。（Elsevier / Ocean & Coastal Management）',
+     'source': 'Ocean & Coastal Management',
+     'url': 'https://doi.org/10.1016/j.ocecoaman.2026.108398', 'date': '2026-10-10'},
+    {'title': 'EOSC「欧洲数字孪生海洋」与 EUDAT 两大节点随 EOSC 联邦正式投产',
+     'badge': '[动态]',
+     'abstract': '10 月 8 日，欧洲开放科学云（EOSC）联邦宣布 14 个节点正式投产，其中「EOSC Node European Digital Twin Ocean」由意大利国家研究委员会（CNR）协调，是 Blue-Cloud 项目的运营化演进，将成为欧洲海洋数字孪生（EDITO）的开放科学与研究组件；另一节点 EUDAT 提供 B2 数据管理服务套件与联邦互操作框架。该节点承担 EOSC 联邦与欧洲 DTO 之间的战略接口，使社群的 FAIR 数据、分析方法与数字服务流向运营级数字孪生服务，同时让运营海洋数据反哺开放科学研究。（Trust-IT Services）',
+     'source': 'Trust-IT Services',
+     'url': 'https://trust-itservices.com/news/eosc-nodes-european-dto-and-eudat-enter-production-part-eosc-federation', 'date': '2026-10-08'}]},
+
+{'title': '三、海洋可视化', 'en': 'Ocean Visualization', 'items': [
+    {'title': 'PUGS：物理引导的不确定性建模用于水下动态三维高斯泼溅',
+     'badge': '[论文]',
+     'abstract': '动态三维高斯泼溅（3DGS）为动态场景重建提供了高效框架，但多数方法以确定性形变场建模场景动态，假设每个高斯遵循独立几何轨迹。该假设在水下失效——光散射、折射、海洋雪与低能见度使图像包含显著物理歧义。PUGS 学习水下成像固有不确定性并将其作为动态场景建模的物理信号，把每个高斯的运动参数化为含期望形变与物理不确定性的概率分布，采用随机形变优化、不确定性随机退火与双路自一致蒸馏。在 UVEB 与 DRUVA 基准上分别取得 1.16 dB 与 3.99 dB 的 PSNR 提升。（arXiv 预印本）',
+     'source': 'arXiv',
+     'url': 'https://arxiv.org/abs/2610.17936', 'date': '2026-10-13'},
+    {'title': '图像空间折射校正：将平视窗视角扭曲为针孔透视以服务水下三维重建',
+     'badge': '[论文]',
+     'abstract': '消费级相机配平视窗防水罩因低成本与易用性被广泛用于珊瑚礁与海底生境的水下探测与测绘，但平视窗界面处的折射会使重建场景与相机轨迹产生碗状畸变，破坏测绘与导航所需的度量精度。研究提出基于物理的图像空间折射校正方法，通过光线追踪仿真刻画折射畸变，并在两个真实水下数据集上验证；校正图像可直接输入现有重建与 SLAM 算法，在消除形变的同时注册更多帧并保持低重投影误差。（arXiv 预印本）',
+     'source': 'arXiv',
+     'url': 'https://arxiv.org/abs/2610.07788', 'date': '2026-10-06'},
+    {'title': 'threepp 2026-10-11 发布：新增海洋与船舶尾流场渲染',
+     'badge': '[工具]',
+     'abstract': '开源 C++/Python 三维图形库 threepp 发布 2026-10-11 版本，核心新增 Ocean and marine（Vulkan）尾流场（WakeField）：以方形面片模拟船行表面，每个纹素携带泡沫、气泡、湍流与水体速度，支持以胶囊状源（半径、速度、各物质量）驱动；新增 VesselWash 描述螺旋桨尾流、船体拖曳与兴波，单场景可容纳最多八艘船舶并各自叠加尾流。该版本同时改进了水面光照、非二次幂纹理 mipmap 链与水下精灵透视压缩等渲染细节。（GitHub Release）',
+     'source': 'GitHub',
+     'url': 'https://github.com/markaren/threepp/releases/latest', 'date': '2026-10-11'}]},
+
+{'title': '四、海洋数据质量', 'en': 'Marine Data Quality', 'items': [
+    {'title': '北极冷空气爆发中边界层云型的观测验证',
+     'badge': '[论文]',
+     'abstract': '北极冷空气爆发（CAO）产生的低层云型影响表面辐射收支。理论上稳定度参数（边界层高度与莫宁-奥布霍夫长度之比）可区分剪切驱动的卷对流与浮力驱动的蜂窝对流，但观测证据有限。研究利用基于卫星的云分类与四次航空观测任务的 400 余个探空仪剖面，首次为这一理论区分提供观测验证，为极区模式与再分析产品的云参数化改进提供约束。（Wiley / Geophysical Research Letters）',
+     'source': 'Geophysical Research Letters',
+     'url': 'https://doi.org/10.1029/2026gl124831', 'date': '2026-10-08'},
+    {'title': '数据驱动的邻接效应校正：以深水为自然参照目标的高对比卫星影像',
+     'badge': '[论文]',
+     'abstract': '邻接效应通过大气散射邻近地表辐射，在高分辨率卫星影像中引入空间偏差，在冰-洋边界等高反照率对比处尤为突出。研究提出直接从星载观测反演大气点扩散函数的数据驱动方法：以光学深水为已知空间均一的自然参照目标，通过迭代反演最小化反射率方差，检索表征多尺度散射的双高斯核参数。该方法传感器无关、无需外部地面测量或气候态气溶胶廓线，在 Sentinel-2 MSI 与 EnMAP 影像上验证，深水反射率 RMSE 降低 28%–82%。（Copernicus / ISPRS Archives）',
+     'source': 'The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences',
+     'url': 'https://doi.org/10.5194/isprs-archives-XLVIII-M-12-2026-25-2026', 'date': '2026-10-08'},
+    {'title': '氧同位素海平面重建的保真度：海洋同位素第 3 阶段的案例研究',
+     'badge': '[论文]',
+     'abstract': '有孔虫氧同位素记录长期被用于重建历史全球冰量，但越来越多证据表明冰量与温度对 δ¹⁸O 的贡献在末次冰期旋回中差异显著。在海洋同位素第 3 阶段（MIS 3，57–29 ka），基于 δ¹⁸O 的峰值全球海平面估计比基于冰川地质、地质海平面记录与 GIA 模型的重建低约 30 m。该研究量化了这一不匹配的来源，评估氧同位素海平面重建的系统不确定性，为古海平面研究的方法选择提供依据。（Wiley / Paleoceanography and Paleoclimatology）',
+     'source': 'Paleoceanography and Paleoclimatology',
+     'url': 'https://doi.org/10.1029/2026pa005469', 'date': '2026-10-01'}]},
+
+{'title': '五、海洋数据处理', 'en': 'Ocean Data Processing', 'items': [
+    {'title': '剖面浮标与表面漂流体的统计海洋学',
+     'badge': '[论文]',
+     'abstract': '全球海洋观测系统（GOOS）是理解海洋变率与气候变化的关键，但海洋在时空上被仪器稀疏且不规则采样。该综述聚焦 GOOS 中两类原位观测——剖面浮标（Argo）与表面漂流体（Global Drifter Program）——系统梳理近年来为其发展的时空统计模型，讨论建模时的两类参考系：欧拉参考系更适合剖面浮标，拉格朗日参考系更适合表面漂流体，并指出现代物理海洋学面临的统计挑战。（arXiv 预印本）',
+     'source': 'arXiv',
+     'url': 'https://arxiv.org/abs/2610.09668', 'date': '2026-10-07'},
+    {'title': '中美海岸高质量遥感反射率产品：面向复杂水体的改进大气校正框架',
+     'badge': '[论文]',
+     'abstract': '遥感反射率（Rrs）是反演全球地表水生物光学性质的基础，但强吸收气溶胶与复杂水体光学使近岸 Rrs 的大气校正（AC）长期困难。研究提出改进处理框架：更灵活地使用适合近岸环境的全球格点气溶胶模式，并配合定制化掩膜策略。基于该框架由 MODIS Aqua 观测生成 2003–2022 年中国与美国海岸的高质量 Rrs 数据集。相较 NASA 标准产品，新框架显著降低系统偏差，八个波段平均回归斜率恢复至 1.00±0.08（标准产品 0.90±0.06）；443 nm 有效反演数在中国海岸与美国海岸分别增加 56% 与 18%，并可还原浑浊水体的细尺度特征。（Copernicus / Earth System Science Data）',
+     'source': 'Earth System Science Data',
+     'url': 'https://doi.org/10.5194/essd-18-7475-2026', 'date': '2026-10-13'},
+    {'title': '多星 VIIRS 融合的全球逐日水体透明度填补产品',
+     'badge': '[论文·D级刊]',
+     'abstract': '塞奇盘深度（ZSD）是衡量水体透明度的关键指标，近年已可由 NOAA-21、NOAA-20 与 SNPP 三颗星的 VIIRS 反演，但单传感器逐日 ZSD 影像因云、极端观测角、太阳耀斑等损失显著。研究融合三星 VIIRS 测量生成全球 L3 合并 ZSD，再用 DINEOF 方法重建缺失值，生成全球 L4 填补产品：三传感器融合使每日测量数比两传感器多约 18%，重建/原始比值均值约 0.995、标准差约 0.135，并进一步生成 2 km 高分辨率逐日全球产品，可揭示沿海与内陆水体的高频细结构。（MDPI / Remote Sensing）',
+     'source': 'Remote Sensing',
+     'url': 'https://doi.org/10.3390/rs18193402', 'date': '2026-10-03'}]},
+
+{'title': '六、数据管理与共享', 'en': 'Data Management & Sharing', 'items': [
+    {'title': 'MSPglobal 与 IOC 推出海洋观测与数据管理 MSP 免费在线课程',
+     'badge': '[动态]',
+     'abstract': 'MSPglobal 倡议与联合国教科文组织政府间海洋学委员会（IOC）合作推出免费自定进度在线培训课程「面向海洋空间规划的海洋观测与数据管理」，托管于 OceanTeacher Global Academy（OTGA）平台，10 月 6 日起开放注册。课程基于 MSPglobal 两份数据工具箱（空间数据基础设施、MSP 海洋观测），设四个模块，覆盖 FAIR/CARE/TRUST 数据原则、基础海洋变量（EOV）与基本气候变量（ECV），以及海洋数字孪生、大数据与 AI 等新兴技术，总计约 25 学时，含测验与结业证书。（EU MSP Platform）',
+     'source': 'European Maritime Spatial Planning Platform',
+     'url': 'https://maritime-spatial-planning.ec.europa.eu/news/new-course-ocean-observation-and-data-management-msp', 'date': '2026-10-06'},
+    {'title': '航次规划的研究数据管理视角：O2A REGISTRY 任务管理系统实践',
+     'badge': '[资源]',
+     'abstract': '每次科考航次都面临独特的不确定性与挑战，但数据流的标准化与协调仍有可为。阿尔弗雷德·魏格纳研究所（AWI）与 GEOMAR 的数据管理者在 Zenodo 发布实践报告，介绍其如何利用 O2A REGISTRY 任务管理系统：建立船载标准条目集、从数据管理视角半自动化航次准备、为条目获取 PID 以供后续系统使用，并为首席科学家及其设备提供自助服务；报告同时讨论受控词表的作用，以及与 DSHIP 日常集成的难点。（Zenodo / AWI · GEOMAR）',
+     'source': 'Zenodo',
+     'url': 'https://zenodo.org/records/23238291', 'date': '2026-10-08'},
+    {'title': 'EMODnet Biology 数据提交课程更新：新增 DNA 衍生数据与「缺失数据」两章',
+     'badge': '[动态]',
+     'abstract': 'OTGA 课程「Contributing datasets to EMODnet Biology」2026 版已更新并开放注册。该课程 2018 年首建、2020 与 2023 年两次修订；本次由 EMODnet Biology 数据管理团队全面复审以反映当前工作流、标准与文档。新增两章：其一讲解 DNA 衍生（组学）数据，说明分子方法（如 metabarcoding）获得的出现记录如何用 Darwin Core DNA derived data extension 格式化及推荐字段；其二专述「缺失数据」（absence data），区分仅出现记录与出现-缺失记录、如何用 Darwin Core occurrenceStatus 记录观测缺失，以及为何不应把建模生成的伪缺失当作观测缺失。海底生境数据章节亦按联合指南改进。（EMODnet）',
+     'source': 'EMODnet',
+     'url': 'https://emodnet.ec.europa.eu/en/updated-emodnet-biology-course-now-covers-dna-and-absence-data', 'date': '2026-10-08'}]},
+
+{'title': '七、开放航次与科考', 'en': 'Open Cruises & Expeditions', 'items': [
+    {'title': 'ROV 影像揭示戈林格海堤深海鲨类新记录',
+     'badge': '[论文]',
+     'abstract': '深海鲨类在海山生态系统中扮演重要角色，但戈林格海堤（Gorringe Bank）的鲨类多样性与分布信息稀少。研究使用 ROV 与系留相机（均非饵诱）拍摄的影像，调查 Gettysburg 海山的深海鲨类生物多样性：在 306–1714 m 深度共观测到 22 尾、5 个分类单元，其中 Galeus sp. 出现频率最高。该成果补充了东北大西洋海山系统深海鲨类的分布与栖息深度数据。（Elsevier / Deep Sea Research Part I）',
+     'source': 'Deep Sea Research Part I',
+     'url': 'https://doi.org/10.1016/j.dsr.2026.104768', 'date': '2026-10-01'},
+    {'title': '智利中部陆缘深部甲烷的量化：ROV 搭载传感器航次观测',
+     'badge': '[论文]',
+     'abstract': '冷泉是动态的海底环境，为甲烷从沉积物进入全球海洋（浅水区乃至大气）提供通道。冷泉在陆缘广泛分布，但其空间范围与对海洋碳循环的影响约束不足。研究在一次智利陆缘科考航次中利用 ROV 搭载传感器开展观测，量化该少调查区的深部甲烷分布与通量，为理解陆缘甲烷向海洋的输送及其碳循环意义提供现场约束。（Wiley / Geophysical Research Letters）',
+     'source': 'Geophysical Research Letters',
+     'url': 'https://doi.org/10.1029/2026gl124079', 'date': '2026-10-12'},
+    {'title': '全球红树林边缘不对称迁移揭示海平面上升下的海岸挤压',
+     'badge': '[论文]',
+     'abstract': '海-陆界面的变化反映红树林是向海推进、向陆后退，还是其向海与向陆边界收敛而遭受「海岸挤压」。既有全球评估多依赖面积变化，较少关注这些方向性过程。研究以全球海岸线法向样带框架分析 Global Mangrove Watch 1996、2008 与 2020 年数据，同时量化红树林的向海边缘与向陆边缘变化，揭示全球尺度上海平面上升背景下的海岸挤压格局与区域差异。（Taylor & Francis / GIScience & Remote Sensing）',
+     'source': 'GIScience & Remote Sensing',
+     'url': 'https://doi.org/10.1080/15481603.2026.2741774', 'date': '2026-10-01'},
+    {'title': '自然资源部第三海洋研究所牵头申报的联合国「海洋十年」DOpH 项目获批',
+     'badge': '[动态]',
+     'abstract': '由自然资源部第三海洋研究所牵头申报的「深海中层海洋生境」（Deep Ocean mesopelagic Habitat, DOpH）项目获联合国教科文组织政府间海洋学委员会正式批复，成为「联合国海洋科学促进可持续发展十年」项目。项目依托联合国海洋十年「数字化深海典型生境」大科学计划（Digital DEPHT Programme），联合自然资源部第一、第二海洋研究所、国家深海基地管理中心、厦门大学及孟加拉国达卡大学、马来西亚马来亚大学等国内外机构，聚焦中层海洋生境的生态系统结构、功能、重要生态过程、人类活动影响与全球变化响应五方面，为 BBNJ 协定划区管理工具与环境影响评价提供科技支撑。（自然资源部第三海洋研究所）',
+     'source': '自然资源部第三海洋研究所',
+     'url': 'https://www.tio.org.cn/OWUP/html/kycg/20261012/5159.html', 'date': '2026-10-12'}]},
+
+{'title': '八、海洋数据中心', 'en': 'Marine Data Centers', 'items': [
+    {'title': 'GESAMP 53 将「水下 AI 数据中心」列入五大新兴海洋议题',
+     'badge': '[动态]',
+     'abstract': '联合国海洋环境保护科学问题联合专家组（GESAMP）第 53 届会议于 9 月 7–11 日在伦敦国际海事组织总部举行，IOC 于 10 月 7 日发布通报。会议在展望未来可能需要科学评估的新兴海洋环境问题时，圈定五项新兴议题：水下人工智能（AI）数据中心、落入海洋的太空碎片、深海采矿的放射性核素释放、武装冲突对海洋环境的影响，以及向海洋倾倒非法毒品。同期 IOC 与 UNEP 成为新设 GESAMP 第 47 工作组（联合国海洋十年海洋污染计划）的主要发起方。（IOC-UNESCO）',
+     'source': 'IOC-UNESCO',
+     'url': 'https://www.ioc.unesco.org/en/articles/space-debris-underwater-data-centres-gesamp-53-maps-emerging-threats-ocean', 'date': '2026-10-07'},
+    {'title': 'SEANOE 发布 MEDITS_ES 加泰罗尼亚沿岸 CTD 历史温盐剖面质控数据集',
+     'badge': '[数据集]',
+     'abstract': 'SEANOE 上线 MEDITS_ES_CatalanCoast_SL 数据集（DOI 10.17882/120103，发布日 2026-10-06），收录 2006–2025 年地中海国际底拖网调查（MEDITS）航次沿加泰罗尼亚海岸采集的历史温盐垂直剖面。数据以 CTD 探头获取，最大深度至大陆坡 800 m；为保证垂直一致性便于复用，高分辨率剖面数据已按标准深度层级积分。数据集严格遵循 FAIR 原则，采用 ODV 通用文本格式并符合 SeaDataNet 标准，参数以 P01/P02 受控词表映射，质量以 SDN 质量标志尺度评估。（SEANOE / IEO-CSIC）',
+     'source': 'SEANOE',
+     'url': 'https://www.seanoe.org/data/01089/120103', 'date': '2026-10-06'},
+    {'title': 'Dryad 发布加州-俄勒冈外海鲸类与海鸟基线数据集（服务海上风电）',
+     'badge': '[数据集]',
+     'abstract': 'Dryad 于 2026 年 10 月 1 日发布「加州与俄勒冈外大陆架及陆坡鲸类与海鸟基线数据收集」数据集（DOI 10.5061/dryad.1rn8pk19k），由 BOEM、NOAA、Cascadia Research 等机构合作产出，服务于海上风电开发的环境影响缓解。研究以物种分布模型（SDM）与集合密度面方法，整合多个互补数据流生成北加利福尼亚海流区海鸟与鲸类的分布图；数据集包含 66 个座头鲸活检样本的 DNA 档案，用于将个体归属到夏威夷、墨西哥与中美洲三个独特种群段（DPS），为密度图的种群背景提供依据。（Dryad / BOEM）',
+     'source': 'Dryad',
+     'url': 'https://datadryad.org/dataset/doi:10.5061/dryad.1rn8pk19k', 'date': '2026-10-01'},
+    {'title': 'WAPOSAL：卫星高度计多区域波浪数据集（有效波高·周期·波浪功率密度）',
+     'badge': '[数据集]',
+     'abstract': '准确评估波浪功率密度（WPD）对海洋可再生能源开发与数值波浪模式验证十分重要，而近岸原位观测稀疏使 WPD 估算困难。WAPOSAL（Wave Power & Satellite Altimetry）项目发布多区域高分辨率波浪数据集，源自 Sentinel-3A/B 与 CryoSat-2 的 SAR 高度计观测：以 SAMOSA+ 重跟踪算法获取有效波高与归一化雷达后向散射截面，零交叉波周期则用与现场浮标及 ERA5 校准的经验回归估算，并沿高度计轨迹计算波浪功率密度。数据集覆盖挪威与波罗的海、英国与北海、法国西海岸、西班牙大西洋、葡萄牙、地中海、马德拉、加那利、亚速尔、法属圭亚那与法属波利尼西亚共 11 个区域，时间跨度 2011–2023（依区域与任务而异）。（Copernicus / Earth System Science Data）',
+     'source': 'Earth System Science Data',
+     'url': 'https://doi.org/10.5194/essd-18-7391-2026', 'date': '2026-10-08'}]},
+
+{'title': '九、工具与代码资源', 'en': 'Tools & Code Resources', 'items': [
+    {'title': 'argopy v1.5.0 发布',
+     'badge': '[工具]',
+     'abstract': 'Argo 数据访问与分析 Python 库 argopy 于 2026-10-12 发布 v1.5.0（PyPI 与 GitHub Release 同步，上一版 v1.4.0 为 2026-01-05）。argopy 提供对全球 Argo GDAC 与第三方数据源（如 Euro-Argo、Argo Canada）的统一 Python 接口，支持按区域、时间、变量与浮标号检索剖面、加载为 xarray Dataset 并转换为 DataFrame，是 Argo 数据下载、质控标记读取与批量处理的标准工具链之一。（GitHub / PyPI）',
+     'source': 'GitHub',
+     'url': 'https://github.com/euroargodev/argopy/releases', 'date': '2026-10-12'},
+    {'title': 'ctdam v2.14.0 发布',
+     'badge': '[工具]',
+     'abstract': 'Argo CTD 延迟模式质控与分析工具包 ctdam 于 2026-10-07 在 PyPI 发布 v2.14.0。ctdam 面向 Argo 剖面浮标的延迟模式（delayed-mode）数据处理，提供温盐压力的质控、调整与诊断分析流程，支撑各国延迟模式分析中心（DAC/MAC）对浮标传感器漂移的系统性校正。（PyPI）',
+     'source': 'PyPI',
+     'url': 'https://pypi.org/project/ctdam/', 'date': '2026-10-07'},
+    {'title': '英国气象局发布 Argo NetCDF 转 WMO-BUFR 转换器（SEANOE）',
+     'badge': '[工具]',
+     'abstract': '英国气象局（UK Met Office）在 SEANOE 发布 Argo NetCDF 转 WMO-BUFR 转换器（DOI 10.17882/57596，发布日 2026-10-05）。该 python3 脚本将 Argo NetCDF 剖面文件转换为 WMO-BUFR 3-15-003 格式，支持 Core、Deep 与 Biogeochemical 三类浮标的实时文件；在提供配对 BGC 文件时可包含最多五条生化序列（溶解氧 3-06-044、叶绿素 a 3-06-045、硝酸盐 3-06-046、pH 3-06-047、BBP700 3-06-048），亦可处理补充温盐或仅温度剖面序列。（SEANOE / UK Met Office）',
+     'source': 'SEANOE',
+     'url': 'https://www.seanoe.org/data/00464/57596', 'date': '2026-10-05'}]},
+]
+
+new_repr = repr(SECTIONS).replace('\\x27', "'")
+pattern = re.compile(r'SECTIONS = \[.*?(?=\ndef tr\(|\n# ---|\Z)', re.DOTALL)
+path = 'feishu_write_doc.py'
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
+content = pattern.sub('SECTIONS = ' + new_repr + '\n\n\n', content, count=1)
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+# Verify
+tree_src = content
+import ast
+tree = ast.parse(tree_src)
+secs = None
+for node in ast.walk(tree):
+    if isinstance(node, ast.Assign):
+        for t in node.targets:
+            if isinstance(t, ast.Name) and t.id == 'SECTIONS':
+                secs = ast.literal_eval(node.value)
+total = sum(len(s['items']) for s in secs)
+print('OK: SECTIONS written. Total items: %d (effective: %d)' % (total, total))
+for s in secs:
+    print('  %s: %d 条' % (s['title'], len(s['items'])))
