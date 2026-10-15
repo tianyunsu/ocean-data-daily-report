@@ -282,6 +282,16 @@ py -3 screen.py --date YYYY-MM-DD                # L1：分级+打分 → 约 18
   而失败的 4/6/7/8 恰好都有预印本条目，会被整体跳过，补跑等于没跑。`--resume` 只适合「整轮中断、方向完全没跑」的情况。
 - 补跑前先做一次连通性探测（单条 `/works?per-page=1` 请求），避免在限流期内空跑。
 
+**OpenAlex API key（2026-10-16 起必备 · 苏老师已提供）**：OpenAlex 于 **2026-10-15** 变更策略——
+① **cursor 翻页（第 2 页起）必须持免费 API key**，否则返回 `401 API key required for cursor paging`；
+② 无 key 请求按**共享 IP 日预算**计费（$0.10/天），预算耗尽后**重查询返回 429**（轻查询可能仍可）。
+- **配置方式（三脚本共用，勿把 key 写进代码）**：读取顺序 **环境变量 `OPENALEX_API_KEY` > 本地文件 `_openalex_key.txt`**。
+  - `_openalex_key.txt` 位于仓库根目录，**已加入 `.gitignore`，绝不入库**（仓库是公开的）。
+  - 已打补丁的脚本：`harvest.py`（`_oa_key()` + `_oa_pages()`）、`verify_paper.py`（`OA_SUFFIX`）、`source_metrics.py`（`oa_key()`）。
+- **分页行为**：有 key → **cursor 翻页**（页数上限 `max_pages*5`，不再受 401 限制）；无 key → 回退 `page=` 基础分页（上限 10,000 条）。
+- **获取/更换 key**：https://openalex.org/settings/api （免费，约 1 分钟；每个 key 独立 $1/天额度）。
+- **验收**：`py -3 -c "import harvest; print(harvest._oa_key())"` 应打印 key；实测单次重查询应 **200 而非 429**。
+
 ### L3 前沿周报与综述板块（2026-09-20 新增）
 
 **访问入口（三处，缺一用户就找不到）**
@@ -824,4 +834,15 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
       并在阶段五增加一项肉眼核对：`date-line` 的日期与星期是否与当日一致。
     - 同类风险：模板中的 `item-badge`、来源声明、条目计数（"本期共 N 条动态"）均由数据驱动或硬编码，
       硬编码项一律列入复制后必改清单。
+
+29. **OpenAlex 2026-10-15 政策变更：无 key 直接瘫痪（2026-10-16 实测）**：变更前 `harvest.py` 用 cursor 翻页稳定取数；
+    变更后 **cursor 翻页第 2 页起返回 `401 API key required for cursor paging`**，本次首跑仅得 **454 条**（正常应 3,000+）。
+    临时改用 `page=` 基础分页可免 key 跑通，但**同一天内重查询又把共享 IP 日预算（$0.10）耗尽**，
+    方向 8/9 及后续重查询全部 `429 Insufficient budget`（`error: 轻查询仍 200`），只能人工补检。
+    - **铁律**：本机**必须配置 OpenAlex 免费 API key**（`_openalex_key.txt` 或环境变量 `OPENALEX_API_KEY`），
+      `harvest.py` / `verify_paper.py` / `source_metrics.py` 三处均已按此读取；key 有独立 $1/天额度，可同时消除 401 与 429。
+    - **安全铁律**：仓库是**公开仓库**，key **严禁**写进任何被 git 跟踪的文件（含脚本、README、MEMORY.md）。
+      只允许放本地 `_openalex_key.txt`（已在 `.gitignore`）或环境变量。提交前用 `git check-ignore -v _openalex_key.txt` 复核。
+    - 若 401/429 再次出现，先 `py -3 -c "import harvest; print(harvest._oa_key())"` 确认 key 是否被读到，
+      再判断是否为额度耗尽（响应含 `dailyRemainingUsd`）或 key 失效。
 

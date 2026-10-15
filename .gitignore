@@ -12,3 +12,7 @@ data/library.db-journal
 metrics_full.log
 probe.txt
 verify_out.txt
+
+# 密钥类：OpenAlex 免费 API key（本地文件，绝不入库；公开仓库）
+_openalex_key.txt
+.env

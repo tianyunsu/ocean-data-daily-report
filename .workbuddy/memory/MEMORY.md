@@ -5,6 +5,7 @@
 - **仓库**：https://github.com/tianyunsu/ocean-data-daily-report ｜ **站点**：https://tianyunsu.github.io/ocean-data-daily-report/
 - **DATA_SOURCE**：`feishu_write_doc.py`（`SECTIONS` 由 `build_daily_YYYYMMDD.py` repr 正则替换）；**HTML**：`gen_html_YYYYMMDD.py`（自包含，`ast.literal_eval`）；**发布**：`posts/YYYY-MM-DD.html` + `index.html` + `archive.html` + git push；**L3**：`gen_frontier.py` + `weekly_report.py`
 - **本机 Python**：`py -3`（飞书/机器人/校验）；系统 `Python313\python.exe`（链接实测）
+- **OpenAlex key（2026-10-16 起）**：本地文件 `_openalex_key.txt`（**已 gitignore，公开仓库绝不入库**）；读取顺序「环境变量 `OPENALEX_API_KEY` > 本地文件」；`harvest.py` / `verify_paper.py` / `source_metrics.py` 三处已内置读取，有 key 走 cursor 翻页、无 key 回退 `page=` 分页
 
 ## 前沿跟踪四层架构（2026-09-20）
 - **L0** `harvest.py` → `data/pool/YYYY-MM-DD.jsonl`；**L1** `screen.py`+`tier_engine.py` → `data/library.db` + `data/pool_index.json`；**L2** 日报；**L3** `frontier.html` + `weekly/YYYY-Www.html`
@@ -51,8 +52,8 @@
 | 聚合站日期 ≠ 发布日 | 一律查原文首发日 |
 | present_files 预览污染 HTML | 先 commit+push 再 present；present 后 `git status` 复查 |
 | 飞书文档 API 404 | token 反复失效；机器人 webhook 正常，文档 API 待苏老师更新，不阻断 |
-| OpenAlex cursor 翻页 401 "API key required" | **2026-10-15 起新政**：第 2 页起 cursor 需免费 key → 改 `page=` 基础分页（免 key，上限 1 万条）；harvest.py 已打补丁（10-16） |
-| OpenAlex 重查询 429 "Insufficient budget" | 无 key 共享 IP 日预算 $0.10，重查询耗尽后轻查询仍可用 → 换免费 key 或人工补检（WebSearch/官网） |
+| OpenAlex cursor 翻页 401 "API key required" | **2026-10-15 起新政**：第 2 页起 cursor 需免费 key → **已配置 key**（`_openalex_key.txt`），恢复 cursor 翻页；无 key 回退 `page=` 分页（上限 1 万条） |
+| OpenAlex 重查询 429 "Insufficient budget" | 无 key 共享 IP 日预算 $0.10；**已配置 key（独立 $1/天）后消除**；key 失效时改用 WebSearch/官网人工补检 |
 | `harvest.py --dirs` 重跑覆写池文件（陷阱 25） | 重跑前先 `cp data/pool/日期.jsonl data/pool/_bak_日期.jsonl`，失败后合并恢复（10-16 两次复现） |
 
 ## 去重基准（最近 3 期；更早 `grep -rl posts/`）

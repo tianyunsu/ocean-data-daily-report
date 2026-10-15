@@ -544,3 +544,4 @@
 - **五审结果**：链接 **23×200 + 4 异常（3×403 经 Crossref 核验、1×ERR worldship 经 WebFetch 确认）→ 异常数 0**；时效 ≤7 天 14 / 8–14 天 12 / >14 天 1（ELMAR 豁免）。
 - **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（`H63jdaI6noB6pUxFciqcUeG7nJh` 建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
 - **新增经验（已并入 MEMORY.md）**：① OpenAlex cursor 翻页 401 → `page=` 分页补丁；② 重查询 429 额度制 → 建议申请免费 key 一并解决；③ harvest --dirs 重跑覆写池 → 先备份；④ 事件日 ≠ 报道日，条目取发布日。
+- **OpenAlex API key 配置（2026-10-16 苏老师提供，本期补做）**：key 存本地 `_openalex_key.txt`（**已 gitignore，公开仓库绝不入库**；`git grep` 核验 0 泄漏），读取顺序「环境变量 `OPENALEX_API_KEY` > 本地文件」。三脚本已打补丁——`harvest.py`（`_oa_key()` + `_oa_pages()`：**有 key → cursor 翻页**，无 key → `page=` 回退）、`verify_paper.py`（`OA_SUFFIX`）、`source_metrics.py`（ISSN 查询拼 `&api_key=`）。实测 359 条/8.3 秒、重度 search **不再 429**。SKILL.md 新增「OpenAlex API key」小节 + 陷阱 29；`file_locations.md` 增 `$OA_KEY` 行；`sync_skills.py install` 9 文件两侧一致。

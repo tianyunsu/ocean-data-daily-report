@@ -14,6 +14,7 @@ harvest.py — L0 采集层：9 方向全量抓取（海洋AI研究日报专用�
   py -3 harvest.py --resume              # 跳过已抓过的方向（断点续跑）
 """
 import json
+import os
 import re
 import ssl
 import sys
@@ -32,6 +33,17 @@ UA = f"OceanAIDailyReport/1.0 (mailto:{MAILTO})"
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
+
+# OpenAlex 免费 API key（2026-10-16 苏老师提供）。
+# 安全约定：key 绝不写入版本库（公开仓库），按「环境变量 OPENALEX_API_KEY > 本地忽略文件 _openalex_key.txt」顺序读取。
+OA_KEY_FILE = ROOT / "_openalex_key.txt"
+
+
+def _oa_key():
+    k = os.environ.get("OPENALEX_API_KEY", "").strip()
+    if not k and OA_KEY_FILE.exists():
+        k = OA_KEY_FILE.read_text(encoding="utf-8").strip()
+    return k
 
 DIRECTIONS = {
     1: {"name": "海洋人工智能", "oa": '("machine learning" OR "deep learning" OR "neural network" OR "artificial intelligence")',
@@ -102,6 +114,41 @@ def _abstract(inv):
     return txt[:600]
 
 
+def _oa_pages(filters, expr, max_pages):
+    """OpenAlex 取全量分页。
+    有 key → cursor 翻页（不再受 401 限制，页数上限放宽为 max_pages*5）；
+    无 key → page= 基础分页（免 key，但上限 10,000 条，且共享 IP 额度易 429）。
+    """
+    key = _oa_key()
+    base = ("https://api.openalex.org/works?filter=" + ",".join(filters)
+            + "&search=" + urllib.parse.quote(expr)
+            + f"&select={SELECT}&mailto={MAILTO}")
+    if key:
+        base += f"&api_key={key}"
+    out = []
+    if key:
+        cursor = "*"
+        for _ in range(max(10, max_pages * 5)):
+            url = base + "&per-page=200&cursor=" + urllib.parse.quote(cursor, safe="")
+            data = _get(url)
+            res = data.get("results", [])
+            out.extend(res)
+            cursor = (data.get("meta") or {}).get("next_cursor")
+            if len(res) < 200 or not cursor:
+                break
+            time.sleep(1.0)
+    else:
+        for page in range(1, max_pages + 1):
+            url = base + f"&per-page=200&page={page}"
+            data = _get(url)
+            res = data.get("results", [])
+            out.extend(res)
+            if len(res) < 200:
+                break
+            time.sleep(1.0)
+    return out
+
+
 def fetch_openalex(d, start, end, want_conf=False, max_pages=4):
     """返回该方向的 OpenAlex 记录列表。"""
     terms = d["oa"]
@@ -111,21 +158,7 @@ def fetch_openalex(d, start, end, want_conf=False, max_pages=4):
         filters.append("type:proceedings-article")
     else:
         filters += ["type:article", "primary_location.source.type:journal"]
-    # 2026-10-15 起 OpenAlex 要求 cursor 翻页（第 2 页起）持免费 API key（401），
-    # 改用 page= 基础分页（免 key，上限 10,000 条，本场景 max_pages*200 足够）。
-    out = []
-    for page in range(1, max_pages + 1):
-        url = ("https://api.openalex.org/works?filter=" + ",".join(filters)
-               + "&search=" + urllib.parse.quote(expr)
-               + f"&per-page=200&page={page}"
-               + f"&select={SELECT}&mailto={MAILTO}")
-        data = _get(url)
-        res = data.get("results", [])
-        out.extend(res)
-        if len(res) < 200:
-            break
-        time.sleep(1.0)
-    return out
+    return _oa_pages(filters, expr, max_pages)
 
 
 def norm_rec(w, direction_id, direction_name):
@@ -174,21 +207,7 @@ def fetch_preprints(d, start, end, max_pages=2):
     expr = f"{d['oa']} AND {OCEAN_TERMS}"
     filters = [f"from_publication_date:{start}", f"to_publication_date:{end}",
                f"locations.source.id:{ARXIV_SOURCE}"]
-    # 2026-10-15 起 OpenAlex 要求 cursor 翻页（第 2 页起）持免费 API key（401），
-    # 改用 page= 基础分页（免 key，上限 10,000 条，本场景 max_pages*200 足够）。
-    out = []
-    for page in range(1, max_pages + 1):
-        url = ("https://api.openalex.org/works?filter=" + ",".join(filters)
-               + "&search=" + urllib.parse.quote(expr)
-               + f"&per-page=200&page={page}"
-               + f"&select={SELECT}&mailto={MAILTO}")
-        data = _get(url)
-        res = data.get("results", [])
-        out.extend(res)
-        if len(res) < 200:
-            break
-        time.sleep(1.0)
-    return out
+    return _oa_pages(filters, expr, max_pages)
 
 
 def norm_preprint(w, direction_id, direction_name):
