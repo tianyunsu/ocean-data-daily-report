@@ -529,3 +529,18 @@
 - **五审结果**：链接 **23×200 + 1×404→200（tio.org.cn GET 回退）+ 9 异常（5×403 经 Crossref 核验、4×ERR 经 WebFetch 确认在线）→ 异常数 0**；时效 ≤7 天 15 / 8–14 天 17 / >14 天 **0**；**14 个唯一域名**。
 - **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（`OS2gd4Rquo4hVGxEfWScTKkunaf` 建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
 - **新增经验**：沙箱对 `neurips.cc` / `zenodo.org` / `seanoe.org` 直连 curl 返回 000，但 WebFetch 可达 → **curl 000 ≠ 死链，核链以 WebFetch 为准**。
+
+## 2026-10-16 期（周五·非周报期）
+- **日报**：27 条（一5/二4/三2/四3/五1/六3/七4/八3/九2），9 方向全有；commit `32cdc10`（日报+池+脚本+harvest 修复）+ `1d6ca68`（frontier 刷新）+ `9547bbe`（MedBlueTech 日期修正），终态 `HEAD = origin/main = 9547bbe`。
+- **周报判定**：当日为**周五**、距上期 2026-W41（10-11）仅 5 天 < 7 天 → **未触发**，第 7 步跳过；第 8 步 `gen_frontier.py` 执行（近 14 天 / 池内 175 / 展示 175）。
+- **阶段零**：起点 `513473a`；pull 已最新；`sync_skills.py install` 9 文件、status 一致。
+- **规模指标**：harvest 首跑仅 454 条 → **排查出 OpenAlex 2026-10-15 新政：cursor 翻页（第 2 页起）需免费 API key（401）** → 打补丁改 `page=` 基础分页（免 key，上限 1 万条）重跑 **3,807 条**（窗口 10-02~10-16）→ screen 池内 **175 条**（?55/A31/B31/C26/D17/P14/S1）→ 日报 27 条，留存率 15.4%；arXiv 占比 22.2% ✅ / 期刊占比 48.1% ✅ / 零覆盖 2 组 ≤6 ✅ / **12 个唯一域名**。
+- **OpenAlex 429**：方向 8/9 期刊通道重查询持续 429（无 key 共享 IP 日预算耗尽，轻查询仍 200）→ 人工补检覆盖（WebSearch/官网/PyPI/GitHub API）。
+- **陷阱 25 两次复现**：`harvest.py --dirs 8,9` 重跑把池文件覆写为 0 行两次 → 均从 `_bak2_2026-10-16.jsonl` 恢复。**新铁律：任何重跑前先备份池文件。**
+- **阶段一**：初筛 ≥5 达标——NeurIPS 2026 TCCML `PANN`（arXiv 2610.19772，**采纳**）、IEEE ELMAR 2026 海况分类（Xplore 11712251，**采纳，15 天重要性豁免**）、ICRAS 2026、JSTARS 3736460（09-23 过期）、OCEANS Monterey（>14d）、SIGGRAPH Asia OceanXL（09-24 过期）。
+- **日期核实拦截（本期最关键）**：`2610.03743` 北极 SIC（theWkly 谎称 10-06，arXiv API v1=**08-22**）；`2610.03739` SWOT 去噪（v1=**09-22**）；Sea-Net/2610.04449/MONKI 非海洋；WaterClear-GS（01-27）/OceanXL（09-24）/ESSD 西太温盐场（09-07 首发，toutiao 转载）/OS 2903（09-25）/JSTARS 3736460（09-23）均超窗 → 共拦截 10+ 条。**MedBlueTech 日期误记 10-01 → WebFetch 核实文章发布 10-02，发布后修正（9547bbe）。**
+- **去重**：URL 集合差 27 vs 近 3 期基准 0 命中；双路 grep 确认 `rs18193402`（10-14 已发）未再收。
+- **归类与条数**：方向三=2、五=1、九=2 低于 3——按「宁缺不凑数」判定：方向五窗口内候选全超 14 天；方向九 PyPI 无新版本；方向三候选过期或不符归类。
+- **五审结果**：链接 **23×200 + 4 异常（3×403 经 Crossref 核验、1×ERR worldship 经 WebFetch 确认）→ 异常数 0**；时效 ≤7 天 14 / 8–14 天 12 / >14 天 1（ELMAR 豁免）。
+- **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（`H63jdaI6noB6pUxFciqcUeG7nJh` 建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
+- **新增经验（已并入 MEMORY.md）**：① OpenAlex cursor 翻页 401 → `page=` 分页补丁；② 重查询 429 额度制 → 建议申请免费 key 一并解决；③ harvest --dirs 重跑覆写池 → 先备份；④ 事件日 ≠ 报道日，条目取发布日。
