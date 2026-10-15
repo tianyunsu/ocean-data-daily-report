@@ -116,7 +116,7 @@ SECTIONS = [
      'badge': '[动态]',
      'abstract': '第二届 MedBlueTech 峰会 10 月 1 日在西班牙阿利坎特举行，汇聚产业、科研、政府与金融机构百余代表。海洋数据的生成、可用性与治理成为核心议题：EMODnet 代表介绍了欧洲海洋观测-技术-数据服务一体化的路径，Horizon Europe 正动员 9,200 万欧元强化海洋观测与海洋技术数据流；地中海海藻企业部署 30 余座 POSINODE 监测站、预计年产约 560 万个海洋数据点，为沿岸环境预测工具奠定数据基础。（Blue Life Hub）',
      'source': 'Blue Life Hub',
-     'url': 'https://www.bluelifehub.com/2026/10/02/medbluetech-summit-2026-ocean-data-digital-transformation-and-blue-innovation-in-the-mediterranean/', 'date': '2026-10-01'},
+     'url': 'https://www.bluelifehub.com/2026/10/02/medbluetech-summit-2026-ocean-data-digital-transformation-and-blue-innovation-in-the-mediterranean/', 'date': '2026-10-02'},
     ]},
     {'title': '七、开放航次与科考',
      'en': 'Open Cruises & Expeditions',
