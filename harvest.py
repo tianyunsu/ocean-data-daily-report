@@ -111,17 +111,18 @@ def fetch_openalex(d, start, end, want_conf=False, max_pages=4):
         filters.append("type:proceedings-article")
     else:
         filters += ["type:article", "primary_location.source.type:journal"]
-    out, cursor = [], "*"
-    for _ in range(max_pages):
+    # 2026-10-15 起 OpenAlex 要求 cursor 翻页（第 2 页起）持免费 API key（401），
+    # 改用 page= 基础分页（免 key，上限 10,000 条，本场景 max_pages*200 足够）。
+    out = []
+    for page in range(1, max_pages + 1):
         url = ("https://api.openalex.org/works?filter=" + ",".join(filters)
                + "&search=" + urllib.parse.quote(expr)
-               + f"&per-page=200&cursor={urllib.parse.quote(cursor)}"
+               + f"&per-page=200&page={page}"
                + f"&select={SELECT}&mailto={MAILTO}")
         data = _get(url)
         res = data.get("results", [])
         out.extend(res)
-        cursor = data.get("meta", {}).get("next_cursor")
-        if not cursor or len(res) < 200:
+        if len(res) < 200:
             break
         time.sleep(1.0)
     return out
@@ -173,17 +174,18 @@ def fetch_preprints(d, start, end, max_pages=2):
     expr = f"{d['oa']} AND {OCEAN_TERMS}"
     filters = [f"from_publication_date:{start}", f"to_publication_date:{end}",
                f"locations.source.id:{ARXIV_SOURCE}"]
-    out, cursor = [], "*"
-    for _ in range(max_pages):
+    # 2026-10-15 起 OpenAlex 要求 cursor 翻页（第 2 页起）持免费 API key（401），
+    # 改用 page= 基础分页（免 key，上限 10,000 条，本场景 max_pages*200 足够）。
+    out = []
+    for page in range(1, max_pages + 1):
         url = ("https://api.openalex.org/works?filter=" + ",".join(filters)
                + "&search=" + urllib.parse.quote(expr)
-               + f"&per-page=200&cursor={urllib.parse.quote(cursor)}"
+               + f"&per-page=200&page={page}"
                + f"&select={SELECT}&mailto={MAILTO}")
         data = _get(url)
         res = data.get("results", [])
         out.extend(res)
-        cursor = data.get("meta", {}).get("next_cursor")
-        if not cursor or len(res) < 200:
+        if len(res) < 200:
             break
         time.sleep(1.0)
     return out
