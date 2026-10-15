@@ -51,15 +51,18 @@
 | 聚合站日期 ≠ 发布日 | 一律查原文首发日 |
 | present_files 预览污染 HTML | 先 commit+push 再 present；present 后 `git status` 复查 |
 | 飞书文档 API 404 | token 反复失效；机器人 webhook 正常，文档 API 待苏老师更新，不阻断 |
+| OpenAlex cursor 翻页 401 "API key required" | **2026-10-15 起新政**：第 2 页起 cursor 需免费 key → 改 `page=` 基础分页（免 key，上限 1 万条）；harvest.py 已打补丁（10-16） |
+| OpenAlex 重查询 429 "Insufficient budget" | 无 key 共享 IP 日预算 $0.10，重查询耗尽后轻查询仍可用 → 换免费 key 或人工补检（WebSearch/官网） |
+| `harvest.py --dirs` 重跑覆写池文件（陷阱 25） | 重跑前先 `cp data/pool/日期.jsonl data/pool/_bak_日期.jsonl`，失败后合并恢复（10-16 两次复现） |
 
 ## 去重基准（最近 3 期；更早 `grep -rl posts/`）
 > `posts/` 为全量存档；本节仅列「易被再次检索命中」的标识符，完整条目见当日日志。
 
+- **10-16（27条）**：s41586-026-11126-x Nature 次季节 ML 误差订正、arxiv 2610.19772 PANN 过程加性神经网络、ggag426 SP-PINN 海底硫化物自然电位、oceaneng.2026.128706 PINN 水下电场、oceaneng.2026.128550 DRL 仿生 AUV、2610.14645 原生涡分辨率模拟器、tc-20-5867 南极 SIC 同化次季节、eworldship 224966 远海丝路数字化交付、csr.105798 达尔文港波流、2610.07472 SURGE 声纳高斯泼溅、prnewswire Costa Rica 地图、essd-2026-771 marinedb、2041-210x.70431 UNIQAT、ieeexplore 11712251 ELMAR 海况分类、2610.11368 缪子成像潮汐、fmars.1909271 EMODnet×OBPS 方法溯源、hubocean.earth/press/news/whalechart/odp 鲸类图、bluelifehub MedBlueTech、2610.04536 WasserMan、2610.09690 NAViLoss、oceaneng.2026.128450 PSO 路径规划、oceaneng.2026.128720 波浪滑翔机限速、nmemc 环境智报平台、seabed2030 MEWO、toutiao 7694109833414443539 青岛海洋大数据、Unidata/cftime v1.6.6.1、lom3.70099 seaEchoTSCalculator
 - **10-14（32条）**：neurips.cc/virtual/2026/poster/152997 DC-Ocean 潜在压缩预报、arxiv 2610.16584 CNN 北极快速海冰消亡、2610.09446 ArcticQA 弃答基准、2610.17936 PUGS 水下动态3DGS、2610.07788 图像空间折射校正、2610.09668 剖面浮标统计、s41612-026-01564-9 东亚极端冬季可预报性、rineng.2026.113466 海底热液羽流在线识别、oceaneng.2026.128726 数字孪生 AUV 容错、ecmx.2026.102346 波浪能数字孪生 MARL、ocecoaman.2026.108398 DTO 维度分析、trust-itservices EOSC 欧洲 DTO 节点投产、markaren/threepp 尾流场、2026gl124831 北极边界层云、isprs-archives-XLVIII-M-12-2026-25-2026 邻接效应校正、2026pa005469 氧同位素海平面、essd-18-7475-2026 中美近岸 Rrs、essd-18-7391-2026 WAPOSAL 波浪、rs18193402 VIIRS 透明度、maritime-spatial-planning 课程、zenodo 23238291 O2A Registry、emodnet biology course 更新、dsr.2026.104768 Gorringe 鲨类、2026gl124079 智利甲烷、15481603.2026.2741774 红树林海岸挤压、tio.org.cn/OWUP/.../5159 DOpH、ioc.unesco GESAMP 53、seanoe 01089/120103 MEDITS_ES、seanoe 00464/57596 Argo-BUFR 转换器、datadryad 1rn8pk19k 鲸类基线、argopy v1.5.0、ctdam v2.14.0
 - **10-11（28条）**：s41598-026-73332-x Mamba-Transformer、oceaneng.2026.128631 深海采矿悬架、cviu.2026.104971 水下深度法线、gji/ggag421 Sentinel-2 测深、jastp.2026.106988 海盐气溶胶、edito.eu/ditto-summit、dto-bioflow.eu SUBSIM、oceaneng.2026.128641 SA-SRDC-Loc、bg-23-7043-2026 HPLC 色素、03091333261488345 UAV/USV 测深、gmd-19-9441-2026 LADDIE v2.0、01431161.2026.2742387 海水入侵、oceandecode.org/?p=24941、tianjinwe 143082_3904097、gmw.cn 1304574115、sp-7-osr10-10-2026 GlobColour 透明度、eo-1-129-2026 NSIDC 海冰漂移、xcdat v0.11.5、ioos compliance-checker、arxiv 2610.02194 SW1D
-- **10-08（35条）**：2025jh000967 SST 降尺度、eswa.2026.134587 LLM4SST、epsl.2026.120368 全球海山 ML、2610.03780 OceanMind、bluegraph.io、essd-18-7269-2026 SWOT 圣劳伦斯基准、rse.2026.115706 南极 SST Landsat、2610.03649 星上异常、rs18193406 GNSS/水准 QC、carbontosea.org oae-data-commons、fmars.2026.1949937 海深 FAIR、data.gov.uk BGS 海洋调查、Project-OSmOSE/OSEkit、PyPI copernicusmarine 2.5.0
 
-- **已剔除（勿再收）**：OceanParcels v3.1.4、Fugro OCEANITY/EDITO（09-08）、WavyOcean 3.0、HorizonNet(2018)、Fengyun-3/AOSL(>60天)、MBARI MOLA(05-04)、ICE-3D/DenseNet-121、ditto_summit2026、EX2606/EX2607 预告页、南海海洋大数据智能管理平台/南海孪境（09-08）、s43247-026-03899-w 北极原住民框架（09-24）、Ocean State Report 旧期预告页、NA182（09-27）、Voyis 船体检测（09-17）、Robosys VOYAGER（原文2026-03）、arXiv 2609.37964 任务驱动可视化（10-05 已发）、arXiv 2610.03888 REACT 活性示踪剂重建（10-08 已发）、OceanStream Globe/MyOcean Pro v17/CASPROD/GLODAPv3/EMSO EVOLVE/OceanEye（均已发文）
+- **已剔除（勿再收）**：OceanParcels v3.1.4、Fugro OCEANITY/EDITO（09-08）、WavyOcean 3.0、HorizonNet(2018)、Fengyun-3/AOSL(>60天)、MBARI MOLA(05-04)、ICE-3D/DenseNet-121、ditto_summit2026、EX2606/EX2607 预告页、南海海洋大数据智能管理平台/南海孪境（09-08）、s43247-026-03899-w 北极原住民框架（09-24）、Ocean State Report 旧期预告页、NA182（09-27）、Voyis 船体检测（09-17）、Robosys VOYAGER（原文2026-03）、arXiv 2609.37964 任务驱动可视化（10-05 已发）、arXiv 2610.03888 REACT 活性示踪剂重建（10-08 已发）、OceanStream Globe/MyOcean Pro v17/CASPROD/GLODAPv3/EMSO EVOLVE/OceanEye（均已发文）、arXiv 2610.03743 北极 SIC（v1=08-22 过期）、arXiv 2610.03739 SWOT 去噪（v1=09-22 过期）、arXiv 2610.17939 Sea-Net 与 2610.04449（非海洋）、WaterClear-GS 2610.19753（01-27 过期）、OceanXL 2609.29985（09-24 过期）、ESSD 西太温盐场 3D-U-Net++ essd-18-4617-2026（09-07 首发，toutiao 10-09 转载）、Ocean Science 2903 北大西洋海平面（09-25 过期）、GMD MONKI 19-9677（行星大气，非海洋）、JSTARS 3736460 GNSS-IR（09-23 过期）、rs18193402 VIIRS 透明度（10-14 已发勿再收）
 
 ## 经验教训
 - 跨期去重：占位主页 URL 会连续重复；Nautilus/EX 系列共用总览页须改用具体 news-release 页
@@ -73,3 +76,5 @@
 - **阶段一成果须在构建时即纳入**：10-14 发布后才审查发现顶会覆盖为空，补丁补入 NeurIPS DC-Ocean → 构建前置检查项应含「阶段一采纳条目清单」
 - **WebFetch 成功但 curl 000**：沙箱对 neurips.cc / zenodo.org / seanoe.org 直连失败，WebFetch 可达 → curl 000 ≠ 死链，核链以 WebFetch 为准
 - **回滚式重发**：修正已发布报告时，用 `git show <base>:index.html` 回滚 index/archive 再重跑 publish，避免重复插入卡片
+- **OpenAlex 政策（2026-10-15 起）**：cursor 翻页需免费 API key、重查询按额度扣费 429 → `page=` 基础分页免 key（上限 1 万条）；**建议申请免费 key 一并解决 401+429**；harvest.py 已打补丁（10-16）
+- **事件日 ≠ 报道日**：条目日期取报道/论文发布日，不取事件发生日（MedBlueTech 10-01 事件 → 10-02 文章）；arXiv 一律以 v1 提交日为准、逐条 API 核实，聚合站日期两次被证伪（10-16）
