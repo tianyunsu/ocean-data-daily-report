@@ -12,6 +12,7 @@ source_metrics.py — 期刊指标缓存（分级自动评级的数据底座）
   py -3 source_metrics.py --stats
 """
 import json
+import os
 import ssl
 import time
 import argparse
@@ -27,6 +28,16 @@ CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
 
+# OpenAlex 免费 API key（2026-10-16 苏老师提供）：环境变量优先，其次本地忽略文件。
+_OA_KEY_FILE = ROOT / "_openalex_key.txt"
+
+
+def oa_key():
+    k = os.environ.get("OPENALEX_API_KEY", "").strip()
+    if not k and _OA_KEY_FILE.exists():
+        k = _OA_KEY_FILE.read_text(encoding="utf-8").strip()
+    return k
+
 
 def load_cache():
     if CACHE.exists():
@@ -39,7 +50,8 @@ def save_cache(c):
 
 
 def fetch_issn(issn):
-    url = f"https://api.openalex.org/sources/issn:{issn}?mailto={MAILTO}"
+    _k = oa_key()
+    url = f"https://api.openalex.org/sources/issn:{issn}?mailto={MAILTO}" + (f"&api_key={_k}" if _k else "")
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     for i in range(2):
         try:

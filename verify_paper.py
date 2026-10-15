@@ -19,6 +19,7 @@ verify_paper.py — 学术元数据核实工具（海洋AI研究日报专用）
 退出码：0 = 全部核实成功；1 = 至少一个 DOI 核实失败
 """
 import sys
+import os
 import re
 import json
 import ssl
@@ -26,11 +27,25 @@ import time
 import argparse
 import datetime
 import urllib.request
+from pathlib import Path
 
 UA = "OceanAIDailyReport/1.0 (mailto:sutiany@163.com)"
 CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
+
+# OpenAlex 免费 API key（2026-10-16 苏老师提供）：环境变量优先，其次本地忽略文件。
+_OA_KEY_FILE = Path(__file__).resolve().parent / "_openalex_key.txt"
+
+
+def oa_key():
+    k = os.environ.get("OPENALEX_API_KEY", "").strip()
+    if not k and _OA_KEY_FILE.exists():
+        k = _OA_KEY_FILE.read_text(encoding="utf-8").strip()
+    return k
+
+
+OA_SUFFIX = ("?api_key=" + oa_key()) if oa_key() else ""
 
 FRESH_DAYS = 14      # 日报时效红线
 EXEMPT_DAYS = 60     # 豁免上限（须顶级来源 + 不重复 + 标注原始日期）
@@ -117,7 +132,7 @@ def from_crossref(doi):
 
 def from_openalex(doi):
     try:
-        w = _get("https://api.openalex.org/works/doi:" + doi)
+        w = _get("https://api.openalex.org/works/doi:" + doi + OA_SUFFIX)
     except Exception as e:
         return {"ok": False, "err": "%s: %s" % (type(e).__name__, str(e)[:80])}
     loc = w.get("primary_location") or {}
