@@ -51,7 +51,7 @@
 | 臆造 URL | 严禁按 URL 模式推断；无直链用权威转载源并标注 |
 | 聚合站日期 ≠ 发布日 | 一律查原文首发日 |
 | present_files 预览污染 HTML | 先 commit+push 再 present；present 后 `git status` 复查 |
-| 飞书文档 API 404 | token 反复失效；机器人 webhook 正常，文档 API 待苏老师更新，不阻断 |
+| 飞书文档 API 404（**2026-10-18 已定位并修复**） | **根因不是 token 失效，是脚本写错 API 端点**：`POST .../documents/{doc}/blocks` 不存在，正确为 `POST .../documents/{doc}/blocks/{doc}/children`（body 用 `children`，非 `blocks`）。实测 app_id/secret 换 token 一直成功（code=0），文档 GET 也正常。另修 `tr()`：加粗/链接必须放 `text_run.text_element_style`，旧字段 `text_run.style`/`text_run.link` 被飞书**静默忽略**（HTTP 200 但不生效）；并补 `feishu_doc_url.txt` + stdout `SUCCESS` 两个上层依赖信号。**教训：HTTP 200 ≠ 业务成功，须校验 code 并回读落库结果** |
 | OpenAlex cursor 翻页 401 "API key required" | **2026-10-15 起新政**：第 2 页起 cursor 需免费 key → **已配置 key**（`_openalex_key.txt`），恢复 cursor 翻页；无 key 回退 `page=` 分页（上限 1 万条） |
 | OpenAlex 重查询 429 "Insufficient budget" | 无 key 共享 IP 日预算 $0.10；**已配置 key（独立 $1/天）后消除**；key 失效时改用 WebSearch/官网人工补检 |
 | `harvest.py --dirs` 重跑覆写池文件（陷阱 25） | 重跑前先 `cp data/pool/日期.jsonl data/pool/_bak_日期.jsonl`，失败后合并恢复（10-16 两次复现） |
@@ -85,3 +85,4 @@
 - **会议通道静默失效（10-18）**：OpenAlex 类型值 `proceedings-article` → `conference-paper`，旧值对任意年份返回 0 且**不报错**，会议覆盖长期归零无人察觉；修复后窗口内 240 条、采纳 2 条。凡「依赖外部词表」的过滤器须定期做阳性对照
 - **中文条目去重必须用中文片段 grep（10-18）**：UVP5 数据库、大洋100 航次均因往期用中文标题、本期用 DOI/英文标题而在 URL 集合差中漏判 → 铁律：每条中文条目另跑一次「中文标题片段」grep，不能只比 URL
 - **池量跃升需解释**：W42 池内 1,539 vs 上期 175，主因 cursor 翻页恢复 + 会议通道修复，不是产出突变；周报综述须写明，避免趋势误读
+- **HTTP 200 ≠ 业务成功（10-18 飞书修复）**：飞书 docx 写入用错端点（`/blocks` 缺 `/{block_id}/children`）报 404 被误判为「token 失效」多期；`text_run.style`/`text_run.link` 非法字段则**静默忽略**（HTTP 200 但不生效）→ 铁律：第三方 API 接入后必须①校验响应体 code ②回读落库结果（本次回读发现 27 条链接全丢）。正确写法见 SKILL 陷阱 31
