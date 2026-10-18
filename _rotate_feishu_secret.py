@@ -87,7 +87,13 @@ def main():
     print("[2/3] 请粘贴网页上刚复制的新 App Secret，然后回车：")
     print("      （输入内容不会显示在屏幕上，属正常；粘贴后直接回车即可）")
     try:
-        new_secret = getpass.getpass("      新 Secret > ").strip()
+        if sys.stdin is not None and not sys.stdin.isatty():
+            # 管道/重定向模式（如 echo <secret> | py -3 _rotate_feishu_secret.py）：
+            # getpass 在非 tty 下会尝试控制终端回显，某些沙箱环境直接挂住，
+            # 故此处降级为普通 stdin 读取。注意：此模式下 secret 会经管道传入。
+            new_secret = sys.stdin.readline().strip()
+        else:
+            new_secret = getpass.getpass("      新 Secret > ").strip()
     except Exception:
         new_secret = input("      新 Secret > ").strip()
 
