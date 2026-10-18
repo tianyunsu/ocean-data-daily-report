@@ -1,7 +1,7 @@
 # 海洋AI研究日报系统记忆
 
 ## 系统配置
-- **用户**：苏老师 · **自动化ID**：`ai`（`FREQ=DAILY;BYHOUR=9;BYMINUTE=0`）
+- **用户**：苏老师 · **自动化ID**：`ai`（`FREQ=DAILY;BYHOUR=9;BYMINUTE=0`）· **2026-10-18 起状态为 PAUSED**：任务在云端、不再每日自动执行，由苏老师在自动化列表**手动触发**；rrule 保留，想恢复每日自动把状态改回 ACTIVE 即可
 - **仓库**：https://github.com/tianyunsu/ocean-data-daily-report ｜ **站点**：https://tianyunsu.github.io/ocean-data-daily-report/
 - **DATA_SOURCE**：`feishu_write_doc.py`（`SECTIONS` 由 `build_daily_YYYYMMDD.py` repr 正则替换）；**HTML**：`gen_html_YYYYMMDD.py`（自包含，`ast.literal_eval`）；**发布**：`posts/YYYY-MM-DD.html` + `index.html` + `archive.html` + git push；**L3**：`gen_frontier.py` + `weekly_report.py`
 - **本机 Python**：`py -3`（飞书/机器人/校验）；系统 `Python313\python.exe`（链接实测）
@@ -90,3 +90,4 @@
 - **远程文档写入必须幂等复用（2026-10-18）**：飞书云空间曾堆积 137 个日报文档、89 个同日重复，根因是脚本每次运行都新建。已改 `feishu_write_doc.py` 为「按标题匹配当天文档 → 清空正文重写 → 未命中才新建」。铁律：凡按天产出写远程文档的任务一律复用固定标识文档，禁止每次新建
 - **文档「创建成功」≠ 内容写进去**：实测 2026-04-15 ~ 2026-10-16 的飞书日报**全是空壳**（块数=1，docx 端点失效期只建文档写不进内容），仅 3 月及更早、修复后的 10-18 有真实内容。**教训：写完必须回读块数校验**
 - **App Secret 轮换（2026-10-18 已完成）**：网页重置由苏老师本人扫码完成（脚本无法代做），新 Secret 已写入 `_feishu_credentials.env` 并经端到端验证（137 块 / 27 链接 / 文档总数不增）。旧 Secret 实测 `code=10014 app secret invalid` **已彻底作废**，git 历史里的旧值不再构成风险。`_rotate_feishu_secret.py` 已支持管道模式（`echo <secret> | py -3 _rotate_feishu_secret.py`），验证失败不改文件
+- **日报执行方式变更（2026-10-18 苏老师决定）**：云端自动化 `ai` 由 ACTIVE 改为 **PAUSED**——任务定义保留在云端（prompt 完整自包含、cwd 正确），但不再按每日 9:00 自动执行，改为苏老师手动触发。手动触发路径：自动化列表 → 「海洋AI研究日报」→ 运行。恢复自动执行只需把状态改回 ACTIVE（rrule 未动）
