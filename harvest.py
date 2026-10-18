@@ -155,7 +155,10 @@ def fetch_openalex(d, start, end, want_conf=False, max_pages=4):
     expr = f"{terms} AND {OCEAN_TERMS}"
     filters = [f"from_publication_date:{start}", f"to_publication_date:{end}"]
     if want_conf:
-        filters.append("type:proceedings-article")
+        # 2026-10-18 实测：OpenAlex 会议论文类型值已改为 conference-paper；
+        # 旧值 proceedings-article 对任意年份均静默返回 0（2025 全年也是 0），
+        # 导致此前会议通道长期空转（池内"会议"实为 0 条，未报错）。
+        filters.append("type:conference-paper")
     else:
         filters += ["type:article", "primary_location.source.type:journal"]
     return _oa_pages(filters, expr, max_pages)
