@@ -48,14 +48,14 @@ python upload_to_feishu.py
 
 **PowerShell:**
 ```powershell
-$env:FEISHU_APP_ID = "cli_a93d483f6ff81bca"
-$env:FEISHU_APP_SECRET = "CU3EPesfCzNayK4bqsnh6droaJsf4HV8"
+$env:FEISHU_APP_ID = "<你的 App ID>"
+$env:FEISHU_APP_SECRET = "<你的 App Secret>"
 ```
 
 **CMD:**
 ```cmd
-set FEISHU_APP_ID=cli_a93d483f6ff81bca
-set FEISHU_APP_SECRET=CU3EPesfCzNayK4bqsnh6droaJsf4HV8
+set FEISHU_APP_ID=<你的 App ID>
+set FEISHU_APP_SECRET=<你的 App Secret>
 ```
 
 然后运行：
@@ -67,8 +67,8 @@ python upload_to_feishu.py
 
 | 变量名 | 必需 | 说明 |
 |--------|------|------|
-| `FEISHU_APP_ID` | ✅ 必需 | 飞书应用 ID |
-| `FEISHU_APP_SECRET` | ✅ 必需 | 飞书应用 Secret |
+| `FEISHU_APP_ID` | ✅ 必需 | 飞书应用 ID。**公开仓库严禁写死明文**；推荐放本地 `_feishu_credentials.env`（已 gitignore），脚本会自动读取 |
+| `FEISHU_APP_SECRET` | ✅ 必需 | 飞书应用 Secret，同上 |
 | `FEISHU_FOLDER_TOKEN` | ⭕ 可选 | 指定保存文档的文件夹 token，不填则保存到应用根目录 |
 
 ## 📝 工作流程

@@ -7,11 +7,20 @@ import requests
 import json
 import sys
 import time
+import os
 from datetime import datetime, timedelta
 
-APP_ID = "cli_a93d483f6ff81bca"
-APP_SECRET = "CU3EPesfCzNayK4bqsnh6droaJsf4HV8"
+# 2026-10-18 苏老师决定整改：APP_ID / APP_SECRET 明文从公开仓库移除，
+# 统一改由 _feishu_auth 供给（环境变量 > 本地 _feishu_credentials.env）。
+import _feishu_auth
+
+APP_ID, APP_SECRET = _feishu_auth.get_app_credentials()
 TENANT_DOMAIN = "wcn5jx0ifkx3.feishu.cn"
+
+if not APP_ID or not APP_SECRET:
+    print("错误：未找到飞书应用凭证。请设置环境变量 FEISHU_APP_ID / FEISHU_APP_SECRET，"
+          "或创建本地 _feishu_credentials.env（已在 .gitignore）。")
+    sys.exit(1)
 
 yesterday_cn = (datetime.now()).strftime('%Y年%m月%d日')
 today_date = (datetime.now()).strftime('%Y-%m-%d')
