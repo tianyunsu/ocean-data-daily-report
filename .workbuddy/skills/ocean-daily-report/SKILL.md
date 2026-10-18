@@ -856,3 +856,18 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
     - **铁律**：凡依赖外部词表的过滤器（work type、concept、license、OA status 等）都可能被上游静默改值，
       每条检索通道都要有**阳性对照**——用一个"必然能命中"的已知样本定期验证，命中为 0 时先怀疑词表而非"确实没有新论文"。
     - 排查口径：`type:X` 返回 0 时，先跑同条件**全量年份**计数（去掉时间窗）；若全量仍为 0，即可判定为词表失效。
+
+31. **飞书 docx 写入链路的两个隐蔽坑（2026-10-18 定位并修复）**：此前多期把「文档 API 404」误判为
+    **token 反复失效**，实际 token 一直正常（`auth/v3/tenant_access_token/internal` 实测 code=0），
+    文档 GET 也正常。真正的问题是 `feishu_write_doc.py` 写错了 API：
+    - **坑一（报 404）**：写入端点写成 `POST .../docx/v1/documents/{doc_id}/blocks`，该路径不存在。
+      正确为 `POST .../docx/v1/documents/{doc_id}/blocks/{doc_id}/children`，
+      body 用 `{"children": [...]}`（**不是** `{"blocks": [...]}`）。`{doc_id}` 即页面根块 block_id，追加到文档末尾。
+    - **坑二（静默生效失败）**：加粗与超链接必须写在 `text_run.text_element_style` 里
+      （`{"bold": true}` / `{"link": {"url": ...}}`）。旧写法 `text_run.style` / `text_run.link` 是非法字段，
+      飞书**不报错、返回 200**，但回读时加粗与链接全部丢失——本期回读发现 27 条链接一条都没进去。
+    - **坑三（上层信号缺失）**：`run_daily_report.py` 依赖「stdout 含 `SUCCESS`」与 `feishu_doc_url.txt`
+      两个信号判定文档链路成败，旧脚本两者都不输出 → 上层永远报「文档写入异常」。已在 main() 补上。
+    - **铁律（通用）**：第三方 API 接入后必须 ①校验响应体业务码（`code != 0` 即失败，不能只 `raise_for_status`）
+      ②**回读落库结果**核对（数量/链接/样式），本次两条隐蔽坑都是靠回读才发现的。
+    - 删除块用 `DELETE .../documents/{doc_id}/blocks/{block_id}/children/batch_delete`，body `{"start_index":0,"end_index":N}`（半开区间，按索引而非 block_id）。

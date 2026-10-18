@@ -20,11 +20,17 @@ SECTIONS = [{'title': '一、海洋人工智能', 'en': 'Ocean AI / Marine Artif
 
 
 def tr(text, bold=False, link=None):
-    element = {"text_run": {"content": text}}
+    # 2026-10-18 修复：加粗与超链接必须放在 text_element_style 里。
+    # 旧写法 text_run["style"] / text_run["link"] 均非合法字段，飞书静默忽略不报错，
+    # 结果文档无加粗、无超链接（回读 text_element_style 全空）。
+    style = {}
     if bold:
-        element["text_run"]["style"] = {"bold": True}
+        style["bold"] = True
     if link:
-        element["text_run"]["link"] = {"url": link}
+        style["link"] = {"url": link}
+    element = {"text_run": {"content": text}}
+    if style:
+        element["text_run"]["text_element_style"] = style
     return element
 
 
@@ -107,7 +113,11 @@ def create_document_and_write(tenant_access_token):
 
 def write_blocks_to_doc(token, doc_id, blocks, max_retries=3, batch_size=30):
     """分批写入内容块到飞书文档"""
-    base_url = f"https://open.feishu.cn/open-apis/docx/v1/documents/{doc_id}/blocks"
+    # 2026-10-18 修复：写入端点漏了 /{block_id}/children。
+    # 错误写法 POST .../documents/{doc_id}/blocks            -> 404
+    # 正确写法 POST .../documents/{doc_id}/blocks/{doc_id}/children
+    # （doc_id 即页面根块 block_id，用 children 追加到文档末尾）
+    base_url = f"https://open.feishu.cn/open-apis/docx/v1/documents/{doc_id}/blocks/{doc_id}/children"
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json"
@@ -123,13 +133,17 @@ def write_blocks_to_doc(token, doc_id, blocks, max_retries=3, batch_size=30):
         for attempt in range(max_retries):
             try:
                 payload = {
-                    "blocks": batch_blocks
+                    "children": batch_blocks
                 }
                 resp = requests.post(base_url, headers=headers, json=payload)
                 resp.raise_for_status()
+                # 2026-10-18 补强：HTTP 200 不代表业务成功，必须校验 code
+                body = resp.json()
+                if body.get("code") != 0:
+                    raise RuntimeError(f"Feishu API 业务错误 code={body.get('code')} msg={body.get('msg')}")
                 print(f"Batch {batch_idx + 1}/{total_batches}: blocks {batch_start}-{batch_end-1} written successfully")
                 break
-            except requests.exceptions.RequestException as e:
+            except (requests.exceptions.RequestException, RuntimeError) as e:
                 if attempt < max_retries - 1:
                     wait_time = 2 ** attempt
                     print(f"Batch {batch_idx + 1} attempt {attempt + 1} failed: {e}. Retrying in {wait_time}s...")
@@ -152,7 +166,13 @@ def main():
     blocks = build_blocks()
     write_blocks_to_doc(token, doc_id, blocks)
 
-    print(f"Document URL: https://{TENANT_DOMAIN}/docx/{doc_id}")
+    doc_url = f"https://{TENANT_DOMAIN}/docx/{doc_id}"
+    print(f"Document URL: {doc_url}")
+    # 2026-10-18 修复：run_daily_report.py 依赖「stdout 含 SUCCESS」+「feishu_doc_url.txt」
+    # 两个信号，旧版均未输出，导致上层永远判定文档链路失败。
+    with open("feishu_doc_url.txt", "w", encoding="utf-8") as f:
+        f.write(doc_url)
+    print("SUCCESS Feishu document written.")
 
 
 if __name__ == "__main__":

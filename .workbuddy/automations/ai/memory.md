@@ -556,5 +556,5 @@
 - **归类与条数**：方向三=2、方向七=2 低于 3——按「宁缺不凑数」判定可接受（方向三窗口内候选或过期或归类不符；方向七为远洋科考类，剔除重复后确无新增）。归类自检把滑翔机能耗论文从方向一移入方向五。
 - **时效性**：≤7 天 14 / 8–14 天 13 / >14 天 **0**（区间 10-05 ~ 10-18），无豁免条目。
 - **五审结果**：链接 **27 条实测，4 条 403** 全部经 Crossref 核验（题名/期刊/日期一致）→ **异常数 0**；去重双路（URL 集合差 + 标题/DOI/中文片段 grep）复核 **0 重复**。
-- **飞书双链路**：机器人 webhook **成功**（StatusCode 0）；文档 API **404**（`P8yydOYpEoO14jxfTSYc5GuynHb` 建文档成功、blocks 写入 404，token 再失效，**待苏老师更新**）；邮件未配置。
+- **飞书双链路（发布后当日修复）**：机器人 webhook **成功**（StatusCode 0）。文档链路初判 404，当日追查定位**根因不是 token 失效**——`feishu_write_doc.py` 写错 API 端点（缺 `/{block_id}/children`，body 用错字段），且加粗/链接放在非法字段被飞书静默忽略。三处修复（端点 + `text_element_style` + `SUCCESS`/`feishu_doc_url.txt` 信号）后，今日日报已重写入 `P8yydOYpEoO14jxfTSYc5GuynHb`，回读校验 **138 块 / 27 条链接全部落库**，URL `https://wcn5jx0ifkx3.feishu.cn/docx/P8yydOYpEoO14jxfTSYc5GuynHb`。已记入 SKILL 陷阱 31 与 MEMORY 故障表。
 - **新增经验（已并入 MEMORY.md 故障表与陷阱 30）**：① 外部词表过滤器（work type/concept/license）会被上游静默改值，**每条通道须设阳性对照**；② 中文标题条目无 DOI 时逃过 URL 集合差，**去重必须用中文片段 grep**；③ 池量跃升（6,639 vs 往期 ~4,000）必须能解释到具体通道，否则视为异常。
