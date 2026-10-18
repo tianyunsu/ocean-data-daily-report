@@ -1,8 +1,10 @@
 import requests, json, sys
 sys.stdout.reconfigure(encoding='utf-8')
 
-APP_ID = "cli_a93d483f6ff81bca"
-APP_SECRET = "CU3EPesfCzNayK4bqsnh6droaJsf4HV8"
+# 2026-10-18 安全整改：凭证明文已从公开仓库移除，改由 _feishu_auth 统一供给
+# （环境变量 FEISHU_APP_ID / FEISHU_APP_SECRET 优先，其次本地 _feishu_credentials.env）
+import _feishu_auth
+APP_ID, APP_SECRET = _feishu_auth.get_app_credentials()
 TENANT_DOMAIN = "wcn5jx0ifkx3.feishu.cn"
 PARENT_NODE = "nodcniyHJwzrxNg5JOFA2cTatDg"
 

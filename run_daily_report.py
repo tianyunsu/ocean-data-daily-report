@@ -14,6 +14,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime, timedelta
 
+import _feishu_auth
+
 yesterday = datetime.now().strftime('%Y年%m月%d日')
 date_str = datetime.now().strftime('%Y-%m-%d')
 
@@ -26,8 +28,9 @@ doc_url = None
 # ============================================================
 # 第三步：飞书云文档
 # ============================================================
-app_id = os.environ.get('FEISHU_APP_ID', 'cli_a93d483f6ff81bca')
-app_secret = os.environ.get('FEISHU_APP_SECRET', 'CU3EPesfCzNayK4bqsnh6droaJsf4HV8')
+# 2026-10-18 整改：凭证不再硬编码，统一由 _feishu_auth 供给
+# （环境变量 FEISHU_APP_ID / FEISHU_APP_SECRET 优先，其次本地 _feishu_credentials.env）
+app_id, app_secret = _feishu_auth.get_app_credentials()
 folder_token = os.environ.get('FEISHU_FOLDER_TOKEN', '')
 
 print(f"\n--- 步骤3：飞书云文档 ---")

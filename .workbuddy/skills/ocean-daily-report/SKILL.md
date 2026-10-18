@@ -871,3 +871,16 @@ IEEE 旗下期刊是海洋AI/遥感方向的重要来源，与顶会论文同等
     - **铁律（通用）**：第三方 API 接入后必须 ①校验响应体业务码（`code != 0` 即失败，不能只 `raise_for_status`）
       ②**回读落库结果**核对（数量/链接/样式），本次两条隐蔽坑都是靠回读才发现的。
     - 删除块用 `DELETE .../documents/{doc_id}/blocks/{block_id}/children/batch_delete`，body `{"start_index":0,"end_index":N}`（半开区间，按索引而非 block_id）。
+
+32. **公开仓库严禁硬编码第三方凭证（2026-10-18 苏老师决定整改）**：此前 `feishu_write_doc.py`、
+    `run_daily_report.py` 等 **14 个脚本 + `FEISHU_UPLOAD_GUIDE.md`** 把飞书 `APP_ID` / `APP_SECRET`
+    明文写在被 git 跟踪的文件里。仓库是公开的，任何拿到 secret 的人都能以该应用身份创建/读取文档。
+    - **整改后写法**：一律 `import _feishu_auth` 后 `APP_ID, APP_SECRET = _feishu_auth.get_app_credentials()`。
+      `_feishu_auth.py` 读取顺序为「环境变量 `FEISHU_APP_ID`/`FEISHU_APP_SECRET` > 本地 `_feishu_credentials.env`」，
+      该 env 文件已加入 `.gitignore`，**绝不入库**。与 OpenAlex key（`_openalex_key.txt`）同一套纪律。
+    - **新增脚本铁律**：任何新的第三方 API 凭证，禁止在代码里写字面量；先问「这个仓库公开吗」，
+      公开则必须走本地 env 文件通道。提交前用 `grep -rn "<secret>" --include="*.py" --include="*.md" .` 自查。
+    - **重要提醒**：删除当前文件的明文只是止血——**secret 已留在 git 历史里，必须去飞书开放平台轮换**
+      （重置 App Secret 后同步更新本地 `_feishu_credentials.env`）。
+    - **教训**：这次是苏老师主动点出的「安全提醒」才发现的，属于流程盲区。**阶段五五审应增加一项：
+      本批改动的文件里是否新增了硬编码凭证。**
