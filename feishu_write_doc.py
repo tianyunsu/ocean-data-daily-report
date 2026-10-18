@@ -106,9 +106,79 @@ def build_blocks():
     return blocks
 
 
+def find_existing_doc(token, title):
+    """在云空间里查找同名文档（分页拉全量 docx 后精确匹配标题）。
+
+    2026-10-18 新增：修复「每次运行都新建文档」导致的堆积问题
+    （清理前云盘里已有 137 个日报文档，其中 89 个是同一天重复建的）。
+    """
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    files, page_token = [], ""
+    while True:
+        params = {"page_size": 200}
+        if page_token:
+            params["page_token"] = page_token
+        d = requests.get("https://open.feishu.cn/open-apis/drive/v1/files",
+                         headers=headers, params=params, timeout=30).json()
+        if d.get("code") != 0:
+            print(f"列文件失败，按新建处理: code={d.get('code')} msg={d.get('msg')}")
+            return None
+        data = d.get("data", {})
+        files.extend([f for f in data.get("files", []) if f.get("type") == "docx"])
+        if not data.get("has_more"):
+            break
+        page_token = data.get("next_page_token")
+    for f in files:
+        if f.get("name") == title:
+            return f["token"]
+    return None
+
+
+def clear_doc_children(token, doc_id):
+    """清空文档正文（只留页面根块），供同日复用时重写。"""
+    headers = {"Authorization": f"Bearer {token}",
+               "Content-Type": "application/json; charset=utf-8"}
+    # 先数一下现有子块数量
+    items, page_token = [], ""
+    while True:
+        params = {"page_size": 500}
+        if page_token:
+            params["page_token"] = page_token
+        d = requests.get(f"https://open.feishu.cn/open-apis/docx/v1/documents/{doc_id}/blocks",
+                         headers=headers, params=params, timeout=30).json()
+        if d.get("code") != 0:
+            return False
+        data = d.get("data", {})
+        items.extend(data.get("items", []))
+        if not data.get("has_more"):
+            break
+        page_token = data.get("next_page_token")
+    root = next((b for b in items if b.get("block_type") == 1), None)
+    n_children = len(root.get("children") or []) if root else 0
+    if n_children == 0:
+        return True
+    r = requests.delete(
+        f"https://open.feishu.cn/open-apis/docx/v1/documents/{doc_id}/blocks/{doc_id}/children/batch_delete",
+        headers=headers, json={"start_index": 0, "end_index": n_children}, timeout=30)
+    body = r.json()
+    if r.status_code != 200 or body.get("code") != 0:
+        print(f"清空旧内容失败: HTTP {r.status_code} code={body.get('code')} {body.get('msg')}")
+        return False
+    print(f"已清空旧内容 {n_children} 块")
+    return True
+
+
 def create_document_and_write(tenant_access_token):
+    """同日已有文档则复用（清空重写），否则新建。避免文档堆积。"""
+    title = f"海洋AI技术日报 {datetime.now().strftime('%Y-%m-%d')}"
+    existing = find_existing_doc(tenant_access_token, title)
+    if existing:
+        print(f"复用当天已有文档: {existing}")
+        if clear_doc_children(tenant_access_token, existing):
+            return existing
+        print("复用失败，改走新建")
     url = "https://open.feishu.cn/open-apis/docx/v1/documents"
-    payload = {"title": f"海洋AI技术日报 {datetime.now().strftime('%Y-%m-%d')}"}
+    payload = {"title": title}
     headers = {
         "Authorization": f"Bearer {tenant_access_token}",
         "Content-Type": "application/json"
