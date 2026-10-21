@@ -565,3 +565,16 @@
 - **根治**：`feishu_write_doc.py` 加「同日复用」——按 `海洋AI技术日报 YYYY-MM-DD` 匹配当天文档，命中清空正文重写、未命中才新建。实测复用当天文档重写 137 块、**文档总数不增**。已记 SKILL 陷阱 33 + MEMORY 两条经验。
 - **App Secret 轮换（2026-10-18 已完成）**：苏老师在开放平台完成重置并提供新 Secret；实测旧 Secret `code=10014` 已作废、新 Secret `code=0` 可用，已写入 `_feishu_credentials.env` 并端到端复跑 `feishu_write_doc.py`（同日复用 10-18 文档，137 块 / 27 链接全落库，文档总数仍 48）。`_rotate_feishu_secret.py` 增加管道模式支持（getpass 在沙箱非 tty 下会挂死被 SIGTERM，已降级 stdin 读取），自测假 Secret 被拒且不改文件
 - **执行方式变更（2026-10-18 苏老师决定）**：本自动化 `ai` 已由 ACTIVE 改为 **PAUSED**。今后**不再每日 9:00 自动执行**，由苏老师手动触发；prompt / rrule / cwd 均未改动，恢复自动执行只需把状态改回 ACTIVE。手动触发时本 prompt 即唯一指令源（仍以 ocean-daily-report skill 为权威）。
+
+## 2026-10-21 期（周三·手动触发·PAUSED 后首期）
+- **日报**：24 条（一5/二2/三1/四4/五5/六2/七1/八2/九2），9 方向全有内容；commit `83f9521`（日报+池+脚本），五审修正后另有收尾提交。
+- **周报判定**：距 W42（10-18）仅 3 天、非周日 → **不触发**；`gen_frontier.py` 已执行（近 14 天 / 池内 192 / 展示 192）。
+- **阶段零**：起点 `b87a6ae`；pull 已最新；`sync_skills.py install` 9 文件、status 两侧一致。
+- **规模指标**：harvest **6,197 条**（窗口 10-07~10-21，含会议 44 条）→ screen 池内 **192 条**（?68/A32/B30/C24/D17/P17/S4）→ 日报 24 条，留存率 12.5%；arXiv 0%、期刊 70.8%、零覆盖来源组 0。
+- **阶段一**：会议通道（`conference-paper`）命中 44 条，采纳 NeurIPS 2026 PRISM（天津理工，WebFetch 核实发布日 2026-10-16 15:43）。**IEEE 9 刊窗口内全 0**，按阳性对照留证——TGRS 2025 全年 308 条（过滤有效）、TGRS 2026 全年 224 条但 `publication_date` 全部塌缩为 2026-01-01、TGRS 2026-10 全 0 → 判定为 **OpenAlex 对 IEEE 刊日期归一化异常**，非检索失效。
+- **去重**：三路（URL / 中文标题片段 / DOI）复核 **0 命中**；构建前拦截 5 项（SUBSIM、HECO、bg-23-7043、03091333261488345、EX2607/美属萨摩亚）。
+- **五审**：①链接 24 条实测，4 条 403（MDPI×3 + AGU×1）全部 Crossref/OpenAlex 复核为真 → **异常 0**；②时效 ≤7 天 18 / 8–14 天 6 / >14 天 0；③来源矩阵 10 组零覆盖 0；④**发现 D 级未置底（二、四方向）→ 已调至末位并统一标注「MDPI 集团刊，D 级」后重发**；⑤去重 0 重复。
+- **条数缺口（已披露）**：24 条 < 27 下限，三=1、七=1，共 6 方向低于 3 条。原因：池内未采纳 168 条中高分候选多为往期已发，或严格归类不符（SWOT 内陆水库、MONKI 行星大气、化石牙 Nd 同位素、红树林消浪），方向一已达 5 条上限 → 按 2026-09-15「宁缺不凑数」口径不填充。
+- **飞书**：`H6Umdod7YoOhPpxFT0JcsMBrnsh`，125 块，同日复用生效（重写两次文档数不增）；机器人 webhook `StatusCode 0`；邮件未配置跳过。
+- **本期故障与修正**：①`journal_tiers.json` 被中断写为 0 字节致 `screen.py` 崩溃 → `git checkout --` 恢复 1,920,926 字节重跑；②`publish_1021.py` excerpt 硬编码 `build_daily_1018.py` 导致首页显示上期「27 条」→ 回滚 index/archive 改 `build_daily_1021.py` 重跑；③**HTML 改内容无效（两次）**——`gen_html` 读 `feishu_write_doc.py` 注入后的 SECTIONS，只改 `build_daily_*.py` 再跑 gen_html 会出一模一样结果，必须 build_daily → gen_html → cp to posts。
+- **记忆整理**：`MEMORY.md` 17.6 KB → 12.7 KB，去重基准滚为 10-21/10-18/10-16（剔除 10-14），补入 IEEE 日期塌缩、build_daily→gen_html 依赖两条经验。
