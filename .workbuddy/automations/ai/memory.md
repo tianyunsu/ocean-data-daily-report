@@ -578,3 +578,14 @@
 - **飞书**：`H6Umdod7YoOhPpxFT0JcsMBrnsh`，125 块，同日复用生效（重写两次文档数不增）；机器人 webhook `StatusCode 0`；邮件未配置跳过。
 - **本期故障与修正**：①`journal_tiers.json` 被中断写为 0 字节致 `screen.py` 崩溃 → `git checkout --` 恢复 1,920,926 字节重跑；②`publish_1021.py` excerpt 硬编码 `build_daily_1018.py` 导致首页显示上期「27 条」→ 回滚 index/archive 改 `build_daily_1021.py` 重跑；③**HTML 改内容无效（两次）**——`gen_html` 读 `feishu_write_doc.py` 注入后的 SECTIONS，只改 `build_daily_*.py` 再跑 gen_html 会出一模一样结果，必须 build_daily → gen_html → cp to posts。
 - **记忆整理**：`MEMORY.md` 17.6 KB → 12.7 KB，去重基准滚为 10-21/10-18/10-16（剔除 10-14），补入 IEEE 日期塌缩、build_daily→gen_html 依赖两条经验。
+
+## 2026-10-25 期（周日·**W43 周报**）
+- **日报**：23 条（一5/二3/三2/四1/五3/六2/七3/八2/九2），9 方向全有内容；commit `7b83e9c`（日报）+ `cc688c1`（weekly 2026-W43）。
+- **周报判定**：周日且距 W42 恰 7 天 → 触发；产出 2026-W43（窗口 10-12~10-25，池内 1,021 · S/A 194 · 综述样本 867）+ 深度综述（25 链接：19 条回查 library.db 命中、6 条池外链接逐一经 Crossref/官网核实，0 臆造）；gen_frontier 刷新（近 14 天/池内 224/展示 224）。
+- **阶段零**：起点 `af4228c`；pull 已最新；sync_skills 9 文件、status 一致。
+- **规模指标**：harvest 6,775 条（含会议 39）→ 池内 224（?78/A42/B38/C26/D15/P21/S4）→ 23 条，留存率 10.3%；arXiv 4.3%、期刊 69.6%、零覆盖 0；待确认期刊 2,205。
+- **阶段一**：会议通道命中 203 条；采纳 MobiCom 2026 RollingPol、Springer CCIS 物种分类、CHI PLAY 2026 Tidy Tide（3 条 ≥2 达标）；NeurIPS 2026 主会 OC-UIE 因日期不可核验（无 arXiv/OpenAlex）留痕不收。IEEE 9 刊窗口全 0，阳性对照：TGRS 2026-10 全月 0（日期塌缩持续）、RA-L 4 条非海洋。**新陷阱：OpenAlex `issn:` 滤镜已废弃（400），须用 `primary_location.source.issn:`；JOE 正确 issn_l=0364-9059**。
+- **去重**：URL/中文标题/DOI 三路 0 命中；池 jsonl DOI 小写存储导致链接回查假阴性，已大小写归一。
+- **五审**：①23 链接实测，5 条 403（ACM×2/MDPI/AGU/Wiley）全 Crossref 核实 → 死链 0；②时效 ≤7天15/8-14天4/>14天4（4 条全部摘要内标注豁免：DIRECT 33天、浮标驻留 24天、echoregions 15天、coastsat 16天）；③D 级 1 条置底 ✅；④23 条 < 27 下限（四=1，三/六/八/九=2），高分候选多为往期已发或归类不符，按「宁缺不凑数」不填充；⑤无新增硬编码凭证。
+- **飞书**：`CzE7d2yiKoiZ7ixq4tscQrp7ngc`，121 块，同日复用；机器人 webhook code=0；邮件未配置跳过。
+- **待苏老师确认**：自动化 `ai` 状态查询显示 ACTIVE（记忆记录 10-18 应为 PAUSED），本次 21:24 触发（非 rrule 9:00），未擅自变更。
