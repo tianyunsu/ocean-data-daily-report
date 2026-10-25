@@ -1,0 +1,1449 @@
+{
+ "week": "2026-W43",
+ "start": "2026-10-12",
+ "end": "2026-10-25",
+ "pool_total": 1021,
+ "tiers": {
+  "?": 357,
+  "S": 15,
+  "B": 176,
+  "A": 179,
+  "D": 81,
+  "C": 133,
+  "P": 80
+ },
+ "directions": {
+  "一、海洋人工智能": 422,
+  "五、海洋数据处理": 65,
+  "九、工具与代码资源": 60,
+  "四、海洋数据质量": 73,
+  "七、开放航次与科考": 244,
+  "二、海洋数字孪生": 42,
+  "六、数据管理与共享": 29,
+  "三、海洋可视化": 70,
+  "八、海洋数据中心": 16
+ },
+ "warned": 81,
+ "preprints": 80,
+ "off_penalized": 74,
+ "top_journals": [
+  [
+   "arXiv",
+   80
+  ],
+  [
+   "Ocean Engineering",
+   72
+  ],
+  [
+   "Frontiers in Marine Science",
+   28
+  ],
+  [
+   "Scientific Reports",
+   21
+  ],
+  [
+   "Geoscientific model development",
+   16
+  ],
+  [
+   "Geophysical Research Letters",
+   15
+  ],
+  [
+   "Applied Ocean Research",
+   11
+  ],
+  [
+   "International Journal of Remote Sensing",
+   9
+  ],
+  [
+   "International Journal of Electrical and Electronics Engineering",
+   8
+  ],
+  [
+   "International Journal of Innovative Science and Research Technology (IJISRT)",
+   8
+  ],
+  [
+   "Advanced Functional Materials",
+   8
+  ],
+  [
+   "Engineering Research Express",
+   8
+  ],
+  [
+   "Science Advances",
+   7
+  ],
+  [
+   "Earth system science data",
+   7
+  ],
+  [
+   "Ocean & Coastal Management",
+   7
+  ],
+  [
+   "Biogeosciences",
+   7
+  ],
+  [
+   "Results in Engineering",
+   6
+  ],
+  [
+   "Continental Shelf Research",
+   6
+  ],
+  [
+   "Nature Communications",
+   6
+  ],
+  [
+   "International journal of intelligent engineering and systems",
+   6
+  ]
+ ],
+ "top_words": [
+  [
+   "underwater",
+   108
+  ],
+  [
+   "machine",
+   99
+  ],
+  [
+   "neural",
+   70
+  ],
+  [
+   "network",
+   60
+  ],
+  [
+   "framework",
+   59
+  ],
+  [
+   "wave",
+   56
+  ],
+  [
+   "detection",
+   54
+  ],
+  [
+   "control",
+   48
+  ],
+  [
+   "prediction",
+   45
+  ],
+  [
+   "intelligence",
+   42
+  ],
+  [
+   "artificial",
+   40
+  ],
+  [
+   "hybrid",
+   39
+  ],
+  [
+   "classification",
+   38
+  ],
+  [
+   "arctic",
+   38
+  ],
+  [
+   "validation",
+   37
+  ],
+  [
+   "surface",
+   34
+  ],
+  [
+   "networks",
+   32
+  ],
+  [
+   "digital",
+   30
+  ]
+ ],
+ "high_tier_count": 194,
+ "synthesis_source": "深度综述来源：2026-W43.md",
+ "dir_digest": {
+  "一、海洋人工智能": {
+   "n": 422,
+   "sample": 329,
+   "sa": 61,
+   "preprint": 36,
+   "journals": [
+    {
+     "j": "arXiv",
+     "n": 36
+    },
+    {
+     "j": "Ocean Engineering",
+     "n": 34
+    },
+    {
+     "j": "International Journal of Electrical and Electronics Engineering",
+     "n": 8
+    },
+    {
+     "j": "Advanced Functional Materials",
+     "n": 8
+    }
+   ],
+   "clusters": [
+    {
+     "name": "机器学习建模",
+     "n": 50,
+     "rep": [
+      {
+       "title": "Machine Learning Guided Broadleaf‐Inspired Reconfigurable Triboelectric Array for Space‐Efficient Ocean Current Energy Harvesting and Antifouling",
+       "url": "https://doi.org/10.1002/adfm.78835",
+       "journal": "Advanced Functional Materials",
+       "tier": "A"
+      },
+      {
+       "title": "Machine Learning‐Assisted Polarity‐Switchable Photoelectrochemical Platform Based on B‐Eu 2 O 3 Nanospindle and Dual‐Amplified Rod‐Shaped DNA Walker",
+       "url": "https://doi.org/10.1002/adfm.79008",
+       "journal": "Advanced Functional Materials",
+       "tier": "A"
+      },
+      {
+       "title": "Interpretable machine learning for predicting cumulative plastic strain of marine soils under multi-factor coupling effects",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128575",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "神经网络",
+     "n": 29,
+     "rep": [
+      {
+       "title": "Spin-adapted neural network wavefunctions in real space",
+       "url": "https://doi.org/10.1038/s41467-026-78600-y",
+       "journal": "Nature Communications",
+       "tier": "S"
+      },
+      {
+       "title": "Deep residual physics-informed neural network for underwater electric potential reconstruction",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128706",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Coupled adaptive neural network control for active suspension of deep-sea mining tracked vehicles under hydrodynamic effects and multiple parametric uncertainties",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128631",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "框架方法",
+     "n": 12,
+     "rep": [
+      {
+       "title": "De novo design of lipopeptides with antimicrobial potency enabled by a chain-as-prompt deep learning framework",
+       "url": "https://doi.org/10.1038/s41467-026-78763-8",
+       "journal": "Nature Communications",
+       "tier": "S"
+      },
+      {
+       "title": "An explainable swarm-optimized hybrid GRU–Transformer framework with wavelet-based spatial–temporal feature modeling and activation function analysis for rainfall classification across Pakistan’s climatic regimes",
+       "url": "https://doi.org/10.1038/s41598-026-73512-9",
+       "journal": "Scientific Reports",
+       "tier": "A"
+      },
+      {
+       "title": "Heterogeneous multi-AUV cooperative area search with an LLM-assisted hierarchical planning framework",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128408",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "水下感知与作业",
+     "n": 10,
+     "rep": [
+      {
+       "title": "Deep reinforcement learning-based path following of a bio-inspired autonomous underwater vehicle under ocean currents",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128550",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Multi-step energy consumption prediction of underwater gliders based on the hybrid deep learning model",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128770",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "XCAT-UIR: explainable cross-attention guided ConvNeXt-transformer framework for underwater image restoration systems",
+       "url": "https://doi.org/10.1038/s41598-026-76042-6",
+       "journal": "Scientific Reports",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "目标检测",
+     "n": 7,
+     "rep": [
+      {
+       "title": "Deep learning detection of submesoscale eddies from MODIS SST in the South China Sea",
+       "url": "https://doi.org/10.1080/15481603.2026.2748224",
+       "journal": "GIScience & Remote Sensing",
+       "tier": "A"
+      },
+      {
+       "title": "Intelligent Credit Card Fraud Detection based on Sea Horse Optimization and Deep Sequential Learning",
+       "url": "https://doi.org/10.14445/22315381/ijett-v74i9p102",
+       "journal": "International Journal of Engineering Trends and Technology",
+       "tier": "C"
+      },
+      {
+       "title": "On-Board Anomaly Detection for Efficient Marine Environmental Monitoring",
+       "url": "http://arxiv.org/abs/2610.03649v1",
+       "journal": "arXiv",
+       "tier": "P"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Spin-adapted neural network wavefunctions in real space",
+     "url": "https://doi.org/10.1038/s41467-026-78600-y",
+     "journal": "Nature Communications",
+     "tier": "S",
+     "date": "2026-10-24",
+     "score": 650.39
+    },
+    {
+     "title": "De novo design of lipopeptides with antimicrobial potency enabled by a chain-as-prompt deep learning framework",
+     "url": "https://doi.org/10.1038/s41467-026-78763-8",
+     "journal": "Nature Communications",
+     "tier": "S",
+     "date": "2026-10-17",
+     "score": 640.0
+    },
+    {
+     "title": "De novo design of lipopeptides with antimicrobial potency enabled by a chain-as-prompt deep learning framework",
+     "url": "https://doi.org/10.1038/s41467-026-78763-8",
+     "journal": "Nature Communications",
+     "tier": "S",
+     "date": "2026-10-17",
+     "score": 620.0
+    },
+    {
+     "title": "Deep reinforcement learning-based path following of a bio-inspired autonomous underwater vehicle under ocean currents",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128550",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-14",
+     "score": 554.0
+    },
+    {
+     "title": "Multi-step energy consumption prediction of underwater gliders based on the hybrid deep learning model",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128770",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-14",
+     "score": 552.0
+    }
+   ]
+  },
+  "二、海洋数字孪生": {
+   "n": 42,
+   "sample": 34,
+   "sa": 5,
+   "preprint": 3,
+   "journals": [
+    {
+     "j": "Ocean & Coastal Management",
+     "n": 4
+    },
+    {
+     "j": "Journal of structural design and construction practice.",
+     "n": 4
+    },
+    {
+     "j": "Continental Shelf Research",
+     "n": 4
+    },
+    {
+     "j": "The cryosphere",
+     "n": 4
+    }
+   ],
+   "clusters": [
+    {
+     "name": "数字孪生",
+     "n": 6,
+     "rep": [
+      {
+       "title": "Capability or participation? A dimensional analysis of ocean digital twins and its implications for maritime spatial planning governance",
+       "url": "https://doi.org/10.1016/j.ocecoaman.2026.108398",
+       "journal": "Ocean & Coastal Management",
+       "tier": "B"
+      },
+      {
+       "title": "Challenges posed by the digital twin of the ocean to the benefit-sharing mechanism for digital sequence information on marine genetic resources under the BBNJ Agreement and corresponding responses",
+       "url": "https://doi.org/10.3389/fmars.2026.1966759",
+       "journal": "Frontiers in Marine Science",
+       "tier": "C"
+      },
+      {
+       "title": "Risk-Aware Digital Twin-Based Speed Optimization for CO2 Emission Reduction in Short-Sea Shipping: The İstanbul-Piraeus Route",
+       "url": "https://doi.org/10.4274/jems.2026.95826",
+       "journal": "Journal of ETA Maritime Science",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "再分析资料",
+     "n": 4,
+     "rep": [
+      {
+       "title": "Solving calibration and reanalysis challenges of ocean biogeochemical dynamics with neural schemes: a 1D vertical model case-study",
+       "url": "https://doi.org/10.5194/bg-23-6879-2026",
+       "journal": "Biogeosciences",
+       "tier": "A"
+      },
+      {
+       "title": "The ability of the CORA v2.0 reanalysis dataset to characterize internal tides in the South China Sea",
+       "url": "https://doi.org/10.1007/s13131-026-2690-6",
+       "journal": "Acta Oceanologica Sinica",
+       "tier": "B"
+      },
+      {
+       "title": "Evaluation of the performance of the Weather Research and Forecasting model in simulating surface solar radiation over Penang Island, Malaysia, through comparing with reanalysis and in situ data",
+       "url": "https://doi.org/10.1007/s11600-026-02035-8",
+       "journal": "Acta Geophysica",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Declining Surface Solar Radiation Resources in Polar Regions Under Global Warming",
+     "url": "https://doi.org/10.1029/2026gl125763",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-10-18",
+     "score": 550.0
+    },
+    {
+     "title": "Declining Surface Solar Radiation Resources in Polar Regions Under Global Warming",
+     "url": "https://doi.org/10.1029/2026gl125763",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-10-18",
+     "score": 542.0
+    },
+    {
+     "title": "Solving calibration and reanalysis challenges of ocean biogeochemical dynamics with neural schemes: a 1D vertical model case-study",
+     "url": "https://doi.org/10.5194/bg-23-6879-2026",
+     "journal": "Biogeosciences",
+     "tier": "A",
+     "date": "2026-10-06",
+     "score": 530.0
+    },
+    {
+     "title": "Solving calibration and reanalysis challenges of ocean biogeochemical dynamics with neural schemes: a 1D vertical model case-study",
+     "url": "https://doi.org/10.5194/bg-23-6879-2026",
+     "journal": "Biogeosciences",
+     "tier": "A",
+     "date": "2026-10-06",
+     "score": 526.0
+    },
+    {
+     "title": "Solving calibration and reanalysis challenges of ocean biogeochemical dynamics with neural schemes: a 1D vertical model case-study",
+     "url": "https://doi.org/10.5194/bg-23-6879-2026",
+     "journal": "Biogeosciences",
+     "tier": "A",
+     "date": "2026-10-06",
+     "score": 522.0
+    }
+   ]
+  },
+  "三、海洋可视化": {
+   "n": 70,
+   "sample": 65,
+   "sa": 14,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "Ocean Engineering",
+     "n": 6
+    },
+    {
+     "j": "Geoscientific model development",
+     "n": 5
+    },
+    {
+     "j": "Earth Surface Dynamics",
+     "n": 4
+    },
+    {
+     "j": "Polar Biology",
+     "n": 4
+    }
+   ],
+   "clusters": [
+    {
+     "name": "three-dimensional",
+     "n": 7,
+     "rep": [
+      {
+       "title": "Multi-constraint bidirectional RRT*-based three-dimensional path planning for multi-AUVs in complex ocean environments",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128815",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Condition assessment and severity grading of non-metallic armoured optical-electrical cables in marine winch systems based on three-dimensional geometric measurements",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128845",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "MONKI: a three-dimensional Monte Carlo simulator for transfer of polarised light in planetary atmospheres",
+       "url": "https://doi.org/10.5194/gmd-19-9677-2026",
+       "journal": "Geoscientific model development",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "interactive",
+     "n": 6,
+     "rep": [
+      {
+       "title": "3DSeaVizKit: An interactive spatiotemporal visualization toolkit for ocean data",
+       "url": "https://doi.org/10.1016/j.ocemod.2026.102841",
+       "journal": "Ocean Modelling",
+       "tier": "A"
+      },
+      {
+       "title": "SteerSearch: Interactive Search Reasoning with Mid-Response Steering",
+       "url": "https://arxiv.org/abs/2610.24287",
+       "journal": "arXiv",
+       "tier": "P"
+      },
+      {
+       "title": "Interactive effects of ocean warming and higher irradiances on the Southern Ocean diatom Pseudo-nitzschia subcurvata",
+       "url": "https://doi.org/10.1007/s00300-026-03542-6",
+       "journal": "Polar Biology",
+       "tier": "?"
+      }
+     ]
+    },
+    {
+     "name": "critical",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Functional, communicative, and critical health literacy and stroke prevention behaviors among hypertensive patients in a Bugis Coastal Community, Indonesia",
+       "url": "https://doi.org/10.7416/ai.2026.19230",
+       "journal": "Annali di Igiene Medicina Preventiva e di Comunità",
+       "tier": "?"
+      },
+      {
+       "title": "Coastal Groundwater Sustainability in Keralam, India: A Critical Review of GIS-and Remote Sensing-based Seawater Intrusion Vulnerability Assessment",
+       "url": "https://doi.org/10.9734/ajee/2026/v25i101031",
+       "journal": "Asian Journal of Environment & Ecology",
+       "tier": "?"
+      }
+     ]
+    },
+    {
+     "name": "数值建模",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Dust aerosol properties and radiative effects over the global oceans from synergistic spaceborne observations and modeling",
+       "url": "https://doi.org/10.1016/j.rse.2026.115745",
+       "journal": "Remote Sensing of Environment",
+       "tier": "A"
+      },
+      {
+       "title": "Time-Series modeling of supply chain disruption drivers in ASEAN agri-food logistics networks",
+       "url": "https://doi.org/10.64960/easr.2026.266947",
+       "journal": "Engineering and Applied Science Research",
+       "tier": "?"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Multi-constraint bidirectional RRT*-based three-dimensional path planning for multi-AUVs in complex ocean environments",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128815",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-23",
+     "score": 554.0
+    },
+    {
+     "title": "Condition assessment and severity grading of non-metallic armoured optical-electrical cables in marine winch systems based on three-dimensional geometric measurements",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128845",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-20",
+     "score": 548.0
+    },
+    {
+     "title": "Dust aerosol properties and radiative effects over the global oceans from synergistic spaceborne observations and modeling",
+     "url": "https://doi.org/10.1016/j.rse.2026.115745",
+     "journal": "Remote Sensing of Environment",
+     "tier": "A",
+     "date": "2026-10-20",
+     "score": 548.0
+    },
+    {
+     "title": "MONKI: a three-dimensional Monte Carlo simulator for transfer of polarised light in planetary atmospheres",
+     "url": "https://doi.org/10.5194/gmd-19-9677-2026",
+     "journal": "Geoscientific model development",
+     "tier": "A",
+     "date": "2026-10-12",
+     "score": 544.0
+    },
+    {
+     "title": "MONKI: a three-dimensional Monte Carlo simulator for transfer of polarised light in planetary atmospheres",
+     "url": "https://doi.org/10.5194/gmd-19-9677-2026",
+     "journal": "Geoscientific model development",
+     "tier": "A",
+     "date": "2026-10-12",
+     "score": 540.0
+    }
+   ]
+  },
+  "四、海洋数据质量": {
+   "n": 73,
+   "sample": 58,
+   "sa": 18,
+   "preprint": 2,
+   "journals": [
+    {
+     "j": "Earth system science data",
+     "n": 5
+    },
+    {
+     "j": "Geophysical Research Letters",
+     "n": 5
+    },
+    {
+     "j": "International Journal of Innovative Science and Research Technology (IJISRT)",
+     "n": 5
+    },
+    {
+     "j": "International Journal of Education Vocational and Social Science",
+     "n": 4
+    }
+   ],
+   "clusters": [
+    {
+     "name": "验证评估",
+     "n": 9,
+     "rep": [
+      {
+       "title": "Precision of phytoplankton pigment analysis by high-performance liquid chromatography: an assessment of the global ocean color validation dataset analyzed by NASA",
+       "url": "https://doi.org/10.5194/bg-23-7043-2026",
+       "journal": "Biogeosciences",
+       "tier": "A"
+      },
+      {
+       "title": "Observational Validation of Boundary‐Layer Cloud Regimes in Arctic Cold Air Outbreaks",
+       "url": "https://doi.org/10.1029/2026gl124831",
+       "journal": "Geophysical Research Letters",
+       "tier": "A"
+      },
+      {
+       "title": "Development and validation of ARMS-gb v2.0: extending fast radiative transfer modeling capability to all-sky conditions for ground-based microwave radiometer retrievals",
+       "url": "https://doi.org/10.5194/gmd-19-9957-2026",
+       "journal": "Geoscientific model development",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "数据质量",
+     "n": 5,
+     "rep": [
+      {
+       "title": "SHELDA: sub-hourly European quality controlled sea level dataset",
+       "url": "https://doi.org/10.5194/essd-18-7143-2026",
+       "journal": "Earth system science data",
+       "tier": "A"
+      },
+      {
+       "title": "Internal Quality Assurance Mechanisms for Teaching and Learning, Research, and Community Engagement in Higher Education: A Critical Examination",
+       "url": "https://doi.org/10.38124/ijisrt/26sep1379",
+       "journal": "International Journal of Innovative Science and Research Technology (IJISRT)",
+       "tier": "B"
+      },
+      {
+       "title": "Size exclusion chromatography as a characterization tool for quality control of marine biopharmaceutical keyhole limpet hemocyanin",
+       "url": "https://doi.org/10.2478/acph-2026-0030",
+       "journal": "Acta Pharmaceutica",
+       "tier": "?"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Precision of phytoplankton pigment analysis by high-performance liquid chromatography: an assessment of the global ocean color validation dataset analyzed by NASA",
+     "url": "https://doi.org/10.5194/bg-23-7043-2026",
+     "journal": "Biogeosciences",
+     "tier": "A",
+     "date": "2026-10-08",
+     "score": 554.0
+    },
+    {
+     "title": "Observational Validation of Boundary‐Layer Cloud Regimes in Arctic Cold Air Outbreaks",
+     "url": "https://doi.org/10.1029/2026gl124831",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-10-08",
+     "score": 546.0
+    },
+    {
+     "title": "Development and validation of ARMS-gb v2.0: extending fast radiative transfer modeling capability to all-sky conditions for ground-based microwave radiometer retrievals",
+     "url": "https://doi.org/10.5194/gmd-19-9957-2026",
+     "journal": "Geoscientific model development",
+     "tier": "A",
+     "date": "2026-10-19",
+     "score": 544.0
+    },
+    {
+     "title": "Precision of phytoplankton pigment analysis by high-performance liquid chromatography: an assessment of the global ocean color validation dataset analyzed by NASA",
+     "url": "https://doi.org/10.5194/bg-23-7043-2026",
+     "journal": "Biogeosciences",
+     "tier": "A",
+     "date": "2026-10-08",
+     "score": 538.0
+    },
+    {
+     "title": "Development and validation of ARMS-gb v2.0: extending fast radiative transfer modeling capability to all-sky conditions for ground-based microwave radiometer retrievals",
+     "url": "https://doi.org/10.5194/gmd-19-9957-2026",
+     "journal": "Geoscientific model development",
+     "tier": "A",
+     "date": "2026-10-19",
+     "score": 536.0
+    }
+   ]
+  },
+  "五、海洋数据处理": {
+   "n": 65,
+   "sample": 55,
+   "sa": 11,
+   "preprint": 11,
+   "journals": [
+    {
+     "j": "arXiv",
+     "n": 11
+    },
+    {
+     "j": "Science Advances",
+     "n": 4
+    },
+    {
+     "j": "Progress in Earth and Planetary Science",
+     "n": 4
+    },
+    {
+     "j": "Geoscientific model development",
+     "n": 4
+    }
+   ],
+   "clusters": [
+    {
+     "name": "时空重构",
+     "n": 11,
+     "rep": [
+      {
+       "title": "Efficient ensemble estimation using an MCMC sampler: a reconstruction of the Mediterranean low-frequency variability combining observed and simulated sea level",
+       "url": "https://doi.org/10.5194/os-22-3207-2026",
+       "journal": "Ocean science",
+       "tier": "A"
+      },
+      {
+       "title": "Application of eDNA metabarcoding for high-resolution reconstruction of the trophic web of an Arctic fjord",
+       "url": "https://doi.org/10.1038/s41598-026-73554-z",
+       "journal": "Scientific Reports",
+       "tier": "A"
+      },
+      {
+       "title": "High-resolution reconstruction of redox changes using XRF core scanner: depth-transect redox changes in the Japan Sea during the Quaternary",
+       "url": "https://doi.org/10.1186/s40645-026-00851-6",
+       "journal": "Progress in Earth and Planetary Science",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "新兴议题",
+     "n": 9,
+     "rep": [
+      {
+       "title": "A 256-year daily rainfall record reveals multiscale rainy-season variability and emerging hydroclimatic hazard over northern East Asia",
+       "url": "https://doi.org/10.1126/sciadv.aeh6716",
+       "journal": "Science Advances",
+       "tier": "S"
+      },
+      {
+       "title": "The Blue Economy an emerging economy for coastal nations",
+       "url": "https://epubs.icar.org.in/index.php/IndFarm/article/view/84402",
+       "journal": "Indian Farming",
+       "tier": "?"
+      },
+      {
+       "title": "The Future of the Law of the Sea: Emerging Challenges and the Niger Delta in a Changing Maritime Order",
+       "url": "https://doi.org/10.56201/jlgp.vol.11.no4.2026.pg239.247",
+       "journal": "JOURNAL OF LAW AND GLOBAL POLICY",
+       "tier": "?"
+      }
+     ]
+    },
+    {
+     "name": "multi-source",
+     "n": 3,
+     "rep": [
+      {
+       "title": "Advances in shallow water seabed classification: acoustic, optical, and multi-source data fusion",
+       "url": "https://doi.org/10.1016/j.seares.2026.102753",
+       "journal": "Journal of Sea Research",
+       "tier": "B"
+      },
+      {
+       "title": "Weakly supervised seawater intrusion mapping via multi-source remote sensing data fusion",
+       "url": "https://doi.org/10.1080/01431161.2026.2742387",
+       "journal": "International Journal of Remote Sensing",
+       "tier": "B"
+      },
+      {
+       "title": "Computational model of multi-source data fusion for submarine cable threat detection",
+       "url": "https://doi.org/10.1007/s44163-026-02461-z",
+       "journal": "Discover Artificial Intelligence",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "A 256-year daily rainfall record reveals multiscale rainy-season variability and emerging hydroclimatic hazard over northern East Asia",
+     "url": "https://doi.org/10.1126/sciadv.aeh6716",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-07",
+     "score": 642.0
+    },
+    {
+     "title": "A 256-year daily rainfall record reveals multiscale rainy-season variability and emerging hydroclimatic hazard over northern East Asia",
+     "url": "https://doi.org/10.1126/sciadv.aeh6716",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-07",
+     "score": 626.0
+    },
+    {
+     "title": "A 256-year daily rainfall record reveals multiscale rainy-season variability and emerging hydroclimatic hazard over northern East Asia",
+     "url": "https://doi.org/10.1126/sciadv.aeh6716",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-07",
+     "score": 622.0
+    },
+    {
+     "title": "A 256-year daily rainfall record reveals multiscale rainy-season variability and emerging hydroclimatic hazard over northern East Asia",
+     "url": "https://doi.org/10.1126/sciadv.aeh6716",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-07",
+     "score": 616.0
+    },
+    {
+     "title": "Efficient ensemble estimation using an MCMC sampler: a reconstruction of the Mediterranean low-frequency variability combining observed and simulated sea level",
+     "url": "https://doi.org/10.5194/os-22-3207-2026",
+     "journal": "Ocean science",
+     "tier": "A",
+     "date": "2026-10-19",
+     "score": 554.0
+    }
+   ]
+  },
+  "六、数据管理与共享": {
+   "n": 29,
+   "sample": 29,
+   "sa": 2,
+   "preprint": 0,
+   "journals": [
+    {
+     "j": "Frontiers in Marine Science",
+     "n": 4
+    },
+    {
+     "j": "Frontiers in Psychology",
+     "n": 4
+    },
+    {
+     "j": "Frontiers in Physics",
+     "n": 3
+    },
+    {
+     "j": "Research Ideas and Outcomes",
+     "n": 3
+    }
+   ],
+   "clusters": [
+    {
+     "name": "生物多样性",
+     "n": 4,
+     "rep": [
+      {
+       "title": "Standardizing freshwater macroinvertebrate taxonomy: a Lithuanian operational taxa list for ecological quality assessments and biodiversity research",
+       "url": "https://doi.org/10.1007/s10661-026-16088-1",
+       "journal": "Environmental Monitoring and Assessment",
+       "tier": "B"
+      },
+      {
+       "title": "Mycelium of science diplomacy: Cultivating Gulf biodiversity data sharing in complex trust environments",
+       "url": "https://doi.org/10.1016/j.marpol.2026.107294",
+       "journal": "Marine Policy",
+       "tier": "B"
+      },
+      {
+       "title": "Africa’s first long-term ocean observatory in the Bazaruto Archipelago for multi-ecosystem and biodiversity data",
+       "url": "https://doi.org/10.3389/fmars.2026.1821924",
+       "journal": "Frontiers in Marine Science",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "环境DNA与监测",
+     "n": 2,
+     "rep": [
+      {
+       "title": "A balanced set of standardized affective environmental images for climate change research",
+       "url": "https://doi.org/10.3389/fpsyg.2026.1944740",
+       "journal": "Frontiers in Psychology",
+       "tier": "C"
+      },
+      {
+       "title": "Metacontextify: automated environmental annotation of marine metagenomic samples",
+       "url": "https://doi.org/10.1186/s12859-026-06660-4",
+       "journal": "BMC Bioinformatics",
+       "tier": "?"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "A review of Last Interglacial sea-level proxies in South Asia and the Indian Ocean",
+     "url": "https://doi.org/10.5194/essd-18-7627-2026",
+     "journal": "Earth system science data",
+     "tier": "A",
+     "date": "2026-10-20",
+     "score": 556.0
+    },
+    {
+     "title": "Experimental investigation of the effects of structural cross-section geometry and wave propagation direction on the hydrodynamic load of direction-adaptive fairing for piers under regular waves",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.129081",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-24",
+     "score": 546.0
+    },
+    {
+     "title": "Standardizing deoxygenation studies in coral biology",
+     "url": "https://doi.org/10.1038/s42003-026-11025-x",
+     "journal": "Communications Biology",
+     "tier": "B",
+     "date": "2026-10-19",
+     "score": 454.0
+    },
+    {
+     "title": "Strong agreement in absolute marine prokaryote abundance from epifluorescence microscopy and internal-standard-corrected metagenomics",
+     "url": "https://doi.org/10.1093/ismeco/ycag297",
+     "journal": "ISME Communications",
+     "tier": "B",
+     "date": "2026-10-14",
+     "score": 450.0
+    },
+    {
+     "title": "Standardizing deoxygenation studies in coral biology",
+     "url": "https://doi.org/10.1038/s42003-026-11025-x",
+     "journal": "Communications Biology",
+     "tier": "B",
+     "date": "2026-10-19",
+     "score": 446.0
+    }
+   ]
+  },
+  "七、开放航次与科考": {
+   "n": 244,
+   "sample": 223,
+   "sa": 52,
+   "preprint": 16,
+   "journals": [
+    {
+     "j": "Ocean Engineering",
+     "n": 26
+    },
+    {
+     "j": "arXiv",
+     "n": 16
+    },
+    {
+     "j": "Frontiers in Marine Science",
+     "n": 8
+    },
+    {
+     "j": "Engineering Research Express",
+     "n": 7
+    }
+   ],
+   "clusters": [
+    {
+     "name": "海浪",
+     "n": 13,
+     "rep": [
+      {
+       "title": "Wave-induced coupled dynamics of an OTEC spar platform with cold water pipe: An experimental investigation",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128671",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Wave attenuation by mixed mangroves in hybrid Mangrove–Breakwater systems using a modified Ergun equation",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128744",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Coupled dynamic response and energy conversion characteristics of an integrated floating wind-current energy system under different wave configurations",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128825",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      }
+     ]
+    },
+    {
+     "name": "水下感知与作业",
+     "n": 11,
+     "rep": [
+      {
+       "title": "A Cooperative Area Allocation and Adaptive Coverage Planning Method for Multi‐AUV Underwater Search and Rescue",
+       "url": "https://doi.org/10.1002/rob.70372",
+       "journal": "Journal of Field Robotics",
+       "tier": "A"
+      },
+      {
+       "title": "Time-variant reliability analysis of pressure-resistant structures of disk-shaped underwater gliders in corrosive environments",
+       "url": "https://doi.org/10.1080/17445302.2026.2740498",
+       "journal": "Ships and Offshore Structures",
+       "tier": "B"
+      },
+      {
+       "title": "Integrating geophysical and underwater robotic surveys with transport and geochemical modeling to assess the Solotvyno salt mine hazard in the Transcarpathia province of Ukraine",
+       "url": "https://doi.org/10.1007/s10040-026-03181-5",
+       "journal": "Hydrogeology Journal",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "coast",
+     "n": 8,
+     "rep": [
+      {
+       "title": "Spatial organization and coordinated development of offshore wind industrial chains under governance decentralization: evidence from China's coastal provinces",
+       "url": "https://doi.org/10.1016/j.apenergy.2026.128955",
+       "journal": "Applied Energy",
+       "tier": "A"
+      },
+      {
+       "title": "Global asymmetric mangrove-edge shifts reveal coastal squeeze under sea-level rise",
+       "url": "https://doi.org/10.1080/15481603.2026.2741774",
+       "journal": "GIScience & Remote Sensing",
+       "tier": "A"
+      },
+      {
+       "title": "Spatial and seasonal assessment of heavy metal contamination in the sea urchin Paracentrotus lividus and the mussel Mytilus galloprovincialis from three ports of the Algerian west coast",
+       "url": "https://doi.org/10.12912/27197050/240151",
+       "journal": "Ecological Engineering & Environmental Technology",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "mediterranean",
+     "n": 4,
+     "rep": [
+      {
+       "title": "Probabilistic dietary exposure and cumulative risk of toxic elements in cultivated and wild Mediterranean mussels (Mytilus galloprovincialis) from the Sea of Marmara",
+       "url": "https://doi.org/10.1016/j.marpolbul.2026.120494",
+       "journal": "Marine Pollution Bulletin",
+       "tier": "B"
+      },
+      {
+       "title": "Reconstructing Late Quaternary relict landforms on the continental shelf: New data from multibeam and seismic surveys in the Balzi Rossi archaeological site (NW Mediterranean Sea)",
+       "url": "https://doi.org/10.1016/j.csr.2026.105805",
+       "journal": "Continental Shelf Research",
+       "tier": "B"
+      },
+      {
+       "title": "Reconstructing late quaternary relict landforms on the continental shelf: New data from multibeam and seismic surveys in the Balzi Rossi archaeological site (NW Mediterranean Sea)",
+       "url": "https://doi.org/10.1016/j.csr.2026.105805",
+       "journal": "Continental Shelf Research",
+       "tier": "B"
+      }
+     ]
+    },
+    {
+     "name": "floating",
+     "n": 3,
+     "rep": [
+      {
+       "title": "A CFD-based initial framework for screening fixed floating-breakwater configurations for marine aquaculture",
+       "url": "https://doi.org/10.1016/j.oceaneng.2026.128635",
+       "journal": "Ocean Engineering",
+       "tier": "A"
+      },
+      {
+       "title": "Hydrodynamic Response of Rectangular Floating Breakwaters near Sidewalls: A Comparative SBFEM Study of Side-Plate and Stepped-Seabed Configurations",
+       "url": "https://doi.org/10.1088/2631-8695/aeb512",
+       "journal": "Engineering Research Express",
+       "tier": "C"
+      },
+      {
+       "title": "Spatial and temporal distribution of floating tarballs and associated ecological pollution in the Eastern Arabian Sea",
+       "url": "https://doi.org/10.1007/s44289-026-00180-y",
+       "journal": "Discover Oceans",
+       "tier": "C"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Acoustic‐Seismic Coupling Signals From Aircraft Reveal Firn‐Ice Transition and Near‐Surface Elastic Structure of Antarctic Ice",
+     "url": "https://doi.org/10.1029/2026gl123670",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-10-22",
+     "score": 562.77
+    },
+    {
+     "title": "Improved robust trajectory tracking of underactuated AUVs via unified Tube-NMPC with proactive finite-time disturbance compensation in uncertain ocean environments",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128630",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-12",
+     "score": 562.0
+    },
+    {
+     "title": "Quantifying Deep Ocean Methane Along the Central Chilean Margin",
+     "url": "https://doi.org/10.1029/2026gl124079",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-10-12",
+     "score": 562.0
+    },
+    {
+     "title": "Improved robust trajectory tracking of underactuated AUVs via unified Tube-NMPC with proactive finite-time disturbance compensation in uncertain ocean environments",
+     "url": "https://doi.org/10.1016/j.oceaneng.2026.128630",
+     "journal": "Ocean Engineering",
+     "tier": "A",
+     "date": "2026-10-12",
+     "score": 558.0
+    },
+    {
+     "title": "Quantifying Deep Ocean Methane Along the Central Chilean Margin",
+     "url": "https://doi.org/10.1029/2026gl124079",
+     "journal": "Geophysical Research Letters",
+     "tier": "A",
+     "date": "2026-10-12",
+     "score": 558.0
+    }
+   ]
+  },
+  "八、海洋数据中心": {
+   "n": 16,
+   "sample": 14,
+   "sa": 5,
+   "preprint": 0,
+   "journals": [
+    {
+     "j": "Photography and Culture",
+     "n": 3
+    },
+    {
+     "j": "Science Advances",
+     "n": 3
+    },
+    {
+     "j": "State of the Planet",
+     "n": 1
+    },
+    {
+     "j": "Geochemistry Geophysics Geosystems",
+     "n": 1
+    }
+   ],
+   "clusters": [
+    {
+     "name": "archives",
+     "n": 3,
+     "rep": [
+      {
+       "title": "Dual Nd isotopic archives in fossil teeth reveal bottom-current control of rare-earth element enrichment in deep-sea sediments",
+       "url": "https://doi.org/10.1126/sciadv.aej4446",
+       "journal": "Science Advances",
+       "tier": "S"
+      },
+      {
+       "title": "Tropical beach ridges as paleoenvironmental archives of extreme events and sea-level change",
+       "url": "https://doi.org/10.1016/j.earscirev.2026.105719",
+       "journal": "Earth-Science Reviews",
+       "tier": "A"
+      },
+      {
+       "title": "Fault‐Related Carbonates as Quaternary Seismotectonic and Paleoclimate Archives (Monte Marine Fault, Central Apennines)",
+       "url": "https://doi.org/10.1029/2026gc013053",
+       "journal": "Geochemistry Geophysics Geosystems",
+       "tier": "?"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "Dual Nd isotopic archives in fossil teeth reveal bottom-current control of rare-earth element enrichment in deep-sea sediments",
+     "url": "https://doi.org/10.1126/sciadv.aej4446",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-16",
+     "score": 654.0
+    },
+    {
+     "title": "Dual Nd isotopic archives in fossil teeth reveal bottom-current control of rare-earth element enrichment in deep-sea sediments",
+     "url": "https://doi.org/10.1126/sciadv.aej4446",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-16",
+     "score": 648.0
+    },
+    {
+     "title": "Dual Nd isotopic archives in fossil teeth reveal bottom-current control of rare-earth element enrichment in deep-sea sediments",
+     "url": "https://doi.org/10.1126/sciadv.aej4446",
+     "journal": "Science Advances",
+     "tier": "S",
+     "date": "2026-10-16",
+     "score": 628.0
+    },
+    {
+     "title": "Marine Heat Waves and Cold Spells – Multiple Analysis/Definitions (MHW-MAD): A Multi-Definition Global Marine Heatwave Database from Satellite Sea Surface Temperature Data",
+     "url": "https://doi.org/10.5194/essd-18-7181-2026",
+     "journal": "Earth system science data",
+     "tier": "A",
+     "date": "2026-09-30",
+     "score": 522.39
+    },
+    {
+     "title": "Tropical beach ridges as paleoenvironmental archives of extreme events and sea-level change",
+     "url": "https://doi.org/10.1016/j.earscirev.2026.105719",
+     "journal": "Earth-Science Reviews",
+     "tier": "A",
+     "date": "2026-10-01",
+     "score": 520.0
+    }
+   ]
+  },
+  "九、工具与代码资源": {
+   "n": 60,
+   "sample": 60,
+   "sa": 6,
+   "preprint": 1,
+   "journals": [
+    {
+     "j": "Frontiers in Physiology",
+     "n": 5
+    },
+    {
+     "j": "PLoS ONE",
+     "n": 4
+    },
+    {
+     "j": "Journal of Computer-Aided Molecular Design",
+     "n": 4
+    },
+    {
+     "j": "Energy Sustainable Development/Energy for sustainable development",
+     "n": 4
+    }
+   ],
+   "clusters": [
+    {
+     "name": "shaping",
+     "n": 6,
+     "rep": [
+      {
+       "title": "A 40-Year Perspective on Ocean–Atmosphere Drivers and Compound Extreme Events Shaping Marine Heatwave Exposure and Coral Bleaching Risk in Aceh Waters",
+       "url": "https://doi.org/10.1016/j.rsma.2026.105524",
+       "journal": "Regional Studies in Marine Science",
+       "tier": "B"
+      },
+      {
+       "title": "Pathway-dependent reshaping of lux bioreporter responses across freshwater, natural seawater, and hypersaline matrices: Implications for marine toxicity monitoring",
+       "url": "https://doi.org/10.1016/j.nexres.2026.102563",
+       "journal": "Next research.",
+       "tier": "C"
+      },
+      {
+       "title": "Africa’s first permanent Ocean Observatory: powering science, defending nature, and shaping policy for ocean governance and the blue economy",
+       "url": "https://doi.org/10.3389/fmars.2026.1821923",
+       "journal": "Frontiers in Marine Science",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "快速方法与应急",
+     "n": 5,
+     "rep": [
+      {
+       "title": "Multiple lines of evidence reveal rapid, seasonal watershed responses to enhanced weathering",
+       "url": "https://doi.org/10.1038/s44221-026-00716-8",
+       "journal": "Nature Water",
+       "tier": "S"
+      },
+      {
+       "title": "A Nonlinear Time-History and Machine-Learning Framework for Rapid Seismic Damage Assessment of Deteriorating HDRB-Isolated Coastal Bridges",
+       "url": "https://doi.org/10.1088/2631-8695/aeb7a0",
+       "journal": "Engineering Research Express",
+       "tier": "C"
+      },
+      {
+       "title": "Breaking limits: rapid sea-to-summit ascent of Mount Everest (8,848 m) in 3 days 23 hours following normobaric-hypoxic pre-acclimatization and staged supplemental oxygen in a non-elite athlete",
+       "url": "https://doi.org/10.3389/fphys.2026.1873293",
+       "journal": "Frontiers in Physiology",
+       "tier": "C"
+      }
+     ]
+    },
+    {
+     "name": "cancer",
+     "n": 3,
+     "rep": [
+      {
+       "title": "A dual-functional antiviral and anticancer peptide to target intricate host-pathogen interacting proteins of human papillomavirus associated with head and neck cancer",
+       "url": "https://doi.org/10.1371/journal.pone.0359513",
+       "journal": "PLoS ONE",
+       "tier": "C"
+      },
+      {
+       "title": "Identification of new ER-targeted anticancer hits active against MCF-7 breast cancer cells in the marine fungal secondary metabolite library using computative and experimental approaches",
+       "url": "https://doi.org/10.1007/s10822-026-00953-9",
+       "journal": "Journal of Computer-Aided Molecular Design",
+       "tier": "?"
+      },
+      {
+       "title": "Personalized drug discovery from rare diseases to cancer",
+       "url": "https://doi.org/10.1038/s44386-026-00085-y",
+       "journal": "npj Drug Discovery.",
+       "tier": "?"
+      }
+     ]
+    },
+    {
+     "name": "open-source",
+     "n": 2,
+     "rep": [
+      {
+       "title": "Metocean-stats v1.2: An open-source framework for reproducible and actionable metocean data analysis",
+       "url": "https://doi.org/10.1016/j.apor.2026.105257",
+       "journal": "Applied Ocean Research",
+       "tier": "B"
+      },
+      {
+       "title": "Rooftop photovoltaic potential in data-scarce regions using open-source geospatial information: Scenario-based approach for a Mediterranean coastal city",
+       "url": "https://doi.org/10.1016/j.esd.2026.102162",
+       "journal": "Energy Sustainable Development/Energy for sustainable development",
+       "tier": "?"
+      }
+     ]
+    }
+   ],
+   "top": [
+    {
+     "title": "An automated operon refactoring workflow for heterologous expression of non-ribosomal peptide biosynthetic gene clusters",
+     "url": "https://doi.org/10.1038/s41467-026-78648-w",
+     "journal": "Nature Communications",
+     "tier": "S",
+     "date": "2026-10-11",
+     "score": 634.0
+    },
+    {
+     "title": "Global mangrove distribution on the open coast is controlled by waves",
+     "url": "https://doi.org/10.1038/s41586-026-11089-z",
+     "journal": "Nature",
+     "tier": "S",
+     "date": "2026-09-30",
+     "score": 628.77
+    },
+    {
+     "title": "An automated operon refactoring workflow for heterologous expression of non-ribosomal peptide biosynthetic gene clusters",
+     "url": "https://doi.org/10.1038/s41467-026-78648-w",
+     "journal": "Nature Communications",
+     "tier": "S",
+     "date": "2026-10-11",
+     "score": 616.0
+    },
+    {
+     "title": "Multiple lines of evidence reveal rapid, seasonal watershed responses to enhanced weathering",
+     "url": "https://doi.org/10.1038/s44221-026-00716-8",
+     "journal": "Nature Water",
+     "tier": "S",
+     "date": "2026-09-30",
+     "score": 608.0
+    },
+    {
+     "title": "An automated operon refactoring workflow for heterologous expression of non-ribosomal peptide biosynthetic gene clusters",
+     "url": "https://doi.org/10.1038/s41467-026-78648-w",
+     "journal": "Nature Communications",
+     "tier": "S",
+     "date": "2026-10-11",
+     "score": 608.0
+    }
+   ]
+  }
+ }
+}
