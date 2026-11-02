@@ -1,0 +1,282 @@
+{
+ "Two large unstable slopes in West Greenland illustrates an emerging Arctic tsunami hazard": {
+  "tier": "S",
+  "d": "2026-10-28",
+  "j": "Communications Earth & Environment",
+  "url": "https://doi.org/10.1038/s43247-026-04175-7",
+  "t": "Two large unstable slopes in West Greenland illustrates an emerging Arctic tsunami hazard",
+  "doi": "10.1038/s43247-026-04175-7"
+ },
+ "Improving underwater acoustic classification through learnable Gabor filter convolution and attention mechanisms": {
+  "tier": "A",
+  "d": "2026-10-29",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.129035",
+  "t": "Improving underwater acoustic classification through learnable Gabor filter convolution and attention mechanisms",
+  "doi": "10.1016/j.oceaneng.2026.129035"
+ },
+ "Deep learning for characteristic elevation angle estimation using a single hydrophone in the deep–ocean shadow zone": {
+  "tier": "A",
+  "d": "2026-10-30",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.129087",
+  "t": "Deep learning for characteristic elevation angle estimation using a single hydrophone in the deep–ocean shadow zone",
+  "doi": "10.1016/j.oceaneng.2026.129087"
+ },
+ "Collaborative detection of ocean stratification via internal wave resistance and Multi-AUV motion inversion": {
+  "tier": "A",
+  "d": "2026-10-30",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.129124",
+  "t": "Collaborative detection of ocean stratification via internal wave resistance and Multi-AUV motion inversion",
+  "doi": "10.1016/j.oceaneng.2026.129124"
+ },
+ "Skillful subseasonal-to-seasonal ensemble forecasting with a multi-sphere coupled probabilistic model": {
+  "tier": "A",
+  "d": "2026-10-30",
+  "j": "npj Climate and Atmospheric Science",
+  "url": "https://doi.org/10.1038/s41612-026-01572-9",
+  "t": "Skillful subseasonal-to-seasonal ensemble forecasting with a multi-sphere coupled probabilistic model",
+  "doi": "10.1038/s41612-026-01572-9"
+ },
+ "Diagnosing the Influence of Southern Ocean Storms on Air‐Sea Carbon Dioxide Flux From Synthetic Floats: A Modeling Study": {
+  "tier": "A",
+  "d": "2026-10-28",
+  "j": "Geophysical Research Letters",
+  "url": "https://doi.org/10.1029/2026gl125540",
+  "t": "Diagnosing the Influence of Southern Ocean Storms on Air‐Sea Carbon Dioxide Flux From Synthetic Floats: A Modeling Study",
+  "doi": "10.1029/2026gl125540"
+ },
+ "Projected Changes in Extreme Sea Level and Sea‐Level Distribution in the China Marginal Seas Using Dynamical Downscaling": {
+  "tier": "A",
+  "d": "2026-10-27",
+  "j": "Journal of Geophysical Research Oceans",
+  "url": "https://doi.org/10.1029/2026jc024403",
+  "t": "Projected Changes in Extreme Sea Level and Sea‐Level Distribution in the China Marginal Seas Using Dynamical Downscaling",
+  "doi": "10.1029/2026jc024403"
+ },
+ "Upper-ocean thermohaline responses to tropical cyclones in the northern South China sea observed by an underwater glider array": {
+  "tier": "A",
+  "d": "2026-10-26",
+  "j": "Deep Sea Research Part I Oceanographic Research Papers",
+  "url": "https://doi.org/10.1016/j.dsr.2026.104770",
+  "t": "Upper-ocean thermohaline responses to tropical cyclones in the northern South China sea observed by an underwater glider array",
+  "doi": "10.1016/j.dsr.2026.104770"
+ },
+ "Risk-aware AUV path planning for offshore wind-farm foundation inspection and seabed coverage using RSPM–SEP-TD3": {
+  "tier": "A",
+  "d": "2026-10-26",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.128831",
+  "t": "Risk-aware AUV path planning for offshore wind-farm foundation inspection and seabed coverage using RSPM–SEP-TD3",
+  "doi": "10.1016/j.oceaneng.2026.128831"
+ },
+ "Surface sediment grain-size characteristics of the Bohai, Yellow, and East China seas: a comprehensive survey based on unified laser diffraction analysis": {
+  "tier": "A",
+  "d": "2026-10-26",
+  "j": "Earth system science data",
+  "url": "https://doi.org/10.5194/essd-18-7743-2026",
+  "t": "Surface sediment grain-size characteristics of the Bohai, Yellow, and East China seas: a comprehensive survey based on unified laser diffraction analysis",
+  "doi": "10.5194/essd-18-7743-2026"
+ },
+ "Predicting significant wave height with a simple deep learning model and uncovering its spatio-temporal variability: an application to Sri Lanka": {
+  "tier": "A",
+  "d": "2026-10-28",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.128945",
+  "t": "Predicting significant wave height with a simple deep learning model and uncovering its spatio-temporal variability: an application to Sri Lanka",
+  "doi": "10.1016/j.oceaneng.2026.128945"
+ },
+ "Deep learning-based underwater fish monitoring: A comprehensive review of detection, tracking, counting, and behavior analysis": {
+  "tier": "A",
+  "d": "2026-10-27",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.128745",
+  "t": "Deep learning-based underwater fish monitoring: A comprehensive review of detection, tracking, counting, and behavior analysis",
+  "doi": "10.1016/j.oceaneng.2026.128745"
+ },
+ "PRUF-SST: probabilistic reconstruction of cloud-obscured sea surface temperature for uncertainty-guided forecasting": {
+  "tier": "A",
+  "d": "2026-10-27",
+  "j": "ISPRS Journal of Photogrammetry and Remote Sensing",
+  "url": "https://doi.org/10.1016/j.isprsjprs.2026.10.038",
+  "t": "PRUF-SST: probabilistic reconstruction of cloud-obscured sea surface temperature for uncertainty-guided forecasting",
+  "doi": "10.1016/j.isprsjprs.2026.10.038"
+ },
+ "Evaluating the impact of renewable resource data imputation on technoeconomic design of coastal multivector nearly zero energy buildings": {
+  "tier": "A",
+  "d": "2026-10-24",
+  "j": "Scientific Reports",
+  "url": "https://doi.org/10.1038/s41598-026-76333-y",
+  "t": "Evaluating the impact of renewable resource data imputation on technoeconomic design of coastal multivector nearly zero energy buildings",
+  "doi": "10.1038/s41598-026-76333-y"
+ },
+ "Equivalent underwater acoustic-source reconstruction across vortex-induced-vibration regimes": {
+  "tier": "A",
+  "d": "2026-10-26",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.128959",
+  "t": "Equivalent underwater acoustic-source reconstruction across vortex-induced-vibration regimes",
+  "doi": "10.1016/j.oceaneng.2026.128959"
+ },
+ "Multi-constraint bidirectional RRT*-based three-dimensional path planning for multi-AUVs in complex ocean environments": {
+  "tier": "A",
+  "d": "2026-10-23",
+  "j": "Ocean Engineering",
+  "url": "https://doi.org/10.1016/j.oceaneng.2026.128815",
+  "t": "Multi-constraint bidirectional RRT*-based three-dimensional path planning for multi-AUVs in complex ocean environments",
+  "doi": "10.1016/j.oceaneng.2026.128815"
+ },
+ "Multi-scale vision transformer model with UAV-based hyperspectral imagery for early identification of pine wilt disease infected trees": {
+  "tier": "A",
+  "d": "2026-10-25",
+  "j": "Scientific Reports",
+  "url": "https://doi.org/10.1038/s41598-026-65601-6",
+  "t": "Multi-scale vision transformer model with UAV-based hyperspectral imagery for early identification of pine wilt disease infected trees",
+  "doi": "10.1038/s41598-026-65601-6"
+ },
+ "Dust aerosol properties and radiative effects over the global oceans from synergistic spaceborne observations and modeling": {
+  "tier": "A",
+  "d": "2026-10-20",
+  "j": "Remote Sensing of Environment",
+  "url": "https://doi.org/10.1016/j.rse.2026.115745",
+  "t": "Dust aerosol properties and radiative effects over the global oceans from synergistic spaceborne observations and modeling",
+  "doi": "10.1016/j.rse.2026.115745"
+ },
+ "An intelligent sound speed profile reconstruction model for ocean front regions incorporating frontal feature parameters": {
+  "tier": "B",
+  "d": "2026-10-27",
+  "j": "Acta Oceanologica Sinica",
+  "url": "https://doi.org/10.1007/s13131-026-2694-2",
+  "t": "An intelligent sound speed profile reconstruction model for ocean front regions incorporating frontal feature parameters",
+  "doi": "10.1007/s13131-026-2694-2"
+ },
+ "A Comprehensive Repository of Morphological, Life‐History, Ecological, and Environmental Data for Sirenians and Marine Carnivorans Worldwide": {
+  "tier": "B",
+  "d": "2026-10-24",
+  "j": "Integrative Zoology",
+  "url": "https://doi.org/10.1111/1749-4877.70217",
+  "t": "A Comprehensive Repository of Morphological, Life‐History, Ecological, and Environmental Data for Sirenians and Marine Carnivorans Worldwide",
+  "doi": "10.1111/1749-4877.70217"
+ },
+ "COAST: An open-source framework for automated wave overtopping analysis and simulation of coastal structures": {
+  "tier": "B",
+  "d": "2026-10-23",
+  "j": "Results in Engineering",
+  "url": "https://doi.org/10.1016/j.rineng.2026.113720",
+  "t": "COAST: An open-source framework for automated wave overtopping analysis and simulation of coastal structures",
+  "doi": "10.1016/j.rineng.2026.113720"
+ },
+ "OWL: Open Wave Library for seismic wave modeling and full-waveform inversion in acoustic and elastic media": {
+  "tier": "B",
+  "d": "2026-10-19",
+  "j": "Geophysical Journal International",
+  "url": "https://doi.org/10.1093/gji/ggag450",
+  "t": "OWL: Open Wave Library for seismic wave modeling and full-waveform inversion in acoustic and elastic media",
+  "doi": "10.1093/gji/ggag450"
+ },
+ "Gaussian process reconstruction and seasonal change in tidal non-linearity in a monsoon-influenced estuary": {
+  "tier": "B",
+  "d": "2026-10-19",
+  "j": "Ocean Dynamics",
+  "url": "https://doi.org/10.1007/s10236-026-01869-6",
+  "t": "Gaussian process reconstruction and seasonal change in tidal non-linearity in a monsoon-influenced estuary",
+  "doi": "10.1007/s10236-026-01869-6"
+ },
+ "Standardizing freshwater macroinvertebrate taxonomy: a Lithuanian operational taxa list for ecological quality assessments and biodiversity research": {
+  "tier": "B",
+  "d": "2026-10-22",
+  "j": "Environmental Monitoring and Assessment",
+  "url": "https://doi.org/10.1007/s10661-026-16088-1",
+  "t": "Standardizing freshwater macroinvertebrate taxonomy: a Lithuanian operational taxa list for ecological quality assessments and biodiversity research",
+  "doi": "10.1007/s10661-026-16088-1"
+ },
+ "A reproducible QGIS workflow for visualizing Copernicus Marine Mediterranean temperature data": {
+  "tier": "C",
+  "d": "2026-10-26",
+  "j": "Marine and Fishery Sciences (MAFIS)",
+  "url": "https://doi.org/10.47193/mafis.4012027010106",
+  "t": "A reproducible QGIS workflow for visualizing Copernicus Marine Mediterranean temperature data",
+  "doi": "10.47193/mafis.4012027010106"
+ },
+ "A scenario-based digital twin framework for assessing urban exposure to sea level rise: a case study in Abu Dhabi, United Arab Emirates": {
+  "tier": "C",
+  "d": "2026-10-30",
+  "j": "Frontiers in Built Environment",
+  "url": "https://doi.org/10.3389/fbuil.2026.1969739",
+  "t": "A scenario-based digital twin framework for assessing urban exposure to sea level rise: a case study in Abu Dhabi, United Arab Emirates",
+  "doi": "10.3389/fbuil.2026.1969739"
+ },
+ "Digital Twin Technology in Marine Power System Operation and Maintenance": {
+  "tier": "C",
+  "d": "2026-10-27",
+  "j": "Applied and Computational Engineering",
+  "url": "https://doi.org/10.54254/2755-2721/2026.38220",
+  "t": "Digital Twin Technology in Marine Power System Operation and Maintenance",
+  "doi": "10.54254/2755-2721/2026.38220"
+ },
+ "Cross-Island Transferability of Multi-Horizon Probabilistic Coastal Sargassum Occurrence Forecasts: A Frozen-Model Evaluation from Puerto Rico to the Dominican Republic": {
+  "tier": "C",
+  "d": "2026-10-25",
+  "j": "Phycology",
+  "url": "https://doi.org/10.3390/phycology6040113",
+  "t": "Cross-Island Transferability of Multi-Horizon Probabilistic Coastal Sargassum Occurrence Forecasts: A Frozen-Model Evaluation from Puerto Rico to the Dominican Republic",
+  "doi": "10.3390/phycology6040113"
+ },
+ "Expert lithological labels do not improve learning when used to predict marine sediment properties": {
+  "tier": "P",
+  "d": "2026-10-26",
+  "j": "arXiv",
+  "url": "https://arxiv.org/abs/2610.36410",
+  "t": "Expert lithological labels do not improve learning when used to predict marine sediment properties",
+  "doi": "10.48550/arxiv.2610.36410"
+ },
+ "Amortized Localized Posterior Inference for Model Calibration with Application to an Ocean Turbulence Closure": {
+  "tier": "P",
+  "d": "2026-10-27",
+  "j": "arXiv",
+  "url": "http://arxiv.org/abs/2610.37731v1",
+  "t": "Amortized Localized Posterior Inference for Model Calibration with Application to an Ocean Turbulence Closure",
+  "doi": ""
+ },
+ "Satellite-derived bathymetry of Arabian Gulf ports under leakage-free validation: a multi-site benchmark of empirical, machine-learning and deep-learning models against 285,000 multibeam soundings, with an outlook for UA": {
+  "tier": "P",
+  "d": "2026-10-24",
+  "j": "arXiv",
+  "url": "https://arxiv.org/abs/2610.33609",
+  "t": "Satellite-derived bathymetry of Arabian Gulf ports under leakage-free validation: a multi-site benchmark of empirical, machine-learning and deep-learning models against 285,000 multibeam soundings, with an outlook for UA",
+  "doi": "10.48550/arxiv.2610.33609"
+ },
+ "Interactive Stratigraphic Forward Simulation: An Open-Source Toolkit for Marine Geoscience Education": {
+  "tier": "D",
+  "d": "2026-10-27",
+  "j": "Applied Sciences",
+  "url": "https://doi.org/10.3390/app162110608",
+  "t": "Interactive Stratigraphic Forward Simulation: An Open-Source Toolkit for Marine Geoscience Education",
+  "doi": "10.3390/app162110608"
+ },
+ "Military Open Science for Coastal Heritage: From a Sustainable Monitoring Practice Towards a Preservation Policy Toolkit": {
+  "tier": "?",
+  "d": "2026-10-29",
+  "j": "—",
+  "url": "https://doi.org/10.59490/6ad293ec1111c11e2bf480b5",
+  "t": "Military Open Science for Coastal Heritage: From a Sustainable Monitoring Practice Towards a Preservation Policy Toolkit",
+  "doi": "10.59490/6ad293ec1111c11e2bf480b5"
+ },
+ "Hybrid Digital Twin Framework for Predictive Maintenance and Operational Optimization of Marine Propulsion Systems": {
+  "tier": "?",
+  "d": "2026-10-29",
+  "j": "Journal of Applied Data Sciences",
+  "url": "https://doi.org/10.47738/jads.v7i4.1469",
+  "t": "Hybrid Digital Twin Framework for Predictive Maintenance and Operational Optimization of Marine Propulsion Systems",
+  "doi": "10.47738/jads.v7i4.1469"
+ },
+ "Thermo-economic analysis of depth-optimised hybrid seawater cooling for offshore data centres in the shallow Arabian Gulf": {
+  "tier": "?",
+  "d": "2026-10-24",
+  "j": "Applied Thermal Engineering",
+  "url": "https://doi.org/10.1016/j.applthermaleng.2026.133740",
+  "t": "Thermo-economic analysis of depth-optimised hybrid seawater cooling for offshore data centres in the shallow Arabian Gulf",
+  "doi": "10.1016/j.applthermaleng.2026.133740"
+ }
+}
