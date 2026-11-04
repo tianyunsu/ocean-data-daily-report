@@ -13,6 +13,10 @@ metrics_full.log
 probe.txt
 verify_out.txt
 
+# 阶段一 IEEE 通道（Crossref）临时输出
+_stage1_ieee*.json
+_stage1_*.json
+
 # 密钥类：OpenAlex 免费 API key（本地文件，绝不入库；公开仓库）
 _openalex_key.txt
 .env

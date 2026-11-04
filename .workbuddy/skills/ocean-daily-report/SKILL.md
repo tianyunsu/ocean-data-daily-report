@@ -92,6 +92,24 @@ agent_created: true
 **第三梯队（低相关但纳入，6个）**：INTERSPEECH、IWSLT、NDSS、USENIX-Fast、USENIX-Sec、OSDI
 **IEEE 学术期刊（强制，每期必查）**：JOE、TGRS、GRSL、JSTARS、GRSM（高相关）；T-RO、RA-L、TNNLS、TIP（方法迁移）。详见下文"IEEE 学术期刊清单"。
 
+> ⚠️ **IEEE 期刊必须走 Crossref created-date 通道（2026-11-04 新增，堵住结构性盲区）**
+> OpenAlex 对 IEEE 期刊的 `publication_date` 做了**年份塌缩**——TGRS 2026 全部记录的
+> `publication_date` 都是 `2026-01-01`（`created_date`/`updated_date` 也不等于首发日）。
+> 后果是**任何基于 `from_publication_date` 的窗口检索对 IEEE 期刊恒返 0**，
+> 这些刊的论文结构性无法进入日报（10-21 / 11-02 / 11-04 三期 IEEE 组全 0 均源于此，
+> 此前一直误记为"日期塌缩导致 count=0"，未意识到是**永久漏检**）。
+>
+> **强制做法**：先跑
+> ```bash
+> py -3 stage1_ieee_crossref.py --start <窗口起> --end <窗口止>
+> ```
+> 该脚本按 `filter=issn:<issn>,from-created-date:...,until-created-date:...` 拉 Crossref
+> （`created` = DOI 注册日 ≈ 首发日），再按海洋关键词筛标题、用 OpenAlex 按 DOI 补摘要。
+> 实测 2026-10-21~11-04 窗口：9 刊 `total=473 / ocean_hits=38`，而 OpenAlex 日期窗口为 **0**。
+> 佐证案例：`10.1109/TGRS.2026.3708338`（KunPeng 全球海洋环境模型，首发 2026-06-30、
+> 有完整摘要）就是这样被漏掉的——苏老师 2026-11-04 抽查时发现，见 `MEMORY.md`
+> 「漏检核查与已知盲区」。
+
 检索方法（每种都必须使用）：
 1. **OpenReview**: `"ocean" OR "marine" OR "underwater" site:openreview.net`
 2. **CVF Open Access**: https://openaccess.thecvf.com/search (搜索 underwater, marine, ocean)
