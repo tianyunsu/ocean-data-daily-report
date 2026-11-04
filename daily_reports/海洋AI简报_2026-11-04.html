@@ -125,6 +125,7 @@
   .badge-data { background: #e0f7fa; color: #00695c; }
   .badge-cruise { background: #fce4ec; color: #c62828; }
   .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-errata { background: #fdecea; color: #b71c1c; }
   .badge-default { background: #eceff1; color: #546e7a; }
   .item-title {
     font-size: 15px;
@@ -180,7 +181,7 @@
 </div>
 <div class="container">
 <div class="summary-bar">
-  <span>本期共 <strong>40</strong> 条动态</span>
+  <span>本期共 <strong>42</strong> 条动态</span>
   <span>|</span>
   <span>覆盖 <strong>9</strong> 个方向</span>
   <span>|</span>
@@ -485,10 +486,36 @@
     </div>
   </div>
 </div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <div>
+      <div class="section-title-cn">十、补录 · 往期漏检勘误</div>
+      <div class="section-title-en">Errata & Backfilled Items</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[备注]</span> 本次核查说明：4 篇抽查文章中 2 篇补录、1 篇此前已收录、1 篇因双源无摘要不收</div>
+      <div class="item-abstract">应核查的 4 篇文章处置如下。① ESSD《注意力增强 3D-U-Net++ 西北太平洋温盐重构》（10.5194/essd-18-4617-2026）已于 2026-09-04 期方向五收录，当时使用 Copernicus 直链（essd.copernicus.org/articles/18/4617/2026/）而非 DOI 链接，因此按 DOI 做跨期去重比对会出现假阴性——属链接口径记载不全，非漏收。② TGRS《GBM: An Ocean Front Detection Framework》与 ④ TGRS《KunPeng: A Global Ocean Environmental Model》为本次补录条目，原因分列于各自条目。③ The Innovation Informatics《Physics-informed neural networks help to strongly reduce uncertainty in ocean state forecasting》（10.59717/j.xinn-inform.2026.100051）首发 2026-07-20，落在 07-21 期窗口内，但 OpenAlex 的 abstract_inverted_index 与 Crossref 的 abstract 均为空，按「无摘要不收、不得据标题推断摘要」的既定纪律未收录；该刊另一篇（…2026.100031，数字海洋智能综述）已于 04-15 期收录，说明期刊本身在检索范围内，问题在索引侧摘要缺失。补录条目的首发日期早于常规 14 天时效窗口，故本期单列「补录与勘误」板块并逐条标注首发日与漏检原因，不计入常规时效统计与方向条数。核查台账与根因分析见仓库 .workbuddy/memory/2026-11-04.md。</div>
+      <div class="item-meta"></div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-errata">[补录]</span> <a href="https://doi.org/10.1109/TGRS.2026.3708338" target="_blank">KunPeng 全球海洋环境预报模型：把气象大模型技术迁到海洋，15 天全球预报 ACC 0.80（TGRS 补录）</a></div>
+      <div class="item-abstract">KunPeng 的出发点是海气物理耦合机制存在相似性，因此把气象领域的大模型技术迁移到海洋域，构建全球海洋环境预报模型。针对海洋空间的不连续特征（陆海边界处场量突变），提出地形自适应掩码约束机制，抑制边界梯度突变引发的训练发散；为同时整合远、中、近距离海洋特征，采用经度循环可变形卷积网络（LC-DCN）增强动态感受野，实现多尺度海洋特征的精细建模；再用可变形卷积增强的多步预测模块（DC-MTP）强化时序依赖特征提取。实验结果：0.25° 分辨率、15 天全球预报平均 ACC 0.80，较对比模型高 0.01—0.08；平均 MSE 0.41（降低 5%—31%）、平均 MAE 0.44（降低 0.6%—21%）；海表参数预报、深海区域表征与流速场预报三类任务提升最明显。作者还横向比较了不同尺度算子在海洋域的适用性，发现在慢变海洋过程下局地算子显著优于全局算子，印证动态特征金字塔表征在海洋物理参数预测中的有效性。补录原因：该文 Crossref 注册日为 2026-06-30，而 OpenAlex 把 IEEE 期刊的 publication_date 统一归一化为 2026-01-01，导致按日期窗口检索永久抓不到——现已改用 Crossref created-date 通道修复该结构性漏检。</div>
+      <div class="item-meta">IEEE TGRS（补录） · 2026-06-30</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-errata">[补录]</span> <a href="https://doi.org/10.1109/TGRS.2026.3660295" target="_blank">GBM 海洋锋检测框架：梯度先验 + 贝叶斯分类 + 形态学精修，替掉黑箱阈值调参（TGRS 补录）</a></div>
+      <div class="item-abstract">海洋锋是调控热交换、物质输运与生态系统功能的基础动力界面。现有检测方法——直方图法、熵法、Lyapunov 指数法、梯度边缘检测与机器学习——普遍存在锋面碎片化、误检过多、对固定阈值敏感、可解释性与可复现性不足等问题。GBM（Gradient-Bayesian-Morphology）把三个互补环节串成一个物理知情且完全可解释的框架：一是梯度阈值策略，引入强调场量剧变位置的物理先验；二是贝叶斯推断，把梯度先验与局地场描述子结合，实现自适应的锋区数据驱动分类，无需人为调阈值；三是形态学与图方法精修，通过细化锋区、合并碎片段、系统性剔除伪环状结构来强制拓扑一致性。评测用 2022—2024 年南海与黑潮海域的逐日海表温度、盐度场，分别代表弱锋与强锋情形：GBM 有效抑制过度检测，产出锋面的空间连续性更好；统计分析显示锋面特征稳定、参数敏感性低，鲁棒性与可复现性得到验证。作者将其定位为黑箱方法的透明替代，并提供多变量海洋锋的统一分析框架。补录原因：Crossref 注册日 2026-02-03，早于日报系统首期（2026-03-23）运行，属系统上线前的窗口缺口。</div>
+      <div class="item-meta">IEEE TGRS（补录） · 2026-02-03</div>
+    </div>
+  </div>
+</div>
 </div>
 <div class="footer">
   <p>海洋AI技术日报 · 自动生成于 2026年11月4日</p>
-  <p>Powered by WorkBuddy AI · 本期来源：Scientific Reports、Ocean Engineering、Computer Vision and Image Understanding、Geophysical Journal International、Journal of Atmospheric and Solar-Terrestrial Physics、Biogeosciences、Geoscientific Model Development、Progress in Earth and Planetary Science、Progress in Physical Geography、International Journal of Remote Sensing、BMC Marine Science、Research Ideas and Outcomes、Earth Observation、State of the Planet (Copernicus OSR)、arXiv、EDITO、EMODnet、DTO-BioFlow、Copernicus Marine Service、Kitware / ParaView、UN Ocean Decade、GitHub (xcdat / ioos)、新华社、央视新闻、中国科学报</p>
+  <p>Powered by WorkBuddy AI · 本期来源：华为、IEEE TGRS、arXiv、ACM Multimedia 2026、IEEE Robotics and Automation Letters、深圳新闻网、数字广西集团、SEC 披露、Zenodo、MapGIS 中地软件、大众新闻、漂视网络、Scientific Drilling、JAWRA、中韩海洋科学共同研究中心、CRAN、Journal of Atmospheric and Oceanic Technology、Earth System Science Data (preprint)、Earth System Science Data、中国海洋大学学报、Scientific Reports、Seabed 2030、CIOOS、水德科技「深蓝瞭望」、Bulletin of the American Meteorological Society、科学网、Geophysical Research Letters、黄海水产研究所、中国金融信息网、EUMETSAT、Copernicus Marine、Limnology and Oceanography: Methods、PyPI、生物通、Computers</p>
 </div>
 </body>
 </html>

@@ -151,6 +151,7 @@ html = '''<!DOCTYPE html>
   .badge-data { background: #e0f7fa; color: #00695c; }
   .badge-cruise { background: #fce4ec; color: #c62828; }
   .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-errata { background: #fdecea; color: #b71c1c; }
   .badge-default { background: #eceff1; color: #546e7a; }
   .item-title {
     font-size: 15px;
@@ -206,9 +207,9 @@ html = '''<!DOCTYPE html>
 </div>
 <div class="container">
 <div class="summary-bar">
-  <span>本期共 <strong>''' + str(sum(len(s['items']) for s in sections)) + '''</strong> 条动态</span>
+  <span>本期共 <strong>''' + str(sum(1 for s in sections for i in s['items'] if i.get('badge') != '[备注]')) + '''</strong> 条动态</span>
   <span>|</span>
-  <span>覆盖 <strong>''' + str(sum(1 for s in sections if s['items'])) + '''</strong> 个方向</span>
+  <span>覆盖 <strong>''' + str(sum(1 for s in sections if s.get('count_as_direction', True) and any(i.get('badge') != '[备注]' for i in s['items']))) + '''</strong> 个方向</span>
   <span>|</span>
   <span>日期范围：2026-10-21 ~ 2026-11-04</span>
 </div>
@@ -222,6 +223,7 @@ badge_map = {
     '[数据]': 'badge-data',
     '[航次]': 'badge-cruise',
     '[报告]': 'badge-report',
+    '[补录]': 'badge-errata',
 }
 
 for si, section in enumerate(sections, 1):
@@ -255,10 +257,17 @@ for si, section in enumerate(sections, 1):
     
     html += '  </div>\n</div>\n'
 
+_srcs = []
+for _s in sections:
+    for _i in _s['items']:
+        _v = (_i.get('source') or '').strip().split('/')[0].split('（')[0].strip()
+        if _v and _v not in _srcs:
+            _srcs.append(_v)
+
 html += '''</div>
 <div class="footer">
   <p>海洋AI技术日报 · 自动生成于 ''' + TODAY_CN + '''</p>
-  <p>Powered by WorkBuddy AI · 本期来源：Scientific Reports、Ocean Engineering、Computer Vision and Image Understanding、Geophysical Journal International、Journal of Atmospheric and Solar-Terrestrial Physics、Biogeosciences、Geoscientific Model Development、Progress in Earth and Planetary Science、Progress in Physical Geography、International Journal of Remote Sensing、BMC Marine Science、Research Ideas and Outcomes、Earth Observation、State of the Planet (Copernicus OSR)、arXiv、EDITO、EMODnet、DTO-BioFlow、Copernicus Marine Service、Kitware / ParaView、UN Ocean Decade、GitHub (xcdat / ioos)、新华社、央视新闻、中国科学报</p>
+  <p>Powered by WorkBuddy AI · 本期来源：''' + '、'.join(_srcs) + '''</p>
 </div>
 </body>
 </html>'''
