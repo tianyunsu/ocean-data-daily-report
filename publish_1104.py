@@ -24,8 +24,8 @@ for name, body in secs:
         items.append((title, source, date))
 
 n = len(items)
-assert n == 40, f'expect 40 items, got {n}'
-excerpt = f'9 个研究方向 · {n} 条精选资讯。'
+assert n == 42, f'expect 42 items, got {n}'
+excerpt = f'9 个研究方向 · {n} 条精选资讯（含补录 2 条）。'
 parts = []
 for title, source, date in items:
     parts.append(f'{title}（{source} {date[5:]}）')
@@ -55,6 +55,7 @@ card = f'''    <div class="post-card">
                     <span class="tag">开放航次</span>
                     <span class="tag">数据中心</span>
                     <span class="tag">工具资源</span>
+                    <span class="tag">补录</span>
                 </div>
     </div>
 
@@ -70,7 +71,7 @@ arc = open(arc_path, encoding='utf-8').read()
 arc_anchor = f'<h2>📅 2026年11月</h2>\n      <ul><li><a href="posts/{PREV}.html">'
 if arc_anchor not in arc:
     raise SystemExit('ARCHIVE ANCHOR NOT FOUND')
-li = f'<li><a href="posts/{DATE}.html"><strong>{DATE}</strong></a>（{WEEKDAY}） · 9个方向 · {n}条动态 · 重点：' + '；'.join(parts) + '。</li>'
+li = f'<li><a href="posts/{DATE}.html"><strong>{DATE}</strong></a>（{WEEKDAY}） · 9个方向 · {n}条动态（含补录2条） · 重点：' + '；'.join(parts) + '。</li>'
 arc = arc.replace(arc_anchor, f'<h2>📅 2026年11月</h2>\n      <ul>' + li + '</ul>\n      <ul><li><a href="posts/{PREV}.html">', 1)
 open(arc_path, 'w', encoding='utf-8').write(arc)
 print('ARCHIVE updated')
