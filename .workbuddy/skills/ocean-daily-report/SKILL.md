@@ -554,6 +554,9 @@ CNKI 学科排名）——学科前 25% → B，其余 → C 并标注。已确�
    - 若文件不存在则创建
 2. **去重基准** `$WORKSPACE/.workbuddy/memory/MEMORY.md`
    - 在本期"去重基准（滚动更新）"小节中追加本期核心条目（标题 + 日期 + 方向），供未来去重检索
+   - ⚠️ **MEMORY.md 只承载「每日必需 + 决策判据」**（2026-11-04 起分层压缩，约 16 KB / 10,000 字符，超出会在注入时被截断）。历史台账、已结案事故叙述、滚出 3 期窗口的去重标识符、**勿再收完整名单**、待拍板事项都在同目录的 **`ARCHIVE.md`**：
+     - 核查「某篇是否收录」、查询更早期次的去重标识符、新增「勿再收」条目时，**必须同时查 ARCHIVE.md**（`grep -n "关键词" .workbuddy/memory/ARCHIVE.md`）；
+     - MEMORY 超 16 KB 时，把滚出 3 期的去重标识符与已结案叙述迁入 ARCHIVE 对应章节，**只搬不删改**，并在 MEMORY 留指针。
 3. **经验沉淀**
    - 如发现本 skill、quality_standards 或 MEMORY.md 中有遗漏的规则/新经验，立即更新
 4. **（可选但推荐）自动化执行摘要** `$WORKSPACE/.workbuddy/automations/ai/memory.md`
