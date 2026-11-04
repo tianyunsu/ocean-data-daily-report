@@ -24,7 +24,7 @@ for name, body in secs:
         items.append((title, source, date))
 
 n = len(items)
-assert n == 34, f'expect 34 items, got {n}'
+assert n == 40, f'expect 40 items, got {n}'
 excerpt = f'9 个研究方向 · {n} 条精选资讯。'
 parts = []
 for title, source, date in items:
