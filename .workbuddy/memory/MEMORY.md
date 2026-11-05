@@ -3,6 +3,7 @@
 > **本文件每次执行都会注入上下文，因此只保留「每日必需 + 决策判据」。**
 > 历史台账、已结案事故的取证叙述、滚出 3 期窗口的去重标识符、勿再收完整名单、待拍板事项 → 见 **`.workbuddy/memory/ARCHIVE.md`**（检索才读，可持续增长）。
 > **2026-11-04 首次压缩**：22,989 B / 14,371 字符 → 16,324 B / 10,100 字符（−29%），溢出内容迁入 ARCHIVE.md，**信息零丢失**（362 个 token 全量校验，仅余 3 处表述差异）。每超 16 KB 触发一次归档。
+> **2026-11-05 二次压缩**：16,444 B → 15,571 B（注入被截断触发），11-04 完整清单与漏检案例明细表迁入 ARCHIVE；同期新增 11-05 去重基准与 3 条经验。
 
 ## 系统配置
 - **用户**：苏老师 · **自动化ID** `ai`（rrule `FREQ=DAILY;BYHOUR=9;BYMINUTE=0`）· **2026-10-18 起 PAUSED**，任务定义留云端，由苏老师手动触发；改回 ACTIVE 即恢复
@@ -45,44 +46,40 @@
 | pull --rebase 因未暂存改动失败 | `screen.py` 会改 `journal_tiers.json`/`pending_journals.txt` → **先 `git add -A` 再 rebase/push** |
 | 复合 git 命令静默中断 | 收尾必查 `HEAD == origin/main` + 工作区干净 |
 | 403（MDPI/ScienceDirect/Wiley/AGU/T&F） | 反爬≠死链，`verify_paper.py` 核实 |
-| curl 000 / 502 Tunnel / URLError / Timeout | 沙箱代理波动（neurips/zenodo/seanoe/Copernicus/Nature）→ 换 `curl -L -m 45` 重测或 WebFetch 复核 |
-| HEAD 302/404/405 但链接有效 | 站禁用 HEAD → 核链须 HEAD 失败回退 GET |
+| curl 000 / 502 Tunnel / URLError / 302·404·405 | 沙箱代理波动或站禁用 HEAD → 换 `curl -L -m 45` 重测、HEAD 失败回退 GET、或 WebFetch 复核 |
 | 臆造 URL / 聚合站日期 | 严禁按模式推断；一律查原文首发日 |
-| present_files 预览污染 HTML | 先 commit+push 再 present，事后 `git status` 复查 |
 | 飞书 API 404 | **根因是端点写错非 token**：`POST .../documents/{doc}/blocks/{doc}/children`（body `children`）。样式须放 `text_run.text_element_style`，旧 `text_run.style/link` 被**静默忽略**。详见 SKILL 陷阱 31 |
 | 飞书文档同日重复 | 按标题 `海洋AI技术日报 YYYY-MM-DD` 命中即清空重写，未命中才新建（陷阱 33） |
+| `index/archive` 里出现 Python 源码明文 | publish 正则跨节捕获（遇无 url 的 `[备注]` 条目必发）→ 改 AST 抽条目 + 跳过无 url 项；模板见 `repair_publish_1105.py`，替换前先断言区间含 `'badge':` |
 | OpenAlex 401/429 | cursor 第 2 页起需 key、重查询扣额度；失效改 WebSearch/Crossref 人工补检 |
-| `harvest.py --dirs` 重跑覆写池 | 先 `cp data/pool/日期.jsonl data/pool/_bak_日期.jsonl`，失败后合并恢复 |
 | OpenAlex 会议论文为 0 | 类型值须 `conference-paper`（旧 `proceedings-article` 恒返 0 且不报错）；用已知会议论文反查做阳性对照 |
 
 ## 去重基准（最近 3 期；更早 `grep -rl posts/`）
-> `posts/` 为全量存档；本节只列「易被再次检索命中」的标识符，完整条目见当日日志。**11-02 及更早期次已迁入 ARCHIVE.md 第一节**（去重脚本本就扫 `posts/` 全量，此处仅留「最易被再次命中」的当期基准；上期标识符需要时 grep ARCHIVE）。
+> `posts/` 为全量存档；本节只列「易被再次检索命中」的标识符，完整条目见当日日志。**11-02 及更早期次已迁入 ARCHIVE.md 第一节；11-04 的完整 42 项亦已提前归档**（去重脚本本就扫 `posts/` 全量，此处仅留「最易被再次命中」的当期基准；需要时 grep ARCHIVE）。
 
-- **11-04（42条，含补录2条）·完整 42 项见 ARCHIVE 第一节**。MEMORY 仅留最易再命中子集：`10.1145/3840750.3841451` GreenToken、`10.1109/LRA.2026.3746126` ISOPoT、`10.5194/essd-18-7963-2026` MLAWind、`10.5194/essd-2026-807` Morlenn、`10.5194/essd-18-7839-2026` IBRA、`10.1038/s41598-026-76456-2` 机载测深激光雷达、`10.1038/s41598-026-78685-x` 南极 UAV 海鸟、`10.1029/2026GL124056` 北极碳质气溶胶、`10.1175/jtech-d-26-0004.1` X 波段波向、`10.1175/bams-d-25-0157.1` NNJA、arxiv 2610.29313 / 2610.37731 / 2610.36410、`10.1109/TGRS.2026.3708338` KunPeng（补录）、`10.1109/TGRS.2026.3660295` GBM（补录）、`10.3390/computers15110763` WindAnalysis（MDPI/D）、zenodo.23674230 EDITO EOSC、zenodo.23749880 thermochain、cnfin 4488855 青岛海洋大数据应用中心、qdio.cas.cn 8299912 苏禄海内孤立波、e.huawei 司渊海洋大模型、sznews 32199065 深圳防灾孪生、weibo 北部湾孪生一等奖、qq 耕海1号一张图、ysfri 59428 蓝海101、sciencenet 574029 CliMetS/MOCSI
+- **11-05（32条，期刊14条43.8%）**：`10.1109/TGRS.2026.3749162` VesselBench-800K、`10.1109/TIP.2026.3747251` SonarT165、`10.1109/TIP.2026.3744688` GLHR 船 Re-ID、`10.48550/arXiv.2611.02460` NeuralPOM、`10.1145/3799682.3840988` EarthOracle、`10.1145/3799682.3840989` AquaNord-SE、nmdis 86013 海洋信息技术创新中心年会（CGOF 1.0/孪生平台）、solar.in-en.com solar-2465221 田湾光伏孪生、`10.1016/j.oceaneng.2026.128821` ANN 沿海淹没、hal-05801805 淹没集合可视化、geoviews v1.16.0、oceanography-plotting-style、`10.1109/TGRS.2026.3749622` QuaSAR、argo.org.cn id=1131 ADMT-27 CPcor、`10.5194/os-22-3537-2026` 巴伦支海冰、`10.1109/TGRS.2026.3745627` SWOT 15弧秒、`10.1109/JOE.2026.3724238` CAT 3D、`10.48550/arXiv.2611.01680` 声场张量重建、`10.1029/2026GL124606` SWOT 4DVAR、`10.1109/JSTARS.2026.3748264` Chl-a 预报、geodata newsguid=277466173224030980 五项团体标准、`10.1007/s11192-026-05857-x` SDG 文献库、chinanews 10726189 实验3号、`10.1038/s41598-026-72665-x` 金枪鱼浮标、`10.1109/LRA.2026.3747613` AUV 洋流抑制、`10.1109/JOE.2026.3726174` PPAP、hizh.cn AP6aea0b61e4b02381c6bfa154 港珠澳琴算力联盟、pingtan t20261105_109871 岛屿国家论坛、163 LAUEB5O10511KMS0 珊瑚礁白化预警、zenodo 23861916 ctdcast v0.4.1、copernicus-marine-toolbox v2.5.1、erddapy v3.3.2
+- **11-04（42条，含补录2条）**：完整 42 项已归档 `ARCHIVE.md` 第一节，MEMORY 不再保留子集（去重脚本扫 `posts/` 全量，需要时 grep ARCHIVE）。
 
 - **勿再收名单** → 已整体迁入 `ARCHIVE.md` 第二节（含「已收录不重发」显式标注条目）。**新增条目时须标注属「质量弃用」还是「xx 期已发」**，二者语义不同，否则后人会误读。
 
 ## 漏检核查与已知盲区（2026-11-04 建立）
-> 用途：苏老师抽查「某篇是否收录」时的处置台账。每条须落成「已收录 / 时间窗正当排除 / 系统未运行 / 真实漏检 + 根因」四类之一。取证明细见 `ARCHIVE.md` 第四节。
+> 苏老师抽查「某篇是否收录」的处置台账，每条须落成「已收录 / 时间窗正当排除 / 系统未运行 / 真实漏检 + 根因」四类之一。案例明细见 `ARCHIVE.md` 4.3，取证见第四节。
 
-### 已核查案例（明细表见 `ARCHIVE.md` 4.3）
-- `10.5194/essd-18-4617-2026` ESSD 3D-U-Net++ 西太温盐 → **已收录 09-04 方向五**（日报用 Copernicus 直链致 DOI 比对假阴性）
-- `10.1109/TGRS.2026.3660295` GBM 海洋锋检测 → 首发 02-03 早于首期 03-23，时间窗正当排除（11-04 补录）
-- `10.59717/j.xinn-inform.2026.100051` The Innovation Informatics PINN → 双源无摘要，按纪律不收
-- `10.1109/TGRS.2026.3708338` KunPeng 全球海洋环境模型 → **真实漏检**（IEEE 日期塌缩），11-04 补录
+### 已核查案例
+- `10.5194/essd-18-4617-2026` ESSD 3D-U-Net++ → **已收录 09-04 方向五**（当日用 Copernicus 直链，按 DOI 检索出现假阴性）
+- `10.1109/TGRS.2026.3660295` GBM 海洋锋 → 首发 02-03 早于首期 03-23，时间窗正当排除（11-04 补录）
+- `10.59717/j.xinn-inform.2026.100051` PINN 降预报不确定性 → 双源无摘要，按纪律不收
+- `10.1109/TGRS.2026.3708338` KunPeng → **真实漏检**（IEEE 日期塌缩），11-04 补录
 
-### 三类根因（按影响面排序）
-1. **IEEE 期刊日期塌缩（最严重，系统性）**：TGRS 等 IEEE 刊在 OpenAlex 的 `publication_date` **恒为当年 1 月 1 日**，`created_date`/`updated_date` 也不等于首发日。后果：按日期窗口拉取时 IEEE 期刊永远返回 0，这些刊的论文**结构性无法进入日报**（10-21/11-02/11-04 三期通道全 0 均源于此）。
-   - ✅ **修复方案（已实测有效）**：改用 **Crossref `filter=issn:<issn>,from-created-date:<start>,until-created-date:<end>`**；`created` 字段 = DOI 注册日，与首发日基本一致。
-   - 🔧 **已落地工具**：`stage1_ieee_crossref.py`（2026-11-04 新增）。用法 `py -3 stage1_ieee_crossref.py --start YYYY-MM-DD --end YYYY-MM-DD [--no-abstract]`，输出 `_stage1_ieee.json`（已 gitignore）。**阶段一 IEEE 期刊组必须跑此脚本，不得只用 OpenAlex 日期窗口。**
-2. **链接形式不一致（去重假阴性）**：同一条目可能用 DOI 链接、出版商直链（Copernicus `/articles/vol/page/year/`、MDPI `/issn/vol/issue/page`、IEEE `document/id`）或机构新闻稿链接；只做 URL 字符串集合差会把已发条目误判为「未收录」→ 重复收录或误入勿再收名单。
-   - ✅ **修复**：去重前先做 DOI 归一化 —— `doi.org/(10\..+)` 直取；Copernicus 用 `{journal}.copernicus.org/articles/{vol}/{page}/{year}/` → `10.5194/{journal}-{vol}-{page}-{year}`；兜底标题归一化（去标点、小写、前 60 字符）。
-   - 📌 **规范**：新条目**优先用 `https://doi.org/...`**，让 URL 比对天然等价于 DOI 比对。
-3. **系统上线前的历史文章**：日报最早期次 `2026-03-23`，此前论文不在任何期次检索范围，属不可补的天然缺口（需覆盖只能显式回溯）。
+### 三类根因
+1. **IEEE 日期塌缩（系统性，最严重）**：TGRS 等刊在 OpenAlex 的 `publication_date` 恒为当年 1-1，`created/updated_date` 也不等于首发日 → 按日期窗口拉取 IEEE 期刊恒返 0（10-21/11-02/11-04 通道全 0 皆源于此）。
+   - 修复：改用 **Crossref `filter=issn:<issn>,from-created-date:..,until-created-date:..`**（`created` = DOI 注册日 ≈ 首发日）；工具 `stage1_ieee_crossref.py --start/--end [--no-abstract]` → `_stage1_ieee.json`。**阶段一 IEEE 期刊组必须跑，不得只用 OpenAlex 日期窗口。**
+2. **链接形式不一致（去重假阴性）**：同一条目可能用 DOI、出版商直链或机构新闻稿链接 → 只做 URL 集合差会误判未收录。去重前必须 DOI 归一化（细则见 `ARCHIVE.md` 4.4），新条目**优先用 `https://doi.org/...`**。
+3. **系统上线前的历史文章**：最早期次 `2026-03-23`，此前论文属不可补的天然缺口。
 
 ### 处置纪律
-- 核查「某篇是否收录」**不能只 grep DOI** —— 必须同时 grep：DOI 尾段数字、期刊简称+卷+页（如 `18, 4617`）、英文标题关键词、中文标题关键词。
-- 「已剔除」名单混有两类语义（质量弃用 vs 已发不重发），新加入时须显式标注。
+- 核查「某篇是否收录」**不能只 grep DOI**：须同时 grep DOI 尾段数字、期刊简称+卷+页（如 `18, 4617`）、英文标题词、中文标题词。
+- 「已剔除」名单混有两类语义（质量弃用 vs 已发不重发），新增时须显式标注。
 
 ## 经验教训（活跃判据）
 **内容与口径**
@@ -94,6 +91,8 @@
 - **中文条目去重必须用中文片段 grep**：否则 URL 集合差会漏判。
 
 **OpenAlex / Crossref**
+- **IEEE Crossref created 通道已复验有效（11-05）**：窗口 10-22~11-05 跑出 total 414 / ocean_hits 33（JSTARS 14、TGRS 9、JOE 4、RA-L 4、TIP 2），本期 8 条 IEEE 论文**全部来自该通道**；`--no-abstract` 时摘要改由 `_oa_1105.py` 走 OpenAlex 重建 + Crossref `created` 定首发日（IEEE `publication_date` 恒为当年 1-1）。
+- **摘要缺口仍在（11-05 弃用 4 例）**：`10.1016/j.oceaneng.2026.129259`、`10.1016/j.isprsjprs.2026.10.039`、`10.1016/j.isprsjprs.2026.10.038`、`10.1109/TGRS.2026.3749930` 在 OpenAlex `abstract_inverted_index` 与 Crossref `abstract` 双源皆空 → 一律不收，不得据标题推断（即使标题与方向高度契合）。
 - **滤镜字段会改名（10-25）**：`issn:` 返 400，须 `primary_location.source.issn:`；0 结果先怀疑字段名。JOE 正确 issn_l = `0364-9059`。
 - **`host_organization` 不可靠（11-04）**：传 T&F/SAGE/AAAS/IOP 返回 Springer/OUP/BMC → **不能判定出版商零覆盖**。
 - **filter 里写 `%20` 会被二次编码（11-04）**：`title_and_abstract.search:ocean%20visualization` 变字面值，恒返 0 且不报错 → 滤镜一律用真实空格。
@@ -102,7 +101,8 @@
 - **池 jsonl 的 DOI URL 小写存储**：跨源比对须大小写归一。
 
 **产出与发布**
-- **补录板块机制（11-04）**：历史漏检且有价值时**不散进 9 方向**（破 3–5 条上限），末尾单列「十、补录 · 往期漏检勘误」。①板块加 `'count_as_direction': False`；②台账用 `badge='[备注]'`（不计 effective）；③补录 `badge='[补录]'` → `badge-errata`，`date` 填**首发日**并写明漏检原因，五审时效须单列说明。publish 条目正则按 `'url'` 匹配，无 url 的备注条目自动排除出卡片摘要。
+- **publish 脚本一律用 AST，禁用正则抽条目（11-05 事故）**：11-04 的 publish 正则要求 `'source'…'url'…'date'` 连续匹配，而 `[备注]` 条目**无 url**，`.*?` 便跨节吃到下一组，把 build 脚本源码明文拼进 `index.html`/`archive.html`（线上渲染乱码）。模板见 `repair_publish_1105.py`：AST 取 SECTIONS → 跳过无 url/`[备注]` → 按行号区间替换并**先断言区间含 `'badge':`**。
+- **补录板块机制（11-04）**：漏检且有价值时**不散进 9 方向**（会破 3–5 上限），末尾单列「十、补录 · 往期漏检勘误」：板块 `count_as_direction: False`；台账 `badge='[备注]'`（不计 effective）；补录 `badge='[补录]'`→`badge-errata`、`date` 填**首发日**并写明漏检原因，五审时效单列说明。
 - **footer 来源按条目动态生成（11-04）**：原写死 11-02 列表，派生新期即失真；遍历 `sections` 的 `source`（按 `/` 与 `（` 截断）去重拼接。
 - **改内容必须重跑 build_daily**：`gen_html` 读的是注入后的 `SECTIONS`，否则出一模一样的 HTML。
 - **回滚式重发**：先 `git checkout <base> -- index.html archive.html` 再重跑 publish，避免卡片重复插入。
