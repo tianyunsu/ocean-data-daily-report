@@ -58,20 +58,18 @@
 ## 去重基准（最近 3 期；更早 `grep -rl posts/`）
 > `posts/` 为全量存档；本节只列「易被再次检索命中」的标识符，完整条目见当日日志。**11-02 及更早期次已迁入 ARCHIVE.md 第一节**（去重脚本本就扫 `posts/` 全量，此处仅留「最易被再次命中」的当期基准；上期标识符需要时 grep ARCHIVE）。
 
-- **11-04（42条，含补录2条）**：e.huawei 司渊海洋大模型、qdio.cas.cn 8299912 苏禄海内孤立波 TGRS、arxiv 2610.29313 YingLan、10.1145/3840750.3841451 GreenToken ACM MM、10.1109/LRA.2026.3746126 ISOPoT、sznews 32199065 深圳防灾孪生、weibo 5359283964608565 北部湾孪生一等奖、SEC 1846715 Eco Wave 孪生、zenodo.23674230 EDITO EOSC、mapgis id=1913 海洋版、qq 20261028A04ZEQ00 耕海1号一张图、mp.weixin 漂视 CIMPro、10.5194/sd-35-229-2026 GEODESC、10.1111/1752-1688.70158 OSTDS GIS、ckjorc detail/3435 GOCI-II、cran argoFloats、arxiv 2610.37731 摊销后验、10.1175/jtech-d-26-0004.1 X 波段波向、10.5194/essd-2026-807 Morlenn、10.5194/essd-18-7963-2026 MLAWind、qdhy.cbpt.cnki 葵花8号超分、arxiv 2610.36410 LILY、10.1038/s41598-026-76456-2 机载测深激光雷达、seabed2030 波罗的海 BSHC、cioos.ca IODE ADU、watertools 538 Okeanos-OBIS/GBIF、10.1175/bams-d-25-0157.1 NNJA、sciencenet 574029 CliMetS/MOCSI、10.1029/2026GL124056 北极碳质气溶胶、10.1038/s41598-026-78685-x 南极 UAV 海鸟、ysfri 59428 蓝海101、cnfin 4488855 青岛海洋大数据应用中心、watertools 544 Sentinel-6B、copernicus product-roadmap 11月更新、10.5194/essd-18-7839-2026 IBRA 伊势湾、10.1002/lom3.70102 Ricker 小波、pypi oceanarray、zenodo.23749880 thermochain、ebiotrade 20261023104103527 CN-Waves、10.3390/computers15110763 WindAnalysis（MDPI/D）、**10.1109/TGRS.2026.3708338 KunPeng 全球海洋环境预报模型**、**10.1109/TGRS.2026.3660295 GBM 海洋锋检测**（后两条为 11-04 补录）
+- **11-04（42条，含补录2条）·完整 42 项见 ARCHIVE 第一节**。MEMORY 仅留最易再命中子集：`10.1145/3840750.3841451` GreenToken、`10.1109/LRA.2026.3746126` ISOPoT、`10.5194/essd-18-7963-2026` MLAWind、`10.5194/essd-2026-807` Morlenn、`10.5194/essd-18-7839-2026` IBRA、`10.1038/s41598-026-76456-2` 机载测深激光雷达、`10.1038/s41598-026-78685-x` 南极 UAV 海鸟、`10.1029/2026GL124056` 北极碳质气溶胶、`10.1175/jtech-d-26-0004.1` X 波段波向、`10.1175/bams-d-25-0157.1` NNJA、arxiv 2610.29313 / 2610.37731 / 2610.36410、`10.1109/TGRS.2026.3708338` KunPeng（补录）、`10.1109/TGRS.2026.3660295` GBM（补录）、`10.3390/computers15110763` WindAnalysis（MDPI/D）、zenodo.23674230 EDITO EOSC、zenodo.23749880 thermochain、cnfin 4488855 青岛海洋大数据应用中心、qdio.cas.cn 8299912 苏禄海内孤立波、e.huawei 司渊海洋大模型、sznews 32199065 深圳防灾孪生、weibo 北部湾孪生一等奖、qq 耕海1号一张图、ysfri 59428 蓝海101、sciencenet 574029 CliMetS/MOCSI
 
 - **勿再收名单** → 已整体迁入 `ARCHIVE.md` 第二节（含「已收录不重发」显式标注条目）。**新增条目时须标注属「质量弃用」还是「xx 期已发」**，二者语义不同，否则后人会误读。
 
 ## 漏检核查与已知盲区（2026-11-04 建立）
 > 用途：苏老师抽查「某篇是否收录」时的处置台账。每条须落成「已收录 / 时间窗正当排除 / 系统未运行 / 真实漏检 + 根因」四类之一。取证明细见 `ARCHIVE.md` 第四节。
 
-### 已核查案例
-| 文章 | DOI | 结论 | 根因 |
-|------|-----|------|------|
-| ESSD 注意力增强 3D-U-Net++ 西太温盐重构 | `10.5194/essd-18-4617-2026` | **已收录 2026-09-04**（方向五） | 日报用 Copernicus 直链而非 DOI → 按 DOI 检索出现假阴性 |
-| TGRS GBM 海洋锋检测框架 | `10.1109/TGRS.2026.3660295` | 时间窗正当排除（后补录） | 首发 `2026-02-03`，日报最早期次 `2026-03-23` → **系统上线前** |
-| The Innovation Informatics PINN 降海洋状态预报不确定性 | `10.59717/j.xinn-inform.2026.100051` | 无摘要不收 | 首发 `2026-07-20`，OpenAlex + Crossref 双源无摘要 |
-| TGRS KunPeng 全球海洋环境模型 | `10.1109/TGRS.2026.3708338` | **真实漏检**（后补录） | 首发 `2026-06-30`、有 1716 字符摘要、落在 07-01 窗口内，但 OpenAlex `publication_date` 被归一化为 `2026-01-01` |
+### 已核查案例（明细表见 `ARCHIVE.md` 4.3）
+- `10.5194/essd-18-4617-2026` ESSD 3D-U-Net++ 西太温盐 → **已收录 09-04 方向五**（日报用 Copernicus 直链致 DOI 比对假阴性）
+- `10.1109/TGRS.2026.3660295` GBM 海洋锋检测 → 首发 02-03 早于首期 03-23，时间窗正当排除（11-04 补录）
+- `10.59717/j.xinn-inform.2026.100051` The Innovation Informatics PINN → 双源无摘要，按纪律不收
+- `10.1109/TGRS.2026.3708338` KunPeng 全球海洋环境模型 → **真实漏检**（IEEE 日期塌缩），11-04 补录
 
 ### 三类根因（按影响面排序）
 1. **IEEE 期刊日期塌缩（最严重，系统性）**：TGRS 等 IEEE 刊在 OpenAlex 的 `publication_date` **恒为当年 1 月 1 日**，`created_date`/`updated_date` 也不等于首发日。后果：按日期窗口拉取时 IEEE 期刊永远返回 0，这些刊的论文**结构性无法进入日报**（10-21/11-02/11-04 三期通道全 0 均源于此）。

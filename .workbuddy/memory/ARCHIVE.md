@@ -10,6 +10,10 @@
 
 > MAP 规则：MEMORY.md 保留最近 3 期（当期 + 前两期）的「易被再次检索命中」标识符；第 4 期起迁入本节。
 
+### 2026-11-04（42 条，含补录 2 条）· 提前归档（MEMORY 只留高风险子集）
+
+e.huawei 司渊海洋大模型、qdio.cas.cn 8299912 苏禄海内孤立波 TGRS、arxiv 2610.29313 YingLan、10.1145/3840750.3841451 GreenToken ACM MM、10.1109/LRA.2026.3746126 ISOPoT、sznews 32199065 深圳防灾孪生、weibo 5359283964608565 北部湾孪生一等奖、SEC 1846715 Eco Wave 孪生、zenodo.23674230 EDITO EOSC、mapgis id=1913 海洋版、qq 20261028A04ZEQ00 耕海1号一张图、mp.weixin 漂视 CIMPro、10.5194/sd-35-229-2026 GEODESC、10.1111/1752-1688.70158 OSTDS GIS、ckjorc detail/3435 GOCI-II、cran argoFloats、arxiv 2610.37731 摊销后验、10.1175/jtech-d-26-0004.1 X 波段波向、10.5194/essd-2026-807 Morlenn、10.5194/essd-18-7963-2026 MLAWind、qdhy.cbpt.cnki 葵花8号超分、arxiv 2610.36410 LILY、10.1038/s41598-026-76456-2 机载测深激光雷达、seabed2030 波罗的海 BSHC、cioos.ca IODE ADU、watertools 538 Okeanos-OBIS/GBIF、10.1175/bams-d-25-0157.1 NNJA、sciencenet 574029 CliMetS/MOCSI、10.1029/2026GL124056 北极碳质气溶胶、10.1038/s41598-026-78685-x 南极 UAV 海鸟、ysfri 59428 蓝海101、cnfin 4488855 青岛海洋大数据应用中心、watertools 544 Sentinel-6B、copernicus product-roadmap 11月更新、10.5194/essd-18-7839-2026 IBRA 伊势湾、10.1002/lom3.70102 Ricker 小波、pypi oceanarray、zenodo.23749880 thermochain、ebiotrade 20261023104103527 CN-Waves、10.3390/computers15110763 WindAnalysis（MDPI/D）、10.1109/TGRS.2026.3708338 KunPeng 全球海洋环境预报模型（补录）、10.1109/TGRS.2026.3660295 GBM 海洋锋检测（补录）
+
 ### 2026-11-02（32 条）
 
 oceaneng.2026.129035 GSE ResNeXt 水下声学、s41612-026-01572-9 天星-S2S 扩散集合、jfb.70717 耳石层级 DL、ecolind.2026.115773 山东半岛富营养化、fbuil.2026.1969739 Unity 3D 海平面孪生、2755-2721/2026.38220 船舶电力孪生、buildings16204154 侨乡 HBIM（MDPI/D）、14738716261492254 海洋评估可视化、mafis.4012027010106 QGIS+CMEMS、app162110608 地层正演（MDPI/D）、s41598-026-76333-y 缺测填补、jaic.v10i5.13951 孤立森林质控、arxiv 2610.33609 卫星水深无泄漏、s43247-026-04175-7 格陵兰斜坡、2026jc024403 近海极端海平面、s13131-026-2694-2 RF-SFDL 声速、s10236-026-01869-6 高斯过程潮汐、aiig.2026.100284 生成模型水深、ecss.2026.110293 CNN-ISO 海平面、s10661-026-16088-1 立陶宛分类单元、6ad293ec 军事开放科学海岸遗产、1749-4877.70217 海兽性状库、ce.cn t20261027_3272858 蛟龙 7000 米海试、2026gl125540 南大洋合成浮标、essd-18-7743-2026 渤黄东海粒度、2026gl123670 航空声-震耦合、news.cn 妈祖 2.0、v.china.com.cn 临海海底数据中心、seanews 海博会、rineng.2026.113720 COAST、gji ggag450 OWL、echopype v0.12.0
