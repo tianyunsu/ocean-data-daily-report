@@ -139,6 +139,15 @@ s43247-026-03899-w 北极原住民、OSR 旧期预告、NA182、2609.37964、261
 
 ---
 
+### 4.4 去重前 DOI 归一化细则（2026-11-05 自 MEMORY 迁入）
+
+同一条目可能以四种链接形态出现，只做 URL 字符串集合差必然产生假阴性：
+- DOI 链接 → `doi.org/(10\..+)` 直取尾段
+- Copernicus 直链 `{journal}.copernicus.org/articles/{vol}/{page}/{year}/` → `10.5194/{journal}-{vol}-{page}-{year}`
+- MDPI `/issn/vol/issue/page`、IEEE `document/id` → 需查 DOI 或转标题比对
+- 机构新闻稿链接 → 只能靠标题归一化（去标点、小写、前 60 字符）
+规范：新条目优先用 `https://doi.org/...`，使 URL 比对天然等价于 DOI 比对。
+
 ## 五、待苏老师拍板事项（跨期延续）
 
 | 事项 | 现状 | 需要的决策 |

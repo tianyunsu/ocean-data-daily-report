@@ -34,3 +34,13 @@
 - **顺带修复**：gen_html footer「本期来源」原为 11-02 写死列表（派生到新期即失真）→ 改为按条目 `source` 动态去重生成。
 - **发布**：commit `2096ca1`；线上 posts/index/archive 均 200、posts 页 64,507 字节；飞书 `KJFxdx1a6oZDFGx7fnjcLe1fnvh` 清 189 块 → 写 204 块 / 7 批；webhook code=0；邮件未配置。
 - **验证**：死链 0（15 条非 200 全为反爬/沙箱波动，Sci Rep 与 ESSD 复测 GET 200、L&O Methods 403 属 Wiley 反爬）；URL/DOI 跨期 0 重叠；「GBM」往期 3 处命中均为 LightGBM。
+
+## 2026-11-05 期 · 自动化执行（周四）
+- **触发**：苏老师手动触发自动化 `ai`（rrule 仍 PAUSED，任务定义留云端）。
+- **条数**：**32 条 / 9 方向**（一5/二3/三3/四3/五5/六3/七4/八3/九3），**期刊 14 条 = 43.8%**（≥40% 在阶段三定稿即核算），学术类 59.4%，D 级 0 条。
+- **阶段一**（本期首次完整验证 11-04 新增修复）：`stage1_ieee_crossref.py` 窗口 10-22~11-05 → total 414 / ocean_hits 33；8 条 IEEE 论文全部来自该通道（VesselBench、QuaSAR、SWOT 15 弧秒、CAT 3D、SonarT165、AUV 洋流抑制、PPAP、GLHR）。会议通道采纳 CIKM 2026 两条（EarthOracle、AquaNord-SE）。
+- **阶段二**：harvest 7,437 条 → 池内 254 条（`{'?':107,'A':42,'B':50,'C':23,'D':17,'P':12,'S':3}`）；方向三/四/六/八仍为期刊荒漠，阶段二即用 WebSearch 补中文机构动态与工具版本。
+- **弃用**：`oceaneng.2026.129259`、`isprsjprs.2026.10.039/.038`、`TGRS.2026.3749930` —— OpenAlex + Crossref 双源无摘要。
+- **发布**：commit `8082592`；Pages 三页 200、posts 条目数 32；飞书新建 `ARz7dXPgNoulsyx2yykcgEONnqX`（157 块 / 6 批，回读 158 块，同日同名文档 1 个）；webhook `code:0`；邮件未配置。**周报不触发**（周四，距 W45 仅 3 天）。
+- **事故修复**：11-04 的 publish 用正则抽条目，遇无 url 的 `[备注]` 条目跨节捕获，把 build 脚本源码明文写进 `index.html`/`archive.html`（线上乱码）。本期以 `repair_publish_1105.py`（AST + 行区间断言）重写 11-04 卡片与归档条目并插入 11-05，线上污染计数归零。
+- **新经验**：①publish 一律 AST，禁用正则；②IEEE Crossref created 通道已在真实窗口验证有效；③无摘要弃用清单已成型，Elsevier/IEEE 双源缺摘要比例仍高；④MEMORY.md 二次压缩 16,444→16,206 B，11-04 清单与漏检明细迁 ARCHIVE。
