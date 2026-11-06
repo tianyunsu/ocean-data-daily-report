@@ -38,3 +38,5 @@ _arxiv_*.json
 _oa_*.json
 _stage1_*.log
 _screen_*.log
+
+.tmpcheck/
