@@ -57,29 +57,19 @@
 ## 去重基准（最近 3 期；更早 `grep -rl posts/`）
 > `posts/` 为全量存档；本节只列「易被再次检索命中」的标识符，完整条目见当日日志。**11-02 及更早期次已迁入 ARCHIVE.md 第一节；11-04 的完整 42 项亦已提前归档**（去重脚本本就扫 `posts/` 全量，此处仅留「最易被再次命中」的当期基准；需要时 grep ARCHIVE）。
 
-- **11-05（32条，期刊14条43.8%）**：`10.1109/TGRS.2026.3749162` VesselBench-800K、`10.1109/TIP.2026.3747251` SonarT165、`10.1109/TIP.2026.3744688` GLHR 船 Re-ID、`10.48550/arXiv.2611.02460` NeuralPOM、`10.1145/3799682.3840988` EarthOracle、`10.1145/3799682.3840989` AquaNord-SE、nmdis 86013 海洋信息技术创新中心年会（CGOF 1.0/孪生平台）、solar.in-en.com solar-2465221 田湾光伏孪生、`10.1016/j.oceaneng.2026.128821` ANN 沿海淹没、hal-05801805 淹没集合可视化、geoviews v1.16.0、oceanography-plotting-style、`10.1109/TGRS.2026.3749622` QuaSAR、argo.org.cn id=1131 ADMT-27 CPcor、`10.5194/os-22-3537-2026` 巴伦支海冰、`10.1109/TGRS.2026.3745627` SWOT 15弧秒、`10.1109/JOE.2026.3724238` CAT 3D、`10.48550/arXiv.2611.01680` 声场张量重建、`10.1029/2026GL124606` SWOT 4DVAR、`10.1109/JSTARS.2026.3748264` Chl-a 预报、geodata newsguid=277466173224030980 五项团体标准、`10.1007/s11192-026-05857-x` SDG 文献库、chinanews 10726189 实验3号、`10.1038/s41598-026-72665-x` 金枪鱼浮标、`10.1109/LRA.2026.3747613` AUV 洋流抑制、`10.1109/JOE.2026.3726174` PPAP、hizh.cn AP6aea0b61e4b02381c6bfa154 港珠澳琴算力联盟、pingtan t20261105_109871 岛屿国家论坛、163 LAUEB5O10511KMS0 珊瑚礁白化预警、zenodo 23861916 ctdcast v0.4.1、copernicus-marine-toolbox v2.5.1、erddapy v3.3.2
+- **11-05（32条，期刊14条43.8%）·完整 32 项已归档 `ARCHIVE.md` 第一节**。MEMORY 仅留最易再命中的标识符：VesselBench-800K（`TGRS.2026.3749162`）、SonarT165（`TIP.2026.3747251`）、GLHR 船 Re-ID（`TIP.2026.3744688`）、NeuralPOM（`arXiv.2611.02460`）、EarthOracle（`10.1145/3799682.3840988`）、ADMT-27 CPcor（argo id=1131）、ctdcast v0.4.1（zenodo 23861916）、copernicus-marine-toolbox v2.5.1、erddapy v3.3.2、geoviews v1.16.0、oceanography-plotting-style、港珠澳琴算力联盟（hizh.cn）、珊瑚礁白化预警（163 LAUEB5O10511KMS0）、五项团体标准（geodata newsguid）、实验3号（chinanews 10726189）。
 - **11-04（42条，含补录2条）**：完整 42 项已归档 `ARCHIVE.md` 第一节，MEMORY 不再保留子集（去重脚本扫 `posts/` 全量，需要时 grep ARCHIVE）。
 
 - **勿再收名单** → 已整体迁入 `ARCHIVE.md` 第二节（含「已收录不重发」显式标注条目）。**新增条目时须标注属「质量弃用」还是「xx 期已发」**，二者语义不同，否则后人会误读。
 
 ## 漏检核查与已知盲区（2026-11-04 建立）
-> 苏老师抽查「某篇是否收录」的处置台账，每条须落成「已收录 / 时间窗正当排除 / 系统未运行 / 真实漏检 + 根因」四类之一。案例明细见 `ARCHIVE.md` 4.3，取证见第四节。
+> 苏老师抽查「某篇是否收录」的处置台账，每条须落成「已收录 / 时间窗正当排除 / 系统未运行 / 真实漏检 + 根因」四类之一。完整案例与取证见 `ARCHIVE.md` 4.3–4.4。
 
-### 已核查案例
-- `10.5194/essd-18-4617-2026` ESSD 3D-U-Net++ → **已收录 09-04 方向五**（当日用 Copernicus 直链，按 DOI 检索出现假阴性）
-- `10.1109/TGRS.2026.3660295` GBM 海洋锋 → 首发 02-03 早于首期 03-23，时间窗正当排除（11-04 补录）
-- `10.59717/j.xinn-inform.2026.100051` PINN 降预报不确定性 → 双源无摘要，按纪律不收
-- `10.1109/TGRS.2026.3708338` KunPeng → **真实漏检**（IEEE 日期塌缩），11-04 补录
-
-### 三类根因
-1. **IEEE 日期塌缩（系统性，最严重）**：TGRS 等刊在 OpenAlex 的 `publication_date` 恒为当年 1-1，`created/updated_date` 也不等于首发日 → 按日期窗口拉取 IEEE 期刊恒返 0（10-21/11-02/11-04 通道全 0 皆源于此）。
-   - 修复：改用 **Crossref `filter=issn:<issn>,from-created-date:..,until-created-date:..`**（`created` = DOI 注册日 ≈ 首发日）；工具 `stage1_ieee_crossref.py --start/--end [--no-abstract]` → `_stage1_ieee.json`。**阶段一 IEEE 期刊组必须跑，不得只用 OpenAlex 日期窗口。**
-2. **链接形式不一致（去重假阴性）**：同一条目可能用 DOI、出版商直链或机构新闻稿链接 → 只做 URL 集合差会误判未收录。去重前必须 DOI 归一化（细则见 `ARCHIVE.md` 4.4），新条目**优先用 `https://doi.org/...`**。
-3. **系统上线前的历史文章**：最早期次 `2026-03-23`，此前论文属不可补的天然缺口。
-
-### 处置纪律
-- 核查「某篇是否收录」**不能只 grep DOI**：须同时 grep DOI 尾段数字、期刊简称+卷+页（如 `18, 4617`）、英文标题词、中文标题词。
-- 「已剔除」名单混有两类语义（质量弃用 vs 已发不重发），新增时须显式标注。
+- **已核查**：ESSD 3D-U-Net++ `10.5194/essd-18-4617-2026` → 已收录 09-04（当日用 Copernicus 直链致按 DOI 检索假阴性）；GBM 海洋锋 `TGRS.2026.3660295` → 首发 02-03 早于首期 03-23，正当排除；PINN 降预报不确定性 `j.xinn-inform.2026.100051` → 双源无摘要不收；KunPeng `TGRS.2026.3708338` → **真实漏检**，11-04 补录。
+- **根因 1 · IEEE 日期塌缩（系统性，最严重）**：TGRS 等刊 OpenAlex `publication_date` 恒为当年 1-1，`created/updated_date` 也不等于首发日 → 按日期窗口拉 IEEE 期刊恒返 0。修复：`stage1_ieee_crossref.py --start/--end [--no-abstract]`（Crossref `from-created-date`）→ `_stage1_ieee.json`。**阶段一 IEEE 组必须跑。**
+- **根因 2 · 链接形式不一致**：同一成果可能用 DOI / 出版商直链 / 机构新闻稿 → 只做 URL 集合差会假阴性。去重前须 DOI 归一化（细则 `ARCHIVE.md` 4.4），新条目**优先 `https://doi.org/...`**。
+- **根因 3**：最早期次 `2026-03-23`，此前论文属天然缺口。
+- **纪律**：核查「是否收录」不能只 grep DOI，须同时 grep DOI 尾段数字、期刊简称+卷+页、英文标题词、中文标题词；「已剔除」须标注属「质量弃用」还是「xx 期已发」。
 
 ## 经验教训（活跃判据）
 **内容与口径**
