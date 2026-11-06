@@ -33,3 +33,8 @@ _abs_*.json
 _fetch_abs_*.py
 _oa_*.py
 _stage1_ieee*.py.tmp
+
+_arxiv_*.json
+_oa_*.json
+_stage1_*.log
+_screen_*.log
