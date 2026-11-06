@@ -3,7 +3,7 @@
 > **本文件每次执行都会注入上下文，因此只保留「每日必需 + 决策判据」。**
 > 历史台账、已结案事故的取证叙述、滚出 3 期窗口的去重标识符、勿再收完整名单、待拍板事项 → 见 **`.workbuddy/memory/ARCHIVE.md`**（检索才读，可持续增长）。
 > **2026-11-04 首次压缩**：22,989 B / 14,371 字符 → 16,324 B / 10,100 字符（−29%），溢出内容迁入 ARCHIVE.md，**信息零丢失**（362 个 token 全量校验，仅余 3 处表述差异）。每超 16 KB 触发一次归档。
-> **2026-11-05 二次压缩**：16,444 B → 15,571 B（注入被截断触发），11-04 完整清单与漏检案例明细表迁入 ARCHIVE；同期新增 11-05 去重基准与 3 条经验。
+> **11-05 二次压缩**：16,444→15,571 B；**11-06 三次压缩**：16,332→15,146 B（11-05 清单与漏检明细迁 ARCHIVE）。每超 16 KB 触发归档。
 
 ## 系统配置
 - **用户**：苏老师 · **自动化ID** `ai`（rrule `FREQ=DAILY;BYHOUR=9;BYMINUTE=0`）· **2026-10-18 起 PAUSED**，任务定义留云端，由苏老师手动触发；改回 ACTIVE 即恢复
@@ -55,9 +55,10 @@
 | OpenAlex 会议论文为 0 | 类型值须 `conference-paper`（旧 `proceedings-article` 恒返 0 且不报错）；用已知会议论文反查做阳性对照 |
 
 ## 去重基准（最近 3 期；更早 `grep -rl posts/`）
-> `posts/` 为全量存档；本节只列「易被再次检索命中」的标识符，完整条目见当日日志。**11-02 及更早期次已迁入 ARCHIVE.md 第一节；11-04 的完整 42 项亦已提前归档**（去重脚本本就扫 `posts/` 全量，此处仅留「最易被再次命中」的当期基准；需要时 grep ARCHIVE）。
+> `posts/` 为全量存档；本节只列「易被再次检索命中」的标识符，完整条目见当日日志。**11-02 及更早期次、11-04/11-05/11-06 的完整清单均已迁入 ARCHIVE.md 第一节**（去重脚本本就扫 `posts/` 全量，此处仅留「最易被再次命中」的当期基准；需要时 grep ARCHIVE）。
 
-- **11-05（32条，期刊14条43.8%）·完整 32 项已归档 `ARCHIVE.md` 第一节**。MEMORY 仅留最易再命中的标识符：VesselBench-800K（`TGRS.2026.3749162`）、SonarT165（`TIP.2026.3747251`）、GLHR 船 Re-ID（`TIP.2026.3744688`）、NeuralPOM（`arXiv.2611.02460`）、EarthOracle（`10.1145/3799682.3840988`）、ADMT-27 CPcor（argo id=1131）、ctdcast v0.4.1（zenodo 23861916）、copernicus-marine-toolbox v2.5.1、erddapy v3.3.2、geoviews v1.16.0、oceanography-plotting-style、港珠澳琴算力联盟（hizh.cn）、珊瑚礁白化预警（163 LAUEB5O10511KMS0）、五项团体标准（geodata newsguid）、实验3号（chinanews 10726189）。
+- **11-06（36条，期刊15条41.7%）·完整 36 项见 ARCHIVE**。高风险标识符：Nereus `arXiv.2610.41705`、PhysFTM `arXiv.2611.03717`、GNN-VIEW `arXiv.2610.35693`、BGC 零样本校正 `arXiv.2610.39777`、JOE `3733262`/`3724447`、TGRS `3748509`/`3746583`、GRL `2026gl122406`/`2026gl123962`、GOOS Status Report 2026 `10.71245/yfva2935`、星海-BBNJ、海山图志、术语中译外平台、CMEMS `OC-1116`、MICAP `2751876`、AQUAVERSE-AC、CWAVE_S1TC `jtech-d-26-0075.1`、GLM-OOTKG、GAS11、长江口秋季航次、PANGAEA `998107`、`zenodo.23777351`、earthkit-data 1.3.1、gridded v0.8.2、AI 预报评测标准。
+- **11-05（32条，期刊14条43.8%）·完整 32 项见 ARCHIVE**。高风险标识符：VesselBench-800K `TGRS.2026.3749162`、SonarT165 `TIP.2026.3747251`、GLHR `TIP.2026.3744688`、NeuralPOM `arXiv.2611.02460`、EarthOracle `10.1145/3799682.3840988`、ADMT-27 CPcor、ctdcast v0.4.1、copernicusmarine v2.5.1、erddapy v3.3.2、geoviews v1.16.0、港珠澳琴算力联盟、珊瑚礁白化预警、五项团体标准、实验3号。
 - **11-04（42条，含补录2条）**：完整 42 项已归档 `ARCHIVE.md` 第一节，MEMORY 不再保留子集（去重脚本扫 `posts/` 全量，需要时 grep ARCHIVE）。
 
 - **勿再收名单** → 已整体迁入 `ARCHIVE.md` 第二节（含「已收录不重发」显式标注条目）。**新增条目时须标注属「质量弃用」还是「xx 期已发」**，二者语义不同，否则后人会误读。
@@ -82,7 +83,7 @@
 
 **OpenAlex / Crossref**
 - **IEEE Crossref created 通道已复验有效（11-05）**：窗口 10-22~11-05 跑出 total 414 / ocean_hits 33（JSTARS 14、TGRS 9、JOE 4、RA-L 4、TIP 2），本期 8 条 IEEE 论文**全部来自该通道**；`--no-abstract` 时摘要改由 `_oa_1105.py` 走 OpenAlex 重建 + Crossref `created` 定首发日（IEEE `publication_date` 恒为当年 1-1）。
-- **摘要缺口仍在（11-05 弃用 4 例）**：`10.1016/j.oceaneng.2026.129259`、`10.1016/j.isprsjprs.2026.10.039`、`10.1016/j.isprsjprs.2026.10.038`、`10.1109/TGRS.2026.3749930` 在 OpenAlex `abstract_inverted_index` 与 Crossref `abstract` 双源皆空 → 一律不收，不得据标题推断（即使标题与方向高度契合）。
+- **双源无摘要即弃用（11-05 四例 + 11-06 四例）**：11-05 `oceaneng.2026.129259`、`isprsjprs.2026.10.039/.038`、`TGRS.2026.3749930`；11-06 `JSTARS.3750434`、`JSTARS.3750150`、`TGRS.3750154`、`LGRS.3750731` —— OpenAlex `abstract_inverted_index` 与 Crossref `abstract` 皆空。**绝不据标题推断**，即使与方向高度契合。
 - **滤镜字段会改名（10-25）**：`issn:` 返 400，须 `primary_location.source.issn:`；0 结果先怀疑字段名。JOE 正确 issn_l = `0364-9059`。
 - **`host_organization` 不可靠（11-04）**：传 T&F/SAGE/AAAS/IOP 返回 Springer/OUP/BMC → **不能判定出版商零覆盖**。
 - **filter 里写 `%20` 会被二次编码（11-04）**：`title_and_abstract.search:ocean%20visualization` 变字面值，恒返 0 且不报错 → 滤镜一律用真实空格。
@@ -91,6 +92,7 @@
 - **池 jsonl 的 DOI URL 小写存储**：跨源比对须大小写归一。
 
 **产出与发布**
+- **Zenodo 概念 DOI 须查 Tombstone（11-06 新发现）**：`10.5281/zenodo.23930484`（EOSC Marine D1.1 Handbook）在 OpenAlex 有标题/摘要/日期，DOI 却跳转到已被作者撤回的记录页（2026-11-03 Retraction/Withdrawal）。采用 Zenodo 条目一律 WebFetch 复核落地页状态；概念 DOI 尾号常与版本 DOI 差 1，检索时按尾段数字 grep。
 - **publish 脚本一律用 AST，禁用正则抽条目（11-05 事故）**：11-04 的 publish 正则要求 `'source'…'url'…'date'` 连续匹配，而 `[备注]` 条目**无 url**，`.*?` 便跨节吃到下一组，把 build 脚本源码明文拼进 `index.html`/`archive.html`（线上渲染乱码）。模板见 `repair_publish_1105.py`：AST 取 SECTIONS → 跳过无 url/`[备注]` → 按行号区间替换并**先断言区间含 `'badge':`**。
 - **补录板块机制（11-04）**：漏检且有价值时**不散进 9 方向**（会破 3–5 上限），末尾单列「十、补录 · 往期漏检勘误」：板块 `count_as_direction: False`；台账 `badge='[备注]'`（不计 effective）；补录 `badge='[补录]'`→`badge-errata`、`date` 填**首发日**并写明漏检原因，五审时效单列说明。
 - **footer 来源按条目动态生成（11-04）**：原写死 11-02 列表，派生新期即失真；遍历 `sections` 的 `source`（按 `/` 与 `（` 截断）去重拼接。

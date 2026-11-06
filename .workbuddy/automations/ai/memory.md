@@ -624,3 +624,14 @@
 - **顺带修复**：gen_html footer「本期来源」原为 11-02 写死列表（派生到新期即失真）→ 改为按条目 `source` 动态去重生成。
 - **发布**：commit `2096ca1`；线上 posts/index/archive 均 200、posts 页 64,507 字节；飞书 `KJFxdx1a6oZDFGx7fnjcLe1fnvh` 清 189 块 → 写 204 块 / 7 批；webhook code=0；邮件未配置。
 - **验证**：死链 0（15 条非 200 全为反爬/沙箱波动，Sci Rep 与 ESSD 复测 GET 200、L&O Methods 403 属 Wiley 反爬）；URL/DOI 跨期 0 重叠；「GBM」往期 3 处命中均为 LightGBM。
+
+## 2026-11-06 期 · 自动化执行（周五）
+- **触发**：苏老师手动触发自动化 `ai`（rrule 仍 PAUSED，任务定义留云端）；起点 `1315086`，pull 已最新，sync_skills 同步 9 文件。
+- **条数**：**36 条 / 9 方向**（一5/二3/三4/四5/五5/六4/七4/八3/九3），**期刊 15 条 = 41.7%**（阶段三定稿即核算达标）、arXiv 11.1%、会议/顶会 5 条、D 级 0 条；时效 10-23~11-05 全部 ≤14 天（≤7 天 25 条）。
+- **阶段一**：IEEE Crossref created 通道 total 414 / ocean_hits 33；采纳 JOE×2 + TGRS×2。顶会采纳 NeurIPS 2026 四篇（Nereus / PhysFTM / GNN-VIEW / BGC 零样本校正）+ ADIPEC 2026 一篇。
+- **阶段二**：harvest 7,785 条 → 池内 259 条（`?107/A42/B49/C28/D16/P14/S3`）；结构性期刊荒漠延续，阶段二即用 OpenAlex 八组定向补检，补入 15 篇有摘要期刊论文。
+- **新发现**：Zenodo 概念 DOI `10.5281/zenodo.23930484`（EOSC Marine D1.1 Handbook）实际跳转到作者撤回的 Tombstone → 已剔除；今后 Zenodo 条目须 WebFetch 复核落地页状态。另弃用 4 例 IEEE 双源无摘要论文。
+- **发布**：commit `e7c10bb` + `ed0e832`；Pages 三页 200、posts 条目数 36、源码污染计数 0；飞书新建 `Bnhfd1YYHoIRtqxLLazcjhK3n0g`（173 块 / 6 批，回读 174 块 / 18,050 字符，36 条标题全命中，同日同名 1 个）；webhook code=0；邮件未配置。**周报不触发**（周五，距 W45 仅 4 天）。
+- **五审**：链接 12 条非 200 全为 IEEE/T&F/AGU/CSIRO/OnePetro 反爬（已用 `verify_paper.py` 回查元数据），死链 0；URL/DOI 与中文标题片段跨期 0 重复；来源矩阵打卡模板 10 行全 Y、零覆盖 0 组，细分未采纳出版商组均已给出关键词与归因。
+- **记忆**：新建 `.workbuddy/memory/2026-11-06.md`；MEMORY.md 第三次压缩 16,332→15,910 B（11-05 清单与漏检明细迁 ARCHIVE）并滚动 11-06 基准；ARCHIVE 第一节新增 11-06 全量 36 项；新增「Zenodo Tombstone」「双源无摘要」两条经验。
+- **遗留**：邮件凭证未配置；跨期三项待拍板（D 级加严 / 周报期号 / 自动化 `ai` 状态）未变。
