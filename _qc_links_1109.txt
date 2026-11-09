@@ -1,0 +1,72 @@
+unique urls 36
+200 https://arxiv.org/abs/2610.36297
+200 https://doi.org/10.1038/s41612-026-01585-4
+202 https://doi.org/10.1109/TIP.2026.3748963
+202 https://doi.org/10.1109/JSTARS.2026.3751362
+200 http://qstheory.com/20261104/e414f4d8f3e84e0ebe320994bc2a0170/c.html
+403 https://ecomagazine.com/news/research/ocean-x-project-launches-digital-twin-of-the-ocean-for-macaronesia/
+200 https://scs.mnr.gov.cn/scsb/fjdt/202611/10d58a418365499380b0820a9b7cf47d.shtml
+200 https://doi.org/10.36038/0131-6184-2026-5-60-69
+200 https://doi.org/10.5194/wcd-7-2155-2026
+URLError https://doi.org/10.5281/zenodo.19745884
+200 https://doi.org/10.1177/14738716261492254
+200 https://doi.org/10.1016/j.ecolind.2026.115751
+202 https://doi.org/10.1109/LGRS.2026.3750909
+202 https://doi.org/10.1109/JSTARS.2026.3750208
+403 https://doi.org/10.1080/10095020.2026.2753898
+202 https://doi.org/10.1109/JSTARS.2026.3747308
+403 https://doi.org/10.1002/joc.70653
+202 https://doi.org/10.1109/TGRS.2026.3751156
+403 https://doi.org/10.1093/gji/ggag480
+403 https://doi.org/10.1080/20964471.2026.2753277
+200 https://doi.org/10.1175/MWR-D-26-0024.1
+202 https://doi.org/10.1109/TGRS.2026.3749724
+200 https://www.sohu.com/a/1098116473_121107000
+200 https://doi.org/10.3389/fmars.2026.1941879
+200 https://committee.iso.org/sites/tc211/home/standards-in-action/presentation-archive/2026-11-02-standards-in-action-2026-discover-how-geospatial-standards-are-shaping-the-future.html
+403 https://doi.org/10.1111/csp2.70437
+200 https://news.ifeng.com/c/8xr98khtthe
+200 https://doi.org/10.1016/j.dsr.2026.104771
+202 https://doi.org/10.1109/LRA.2026.3747601
+200 https://marine-ireland.ie/node/2150
+403 https://www.ncei.noaa.gov/archive/accession/0319413
+200 https://epaper.xkb.com.cn/view/1270198
+200 https://oceanvines.org/news/2026-11-04-mariana-seafloor-mapping
+200 https://pypi.org/project/pystac/1.16.0/
+200 https://pypi.org/project/rio-tiler/9.4.13/
+200 https://pypi.org/project/pyvista/0.49.2/
+
+--- DOMAINS ---
+22 doi.org
+3 pypi.org
+1 arxiv.org
+1 qstheory.com
+1 ecomagazine.com
+1 scs.mnr.gov.cn
+1 www.sohu.com
+1 committee.iso.org
+1 news.ifeng.com
+1 marine-ireland.ie
+1 www.ncei.noaa.gov
+1 epaper.xkb.com.cn
+1 oceanvines.org
+
+--- NOT 200 ---
+202 https://doi.org/10.1109/TIP.2026.3748963
+202 https://doi.org/10.1109/JSTARS.2026.3751362
+403 https://ecomagazine.com/news/research/ocean-x-project-launches-digital-twin-of-the-ocean-for-macaronesia/
+URLError https://doi.org/10.5281/zenodo.19745884
+202 https://doi.org/10.1109/LGRS.2026.3750909
+202 https://doi.org/10.1109/JSTARS.2026.3750208
+403 https://doi.org/10.1080/10095020.2026.2753898
+202 https://doi.org/10.1109/JSTARS.2026.3747308
+403 https://doi.org/10.1002/joc.70653
+202 https://doi.org/10.1109/TGRS.2026.3751156
+403 https://doi.org/10.1093/gji/ggag480
+403 https://doi.org/10.1080/20964471.2026.2753277
+202 https://doi.org/10.1109/TGRS.2026.3749724
+403 https://doi.org/10.1111/csp2.70437
+202 https://doi.org/10.1109/LRA.2026.3747601
+403 https://www.ncei.noaa.gov/archive/accession/0319413
+
+SUMMARY total=36 ok=20 not200=16
