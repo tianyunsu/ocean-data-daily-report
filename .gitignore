@@ -29,10 +29,13 @@ __pycache__/
 
 # 临时中间产物（下划线前缀，勿入库）
 _*.log
+_*.txt
 _abs_*.json
 _fetch_abs_*.py
 _oa_*.py
 _stage1_ieee*.py.tmp
+_urlcheck_*.json
+*.tmp
 
 _arxiv_*.json
 _oa_*.json

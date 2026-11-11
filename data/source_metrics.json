@@ -1,4 +1,92 @@
 {
+ "0001-1541": {
+  "citedness": 4.396,
+  "h_index": 285,
+  "i10": 12904,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "AIChE Journal",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 21161
+ },
+ "0001-3072": {
+  "citedness": 2.602,
+  "h_index": 84,
+  "i10": 610,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Abacus",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 1487
+ },
+ "0001-4338": {
+  "citedness": 0.737,
+  "h_index": 42,
+  "i10": 542,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Izvestiya Atmospheric and Oceanic Physics",
+  "publisher": "Pleiades Publishing",
+  "type": "journal",
+  "works": 2896
+ },
+ "0001-4966": {
+  "citedness": 0.963,
+  "h_index": 379,
+  "i10": 29006,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The Journal of the Acoustical Society of America",
+  "publisher": "Acoustical Society of America",
+  "type": "journal",
+  "works": 173498
+ },
+ "0001-5113": {
+  "citedness": 1.412,
+  "h_index": 26,
+  "i10": 158,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Acta Adriatica",
+  "publisher": "Institute of Oceanography and Fisheries",
+  "type": "journal",
+  "works": 1185
+ },
+ "0001-5296": {
+  "citedness": 0.5,
+  "h_index": 34,
+  "i10": 223,
+  "in_doaj": false,
+  "is_oa": true,
+  "name": "Acta Biologica Cracoviensia s Botanica",
+  "publisher": "De Gruyter Open",
+  "type": "journal",
+  "works": 606
+ },
+ "0001-5342": {
+  "citedness": 1.971,
+  "h_index": 67,
+  "i10": 513,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Acta Biotheoretica",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 1558
+ },
+ "0001-5555": {
+  "citedness": 2.732,
+  "h_index": 143,
+  "i10": 5691,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Acta Dermato Venereologica",
+  "publisher": "Soc for Publication of Acta Dermato-Venereologica",
+  "type": "journal",
+  "works": 10363
+ },
  "0001-5725": {
   "citedness": 2.46,
   "h_index": 58,
@@ -9,6 +97,50 @@
   "publisher": "Springer Science+Business Media",
   "type": "journal",
   "works": 2827
+ },
+ "0001-5970": {
+  "citedness": 4.505,
+  "h_index": 124,
+  "i10": 3824,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Acta Mechanica",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 8690
+ },
+ "0001-6071": {
+  "citedness": 0.878,
+  "h_index": 18,
+  "i10": 66,
+  "in_doaj": false,
+  "is_oa": true,
+  "name": "Acta Medica Philippina",
+  "publisher": "University of the Philippines Manila",
+  "type": "journal",
+  "works": 2152
+ },
+ "0001-6349": {
+  "citedness": 3.727,
+  "h_index": 166,
+  "i10": 7317,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Acta Obstetricia Et Gynecologica Scandinavica",
+  "publisher": "Informa",
+  "type": "journal",
+  "works": 15399
+ },
+ "0001-6837": {
+  "citedness": 0.544,
+  "h_index": 14,
+  "i10": 27,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Acta Poloniae Pharmaceutica - Drug Research",
+  "publisher": "Polish Pharmaceutical Society",
+  "type": "journal",
+  "works": 761
  },
  "0001-6918": {
   "citedness": 3.421,
@@ -21,6 +153,28 @@
   "type": "journal",
   "works": 10416
  },
+ "0001-6977": {
+  "citedness": 2.419,
+  "h_index": 52,
+  "i10": 805,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Acta Societatis Botanicorum Poloniae",
+  "publisher": "Polish Botanical Society",
+  "type": "journal",
+  "works": 3895
+ },
+ "0001-706X": {
+  "citedness": 2.973,
+  "h_index": 156,
+  "i10": 5152,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Acta Tropica",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 8361
+ },
  "0001-7272": {
   "citedness": 0.971,
   "h_index": 74,
@@ -31,6 +185,17 @@
   "publisher": "Wiley",
   "type": "journal",
   "works": 2794
+ },
+ "0001-9240": {
+  "citedness": 2.553,
+  "h_index": 70,
+  "i10": 1143,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The Aeronautical Journal",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 8171
  },
  "0002-0206": {
   "citedness": 0.124,
@@ -43,6 +208,50 @@
   "type": "journal",
   "works": 6689
  },
+ "0002-1962": {
+  "citedness": 2.454,
+  "h_index": 241,
+  "i10": 11623,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Agronomy Journal",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 25303
+ },
+ "0002-7294": {
+  "citedness": 1.608,
+  "h_index": 228,
+  "i10": 4313,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Anthropologist",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 31751
+ },
+ "0002-7316": {
+  "citedness": 0.954,
+  "h_index": 159,
+  "i10": 2751,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Antiquity",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 11148
+ },
+ "0002-7820": {
+  "citedness": 3.984,
+  "h_index": 325,
+  "i10": 22551,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Journal of the American Ceramic Society",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 37055
+ },
  "0002-7863": {
   "citedness": 17.129,
   "h_index": 899,
@@ -54,6 +263,50 @@
   "type": "journal",
   "works": 222078
  },
+ "0002-8320": {
+  "citedness": 0.46,
+  "h_index": 31,
+  "i10": 140,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Transactions of the American Entomological Society",
+  "publisher": "",
+  "type": "journal",
+  "works": 680
+ },
+ "0002-8444": {
+  "citedness": 0.403,
+  "h_index": 57,
+  "i10": 549,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Fern Journal",
+  "publisher": "American Fern Society",
+  "type": "journal",
+  "works": 3523
+ },
+ "0002-8487": {
+  "citedness": 1.399,
+  "h_index": 170,
+  "i10": 5557,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Transactions of the American Fisheries Society",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 10191
+ },
+ "0002-8614": {
+  "citedness": 3.042,
+  "h_index": 350,
+  "i10": 11736,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Journal of the American Geriatrics Society",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 25842
+ },
  "0002-9122": {
   "citedness": 2.592,
   "h_index": 242,
@@ -64,6 +317,149 @@
   "publisher": "Wiley",
   "type": "journal",
   "works": 28691
+ },
+ "0002-9165": {
+  "citedness": 6.322,
+  "h_index": 502,
+  "i10": 18614,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Journal of Clinical Nutrition",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 28810
+ },
+ "0002-9599": {
+  "citedness": 3.918,
+  "h_index": 241,
+  "i10": 4006,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Journal of Science",
+  "publisher": "Yale University",
+  "type": "journal",
+  "works": 11911
+ },
+ "0002-9637": {
+  "citedness": 2.185,
+  "h_index": 248,
+  "i10": 15033,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Journal of Tropical Medicine and Hygiene",
+  "publisher": "American Society of Tropical Medicine and Hygiene",
+  "type": "journal",
+  "works": 24028
+ },
+ "0003-0007": {
+  "citedness": 6.338,
+  "h_index": 312,
+  "i10": 3867,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Bulletin of the American Meteorological Society",
+  "publisher": "American Meteorological Society",
+  "type": "journal",
+  "works": 25455
+ },
+ "0003-004X": {
+  "citedness": 2.259,
+  "h_index": 222,
+  "i10": 8065,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Mineralogist",
+  "publisher": "Mineralogical Society of America",
+  "type": "journal",
+  "works": 13936
+ },
+ "0003-0082": {
+  "citedness": 1.484,
+  "h_index": 75,
+  "i10": 667,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Museum Novitates",
+  "publisher": "American Museum of Natural History",
+  "type": "journal",
+  "works": 4655
+ },
+ "0003-0147": {
+  "citedness": 2.994,
+  "h_index": 419,
+  "i10": 8687,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The American Naturalist",
+  "publisher": "University of Chicago Press",
+  "type": "journal",
+  "works": 23819
+ },
+ "0003-021X": {
+  "citedness": 2.276,
+  "h_index": 201,
+  "i10": 9732,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Journal of the American Oil Chemists Society",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 24854
+ },
+ "0003-0554": {
+  "citedness": 8.085,
+  "h_index": 406,
+  "i10": 4724,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Political Science Review",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 32270
+ },
+ "0003-0589": {
+  "citedness": 1.671,
+  "h_index": 92,
+  "i10": 2303,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "American Journal of Potato Research",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 7864
+ },
+ "0003-2409": {
+  "citedness": 4.667,
+  "h_index": 205,
+  "i10": 8774,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Anaesthesia",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 29099
+ },
+ "0003-2670": {
+  "citedness": 5.829,
+  "h_index": 310,
+  "i10": 29859,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Analytica Chimica Acta",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 46960
+ },
+ "0003-2697": {
+  "citedness": 3.811,
+  "h_index": 406,
+  "i10": 19948,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Analytical Biochemistry",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 30978
  },
  "0003-2700": {
   "citedness": 7.079,
@@ -87,6 +483,50 @@
   "type": "journal",
   "works": 17306
  },
+ "0003-455X": {
+  "citedness": 0.93,
+  "h_index": 68,
+  "i10": 613,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Annales Zoologici Fennici",
+  "publisher": "Finnish Zoological and Botanical Publishing Board",
+  "type": "journal",
+  "works": 969
+ },
+ "0003-4649": {
+  "citedness": 7.593,
+  "h_index": 87,
+  "i10": 1508,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Annals of Microbiology",
+  "publisher": "BioMed Central",
+  "type": "journal",
+  "works": 2412
+ },
+ "0003-469X": {
+  "citedness": 1.162,
+  "h_index": 7,
+  "i10": 6,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Annali Italiani di Chirurgia",
+  "publisher": "Springer Nature",
+  "type": "journal",
+  "works": 572
+ },
+ "0003-4746": {
+  "citedness": 2.178,
+  "h_index": 149,
+  "i10": 5746,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Annals of Applied Biology",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 10728
+ },
  "0003-4800": {
   "citedness": 1.412,
   "h_index": 134,
@@ -109,6 +549,72 @@
   "type": "journal",
   "works": 14709
  },
+ "0003-6072": {
+  "citedness": 2.782,
+  "h_index": 159,
+  "i10": 4062,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Antonie van Leeuwenhoek",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 7701
+ },
+ "0003-682X": {
+  "citedness": 5.796,
+  "h_index": 135,
+  "i10": 4847,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Applied Acoustics",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 10284
+ },
+ "0003-6870": {
+  "citedness": 5.597,
+  "h_index": 189,
+  "i10": 4200,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Applied Ergonomics",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 11628
+ },
+ "0003-6935": {
+  "citedness": 1.904,
+  "h_index": 321,
+  "i10": 31602,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Applied Optics",
+  "publisher": "Optica Publishing Group",
+  "type": "journal",
+  "works": 62645
+ },
+ "0003-6951": {
+  "citedness": 4.386,
+  "h_index": 564,
+  "i10": 104839,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Applied Physics Letters",
+  "publisher": "American Institute of Physics",
+  "type": "journal",
+  "works": 141251
+ },
+ "0003-7028": {
+  "citedness": 2.535,
+  "h_index": 166,
+  "i10": 6794,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Applied Spectroscopy",
+  "publisher": "SAGE Publishing",
+  "type": "journal",
+  "works": 13199
+ },
  "0003-7214": {
   "citedness": 3.932,
   "h_index": 66,
@@ -119,6 +625,17 @@
   "publisher": "UWA Publishing",
   "type": "journal",
   "works": 1897
+ },
+ "0003-8121": {
+  "citedness": 1.56,
+  "h_index": 66,
+  "i10": 601,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Archaeology in Oceania/Archæology & physical anthropology in Oceania",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 1562
  },
  "0003-813X": {
   "citedness": 1.176,
@@ -131,6 +648,28 @@
   "type": "journal",
   "works": 3379
  },
+ "0003-9012": {
+  "citedness": 2.24,
+  "h_index": 172,
+  "i10": 8742,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Archives of Virology",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 15002
+ },
+ "0003-9039": {
+  "citedness": 4.87,
+  "h_index": 65,
+  "i10": 1647,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Electrical Engineering",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 7983
+ },
  "0003-9276": {
   "citedness": 3.928,
   "h_index": 208,
@@ -142,6 +681,116 @@
   "type": "journal",
   "works": 14031
  },
+ "0003-9527": {
+  "citedness": 6.156,
+  "h_index": 219,
+  "i10": 3963,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Archive for Rational Mechanics and Analysis",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 5476
+ },
+ "0003-9756": {
+  "citedness": 0.663,
+  "h_index": 80,
+  "i10": 494,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "European Journal of Sociology",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 1765
+ },
+ "0004-0002": {
+  "citedness": 3.574,
+  "h_index": 193,
+  "i10": 3877,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Archives of Sexual Behavior",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 6443
+ },
+ "0004-0584": {
+  "citedness": 0.233,
+  "h_index": 12,
+  "i10": 18,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Archivos de Pediatría del Uruguay",
+  "publisher": "",
+  "type": "journal",
+  "works": 968
+ },
+ "0004-0622": {
+  "citedness": 5.627,
+  "h_index": 30,
+  "i10": 141,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Archivos Latinoamericanos de Nutrición",
+  "publisher": "Latin American Nutrition Archives",
+  "type": "journal",
+  "works": 1039
+ },
+ "0004-0843": {
+  "citedness": 0.408,
+  "h_index": 100,
+  "i10": 1665,
+  "in_doaj": false,
+  "is_oa": true,
+  "name": "ARCTIC",
+  "publisher": "Arctic Institute of North America",
+  "type": "journal",
+  "works": 4990
+ },
+ "0004-0894": {
+  "citedness": 2.058,
+  "h_index": 117,
+  "i10": 1240,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Area",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 2410
+ },
+ "0004-282X": {
+  "citedness": 0.337,
+  "h_index": 83,
+  "i10": 2901,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Arquivos de Neuro-Psiquiatria",
+  "publisher": "Thieme Medical Publishers (Germany)",
+  "type": "journal",
+  "works": 12335
+ },
+ "0004-3702": {
+  "citedness": 6.306,
+  "h_index": 310,
+  "i10": 2887,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Artificial Intelligence",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 4854
+ },
+ "0004-4822": {
+  "citedness": 0,
+  "h_index": 38,
+  "i10": 278,
+  "in_doaj": false,
+  "is_oa": true,
+  "name": "Revista de la Asociación Geológica Argentina",
+  "publisher": "",
+  "type": "journal",
+  "works": 1722
+ },
  "0004-6256": {
   "citedness": 5.116,
   "h_index": 355,
@@ -152,6 +801,17 @@
   "publisher": "Institute of Physics",
   "type": "journal",
   "works": 32877
+ },
+ "0004-6337": {
+  "citedness": 1.13,
+  "h_index": 84,
+  "i10": 1453,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Astronomische Nachrichten",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 56666
  },
  "0004-6361": {
   "citedness": 5.068,
@@ -175,6 +835,17 @@
   "type": "journal",
   "works": 135038
  },
+ "0004-9190": {
+  "citedness": 2.981,
+  "h_index": 75,
+  "i10": 1122,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Geographical Research",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 4373
+ },
  "0004-9522": {
   "citedness": 0.164,
   "h_index": 46,
@@ -196,6 +867,72 @@
   "publisher": "CSIRO Publishing",
   "type": "journal",
   "works": 3158
+ },
+ "0005-0423": {
+  "citedness": 1.381,
+  "h_index": 127,
+  "i10": 5276,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Australian Veterinary Journal",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 21624
+ },
+ "0005-1098": {
+  "citedness": 7.164,
+  "h_index": 402,
+  "i10": 10740,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Automatica",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 15769
+ },
+ "0005-1144": {
+  "citedness": 4.674,
+  "h_index": 42,
+  "i10": 301,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Automatika",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 1207
+ },
+ "0005-805X": {
+  "citedness": 1.0,
+  "h_index": 16,
+  "i10": 47,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Contributions to Entomology",
+  "publisher": "Senckenberg German Entomological Institute",
+  "type": "journal",
+  "works": 645
+ },
+ "0006-2952": {
+  "citedness": 5.514,
+  "h_index": 295,
+  "i10": 22539,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biochemical Pharmacology",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 33507
+ },
+ "0006-2960": {
+  "citedness": 3.052,
+  "h_index": 446,
+  "i10": 61904,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biochemistry",
+  "publisher": "American Chemical Society",
+  "type": "journal",
+  "works": 71400
  },
  "0006-3088": {
   "citedness": 1.739,
@@ -219,6 +956,391 @@
   "type": "journal",
   "works": 16164
  },
+ "0006-3444": {
+  "citedness": 6.042,
+  "h_index": 352,
+  "i10": 5567,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biometrika",
+  "publisher": "Oxford University Press",
+  "type": "journal",
+  "works": 8741
+ },
+ "0006-3495": {
+  "citedness": 0.609,
+  "h_index": 388,
+  "i10": 22208,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biophysical Journal",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 84020
+ },
+ "0006-3525": {
+  "citedness": 3.339,
+  "h_index": 218,
+  "i10": 7115,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biopolymers",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 12136
+ },
+ "0006-3568": {
+  "citedness": 6.584,
+  "h_index": 353,
+  "i10": 3628,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "BioScience",
+  "publisher": "Oxford University Press",
+  "type": "journal",
+  "works": 16800
+ },
+ "0006-3592": {
+  "citedness": 4.225,
+  "h_index": 274,
+  "i10": 13379,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biotechnology and Bioengineering",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 19150
+ },
+ "0006-3606": {
+  "citedness": 2.03,
+  "h_index": 178,
+  "i10": 3360,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Biotropica",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 4865
+ },
+ "0006-3657": {
+  "citedness": 3.347,
+  "h_index": 75,
+  "i10": 1562,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Bird Study",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 3111
+ },
+ "0006-453X": {
+  "citedness": 0.034,
+  "h_index": 3,
+  "i10": 1,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Blake/An Illustrated Quarterly",
+  "publisher": "University of Rochester",
+  "type": "journal",
+  "works": 317
+ },
+ "0006-4971": {
+  "citedness": 1.833,
+  "h_index": 642,
+  "i10": 50079,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Blood",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 183281
+ },
+ "0006-8055": {
+  "citedness": 1.982,
+  "h_index": 100,
+  "i10": 2163,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Botanica Marina",
+  "publisher": "De Gruyter",
+  "type": "journal",
+  "works": 4241
+ },
+ "0006-8241": {
+  "citedness": 1.128,
+  "h_index": 50,
+  "i10": 397,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Bothalia",
+  "publisher": "AOSIS",
+  "type": "journal",
+  "works": 2157
+ },
+ "0006-8314": {
+  "citedness": 3.074,
+  "h_index": 188,
+  "i10": 3539,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Boundary-Layer Meteorology",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 5450
+ },
+ "0006-8977": {
+  "citedness": 1.633,
+  "h_index": 138,
+  "i10": 1840,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Brain Behavior and Evolution",
+  "publisher": "Karger Publishers",
+  "type": "journal",
+  "works": 3157
+ },
+ "0007-0610": {
+  "citedness": 0.959,
+  "h_index": 160,
+  "i10": 5398,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "BDJ",
+  "publisher": "Springer Nature",
+  "type": "journal",
+  "works": 37598
+ },
+ "0007-0874": {
+  "citedness": 0.197,
+  "h_index": 65,
+  "i10": 645,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The British Journal for the History of Science",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 5904
+ },
+ "0007-0920": {
+  "citedness": 7.841,
+  "h_index": 350,
+  "i10": 21491,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal of Cancer",
+  "publisher": "Springer Nature",
+  "type": "journal",
+  "works": 28350
+ },
+ "0007-0998": {
+  "citedness": 7.358,
+  "h_index": 184,
+  "i10": 2165,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal of Educational Psychology",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 4658
+ },
+ "0007-1102": {
+  "citedness": 2.611,
+  "h_index": 111,
+  "i10": 863,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal of Mathematical and Statistical Psychology",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 1874
+ },
+ "0007-1145": {
+  "citedness": 2.805,
+  "h_index": 286,
+  "i10": 11800,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal Of Nutrition",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 17130
+ },
+ "0007-1188": {
+  "citedness": 5.728,
+  "h_index": 322,
+  "i10": 20016,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal of Pharmacology",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 26563
+ },
+ "0007-1269": {
+  "citedness": 3.807,
+  "h_index": 193,
+  "i10": 2181,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal of Psychology",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 4174
+ },
+ "0007-1315": {
+  "citedness": 2.191,
+  "h_index": 273,
+  "i10": 3355,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "British Journal of Sociology",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 7048
+ },
+ "0007-1773": {
+  "citedness": 0.856,
+  "h_index": 29,
+  "i10": 141,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Journal of the British Society for Phenomenology",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 2242
+ },
+ "0007-196X": {
+  "citedness": 0.789,
+  "h_index": 111,
+  "i10": 1309,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Brittonia",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 4478
+ },
+ "0007-215X": {
+  "citedness": 4.238,
+  "h_index": 27,
+  "i10": 149,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Brodogradnja",
+  "publisher": "Faculty of Mechanical Engineering and Naval Architecture",
+  "type": "journal",
+  "works": 457
+ },
+ "0007-4861": {
+  "citedness": 2.349,
+  "h_index": 122,
+  "i10": 8581,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Bulletin of Environmental Contamination and Toxicology",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 15039
+ },
+ "0007-6791": {
+  "citedness": 1.497,
+  "h_index": 76,
+  "i10": 1094,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Business History",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 5485
+ },
+ "0007-6805": {
+  "citedness": 0.273,
+  "h_index": 74,
+  "i10": 753,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The Business History Review",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 9870
+ },
+ "0007-9723": {
+  "citedness": 0.227,
+  "h_index": 27,
+  "i10": 205,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Cahiers de biologie marine",
+  "publisher": "Roscoff Biological Station",
+  "type": "journal",
+  "works": 2395
+ },
+ "0008-1256": {
+  "citedness": 6.909,
+  "h_index": 254,
+  "i10": 1404,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "California Management Review",
+  "publisher": "SAGE Publishing",
+  "type": "journal",
+  "works": 3178
+ },
+ "0008-4034": {
+  "citedness": 2.823,
+  "h_index": 135,
+  "i10": 5029,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The Canadian Journal of Chemical Engineering",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 12532
+ },
+ "0008-4239": {
+  "citedness": 1.057,
+  "h_index": 83,
+  "i10": 1011,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Canadian Journal of Political Science",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 8427
+ },
+ "0008-4301": {
+  "citedness": 1.175,
+  "h_index": 190,
+  "i10": 10695,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Canadian Journal of Zoology",
+  "publisher": "Canadian Science Publishing",
+  "type": "journal",
+  "works": 15558
+ },
+ "0008-4840": {
+  "citedness": 2.109,
+  "h_index": 47,
+  "i10": 468,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Canadian Public Administration",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 3389
+ },
+ "0008-5006": {
+  "citedness": 0.635,
+  "h_index": 28,
+  "i10": 140,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Canadian Slavonic Papers",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 2735
+ },
  "0008-5103": {
   "citedness": 3.917,
   "h_index": 32,
@@ -230,6 +1352,61 @@
   "type": "journal",
   "works": 1942
  },
+ "0008-5472": {
+  "citedness": 0.7,
+  "h_index": 476,
+  "i10": 18797,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Cancer Research",
+  "publisher": "American Association for Cancer Research",
+  "type": "journal",
+  "works": 159411
+ },
+ "0008-6215": {
+  "citedness": 3.483,
+  "h_index": 224,
+  "i10": 13316,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Carbohydrate Research",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 22038
+ },
+ "0008-6223": {
+  "citedness": 12.473,
+  "h_index": 390,
+  "i10": 19975,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Carbon",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 30894
+ },
+ "0008-6452": {
+  "citedness": 0.487,
+  "h_index": 28,
+  "i10": 130,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Caribbean Journal of Science",
+  "publisher": "University of Puerto Rico at Mayaguez",
+  "type": "journal",
+  "works": 630
+ },
+ "0008-7041": {
+  "citedness": 0.733,
+  "h_index": 58,
+  "i10": 473,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The Cartographic Journal",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 2242
+ },
  "0008-9389": {
   "citedness": 0.111,
   "h_index": 42,
@@ -240,6 +1417,28 @@
   "publisher": "Cambridge University Press",
   "type": "journal",
   "works": 4583
+ },
+ "0009-2347": {
+  "citedness": 0.001,
+  "h_index": 105,
+  "i10": 1374,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Chemical & Engineering News",
+  "publisher": "American Chemical Society",
+  "type": "journal",
+  "works": 165142
+ },
+ "0009-2509": {
+  "citedness": 4.984,
+  "h_index": 301,
+  "i10": 21974,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Chemical Engineering Science",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 34934
  },
  "0009-2541": {
   "citedness": 3.276,
@@ -263,6 +1462,94 @@
   "type": "journal",
   "works": 38654
  },
+ "0009-2819": {
+  "citedness": 3.251,
+  "h_index": 84,
+  "i10": 648,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Geochemistry",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 1415
+ },
+ "0009-286X": {
+  "citedness": 1.651,
+  "h_index": 91,
+  "i10": 2812,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Chemie Ingenieur Technik",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 33129
+ },
+ "0009-4439": {
+  "citedness": 1.266,
+  "h_index": 137,
+  "i10": 1568,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The China Quarterly",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 9017
+ },
+ "0009-4536": {
+  "citedness": 2.125,
+  "h_index": 61,
+  "i10": 1865,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Journal of the Chinese Chemical Society",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 8638
+ },
+ "0009-7411": {
+  "citedness": 0.63,
+  "h_index": 21,
+  "i10": 122,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Cirugía y Cirujanos",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 2023
+ },
+ "0009-8388": {
+  "citedness": 0.212,
+  "h_index": 114,
+  "i10": 1987,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "The Classical Quarterly",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 6617
+ },
+ "0009-9236": {
+  "citedness": 4.702,
+  "h_index": 274,
+  "i10": 9425,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Clinical Pharmacology & Therapeutics",
+  "publisher": "Wiley",
+  "type": "journal",
+  "works": 18961
+ },
+ "0010-0730": {
+  "citedness": 0.522,
+  "h_index": 20,
+  "i10": 46,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "Collectanea Botanica",
+  "publisher": "Spanish National Research Council",
+  "type": "journal",
+  "works": 320
+ },
  "0010-0870": {
   "citedness": 1.882,
   "h_index": 83,
@@ -274,6 +1561,61 @@
   "type": "journal",
   "works": 7836
  },
+ "0010-2180": {
+  "citedness": 6.69,
+  "h_index": 275,
+  "i10": 10266,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Combustion and Flame",
+  "publisher": "Elsevier BV",
+  "type": "journal",
+  "works": 14963
+ },
+ "0010-3713": {
+  "citedness": 0.034,
+  "h_index": 2,
+  "i10": 0,
+  "in_doaj": true,
+  "is_oa": true,
+  "name": "COMMUNIO VIATORUM",
+  "publisher": "Protestant Theological Faculty – Charles University",
+  "type": "journal",
+  "works": 99
+ },
+ "0010-3829": {
+  "citedness": 2.183,
+  "h_index": 62,
+  "i10": 605,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Community Development",
+  "publisher": "Routledge",
+  "type": "journal",
+  "works": 2077
+ },
+ "0010-4140": {
+  "citedness": 6.038,
+  "h_index": 202,
+  "i10": 1792,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Comparative Political Studies",
+  "publisher": "SAGE Publishing",
+  "type": "journal",
+  "works": 2896
+ },
+ "0010-4175": {
+  "citedness": 1.488,
+  "h_index": 128,
+  "i10": 1344,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Comparative Studies in Society and History",
+  "publisher": "Cambridge University Press",
+  "type": "journal",
+  "works": 3526
+ },
  "0010-4655": {
   "citedness": 3.529,
   "h_index": 302,
@@ -284,6 +1626,39 @@
   "publisher": "Elsevier BV",
   "type": "journal",
   "works": 14118
+ },
+ "0010-5422": {
+  "citedness": 1.375,
+  "h_index": 150,
+  "i10": 4906,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Ornithological Applications",
+  "publisher": "Oxford University Press",
+  "type": "journal",
+  "works": 12081
+ },
+ "0010-7514": {
+  "citedness": 0.783,
+  "h_index": 119,
+  "i10": 856,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Contemporary Physics",
+  "publisher": "Taylor & Francis",
+  "type": "journal",
+  "works": 4583
+ },
+ "0010-7999": {
+  "citedness": 3.526,
+  "h_index": 272,
+  "i10": 6034,
+  "in_doaj": false,
+  "is_oa": false,
+  "name": "Contributions to Mineralogy and Petrology",
+  "publisher": "Springer Science+Business Media",
+  "type": "journal",
+  "works": 7375
  },
  "0011-3891": {
   "citedness": 0.951,

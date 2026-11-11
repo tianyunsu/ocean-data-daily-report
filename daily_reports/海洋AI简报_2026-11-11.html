@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋AI技术日报 · 2026年11月11日</title>
+<style>
+  :root {
+    --ocean-deep: #003366;
+    --ocean-mid: #005b9a;
+    --ocean-light: #0082c8;
+    --ocean-teal: #00a8b5;
+    --ocean-foam: #e8f6fa;
+    --accent-gold: #f0a500;
+    --text-dark: #1a2a3a;
+    --text-muted: #5a6a7a;
+    --card-bg: #ffffff;
+    --border-light: #c8e0ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #001a33 0%, #003366 40%, #004d80 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+  }
+  .header {
+    background: linear-gradient(135deg, #001428 0%, #003366 50%, #00254d 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 3px solid var(--ocean-teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%2300a8b5' fill-opacity='0.07' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,62 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") bottom / cover no-repeat;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(0,168,181,0.2);
+    border: 1px solid var(--ocean-teal);
+    color: var(--ocean-teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header .date-line {
+    color: #80c8e0;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--ocean-teal);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title-cn {
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .section-title-en {
+    color: #80c8e0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .section-items { padding: 8px 22px 16px; }
+  .section-items p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
+  .item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 14px 0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-paper { background: #e3f2fd; color: #1565c0; }
+  .badge-news { background: #e8f5e9; color: #2e7d32; }
+  .badge-dynamic { background: #fff3e0; color: #e65100; }
+  .badge-tool { background: #f3e5f5; color: #7b1fa2; }
+  .badge-data { background: #e0f7fa; color: #00695c; }
+  .badge-cruise { background: #fce4ec; color: #c62828; }
+  .badge-report { background: #fff8e1; color: #f57f17; }
+  .badge-errata { background: #fdecea; color: #b71c1c; }
+  .badge-default { background: #eceff1; color: #546e7a; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: var(--ocean-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .item-title a:hover { color: var(--ocean-teal); text-decoration: underline; }
+  .item-abstract {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 6px;
+  }
+  .item-meta {
+    font-size: 11px;
+    color: #90a4ae;
+  }
+  .item-meta span { margin-right: 12px; }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #80b0c8;
+    font-size: 11px;
+  }
+  .summary-bar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .summary-bar strong { color: var(--ocean-mid); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">Marine AI Daily Brief</div>
+  <h1>海洋AI技术日报</h1>
+  <div class="date-line">2026年11月11日 · 周三</div>
+</div>
+<div class="container">
+<div class="summary-bar">
+  <span>本期共 <strong>40</strong> 条动态</span>
+  <span>|</span>
+  <span>覆盖 <strong>9</strong> 个方向</span>
+  <span>|</span>
+  <span>日期范围：2026-10-29 ~ 2026-11-10</span>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div>
+      <div class="section-title-cn">一、海洋人工智能</div>
+      <div class="section-title-en">Ocean AI / Marine Artificial Intelligence</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2611.14136" target="_blank">HaiRuo：把中尺度涡同时当「场」和「对象」预报，10.5 亿参数卫星测高基础模型把 15 天涡心误差压到 25.2 km</a></div>
+      <div class="item-abstract">中尺度涡携带海洋大部分动能并跨海盆输运热、盐与营养盐，但「两周后涡在哪」仍需靠数值模式加事后追踪启发式。HaiRuo 用 30 天卫星海面高度图一次前向推理，同时返回未来 15 天的海面高度与地转流速、逐日涡旋掩膜，以及当前每个涡的轨迹。框架分两部分：HaiRuo-1B 为开放权重的 10.5 亿参数基础模型，在 24 年全球卫星测高观测上无标签预训练，同一解码器下场预报技巧 +0.14、掩膜 +1.1 mIoU，冻结权重时仍把 15 天涡心误差再降 1.2 km；XuanJi 为拉格朗日对象解码器，在随涡共动的极坐标框架中采样演化预报并用三轮前瞻精修路径，再降 2.5 km。全海洋预注册评测中，HaiRuo 在 14 个对照方法的全部指标上领先（15 天涡心误差 25.2 km 对 30.6 km，−18%），在有标签区外及 ENSO 两个位相下保持优势，并复现西向漂移、50–60°S 东向反转与气旋/反气旋向极偏转。开放权重、代码与项目页已公开。（arXiv v1，2026-11-10）</div>
+      <div class="item-meta">arXiv · 2026-11-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1038/s41467-026-78009-7" target="_blank">全集成柔性温深传感器 + 神经网络补偿：平均静态电流 24.63 µA，可贴附曲面与移动平台下深海（Nature Communications）</a></div>
+      <div class="item-abstract">深海塑造全球热输运、碳循环与深渊环流，却有大片区域欠采样；传统仪器虽能做单点精密测量，但刚性与重量限制了其在新兴观测平台上的部署。该文提出全集成的柔性温度—深度传感器，可部署于曲面与移动表面执行深海测量：小型、轻量、应力自适应、低功耗电子学平均静态电流 24.63 µA，作为协同设计的信息物理平台工作，并以神经网络补偿柔性封装带来的温漂与压力耦合误差。（Nature Communications，2026-11-07）</div>
+      <div class="item-meta">Nature Communications · 2026-11-07</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1016/j.apor.2026.105325" target="_blank">谱分析 + 深度学习融合做 1–90 天海平面预测：识别出半月 20 天、周 6.6–9.9 天与年 354 天三个主控周期</a></div>
+      <div class="item-abstract">该研究面向动态近岸环境构建谱—卷积混合网络（Spectral-CNN），用于 1–90 天 horizons 的海水位预测。作者用经典周期图、连续小波变换与 Whittle 自回归周期性三种谱识别方法确定序列的谱滞后，据此前识别出半月（20 天）、周（6.6–9.9 天）与年（354 天）三个主控周期，再把谱先验并入卷积网络做多尺度预报，模型表现良好。（Applied Ocean Research，2026-11-09）</div>
+      <div class="item-meta">Applied Ocean Research · 2026-11-09</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1121/10.0047249" target="_blank">首个先验增强深度学习框架预测三维水声传播损失，绕开数值模式的高算力代价（JASA）</a></div>
+      <div class="item-abstract">三维（3D）水声传播损失预测对声呐运用与海洋环境监测至关重要，但传统数值模式算力代价过高；数据驱动方法虽是可行替代，却因样本生成困难与高维映射挑战而鲜有研究。该文提出首个面向 3D 传播损失预测的先验增强深度学习框架，包含三项关键创新：加速样本生成的混合并行计算策略、把物理先验嵌入网络，以及针对高维映射的表征设计。（Journal of the Acoustical Society of America，2026-11-01）</div>
+      <div class="item-meta">JASA · 2026-11-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[会议]</span> <a href="https://doi.org/10.1145/3767308.3835401" target="_blank">校准—补偿块让二值化网络胜任水下图像增强：1-bit 量化下恢复接近全精度模型的复原质量（ACM 会议）</a></div>
+      <div class="item-abstract">二值化神经网络（BNN）算力效率极高，但严格的对称假设与有限表征能力会在水下图像增强（UIE）等复杂任务上造成严重性能退化。该文给出以「校准—补偿块」（CCB）为核心的二值化架构：量化前的自适应分布偏移器（ADS）动态对齐水下色偏造成的非对称激活分布，量化后的统计补偿模块（SCM）恢复 1-bit 量化丢失的幅值信息；另引入 BNN 友好采样策略消除混合精度瓶颈，实现端到端高度二值化推理。实验表明其复原质量可与全精度 SOTA 相当，并优于既有二值化方法。（ACM 国际会议，2026-11-06）</div>
+      <div class="item-meta">ACM · 2026-11-06</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div>
+      <div class="section-title-cn">二、海洋数字孪生</div>
+      <div class="section-title-en">Ocean Digital Twin</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1029/2026jc024517" target="_blank">PRYDZ_CPL：1/36° NEMO + 1/12° WRF 高分辨率海—冰—气耦合配置，用八个冬季观测检验普里兹湾两个沿岸冰间湖</a></div>
+      <div class="item-abstract">沿岸冰间湖虽是小尺度特征，却强烈影响大气—海洋—海冰相互作用。作者发展 PRYDZ_CPL 高分辨率区域耦合配置（NEMO 1/36°、WRF 1/12°）覆盖东南极普里兹湾，专为真实表征冰间湖而设计，并用一套综合观测在八个冬季评估。模式对地表大气条件再现良好，温度与风速偏差较小；海洋部分模拟的表层略偏淡。（Journal of Geophysical Research: Oceans，2026-11-01）</div>
+      <div class="item-meta">JGR Oceans · 2026-11-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1029/2026ms005804" target="_blank">弱耦合海—气资料同化的观测系统试验：同时同化海洋与大气资料，比只同化其一给出更一致的初值</a></div>
+      <div class="item-abstract">该研究在区域弱耦合海洋—大气资料同化（DA）系统中做观测系统试验（OSE），检验海气相互作用。个例选取 2023 年阿拉伯海季风爆发事件，恰与热带气旋 Biparjoy 过境重合。结果显示，同时同化海洋与大气资料所得的海洋—大气状态预报（对同化数据的拟合）优于只同化海洋或只同化大气的试验，表明耦合系统能提供更一致的初始条件。（Journal of Advances in Modeling Earth Systems，2026-11-01）</div>
+      <div class="item-meta">JAMES · 2026-11-01</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2610.41596" target="_blank">分块深度核学习做资料同化与偏差校正：在极稀疏观测下把 CNN 与可学习核高斯过程耦合，给出校准的不确定性</a></div>
+      <div class="item-abstract">资料同化（DA）把传感器观测与数值模式输出结合以重建时空状态；模式状态高维而观测只覆盖极小部分区域，使 DA 成为天气预报与海洋学的核心大规模估计难题。经典 3D-Var 依赖手工构造的背景误差协方差、假定误差无偏，无法刻画状态相关与系统性模式偏差，代价还随区域增大；深度学习能做非线性同化与偏差校正，却通常缺乏可解释性与校准的不确定性估计。该文提出把卷积神经网络与可学习核高斯过程耦合的混合框架，面向极稀疏观测场景。（arXiv v1，2026-10-30）</div>
+      <div class="item-meta">arXiv · 2026-10-30</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1038/s41598-026-79099-5" target="_blank">共形双线性神经网络构造时间分数阶 Vakhnenko 方程的精确非线性波解（Scientific Reports）</a></div>
+      <div class="item-abstract">该研究提出共形双线性神经网络框架，用于构造共形时间分数阶 Vakhnenko 方程（CTFVE）的精确非线性波解——该方程描述弛豫介质中的高频波运动，分数阶充当可调的时间尺度参数。通过引入对数型因变量变换与兼容共形分数阶导数的广义 Hirota 双线性算子，把控制方程改写为双线性形式，再用单隐层与双隐层前馈网络结构求解若干精确解。（Scientific Reports，2026-11-06）</div>
+      <div class="item-meta">Scientific Reports · 2026-11-06</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1029/2026jc024460" target="_blank">红海生物地球化学模拟对「时变光衰减系数」及其不确定性的敏感性：把静态气候态换成逐月空间场集合</a></div>
+      <div class="item-abstract">光衰减系数控制水下光可用性并强烈影响海洋生物地球化学动力学；但多数海洋生物地球化学模式仍给定静态气候态，忽略其时空变率与观测不确定性，其后果少被系统评估。该研究在红海构建逐月空间场集合，检验生物地球化学模拟对时空变化的光衰减系数及其相关不确定性的敏感性，评估这些简化对模拟海洋生态系统的影响。（Journal of Geophysical Research: Oceans，2026-11-01）</div>
+      <div class="item-meta">JGR Oceans · 2026-11-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div>
+      <div class="section-title-cn">三、海洋可视化</div>
+      <div class="section-title-en">Ocean Data Visualization</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://github.com/holoviz/hvplot/releases/tag/v0.13.0" target="_blank">hvPlot 0.13.0 实验性支持 Xugrid 非结构网格三角网绘图，直面海洋非结构网格模式的可视化</a></div>
+      <div class="item-abstract">HoloViz 生态的 hvPlot 于 11 月 10 日发布 0.13.0，新增对 Xugrid 非结构网格（trimesh）绘图的实验性支持——这类网格正是 FVCOM、SCHISM 等海洋非结构网格模式与近岸测深数据的常见形态。同版修复面积图在 stacked/y2 下的处理与 vectorfield 幅值缩放；文档大幅改版，新增 llms.txt、每页 Markdown 输出与便于 AI 助手消费的说明；同时弃用 streamz 与 intake 数据源，停止支持 Python 3.10，并加入 Python 3.15 与 Polars 2.0 支持。（GitHub Releases / PyPI，2026-11-10）</div>
+      <div class="item-meta">GitHub / PyPI · 2026-11-10</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5194/essd-2026-860" target="_blank">SDUST2026SM 全球海山目录：SWOT_04 重力异常垂直梯度 + GEBCO_2025 测深，按 10°×10° 分块编目 80°N–80°S</a></div>
+      <div class="item-abstract">该研究把基于重力异常垂直梯度（VGGA）与测深的综合海山探测与高度估计方法（ISDHEB）用于 80°N–80°S 全球海洋的海山探测与编目，输入为 Scripps 海洋研究所发布的 SWOT_04 VGGA 场与 GEBCO_2025 测深网格。全球被划分为 10°×10° 处理块、每块带 1° 重叠缓冲，再用局部极大值、闭合等值线、面积与振幅、圆形度等多重约束筛选候选特征，形成可供测深制图与海底地貌可视化调用的全球目录。（Earth System Science Data Discussions，2026-11-04）</div>
+      <div class="item-meta">ESSD Discussions · 2026-11-04</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5281/zenodo.24086682" target="_blank">船载 X 波段雷达产品样例数据公开：30 分钟窗口打包海面粗糙度、近表层流、海浪与质控，供 Marine Radar Analyzer 复现文档图与端到端测试</a></div>
+      <div class="item-abstract">迈阿密大学发布 R/V Thomas G. Thompson 航次 TN441（ONR 资助 ARCTERX 项目）2025-01-15 12:00–12:30 UTC 的 SOMaR 船载 X 波段雷达产品样例（CF-1.13 SOMaR-0.4-draft），用作 Marine Radar Analyzer（marineradaranalyzer）软件的样例数据，服务于文档配图与端到端测试。归档含海面粗糙度与粗糙度镶嵌、单扫描粗糙度、近表层海流与流剖面、海浪、后向散射、雷达与流场质控、调参等产品，以及船载 ADCP 近表层流剖面、GEBCO 2023 测深子集、船舶导航与气象数据、可一键跑通全部产品的配置；裁切后保留变量、数据类型、属性与原始时间值，许可 CC BY 4.0。（Zenodo v1，2026-11-09）</div>
+      <div class="item-meta">Zenodo · 2026-11-09</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div>
+      <div class="section-title-cn">四、海洋数据质量</div>
+      <div class="section-title-en">Ocean Data Quality</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1109/jstars.2026.3750434" target="_blank">Sentinel-1 多普勒流产品强散射目标污染质控：用归一化雷达截面 + 多普勒估计标准差构造综合指数并重建多普勒场</a></div>
+      <div class="item-abstract">星载 SAR 多普勒频移为海表流反演提供高空间分辨率观测，但船舶、海工平台、浮标等非地球物理强散射体可造成局部异常。该研究针对 Sentinel-1 L2 OCN 产品中的局部强散射目标污染（LSSTC）提出质控与多普勒场重建方法：由归一化雷达截面与多普勒估计标准差构造综合指数识别受污染像元，再用形态学膨胀约束重建范围。（IEEE JSTARS，Crossref created 2026-11-04）</div>
+      <div class="item-meta">IEEE JSTARS · 2026-11-04</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1109/tgrs.2026.3750154" target="_blank">卫星测高重力反演海底地形的模型不确定性量化：反演残差并非理想白噪声，误差随地形起伏呈空间异质</a></div>
+      <div class="item-abstract">由卫星测高派生重力数据反演水深，是高精度海底地形制图的高性价比途径；而要评估一张海底地形图的质量与可靠性，必须量化反演水深的不确定性。既有反演方法隐含假定误差服从理想白噪声，但深海地形的固有复杂性与多变性会破坏该假设，反演残差呈现与地形起伏相关的空间异质性。该研究据此建立面向测高重力反演海底地形的模型不确定性量化方法。（IEEE TGRS，Crossref created 2026-11-05）</div>
+      <div class="item-meta">IEEE TGRS · 2026-11-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5194/essd-2026-872" target="_blank">西北欧陆架海碳酸盐系统质控数据产品 NWESDAP：补齐 GLODAP 偏重开阔大洋留下的陆架海空白</a></div>
+      <div class="item-abstract">陆架海位于陆地与开阔大洋交界，在全球碳循环中作用重要：生产力高、是沉积物有机碳埋藏的主要场所，也受人类活动强烈影响。研究海洋碳循环及其时空变率，需要一致且经质量控制的碳酸盐系统变量数据产品（如 GLODAP）；但 GLODAP 侧重开阔大洋，限制了其对陆架海的适用性。该研究发布面向西北欧陆架海的质控数据产品（NWESDAP），给出碳酸盐系统变量的一致化整理与质控口径。（Earth System Science Data Discussions，2026-11-05）</div>
+      <div class="item-meta">ESSD Discussions · 2026-11-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1007/s10044-026-01803-y" target="_blank">水下视觉的折射罩标定：把水—玻璃—空气多重折射与相机在防水罩内的位姿一并纳入光线求解</a></div>
+      <div class="item-abstract">许多水下应用依赖视觉传感器，因而需要精确的相机标定，即明确每个像元对应的入射光线。理想针孔模型假定所有视线交于单一三维点，但水下成像系统会受水、玻璃、空气界面处可能的多重折射影响；光线方向变化取决于相机在防水罩内的位置与姿态，以及界面窗口的几何与光学属性。该文给出面向折射罩的水下视觉标定方法。（Pattern Analysis and Applications，2026-11-09）</div>
+      <div class="item-meta">Pattern Analysis and Applications · 2026-11-09</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-default">[会议]</span> <a href="https://doi.org/10.1145/3849740.3856205" target="_blank">多份冰图之间的标注分歧不该被压成单一标签：海冰发育阶段制图的「多标注者标签不确定性」建模（ACM 会议）</a></div>
+      <div class="item-abstract">海冰发育阶段（SoD）刻画海冰年龄与相应厚度，服务于航行、业务冰情监测与冰况评估；标签来自业务冰图——受训分析员解读卫星观测，为冰况相似的区域赋予标准化阶段码，且阶段码常代表兼容的厚度区间而非精确物理值。深度学习方法可自动化 SoD 制图，却普遍把业务冰图当作唯一的训练与评测参考标签；由于判读依赖分析员判断与当时可得的观测，不同冰服务机构对同一冰况可能给出不同 SoD 标签。该文把这种独立专家标注之间的变异定义为「多标注者标签不确定性」，指出把标注坍缩为单一确定性目标会丢弃该信息。（ACM 国际会议，2026-11-03）</div>
+      <div class="item-meta">ACM · 2026-11-03</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div>
+      <div class="section-title-cn">五、海洋数据处理</div>
+      <div class="section-title-en">Ocean Data Processing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5194/essd-18-8149-2026" target="_blank">物理信息深度学习重建 1993–2023 全球逐日 0.25° 海表流场，补上地转平衡漏掉的非地转运动（ESSD）</a></div>
+      <div class="item-abstract">海表环流塑造气候、海气交换及热、碳与其他示踪物的输运，但多数长期卫星全球数据集主要依赖地转平衡，因而漏掉重要的非地转运动。该研究用物理信息深度学习框架，把卫星测高与来自地转平衡、风应力、非线性平流的动量约束结合，重建 1993–2023 年全球 0.25° 分辨率逐日海表环流，所得数据集具备动力一致性。（Earth System Science Data，2026-11-06）</div>
+      <div class="item-meta">ESSD · 2026-11-06</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1093/gji/ggag484" target="_blank">面向野外尺度数据集的记忆高效深度学习匹配全波形反演：绕开深度学习自动微分在大规模波动方程上的扩展性瓶颈</a></div>
+      <div class="item-abstract">经典全波形反演（FWI）对初始速度模型的运动学误差敏感，缺低频数据时因周期跳变收敛到局部极小。新近提出的深度学习匹配 FWI（DLM-FWI）在反演环内用卷积神经网络作为稳健的运动学预条件器，动态弥合合成与观测数据之间的相位差；但标准深度学习自动微分引擎难以扩展到大规模波动方程。该文提出记忆高效的 DLM-FWI，面向野外尺度数据集。（Geophysical Journal International，2026-11-06）</div>
+      <div class="item-meta">GJI · 2026-11-06</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://arxiv.org/abs/2611.04893" target="_blank">容错浅层循环解码器：传感器失效、异步采样与缺测条件下的高维状态重建</a></div>
+      <div class="item-abstract">真实传感系统天然不完美：传感器会失效、间歇断连、以异步采样率工作并受噪声影响，产生不规则、不完整、异质的测量流；而实时状态重建策略通常假定传感器同步且持续在线，这一约束大幅限制了其在业务环境中的适用性。该文在浅层循环解码器（SHRED）框架下引入容错稀疏感知策略，从稀疏、异步、缺测的传感器测量估计高维状态，比较朴素插补、容错循环时间编码器，并提出四种基于 Transformer 的掩膜机制让 SHRED 显式感知传感器状态。（arXiv v1，2026-11-03）</div>
+      <div class="item-meta">arXiv · 2026-11-03</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1080/17445302.2026.2754172" target="_blank">两期多波束测深 + 机器学习预测海底沙丘迁移速率：111 样本、7 特征，EO-Stacking 达 R²=0.97</a></div>
+      <div class="item-abstract">预测海底沙丘迁移速率对理解海床演化、保障海洋工程安全重要。该研究用两期多波束测深数据构建 111 条样本的数据集，取沙丘波长、高度、水深、缓坡与陡坡长度、缓坡与陡坡角度共 7 个输入特征，评估 EO-Stacking、Stacking、XGBoost、LightGBM、MLP、BPNN、SVR、RF 共 8 个模型；EO-Stacking 测试表现最佳，R²=0.97、RMSE=2.29 m/yr、MAE=1.59 m/yr。（Ships and Offshore Structures，2026-11-05）</div>
+      <div class="item-meta">Ships and Offshore Structures · 2026-11-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1002/lno.70539" target="_blank">季节时序拆穿「热浪导致藻华」的表观巧合：三沙湾藻华峰值 5–6 月、热浪日峰值 7–9 月，季节中心相差 2.73 个月</a></div>
+      <div class="item-abstract">海洋热浪越来越常被用来解释近岸藻华，但共享季节性会混淆二者的表观同步。该研究汇编中国三沙湾 48 条来源可追溯的藻华记录与卫星反演的区域逐日海表温度序列，检验 2005–2020 年藻华记录时序相对于热浪暴露的关系：藻华记录在 5–6 月达峰，区域热浪日在 7–9 月达峰，加权圆形季节中心相差 2.73 个月，月度重叠系数仅 0.29。（Limnology and Oceanography，2026-11-01）</div>
+      <div class="item-meta">Limnology and Oceanography · 2026-11-01</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div>
+      <div class="section-title-cn">六、数据管理与共享</div>
+      <div class="section-title-en">Marine Data Management & Sharing</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.17882/121223" target="_blank">C-RAID 漂流浮标小时级海表流数据集：1.607 亿条流速估计，风滑移订正后 1.436 亿浮标小时，逐时配准 ERA5 与 Copernicus Marine</a></div>
+      <div class="item-abstract">Ifremer Coriolis 数据中心对 Argos 与 Iridium 浮标报文做全量再处理与专家质控：从 1979–2020 年 17,489 个浮标约 1.235 亿条「好/可能好」定位出发，用保形 PCHIP 插值到小时网格，在球面上求导得到 1.607 亿条逐时流速估计；质控标记 >500 cm/s 的不可信速度与跨长间隔的插值（标记值保留）。每条估计配准 11 个 ERA5 单层变量（海表温度、2 m 气温、海平面气压、10 m 风、辐射与湍流热通量、风应力等）及两个 Copernicus Marine 产品（DUACS 高度计地转流、Ekman/Stokes 流）；按 Rio(2012) 逐浮标估计风滑移、用 60 天滑动窗复回归剔除后，得到约 1.436 亿浮标小时的订正流场。四分之一浮标小时位于热带太平洋，数据以按时间排序的 Apache Parquet 分发，附列字典、README 与元数据。（SEANOE / ODATIS，2026-11-06）</div>
+      <div class="item-meta">SEANOE · 2026-11-06</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5194/essd-18-7817-2026" target="_blank">全球涡旋配准温盐剖面数据集 v1.0：29 年（1993–2021）多平台原位剖面与卫星中尺度涡追踪融合，含 235 万条剖面</a></div>
+      <div class="item-abstract">中尺度涡是海洋环流的基本组成，对海洋温度与盐度的三维分布起关键作用，但观测约束长期限制了对涡致热盐变率的全球尺度系统定量。该研究把原位水文剖面观测与卫星反演的中尺度涡追踪产品融合，构建覆盖 1993–2021 共 29 年的全球涡旋配准历史温盐剖面数据集 v1.0，含 235 万条剖面。（Earth System Science Data，2026-10-29）</div>
+      <div class="item-meta">ESSD · 2026-10-29</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.57760/sciencedb.space.00351" target="_blank">FY-3E GNOS-II GNSS-R L2 海面风速数据集上线：2021 年 8–10 月 GPS/北斗/Galileo 三系统，约 3.50 GB、1 Hz、25 km</a></div>
+      <div class="item-abstract">该数据集整理并配准风云三号 E 星 GNOS-II GNSS-R 二级（L2）海面风速数据，覆盖 2021-08-01 至 2021-10-31 共三个月，含三个 MAT 文件中的 GPS、北斗与 Galileo 观测，合计约 3.50 GB；观测范围约 63.741°S–79.240°N、经度以 0°–360° 表示，沿卫星观测轨迹分布，标称采样频率 1 Hz、标称空间分辨率约 25 km。（Science Data Bank，2026-11-05）</div>
+      <div class="item-meta">ScienceDB · 2026-11-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5281/zenodo.23899404" target="_blank">SOCOMv2 实验 5 全量数据集：垂直温度梯度对海表 fCO₂ 重建与海气碳通量的影响，8 种重建方法 × 3 套气体交换参数化</a></div>
+      <div class="item-abstract">表层海洋 CO₂ 制图计划第二阶段（SOCOMv2）提供社区驱动的协调框架，用于在当前观测约束下评估海表海水 CO₂ 逸度（sfCO₂）重建与派生的海气 CO₂ 通量。本次发布的实验 5 数据集支撑一项研究：垂直温度梯度对基于观测的 sfCO₂ 集合有何影响。仓储含 3 个 netCDF 与 3 个 CSV，分别对应 Wanninkhof_ERA5、Nightingale_ERA5、Nightingale_CCMP 三套气体交换/风速设置；每个 netCDF 收录 8 种重建方法（UExP-FNN-U、CMEMS-LSCE-FFNN、LDEO-HPD、CarboScope、JMA-MLR、LDEO-sfCO2-Residual、VLIZ-SOMFFN、NIES-ML3）的 sfCO₂、三种通量情形及其不确定性，并附海表温度盐度等辅助变量；文件合计约 12 GB，CC BY 许可。（Zenodo v1，2026-11-02）</div>
+      <div class="item-meta">Zenodo · 2026-11-02</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5281/zenodo.23769249" target="_blank">首个开放的全球热带气旋风暴潮事件过程线目录：1980–2022、2,723 个气旋，GTSMv3 + GESLAv3 + DKM-DBSCAN 危害追踪</a></div>
+      <div class="item-abstract">该文稿给出首个开放的、按事件归因的历史热带气旋沿岸风暴潮过程线全球目录，时段 1980–2022。风暴潮由 GTSMv3 再分析导出（选取在 ERA5 中表征良好的气旋），观测事件过程线取自 GESLAv3 验潮站；用基于 Dynamic K-Means–DBSCAN（DKM-DBSCAN）的危害追踪器识别每场风暴的时空风暴潮型态，并以验潮观测做校准与验证。目录为 2,723 个热带气旋提供风暴潮足迹与过程线，跨海盆覆盖一致，适合全球比较分析以及作为风暴潮模式与仿真器的基准。文稿已投 Scientific Data（评审中），数据与代码另附 DOI。（Zenodo v1，2026-10-29）</div>
+      <div class="item-meta">Zenodo · 2026-10-29</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div>
+      <div class="section-title-cn">七、开放航次与科考</div>
+      <div class="section-title-en">Open Cruises & Ocean Observation</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.5194/os-22-3595-2026" target="_blank">24 个浅表漂流浮标在瓦登海搁浅约 150 次：用搁浅转场反推漂浮大塑料的输运与滞留</a></div>
+      <div class="item-abstract">该研究以专门航次研究漂浮海洋大塑料污染：在半日潮与风共同驱动水面动力的荷兰瓦登潮间带释放并追踪 24 个浅表漂流浮标，捕获水面输运型态，并记录约 150 次浮标与海岸、泥滩相互作用的观测，其中搁浅持续时长各异。作者既通过人工判读识别轨迹中的这些转场，也提出并评估了自动识别的统计方法。（Ocean Science，2026-11-06）</div>
+      <div class="item-meta">Ocean Science · 2026-11-06</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1016/j.jappgeo.2026.106569" target="_blank">「真自主」AUV 磁测探水下未爆弹：先粗扫定位磁异常，再聚类逐一精细复核</a></div>
+      <div class="item-abstract">海域中的弹药与未爆物（UXO）对海洋环境与现代社会构成显著威胁。为推动自动探测与后续处置，该研究开发了由水下机器人与磁力仪组成的自主系统，流程分两步：先按预定区域做粗粒度扫描，定位超过给定阈值的磁异常；再把所有检出的异常聚类，以智能高效的方式逐一详细排查，作者称其为「真正自主」的磁测调查方法。（Journal of Applied Geophysics，2026-10-30）</div>
+      <div class="item-meta">Journal of Applied Geophysics · 2026-10-30</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.3390/oceans7060092" target="_blank">无人艇用于海洋地质调查的发展现状与方向：自主控制、传感器集成、数据传输与处理三条主线（MDPI 集团刊，2026 年置底）</a></div>
+      <div class="item-abstract">无人水面艇（USV）作为新型海洋载体平台，凭灵活性、低可探测性与无人化作业在海洋地质调查中日受关注。该综述系统梳理全球与中国的 USV 发展脉络与现状，并从自主控制、传感器集成、数据传输与处理三个角度总结 USV 海洋地质调查技术的进展，给出海底地形地貌测量与海底浅层探测等代表性应用。（Oceans；MDPI 集团刊，按分级口径置底，2026-11-09）</div>
+      <div class="item-meta">Oceans (MDPI) · 2026-11-09</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-cruise">[航次]</span> <a href="https://doi.org/10.25704/eyxm-2007" target="_blank">SOCIB_CabreraSummer26 航次终报：4 天完成 25 条 CTD 剖面、最深 2,268 m，为 MeDITTO-PROTECT 数字孪生海洋建观测基线</a></div>
+      <div class="item-abstract">2026 年 7 月 13–16 日，SOCIB 在 R/V SOCIB 上执行 Cabrera Summer 2026 海洋学航次，目标是刻画卡布雷拉群岛国家公园及邻近水域的物理与生物地球化学变率、验证区域海洋预报系统，并为 SOCIB 的数字孪生海洋原型 MeDITTO-PROTECT 建立观测基线。航次在横跨陆架、陆坡与深盆环境的 5 条断面上完成 25 条 CTD 剖面，最大深度 2,268 m；17 个站位采集离散水样，并辅以船载连续观测。（SOCIB 数据仓储，报告发布 2026-11-02）</div>
+      <div class="item-meta">SOCIB · 2026-11-02</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-paper">[论文]</span> <a href="https://doi.org/10.1080/17445302.2026.2755548" target="_blank">水下滑翔机「滑翔—漂流」交替模式：按三维海流自适应调节水面漂流时长以省能</a></div>
+      <div class="item-abstract">水下滑翔机（UG）以低能耗实现长时序海洋观测，但常规作业策略常忽视被动水面漂流的潜在收益。该文提出滑翔—漂流交替作业模式，以提升长航程任务的能量效率：建立统一模型刻画三维海流下的运动动力学、模式切换与能量消耗，并据此构建能效作业框架，按环境自适应调节水面漂流时长。（Ships and Offshore Structures，2026-11-06）</div>
+      <div class="item-meta">Ships and Offshore Structures · 2026-11-06</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div>
+      <div class="section-title-cn">八、海洋数据中心</div>
+      <div class="section-title-en">Ocean Data Centers</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-dynamic">[动态]</span> <a href="https://marine.copernicus.eu/winner-copernicus-marine-2026-hackathon" target="_blank">Copernicus Marine 2026 黑客松揭晓：209 份申请 / 115 人 / 40 队，冠军用波浪与潮汐数据为马德拉僧海豹预报 8 天安全洞穴窗口</a></div>
+      <div class="item-abstract">Copernicus Marine Service 于 11 月 9 日公布 2026 黑客松结果。赛事与 UltraHack 合办，10 月 28–31 日决赛，共收到 209 份申请、邀请 115 名参与者组成 40 支队伍，围绕欧洲海洋公约优先级设置六类挑战，把海洋监测数据转成可用的治理与业务工具。冠军 Seal of Approval（Aleksandr Kolmakov）把 Copernicus Marine 波浪与潮汐数据同海岸洞穴实时影像结合，为马德拉濒危僧海豹保护队预报最长提前 8 天的安全洞穴探访窗口；亚军 Sagara 的 Silt Shadow 平台融合海色、海表温度、海流与河流泥沙、风、降雨信息，评估印尼德拉旺群岛海洋保护区珊瑚、海草与海龟栖息地所受泥沙与热压力；季军 Team Atlantics 把海平面、波浪与海流数据接入 XBeach 模型，模拟葡萄牙 Costa da Caparica 人工补沙相对硬质护岸在极端风暴下的防蚀效果。（Copernicus Marine Service，2026-11-09）</div>
+      <div class="item-meta">Copernicus Marine · 2026-11-09</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-report">[报告]</span> <a href="https://doi.org/10.5281/zenodo.23873530" target="_blank">把 NOAA 全球历史海啸数据库 1,699 次源事件、33,532 条爬高记录全部制图：72% 由地震单独触发，2004 年印度洋海啸占死亡数 42%</a></div>
+      <div class="item-abstract">该报告对 NOAA NCEI 判定为「确定」或「可能」的全球历史海啸数据库做全量制图与描述：公元前 1610 年至 2026 年共 1,699 次源事件、33,532 条到达地点记录；72% 由地震单独引发、79% 涉及地震，63% 的地震源位于板块边界 100 km 内，67% 发生于 NCEI 太平洋区域。NCEI 记录 244 次事件共 545,939 人死亡，2004 年印度洋海啸占 42%、最致命十次占 78%；最高爬高并非来自大洋海啸而是窄湾滑坡（1958 年阿拉斯加 Lituya Bay 达 524.3 m），越洋波在 1,000 km 外的中位传播速度约 680 km/h。作者同时给出交互地图、数据与代码地址，原始海啸数据来自 NCEI/WDS 公共领域数据库。（Zenodo v1，2026-10-31）</div>
+      <div class="item-meta">Zenodo / NOAA NCEI · 2026-10-31</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-data">[数据]</span> <a href="https://doi.org/10.5066/p14hjmm9" target="_blank">USGS 发布卡斯卡迪亚俯冲带近海第四纪断层迹线图：30 m 多波束测深 + 全域船载地震 + 自主平台观测综合修订</a></div>
+      <div class="item-abstract">USGS 为美国卡斯卡迪亚俯冲带近海段（北加州、俄勒冈、华盛顿外海的联邦与部落水域）生成第四纪断层图，以线要素表示已知或疑似第四纪（<258 万年）活动断层的位置。该图纳入近期同行评议研究新识别与修订的断层迹线和几何形态，这些研究综合分析了 30 m 分辨率多波束测深网格、系统性的全陆缘船载地震剖面以及针对性的自主平台观测数据。（USGS 数据发布，2026-11-07）</div>
+      <div class="item-meta">USGS · 2026-11-07</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div>
+      <div class="section-title-cn">九、工具与代码资源</div>
+      <div class="section-title-en">Tools & Code Resources</div>
+    </div>
+  </div>
+  <div class="section-items">
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://github.com/Ouranosinc/xclim/releases/tag/v1.0.0" target="_blank">xclim 1.0.0 发布：首个生产级稳定版，`xclim.indices` 更名 `xclim.compute`，指标默认返回 Dataset</a></div>
+      <div class="item-abstract">面向气候指数与极端事件计算的 xarray 生态库 xclim 于 11 月 5 日发布 1.0.0，官方宣布库已达到「生产级稳定」，同时是相对 0.x 的重大破坏性升级：`xclim.indices` 更名为 `xclim.compute`，用于构建指标的函数改称「类指数计算函数」；`Indicator` 类重构，默认以 Dataset 返回（as_dataset 默认 True），输出元数据迁至 `Indicator.outputs`；全库完成 mypy/ty 类型合规，虚拟子模块改为 `IndicatorCollection` 实例；`select_time` 支持开放日期边界，集合稳健性检验新增多成员支持。官方提供 v0→v1 差异说明与迁移指引。（GitHub Releases / PyPI，2026-11-05）</div>
+      <div class="item-meta">GitHub / PyPI · 2026-11-05</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://pypi.org/project/rioxarray/0.24.0/" target="_blank">rioxarray 0.24.0：修正二维空间坐标的报错提示与 rio.shape，仿射矩阵乘法改用 @，并更新 Python/GDAL/pyproj/numpy 支持范围</a></div>
+      <div class="item-abstract">xarray 地理栅格读写库 rioxarray 发布 0.24.0（PyPI 2026-10-29）。本版变更包括：更新受支持的 Python、GDAL、pyproj 与 numpy 版本范围；为二维空间坐标给出信息更明确的报错并修复 rio.shape；仿射矩阵乘法改用 @ 运算符；修正文档字符串与 Sphinx 配置注释的笔误；测试中仿射比较改用元组适配 numpy。该库是海洋遥感与模式栅格（SST、海色、测深网格）接入 xarray 数据链的常用入口。（GitHub Releases / PyPI，2026-10-29）</div>
+      <div class="item-meta">GitHub / PyPI · 2026-10-29</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://doi.org/10.5194/tc-20-6283-2026" target="_blank">SeidarT 开源：全波形有限差分时域工具箱，统一处理弹性与电磁波传播、完整 21 刚度系数各向异性</a></div>
+      <div class="item-abstract">SeidarT 是社区驱动的开源软件包，用全波形有限差分时域（FDTD）方法模拟非均匀、各向异性、衰减介质中的弹性与电磁波传播：原生纳入完整张量各向异性（全部 21 个刚度系数）、通过广义 Q 表述实现频率无关衰减，并在简单的笛卡尔网格上统一处理地震波与电磁波两类物理。软件以降低使用与扩展门槛为目标，兼顾计算效率，文中以雪与冰介质中的传播做演示，可供海冰与冰盖地球物理数据处理参考。（The Cryosphere，2026-11-04）</div>
+      <div class="item-meta">The Cryosphere · 2026-11-04</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><span class="item-badge badge-tool">[工具]</span> <a href="https://doi.org/10.5281/zenodo.23992331" target="_blank">多 AUV 海岸锋面调查「质量约束重规划」数据与代码公开：含冻结的 PQC-Replan 实现、WCOFS 预报环境与论文—结果索引</a></div>
+      <div class="item-abstract">该仓储收录论文《预报失配下多 AUV 海岸锋面调查的质量约束重规划》的数据与代码：派生的近海任务环境、偏好引导质量约束重规划（PQC-Replan）与对比策略的冻结实现、实验配置、任务轨迹、观测记录、重构输出，以及分析与图表生成脚本。仿真使用蒙特雷湾的西海岸业务预报系统（WCOFS）预报与延迟现报，并结合 GEBCO 测深信息；仓储还整合了后续修订研究中的预报质量与偏好权重敏感性分析、航线支撑诊断、能耗模型比较、信息规划基线，并附实验登记表、来源溯源、校验和、「论文—结果」索引及复现与校验脚本。（Zenodo v1.0.0，2026-11-06）</div>
+      <div class="item-meta">Zenodo · 2026-11-06</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <p>海洋AI技术日报 · 自动生成于 2026年11月11日</p>
+  <p>Powered by WorkBuddy AI · 本期来源：arXiv、Nature Communications、Applied Ocean Research、JASA、ACM、JGR Oceans、JAMES、Scientific Reports、GitHub、ESSD Discussions、Zenodo、IEEE JSTARS、IEEE TGRS、Pattern Analysis and Applications、ESSD、GJI、Ships and Offshore Structures、Limnology and Oceanography、SEANOE、ScienceDB、Ocean Science、Journal of Applied Geophysics、Oceans (MDPI)、SOCIB、Copernicus Marine、USGS、The Cryosphere</p>
+</div>
+</body>
+</html>
