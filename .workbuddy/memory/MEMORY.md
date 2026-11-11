@@ -51,6 +51,7 @@
 ## 去重基准
 > `posts/` 是**全量存档**，去重脚本必扫全量；本节只留当期指针。最近 3 期＝**11-11（本期）/ 11-09 / 11-06**；11-06 及更早、11-09 的完整清单与高风险标识符已迁入 `ARCHIVE.md` 第一节 / 8.2；勿再收完整名单见第二节。
 
+- **11-11（40 条，期刊/会议论文 22 条 55.0%）· 全量见当日日志**。高风险：`arXiv.2611.14136` HaiRuo、`s41467-026-78009-7`、`apor.2026.105325`、`10.1121/10.0047249`、`3767308.3835401`、`3849740.3856205`、`jstars.3750434`、`tgrs.3750154`、`essd-2026-872`、`s10044-026-01803-y`、`essd-18-8149-2026`、`gji/ggag484`、`arXiv.2611.04893`、`2754172`、`lno.70539`、`10.17882/121223`、`essd-18-7817-2026`、`sciencedb.space.00351`、`zenodo.23899404`、`zenodo.23769249`、`os-22-3595-2026`、`jappgeo.2026.106569`、`oceans7060092`、`eyxm-2007`、`2755548`、CMEMS 2026 Hackathon、`zenodo.23873530`、`p14hjmm9`、`essd-2026-860`、`zenodo.24086682`、`2026jc024517`、`2026ms005804`、`arXiv.2610.41596`、`s41598-026-79099-5`、`2026jc024460`、hvplot 0.13.0 / xclim 1.0.0 / rioxarray 0.24.0、`tc-20-6283-2026`、`zenodo.23992331`。
 - **每期阶段六**：把本期全量标识符写入当日日志，并把「最易被再次命中」的高风险标识符压成本节一行；滚出 3 期窗口即迁入 ARCHIVE。
 - **标注语义**：新增勿再收条目必须写明属「质量弃用」还是「xx 期已发」，二者不可混。
 
@@ -60,16 +61,16 @@
 - **纪律**：核查「是否收录」须同时 grep DOI 尾段数字、期刊简称+卷+页、英文标题词、中文标题词；处置结论落成「已收录 / 时间窗正当排除 / 系统未运行 / 真实漏检 + 根因」四类之一。
 
 ## 每日铁律速查（取证原文 ARCHIVE 第七节 / 8.4）
-1. **五审独立复算去重**，阶段二口头「已去重」不可信；「新闻稿/中文标题 ↔ DOI」两个标识符都查。
+1. **五审独立复算去重**，阶段二口头「已去重」不可信；「新闻稿/中文标题 ↔ DOI」两个标识符都查；中文片段只取 `[一-龥]{8,}` 纯中文连续段（含英文尾段会把出版商名误判为重复，11-11 修正）。
 2. **期刊占比 ≥40% 在阶段三 `build_daily` 出数时立即核算**，不达标就地补检，别等五审。
 3. **方向三/四/六/八是结构性期刊荒漠** → 阶段二用 OpenAlex `title_and_abstract.search` 定向补检。
-4. **双源无摘要即弃用**（OpenAlex `abstract_inverted_index` 与 Crossref `abstract` 皆空），绝不据标题推断。
+4. **双源无摘要即弃用**（OpenAlex `abstract_inverted_index` 与 Crossref `abstract` 皆空），绝不据标题推断；但**非永久黑名单**——Crossref 会后补摘要，后续期次须重查再定（11-11 实证 `JSTARS.3750434`/`TGRS.3750154` 由弃用转为收录）。
 5. **阶段一 IEEE 组必须跑 Crossref created 通道**；IEEE 首发日以 `created` 为准。
 6. **publish 一律 AST，禁用正则**；改内容必重跑 build_daily → gen_html；改数据源后 `git checkout <首发commit>^ -- index.html archive.html` 再 publish。
 7. **Zenodo 概念 DOI 须 WebFetch 查 Tombstone**；概念 DOI 尾号常与版本 DOI 差 1，按尾段数字 grep。
 8. **飞书回读校验** `code=0` / 块数 / 链接数 / 新条目已写入 / 旧重复已移除；HTTP 200 ≠ 业务成功。
 9. **OpenAlex 滤镜**：`primary_location.source.issn:`（非 `issn:`）、真实空格（非 `%20`）、`conference-paper`（非 `proceedings-article`）、阳性对照 + 核对 `meta.count`；`host_organization` 不可靠；索引滞后 T+2/T+3；池 jsonl DOI URL 小写存储。
-10. **事件日 ≠ 报道日**；**宁缺不凑数**；**中文条目去重必须用中文片段 grep**；工具版本查官方 release notes；GitHub Pages 重建约 100 s，复核加 `?v=n`。
+10. **事件日 ≠ 报道日**；**宁缺不凑数**；**中文条目去重必须用中文片段 grep**；工具版本查官方 release notes；**WebSearch 不可用时改走 PyPI JSON / GitHub releases / 机构新闻页 / OpenAlex+Crossref 四路直连**；GitHub Pages 重建约 100 s，复核加 `?v=n`。
 11. **补录板块**：漏检有价值时末尾单列「十、补录」（`count_as_direction=False`），`badge='[备注]'` 不计 effective，`date` 填首发日并写明原因；footer 来源按 `sections` 动态生成。
 12. **公开仓库禁硬编码凭证**（统一 `_feishu_auth`，五审含该项）；远程文档写入须幂等复用 + 回读；用户指定条目与去重冲突时先核实历史收录并交苏老师拍板。
 
