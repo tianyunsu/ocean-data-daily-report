@@ -647,3 +647,16 @@
 - **记忆**：新建 .workbuddy/memory/2026-11-11.md（含 40 项全量标识符与弃用台账）；MEMORY.md 滚动 11-11 基准并补 4 条活跃判据；ARCHIVE.md 第八节承接第六次压缩原文；本文件双路径追加。
 - **新经验**：①双源无摘要弃用非永久黑名单（Crossref 会后补摘要，11-11 转收 JSTARS.3750434 / TGRS.3750154）②WebSearch 失效时四路直连替代通道 ③中文片段去重须用纯中文连续段 ④Zenodo 概念 DOI 尾号 +1 第三次复验 5/5 命中。
 - **遗留**：邮件凭证未配置；跨期三项待拍板（D 级加严 / 周报期号 / 自动化 ai 状态）未变；11-09 期未见本文件追加记录。
+
+---
+
+## 2026-11-14（周六）· 自动化执行
+- **跨机器**：主力机完成阶段零/阶段一部分后用户中断并切换工作区；新机器当前目录无 .git、posts 只到 11-06 → 读 SETUP_NEW_MACHINE.md，备份本地 ignore 文件后以远端 main=16547db 为权威源就地 git init + reset --hard FETCH_HEAD 对齐；sync_skills 9 文件一致；仓库级配置 git 身份（首次 commit 报 Author identity unknown）。
+- **阶段一**：IEEE Crossref created 通道 ocean_hits 44；OpenAlex 会议通道 160 条 / 320 去重；定向补检 10 组 122 条 / 110 去重；汇合 311 条全量 → 55 条优质，另出 87 条宽口径候选。合格初筛 ≥5 条全部在阶段三构建时纳入（IEEE×4 + ADIPEC×1）。
+- **阶段二**：harvest 8,153 行（约 17 分钟，日志空≠失败）→ screen 池内 242 条（?93/A35/B50/C25/D17/P18/S4）；posts 88 期去重黑名单 1553 URL / 429 DOI；来源矩阵 10 行逐组打卡，零覆盖 1 组（标准与治理，已当场补检归因「本期确无新内容」），≤6 通过。
+- **阶段三/四**：37 条 9 方向（一5 二5 三3 四4 五5 六5 七3 八3 九4），期刊/会议论文 15 条 40.5%，arXiv 0 条；build_daily_1114 → gen_html_1114（动态日期/周六/页脚）→ publish_1114（AST + 占比断言）；commit 78cbed9，push 16547db..78cbed9 成功，index/archive 源码污染计数 0。**周报不触发**（周六，距 W46 5 天）。
+- **五审**：37/37 链接有效、0 死链（31×200 + 4×403 反爬经 verify_paper.py 复核 + 2×本地代理抖动经串行复测/WebFetch 确认）；1 条真实死链 zenodo.23963496（410 Tombstone）剔除并替换为 ESA Sentinel-2B 定位异常，完整重跑 build→gen→publish；时效 11-01~11-13 全 ≤14 天；三路去重 URL/DOI 尾段/纯中文连续段均 0 命中；页脚按 sections 动态生成。
+- **飞书/机器人**：本机缺 _feishu_credentials.env 与全部相关环境变量 → feishu_write_doc.py 退出 1、run_daily_report.py token code=10003 且 webhook/邮件跳过（退出 0），按「失败不阻断发布并记日志」处理，留痕 _channel_1114.log。
+- **记忆**：新建 .workbuddy/memory/2026-11-14.md（含 37 项全量标识符、覆盖打卡表、弃用台账）；MEMORY.md 滚动 11-14 基准并补 3 条故障/1 条铁律；本文件双路径追加。
+- **新经验**：①Zenodo 概念 DOI 须查 410 Tombstone（两条 CS-MACH1 均为测试上传被删）②搜索引擎会把 2020 旧文误配为今年，新闻页须 WebFetch 读发布时间 ③github.com 502 多为沙箱代理，改用 Releases API/WebFetch 交叉复核 ④Parcels 官方仓库是 Parcels-code/Parcels ⑤新机器 git 身份须仓库级配置。
+- **遗留**：本机飞书文档/机器人/邮件三条链路未送达（凭证缺失）；下期优先候选 `10.1088/3049-4753/aebe34`（IOP，DOAJ 收录，11-05，因方向一满 5 条未收）；跨期三项待拍板（D 级加严 / 周报期号 / 自动化 ai 状态）未变。
