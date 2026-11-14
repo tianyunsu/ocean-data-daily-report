@@ -50,6 +50,7 @@
 | `harvest.py` 长时间空日志、池文件未生成 | 输出缓冲 + 池文件在循环末尾一次性写入，非失败；11-14 实证 8,153 行约需 17 分钟 |
 | Zenodo 410 / 新闻页旧文误配 / GitHub 网页 502 | 概念 DOI 一律 WebFetch 查 Tombstone（410 亦须查）；新闻页须读落地页发布时间（观海新闻实为 2020 旧文被误配为 2026）；github.com 502 多为沙箱代理，改用 Releases API 或 WebFetch 复核，勿误判死链 |
 | 新机器 `git commit` 报 Author identity unknown | 仓库级 `git config user.email sutiany@163.com` / `user.name tianyunsu`（勿用 --global） |
+| `git push` 报 `CONNECT tunnel failed, response 502` | 本地代理对 `github.com` 的 502，非权限/冲突（`api.github.com` 仍 200）；先保住日报发布提交，记忆提交待网络恢复后补推，并**同日 `ls-remote` 回读 HEAD**，否则跨机器去重基准落后一期 |
 
 ## 去重基准
 > `posts/` 是**全量存档**，去重脚本必扫全量；本节只留当期指针。最近 3 期＝**11-14（本期）/ 11-11 / 11-09**；11-09 及更早的完整清单与高风险标识符已迁入 `ARCHIVE.md` 第一节 / 8.2；勿再收完整名单见第二节。
