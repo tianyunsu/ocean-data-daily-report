@@ -47,10 +47,14 @@
 | 飞书 API 404 | 根因是端点写错非 token：`POST .../documents/{doc}/blocks/{doc}/children`（body `children`）；样式须放 `text_run.text_element_style`（SKILL 陷阱 31） |
 | `index/archive` 出现 Python 源码明文 | publish 正则跨节捕获 → 一律 **AST 抽条目 + 跳过无 url/`[备注]` 项**，替换前断言区间含 `'badge':`（模板 `repair_publish_1105.py`） |
 | `verify_paper.py` 判 IEEE「超期 3xx 天」 | 日期塌缩伪告警；首发日以 `stage1_ieee_crossref.py` 的 Crossref `created` 为准 |
+| `harvest.py` 长时间空日志、池文件未生成 | 输出缓冲 + 池文件在循环末尾一次性写入，非失败；11-14 实证 8,153 行约需 17 分钟 |
+| Zenodo 410 / 新闻页旧文误配 / GitHub 网页 502 | 概念 DOI 一律 WebFetch 查 Tombstone（410 亦须查）；新闻页须读落地页发布时间（观海新闻实为 2020 旧文被误配为 2026）；github.com 502 多为沙箱代理，改用 Releases API 或 WebFetch 复核，勿误判死链 |
+| 新机器 `git commit` 报 Author identity unknown | 仓库级 `git config user.email sutiany@163.com` / `user.name tianyunsu`（勿用 --global） |
 
 ## 去重基准
-> `posts/` 是**全量存档**，去重脚本必扫全量；本节只留当期指针。最近 3 期＝**11-11（本期）/ 11-09 / 11-06**；11-06 及更早、11-09 的完整清单与高风险标识符已迁入 `ARCHIVE.md` 第一节 / 8.2；勿再收完整名单见第二节。
+> `posts/` 是**全量存档**，去重脚本必扫全量；本节只留当期指针。最近 3 期＝**11-14（本期）/ 11-11 / 11-09**；11-09 及更早的完整清单与高风险标识符已迁入 `ARCHIVE.md` 第一节 / 8.2；勿再收完整名单见第二节。
 
+- **11-14（37 条，期刊/会议论文 15 条 40.5%）· 全量见当日日志**。高风险：`isprsjprs.2026.10.039` RSCR、`zenodo.24118316/24118317` WindWaveNet、`r675ggkjxv.1`、`tsxgjvfztb`、`tverdf`、`egusphere-2026-6750`、`bams-d-25-0144.1` CyclObs、`figshare.34981021` SAGE、`zenodo.24084120` DINEOF-HPC、`02783649261500488` MariSense、`t20261110_2942266` 人工智能+自然资源、`2026-11-3-copernicus-sentinel-1-sar`、`2026-11-3-temporary-geolocation-issue`、`ex2701`、`t20261104_8303183` 科学轮坞修、parcels 4.0.3 / h5netcdf 1.8.3、`joe.2026.3731092`、`joe.2026.3723735`、`tgrs.2026.3752947`、`pone.0360659`、`joes.2026.100791`、`zenodo.24113153`、`zenodo.24019558`、`236183-ms`、`jstars.2026.3751751`、`rs18213810`、`s11802-026-6597-9`、`2026jb034067`、`zenodo.23947602`、COP31 Open Ocean Data Initiative、Ocean DNA Explorer、CMEMS 11-24 samples、SEANAV、深蓝脉动。
 - **11-11（40 条，期刊/会议论文 22 条 55.0%）· 全量见当日日志**。高风险：`arXiv.2611.14136` HaiRuo、`s41467-026-78009-7`、`apor.2026.105325`、`10.1121/10.0047249`、`3767308.3835401`、`3849740.3856205`、`jstars.3750434`、`tgrs.3750154`、`essd-2026-872`、`s10044-026-01803-y`、`essd-18-8149-2026`、`gji/ggag484`、`arXiv.2611.04893`、`2754172`、`lno.70539`、`10.17882/121223`、`essd-18-7817-2026`、`sciencedb.space.00351`、`zenodo.23899404`、`zenodo.23769249`、`os-22-3595-2026`、`jappgeo.2026.106569`、`oceans7060092`、`eyxm-2007`、`2755548`、CMEMS 2026 Hackathon、`zenodo.23873530`、`p14hjmm9`、`essd-2026-860`、`zenodo.24086682`、`2026jc024517`、`2026ms005804`、`arXiv.2610.41596`、`s41598-026-79099-5`、`2026jc024460`、hvplot 0.13.0 / xclim 1.0.0 / rioxarray 0.24.0、`tc-20-6283-2026`、`zenodo.23992331`。
 - **每期阶段六**：把本期全量标识符写入当日日志，并把「最易被再次命中」的高风险标识符压成本节一行；滚出 3 期窗口即迁入 ARCHIVE。
 - **标注语义**：新增勿再收条目必须写明属「质量弃用」还是「xx 期已发」，二者不可混。
@@ -67,7 +71,7 @@
 4. **双源无摘要即弃用**（OpenAlex `abstract_inverted_index` 与 Crossref `abstract` 皆空），绝不据标题推断；但**非永久黑名单**——Crossref 会后补摘要，后续期次须重查再定（11-11 实证 `JSTARS.3750434`/`TGRS.3750154` 由弃用转为收录）。
 5. **阶段一 IEEE 组必须跑 Crossref created 通道**；IEEE 首发日以 `created` 为准。
 6. **publish 一律 AST，禁用正则**；改内容必重跑 build_daily → gen_html；改数据源后 `git checkout <首发commit>^ -- index.html archive.html` 再 publish。
-7. **Zenodo 概念 DOI 须 WebFetch 查 Tombstone**；概念 DOI 尾号常与版本 DOI 差 1，按尾段数字 grep。
+7. **Zenodo 概念 DOI 须 WebFetch 查 Tombstone**（含 410 Gone；11-14 两条 CS-MACH1 均因「测试上传被删」被剔除）；概念 DOI 尾号常与版本 DOI 差 1，按尾段数字 grep；**新闻页须 WebFetch 读落地页发布时间**，防搜索引擎把旧文日期误配为今年。
 8. **飞书回读校验** `code=0` / 块数 / 链接数 / 新条目已写入 / 旧重复已移除；HTTP 200 ≠ 业务成功。
 9. **OpenAlex 滤镜**：`primary_location.source.issn:`（非 `issn:`）、真实空格（非 `%20`）、`conference-paper`（非 `proceedings-article`）、阳性对照 + 核对 `meta.count`；`host_organization` 不可靠；索引滞后 T+2/T+3；池 jsonl DOI URL 小写存储。
 10. **事件日 ≠ 报道日**；**宁缺不凑数**；**中文条目去重必须用中文片段 grep**；工具版本查官方 release notes；**WebSearch 不可用时改走 PyPI JSON / GitHub releases / 机构新闻页 / OpenAlex+Crossref 四路直连**；GitHub Pages 重建约 100 s，复核加 `?v=n`。
