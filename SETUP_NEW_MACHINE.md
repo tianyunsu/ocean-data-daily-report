@@ -12,8 +12,9 @@
 | skill（唯一权威指令源） | 用户级 `~/.workbuddy/skills/` | **不随仓库**，需用 `sync_skills.py` 安装 |
 | 生成与发布脚本 | 仓库根目录（`feishu_write_doc.py`、`deploy_report.py` 等） | 随 git 仓库同步 |
 | 历史日报 | 仓库 `posts/`、`daily_reports/` | 随 git 仓库同步 |
+| 定时任务定义（云端快照） | 仓库 `automations/ai/definition.json` | **只读快照**，随 git 同步；运行时状态仍以 WorkBuddy 自动化服务为准 |
 
-一句话：**仓库负责记忆和脚本，`sync_skills.py` 负责补上 skill。**
+一句话：**仓库负责记忆、脚本和定时任务定义的快照，`sync_skills.py` 负责补上 skill。**
 
 ---
 
@@ -113,7 +114,42 @@ git push origin main
 
 ---
 
-## 六、常见问题
+## 六、定时任务定义（云端快照）与恢复
+
+`automations/ai/definition.json` 是 WorkBuddy 自动化 `ai`「海洋AI研究日报」定义的**只读快照**，
+于 2026-11-14 从云端任务定义导出并纳入版本控制，用于跨机器复原与灾备。
+它**不是运行时配置**：改这个文件不会改变调度，真正生效的是 WorkBuddy 自动化服务里的任务。
+
+### 当前定义要点
+
+| 字段 | 值 |
+|------|-----|
+| id / name | `ai` / 海洋AI研究日报 |
+| status | **PAUSED**（2026-10-18 起暂停，日常靠手动触发；改回 ACTIVE 才恢复调度） |
+| scheduleType / rrule | `recurring` / `FREQ=DAILY;BYHOUR=9;BYMINUTE=0` |
+| cwds | 主力机绝对路径 `C:\Users\Administrator\WorkBuddy\Claw` |
+| workspaceScope | `workspace` |
+| prompt | 纯委托层：只加载 `ocean-daily-report` skill 并委托 6 阶段，**不内联流程细节** |
+
+### 在另一台机器恢复定时任务
+
+1. 打开 WorkBuddy 自动化管理界面（或让 WorkBuddy 用 `automation_update(mode=create)`），按上表字段新建任务，
+   `prompt` 直接取 `definition.json` 的 `automation.prompt`（`py -3 -m json.tool automations/ai/definition.json` 查看）。
+2. **`cwds` 必须改成该机的工作区绝对路径**，否则阶段零的 `git pull` 会落在错误目录。
+3. **恢复前先停用或删除同名旧任务**：两份任务都在 09:00 触发会造成同日并行执行（违反一致性铁律第 5 条）。
+4. 是否把 `status` 设为 `ACTIVE` 需单独决定；仅导入快照不会恢复自动调度。
+5. 流程细节以 `.workbuddy/skills/ocean-daily-report/SKILL.md` 为准，禁止把阶段细节写回 prompt。
+
+### 两个必须避开的坑
+
+- ⚠️ **不要用本机 `%APPDATA%\WorkBuddy\automations\automations.db` 恢复**：该库里的 `ai` 仍是旧定义
+  （`ACTIVE` + 内联九方向细节），属双源漂移残留。一律以云端服务 + 本快照为准。
+- ⚠️ 云端定义一有改动（改 prompt / 频率 / 状态 / 工作目录），须重新导出 `definition.json` 并 push，
+  否则仓库快照与线上任务再次漂移。
+
+---
+
+## 七、常见问题
 
 | 问题 | 处理 |
 |------|------|
@@ -123,3 +159,4 @@ git push origin main
 | HTTPS push 超时 | 切 SSH：`git remote set-url origin git@github.com:tianyunsu/ocean-data-daily-report.git` |
 | 两台机器记忆冲突 | 以时间较新的每日日志为准；`MEMORY.md` 去重基准需手动合并两侧条目，不要直接取一侧覆盖 |
 | 该机 Python 编码报错 | 先设 `PYTHONUTF8=1` 再运行脚本 |
+| 定时任务定义与线上不一致 | 以 WorkBuddy 自动化服务为准；重新导出 `automations/ai/definition.json` 并 push，不要改本地 `automations.db` |

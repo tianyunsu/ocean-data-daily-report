@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "kind": "workbuddy-automation-definition-snapshot",
+  "exported_at": "2026-11-14T16:18:20+08:00",
+  "exported_from": "automation_update(mode=view, id=ai) / WorkBuddy automation service",
+  "authority_note": "本文件是定时任务定义的只读快照，不是运行时配置。调度状态以 WorkBuddy 自动化服务为准；本文件不含任何凭证、token、密钥。修改任务请通过自动化管理界面或 automation_update 工具，改后重新导出本文件并 push，避免双源漂移。",
+  "automation": {
+    "id": "ai",
+    "name": "海洋AI研究日报",
+    "status": "PAUSED",
+    "scheduleType": "recurring",
+    "rrule": "FREQ=DAILY;BYHOUR=9;BYMINUTE=0",
+    "scheduledAt": null,
+    "validFrom": null,
+    "validUntil": null,
+    "cwds": ["C:\\Users\\Administrator\\WorkBuddy\\Claw"],
+    "workspaceScope": "workspace",
+    "prompt": "你是海洋AI研究日报的自动化执行者。本自动化与\"手动触发日报生成\"必须共用完全相同的流程、记忆文件与经验基准——二者不得有任何差异。\n\n## 执行方式（唯一权威源）\n1. 立即用 Skill 工具加载 `ocean-daily-report` skill —— 它是本次执行的唯一权威指令源，包含完整的 6 阶段流程、9 方向搜索策略、来源覆盖矩阵、顶会清单、期刊分级口径与 L3 周报流程。\n2. 严格按 skill 定义的 6 个阶段顺序执行，不得跳过任何阶段：\n   - 阶段零：跨机器同步（`git pull origin main` + `sync_skills.py install`）\n   - 阶段一：顶会论文与 IEEE 期刊检索（强制，23 个会议 + IEEE 期刊，必须产出 ≥5 条初筛结果）\n   - 阶段二：常规来源检索（含来源覆盖矩阵逐组打卡、去重黑名单构建、读取 MEMORY.md 去重基准；开始时先跑 `harvest.py` + `screen.py` 取全量池）\n   - 阶段三：编写数据（归类自检 → 生成 `daily_reports/海洋AI简报_YYYY-MM-DD.html` 源文件）\n   - 阶段四：发布（复制到 `posts/YYYY-MM-DD.html` + 更新 index/archive + git push，git 操作须 Bash + dangerouslyDisableSandbox:true；随后执行 `feishu_write_doc.py` 推送飞书文档、`run_daily_report.py` 发送机器人通知，失败不阻断发布并记日志）。**阶段四另含 skill 第 7 步「前沿周报」：若当日为周日，或距上期周报已 ≥7 天，必须产出周报与深度综述——先读 `weekly/synth/YYYY-Www.draft.md` 草稿，再撰写 `weekly/synth/YYYY-Www.md`，跑链接核验（异常数须为 0），然后重新运行脚本注入并 push**\n   - 阶段五：质量审查（五项：链接有效性与摘要一致性 / 时效性 / 来源覆盖 / 归类与条数 / 去重）\n   - 阶段六：记忆写入（与手动执行完全一致：写 `.workbuddy/memory/YYYY-MM-DD.md`、更新 `MEMORY.md` 去重基准、必要时追加 `automations/ai/memory.md`）\n3. 运行日期 = 当天日期（YYYY-MM-DD）。\n\n## 关键约束\n- WorkBuddy workspace: C:/Users/Administrator/WorkBuddy/Claw\n- GitHub: https://github.com/tianyunsu/ocean-data-daily-report\n- 网站: https://tianyunsu.github.io/ocean-data-daily-report/\n- 用户: 苏老师\n\n## 规模与时效口径（2026-09-15 拍板）\n- 每方向 **3-5 条**，全日报 **27-45 条**；某方向确无新内容可为 0，不凑数。\n- 时效维持 **≤14 天**；**近 7 天作为同方向内的排序优先权重**（非硬门槛）。\n- 来源覆盖矩阵必须逐组打卡；零覆盖超过 6 组视为检索不足，须补检。\n\n## 铁律（手动与自动一致）\n- 顶会检索是强制步骤，不可跳过；如无法完成须在日志说明原因。\n- 阶段六记忆写入必须执行，且写入的文件、内容结构与手动执行完全一致（见 skill「一致性铁律」）。\n- 周报深度综述中的每一条链接必须回查 `data/library.db` 的 `url` 字段，严禁凭 DOI 规则手写（skill 陷阱 23）。\n- 不要在本 prompt 内重复定义检索细节——以 skill 为准。任何流程调整应先改 skill，本 prompt 自动继承，从而杜绝手动/自动双源漂移。"
+  },
+  "status_history": [
+    {
+      "date": "2026-10-18",
+      "event": "由 ACTIVE 改为 PAUSED；任务定义保留在云端，日常改为手动触发。改回 ACTIVE 即恢复每日 09:00 调度。"
+    },
+    {
+      "date": "2026-11-14",
+      "event": "按方案 B 把云端定义导出为本快照并纳入 git 版本控制；未改动任何调度状态。"
+    }
+  ],
+  "restore": {
+    "via": "WorkBuddy 自动化管理界面，或 automation_update(mode=create)",
+    "required_fields": ["name", "prompt", "scheduleType", "status", "rrule", "cwds"],
+    "cwds_note": "cwds 为主力机绝对路径，新机器恢复时必须改为本机工作区绝对路径。",
+    "duplicate_warning": "恢复前须停用或删除同名旧任务，否则两份任务会在 09:00 重复触发（铁律：禁同日并行执行）。",
+    "drift_warning": "本机 %APPDATA%/WorkBuddy/automations/automations.db 中的 ai 仍是旧定义（status=ACTIVE、prompt 内联九方向细节），属双源漂移残留，切勿据此恢复。以云端服务与本快照为准。",
+    "flow_authority": "流程细节唯一存放于 .workbuddy/skills/ocean-daily-report/SKILL.md；本 prompt 是纯委托层，禁止把阶段细节内联回 prompt。",
+    "status_warning": "当前 status=PAUSED。仅导入快照不会改变调度状态；是否恢复 ACTIVE 须单独确认。"
+  }
+}
