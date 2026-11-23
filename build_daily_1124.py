@@ -1,0 +1,263 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""2026-11-24 日报数据源：把 SECTIONS 写入 feishu_write_doc.py（正则替换）"""
+import re
+
+SECTIONS = [
+    {'title': '一、海洋人工智能',
+     'en': 'Ocean AI / Marine Artificial Intelligence',
+     'items': [
+    {'title': '新一代「文鳐」海洋原生多模态大模型在厦门发布：摒弃通用模型微调，实船验证把设备故障误报率从 79% 降到 15%',
+     'badge': '[要闻]',
+     'abstract': '11 月 22 日，厦门理工学院联合哈尔滨工程大学、众数文鳐（厦门）人工智能科技有限公司等 18 家产学研单位发布新一代「文鳐」海洋原生多模态大模型。与旧版走通用模型微调适配不同，新模型立足海洋物理机理、船舶工程规范与海域时空演化规律开展原生建模，打通船舶工程图纸、航行轨迹、装备工况数据三大模态一体化解析，整合声呐成像、水下光学感知与装备协同控制，能力由信号识别、数据分类升级到因果推理、态势推演、方案生成与风险预判。已在招商局南京油运船舶试运行 7 个月、覆盖 59 个设备监测点位，设备故障误报率由 79% 降至 15%，可提前 48 至 72 小时预判故障风险；发布会上有 21 家单位达成战略共建。本条为该模型 11-22 迭代版本的增量进展，与 06-22 期首次亮相、09-04 期入选省级垂直模型为不同事件。（厦门晚报 / 投资厦门，2026-11-22 发布、11-23 报道）',
+     'source': '厦门晚报 / 投资厦门',
+     'url': 'https://www.investxiamen.org.cn/detail/14000.html', 'date': '2026-11-22'},
+    {'title': '「海境·涡流大模型 2.0」Beta 版发布：AReP 共享隐空间做全球 1/12° 三维温盐流重构与 7 天逐日预报',
+     'badge': '[要闻]',
+     'abstract': '11 月 11 日，中国科学院南海海洋研究所研究员杜岩在广州「第七届空间地球科学学术研讨会」作《海洋空间动力重构与涡流大模型》报告，介绍「海境·涡流大模型 2.0」技术架构与阶段性进展。1.0 用高分辨率卫星遥感海表数据结合 Swin–Unet、SpadeUp 实现印太交汇区三维流场快速重构；2.0 把研究区域拓展至全球，以海洋多尺度过程解耦–再重构方法构建基于共享隐空间的 AReP 模型，由自编码器、重构编码器与预报器三模块组成，最终输出全球 1/12°、约 0–643.6 米共 33 个垂向层次的日平均三维温度、盐度与水平流速场，目标实现未来 7 天逐日预报。目前重构模块已完成开发与初步验证、预报模块仍在训练；基于 2025 年独立测试数据，温盐重构与观测的吻合程度接近 GLORYS 再分析，上层海洋动力结构优于国际常用三维重构数据集。后续拟把重构深度拓展至 2000 米并引入多源观测融合。此为独立涡流模型线，与 03-26 期收录的「海境 AI 大模型」不同。（中国科学报 / 科学网，2026-11-13）',
+     'source': '中国科学报 / 科学网',
+     'url': 'https://news.sciencenet.cn/htmlnews/2026/11/574697.shtm', 'date': '2026-11-13'},
+    {'title': 'UIEMono：把水下成像与光衰减物理先验转化为深度线索，缓解自监督单目深度估计的背景误估与边缘丢失',
+     'badge': '[论文]',
+     'abstract': '深度信息是水下机器人感知与导航的基础。既有方法虽把水下物理先验引入自监督单目深度估计以缓解图像退化，但仍存在背景区域深度误估、边缘细节丢失与泛化能力有限等问题。该文提出 UIEMono，把水下成像与光传播的物理特性转化为深度估计线索并嵌入网络，针对退化图像下的深度推理做约束。工作面向水下机器人自主导航与近底作业场景，强调物理一致性先验对自监督训练的作用。（IEEE Transactions on Image Processing，2026-11-20）',
+     'source': 'IEEE TIP',
+     'url': 'https://doi.org/10.1109/tip.2026.3753657', 'date': '2026-11-20'},
+    {'title': 'AOG-Net：自适应海洋图学习 + 双向 Mamba 做区域海表温度预报，同时建模空间相关与长程时间依赖',
+     'badge': '[论文]',
+     'abstract': '海表温度（SST）预报对天气预报、海洋环境监测与沿海风险评估至关重要，但温度场同时受区域地理、海流与大气条件塑造的复杂空间相关，以及长程时间依赖影响，准确预测仍有难度。该文提出自适应海洋图学习与双向 Mamba 网络（AOG-Net）用于区域 SST 预测：以历史 SST 观测为输入，用自适应图结构刻画空间依赖，以双向状态空间模型捕捉长程时间演化。（IEEE Transactions on Geoscience and Remote Sensing，2026-11-20）',
+     'source': 'IEEE TGRS',
+     'url': 'https://doi.org/10.1109/tgrs.2026.3756018', 'date': '2026-11-20'},
+    {'title': 'NereidVLA：先用约 200 万海洋样本训 Sea2Know 学空间知识，再用仿真专家轨迹适配语言条件水下 3D 导航',
+     'badge': '[论文]',
+     'abstract': '水下导航需要把视觉空间线索翻译为运动指令，而现有海洋视觉–语言数据集大多缺少成对的机器人轨迹。该文提出视觉–语言–动作模型 NereidVLA，把海洋空间知识迁移到语言条件的三维导航：先训练 Sea2Know，在约 200 万条海洋样本上学习目标定位、空间关系与场景结构，且无需成对的机器人运动监督；再使用在仿真水下航行器动力学下执行的专家轨迹做适配，得到可按语言指令导航的水下智能体。（arXiv，2026-11-18）',
+     'source': 'arXiv',
+     'url': 'https://doi.org/10.48550/arXiv.2611.24864', 'date': '2026-11-18'},
+    ]},
+
+    {'title': '二、海洋数字孪生',
+     'en': 'Ocean Digital Twin',
+     'items': [
+    {'title': 'EMO BON 完成首次宏基因组数据流接入欧盟海洋数字孪生（EDITO），基因组观测开始可互操作',
+     'badge': '[动态]',
+     'abstract': '欧洲海洋生物观测网络 EMO BON 宣布已实现首次宏基因组数据流进入欧洲海洋数字孪生（European Digital Twin of the Ocean，EDITO），使复杂基因组观测在欧洲数字海洋生态中可访问、可互操作。新闻稿把该里程碑定位为朝 DTO-BioFlow 愿景推进的一步——把海洋生物多样性观测、数据基础设施与数字孪生技术连接起来，把海洋知识转化为可行动洞察。对数据侧的意义在于：非传统物理/生物地球化学变量的组学数据开始进入统一数字孪生底座，为后续跨模态融合提供基础。（EMO BON / Zenodo 新闻稿，2026-11-10）',
+     'source': 'EMO BON / Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24305811', 'date': '2026-11-10'},
+    {'title': 'OCEANITY 项目在博洛尼亚启动：三年 Horizon Europe 创新行动，把数据集与模型变成 EDITO 可业务化工具',
+     'badge': '[动态]',
+     'abstract': 'OCEANITY 联合体于 2026 年 10 月 13–14 日在博洛尼亚大学 Aula Prodi 召开启动会。项目由 Euro-Mediterranean Center on Climate Change（CMCC）协调，是为期三年的 Horizon Europe 创新行动，2026 年 9 月 1 日启动、运行至 2029 年 8 月。其任务明确指向欧洲海洋数字孪生：把各类数据集与模型转化为公共管理部门、产业与公民可使用的业务化工具，支撑 EDITO 的能力扩展。该记录为项目启动情况对外披露，与 09-15 期 DTO-BioFlow 研讨会、10-11 期 SUBSIM 服务属不同事件。（OCEANITY / Zenodo，2026-11-20 记录发布）',
+     'source': 'OCEANITY / Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24395655', 'date': '2026-11-20'},
+    {'title': '算子推断做双环流海洋系统仿真：物理驱动降阶模型替代黑箱网络，面向集合预报与不确定性量化',
+     'badge': '[论文]',
+     'abstract': '海洋环流模式是气候研究不可替代的工具，但其高计算成本限制了不确定性量化、大集合预报与强迫情景评估等需要反复调用的应用。机器学习能快速仿真，可纯数据驱动的黑箱神经网络常缺乏可解释性，且对未见过的强迫条件泛化较差。该工作构建物理驱动的数据驱动算子推断（Operator Inference）降阶模型，用于仿真双环流海洋系统，目标在保持计算效率的同时改善可解释性与外推行为。（ESS Open Archive / ESSOAr，2026-11-20）',
+     'source': 'ESSOAr',
+     'url': 'https://doi.org/10.22541/essoar.15012546/v1', 'date': '2026-11-20'},
+    {'title': 'WenHai-E2E：端到端机器学习全球涡分辨海洋预报系统，部署阶段不再依赖数值模式提供初始场',
+     'badge': '[论文]',
+     'abstract': '深度神经网络类机器学习海洋预报模型已在精度与计算负担上对传统数值全球海洋预报系统（GOFS）形成竞争，但既有模型难以独立运行——仍需数值 GOFS 生成初始条件。该研究提出 WenHai-E2E，一个端到端机器学习 GOFS，在部署时替换数值 GOFS 的整条流水线，直接做出涡分辨尺度的全球海洋预报。（Science Advances，2026-11-13）',
+     'source': 'Science Advances',
+     'url': 'https://doi.org/10.1126/sciadv.aeh9058', 'date': '2026-11-13'},
+    ]},
+
+    {'title': '三、海洋可视化',
+     'en': 'Ocean Data Visualization',
+     'items': [
+    {'title': 'Seafloor Atlas：基于 GEBCO_2026 开放数据的交互式全球海底三维地球，同时显示「哪里被测过」与深度把握程度',
+     'badge': '[工具]',
+     'abstract': '该归档给出一个由开放数据构建的全球海底交互式三维地球，并附上代码与数据流水线。除展示海底形态外，它把 GEBCO type identifier 网格标识的船舶直接测量区域单独呈现，并用与 AUST_2026_BAT 的模型分歧、SWOT 预测置信度、SO-ABBA 海豹潜水数据刻画其他区域深度的不确定程度；同时叠加 World Ocean Atlas 2023 的温度、盐度与 TEOS-10 密度等水柱信息，OBIS、ES50、AquaMaps 的海洋生物分布，以及海缆、航运、沉船、平台、管线、风场等人类活动图层。为海底测绘覆盖度与数据可信度的可视化审计提供直观入口。（Zenodo，2026-11-14）',
+     'source': 'Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24228190', 'date': '2026-11-14'},
+    {'title': 'SeaIceGS：深度约束 3D Gaussian Splatting 从极地无人机影像估计海冰密集度与总干舷',
+     'badge': '[论文]',
+     'abstract': '海冰密集度（SIC）与总干舷（TFB）是极地海冰监测与航行安全的关键参数。无人机影像分辨率高、机动性强，适合局地海冰分析，但在特征贫乏、低对比度且强反光的极地环境中，稳健三维重建困难，导致 SIC/TFB 估计不准。该文提出 SeaIceGS——深度约束的 3D Gaussian Splatting 框架，从极地无人机影像生成三维重建并据此估计这两个参数。（IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing，2026-11-13）',
+     'source': 'IEEE JSTARS',
+     'url': 'https://doi.org/10.1109/jstars.2026.3753633', 'date': '2026-11-13'},
+    {'title': 'OceanVal v0.7.2 发布：全面支持 FVCOM、最多四组模拟并排可视化，内置环境变量扩至 19 个',
+     'badge': '[工具]',
+     'abstract': 'Plymouth Marine Laboratory 发布海洋模型评估与可视化工具 OceanVal v0.7.2。该版本增加对 FVCOM 模式的完整支持，支持最多 4 个模拟结果并排对比可视化，内置数据集覆盖的环境变量由原版本扩充至 19 个，并做了多项界面易用性改进。归档以 Zenodo 记录形式发布，源码仓库为 github.com/PlymouthMarineLaboratory/OceanVal。（Zenodo / Plymouth Marine Laboratory，2026-11-16）',
+     'source': 'Zenodo / PML',
+     'url': 'https://zenodo.org/records/24279829', 'date': '2026-11-16'},
+    ]},
+
+    {'title': '四、海洋数据质量',
+     'en': 'Ocean Data Quality',
+     'items': [
+    {'title': 'CryoSat-2 北极海冰雷达干舷的模式依赖偏差：用物理雷达波形模型解释 pLRM 与 SAR 处理同一观测为何不同',
+     'badge': '[论文]',
+     'abstract': '脉冲限制雷达高度计提供了早期且重要的北极雷达干舷记录，但低分辨率模式（LRM）波形在异质海冰上的解释一直困难：足迹尺度与信号处理方法差异，使其与延迟–多普勒 SAR 反演结果存在系统性差别。该研究用物理雷达波形模型，考察对同一 Ku 波段 CryoSat-2 观测做伪 LRM（pLRM）与 SAR 处理时产生差异的原因，为跨模式干舷产品的一致性订正与长期气候记录拼接提供依据。（IEEE Transactions on Geoscience and Remote Sensing，2026-11-19）',
+     'source': 'IEEE TGRS',
+     'url': 'https://doi.org/10.1109/tgrs.2026.3752130', 'date': '2026-11-19'},
+    {'title': 'SEANOE 上线 R/V Ángeles Alvariño 2025 年质量控制海洋气象数据：1 分钟分辨率，覆盖伊比利亚与加那利海域',
+     'badge': '[数据集]',
+     'abstract': '该数据集收录西班牙科考船 R/V Ángeles Alvariño（ICES 平台代码 29AJ）2025 年全年经质量控制的海洋气象观测，采样分辨率 1 分钟，变量包括气压、气温、相对湿度与太阳辐射，由船载自动气象站在伊比利亚半岛与加那利群岛水域连续采集，覆盖开阔海断面与靠港停留。原始数据传回西班牙海洋研究所后经处理与质控形成可复用序列。（SEANOE，2026-11-20）',
+     'source': 'SEANOE',
+     'url': 'https://doi.org/10.17882/121534', 'date': '2026-11-20'},
+    {'title': 'ZOOGoN-40Y：地中海 40 年浮游动物数据集，把 1984–2015 历史记录与 2016–2024 新采样统一到连续时间序列',
+     'badge': '[论文]',
+     'abstract': '该文发布「40 Years of Zooplankton Biodiversity Assessment（ZOOGoN-40Y）」数据集，来自西地中海那不勒斯湾 MareChiara 长期生态研究站，覆盖 1984–2024 年浮游动物丰度与分类组成。工作把 1984–2015 的历史记录与 2016–2024 新采集数据整合、协调，纳入 40 年连续且仍在延续的时间序列，并配套标准化质量保证与质量控制流程，明确面向生物多样性评估与海洋数字孪生应用。（Scientific Data，2026-11-13）',
+     'source': 'Scientific Data',
+     'url': 'https://doi.org/10.1038/s41597-026-08671-5', 'date': '2026-11-13'},
+    {'title': 'ObsSea4Clim D4.3：系统评估海洋层化观测需求，关联 AMOC 深对流、深海供氧与海洋生产力',
+     'badge': '[报告]',
+     'abstract': '这份交付件评估 ObsSea4Clim 项目所关注情形下的海洋层化观测需求。层化指海洋按密度分层，取决于温度、盐度与压力，控制海表与海洋内部之间热量、氧气、碳与营养盐的交换，进而影响海洋热与碳吸收、贡献大西洋经向翻转环流（AMOC）的深对流、深海氧供应及海洋生产力。报告围绕这些过程给出观测要素与观测系统需求的判断，可作为观测网设计与数据质量优先级讨论的依据。（ObsSea4Clim / Zenodo，2026-11-21）',
+     'source': 'ObsSea4Clim / Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24421596', 'date': '2026-11-21'},
+    {'title': '改进调和分析（IHA）估计海潮负荷：从 GPS 拓展到多 GNSS 与并址验潮站观测',
+     'badge': '[论文]',
+     'abstract': '经典调和分析（CHA）广泛用于从 GNSS 观测估计八个主要全日/半日潮分量的海潮负荷位移。既有研究在欧洲西北陆架（卫星调制偏差显著）证明了改进调和分析（IHA）用 GPS 观测的收益，但这些收益能否推广到其他 GNSS 系统、地理区域与观测条件尚不清楚。该文结合多 GNSS 与并址验潮站观测检验 IHA 的适用性，为海潮负荷位移产品的精度改进提供方法依据。（IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing，2026-11-18）',
+     'source': 'IEEE JSTARS',
+     'url': 'https://doi.org/10.1109/jstars.2026.3755137', 'date': '2026-11-18'},
+    ]},
+
+    {'title': '五、海洋数据处理',
+     'en': 'Ocean Data Processing',
+     'items': [
+    {'title': 'ObsGate-SST：观测门控的背景–细节学习做全球日尺度 SST 重建，避免 Level-4 产品抹平锋面与台风冷尾迹',
+     'badge': '[论文]',
+     'abstract': '红外云筛与采样不完整限制了日尺度卫星海表温度（SST）在过程尺度上的使用，而许多填补后的 Level-4 分析产品会削弱窄锋面、台风冷尾迹与短时暖极值。该研究提出 ObsGate-SST 观测门控的背景–细节学习框架：输入受云污染的 ODYSSEA L3S SST、有效像元掩膜与 OISST v2.1 先验，低频分支估计海盆尺度热背景，高频分支刻画细节，由观测门控控制融合，目标在补缺的同时保留过程尺度结构。（International Journal of Applied Earth Observation and Geoinformation，2026-11-12）',
+     'source': 'JAG',
+     'url': 'https://doi.org/10.1016/j.jag.2026.105676', 'date': '2026-11-12'},
+    {'title': '多平台星载 GNSS-R 海面风统一反演：以 CYGNSS 为相对参考做观测量一致性定标与融合',
+     'badge': '[论文]',
+     'abstract': '随着 CYGNSS、FY-3E/F/G、天目一号等星载 GNSS-R 任务发展，多平台多 GNSS 观测改善了海面风采样，但观测几何、载荷特性、天线增益、信号结构与处理链差异导致 GNSS-R 观测量尺度与风速响应不一致，限制统一地球物理模式函数（GMF）的使用。该研究以 CYGNSS 为相对参考，提出包含观测量一致性定标、统一反演与融合的完整框架。（IEEE Transactions on Geoscience and Remote Sensing，2026-11-17）',
+     'source': 'IEEE TGRS',
+     'url': 'https://doi.org/10.1109/tgrs.2026.3754725', 'date': '2026-11-17'},
+    {'title': 'TropFlux v2.0：1940 年至近实时的热带海气通量数据集，用全球热带锚系浮标阵列订正 ERA5 系统偏差',
+     'badge': '[数据集]',
+     'abstract': 'TropFlux v2.0 是面向热带海洋（30°N–30°S）的观测约束型海气通量数据集，对 ERA5 再分析做偏差与变幅订正，提供 1940 年至近实时、0.25°×0.25° 分辨率的日与月产品，形成均一的多年代际记录。订正使用 2000–2022 年 TAO/TRITON、PIRATA、RAMA 全球热带锚系浮标阵列的质量控制观测，针对 ERA5 地表气象与辐射变量的系统偏差及变率误差；湍流通量等按相应方法计算。（Zenodo，2026-11-12）',
+     'source': 'Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24153999', 'date': '2026-11-12'},
+    {'title': 'WaveletMAE：小波域掩码自编码器预训练 YOLOv8s，缓解合成孔径声呐小目标检测标注稀缺',
+     'badge': '[论文]',
+     'abstract': '合成孔径声呐（SAS）影像的小目标检测受标注稀缺、成像特性与自然图像差异大两方面制约。该文提出 WaveletMAE——基于 CNN 的掩码图像建模框架，用于对 YOLOv8s 主干做自监督预训练：从块掩码后的 SAS 图像重建多尺度、多方向的小波散射变换（WST）特征，利用 CNN 的局部结构偏置学习适配 SAS 影像的表征，再把预训练编码器用于下游检测。（IEEE Geoscience and Remote Sensing Letters，2026-11-13）',
+     'source': 'IEEE GRSL',
+     'url': 'https://doi.org/10.1109/lgrs.2026.3753722', 'date': '2026-11-13'},
+    {'title': '欧洲海域 12,000 余种海洋物种建模分布图：面向「2030 保护 30% 海洋」的保护区设计数据产品',
+     'badge': '[论文]',
+     'abstract': '昆明–蒙特利尔全球生物多样性框架提出 2030 年保护 30% 海洋的目标，需要当前与未来气候条件下空间显式的海洋生物多样性信息。全球生物多样性数据库快速增长与建模方法进步，使大尺度协调一致的分布产品成为可能。该研究发布覆盖泛欧洲海域、超过 12,000 个海洋物种的建模分布范围图数据集，用于支撑保护区识别与保护规划。（Scientific Data，2026-11-18）',
+     'source': 'Scientific Data',
+     'url': 'https://doi.org/10.1038/s41597-026-08549-6', 'date': '2026-11-18'},
+    ]},
+
+    {'title': '六、数据管理与共享',
+     'en': 'Ocean Data Management & Sharing',
+     'items': [
+    {'title': 'IMOS 澳大利亚海洋数据网络（AODN）向「数字海洋公地」演进：15,000+ 元数据记录、300+ 数据集合的联邦网络',
+     'badge': '[论文]',
+     'abstract': '澳大利亚综合海洋观测系统（IMOS）的澳大利亚海洋数据网络（AODN）建立初衷是为管理澳大利亚广阔海洋环境提供数据基础设施。该文回顾 2005 年以来的发展里程碑，总结其现状能力与战略方向：AODN 已形成成熟的联邦式网络，编目超过 15,000 条元数据记录，提供来自 IMOS 及国内合作方的 300 余个数据集合访问，并论述其向「数字海洋公地」演进的治理与共享路径。（Marine and Freshwater Research，2026-11-19）',
+     'source': 'Mar. Freshwater Res.',
+     'url': 'https://doi.org/10.1071/mf26073', 'date': '2026-11-19'},
+    {'title': 'Global Fishing Watch 开放平台影响力实证：467 份用户问卷 + 293 篇文献梳理，量化数据平台的实际采纳',
+     'badge': '[论文]',
+     'abstract': '高分辨率数据集有助于理解与管理人类海洋活动，但其真实采纳与影响长期缺乏量化。该研究评估监测全球捕捞活动的开放平台 Global Fishing Watch（GFW）的影响力：结合 467 份用户问卷与对 293 篇同行评议及灰色文献的结构化梳理。结果显示学术界、非政府组织与政府部门均有高频使用，交互式地图与下载门户是主要访问入口，为开放海洋数据平台的成效评估提供可复用方法。（npj Ocean Sustainability，2026-11-15）',
+     'source': 'npj Ocean Sustainability',
+     'url': 'https://doi.org/10.1038/s44183-026-00254-6', 'date': '2026-11-15'},
+    {'title': '中国省级海洋经济多区域投入产出数据库（2012–2020）：31 个省份、55 个部门含 13 个海洋部门',
+     'badge': '[数据集]',
+     'abstract': '该数据集提供中国省级海洋经济多区域投入产出（MRIO）表，覆盖 31 个省份与 2012、2015、2018、2020 四个基准年份。每张表包含 55 个部门，其中 13 个为海洋部门、42 个为非海洋部门，可用于海洋经济产业链关联、区域间溢出与蓝碳/产业政策的定量分析。（Figshare，2026-11-15）',
+     'source': 'Figshare',
+     'url': 'https://doi.org/10.6084/m9.figshare.34004517', 'date': '2026-11-15'},
+    {'title': 'YH-CoralGeo + CoralHydro2k 珊瑚骨骼地球化学代理汇编 v1.1.0：507,124 行观测、1,444 条源记录的去重合并',
+     'badge': '[数据集]',
+     'abstract': '该发布把 YH-CoralGeo 珊瑚骨骼地球化学代理汇编（v1.1.0，主集）与未被其覆盖的 CoralHydro2k v1.0.1 记录合并。去重遵循 golden-set 序列交叉表：若某个 CoralHydro2k 实体在 YH 中存在任一来源关联或数值匹配候选，则保留 YH 抽取版本；仅当某实体的所有参考序列都无来源关联候选时（14 个实体），才以原始 LiPD 文件从 CoralHydro2k 导入。合并包共含 507,124 行观测与 1,444 条源记录，是面向古海洋/古气候数据复用与共享的可审计数据集。（Zenodo，2026-11-17）',
+     'source': 'Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24225571', 'date': '2026-11-17'},
+    ]},
+
+    {'title': '七、开放航次与科考',
+     'en': 'Open Cruises & Oceanographic Expeditions',
+     'items': [
+    {'title': 'BOWTIE 航次数据集：FS Meteor 在湿热带大西洋 40 天东西向断面，观测 ITCZ 大气、上层海洋与海气界面',
+     'badge': '[论文]',
+     'abstract': '作为 BOWTIE（德文 Beobachtung von Ozean und Wolken – Das Trans ITCZ Experiment）的一部分，德国科考船 FS Meteor 于 2024 年夏季在湿热带大西洋航行 40 天，走东西向轨迹：8 月 16 日自佛得角明德卢港出发，9 月 24 日抵巴巴多斯布里奇顿港。目标是在不同风况、对流与海表条件下测量热带辐合带（ITCZ）内大气、上层海洋与海气界面性质。该文发布配套船基测量数据集并说明观测与处理口径。（Earth System Science Data，2026-11-12）',
+     'source': 'ESSD',
+     'url': 'https://doi.org/10.5194/essd-18-8275-2026', 'date': '2026-11-12'},
+    {'title': 'NCEI 上线「凌风丸」RD26-02 航次 CTD/ADCP 观测结果：北太平洋威克岛专属经济区断面',
+     'badge': '[数据集]',
+     'abstract': '日本气象厅科考船「凌风丸」（R/V Ryofu Maru）于 2026 年 2–3 月执行 RD26-02 航次，本数据集报告该航次在美国专属经济区（威克岛国家野生动物保护区）内 2026-02-21 至 02-22 的海洋观测结果，NCEI 入藏号 0318341。航次主要目标是按季节监测西北太平洋海洋状况，观测内容包括海水温度、盐度、溶解氧与营养盐垂向剖面，并给出水文观测方法说明。（NOAA NCEI，2026-11-13）',
+     'source': 'NOAA NCEI',
+     'url': 'https://doi.org/10.25921/9g24-5784', 'date': '2026-11-13'},
+    {'title': 'CSIRO 发布 SS200505 阿拉弗拉海 10–210 m 多分辨率 AusSeabed 测深产品',
+     'badge': '[数据集]',
+     'abstract': '该图层组描述 RV Southern Surveyor 在 SS200505 航次采集的多波束测深数据，航次题为「识别潜在天然气渗漏与油气资源，包括澳大利亚中北部专属经济区海底测绘与分类」，2005 年 4 月 30 日至 5 月 28 日自达尔文往返。其目标包括增进对阿拉弗拉海油气资源的认识、识别并取样自然烃类渗漏、记录海底生境。此次以 10–210 m 多分辨率 AusSeabed 产品形式重新发布，供海底制图与数据复用。（CSIRO，2026-11-16）',
+     'source': 'CSIRO',
+     'url': 'https://doi.org/10.25919/h2f6-9302', 'date': '2026-11-16'},
+    ]},
+
+    {'title': '八、海洋数据中心',
+     'en': 'Ocean Data Centers',
+     'items': [
+    {'title': 'CMEMS 2026 年 11 月发布：首个 1961–2024 连续全球物理再分析 CIGAR，另有 POC/DOC 碳数据与区域酸化指标',
+     'badge': '[数据集]',
+     'abstract': '哥白尼海洋服务 11 月 16 日宣布三项新资源。其一为 CIGAR 全球物理再分析（产品代码 GLOBAL_MULTIYEAR_PHY_LR-ENS_001_034），由意大利 CNR-ISMAR 用 CIGAR 系统制作，是目录中首个从 1961 年无缝延续至 2024 年 12 月的物理再分析：42 成员集合共用同一海洋–海冰模式与同化系统，各成员在观测输入、表面边界、初始条件、内部物理与参数化上变化，提供月平均集合均值/离散及各成员，1° 全球网格，覆盖温盐、海面高度、流场、混合层深度、海气通量与完整海冰变量。其二为 OCTAC 新增颗粒有机碳（POC）与溶解有机碳（DOC）卫星数据集，覆盖全球及北极、波罗的海、黑海、地中海区域产品，首次实现两种主要海洋有机碳组分的常规卫星监测。其三为北大西洋、东北大西洋（FAO 27）与地中海（FAO 37）新增区域 pH 与氢离子浓度 [H+] 酸化指标；因重建缺观测数据不够稳健，黑海（37.4 亚区）排除在 FAO 37 之外。（Copernicus Marine Service，2026-11-16）',
+     'source': 'Copernicus Marine Service',
+     'url': 'https://marine.copernicus.eu/news/november-2026-release', 'date': '2026-11-16'},
+    {'title': '汕头海底数据中心一期进入环评审查公示：7 MW 立式出水数据舱、66 kV 光电复合海缆与海水换热冷却',
+     'badge': '[政策]',
+     'abstract': '汕头市生态环境局 11 月 16 日公示拟对《汕头海底数据中心一期项目生态环境影响报告表》进行审查，公示期 11 月 16 日至 20 日。建设单位为海兰云（广东）科技有限公司，项目位于濠江区达濠岛东南侧海域，距达濠岛岸线最近约 17.8 km，另租赁汕头海上风电智慧能源「四个一体化」项目 1# 综合楼一层作陆上监控中心。总用海面积 48,658 平方米，拟建立式出水数据舱 1 座（装机 7 MW、平台外缘 39 m×45.3 m）、66 kV 光电复合海缆 4 条（1.72 km）、海水换热冷却系统 3 套（单台 720 立方米/小时）；公示明确营运期需监控温升排放，排水较进水温升不得超过 5 ℃。本条为 09-30 期「海兰云推进汕头海底数据中心方案」之后的审批阶段增量进展。（汕头市生态环境局，2026-11-16）',
+     'source': '汕头市生态环境局',
+     'url': 'https://www.shantou.gov.cn/epd/zwgk/tzgg/content/post_2585395.html', 'date': '2026-11-16'},
+    {'title': '国内首套海上智能数据集成中心完成海试：边云协同 + 智能诊断/报警/健康预测三模块',
+     'badge': '[要闻]',
+     'abstract': '11 月 17 日，驻津央企海洋石油工程股份有限公司设计院自主研发的国内首套海上智能数据集成中心完成海试，填补我国海上油气田智能运维领域关键装备空白。系统采用「硬件 + 软件」全栈自主技术体系：硬件端搭建集边缘侧数据采集、存储、管理、传输于一体的专用系统，降低海陆远距离传输成本、分担云端压力，构建边云协同数据流转架构；软件端研发海上油气生产系统智能分析平台，搭载智能故障诊断、智能报警管理、智能健康预测三个模块，其中诊断模块基于全系统关联数据锁定故障根源并生成处置方案，报警模块用算法甄别真实与无效报警，健康预测模块依长周期数据训练的模型在性能退化时预警，推动运维从事后抢修转向预测性维护。（天津日报，2026-11-19 报道；事件日 11-17）',
+     'source': '天津日报 / 海油工程',
+     'url': 'https://epaper.tianjinwe.com/tjrb/h5/html5/2026-11/19/content_143082_4028227.htm', 'date': '2026-11-19'},
+    ]},
+
+    {'title': '九、工具与代码资源',
+     'en': 'Tools & Code Resources',
+     'items': [
+    {'title': 'OmniEarth v1.5.1：开源多模态地球观测数据引擎，统一发现与下载海洋水色、测高、SAR 等全球开放数据',
+     'badge': '[工具]',
+     'abstract': 'OmniEarth 是一套开源的 Python 与 Node.js SDK/CLI，面向全球开放仓储统一发现、流式读取与下载多类数据，覆盖光学、SAR、高光谱、气象、土壤、高程、土地覆盖、大气痕量气体、火点、海洋水色、卫星测高、降水、水文与夜间灯光等数据源。v1.5.1 于 2026 年 11 月 20 日以 Zenodo 软件归档形式发布，源码仓库为 github.com/lokeshsk/omniearth。对海洋数据处理链的价值在于把海洋水色与测高等产品纳入同一检索与获取接口。（Zenodo / GitHub，2026-11-20）',
+     'source': 'Zenodo / GitHub',
+     'url': 'https://zenodo.org/records/23947462/latest', 'date': '2026-11-20'},
+    {'title': '混合调和分析 + 梯度提升残差模型的多步潮位预报：补充材料、处理数据与代码开放（含雅加达迁移检验）',
+     'badge': '[工具]',
+     'abstract': '该归档收录论文《Hybrid Harmonic Analysis and Gradient Boosting Residual Model for Multi-Horizon Tidal Water Level Forecasting Using Meteorological Data in Semarang, Indonesia》的补充材料、处理数据与代码。补充文件含表 S1–S13：三宝垄有记录的潮汐洪水事件与官方预警（S1）、详细测试指标与鲁棒性/敏感性分析（S2–S10）、雅加达（IOC 站点 koli）迁移检验及与哥白尼海洋全球海洋预报的对比（S11 起），构成可复现的潮位预报流水线。（Zenodo，2026-11-22）',
+     'source': 'Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24450179', 'date': '2026-11-22'},
+    {'title': 'Galileo Hackathon 任务数据之一：从浮标风况预测未见浮标处海浪谱平衡区水平，并要求给出诚实的不确定区间',
+     'badge': '[数据集]',
+     'abstract': '该数据集支持一项建模任务：根据浮标测得的风与海况条件，预测海浪谱高频段（即平衡区）的水平，以及谱衰减由 f^-4 转为 f^-5 的转折频率，并要求模型输出诚实的不确定区间。经典参照为 Toba 与 Phillips 定律，把平衡区水平与风摩擦速度联系起来。数据取自美国国家数据浮标中心（NDBC）档案，面向未见浮标的泛化检验。（Zenodo，2026-11-20）',
+     'source': 'Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24386544', 'date': '2026-11-20'},
+    {'title': 'Galileo Hackathon 任务数据之二：用上游 NDBC 波谱预测 3–48 小时后到达近岸浮标的涌浪能量',
+     'badge': '[数据集]',
+     'abstract': '该数据集支持的任务是：利用远海五个浮标近期的波谱以及目标浮标自身历史，预测未来 3 至 48 小时将抵达某个近岸浮标的涌浪能量。与上一任务同批发布，构成面向海浪机器学习模型的训练与验证数据，强调跨浮标迁移与提前量评估。（Zenodo，2026-11-20）',
+     'source': 'Zenodo',
+     'url': 'https://doi.org/10.5281/zenodo.24386515', 'date': '2026-11-20'},
+    {'title': 'HRRP-ShipSAR：把高分辨距离像与 SAR 图像配对的多源船舶识别基准数据集',
+     'badge': '[论文]',
+     'abstract': '复杂海事环境中的船舶识别需在光照、天气与海杂波变化下稳健感知；单源雷达观测往往给出不完整的目标描述——高分辨距离像（HRRP）提供紧凑的一维距离散射特征，合成孔径雷达（SAR）图像刻画二维散射分布但获取与处理成本更高。为支撑数据驱动的多源融合研究，该文引入 HRRP-ShipSAR 基准数据集，把两类观测配对，供船舶识别与融合算法评测。（IEEE Geoscience and Remote Sensing Letters，2026-11-12）',
+     'source': 'IEEE GRSL',
+     'url': 'https://doi.org/10.1109/lgrs.2026.3753460', 'date': '2026-11-12'},
+    ]},
+]
+
+
+def main():
+    path = 'feishu_write_doc.py'
+    with open(path, encoding='utf-8') as f:
+        content = f.read()
+    new_repr = repr(SECTIONS).replace('\\x27', "'")
+    pattern = re.compile(r'SECTIONS = \[.*?(?=\ndef tr\(|\n# ---|\Z)', re.DOTALL)
+    content2, n = pattern.subn('SECTIONS = ' + new_repr + '\n\n\n', content, count=1)
+    if n != 1:
+        raise SystemExit('ERROR: SECTIONS 替换失败 n=%d' % n)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content2)
+    total = sum(len(s['items']) for s in SECTIONS)
+    dist = ' / '.join('%s%d' % (s['title'][0], len(s['items'])) for s in SECTIONS)
+    papers = sum(1 for s in SECTIONS for i in s['items']
+                 if i.get('badge') in ('[论文]', '[会议]') and i.get('url'))
+    print('OK: SECTIONS written. Total items: %d (%s)' % (total, dist))
+    print('PAPERS %d / %d = %.1f%%' % (papers, total, 100.0 * papers / total))
+    assert 27 <= total <= 45, total
+    assert len(SECTIONS) == 9
+    assert all(3 <= len(s['items']) <= 5 for s in SECTIONS), 'direction size out of 3-5'
+    assert papers / total >= 0.40, '期刊占比不足 40%'
+
+
+if __name__ == '__main__':
+    main()
