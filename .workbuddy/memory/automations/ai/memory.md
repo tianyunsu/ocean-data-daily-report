@@ -81,3 +81,15 @@
 - **新经验**：①Zenodo 概念 DOI 须查 410 Tombstone（两条 CS-MACH1 均为测试上传被删）②搜索引擎会把 2020 旧文误配为今年，新闻页须 WebFetch 读发布时间 ③github.com 502 多为沙箱代理，改用 Releases API/WebFetch 交叉复核 ④Parcels 官方仓库是 Parcels-code/Parcels ⑤新机器 git 身份须仓库级配置。
 - **遗留**：本机飞书文档/机器人/邮件三条链路未送达（凭证缺失）；下期优先候选 `10.1088/3049-4753/aebe34`（IOP，DOAJ 收录，11-05，因方向一满 5 条未收）；跨期三项待拍板（D 级加严 / 周报期号 / 自动化 ai 状态）未变。
 - **收尾补记**：记忆提交 `1eac177` 因本地代理 github.com 502 一度未推送，网络恢复后补推成功（`78cbed9..1eac177 main -> main`），远端与本地 HEAD 一致；Pages 复核 11-14 期卡片与 `posts/2026-11-14.html` 链接有效。
+
+## 2026-11-24（周二）· 手动执行（与自动化共用同一流程）
+
+- **阶段零**：`sync_skills.py install/status` 9 文件一致；远端 `main=83a9867`（定时任务云端快照 chore），API 复核 11-15~11-23 无漏期；本地 11-14 补记 rebase 遇同日日志 add/add 冲突，双方内容全保留合并。
+- **阶段一/二**：IEEE Crossref created 57 hits、会议通道 88、OA 定向补检 140 去重后；harvest 7,201 行（约 17 分钟）→ screen 池内 207 条（S2/A38/B37/C29/D14/P15/?72）；posts 全量 89 期黑名单；来源矩阵零覆盖 6 组（≤6 门槛）。
+- **阶段三/四**：37 条 9 方向（一5 二4 三3 四5 五5 六4 七3 八3 九5），期刊/会议论文 17 条 45.9%，arXiv 2.7%；`daily_reports/海洋AI简报_2026-11-24.html` + `posts/2026-11-24.html` + index/archive；commit `7c7e5c0`。
+- **周报**：W48 触发（距 W46 15 天）；池内 449 条 / 综述样本 379，自动综述 + 深度综述两层齐全，19 条链接回查 `library.db` 异常 0。
+- **五审**：0 超期（2~14 天）、0 死链、0 三路重复、0 源码污染、0 凭证硬编码；403 反爬 2 条经 `verify_paper.py` 核实；9 条 Zenodo 记录 DOI 全 live 非 Tombstone。
+- **记忆**：新建 `.workbuddy/memory/2026-11-24.md`（全量标识符 + 来源打卡表 + 归类自检 + 弃用台账）；`MEMORY.md` 滚动 11-24 基准并补 2 条故障判据；本文件双路径追加。
+- **新经验**：①git TLS 须同时 `-c http.version=HTTP/1.1 -c http.sslBackend=openssl` 才能连通；②CloudFront 地域封锁 403 属真实不可达，须换源或剔除；③同日日志 add/add 冲突第二次出现，处置口径不变；④周报草稿存在关键词泛匹配噪声，综述须显式披露口径。
+- **遗留**：远端推送受阻（本地 ahead 2：`d2eea20` + `7c7e5c0`，github.com TLS 反复 EOF/502），需网络恢复后 push 并回读 HEAD；飞书三链路凭证仍缺；历史凭证泄露风险与跨期三项待拍板未变。
+
